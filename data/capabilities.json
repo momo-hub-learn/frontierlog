@@ -1,0 +1,802 @@
+{
+  "version": 2,
+  "checked": "2026-09-21",
+  "groups": [
+    {
+      "id": "coding",
+      "title": "Coding Agent",
+      "icon": "terminal",
+      "subtitle": "模型 + Harness + 工具链",
+      "boards": [
+        "coding"
+      ]
+    },
+    {
+      "id": "multimodal",
+      "title": "多模态",
+      "icon": "image",
+      "subtitle": "图像 / 视频生成与编辑",
+      "boards": [
+        "t2i",
+        "imgedit",
+        "t2v",
+        "i2v"
+      ]
+    },
+    {
+      "id": "world",
+      "title": "世界模型",
+      "icon": "globe",
+      "subtitle": "交互、物理、空间与长期一致性",
+      "boards": [
+        "wbench",
+        "worldolympiad"
+      ]
+    },
+    {
+      "id": "voice",
+      "title": "语音",
+      "icon": "mic",
+      "subtitle": "TTS 与实时语音 Agent",
+      "boards": [
+        "tts",
+        "s2s"
+      ]
+    }
+  ],
+  "boards": {
+    "coding": {
+      "title": "Coding Agent Index",
+      "source": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/agents/coding-agents",
+      "note": "模型、Agent Harness 与执行设置共同决定结果。",
+      "primary": "index",
+      "columns": [
+        {
+          "key": "index",
+          "label": "Index",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "deep",
+          "label": "DeepSWE",
+          "unit": "%"
+        },
+        {
+          "key": "terminal",
+          "label": "Terminal-Bench",
+          "unit": "%"
+        },
+        {
+          "key": "atlas",
+          "label": "SWE-Atlas",
+          "unit": "%"
+        },
+        {
+          "key": "cost",
+          "label": "成本 / task",
+          "unit": "$"
+        },
+        {
+          "key": "time",
+          "label": "时间 / task",
+          "unit": "min"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Fable 5.1 (max)",
+          "maker": "Anthropic",
+          "detail": "Claude Code",
+          "index": 62,
+          "deep": 64,
+          "terminal": 58,
+          "atlas": 65,
+          "cost": 12.39,
+          "time": 34.8
+        },
+        {
+          "name": "GPT-6 Astra (max)",
+          "maker": "OpenAI",
+          "detail": "Codex",
+          "index": 62,
+          "deep": 68,
+          "terminal": 56,
+          "atlas": 62,
+          "cost": 7.47,
+          "time": 29.4
+        },
+        {
+          "name": "Opus 5 (max)",
+          "maker": "Anthropic",
+          "detail": "Claude Code",
+          "index": 60,
+          "deep": 63,
+          "terminal": 55,
+          "atlas": 62,
+          "cost": 10.79,
+          "time": 41.9
+        },
+        {
+          "name": "GPT-5.6 Sol (max)",
+          "maker": "OpenAI",
+          "detail": "Codex",
+          "index": 55,
+          "deep": 72,
+          "terminal": 37,
+          "atlas": 54,
+          "cost": 6.35,
+          "time": 20.6
+        },
+        {
+          "name": "Grok 4.6 (xhigh)",
+          "maker": "SpaceXAI",
+          "detail": "Grok Build",
+          "index": 47,
+          "deep": 65,
+          "terminal": 18,
+          "atlas": 58,
+          "cost": 3.57,
+          "time": 19.5
+        }
+      ]
+    },
+    "t2i": {
+      "title": "文生图",
+      "source": "Artificial Analysis · Image Arena",
+      "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+      "note": "盲测偏好 Elo；价格与质量分开看。",
+      "primary": "elo",
+      "columns": [
+        {
+          "key": "elo",
+          "label": "Elo",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "samples",
+          "label": "样本",
+          "unit": ""
+        },
+        {
+          "key": "price",
+          "label": "价格 / 1k images",
+          "unit": "$"
+        },
+        {
+          "key": "release",
+          "label": "发布",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "GPT Image 2.5 Flare (max)",
+          "maker": "OpenAI",
+          "detail": "Text-to-Image",
+          "elo": 1188,
+          "samples": 5941,
+          "price": 210.7,
+          "release": "2026-09"
+        },
+        {
+          "name": "GPT Image 2.5 Sunburst (max)",
+          "maker": "OpenAI",
+          "detail": "Text-to-Image",
+          "elo": 1182,
+          "samples": 5858,
+          "price": 210.7,
+          "release": "2026-09"
+        },
+        {
+          "name": "GPT Image 2 (high)",
+          "maker": "OpenAI",
+          "detail": "Text-to-Image",
+          "elo": 1171,
+          "samples": 15046,
+          "price": 211,
+          "release": "2026-04"
+        },
+        {
+          "name": "Grok Imagine Image 2.0",
+          "maker": "SpaceXAI",
+          "detail": "Text-to-Image",
+          "elo": 1154,
+          "samples": 5881,
+          "price": 60,
+          "release": "2026-08"
+        },
+        {
+          "name": "MAI-Image-2.6",
+          "maker": "Microsoft AI",
+          "detail": "Text-to-Image",
+          "elo": 1147,
+          "samples": 8082,
+          "price": 38.9,
+          "release": "2026-08"
+        }
+      ]
+    },
+    "imgedit": {
+      "title": "图像编辑",
+      "source": "Artificial Analysis · Image Arena",
+      "url": "https://artificialanalysis.ai/image/leaderboard/editing",
+      "note": "相同图片与编辑指令下的盲测偏好 Elo。",
+      "primary": "elo",
+      "columns": [
+        {
+          "key": "elo",
+          "label": "Elo",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "samples",
+          "label": "样本",
+          "unit": ""
+        },
+        {
+          "key": "price",
+          "label": "价格 / 1k images",
+          "unit": "$"
+        },
+        {
+          "key": "release",
+          "label": "发布",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "GPT Image 2.5 Sunburst (max)",
+          "maker": "OpenAI",
+          "detail": "Image Edit",
+          "elo": 1176,
+          "samples": 5560,
+          "price": 210.7,
+          "release": "2026-09"
+        },
+        {
+          "name": "GPT Image 2.5 Flare (max)",
+          "maker": "OpenAI",
+          "detail": "Image Edit",
+          "elo": 1155,
+          "samples": 5753,
+          "price": 210.7,
+          "release": "2026-09"
+        },
+        {
+          "name": "MAI-Image-2.6",
+          "maker": "Microsoft AI",
+          "detail": "Image Edit",
+          "elo": 1132,
+          "samples": 13922,
+          "price": 38.9,
+          "release": "2026-08"
+        },
+        {
+          "name": "MAI-Image-2.6-Flash",
+          "maker": "Microsoft AI",
+          "detail": "Image Edit",
+          "elo": 1122,
+          "samples": 10023,
+          "price": 19.5,
+          "release": "2026-09"
+        },
+        {
+          "name": "GPT Image 2 (high)",
+          "maker": "OpenAI",
+          "detail": "Image Edit",
+          "elo": 1121,
+          "samples": 13391,
+          "price": 211,
+          "release": "2026-04"
+        }
+      ]
+    },
+    "t2v": {
+      "title": "文生视频",
+      "source": "Artificial Analysis · Video Arena",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "note": "文生视频盲测偏好 Elo；质量、音频与价格应分别看。",
+      "primary": "elo",
+      "columns": [
+        {
+          "key": "elo",
+          "label": "Elo",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "samples",
+          "label": "样本",
+          "unit": ""
+        },
+        {
+          "key": "price",
+          "label": "价格 / min",
+          "unit": "$"
+        },
+        {
+          "key": "release",
+          "label": "发布",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "Wan 3.0",
+          "maker": "Alibaba",
+          "detail": "Text-to-Video",
+          "elo": 1243,
+          "samples": 5771,
+          "price": 12,
+          "release": "2026-08"
+        },
+        {
+          "name": "Gemini Omni Flash",
+          "maker": "Google",
+          "detail": "Text-to-Video",
+          "elo": 1238,
+          "samples": 16395,
+          "price": 6,
+          "release": "2026-05"
+        },
+        {
+          "name": "Minimax H3 Max",
+          "maker": "Fal",
+          "detail": "Text-to-Video",
+          "elo": 1231,
+          "samples": 5499,
+          "price": 2.4,
+          "release": "2026-08"
+        },
+        {
+          "name": "MiniMax H3",
+          "maker": "MiniMax",
+          "detail": "Text-to-Video",
+          "elo": 1225,
+          "samples": 8874,
+          "price": 7.8,
+          "release": "2026-07"
+        },
+        {
+          "name": "Dreamina Seedance 2.0 720p",
+          "maker": "ByteDance Seed",
+          "detail": "Text-to-Video",
+          "elo": 1220,
+          "samples": 22625,
+          "price": 9.07,
+          "release": "2026-03"
+        }
+      ]
+    },
+    "i2v": {
+      "title": "图生视频",
+      "source": "Artificial Analysis · Video Arena",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+      "note": "图生视频独立排名，不和文生视频混成总分。",
+      "primary": "elo",
+      "columns": [
+        {
+          "key": "elo",
+          "label": "Elo",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "samples",
+          "label": "样本",
+          "unit": ""
+        },
+        {
+          "key": "price",
+          "label": "价格 / min",
+          "unit": "$"
+        },
+        {
+          "key": "release",
+          "label": "发布",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "Minimax H3 Max",
+          "maker": "Fal",
+          "detail": "Image-to-Video",
+          "elo": 1195,
+          "samples": 5569,
+          "price": 2.4,
+          "release": "2026-08"
+        },
+        {
+          "name": "MiniMax H3",
+          "maker": "MiniMax",
+          "detail": "Image-to-Video",
+          "elo": 1181,
+          "samples": 6949,
+          "price": 7.8,
+          "release": "2026-07"
+        },
+        {
+          "name": "Gemini Omni Flash",
+          "maker": "Google",
+          "detail": "Image-to-Video",
+          "elo": 1177,
+          "samples": 10079,
+          "price": 6,
+          "release": "2026-05"
+        },
+        {
+          "name": "HiDream-O1-Video",
+          "maker": "HiDream",
+          "detail": "Image-to-Video",
+          "elo": 1176,
+          "samples": 2815,
+          "price": 5.8,
+          "release": "2026-08"
+        },
+        {
+          "name": "Dreamina Seedance 2.0 720p",
+          "maker": "ByteDance Seed",
+          "detail": "Image-to-Video",
+          "elo": 1174,
+          "samples": 13797,
+          "price": 9.07,
+          "release": "2026-03"
+        }
+      ]
+    },
+    "wbench": {
+      "title": "WBench · 交互世界",
+      "source": "WBench",
+      "url": "https://meituan-longcat.github.io/WBench/",
+      "note": "交互式世界模型；覆盖质量、场景、交互、一致性与物理。",
+      "primary": "avg",
+      "columns": [
+        {
+          "key": "avg",
+          "label": "平均",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "quality",
+          "label": "质量",
+          "unit": ""
+        },
+        {
+          "key": "interaction",
+          "label": "交互",
+          "unit": ""
+        },
+        {
+          "key": "consistency",
+          "label": "一致性",
+          "unit": ""
+        },
+        {
+          "key": "physical",
+          "label": "物理",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "XGEN-Jing · camera bidirection",
+          "maker": "XGEN Labs",
+          "detail": "Open Source",
+          "avg": 81,
+          "quality": 80.9,
+          "interaction": 76.7,
+          "consistency": 85.7,
+          "physical": 73.3
+        },
+        {
+          "name": "XGEN-Jing · camera 4-step AR",
+          "maker": "XGEN Labs",
+          "detail": "Open Source",
+          "avg": 79.9,
+          "quality": 79.8,
+          "interaction": 79.5,
+          "consistency": 81.4,
+          "physical": 69.9
+        },
+        {
+          "name": "Kling 3.0 · text",
+          "maker": "Kling AI",
+          "detail": "API",
+          "avg": 79.4,
+          "quality": 80,
+          "interaction": 73.1,
+          "consistency": 83.9,
+          "physical": 69.2
+        },
+        {
+          "name": "Wan 2.7 · text",
+          "maker": "Alibaba",
+          "detail": "API",
+          "avg": 78.4,
+          "quality": 81,
+          "interaction": 72.1,
+          "consistency": 75.8,
+          "physical": 71.6
+        },
+        {
+          "name": "Seedance 1.5 · text",
+          "maker": "ByteDance",
+          "detail": "API",
+          "avg": 76.2,
+          "quality": 81.9,
+          "interaction": 68.3,
+          "consistency": 79.9,
+          "physical": 68.2
+        }
+      ]
+    },
+    "worldolympiad": {
+      "title": "WorldOlympiad",
+      "source": "Alibaba DAMO Academy",
+      "url": "https://alibaba-damo-academy.github.io/WorldOlympiad/",
+      "note": "覆盖物理一致性、3D 一致性、语义对齐和交互。",
+      "primary": "overall",
+      "columns": [
+        {
+          "key": "overall",
+          "label": "Overall",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "physical",
+          "label": "Physical",
+          "unit": ""
+        },
+        {
+          "key": "consistency3d",
+          "label": "3D Cons.",
+          "unit": ""
+        },
+        {
+          "key": "clip",
+          "label": "CLIP",
+          "unit": ""
+        },
+        {
+          "key": "interaction",
+          "label": "Interaction",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "LingBot-World",
+          "maker": "LingBot",
+          "detail": "World Model",
+          "overall": 0.683,
+          "physical": 0.942,
+          "consistency3d": 0.373,
+          "clip": 0.314,
+          "interaction": 0.734
+        },
+        {
+          "name": "Cosmos-Predict-2.5",
+          "maker": "NVIDIA",
+          "detail": "World Model",
+          "overall": 0.671,
+          "physical": 0.906,
+          "consistency3d": 0.399,
+          "clip": 0.313,
+          "interaction": 0.707
+        },
+        {
+          "name": "Rolling Forcing",
+          "maker": "Research",
+          "detail": "World Model",
+          "overall": 0.61,
+          "physical": 0.873,
+          "consistency3d": 0.321,
+          "clip": 0.327,
+          "interaction": 0.636
+        },
+        {
+          "name": "Yume-1.5",
+          "maker": "Yume",
+          "detail": "World Model",
+          "overall": 0.604,
+          "physical": 0.863,
+          "consistency3d": 0.301,
+          "clip": 0.306,
+          "interaction": 0.649
+        },
+        {
+          "name": "LongLive",
+          "maker": "Research",
+          "detail": "World Model",
+          "overall": 0.584,
+          "physical": 0.863,
+          "consistency3d": 0.363,
+          "clip": 0.323,
+          "interaction": 0.526
+        }
+      ]
+    },
+    "tts": {
+      "title": "文本转语音",
+      "source": "Artificial Analysis · Speech Arena",
+      "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
+      "note": "代表性音色的盲测偏好 Elo。",
+      "primary": "elo",
+      "columns": [
+        {
+          "key": "elo",
+          "label": "Elo",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "samples",
+          "label": "样本",
+          "unit": ""
+        },
+        {
+          "key": "price",
+          "label": "价格 / 1M chars",
+          "unit": "$"
+        },
+        {
+          "key": "release",
+          "label": "发布",
+          "unit": ""
+        }
+      ],
+      "rows": [
+        {
+          "name": "Sonic 3.6",
+          "maker": "Cartesia",
+          "detail": "TTS",
+          "elo": 1276,
+          "samples": 1822,
+          "price": 49,
+          "release": "2026-08"
+        },
+        {
+          "name": "Qwen-Audio-3.0-TTS-Plus",
+          "maker": "Alibaba",
+          "detail": "TTS",
+          "elo": 1260,
+          "samples": 1559,
+          "price": 27.6,
+          "release": "2026-09"
+        },
+        {
+          "name": "Realtime TTS-2",
+          "maker": "Inworld",
+          "detail": "TTS",
+          "elo": 1247,
+          "samples": 1262,
+          "price": 20.8,
+          "release": "2026-08"
+        },
+        {
+          "name": "Simba 3.2",
+          "maker": "SpeechifyAI",
+          "detail": "TTS",
+          "elo": 1240,
+          "samples": 2498,
+          "price": 6.6,
+          "release": "2026-07"
+        },
+        {
+          "name": "Luna TTS",
+          "maker": "VUI Labs",
+          "detail": "TTS",
+          "elo": 1231,
+          "samples": 2698,
+          "price": 80,
+          "release": "2026-06"
+        }
+      ]
+    },
+    "s2s": {
+      "title": "实时语音 Agent",
+      "source": "Artificial Analysis · Speech-to-Speech",
+      "url": "https://artificialanalysis.ai/speech-to-speech",
+      "note": "综合语音推理、对话动态、Agentic、任务成功、延迟和成本。",
+      "primary": "index",
+      "columns": [
+        {
+          "key": "index",
+          "label": "Index",
+          "unit": "",
+          "primary": true
+        },
+        {
+          "key": "reasoning",
+          "label": "推理",
+          "unit": "%"
+        },
+        {
+          "key": "conversation",
+          "label": "对话动态",
+          "unit": "%"
+        },
+        {
+          "key": "agentic",
+          "label": "Agentic",
+          "unit": "%"
+        },
+        {
+          "key": "task",
+          "label": "任务成功",
+          "unit": "%"
+        },
+        {
+          "key": "ttfa",
+          "label": "TTFA",
+          "unit": "s"
+        }
+      ],
+      "rows": [
+        {
+          "name": "GPT-Live-1 (Astra, medium)",
+          "maker": "OpenAI",
+          "detail": "Speech-to-Speech",
+          "index": 81.5,
+          "reasoning": 90,
+          "conversation": 94.9,
+          "agentic": 67.9,
+          "task": 87.4,
+          "ttfa": 1.34
+        },
+        {
+          "name": "Grok Voice Think Fast 2.0 High",
+          "maker": "SpaceXAI",
+          "detail": "Speech-to-Speech",
+          "index": 81.3,
+          "reasoning": 97,
+          "conversation": 95.1,
+          "agentic": 56.5,
+          "task": 94.6,
+          "ttfa": 0.7
+        },
+        {
+          "name": "GPT-Live-1 (Sol, low)",
+          "maker": "OpenAI",
+          "detail": "Speech-to-Speech",
+          "index": 80.1,
+          "reasoning": 89,
+          "conversation": 97.3,
+          "agentic": 59.3,
+          "task": 90.9,
+          "ttfa": 1.24
+        },
+        {
+          "name": "Gemini 3.8 Live",
+          "maker": "Google",
+          "detail": "Speech-to-Speech",
+          "index": 76,
+          "reasoning": 92,
+          "conversation": 96.1,
+          "agentic": 30.1,
+          "task": 93.2,
+          "ttfa": 1.18
+        },
+        {
+          "name": "GPT-Realtime-2.1 High",
+          "maker": "OpenAI",
+          "detail": "Speech-to-Speech",
+          "index": 73.9,
+          "reasoning": 96,
+          "conversation": 95.7,
+          "agentic": 45.7,
+          "task": 91.5,
+          "ttfa": 1.21
+        }
+      ]
+    }
+  }
+}
