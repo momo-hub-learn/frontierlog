@@ -11,7 +11,37 @@ Object.assign(PATHS,{terminal:'<path d="M4 5h16v14H4z"/><path d="m7 9 3 3-3 3m5 
 const order=['coding','multimodal','world','voice'];
 function cp(){return new URLSearchParams(location.hash.split('?')[1]||'')} function gid(){const x=cp().get('cap');return C[x]?x:'llm'} function board(g){const q=cp(),x=q.get('cboard'),arr=C[g].boards;return arr.find(b=>b.id===x)||arr[0]} function route(p){const q=cp();for(const[k,v]of Object.entries(p))v==null?q.delete(k):q.set(k,v);location.hash='#/models'+(q.size?'?'+q:'')}
 function tabs(active='llm',bench=false){return `<nav class="m-hubtabs cap-hubtabs" aria-label="AI 能力地图"><a class="m-hubtab ${active==='llm'&&!bench?'active':''}" href="#/models">${icon('cpu')}基础模型</a>${order.map(k=>`<a class="m-hubtab ${active===k&&!bench?'active':''}" href="#/models?cap=${k}">${icon(C[k].icon)}${esc(C[k].title)}</a>`).join('')}<a class="m-hubtab ${bench?'active':''}" href="#/benchmarks">${icon('gauge')}Benchmark</a></nav>`} modelHubTabs=function(active='rankings'){const g=gid();return tabs(active==='benchmarks'?'llm':g,active==='benchmarks')};
-function page(g){const G=C[g],B=board(g),q=(cp().get('cq')||'').toLowerCase(),maker=cp().get('cmaker')||'all',makers=[...new Set(B.rows.map(r=>r[1]))].sort(),rows=B.rows.filter(r=>(maker==='all'||r[1]===maker)&&(!q||r.join(' ').toLowerCase().includes(q)));return `<div class="m-wrap cap-wrap">${tabs(g)}<header class="m-header cap-header"><div><p class="eyebrow">AI CAPABILITY MAP</p><h1>${esc(G.title)}<span class="accent">.</span></h1><p>${esc(G.tag)}。不同榜单保留自己的评测口径，不强行合成总分。</p></div><div class="m-actions"><button class="button" data-cap="about">${icon('info')} 如何读</button></div></header><section class="cap-overview"><article class="cap-leader"><span>${icon(G.icon)} 当前板块</span><strong>${esc(B.title)}</strong><p>${esc(B.method)}</p></article><article><span>子榜</span><strong>${G.boards.length}</strong><p>${G.boards.map(x=>x.title).join(' · ')}</p></article><article><span>核对日期</span><strong>09.21</strong><p>人工快照 · 非实时镜像</p></article></section><nav class="cap-board-tabs">${G.boards.map(x=>`<button class="cap-board-tab ${x.id===B.id?'active':''}" data-cap="board" data-id="${x.id}">${esc(x.title)}<small>${x.rows.length}</small></button>`).join('')}</nav><div class="cap-toolbar"><div class="m-tools"><label class="m-search">${icon('search')}<input id="cap-search" value="${esc(q)}" placeholder="搜索模型、厂商、Harness…"></label><select class="m-select" id="cap-maker"><option value="all">全部厂商</option>${makers.map(x=>`<option ${x===maker?'selected':''}>${esc(x)}</option>`).join('')}</select></div></div><section class="m-tablebox cap-tablebox"><div class="m-tablehead"><h2>${esc(B.title)}<small>${esc(B.unit)} · 当前摘录</small></h2><a class="m-sourcelink" href="${safeLink(B.url)}" target="_blank" rel="noopener">${esc(B.source)} ${icon('external')}</a></div><p class="cap-method">${esc(B.method)}</p><p class="m-mobile-hint">左右滑动查看完整指标 →</p><div class="m-scroll"><table class="m-table cap-table"><thead><tr><th>#</th><th>模型 / 系统</th><th class="m-value is-primary">${esc(B.unit)}</th><th>类型 / Harness</th><th>价格 / 成本</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td class="m-order">${String(i+1).padStart(2,'0')}</td><td><div class="m-rowname"><span class="m-maker-mark">${esc(r[1].slice(0,2).toUpperCase())}</span><span><strong class="cap-name">${esc(r[0])}</strong><span class="m-rowmeta">${esc(r[1])}</span></span></div></td><td class="m-value is-primary"><span class="m-number">${esc(String(r[3]))}</span></td><td>${esc(r[2])}</td><td>${esc(r[4])}</td></tr>`).join('')}</tbody></table></div><div class="m-tablefoot"><span>公开榜单摘录，不代表本站独立复测</span><span>核对 2026-09-21</span></div></section></div>`}
+function page(g){
+  const G=C[g],B=board(g),q=(cp().get('cq')||'').toLowerCase(),maker=cp().get('cmaker')||'all';
+  const makers=[...new Set(B.rows.map(r=>r[1]))].sort();
+  const rows=B.rows.filter(r=>(maker==='all'||r[1]===maker)&&(!q||r.join(' ').toLowerCase().includes(q)));
+  const top=rows[0]||null;
+  return `<div class="m-wrap cap-wrap">
+    ${tabs(g)}
+    <header class="m-header cap-header">
+      <div><p class="eyebrow">AI CAPABILITY MAP</p><h1>${esc(G.title)}<span class="accent">.</span></h1><p>${esc(G.tag)}。不同榜单保留自己的评测口径，不强行合成总分。</p></div>
+      <div class="m-actions"><button class="button" data-cap="about">${icon('info')} 如何读</button></div>
+    </header>
+    <nav class="cap-board-tabs">${G.boards.map(x=>`<button class="cap-board-tab ${x.id===B.id?'active':''}" data-cap="board" data-id="${x.id}">${esc(x.title)}<small>${x.rows.length}</small></button>`).join('')}</nav>
+    <div class="cap-toolbar"><div class="m-tools"><label class="m-search">${icon('search')}<input id="cap-search" value="${esc(q)}" placeholder="搜索模型、厂商、Harness…"></label><select class="m-select" id="cap-maker"><option value="all">全部厂商</option>${makers.map(x=>`<option ${x===maker?'selected':''}>${esc(x)}</option>`).join('')}</select></div></div>
+    ${top?`<div class="cap-firstline"><span>#1 当前样本</span><strong>${esc(top[0])}</strong><em>${esc(top[2])}</em><b>${esc(String(top[3]))}<small>${esc(B.unit)}</small></b><i>${esc(top[4])}</i></div>`:''}
+    <section class="m-tablebox cap-tablebox">
+      <div class="m-tablehead"><div><h2>${esc(B.title)}<small>${rows.length} / ${B.rows.length} 条</small></h2><p class="cap-source-note">${esc(B.method)}</p></div><a class="m-sourcelink" href="${safeLink(B.url)}" target="_blank" rel="noopener">${esc(B.source)} ${icon('external')}</a></div>
+      <p class="m-mobile-hint">左右滑动查看完整指标 →</p>
+      <div class="m-scroll"><table class="m-table cap-table">
+        <thead><tr><th>#</th><th>模型 / 系统</th><th>Harness / 类型</th><th class="cap-score-head">评分</th><th class="cap-cost-head">成本</th></tr></thead>
+        <tbody>${rows.map((r,i)=>`<tr>
+          <td class="m-order">${String(i+1).padStart(2,'0')}</td>
+          <td><div class="m-rowname"><span class="m-maker-mark">${esc(r[1].slice(0,2).toUpperCase())}</span><span><strong class="cap-name">${esc(r[0])}</strong><span class="m-rowmeta">${esc(r[1])}</span></span></div></td>
+          <td class="cap-type"><span class="cap-type-pill">${esc(r[2])}</span></td>
+          <td class="cap-score"><strong>${esc(String(r[3]))}</strong><small>${esc(B.unit)}</small></td>
+          <td class="cap-cost"><span>${esc(r[4])}</span></td>
+        </tr>`).join('')}</tbody>
+      </table></div>
+      <div class="m-tablefoot"><span>公开榜单摘录，不代表本站独立复测</span><span>核对 2026-09-21</span></div>
+    </section>
+  </div>`
+}
 const old=modelPage;modelPage=function(){const g=gid();return g==='llm'?old():page(g)};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-cap]');if(!b)return;const a=b.dataset.cap;if(a==='board'){e.preventDefault();route({cboard:b.dataset.id,cq:null,cmaker:null})}if(a==='about'){showModal('AI CAPABILITY MAP',`<h2 id="modal-title">这里看“强在哪”，不是再造一个总榜。</h2><p class="dialog-intro">Coding Agent 要看模型 + Harness；多模态要区分图像、视频和编辑；世界模型要看交互与物理一致性；语音要同时看音质、实时性与 Agent 任务。</p><section class="detail-section boundary"><h3>边界</h3><p>不同评测的分数不能直接横向相加；榜单为公开资料快照，最终选择仍需用你的真实任务验证。</p></section>`,'info',true)}});
 document.addEventListener('change',e=>{if(e.target.id==='cap-maker')route({cmaker:e.target.value})}); document.addEventListener('input',e=>{if(e.target.id==='cap-search'){const v=e.target.value;const pos=e.target.selectionStart;const q=cp();q.set('cq',v);history.replaceState(null,'','#/models?'+q.toString());const el=$('#cap-search');el?.focus({preventScroll:true});try{el.setSelectionRange(pos,pos)}catch{}}}); if(state.view==='models'){lastMain='';moduleMain()}
