@@ -355,6 +355,7 @@ window.addEventListener('load',()=>{try{const l=document.createElement('link');l
 try{const t=localStorage.getItem('aip.theme.v2.1');document.documentElement.dataset.theme=t==='dark'?'dark':'light'}catch{document.documentElement.dataset.theme='light'}
 document.querySelector('meta[name=theme-color]').content=document.documentElement.dataset.theme==='dark'?'#101819':'#f5f7f4';
 </script>
+<link rel="stylesheet" href="./assets/capabilities.css?v=1.1">
 </head>
 <body>
 <a class="skip" href="#main">跳到内容</a>
@@ -1102,4 +1103,5 @@ if(state.view==='feed'){lastMain='';renderMain()}
 
   if(state.view==="models"){lastMain="";moduleMain();}
 })();</script>
+<script src="./assets/capabilities.js?v=1.1"></script>
 </body></html>
