@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>FrontierLog · 医药与生命科学</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/pharma.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate><item><title>Open Targets 26.06：靶点评估增加细胞类型表达数据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=ot-release-2606</link><guid isPermaLink="false">frontierlog:topic:ot-release-2606</guid><pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate><description>官方更新加入 PRIDE 蛋白组与单细胞 RNA 测序数据，并调整临床挖掘、Locus-to-Gene 与文献处理流程。
+
+编辑解读：靶点优先级不只看“有没有关联”，也要看它在哪里表达。
+
+边界：这是数据与分析工具的更新，不等于所列靶点已通过临床验证。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/
+https://platform.opentargets.org/</description><category>靶点发现与验证</category></item><item><title>靶点–疾病关联：先看证据类型，再看分数</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=target-evidence</link><guid isPermaLink="false">frontierlog:topic:target-evidence</guid><description>Open Targets 将多类公开证据映射到靶点与疾病，并提供各数据源的证据说明与评分方式。
+
+编辑解读：帮助整理靶点证据链，而不是把文献共现直接当作药效结论。
+
+边界：各类证据的含义不同；本站不将关联分数换算为临床成功率。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://platform-docs.opentargets.org/evidence</description><category>靶点发现与验证</category></item><item><title>Boltz：生物分子相互作用模型的开放入口</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=boltz-interactions</link><guid isPermaLink="false">frontierlog:topic:boltz-interactions</guid><description>官方仓库提供生物分子相互作用模型，并公开文档与示例目录。
+
+编辑解读：适合作为结构与相互作用计算的研究入口，便于跟踪代码更新。
+
+边界：预测结果不能替代结合实验、毒理与临床验证；此版未执行模型。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://github.com/jwohlwend/boltz</description><category>分子设计与筛选</category><category>靶点发现与验证</category></item><item><title>BioNeMo：把生物模型训练接到研发工作流</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=bionemo-framework</link><guid isPermaLink="false">frontierlog:topic:bionemo-framework</guid><description>官方文档列出面向计算药物发现的工具、模型与教程，并提示文档正在重构。
+
+编辑解读：先确认所需模型和模块，再决定是否值得接入自己的研发环境。
+
+边界：当前文档建议参考模块 README；不要把框架能力当成具体药物发现成绩。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://docs.nvidia.com/bionemo-framework/latest/</description><category>分子设计与筛选</category><category>靶点发现与验证</category></item><item><title>ClinicalTrials.gov：把试验记录接入结构化追踪</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=clinical-api</link><guid isPermaLink="false">frontierlog:topic:clinical-api</guid><pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate><description>NLM 于 2024 年介绍 API v2：使用 REST 接口、JSON 数据以及标准化字段和日期。
+
+编辑解读：可作为研究试验记录变化的基础数据入口。
+
+边界：注册记录不是完整 CSR；试验状态不等于有效性或审批结论。此条为历史基础资料。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html
+https://clinicaltrials.gov/data-api/api</description><category>临床试验与数据</category></item><item><title>Yseop：CSR 草稿之外，追踪句子到来源</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=yseop-csr</link><guid isPermaLink="false">frontierlog:topic:yseop-csr</guid><description>厂商介绍其医学写作能力覆盖 CSR、患者叙述等文档，并强调来源追溯与人工审阅。
+
+编辑解读：关注重点从“生成多少页”转为“每句话能否回到研究资料”。
+
+边界：属于厂商说明，本站未独立复验；产品描述不等于报告自动获得监管接受。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://yseop.com/medical-writing-automation/
+https://yseop.com/
+https://aws.amazon.com/marketplace/pp/prodview-wzkfr67cebozi</description><category>CSR 与医学写作</category></item><item><title>MedWriter.ai：从 Protocol、SAP、TLF 组织 CSR 草稿</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=medwriter-csr</link><guid isPermaLink="false">frontierlog:topic:medwriter-csr</guid><description>Hexaware 的产品说明列出研究方案、统计分析计划、研究者手册和 TLF 等输入，生成结构化草稿并支持评审。
+
+编辑解读：适合观察“多来源研究资料 → 文档草稿 → 协同审核”的产品路径。
+
+边界：产品材料未替代独立测试；敏感试验资料不能直接上传公共站点。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://aws.amazon.com/marketplace/pp/prodview-2jugy234zsg22</description><category>CSR 与医学写作</category><category>临床试验与数据</category></item><item><title>CSR 基础参考：ICH E3 的结构与内容</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=csr-reference</link><guid isPermaLink="false">frontierlog:topic:csr-reference</guid><description>FDA 的 ICH E3 页面提供临床研究报告结构与内容指南入口。
+
+编辑解读：用于明确文档范围，避免把普通摘要误叫作完整 CSR。
+
+边界：这是历史指南背景，不是 AI 新发布；具体项目要求需另行核对。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e3-structure-and-content-clinical-study-reports</description><category>CSR 与医学写作</category></item></channel></rss>
