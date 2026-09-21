@@ -99,6 +99,14 @@ class XTests(unittest.TestCase):
  def test_candidate_classification(self):
   e=classify_post(row(),'thsottiaux',NOW.isoformat())
   self.assertEqual(e['candidate_kind'],'banked');self.assertEqual(e['review_status'],'pending')
+  self.assertIn(e['semantic_type'],{'banked_announcement','banked_delivery'})
+ def test_reply_timing_hint_uses_context(self):
+  e=classify_post(row(text='3am on a Tuesday'),'thsottiaux',NOW.isoformat(),'When will the next Codex reset happen?')
+  self.assertEqual(e['candidate_kind'],'announcement');self.assertEqual(e['semantic_type'],'timing_hint');self.assertEqual(e['evidence_strength'],'low')
+  self.assertIn('时区',e['not_proves'])
+ def test_propagation_is_semantically_distinct(self):
+  e=classify_post(row(text='Reset all propagated. Enjoy the week.'),'thsottiaux',NOW.isoformat())
+  self.assertEqual(e['semantic_type'],'propagation_complete');self.assertEqual(e['evidence_strength'],'high')
  def test_unrelated_post_ignored(self):self.assertIsNone(classify_post(row(text='Happy Monday!'),'thsottiaux',NOW.isoformat()))
  def test_negation_is_never_confirmed(self):
   e=classify_post(row(text='We did not reset Codex limits today.'),'thsottiaux',NOW.isoformat())
