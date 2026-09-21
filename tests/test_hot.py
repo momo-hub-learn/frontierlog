@@ -23,6 +23,9 @@ class HotDataTests(unittest.TestCase):
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
  def test_bad_internal_link(self):self.reject(lambda d:d['items'][0].update(link='https://evil.example'))
+ def test_precise_timestamp_optional(self):
+  d=copy.deepcopy(self.data);d['items'][0]['published_at']='2026-09-10T16:10:00+08:00';validate_hot(d)
+ def test_precise_timestamp_requires_timezone(self):self.reject(lambda d:d['items'][0].update(published_at='2026-09-10T16:10:00'))
  def test_rss_dates_sources_and_stable_guid(self):
   root=ET.fromstring(hot_rss(self.data,self.site));items=root.findall('channel/item')
   self.assertEqual(len(items),10);self.assertEqual(len({i.findtext('guid') for i in items}),10)
