@@ -139,14 +139,14 @@ def semantic_reset_reading(content,context=''):
         return ('announcement','usage_explanation','medium',
             '重点可能不是“送一次额度”，而是在解释为什么用量异常、修了哪些计费/上下文问题，以及是否用重置作补偿。',
             '不能只摘出 reset 一词而忽略修复范围，也不能把性能/用量改善外推到所有工作流。')
+    if TIME_HINT.search(c) and not RESET_WORDS.search(c) and RESET_WORDS.search(ctx):
+        return ('announcement','timing_hint','low',
+            '这是一条依赖上文才能理解的时间暗示，可能在回答“什么时候重置”，但正文没有独立确认 reset、时区或适用范围。',
+            '不能把含糊时间直接换算成确定的重置时刻；必须保留回复对象、时区不确定性和后续确认状态。')
     if FUTURE.search(c) and RESET_WORDS.search(joined):
         return ('announcement','explicit_announcement','medium',
             '这更像未来安排或时间预告；需要等待后续“已执行/已传播”证据。',
             '预告时间到了也不会自动升级成“已经重置”。')
-    if TIME_HINT.search(c) and RESET_WORDS.search(ctx):
-        return ('announcement','timing_hint','low',
-            '这是一条依赖上文才能理解的时间暗示，可能在回答“什么时候重置”，但正文没有独立确认 reset、时区或适用范围。',
-            '不能把含糊时间直接换算成确定的重置时刻；必须保留回复对象、时区不确定性和后续确认状态。')
     if RESET_WORDS.search(c):
         return ('announcement','reset_related','low',
             '帖子与 reset / usage limit 有关，但仅凭这一句不足以判断是预告、执行完成还是解释。',
@@ -167,7 +167,7 @@ def classify_post(x,account,observed,context_text=''):
         published_at=created,observed_at=observed,excerpt=content[:240],candidate_kind=kind,
         semantic_type=speech,evidence_strength=strength,interpretation=interpretation,
         not_proves=not_proves,context_excerpt=(context_text or '')[:240],
-        review_status='pending',reason='语义分类只帮助人工复核，不自动升级为确认事件',
+        review_status='pending',reason=('含否定或纠正表达，不能据此认定发生了重置' if speech=='denial' else '语义分类只帮助人工复核，不自动升级为确认事件'),
         conversation_id=x.get('conversation_id'),references=refs)
 
 def collect_x(data,config,key,now,transport=fetch_json,force=False):
