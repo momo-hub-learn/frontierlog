@@ -16,3 +16,38 @@ const old=modelPage;modelPage=function(){const g=gid();return g==='llm'?old():pa
 document.addEventListener('click',e=>{const b=e.target.closest('[data-cap]');if(!b)return;const a=b.dataset.cap;if(a==='board'){e.preventDefault();route({cboard:b.dataset.id,cq:null,cmaker:null})}if(a==='about'){showModal('AI CAPABILITY MAP',`<h2 id="modal-title">这里看“强在哪”，不是再造一个总榜。</h2><p class="dialog-intro">Coding Agent 要看模型 + Harness；多模态要区分图像、视频和编辑；世界模型要看交互与物理一致性；语音要同时看音质、实时性与 Agent 任务。</p><section class="detail-section boundary"><h3>边界</h3><p>不同评测的分数不能直接横向相加；榜单为公开资料快照，最终选择仍需用你的真实任务验证。</p></section>`,'info',true)}});
 document.addEventListener('change',e=>{if(e.target.id==='cap-maker')route({cmaker:e.target.value})}); document.addEventListener('input',e=>{if(e.target.id==='cap-search'){const v=e.target.value;const pos=e.target.selectionStart;const q=cp();q.set('cq',v);history.replaceState(null,'','#/models?'+q.toString());const el=$('#cap-search');el?.focus({preventScroll:true});try{el.setSelectionRange(pos,pos)}catch{}}}); if(state.view==='models'){lastMain='';moduleMain()}
 })();
+
+'use strict';
+/* Put AI capability entries exactly in the visible model tab row. */
+(()=>{
+const defs=[
+ ['coding','Coding Agent','terminal'],
+ ['multimodal','多模态','image'],
+ ['world','世界模型','globe'],
+ ['voice','语音','mic']
+];
+function renderVisibleCapabilityTabs(){
+  if(!location.hash.startsWith('#/models')) return;
+  const row=document.querySelector('.m-tabs');
+  if(!row || row.dataset.capEnhanced==='1') return;
+  row.dataset.capEnhanced='1';
+  const note=row.querySelector('.m-tab-note');
+  for(const [id,label,icoName] of defs){
+    const a=document.createElement('a');
+    a.className='m-tab m-cap-visible-tab';
+    a.href='#/models?cap='+id;
+    a.innerHTML=(typeof icon==='function'?icon(icoName):'')+'<span>'+label+'</span>';
+    if(note) row.insertBefore(a,note); else row.appendChild(a);
+  }
+  const b=document.createElement('a');
+  b.className='m-tab m-cap-visible-tab';
+  b.href='#/benchmarks';
+  b.innerHTML=(typeof icon==='function'?icon('gauge'):'')+'<span>Benchmark</span>';
+  if(note) row.insertBefore(b,note); else row.appendChild(b);
+}
+const mo=new MutationObserver(()=>renderVisibleCapabilityTabs());
+mo.observe(document.documentElement,{childList:true,subtree:true});
+window.addEventListener('hashchange',()=>setTimeout(renderVisibleCapabilityTabs,0));
+document.addEventListener('DOMContentLoaded',renderVisibleCapabilityTabs);
+setTimeout(renderVisibleCapabilityTabs,0);
+})();
