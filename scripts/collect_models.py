@@ -97,26 +97,78 @@ def collect_aa(data,config,key,now,transport=fetch_json,force=False):
         h.update(status='error',error=safe_error(e),note='本次未获得有效的新模型数据，保留上一份有效快照。')
         return out
 
-RESET_WORDS=re.compile(r'\b(reset(?:s|ting)?|banked|limits?|quotas?)\b',re.I)
-BANKED=re.compile(r'\b(banked|cards?|redeem|reset to use|reset for later)\b',re.I)
-FUTURE=re.compile(r'\b(will|soon|tomorrow|next|plan(?:ning)?|tuesday|monday|wednesday|thursday|friday|weekend)\b',re.I)
-NEGATIVE=re.compile(r"\b(not|never|no)\b.{0,25}\breset|\bdidn[’']t\b",re.I)
+RESET_WORDS=re.compile(r'\b(reset(?:s|ting|ted)?|banked|limits?|quotas?|usage)\b',re.I)
+BANKED=re.compile(r'\b(banked|cards?|redeem|save(?:d)? for later|reset to use)\b',re.I)
+FUTURE=re.compile(r'\b(will|soon|tomorrow|next|plan(?:ning)?|later|tuesday|monday|wednesday|thursday|friday|weekend|in ~?\d+ hours?)\b',re.I)
+COMPLETED=re.compile(r'\b(reset(?:ted)?|all reset|has been reset|have now reset|completed|done)\b',re.I)
+PROPAGATED=re.compile(r'\b(propagat(?:ed|ing)|rolled? out|landed|reached accounts?|for everyone)\b',re.I)
+FIXES=re.compile(r'\b(fix(?:ed|es)?|compaction|background requests?|token usage|consumption|usage limits?|capacity|bug|regression)\b',re.I)
+NEGATIVE=re.compile(r"\b(not|never|no)\b.{0,30}\b(reset|limits?)|\bdidn[’']t\b",re.I)
+TIME_HINT=re.compile(r'\b(?:\d{1,2}(?::\d{2})?\s*(?:am|pm)?|monday|tuesday|wednesday|thursday|friday|saturday|sunday|tomorrow|tonight|morning|afternoon)\b',re.I)
 
-def classify_post(x,account,observed):
-    """Heuristic routing ONLY, never confirmation. Replies are retained as candidates."""
+def semantic_reset_reading(content,context=''):
+    """Conservative semantic routing for a public post + referenced context.
+
+    This never turns a candidate into a confirmed event. It only helps reviewers
+    understand what kind of claim the post appears to make.
+    """
+    c=content.strip();ctx=(context or '').strip();joined=(c+' '+ctx).strip()
+    has_reset=bool(RESET_WORDS.search(joined))
+    if not has_reset:return None
+    if NEGATIVE.search(c):
+        return ('announcement','denial','high',
+            '这句话在否认或限制重置相关说法，应该作为纠正信息阅读。',
+            '不能据此认定发生了重置，也不能把被否认的说法继续当作预告。')
+    if BANKED.search(joined):
+        if COMPLETED.search(c) or re.search(r'\b(give|provided?|land(?:ed)?)\b',c,re.I):
+            return ('banked','banked_delivery','high',
+                '这更像在说一张可留待主动使用的 banked reset 已发放或正在发放。',
+                'banked reset 不等于额度已经自动恢复；资格、到账与过期时间仍以个人账号为准。')
+        return ('banked','banked_announcement','medium',
+            '这更像 banked reset 的安排或说明，而不是一次全局额度已经刷新。',
+            '不能把“会发卡”写成“额度已自动重置”。')
+    if PROPAGATED.search(c) and RESET_WORDS.search(c):
+        return ('global','propagation_complete','high',
+            '这句话更像在确认一次全局重置已经传播到目标账号，而不是单纯预告。',
+            '仍不能证明每个具体账号的页面已经即时刷新，也不能外推到未写明的套餐。')
+    if COMPLETED.search(c) and RESET_WORDS.search(c) and not FUTURE.search(c):
+        return ('global','reset_executed','high',
+            '这句话更像在确认重置动作已经执行。',
+            '仍要核对适用套餐/产品范围；执行完成不等于所有客户端 UI 同时更新。')
+    if FIXES.search(joined) and RESET_WORDS.search(joined):
+        return ('announcement','usage_explanation','medium',
+            '重点可能不是“送一次额度”，而是在解释为什么用量异常、修了哪些计费/上下文问题，以及是否用重置作补偿。',
+            '不能只摘出 reset 一词而忽略修复范围，也不能把性能/用量改善外推到所有工作流。')
+    if FUTURE.search(c) and RESET_WORDS.search(joined):
+        return ('announcement','explicit_announcement','medium',
+            '这更像未来安排或时间预告；需要等待后续“已执行/已传播”证据。',
+            '预告时间到了也不会自动升级成“已经重置”。')
+    if TIME_HINT.search(c) and RESET_WORDS.search(ctx):
+        return ('announcement','timing_hint','low',
+            '这是一条依赖上文才能理解的时间暗示，可能在回答“什么时候重置”，但正文没有独立确认 reset、时区或适用范围。',
+            '不能把含糊时间直接换算成确定的重置时刻；必须保留回复对象、时区不确定性和后续确认状态。')
+    if RESET_WORDS.search(c):
+        return ('announcement','reset_related','low',
+            '帖子与 reset / usage limit 有关，但仅凭这一句不足以判断是预告、执行完成还是解释。',
+            '需要读取回复链、引用帖和后续更新，不能自动认定重置发生。')
+    return None
+
+def classify_post(x,account,observed,context_text=''):
+    """Semantic routing ONLY, never confirmation. Replies/quotes stay pending."""
     if not isinstance(x,dict):raise ValueError('Invalid post')
-    content=x.get('text')
-    pid=x.get('id')
+    content=x.get('text');pid=x.get('id')
     if not isinstance(content,str) or not re.fullmatch(r'\d{1,30}',str(pid)):raise ValueError('Invalid post identity')
-    if not RESET_WORDS.search(content):return None
     created=x.get('created_at');instant(created)
-    kind='banked' if BANKED.search(content) else 'announcement' if FUTURE.search(content) else 'global'
-    reason='关键词命中，需核对完整上下文和适用账号'
-    if NEGATIVE.search(content) or '?' in content:reason='含否定或疑问表达，不能据此认定发生了重置'
-    return dict(id='x-'+pid,post_id=pid,account=account,url=f'https://x.com/{account}/status/{pid}',
+    reading=semantic_reset_reading(content,context_text)
+    if reading is None:return None
+    kind,speech,strength,interpretation,not_proves=reading
+    refs=x.get('referenced_tweets',x.get('referenced_posts',[]))
+    return dict(id='x-'+str(pid),post_id=str(pid),account=account,url=f'https://x.com/{account}/status/{pid}',
         published_at=created,observed_at=observed,excerpt=content[:240],candidate_kind=kind,
-        review_status='pending',reason=reason,conversation_id=x.get('conversation_id'),
-        references=x.get('referenced_tweets',x.get('referenced_posts',[])))
+        semantic_type=speech,evidence_strength=strength,interpretation=interpretation,
+        not_proves=not_proves,context_excerpt=(context_text or '')[:240],
+        review_status='pending',reason='语义分类只帮助人工复核，不自动升级为确认事件',
+        conversation_id=x.get('conversation_id'),references=refs)
 
 def collect_x(data,config,key,now,transport=fetch_json,force=False):
     out=copy.deepcopy(data);h=out['sync']
@@ -133,7 +185,7 @@ def collect_x(data,config,key,now,transport=fetch_json,force=False):
         if not isinstance(user,dict) or user.get('username','').lower()!=handle.lower() or not re.fullmatch(r'\d{1,30}',str(user.get('id'))):raise ValueError('Wrong user')
         staged={e['id']:e for e in out.get('inbox',[])}
         max_pages=max(1,min(5,int(config.get('max_pages',3))));page_token=None;newest=None;incomplete=False
-        params={'max_results':100,'tweet.fields':'created_at,author_id,conversation_id','exclude':'retweets'}
+        params={'max_results':100,'tweet.fields':'created_at,author_id,conversation_id,referenced_tweets,in_reply_to_user_id','expansions':'referenced_tweets.id','exclude':'retweets'}
         # Do NOT exclude replies: reset plans are often in reply threads.
         if h.get('cursor'):params['since_id']=h['cursor']
         for p in range(max_pages):
@@ -142,9 +194,12 @@ def collect_x(data,config,key,now,transport=fetch_json,force=False):
             if not isinstance(body,dict) or body.get('errors'):raise ValueError('Incomplete X response')
             posts=body.get('data',[]);meta=body.get('meta')
             if not isinstance(posts,list) or not isinstance(meta,dict):raise ValueError('Invalid posts response')
+            includes=body.get('includes') or {};context_map={str(t.get('id')):t.get('text','') for t in includes.get('tweets',[]) if isinstance(t,dict)}
             for x in posts:
                 if str(x.get('author_id'))!=str(user['id']):raise ValueError('Wrong post author')
-                candidate=classify_post(x,handle,timestamp(now))
+                refs=x.get('referenced_tweets') or []
+                context='\n'.join(context_map.get(str(ref.get('id')),'') for ref in refs if isinstance(ref,dict))
+                candidate=classify_post(x,handle,timestamp(now),context)
                 if candidate:staged.setdefault(candidate['id'],candidate)
                 if newest is None or int(x['id'])>int(newest):newest=x['id']
             page_token=meta.get('next_token')
