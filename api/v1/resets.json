@@ -16,9 +16,7 @@
       "summary": "OpenAI 说明，符合资格的 Plus、Pro、Business 既有账号在该日获发一次可留待使用的重置；新账号有单独截止条件。",
       "scope": "Plus / Pro / Business · 符合资格的账号",
       "boundary": "卡片需要主动使用；发卡不等于额度已经恢复。资格与有效期看个人账号。",
-      "sources": [
-        "oa-banked"
-      ],
+      "sources": ["oa-banked"],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -36,9 +34,7 @@
       "summary": "OpenAI 说明，符合资格的 Plus、Pro、Business 既有账号在该日获发一次可留待使用的重置；新账号有单独截止条件。",
       "scope": "Plus / Pro / Business · 符合资格的账号",
       "boundary": "卡片需要主动使用；发卡不等于额度已经恢复。资格与有效期看个人账号。",
-      "sources": [
-        "oa-banked"
-      ],
+      "sources": ["oa-banked"],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -56,9 +52,7 @@
       "summary": "官方说明记载在 9 月 7 日提供了全局用量重置，直接应用于相应额度，不保存为一张重置卡。",
       "scope": "Plus / Pro / Business · 官方说明范围",
       "boundary": "这里使用来源记日，未提供具体时刻；不是完整的重置历史，也不反映此刻个人账号余额。",
-      "sources": [
-        "oa-banked"
-      ],
+      "sources": ["oa-banked"],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -76,33 +70,37 @@
       "summary": "参考站记录了相关重置消息，并存在关联 X 原帖链接。本次未能直接读取原帖，暂不将它计为本站确认记录。",
       "scope": "尚未核实",
       "boundary": "不能依据社区标签确认所有账号已重置；不计算距此次重置的倒计时。",
-      "sources": [
-        "aihot-reset",
-        "tibo-post-sep12"
-      ],
+      "sources": ["aihot-reset", "tibo-post-sep12"],
       "reviewed": "2026-09-21",
       "review_basis": "secondary_lead",
       "related_ids": []
     },
     {
-      "id": "lead-2026-09-20",
+      "id": "tibo-hint-2026-09-19-banked-reset",
       "kind": "announcement",
       "status": "pending",
-      "date": "2026-09-20",
-      "published_at": null,
+      "date": "2026-09-19",
+      "published_at": "2026-09-19T16:48:00Z",
       "effective_at": null,
-      "precision": "source_date",
-      "source_timezone": null,
-      "title": "后续发卡安排：预告上下文待核验",
-      "summary": "参考站收录了 Tibo 的回复线索。本次未直接核验原帖上下文，先保存为待核验预告，不承诺下一次到账日期。",
-      "scope": "尚未核实",
-      "boundary": "不从含糊的星期描述推算精确时刻，预告到期也不会自动变成已完成。",
-      "sources": [
-        "aihot-reset"
-      ],
-      "reviewed": "2026-09-21",
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 对 banked reset 请求回复“OK fine”；Tuesday 更像发布线索",
+      "summary": "Udi 先明确说“这周没发有意思的东西，所以欠大家一张 banked reset”，Tibo 随后回复“OK fine. But it’s also still coming in Tuesday”。前半句可以视为对 banked reset 请求的接受式回应；后半句更自然地承接此前关于本周发布/ship 的讨论，不能直接解释成“周二发 reset”。",
+      "scope": "banked reset 相关回复 · 具体资格与发放范围未知",
+      "boundary": "不能据此认定重置卡已经到账，也不能推出“周二就是 reset 时间”“每天一张”“所有付费账号都有”或全局额度已恢复。仍需 Tibo 后续明确发放/执行表述或 OpenAI 官方说明。",
+      "sources": ["tibo-post-2101352781219258527", "zamantika-thread-2101352781219258527", "toolify-reset-tracker"],
+      "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": []
+      "related_ids": [],
+      "original_text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
+      "conversation_context": "上文由 @udiWertheimer 明确索要 banked reset；Tibo 此前又在同一讨论中预告本周仍有接近 DevDay 级别的发布，因此 Tuesday 既可能被社区联想到 reset，也可能只是继续指向产品发布。",
+      "interpretation": "中等强度的 banked reset 接受/暗示，但不是完成确认。把 Tuesday 直接当作 reset 到账时间会过度解读。",
+      "evidence_strength": "medium",
+      "semantic_type": "reset_related",
+      "not_proves": "未证明已发放、周二发放、发放次数、适用套餐、到账时刻，也未证明发生 global reset。",
+      "post_id": "2101352781219258527",
+      "reply_to_account": "udiWertheimer",
+      "relation": "reply"
     },
     {
       "id": "tibo-hint-2026-09-21-3am-tuesday",
@@ -113,22 +111,22 @@
       "effective_at": null,
       "precision": "instant",
       "source_timezone": "UTC",
-      "title": "Tibo 回复“3am on a Tuesday”：像时间暗示，但还不是重置公告",
-      "summary": "公开追踪页记录 Tibo 在回复中只写了“3am on a tuesday”。这句话本身没有出现 reset、时区、适用套餐或“已执行”措辞；只有结合回复上下文时，才可能被理解为下一次 reset 的时间暗示。",
-      "scope": "上下文相关的时间线索 · 适用范围未知",
-      "boundary": "不能据此断言“周二 3:00 一定重置”，也不能自行假设是旧金山时间或北京时间。需要读取被回复原帖，并等待 Tibo 后续明确预告或完成确认。",
-      "sources": [
-        "codexresets-tracker",
-        "tibo-post-2101920928070562029"
-      ],
+      "title": "Tibo 回复“3am on a Tuesday”：有时间暗示，但当前不能归为 Reset",
+      "summary": "公开镜像只确认 Tibo 回复 @My_Ai_Bi 写了“3am on a tuesday”。原句没有 reset、banked、额度或执行措辞；而 Tibo 同期持续在 tease Tuesday 的产品发布，因此把它直接当作重置时间证据并不稳妥。",
+      "scope": "上下文相关的时间线索 · 指向对象仍待核验",
+      "boundary": "不能据此断言“周二 3:00 重置”，也不能自行假设时区、适用套餐或 reset 类型。需要读取被回复原帖，或等待 Tibo 后续明确说明这个时间究竟对应发布还是额度变化。",
+      "sources": ["codexresets-tracker", "tibo-post-2101920928070562029"],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": [],
-      "original_text": "3am on a tuesday",
-      "interpretation": "更像对某个时间问题的极短回答；如果上文确实问的是 Codex reset，则属于低置信度 timing hint，而不是执行完成证据。",
+      "related_ids": ["tibo-hint-2026-09-19-banked-reset"],
+      "original_text": "@My_Ai_Bi 3am on a tuesday",
+      "interpretation": "低置信度的 Tuesday timing hint；现有上下文不足以把它归入 reset，更可能需要和同期的 Tuesday 产品发布 tease 一起读。",
       "evidence_strength": "low",
       "semantic_type": "timing_hint",
-      "not_proves": "未确认时区、日期对应哪一个周二、适用套餐，以及 reset 是否一定会发生。"
+      "not_proves": "未确认时区、具体日期、它指向 reset 还是产品发布、适用套餐，以及任何额度变化是否会发生。",
+      "post_id": "2101920928070562029",
+      "reply_to_account": "My_Ai_Bi",
+      "relation": "reply"
     }
   ],
   "sources": [
@@ -185,9 +183,36 @@
       "checked": "2026-09-22",
       "kind": "原帖待直接核验",
       "note": "公开链接已定位，但当前服务端直读 X 返回 403；必须结合回复对象理解。"
+    },
+    {
+      "id": "tibo-post-2101352781219258527",
+      "publisher": "Tibo / X",
+      "title": "“OK fine. But it’s also still coming in Tuesday” reply",
+      "url": "https://x.com/thsottiaux/status/2101352781219258527",
+      "checked": "2026-09-22",
+      "kind": "原帖待直接核验",
+      "note": "原帖链接和文本已由公开镜像定位；当前服务端直读 X 返回 403，因此保持待核验而非确认。"
+    },
+    {
+      "id": "zamantika-thread-2101352781219258527",
+      "publisher": "Zamantika",
+      "title": "Tibo / Udi reply thread mirror",
+      "url": "https://zamantika.com/thsottiaux/status/2101352781219258527",
+      "checked": "2026-09-22",
+      "kind": "第三方定位线索",
+      "note": "用于恢复 Udi 的 banked reset 请求与 Tibo 回复的上下文；不作为完成重置的确认来源。"
+    },
+    {
+      "id": "toolify-reset-tracker",
+      "publisher": "Toolify",
+      "title": "Codex reset public signal tracker",
+      "url": "https://www.toolify.ai/es/codex-reset",
+      "checked": "2026-09-22",
+      "kind": "第三方定位线索",
+      "note": "用于核对公开信号的 UTC 时间和原帖链接；其预测与分类不作为本站确认结论。"
     }
   ],
-  "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索，确认仍要求原帖或 OpenAI 官方说明。",
+  "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
   "sync": {
     "status": "not_configured",
     "last_attempt": null,
