@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 全部专题</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/all.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate><item><title>Open Targets 26.06：靶点评估增加细胞类型表达数据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=ot-release-2606</link><guid isPermaLink="false">frontierlog:topic:ot-release-2606</guid><pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate><description>官方更新加入 PRIDE 蛋白组与单细胞 RNA 测序数据，并调整临床挖掘、Locus-to-Gene 与文献处理流程。
+
+编辑解读：靶点优先级不只看“有没有关联”，也要看它在哪里表达。
+
+边界：这是数据与分析工具的更新，不等于所列靶点已通过临床验证。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/
+https://platform.opentargets.org/</description><category>靶点发现与验证</category></item><item><title>靶点–疾病关联：先看证据类型，再看分数</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=target-evidence</link><guid isPermaLink="false">frontierlog:topic:target-evidence</guid><description>Open Targets 将多类公开证据映射到靶点与疾病，并提供各数据源的证据说明与评分方式。
+
+编辑解读：帮助整理靶点证据链，而不是把文献共现直接当作药效结论。
+
+边界：各类证据的含义不同；本站不将关联分数换算为临床成功率。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://platform-docs.opentargets.org/evidence</description><category>靶点发现与验证</category></item><item><title>Boltz：生物分子相互作用模型的开放入口</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=boltz-interactions</link><guid isPermaLink="false">frontierlog:topic:boltz-interactions</guid><description>官方仓库提供生物分子相互作用模型，并公开文档与示例目录。
+
+编辑解读：适合作为结构与相互作用计算的研究入口，便于跟踪代码更新。
+
+边界：预测结果不能替代结合实验、毒理与临床验证；此版未执行模型。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://github.com/jwohlwend/boltz</description><category>分子设计与筛选</category><category>靶点发现与验证</category></item><item><title>BioNeMo：把生物模型训练接到研发工作流</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=bionemo-framework</link><guid isPermaLink="false">frontierlog:topic:bionemo-framework</guid><description>官方文档列出面向计算药物发现的工具、模型与教程，并提示文档正在重构。
+
+编辑解读：先确认所需模型和模块，再决定是否值得接入自己的研发环境。
+
+边界：当前文档建议参考模块 README；不要把框架能力当成具体药物发现成绩。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://docs.nvidia.com/bionemo-framework/latest/</description><category>分子设计与筛选</category><category>靶点发现与验证</category></item><item><title>ClinicalTrials.gov：把试验记录接入结构化追踪</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=clinical-api</link><guid isPermaLink="false">frontierlog:topic:clinical-api</guid><pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate><description>NLM 于 2024 年介绍 API v2：使用 REST 接口、JSON 数据以及标准化字段和日期。
+
+编辑解读：可作为研究试验记录变化的基础数据入口。
+
+边界：注册记录不是完整 CSR；试验状态不等于有效性或审批结论。此条为历史基础资料。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html
+https://clinicaltrials.gov/data-api/api</description><category>临床试验与数据</category></item><item><title>Yseop：CSR 草稿之外，追踪句子到来源</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=yseop-csr</link><guid isPermaLink="false">frontierlog:topic:yseop-csr</guid><description>厂商介绍其医学写作能力覆盖 CSR、患者叙述等文档，并强调来源追溯与人工审阅。
+
+编辑解读：关注重点从“生成多少页”转为“每句话能否回到研究资料”。
+
+边界：属于厂商说明，本站未独立复验；产品描述不等于报告自动获得监管接受。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://yseop.com/medical-writing-automation/
+https://yseop.com/
+https://aws.amazon.com/marketplace/pp/prodview-wzkfr67cebozi</description><category>CSR 与医学写作</category></item><item><title>MedWriter.ai：从 Protocol、SAP、TLF 组织 CSR 草稿</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=medwriter-csr</link><guid isPermaLink="false">frontierlog:topic:medwriter-csr</guid><description>Hexaware 的产品说明列出研究方案、统计分析计划、研究者手册和 TLF 等输入，生成结构化草稿并支持评审。
+
+编辑解读：适合观察“多来源研究资料 → 文档草稿 → 协同审核”的产品路径。
+
+边界：产品材料未替代独立测试；敏感试验资料不能直接上传公共站点。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://aws.amazon.com/marketplace/pp/prodview-2jugy234zsg22</description><category>CSR 与医学写作</category><category>临床试验与数据</category></item><item><title>CSR 基础参考：ICH E3 的结构与内容</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=csr-reference</link><guid isPermaLink="false">frontierlog:topic:csr-reference</guid><description>FDA 的 ICH E3 页面提供临床研究报告结构与内容指南入口。
+
+编辑解读：用于明确文档范围，避免把普通摘要误叫作完整 CSR。
+
+边界：这是历史指南背景，不是 AI 新发布；具体项目要求需另行核对。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e3-structure-and-content-clinical-study-reports</description><category>CSR 与医学写作</category></item><item><title>Lam：把设备数据、诊断与维护放到同一条链路</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=lam-ei</link><guid isPermaLink="false">frontierlog:topic:lam-ei</guid><pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate><description>Lam 在 2026 年技术文章中介绍 Equipment Intelligence，覆盖设备和机群层面的传感器、数据、AI 与自动化。
+
+编辑解读：看晶圆厂 AI，不只看模型，还要看诊断怎样进入设备与维护流程。
+
+边界：厂商案例不能直接推广到所有晶圆厂；本站未核验特定机台的收益。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://newsroom.lamresearch.com/what-is-equipment-intelligence-semi-101</description><category>工艺控制 · FDC / APC</category><category>晶圆设备与维护</category></item><item><title>Dextro：晶圆设备维护有了协作机器人路径</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=lam-dextro</link><guid isPermaLink="false">frontierlog:topic:lam-dextro</guid><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><description>Lam 2024 年发布材料描述由工程师操作的移动协作机器人，用于特定晶圆设备维护任务。
+
+编辑解读：把“设备维护智能化”落到具体动作、机型与交付条件。
+
+边界：发布时支持范围不代表今天全部机型可用；不是无人晶圆厂。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://newsroom.lamresearch.com/2024-12-10-Lam-Research-Introduces-the-Semiconductor-Industrys-First-Collaborative-Robot-for-Fab-Maintenance-Optimization</description><category>晶圆设备与维护</category></item><item><title>Enlight 3 + ExtractAI：从缺陷信号中筛出有效线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=extractai-inspection</link><guid isPermaLink="false">frontierlog:topic:extractai-inspection</guid><description>Applied Materials 产品页描述光学检测、ExtractAI 与电子束复检之间的联动，用于缺陷分类与晶圆分析。
+
+编辑解读：把良率议题拆成检测、分类、复检，而不是笼统说“AI 提高良率”。
+
+边界：来自厂商产品说明；实际漏检、误报与良率收益仍需按工艺验证。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://www.appliedmaterials.com/tw/zh_tw/product-library/enlight-3-optical-inspection.html
+https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-introduces-new-playbook-process-control-based</description><category>良率与缺陷分析</category><category>工艺控制 · FDC / APC</category></item><item><title>Industrial Copilot：从自然语言到 PLC 工程辅助</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=engineering-copilot</link><guid isPermaLink="false">frontierlog:topic:engineering-copilot</guid><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><description>Siemens 的 2024 年发布材料介绍工业 Copilot 与工程软件的结合，并报告客户使用情况。
+
+编辑解读：重点关注控制代码、工程知识和实际开发流程，而不是通用聊天。
+
+边界：历史客户使用说明不代表所有场景已验证；生成代码不能直接下发生产设备。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://press.siemens.com/global/en/pressrelease/siemens-and-microsoft-scale-industrial-ai</description><category>装备研发与工程</category></item><item><title>Siemens：维护 Copilot 接上 Senseye 预测性维护</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=maintenance-copilot</link><guid isPermaLink="false">frontierlog:topic:maintenance-copilot</guid><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><description>2025 年官方公告介绍面向维护周期的生成式 AI 方案及 Senseye 能力扩展。
+
+编辑解读：把故障诊断、维修建议与历史设备信号放在同一个观察范围。
+
+边界：公告描述和个别试点结果不等于普遍收益；维修操作保留人工授权。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://press.siemens.com/jp/en/pressrelease/pr-20250324</description><category>装备运维与质检</category></item><item><title>Anomalib：先用公开工具搭建视觉异常检测基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=anomalib-inspection</link><guid isPermaLink="false">frontierlog:topic:anomalib-inspection</guid><description>官方仓库提供异常检测算法、训练与推理接口，以及公开样例。
+
+编辑解读：先建立可复现的质检基线，再决定是否需要更复杂的行业模型。
+
+边界：公共数据集效果不能直接代表自己的产线；本站未运行模型。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://github.com/open-edge-platform/anomalib</description><category>装备运维与质检</category></item><item><title>Mega：在数字孪生里先测试机器人与物流流程</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=mega-twin</link><guid isPermaLink="false">frontierlog:topic:mega-twin</guid><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>NVIDIA 2025 年文章介绍在工厂或仓库数字孪生中测试机器人机群的参考工作流。
+
+编辑解读：适合追踪布局、物流、人机协作和仿真验证的工具链。
+
+边界：历史预览状态不代表当前开放条件；仿真通过不能替代真实现场验收。
+资料核对：2026-09-21；本站未实测。
+原始来源：
+https://blogs.nvidia.com/blog/mega-omniverse-blueprint-industrial-digital-twins/</description><category>数字孪生与产线仿真</category></item></channel></rss>

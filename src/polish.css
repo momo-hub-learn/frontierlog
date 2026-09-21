@@ -1,0 +1,45 @@
+/* FrontierLog v0.7 visual polish: quieter chrome, aligned controls, stronger reading hierarchy. */
+:root{
+  --bg:#f5f7f4;
+  --panel:#ffffff;
+  --raised:#f0f4ee;
+  --hover:#edf2e9;
+  --line:#dbe2de;
+  --soft-line:#e8ece9;
+  --surface-shadow:0 1px 1px rgba(21,43,41,.02),0 8px 30px rgba(21,43,41,.035);
+  --surface-shadow-hover:0 12px 34px rgba(21,43,41,.07);
+  --radius:12px;
+  --radius-sm:8px;
+}
+:root[data-theme=dark]{--soft-line:#263735;--surface-shadow:none;--surface-shadow-hover:0 14px 38px #0005}
+body{letter-spacing:-.006em}
+.sidebar{background:color-mix(in srgb,var(--sidebar) 97%,var(--bg));border-right-color:var(--soft-line)}
+.brand{padding-bottom:22px}.brandmark{width:40px;height:40px}.brand strong{font-size:21px;letter-spacing:-.8px}.brand .brand-copy small{font-size:11px;letter-spacing:1.2px;margin-top:5px}
+.navgroup-label{font-size:10px;letter-spacing:1.15px;margin-top:17px;margin-bottom:7px}.navitem{border-radius:8px;transition:background .15s,color .15s,transform .15s}.navitem:hover{transform:translateX(1px)}.navitem.active{box-shadow:0 1px 0 #ffffff10 inset}
+.topbar{position:sticky;top:0;z-index:24;background:color-mix(in srgb,var(--sidebar) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--soft-line);min-height:72px;padding-top:15px;padding-bottom:15px}.command-trigger{background:var(--panel);border-color:var(--soft-line)}.brand-github,.iconbutton,.button{border-color:var(--line);border-radius:8px}.button{transition:transform .15s,background .15s,border-color .15s}.button:hover{transform:translateY(-1px)}
+main{max-width:1490px;padding-top:36px}.footer{border-top-color:var(--soft-line)}
+.eyebrow{letter-spacing:1.35px}.section-head h2{font-size:1.65rem;letter-spacing:-.65px}.section-head{margin-bottom:21px}
+.searchbox,.m-search,.b-search,.h-search{border-radius:9px;border-color:var(--line);background:var(--panel);box-shadow:0 1px 0 #fff inset}.searchbox:focus-within,.m-search:focus-within,.b-search:focus-within,.h-search:focus-within{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 8%,transparent)}
+.task-card,.tool-card,.event,.m-tablewrap,.m-lead,.m-summary,.r-calendar,.r-selected,.r-status,.r-smallstats,.b-card,.b-suite,.b-report-paper,.h-board,.h-stream,.h-aside,.v-hot-mini{border-color:var(--line)}
+.task-card,.tool-card,.b-card,.b-suite,.h-board,.h-stream,.h-aside,.m-tablewrap{box-shadow:var(--surface-shadow)}
+.task-card:hover,.b-card:hover{box-shadow:var(--surface-shadow-hover);transform:translateY(-2px)}
+.badge,.b-chip,.h-cat,.r-tag{border-radius:6px}
+
+/* Hot list: category tabs and search are one control rail. */
+.h-wrap{max-width:1260px;margin-bottom:58px}.h-head{align-items:flex-end;margin-bottom:18px}.h-head h1{font-size:46px;letter-spacing:-1.8px}.h-head p{font-size:15px;margin-top:7px}.h-meta{font-size:11px;gap:14px;padding-bottom:3px}
+.h-filterbar{display:flex;align-items:flex-end;gap:22px;border-bottom:1px solid var(--line);margin-bottom:24px;min-height:51px}.h-filterbar .h-tabs{flex:1;min-width:0;border-bottom:0;margin:0;gap:25px}.h-filterbar .h-tab{padding-bottom:14px}.h-filterbar .h-search{width:300px;flex:0 0 300px;margin-bottom:7px;padding:8px 11px;min-height:39px}.h-search kbd{font-size:10px;line-height:1;padding:3px 5px;border-color:var(--soft-line);background:var(--bg)}
+.h-board{border-radius:14px;overflow:hidden}.h-board-head{padding:16px 22px;background:color-mix(in srgb,var(--raised) 48%,var(--panel));border-bottom-color:var(--soft-line)}.h-board-head h2{font-size:17px;letter-spacing:-.2px}.h-row{grid-template-columns:46px minmax(0,1fr) 94px;gap:16px;padding:18px 22px;border-bottom-color:var(--soft-line)}.h-row:hover{background:color-mix(in srgb,var(--hover) 72%,var(--panel))}.h-rank{font-size:18px}.h-title{font-size:16px;line-height:1.55;letter-spacing:-.18px}.h-sub{margin-top:6px}.h-heat strong{font-size:18px}.h-heat span{letter-spacing:.2px}
+.h-below{gap:18px;margin-top:18px;grid-template-columns:minmax(0,1fr) 285px}.h-stream{border-radius:14px;padding:4px 22px}.h-story{padding:21px 0;border-bottom-color:var(--soft-line)}.h-story h3{font-size:18px;letter-spacing:-.25px;margin-top:7px}.h-story p{color:var(--sub)}.h-story-foot{margin-top:13px}.h-aside{border-radius:14px;padding:21px;position:sticky;top:94px}.h-aside h3{font-size:17px;letter-spacing:-.2px}.h-rule{border-top-color:var(--soft-line)}
+
+/* Model center: keep model ranking and Benchmark visually tied together. */
+.m-wrap{max-width:1260px}.m-hubtabs{gap:30px;margin-bottom:25px}.m-hubtab{font-size:14px;padding-bottom:13px}.m-header{margin-bottom:24px}.m-header h1{font-size:40px;letter-spacing:-1.4px;line-height:1.25}.m-header p{font-size:15px}.m-actions{gap:7px}.m-lead-grid{gap:12px}.m-lead,.m-summary{border-radius:13px}.m-summary strong{letter-spacing:-1px}.m-tabs{margin-bottom:16px}.m-controls{padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 78%,var(--bg));margin-bottom:16px}.m-segment{border-radius:7px}.m-tablewrap{border-radius:13px;overflow:hidden}.m-tablehead{background:color-mix(in srgb,var(--raised) 45%,var(--panel));border-bottom-color:var(--soft-line)}.m-table th,.m-table td{border-bottom-color:var(--soft-line)}
+
+/* Benchmark: calmer dense catalog with the same model-center rhythm. */
+.b-wrap{max-width:1260px;margin:0 auto}.b-head{padding-top:4px;padding-bottom:22px}.b-head h1{font-size:42px;letter-spacing:-1.6px}.b-head .b-intro{font-size:15px}.b-report-hero{border-radius:14px}.b-tabs{margin-bottom:19px;gap:25px}.b-tab{font-size:14px;min-height:46px;padding-bottom:13px}.b-controls{padding:10px 11px;background:color-mix(in srgb,var(--panel) 78%,var(--bg));border:1px solid var(--line);border-radius:10px;margin-bottom:13px}.b-filter{min-height:34px}.b-search{min-height:39px}.b-grid{gap:15px}.b-card{border-radius:12px}.b-card:hover{border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}.b-title{letter-spacing:-.45px}.b-card-footer{border-top-color:var(--soft-line)}
+
+/* Legacy/vertical surfaces get the same edge language. */
+.v-card,.v-topic-card,.v-article,.v-panel{border-radius:12px!important;border-color:var(--line)!important}.v-sectionline{margin-bottom:15px}.v-sectionline h2{letter-spacing:-.35px}
+
+@media(max-width:1100px){.h-filterbar{align-items:stretch;gap:12px;flex-direction:column;border-bottom:0}.h-filterbar .h-tabs{border-bottom:1px solid var(--line)}.h-filterbar .h-search{width:100%;flex-basis:auto;margin-bottom:0}.h-aside{position:static}.m-header h1{font-size:36px}.b-head h1{font-size:38px}}
+@media(max-width:760px){main{padding-top:26px}.topbar{position:sticky;min-height:62px}.h-head{display:block;margin-bottom:16px}.h-head h1{font-size:36px}.h-head p{font-size:14px}.h-meta{margin-top:10px}.h-filterbar{margin-bottom:18px}.h-filterbar .h-tabs{gap:20px}.h-filterbar .h-tab{font-size:13px}.h-filterbar .h-search{min-height:43px}.h-row{grid-template-columns:30px minmax(0,1fr) 70px;gap:9px;padding:15px 14px}.h-rank{font-size:15px}.h-title{font-size:15px}.h-heat strong{font-size:15px}.h-stream{padding:3px 16px}.h-story{padding:18px 0}.m-header h1{font-size:31px}.m-controls{padding:9px}.b-controls{padding:9px}.b-wrap,.m-wrap,.h-wrap{max-width:none}}
+@media(max-width:500px){.brandmark{width:38px;height:38px}.h-head h1{font-size:34px}.h-filterbar .h-tabs{gap:18px}.h-filterbar .h-search{padding:9px 11px}.h-board{border-radius:11px}.h-board-head{padding:14px}.h-info{font-size:10px}.h-below{margin-top:14px}.h-stream{border-radius:11px}.m-controls,.b-controls{border-radius:9px}.m-hubtabs{gap:23px}.m-hubtab{font-size:13px}}

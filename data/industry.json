@@ -1,0 +1,839 @@
+{
+  "version": 1,
+  "checked": "2026-09-21",
+  "sectors": [
+    {
+      "id": "pharma",
+      "title": "医药与生命科学",
+      "short": "医药",
+      "eyebrow": "LIFE SCIENCES",
+      "description": "从靶点证据，到一份可追溯的临床研究报告。",
+      "groups": [
+        "发现与研究",
+        "临床与文档"
+      ],
+      "note": "CSR = Clinical Study Report（临床研究报告）。本页面向研发信息，不提供诊疗建议。"
+    },
+    {
+      "id": "manufacturing",
+      "title": "制造业",
+      "short": "制造业",
+      "eyebrow": "INDUSTRIAL INTELLIGENCE",
+      "description": "从一片晶圆的良率，到一台设备的设计、维护与运行。",
+      "groups": [
+        "半导体晶圆厂",
+        "装备制造"
+      ],
+      "note": "聚焦晶圆厂与装备业务；单纯芯片融资、GPU 跑分和算力新闻不自动归入制造主题。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "targets",
+      "sector": "pharma",
+      "group": "发现与研究",
+      "title": "靶点发现与验证",
+      "description": "靶点–疾病证据、组学整合、靶点评估",
+      "keywords": [
+        "靶点",
+        "target discovery",
+        "target validation",
+        "GWAS",
+        "CRISPR",
+        "Open Targets"
+      ]
+    },
+    {
+      "id": "molecules",
+      "sector": "pharma",
+      "group": "发现与研究",
+      "title": "分子设计与筛选",
+      "description": "结构、分子相互作用、计算筛选",
+      "keywords": [
+        "分子设计",
+        "docking",
+        "biomolecular",
+        "molecular",
+        "Boltz",
+        "BioNeMo"
+      ]
+    },
+    {
+      "id": "clinical",
+      "sector": "pharma",
+      "group": "临床与文档",
+      "title": "临床试验与数据",
+      "description": "试验注册、方案设计、研究数据",
+      "keywords": [
+        "临床试验",
+        "clinical trial",
+        "ClinicalTrials.gov",
+        "protocol"
+      ]
+    },
+    {
+      "id": "csr",
+      "sector": "pharma",
+      "group": "临床与文档",
+      "title": "CSR 与医学写作",
+      "description": "临床研究报告、TLF、来源核对与质控",
+      "keywords": [
+        "临床研究报告",
+        "clinical study report",
+        "medical writing",
+        "patient narrative",
+        "Yseop",
+        "MedWriter"
+      ]
+    },
+    {
+      "id": "fab-yield",
+      "sector": "manufacturing",
+      "group": "半导体晶圆厂",
+      "title": "良率与缺陷分析",
+      "description": "缺陷分类、检测复检、良率异常",
+      "keywords": [
+        "晶圆",
+        "wafer",
+        "yield",
+        "defect",
+        "ExtractAI",
+        "Enlight"
+      ]
+    },
+    {
+      "id": "fab-process",
+      "sector": "manufacturing",
+      "group": "半导体晶圆厂",
+      "title": "工艺控制 · FDC / APC",
+      "description": "过程监测、虚拟量测、异常与控制",
+      "keywords": [
+        "FDC",
+        "APC",
+        "virtual metrology",
+        "process control",
+        "工艺控制"
+      ]
+    },
+    {
+      "id": "fab-maintenance",
+      "sector": "manufacturing",
+      "group": "半导体晶圆厂",
+      "title": "晶圆设备与维护",
+      "description": "腔体匹配、设备异常、维护自动化",
+      "keywords": [
+        "fab maintenance",
+        "chamber",
+        "Dextro",
+        "Equipment Intelligence",
+        "晶圆设备"
+      ]
+    },
+    {
+      "id": "equipment-design",
+      "sector": "manufacturing",
+      "group": "装备制造",
+      "title": "装备研发与工程",
+      "description": "工程设计、PLC 编程、工艺知识",
+      "keywords": [
+        "PLC",
+        "SCL",
+        "TIA Portal",
+        "engineering copilot",
+        "装备研发"
+      ]
+    },
+    {
+      "id": "equipment-maintenance",
+      "sector": "manufacturing",
+      "group": "装备制造",
+      "title": "装备运维与质检",
+      "description": "预测性维护、视觉质检、故障知识",
+      "keywords": [
+        "predictive maintenance",
+        "anomaly detection",
+        "Senseye",
+        "Anomalib",
+        "视觉质检"
+      ]
+    },
+    {
+      "id": "digital-twin",
+      "sector": "manufacturing",
+      "group": "装备制造",
+      "title": "数字孪生与产线仿真",
+      "description": "产线、物流、机器人仿真与虚实验证",
+      "keywords": [
+        "digital twin",
+        "factory simulation",
+        "Omniverse",
+        "Mega",
+        "数字孪生"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ot-2606",
+      "title": "Open Targets Platform 26.06 has been released!",
+      "publisher": "Open Targets",
+      "url": "https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/",
+      "published": "2026-06-24",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "官方更新"
+    },
+    {
+      "id": "ot-platform",
+      "title": "Open Targets Platform",
+      "publisher": "Open Targets",
+      "url": "https://platform.opentargets.org/",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "公开数据库"
+    },
+    {
+      "id": "ot-evidence",
+      "title": "Target–disease evidence",
+      "publisher": "Open Targets",
+      "url": "https://platform-docs.opentargets.org/evidence",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "开发文档"
+    },
+    {
+      "id": "boltz",
+      "title": "Boltz biomolecular interaction models",
+      "publisher": "Boltz 团队",
+      "url": "https://github.com/jwohlwend/boltz",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "bionemo",
+      "title": "BioNeMo Framework documentation",
+      "publisher": "NVIDIA",
+      "url": "https://docs.nvidia.com/bionemo-framework/latest/",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "开发文档"
+    },
+    {
+      "id": "ct-api",
+      "title": "ClinicalTrials.gov API Version 2.0 Now Available",
+      "publisher": "NLM",
+      "url": "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+      "published": "2024-03-19",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "官方公告"
+    },
+    {
+      "id": "ct-docs",
+      "title": "ClinicalTrials.gov API",
+      "publisher": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/data-api/api",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "开发文档"
+    },
+    {
+      "id": "yseop-medical",
+      "title": "Medical Writing Automation",
+      "publisher": "Yseop",
+      "url": "https://yseop.com/medical-writing-automation/",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商说明"
+    },
+    {
+      "id": "yseop-product",
+      "title": "Regulatory-Grade AI for Life Sciences",
+      "publisher": "Yseop",
+      "url": "https://yseop.com/",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商说明"
+    },
+    {
+      "id": "yseop-market",
+      "title": "Yseop Copilot",
+      "publisher": "Yseop / AWS Marketplace",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-wzkfr67cebozi",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商说明"
+    },
+    {
+      "id": "medwriter",
+      "title": "MedWriter.ai | Clinical & Regulatory Writing",
+      "publisher": "Hexaware / AWS Marketplace",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-2jugy234zsg22",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商说明"
+    },
+    {
+      "id": "ich-e3",
+      "title": "E3 Structure and Content of Clinical Study Reports",
+      "publisher": "FDA / ICH",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e3-structure-and-content-clinical-study-reports",
+      "published": null,
+      "date_label": "1996-07",
+      "checked": "2026-09-21",
+      "kind": "指南背景"
+    },
+    {
+      "id": "lam-ei",
+      "title": "What Is Equipment Intelligence? (Semi 101)",
+      "publisher": "Lam Research",
+      "url": "https://newsroom.lamresearch.com/what-is-equipment-intelligence-semi-101",
+      "published": "2026-05-19",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商技术文章"
+    },
+    {
+      "id": "lam-dextro",
+      "title": "Collaborative Robot for Fab Maintenance Optimization",
+      "publisher": "Lam Research",
+      "url": "https://newsroom.lamresearch.com/2024-12-10-Lam-Research-Introduces-the-Semiconductor-Industrys-First-Collaborative-Robot-for-Fab-Maintenance-Optimization",
+      "published": "2024-12-10",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商发布"
+    },
+    {
+      "id": "applied-enlight",
+      "title": "Enlight 3 Optical Inspection",
+      "publisher": "Applied Materials",
+      "url": "https://www.appliedmaterials.com/tw/zh_tw/product-library/enlight-3-optical-inspection.html",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商说明"
+    },
+    {
+      "id": "applied-extract",
+      "title": "Process Control Based on Big Data and AI",
+      "publisher": "Applied Materials",
+      "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-introduces-new-playbook-process-control-based",
+      "published": "2021-03-16",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "历史发布"
+    },
+    {
+      "id": "siemens-engineering",
+      "title": "Siemens and Microsoft scale industrial AI",
+      "publisher": "Siemens",
+      "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-microsoft-scale-industrial-ai",
+      "published": "2024-10-24",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商发布"
+    },
+    {
+      "id": "siemens-maintenance",
+      "title": "Industrial Copilot: generative AI-powered Maintenance",
+      "publisher": "Siemens",
+      "url": "https://press.siemens.com/jp/en/pressrelease/pr-20250324",
+      "published": "2025-03-24",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商发布"
+    },
+    {
+      "id": "anomalib",
+      "title": "Anomalib: anomaly detection library",
+      "publisher": "Open Edge Platform",
+      "url": "https://github.com/open-edge-platform/anomalib",
+      "published": null,
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "nvidia-mega",
+      "title": "Mega blueprint for industrial digital twins",
+      "publisher": "NVIDIA",
+      "url": "https://blogs.nvidia.com/blog/mega-omniverse-blueprint-industrial-digital-twins/",
+      "published": "2025-03-31",
+      "date_label": null,
+      "checked": "2026-09-21",
+      "kind": "厂商发布"
+    }
+  ],
+  "articles": [
+    {
+      "id": "ot-release-2606",
+      "sector": "pharma",
+      "topics": [
+        "targets"
+      ],
+      "title": "Open Targets 26.06：靶点评估增加细胞类型表达数据",
+      "summary": "官方更新加入 PRIDE 蛋白组与单细胞 RNA 测序数据，并调整临床挖掘、Locus-to-Gene 与文献处理流程。",
+      "why": "靶点优先级不只看“有没有关联”，也要看它在哪里表达。",
+      "boundary": "这是数据与分析工具的更新，不等于所列靶点已通过临床验证。",
+      "sources": [
+        "ot-2606",
+        "ot-platform"
+      ],
+      "kind": "update",
+      "access": "公开数据",
+      "published": "2026-06-24",
+      "checked": "2026-09-21",
+      "steps": [
+        "打开官方平台并选择研究对象",
+        "对照组织级与细胞类型表达",
+        "记录证据来源与平台版本"
+      ],
+      "metrics": [
+        "证据覆盖与原始来源",
+        "关联与因果证据的区别",
+        "数据版本及疾病标识变化"
+      ],
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "target-evidence",
+      "sector": "pharma",
+      "topics": [
+        "targets"
+      ],
+      "title": "靶点–疾病关联：先看证据类型，再看分数",
+      "summary": "Open Targets 将多类公开证据映射到靶点与疾病，并提供各数据源的证据说明与评分方式。",
+      "why": "帮助整理靶点证据链，而不是把文献共现直接当作药效结论。",
+      "boundary": "各类证据的含义不同；本站不将关联分数换算为临床成功率。",
+      "sources": [
+        "ot-evidence"
+      ],
+      "kind": "reference",
+      "access": "开发文档",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "逐类查看遗传学、功能筛选和文献证据",
+        "回到原始研究核对条件"
+      ],
+      "metrics": [
+        "证据类型",
+        "数据来源",
+        "实验条件"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "boltz-interactions",
+      "sector": "pharma",
+      "topics": [
+        "molecules",
+        "targets"
+      ],
+      "title": "Boltz：生物分子相互作用模型的开放入口",
+      "summary": "官方仓库提供生物分子相互作用模型，并公开文档与示例目录。",
+      "why": "适合作为结构与相互作用计算的研究入口，便于跟踪代码更新。",
+      "boundary": "预测结果不能替代结合实验、毒理与临床验证；此版未执行模型。",
+      "sources": [
+        "boltz"
+      ],
+      "kind": "tool",
+      "access": "开放代码",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "阅读官方文档、许可与环境要求",
+        "从仓库示例开始运行",
+        "记录输入、版本与预测结果"
+      ],
+      "metrics": [
+        "外部测试集与分布差异",
+        "预测误差",
+        "计算资源"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "bionemo-framework",
+      "sector": "pharma",
+      "topics": [
+        "molecules",
+        "targets"
+      ],
+      "title": "BioNeMo：把生物模型训练接到研发工作流",
+      "summary": "官方文档列出面向计算药物发现的工具、模型与教程，并提示文档正在重构。",
+      "why": "先确认所需模型和模块，再决定是否值得接入自己的研发环境。",
+      "boundary": "当前文档建议参考模块 README；不要把框架能力当成具体药物发现成绩。",
+      "sources": [
+        "bionemo"
+      ],
+      "kind": "tool",
+      "access": "开发文档",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "选择具体模型模块",
+        "核对该模块 README 与硬件要求",
+        "运行对应官方示例"
+      ],
+      "metrics": [
+        "版本兼容",
+        "任务验收",
+        "GPU 与数据成本"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "clinical-api",
+      "sector": "pharma",
+      "topics": [
+        "clinical"
+      ],
+      "title": "ClinicalTrials.gov：把试验记录接入结构化追踪",
+      "summary": "NLM 于 2024 年介绍 API v2：使用 REST 接口、JSON 数据以及标准化字段和日期。",
+      "why": "可作为研究试验记录变化的基础数据入口。",
+      "boundary": "注册记录不是完整 CSR；试验状态不等于有效性或审批结论。此条为历史基础资料。",
+      "sources": [
+        "ct-api",
+        "ct-docs"
+      ],
+      "kind": "tool",
+      "access": "公开 API",
+      "published": "2024-03-19",
+      "checked": "2026-09-21",
+      "steps": [
+        "从官方 API 文档选定检索条件",
+        "记录 NCT 标识及更新时间",
+        "区分注册信息与已公布结果"
+      ],
+      "metrics": [
+        "试验标识",
+        "状态与更新时间",
+        "原始结果披露"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "yseop-csr",
+      "sector": "pharma",
+      "topics": [
+        "csr"
+      ],
+      "title": "Yseop：CSR 草稿之外，追踪句子到来源",
+      "summary": "厂商介绍其医学写作能力覆盖 CSR、患者叙述等文档，并强调来源追溯与人工审阅。",
+      "why": "关注重点从“生成多少页”转为“每句话能否回到研究资料”。",
+      "boundary": "属于厂商说明，本站未独立复验；产品描述不等于报告自动获得监管接受。",
+      "sources": [
+        "yseop-medical",
+        "yseop-product",
+        "yseop-market"
+      ],
+      "kind": "tool",
+      "access": "商业产品",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "核对支持的 CSR 章节与输入类型",
+        "使用经授权或脱敏样本申请演示",
+        "逐句核对统计表、结论与来源"
+      ],
+      "metrics": [
+        "关键数字一致性",
+        "来源可追溯",
+        "修订与人工审阅记录"
+      ],
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "medwriter-csr",
+      "sector": "pharma",
+      "topics": [
+        "csr",
+        "clinical"
+      ],
+      "title": "MedWriter.ai：从 Protocol、SAP、TLF 组织 CSR 草稿",
+      "summary": "Hexaware 的产品说明列出研究方案、统计分析计划、研究者手册和 TLF 等输入，生成结构化草稿并支持评审。",
+      "why": "适合观察“多来源研究资料 → 文档草稿 → 协同审核”的产品路径。",
+      "boundary": "产品材料未替代独立测试；敏感试验资料不能直接上传公共站点。",
+      "sources": [
+        "medwriter"
+      ],
+      "kind": "tool",
+      "access": "商业产品",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "建立输入文件与版本清单",
+        "检查跨表格、正文和章节的数值一致性",
+        "保留审核与修订证据"
+      ],
+      "metrics": [
+        "输入版本对应",
+        "缺失信息处理",
+        "跨章节一致性"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "csr-reference",
+      "sector": "pharma",
+      "topics": [
+        "csr"
+      ],
+      "title": "CSR 基础参考：ICH E3 的结构与内容",
+      "summary": "FDA 的 ICH E3 页面提供临床研究报告结构与内容指南入口。",
+      "why": "用于明确文档范围，避免把普通摘要误叫作完整 CSR。",
+      "boundary": "这是历史指南背景，不是 AI 新发布；具体项目要求需另行核对。",
+      "sources": [
+        "ich-e3"
+      ],
+      "kind": "reference",
+      "access": "指南参考",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "从官方页面阅读指南",
+        "按项目确认适用要求",
+        "建立资料和章节映射"
+      ],
+      "metrics": [
+        "章节覆盖",
+        "来源映射",
+        "审核责任"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "lam-ei",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-process",
+        "fab-maintenance"
+      ],
+      "title": "Lam：把设备数据、诊断与维护放到同一条链路",
+      "summary": "Lam 在 2026 年技术文章中介绍 Equipment Intelligence，覆盖设备和机群层面的传感器、数据、AI 与自动化。",
+      "why": "看晶圆厂 AI，不只看模型，还要看诊断怎样进入设备与维护流程。",
+      "boundary": "厂商案例不能直接推广到所有晶圆厂；本站未核验特定机台的收益。",
+      "sources": [
+        "lam-ei"
+      ],
+      "kind": "update",
+      "access": "厂商技术资料",
+      "published": "2026-05-19",
+      "checked": "2026-09-21",
+      "steps": [
+        "识别具体机台与数据边界",
+        "分别核对监测、诊断和控制环节",
+        "在隔离环境评估再考虑生产接入"
+      ],
+      "metrics": [
+        "误报漏报",
+        "停机与维护记录",
+        "工况迁移与人工审批"
+      ],
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "lam-dextro",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-maintenance"
+      ],
+      "title": "Dextro：晶圆设备维护有了协作机器人路径",
+      "summary": "Lam 2024 年发布材料描述由工程师操作的移动协作机器人，用于特定晶圆设备维护任务。",
+      "why": "把“设备维护智能化”落到具体动作、机型与交付条件。",
+      "boundary": "发布时支持范围不代表今天全部机型可用；不是无人晶圆厂。",
+      "sources": [
+        "lam-dextro"
+      ],
+      "kind": "update",
+      "access": "商业设备",
+      "published": "2024-12-10",
+      "checked": "2026-09-21",
+      "steps": [
+        "向厂商核对当前支持机型",
+        "明确人员与机器人责任边界",
+        "记录维护前后停机及返工情况"
+      ],
+      "metrics": [
+        "首次正确维护",
+        "机型适配",
+        "安全和人工监督"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "extractai-inspection",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-yield",
+        "fab-process"
+      ],
+      "title": "Enlight 3 + ExtractAI：从缺陷信号中筛出有效线索",
+      "summary": "Applied Materials 产品页描述光学检测、ExtractAI 与电子束复检之间的联动，用于缺陷分类与晶圆分析。",
+      "why": "把良率议题拆成检测、分类、复检，而不是笼统说“AI 提高良率”。",
+      "boundary": "来自厂商产品说明；实际漏检、误报与良率收益仍需按工艺验证。",
+      "sources": [
+        "applied-enlight",
+        "applied-extract"
+      ],
+      "kind": "tool",
+      "access": "商业设备",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "界定缺陷类型与检测环节",
+        "查看复检如何反馈分类结果",
+        "用相同工艺条件比较结果"
+      ],
+      "metrics": [
+        "缺陷召回与误报",
+        "复检量",
+        "跨产品和工艺泛化"
+      ],
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "engineering-copilot",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-design"
+      ],
+      "title": "Industrial Copilot：从自然语言到 PLC 工程辅助",
+      "summary": "Siemens 的 2024 年发布材料介绍工业 Copilot 与工程软件的结合，并报告客户使用情况。",
+      "why": "重点关注控制代码、工程知识和实际开发流程，而不是通用聊天。",
+      "boundary": "历史客户使用说明不代表所有场景已验证；生成代码不能直接下发生产设备。",
+      "sources": [
+        "siemens-engineering"
+      ],
+      "kind": "update",
+      "access": "商业产品",
+      "published": "2024-10-24",
+      "checked": "2026-09-21",
+      "steps": [
+        "确认 TIA Portal 与产品版本",
+        "在仿真项目核对生成逻辑",
+        "由工程师审查后进入现场验证"
+      ],
+      "metrics": [
+        "代码正确性",
+        "仿真与联锁测试",
+        "工程师修改量"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "maintenance-copilot",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-maintenance"
+      ],
+      "title": "Siemens：维护 Copilot 接上 Senseye 预测性维护",
+      "summary": "2025 年官方公告介绍面向维护周期的生成式 AI 方案及 Senseye 能力扩展。",
+      "why": "把故障诊断、维修建议与历史设备信号放在同一个观察范围。",
+      "boundary": "公告描述和个别试点结果不等于普遍收益；维修操作保留人工授权。",
+      "sources": [
+        "siemens-maintenance"
+      ],
+      "kind": "update",
+      "access": "商业产品",
+      "published": "2025-03-24",
+      "checked": "2026-09-21",
+      "steps": [
+        "确认输入数据与故障标签",
+        "分别验证诊断和建议",
+        "核对实际维修结果"
+      ],
+      "metrics": [
+        "诊断准确性",
+        "误报率",
+        "人工确认与停机时间"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "anomalib-inspection",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-maintenance"
+      ],
+      "title": "Anomalib：先用公开工具搭建视觉异常检测基线",
+      "summary": "官方仓库提供异常检测算法、训练与推理接口，以及公开样例。",
+      "why": "先建立可复现的质检基线，再决定是否需要更复杂的行业模型。",
+      "boundary": "公共数据集效果不能直接代表自己的产线；本站未运行模型。",
+      "sources": [
+        "anomalib"
+      ],
+      "kind": "tool",
+      "access": "开放代码",
+      "published": null,
+      "checked": "2026-09-21",
+      "steps": [
+        "阅读当前官方安装说明",
+        "用公开样本建立训练与测试划分",
+        "检查漏检、误报和推理延迟"
+      ],
+      "metrics": [
+        "批次外测试",
+        "漏检与误报",
+        "边缘推理资源"
+      ],
+      "featured": false,
+      "tested": false
+    },
+    {
+      "id": "mega-twin",
+      "sector": "manufacturing",
+      "topics": [
+        "digital-twin"
+      ],
+      "title": "Mega：在数字孪生里先测试机器人与物流流程",
+      "summary": "NVIDIA 2025 年文章介绍在工厂或仓库数字孪生中测试机器人机群的参考工作流。",
+      "why": "适合追踪布局、物流、人机协作和仿真验证的工具链。",
+      "boundary": "历史预览状态不代表当前开放条件；仿真通过不能替代真实现场验收。",
+      "sources": [
+        "nvidia-mega"
+      ],
+      "kind": "update",
+      "access": "参考工作流",
+      "published": "2025-03-31",
+      "checked": "2026-09-21",
+      "steps": [
+        "核对当前官方入口和许可",
+        "建立场景与传感器条件",
+        "对照真实流程验证仿真假设"
+      ],
+      "metrics": [
+        "仿真与现场偏差",
+        "场景覆盖",
+        "吞吐和安全约束"
+      ],
+      "featured": false,
+      "tested": false
+    }
+  ],
+  "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
+}

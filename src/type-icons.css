@@ -1,0 +1,39 @@
+/* v0.8 typography + icon polish. Font files stay remote; system fallbacks remain fully usable. */
+:root{
+  --sans:"Noto Sans SC","HarmonyOS Sans SC","MiSans","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --display:"Manrope","Noto Sans SC","PingFang SC",system-ui,sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  --icon-bg:color-mix(in srgb,var(--accent) 8%,transparent);
+}
+body{font-family:var(--sans);font-weight:400;letter-spacing:-.012em;text-rendering:optimizeLegibility}
+.brand strong,.hero-text h1,.v-home-intro h1,.h-head h1,.m-header h1,.b-head h1,.section-head h2,.h-board-head h2,.m-tablehead h2,.v-sectionline h2{font-family:var(--display);font-weight:700;letter-spacing:-.045em}
+.brand strong{font-weight:800;letter-spacing:-.055em}.brand small,.eyebrow,.navgroup-label,.mono,code,kbd{font-family:var(--mono);letter-spacing:.015em}
+.hero-text h1,.v-home-intro h1{font-weight:800}.h-title,.task-title,.v-article-title,.m-model-name,.b-title{font-weight:650;letter-spacing:-.025em}
+.stat strong,.h-rank,.h-heat strong,.m-number,.m-lead strong,.m-summary strong,.b-report-count b{font-family:var(--display);font-variant-numeric:tabular-nums}
+/* Navigation icons become a consistent visual system rather than loose glyphs. */
+.navitem>.ico{width:17px;height:17px;padding:6px;box-sizing:content-box;border-radius:8px;background:var(--icon-bg);color:var(--accent);stroke-width:1.75;transition:transform .16s ease,background .16s ease}
+.navitem:hover>.ico{transform:translateY(-1px);background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.navitem.active>.ico{background:var(--lime);color:var(--ink)}
+.navitem{border-radius:10px}.navitem.active{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+/* Small icon pills reused by cards and feeds. */
+.mini-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--raised);color:var(--accent);flex:none}
+.mini-icon .ico{width:14px;height:14px;stroke-width:1.8}
+.label-icon{display:inline-flex;align-items:center;gap:6px}.label-icon>.ico{width:14px;height:14px;color:var(--accent);stroke-width:1.8}
+.badge{display:inline-flex;align-items:center;gap:5px}.badge>.ico{width:13px;height:13px}
+.h-cat{display:inline-flex;align-items:center;gap:5px}.h-cat>.ico{width:13px;height:13px}
+.h-board-head h2,.v-sectionline h2,.m-tablehead h2{display:flex;align-items:center;gap:9px}.h-board-head h2>.ico,.v-sectionline h2>.ico,.m-tablehead h2>.ico{width:18px;height:18px;color:var(--accent)}
+.v-fastlinks a>span:first-child{font-family:var(--display);font-weight:800}
+/* Slightly friendlier geometry to match the new typeface. */
+.task-card,.v-article,.h-board,.h-stream,.m-tablebox,.b-card,.featured,.sector-gateway{border-radius:14px}
+.button,.searchbox,.h-search,.m-search,.b-search,.m-select,.search-options select{border-radius:9px}
+.chip,.m-segment,.b-filter,.h-tab{font-weight:550}
+@media(max-width:760px){.brand strong{font-size:1.3rem}.navitem>.ico{padding:5px}.hero-text h1,.v-home-intro h1{letter-spacing:-.05em}}
+.section-head h2{display:flex;align-items:center;gap:10px}
+.h-tab,.m-hubtab{display:inline-flex;align-items:center;gap:7px}
+.h-tab>.ico,.m-hubtab>.ico{width:14px;height:14px;stroke-width:1.8}
+.m-hubtab>.ico{color:var(--accent)}
+.b-category>.ico{width:13px;height:13px;color:var(--tone)}
+.v-type>.ico{width:13px;height:13px}
+.gateway-top .label-icon>.ico{width:14px;height:14px}
+.h-sub .h-cat{font-weight:600}
+.feature-symbol{font-family:var(--display);font-weight:700}
