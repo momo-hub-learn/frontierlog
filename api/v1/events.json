@@ -1,0 +1,205 @@
+{
+  "snapshot": "2026-09-20",
+  "events": [
+    {
+      "id": "docling-v2-129",
+      "task": "docling",
+      "date": "2026-09-18",
+      "kind": "release",
+      "title": "图表抽取支持通用引擎选项",
+      "summary": "v2.129.0 调整图表抽取引擎选项，并包含表格与文档处理修复。",
+      "delta": "更灵活的图表处理配置；具体质量变化仍需实测。",
+      "sources": [
+        "docling-release"
+      ],
+      "reviewed": "2026-09-20",
+      "tag": "v2.129.0",
+      "short_title": "图表抽取引擎更新"
+    },
+    {
+      "id": "browser-v0-13-10",
+      "task": "browser-use",
+      "date": "2026-09-04",
+      "kind": "release",
+      "title": "更新 MCP 接口与依赖约束",
+      "summary": "0.13.10 升级 MCP Python SDK，并将未知工具调用报告为应用错误。",
+      "delta": "减少把未知工具调用视作成功的情况；不据此推断任务成功率。",
+      "sources": [
+        "browser-release"
+      ],
+      "reviewed": "2026-09-20",
+      "tag": "0.13.10"
+    },
+    {
+      "id": "alphaevolve-launch",
+      "task": "alphaevolve",
+      "date": "2025-05-14",
+      "kind": "research",
+      "title": "公布算法演化研究",
+      "summary": "介绍由代码生成、自动评价和演化搜索组成的研究系统。",
+      "delta": "用外部评价筛选候选方案，而不只依赖模型自评。",
+      "sources": [
+        "alphaevolve"
+      ],
+      "reviewed": "2026-09-20"
+    },
+    {
+      "id": "graphrag-dynamic",
+      "task": "graphrag",
+      "date": "2024-11-15",
+      "kind": "research",
+      "title": "全局查询加入动态社区选择",
+      "summary": "查询时先选择相关社区，再组织回答。",
+      "delta": "更有选择地使用图索引，研究中讨论了成本与质量权衡。",
+      "sources": [
+        "graphrag-dynamic"
+      ],
+      "reviewed": "2026-09-20"
+    },
+    {
+      "id": "docling-paper",
+      "task": "docling",
+      "date": "2024-08-19",
+      "kind": "research",
+      "title": "发布 Docling 技术报告首版",
+      "summary": "介绍用于文档转换的开源工具和模型组件。",
+      "delta": "公开文档结构化路线，便于开发者进一步复验。",
+      "sources": [
+        "docling-report"
+      ],
+      "reviewed": "2026-09-20"
+    },
+    {
+      "id": "graphrag-launch",
+      "task": "graphrag",
+      "date": "2024-07-02",
+      "kind": "release",
+      "title": "GraphRAG 开源",
+      "summary": "公开围绕知识图谱和社区摘要组织检索的方法。",
+      "delta": "开发者可以沿公开实现检查构建和查询流程。",
+      "sources": [
+        "graphrag-launch"
+      ],
+      "reviewed": "2026-09-20"
+    }
+  ],
+  "sources": [
+    {
+      "id": "openhands",
+      "title": "OpenHands · Agent Canvas",
+      "publisher": "OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "graphrag",
+      "title": "GraphRAG · 官方实现",
+      "publisher": "Microsoft",
+      "url": "https://github.com/microsoft/graphrag",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "graphrag-launch",
+      "title": "GraphRAG 开源发布",
+      "publisher": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/",
+      "published": "2024-07-02",
+      "checked": "2026-09-20",
+      "kind": "官方发布"
+    },
+    {
+      "id": "graphrag-dynamic",
+      "title": "GraphRAG 动态社区选择",
+      "publisher": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/",
+      "published": "2024-11-15",
+      "checked": "2026-09-20",
+      "kind": "作者研究"
+    },
+    {
+      "id": "docling",
+      "title": "Docling · 文档与实现",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "docling-report",
+      "title": "Docling 技术报告",
+      "publisher": "Docling authors",
+      "url": "https://arxiv.org/abs/2408.09869",
+      "published": "2024-08-19",
+      "checked": "2026-09-20",
+      "kind": "作者研究"
+    },
+    {
+      "id": "docling-release",
+      "title": "Docling v2.129.0",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.129.0",
+      "published": "2026-09-18",
+      "checked": "2026-09-20",
+      "kind": "官方发布"
+    },
+    {
+      "id": "browser-use",
+      "title": "Browser Use · 官方实现",
+      "publisher": "Browser Use",
+      "url": "https://github.com/browser-use/browser-use",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "browser-release",
+      "title": "Browser Use 0.13.10",
+      "publisher": "Browser Use",
+      "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.10",
+      "published": "2026-09-04",
+      "checked": "2026-09-20",
+      "kind": "官方发布"
+    },
+    {
+      "id": "alphaevolve",
+      "title": "AlphaEvolve 原始研究",
+      "publisher": "Google DeepMind",
+      "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "published": "2025-05-14",
+      "checked": "2026-09-20",
+      "kind": "作者研究"
+    },
+    {
+      "id": "ai-scientist",
+      "title": "The AI Scientist · 官方实现",
+      "publisher": "Sakana AI",
+      "url": "https://github.com/SakanaAI/AI-Scientist",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "whisper",
+      "title": "Whisper · 模型与实现",
+      "publisher": "OpenAI",
+      "url": "https://github.com/openai/whisper",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    },
+    {
+      "id": "mathlib",
+      "title": "mathlib4 · 数学库",
+      "publisher": "Lean community",
+      "url": "https://github.com/leanprover-community/mathlib4",
+      "published": null,
+      "checked": "2026-09-20",
+      "kind": "官方仓库"
+    }
+  ]
+}
