@@ -1,15 +1,15 @@
 'use strict';
 /* AI坐标 v2 UI refactor: fewer templates, denser data, clearer hierarchy. */
 (()=>{
-pages.models[0]='AI 能力地图'; pages.benchmarks[0]='Benchmark'; pages.tibo[0]='Tibo 重置';
+pages.models[0]='模型榜'; pages.benchmarks[0]='模型榜 / Benchmark'; pages.tibo[0]='Tibo 重置';
 
 function v2Count(key){
  const counts={benchmarks:BENCH.items.length,models:MODEL_DATA.boards.reduce((n,b)=>n+b.rows.length,0),tibo:RESET_DATA.events.length,hot:HOT.items.length,feed:typeof aicCuratedRows==='function'?aicCuratedRows().length:HOT.items.length,progress:DATA.items.length,activity:DATA.events.length+(UP.releases||[]).length,toolkit:DATA.items.filter(t=>t.status==='code').length,topics:VERT.topics.length,pharma:VERT.articles.filter(a=>a.sector==='pharma').length,manufacturing:VERT.articles.filter(a=>a.sector==='manufacturing').length,saved:saved.size+articleSaved.size+msaved.size+bSaved.size};
  return counts[key]??0;
 }
 renderNav=function(){
- const groups=[['内容',['feed','hot','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']],['能力地图',['models','benchmarks']],['我的',['saved']],['工具',['tibo']]];
- const active=state.view==='benchmarks'?'benchmarks':state.view;
+ const groups=[['内容',['feed','hot','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']],['模型',['models']],['我的',['saved']],['工具',['tibo']]];
+ const active=state.view==='benchmarks'?'models':state.view;
  $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
  $('#crumb').textContent=pages[state.view][0];
  $('#source-count').textContent=DATA.sources.length+VERT.sources.length+MODEL_DATA.sources.length+RESET_DATA.sources.length+BENCH.sources.length;
