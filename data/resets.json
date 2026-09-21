@@ -4,32 +4,6 @@
   "account": "thsottiaux",
   "events": [
     {
-      "id": "tibo-hint-2026-09-21-3am-tuesday",
-      "kind": "announcement",
-      "status": "pending",
-      "date": "2026-09-21",
-      "published_at": "2026-09-21T06:26:00Z",
-      "effective_at": null,
-      "precision": "instant",
-      "source_timezone": "UTC",
-      "title": "Tibo 回复“3am on a Tuesday”：像时间暗示，但还不是重置公告",
-      "summary": "公开追踪页记录 Tibo 在回复中只写了“3am on a tuesday”。这句话本身没有出现 reset、时区、适用套餐或“已执行”措辞；只有结合回复上下文时，才可能被理解为下一次 reset 的时间暗示。",
-      "scope": "上下文相关的时间线索 · 适用范围未知",
-      "boundary": "不能据此断言“周二 3:00 一定重置”，也不能自行假设是旧金山时间或北京时间。需要读取被回复原帖，并等待 Tibo 后续明确预告或完成确认。",
-      "sources": [
-        "codexresets-tracker",
-        "tibo-post-2101920928070562029"
-      ],
-      "reviewed": "2026-09-22",
-      "review_basis": "secondary_lead",
-      "related_ids": [],
-      "original_text": "3am on a tuesday",
-      "interpretation": "更像对某个时间问题的极短回答；如果上文确实问的是 Codex reset，则属于低置信度 timing hint，而不是执行完成证据。",
-      "evidence_strength": "low",
-      "semantic_type": "timing_hint",
-      "not_proves": "未确认时区、日期对应哪一个周二、适用套餐，以及 reset 是否一定会发生。"
-    },
-    {
       "id": "banked-2026-09-03",
       "kind": "banked",
       "status": "confirmed",
@@ -129,6 +103,32 @@
       "reviewed": "2026-09-21",
       "review_basis": "secondary_lead",
       "related_ids": []
+    },
+    {
+      "id": "tibo-hint-2026-09-21-3am-tuesday",
+      "kind": "announcement",
+      "status": "pending",
+      "date": "2026-09-21",
+      "published_at": "2026-09-21T06:26:00Z",
+      "effective_at": null,
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 回复“3am on a Tuesday”：像时间暗示，但还不是重置公告",
+      "summary": "公开追踪页记录 Tibo 在回复中只写了“3am on a tuesday”。这句话本身没有出现 reset、时区、适用套餐或“已执行”措辞；只有结合回复上下文时，才可能被理解为下一次 reset 的时间暗示。",
+      "scope": "上下文相关的时间线索 · 适用范围未知",
+      "boundary": "不能据此断言“周二 3:00 一定重置”，也不能自行假设是旧金山时间或北京时间。需要读取被回复原帖，并等待 Tibo 后续明确预告或完成确认。",
+      "sources": [
+        "codexresets-tracker",
+        "tibo-post-2101920928070562029"
+      ],
+      "reviewed": "2026-09-22",
+      "review_basis": "secondary_lead",
+      "related_ids": [],
+      "original_text": "3am on a tuesday",
+      "interpretation": "更像对某个时间问题的极短回答；如果上文确实问的是 Codex reset，则属于低置信度 timing hint，而不是执行完成证据。",
+      "evidence_strength": "low",
+      "semantic_type": "timing_hint",
+      "not_proves": "未确认时区、日期对应哪一个周二、适用套餐，以及 reset 是否一定会发生。"
     }
   ],
   "sources": [
