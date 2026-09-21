@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "name": "HotPolicy",
+  "mode": "shadow",
+  "decision_interval_minutes": 60,
+  "reward_horizon_hours": 24,
+  "actions": [
+    "publish",
+    "hold",
+    "merge"
+  ],
+  "status": "bootstrap",
+  "note": "每小时评估是否值得更新，但当前只做影子决策，不自动改写人工精选。积累足够反馈后再启用延迟奖励 contextual bandit。",
+  "features": [
+    {
+      "id": "heat_now",
+      "title": "当前热度",
+      "description": "候选在当前小时的站内热度信号。"
+    },
+    {
+      "id": "heat_velocity",
+      "title": "热度速度",
+      "description": "最近几个小时热度变化速度，用来估计全天最终热度。"
+    },
+    {
+      "id": "novelty",
+      "title": "新增信息量",
+      "description": "与已发布内容相比，是否出现真正的新变化。"
+    },
+    {
+      "id": "authority",
+      "title": "来源可信度",
+      "description": "官方、一手研究、独立复现等来源级别。"
+    },
+    {
+      "id": "impact",
+      "title": "影响范围",
+      "description": "是否改变模型、工具链、业务流程或重要 Benchmark。"
+    },
+    {
+      "id": "user_match",
+      "title": "用户关注匹配",
+      "description": "与用户订阅主题、模型和行业的匹配程度。"
+    },
+    {
+      "id": "fatigue",
+      "title": "更新疲劳",
+      "description": "同主题短时间重复更新的惩罚。"
+    },
+    {
+      "id": "hours_since_publish",
+      "title": "距上次更新",
+      "description": "避免为了凑整点而发布低价值内容。"
+    }
+  ],
+  "bootstrap": {
+    "weights": {
+      "expected_24h_heat": 0.34,
+      "novelty": 0.18,
+      "authority": 0.12,
+      "impact": 0.14,
+      "user_match": 0.14,
+      "freshness": 0.08
+    },
+    "fatigue_penalty": 0.18,
+    "publish_threshold": 0.67,
+    "merge_threshold": 0.52,
+    "minimum_gap_minutes": 45
+  },
+  "learning": {
+    "algorithm": "delayed-reward contextual bandit",
+    "trained": false,
+    "minimum_feedback_events": 500,
+    "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
+    "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
+  },
+  "last_evaluated": null,
+  "last_decision": null
+}
