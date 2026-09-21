@@ -25,6 +25,13 @@ def validate_hot(data:dict)->None:
         if item['trend'] not in {'up','flat','down'}: raise ValueError('Invalid trend')
         published=date.fromisoformat(item['published'])
         if published>checked: raise ValueError('Future hot event')
+        # Precise timeline timestamps are optional but, when present, must be timezone-aware ISO 8601.
+        for time_key in ('published_at','first_seen_at','captured_at'):
+            raw=item.get(time_key)
+            if raw:
+                precise=datetime.fromisoformat(str(raw).replace('Z','+00:00'))
+                if precise.tzinfo is None: raise ValueError('Hot timestamp must include timezone: '+time_key)
+                if precise.date()>checked: raise ValueError('Future hot timestamp: '+time_key)
         if date.fromisoformat(item['checked'])>checked: raise ValueError('Item checked after snapshot')
         u=urlparse(item['url'])
         if u.scheme!='https' or not u.hostname or u.username or u.password: raise ValueError('Unsafe hot source URL')
@@ -46,6 +53,11 @@ def hot_rss(data:dict,site:dict)->bytes:
         i=ET.SubElement(c,'item');ET.SubElement(i,'title').text=x['title']
         ET.SubElement(i,'guid',isPermaLink='false').text='frontierlog:hot:'+x['id']
         ET.SubElement(i,'link').text=x['url']
-        ET.SubElement(i,'pubDate').text=format_datetime(datetime.fromisoformat(x['published']).replace(tzinfo=timezone.utc))
+        precise=x.get('published_at')
+        if precise:
+            pub_dt=datetime.fromisoformat(str(precise).replace('Z','+00:00'))
+        else:
+            pub_dt=datetime.fromisoformat(x['published']).replace(tzinfo=timezone.utc)
+        ET.SubElement(i,'pubDate').text=format_datetime(pub_dt)
         ET.SubElement(i,'description').text=x['summary']+'\n\n为什么值得看：'+x['why']+'\n\n边界：'+x['boundary']+'\n\n站内热度 '+str(x['heat'])+'；不是全网流量。'
     return ET.tostring(root,encoding='utf-8',xml_declaration=True)
