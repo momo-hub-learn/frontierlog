@@ -58,7 +58,9 @@ class ValidationTests(unittest.TestCase):
   with self.assertRaises(ValueError):validate_models(d)
  def test_feed_keeps_sources_no_fake_pubdate(self):
   xml=ET.fromstring(reset_rss(E,SITE));items=xml.findall('./channel/item')
-  self.assertEqual(len(items),len(E['events']));self.assertTrue(all(i.find('pubDate') is None for i in items))
+  self.assertEqual(len(items),len(E['events']))
+  precise=sum(1 for e in E['events'] if e['precision']=='instant')
+  self.assertEqual(sum(i.find('pubDate') is not None for i in items),precise)
   self.assertTrue(any('待核验' in i.findtext('title') for i in items));self.assertIn('help.openai.com',ET.tostring(xml,encoding='unicode'))
  def test_model_feed_boards_separate_stable_guids(self):
   a=ET.fromstring(model_rss(M,SITE));b=ET.fromstring(model_rss(M,SITE))
