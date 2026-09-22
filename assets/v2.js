@@ -24,7 +24,7 @@ function v2Count(key){
 renderNav=function(){
  const groups=[['内容',['feed','hot','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']],['模型',['models']],['我的',['saved']],['工具',['tibo']]];
  const active=state.view==='benchmarks'?'models':state.view;
- $('#nav').innerHTML=groups.map(([label,keys])=>{const base=`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`;if(label!=='模型')return base;return base+`<details class="model-company-directory" open><summary><span>模型公司</span><small>${MODEL_COMPANIES.length}</small></summary><div class="model-company-grid">${MODEL_COMPANIES.map(c=>`<a href="${safeLink(c.url)}" target="_blank" rel="noopener noreferrer" title="${esc(c.name)}"><span>${esc(c.short||c.name)}</span>${icon('external')}</a>`).join('')}</div></details>`}).join('');
+ $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
  $('#crumb').textContent=pages[state.view][0];
  $('#source-count').textContent=DATA.sources.length+VERT.sources.length+MODEL_DATA.sources.length+RESET_DATA.sources.length+BENCH.sources.length;
  $('#snapshot-date').textContent=VERT.checked.replaceAll('-','.');
