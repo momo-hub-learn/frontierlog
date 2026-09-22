@@ -2,6 +2,20 @@
 /* AI坐标 v2 UI refactor: fewer templates, denser data, clearer hierarchy. */
 (()=>{
 pages.models[0]='模型榜'; pages.benchmarks[0]='模型榜 / Benchmark'; pages.tibo[0]='Tibo 重置';
+const MODEL_COMPANIES=[
+ {id:'openai',name:'OpenAI',aliases:['OpenAI'],url:'https://openai.com/'},
+ {id:'anthropic',name:'Anthropic',aliases:['Anthropic'],url:'https://www.anthropic.com/claude'},
+ {id:'google',name:'Google DeepMind',short:'Google',aliases:['Google'],url:'https://deepmind.google/models/'},
+ {id:'meta',name:'Meta AI',short:'Meta',aliases:['Meta'],url:'https://ai.meta.com/llama/'},
+ {id:'qwen',name:'Qwen · Alibaba',short:'Qwen',aliases:['Alibaba'],url:'https://qwenlm.github.io/'},
+ {id:'deepseek',name:'DeepSeek',aliases:['DeepSeek'],url:'https://www.deepseek.com/en/'},
+ {id:'moonshot',name:'Moonshot · Kimi',short:'Kimi',aliases:['Kimi','Moonshot'],url:'https://www.kimi.com/'},
+ {id:'minimax',name:'MiniMax',aliases:['MiniMax'],url:'https://www.minimax.io/'},
+ {id:'zai',name:'Z.ai',aliases:['Z AI','Z.ai'],url:'https://z.ai/'},
+ {id:'xai',name:'xAI',aliases:['SpaceXAI','xAI'],url:'https://x.ai/'}
+];
+window.MODEL_COMPANIES=MODEL_COMPANIES;
+
 
 function v2Count(key){
  const counts={benchmarks:BENCH.items.length,models:MODEL_DATA.boards.reduce((n,b)=>n+b.rows.length,0),tibo:RESET_DATA.events.length,hot:HOT.items.length,feed:typeof aicCuratedRows==='function'?aicCuratedRows().length:HOT.items.length,progress:DATA.items.length,activity:DATA.events.length+(UP.releases||[]).length,toolkit:DATA.items.filter(t=>t.status==='code').length,topics:VERT.topics.length,pharma:VERT.articles.filter(a=>a.sector==='pharma').length,manufacturing:VERT.articles.filter(a=>a.sector==='manufacturing').length,saved:saved.size+articleSaved.size+msaved.size+bSaved.size};
@@ -10,7 +24,7 @@ function v2Count(key){
 renderNav=function(){
  const groups=[['内容',['feed','hot','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']],['模型',['models']],['我的',['saved']],['工具',['tibo']]];
  const active=state.view==='benchmarks'?'models':state.view;
- $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
+ $('#nav').innerHTML=groups.map(([label,keys])=>{const base=`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`;if(label!=='模型')return base;return base+`<details class="model-company-directory" open><summary><span>模型公司</span><small>${MODEL_COMPANIES.length}</small></summary><div class="model-company-grid">${MODEL_COMPANIES.map(c=>`<a href="${safeLink(c.url)}" target="_blank" rel="noopener noreferrer" title="${esc(c.name)}"><span>${esc(c.short||c.name)}</span>${icon('external')}</a>`).join('')}</div></details>`}).join('');
  $('#crumb').textContent=pages[state.view][0];
  $('#source-count').textContent=DATA.sources.length+VERT.sources.length+MODEL_DATA.sources.length+RESET_DATA.sources.length+BENCH.sources.length;
  $('#snapshot-date').textContent=VERT.checked.replaceAll('-','.');
