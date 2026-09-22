@@ -7,12 +7,26 @@ const MODEL_COMPANIES=[
  {id:'anthropic',name:'Anthropic',aliases:['Anthropic'],url:'https://www.anthropic.com/claude'},
  {id:'google',name:'Google DeepMind',short:'Google',aliases:['Google'],url:'https://deepmind.google/models/'},
  {id:'meta',name:'Meta AI',short:'Meta',aliases:['Meta'],url:'https://ai.meta.com/llama/'},
- {id:'qwen',name:'Qwen · Alibaba',short:'Qwen',aliases:['Alibaba'],url:'https://qwenlm.github.io/'},
+ {id:'alibaba',name:'Alibaba',aliases:['Alibaba'],url:'https://www.alibabagroup.com/en-US'},
  {id:'deepseek',name:'DeepSeek',aliases:['DeepSeek'],url:'https://www.deepseek.com/en/'},
- {id:'moonshot',name:'Moonshot · Kimi',short:'Kimi',aliases:['Kimi','Moonshot'],url:'https://www.kimi.com/'},
+ {id:'moonshot',name:'Moonshot AI · Kimi',short:'Kimi',aliases:['Kimi','Moonshot'],url:'https://www.kimi.com/'},
  {id:'minimax',name:'MiniMax',aliases:['MiniMax'],url:'https://www.minimax.io/'},
  {id:'zai',name:'Z.ai',aliases:['Z AI','Z.ai'],url:'https://z.ai/'},
- {id:'xai',name:'xAI',aliases:['SpaceXAI','xAI'],url:'https://x.ai/'}
+ {id:'xai',name:'xAI',aliases:['SpaceXAI','xAI'],url:'https://x.ai/'},
+ {id:'microsoft-ai',name:'Microsoft AI',aliases:['Microsoft AI'],url:'https://microsoft.ai/models/'},
+ {id:'bytedance-seed',name:'ByteDance Seed',aliases:['ByteDance Seed','ByteDance'],url:'https://seed.bytedance.com/en/'},
+ {id:'fal',name:'fal',aliases:['Fal'],url:'https://fal.ai/'},
+ {id:'hidream',name:'HiDream',aliases:['HiDream'],url:'https://hidream.ai/'},
+ {id:'xgen',name:'XGEN Labs',aliases:['XGEN Labs'],url:'https://xgenlabs.ai/'},
+ {id:'kling',name:'Kling AI',aliases:['Kling AI'],url:'https://kling.ai/'},
+ {id:'robbyant',name:'Robbyant · Ant Group',short:'Robbyant',aliases:['LingBot'],url:'https://www.robbyant.com/'},
+ {id:'nvidia',name:'NVIDIA',aliases:['NVIDIA'],url:'https://www.nvidia.com/en-us/ai/'},
+ {id:'tencent-arc',name:'Tencent ARC',aliases:['Research'],url:'https://github.com/TencentARC/RollingForcing'},
+ {id:'yume',name:'Yume Project',short:'Yume',aliases:['Yume'],url:'https://stdstu12.github.io/YUME-Project/'},
+ {id:'cartesia',name:'Cartesia',aliases:['Cartesia'],url:'https://www.cartesia.ai/'},
+ {id:'inworld',name:'Inworld',aliases:['Inworld'],url:'https://inworld.ai/'},
+ {id:'speechifyai',name:'SpeechifyAI',aliases:['SpeechifyAI'],url:'https://speechify.ai/'},
+ {id:'vui-labs',name:'VUI Labs',aliases:['VUI Labs'],url:'https://doc.vuilabs.ai/api-reference/system-voices/'}
 ];
 window.MODEL_COMPANIES=MODEL_COMPANIES;
 
