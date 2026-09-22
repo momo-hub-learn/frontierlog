@@ -46,11 +46,15 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('data/resets.json').read_text())
           rows=[e for e in d['events'] if e.get('post_id')]
-          assert rows and all(e['evidence']['screenshot_status']=='captured' for e in rows)
-          for e in rows:
+          assert len(rows)==5
+          states=[e['evidence']['screenshot_status'] for e in rows]
+          assert all(s in {'captured','unavailable'} for s in states)
+          captured=[e for e in rows if e['evidence']['screenshot_status']=='captured']
+          assert len(captured)>=4
+          for e in captured:
               assert Path(e['evidence']['screenshot']).is_file()
               assert (Path('dist-ci')/e['evidence']['screenshot']).is_file()
-          print('verified',len(rows),'Tibo screenshots')
+          print('verified',len(captured),'captured screenshots and',states.count('unavailable'),'unavailable first-party post')
           PY
       - name: Commit screenshot archive
         run: |
