@@ -1,17 +1,6 @@
 name: Capture Tibo screenshots
 
 on:
-  push:
-    branches: [tibo-static-screenshots-20260922]
-    paths:
-      - scripts/capture_tibo_posts.mjs
-      - data/resets.json
-      - .github/workflows/capture-tibo-screenshots.yml
-      - tests/test_models.py
-      - scripts/model_data.py
-      - scripts/build.py
-      - src/tibo-intel.js
-      - src/tibo-intel.css
   workflow_dispatch:
 
 permissions:
