@@ -61,7 +61,7 @@ function v2Progress(){
  const usable=DATA.items.filter(t=>t.status==='code');
  const research=DATA.items.filter(t=>t.status==='research');
  const item=(t,mode)=>{const label=mode==='open'?'可运行':'研究阶段';return `<button class="v2-cap-row" data-action="task" data-id="${t.id}"><span class="v2-cap-state ${mode}"></span><span><strong>${esc(t.title)}</strong><small>${label} · ${esc(t.category)} · ${esc(t.name)}</small></span><span class="v2-cap-copy"><b style="color:var(--text);font-weight:650">能做：</b>${esc(t.summary)}<br><span style="color:var(--muted)">最大限制：</span>${esc(t.boundary)}</span>${icon('arrow')}</button>`};
- $('#content').innerHTML=`<div class="v2-pageintro"><div><p class="eyebrow">WHAT AI CAN ACTUALLY DO</p><h1>AI 又能干什么了？</h1><p>先看你能做什么，再看成熟度与最大限制；项目名只做次级信息。</p></div><span class="v2-pagecount">${DATA.items.length} 个任务</span></div>
+ $('#content').innerHTML=`<div class="v2-pageintro v2-single-title"><div><h1>AI，又能干什么了？</h1><p>看现在能做什么、成熟到哪、还卡在哪里。</p><small>项目名只做次级信息；公开实现不等于已经通过业务验收。</small></div><span class="v2-pagecount">${DATA.items.length} 个任务</span></div>
  <div class="v2-cap-status-grid">
   <section class="wide"><header><span class="v2-status-dot open"></span><div><h2>现在能用</h2><p>有公开实现或可运行路径；仍需你自己的业务验收。</p></div><b>${usable.length}</b></header><div>${usable.map(t=>item(t,'open')).join('')}</div></section>
   <section class="wide"><header><span class="v2-status-dot research"></span><div><h2>还在研究</h2><p>有研究证据，但访问、稳定性或复现条件还不够成熟。</p></div><b>${research.length}</b></header><div>${research.map(t=>item(t,'research')).join('')||'<p class="v2-emptyline">暂无单独研究阶段任务。</p>'}</div></section>
@@ -75,7 +75,7 @@ function v2Activity(){
  const groups={}; DATA.events.forEach(e=>(groups[e.task]??=[]).push(e)); (UP.releases||[]).forEach(e=>(groups[e.task]??=[]).push({...e,kind:'upstream',date:(e.published_at||'').slice(0,10),summary:e.name||'上游版本发布',delta:'机器收录，尚未人工核验。'}));
  const rows=Object.entries(groups).map(([id,ev])=>({task:tasks.get(id),events:ev.sort((a,b)=>b.date.localeCompare(a.date))})).filter(x=>x.task).sort((a,b)=>(b.events[0]?.date||'').localeCompare(a.events[0]?.date||''));
  const status=e=>e.kind==='research'?['研究','research']:e.kind==='upstream'?['待核验','pending']:['公开发布','release'];
- $('#content').innerHTML=`<div class="v2-pageintro v2-single-title"><div><h1>发布会之后：当时说了什么，后来真的发生了什么？</h1><p>按项目保留公开发布、研究变化和待核验版本，不把“宣布”写成“已可用”。</p></div><span class="v2-pagecount">${DATA.events.length} 条已核对事件</span></div>
+ $('#content').innerHTML=`<div class="v2-pageintro v2-single-title"><div><h1>发布会之后</h1><p>当时说了什么，后来真的发生了什么？</p><small>按项目保留公开发布、研究变化和待核验版本，不把“宣布”写成“已可用”。</small></div><span class="v2-pagecount">${DATA.events.length} 条已核对事件</span></div>
  <div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map((e,i)=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><span class="v2-life-chip">${label}</span><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div>`;
 }
 
@@ -84,7 +84,7 @@ function v2Toolkit(){
  $('#section-eyebrow').textContent='RUN IT TODAY'; $('#section-title').innerHTML=`<span class="mini-icon">${icon('wrench')}</span><span>今天能跑</span>`;
  $('#layout-buttons').hidden=true; $('#toolbar').hidden=true; $('#contextline').hidden=true;
  const tools=DATA.items.filter(t=>t.status==='code');
- $('#content').innerHTML=`<div class="v2-pageintro v2-single-title"><div><h1>今天能跑：少解释，先找到入口。</h1><p>只列有公开实现的任务；运行条件、命令和验收清单放在一张卡里。</p></div><span class="v2-pagecount">${tools.length} 个工具</span></div>
+ $('#content').innerHTML=`<div class="v2-pageintro v2-single-title"><div><h1>今天能跑</h1><p>少解释，先找到入口。</p><small>只列有公开实现的任务；运行条件、命令和验收清单放在一张卡里。</small></div><span class="v2-pagecount">${tools.length} 个工具</span></div>
  <div class="v2-tool-grid">${tools.map(t=>`<article class="v2-tool"><header>${identity(t,true)}<span class="v2-tool-state">${t.tested?'本站已实测':'官方路径 · 未实测'}</span></header><h2>${esc(t.title)}</h2><p>${esc(t.summary)}</p><dl><dt>准备</dt><dd>${esc(t.requirements)}</dd><dt>验收</dt><dd>${esc(t.checks.slice(0,2).join(' · '))}</dd></dl>${t.command?`<div class="v2-command"><code>${esc(t.command.split('\n')[0])}</code><button data-action="run" data-id="${t.id}">${icon('copy')}</button></div>`:''}<footer><span>${esc(t.effort)}</span><button class="button small" data-action="run" data-id="${t.id}">上手路径 ${icon('arrow')}</button></footer></article>`).join('')}</div>`;
 }
 
