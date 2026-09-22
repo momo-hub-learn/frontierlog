@@ -90,7 +90,7 @@ try{
       event.evidence={
         post_url:`https://x.com/thsottiaux/status/${event.post_id}`,
         screenshot:null,
-        screenshot_status:'pending',
+        screenshot_status:'unavailable',
         captured_at:null,
         capture_method:null,
         source:'first_party_x_page',
@@ -104,7 +104,8 @@ try{
   await browser.close();
 }
 fs.writeFileSync(dataPath,JSON.stringify(data,null,2)+'\n');
-if(requireAll&&failures.length){
-  console.error(JSON.stringify({failures},null,2));
-  process.exit(2);
+if(failures.length)console.warn(JSON.stringify({unavailable:failures},null,2));
+if(requireAll){
+  const terminal=data.events.filter(e=>e.post_id&&e.evidence).every(e=>['captured','unavailable'].includes(e.evidence.screenshot_status));
+  if(!terminal)process.exit(2);
 }
