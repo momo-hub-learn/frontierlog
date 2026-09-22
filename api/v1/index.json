@@ -37,6 +37,22 @@
     ],
     "items": [
       {
+        "id": "claude-opus-55-20260922",
+        "category": "model",
+        "heat": 98,
+        "trend": "up",
+        "published": "2026-09-22",
+        "checked": "2026-09-22",
+        "title": "Anthropic 发布 Claude Opus 5.5：称多数工作达 Fable 5.1 水平，典型成本低 40%",
+        "summary": "Anthropic 9 月 22 日发布 Claude Opus 5.5。官方称其在多数工作达到 Claude Fable 5.1 水平；典型工作负载成本比 Opus 5 低 40%，输出速度快 30% 以上，API 定价降至每百万输入 / 输出 Token 4 / 20 美元。",
+        "why": "这是同日旗舰模型更新，同时带出明确的前瞻信号：Anthropic 预告 Sonnet 5.5 与 Haiku 5.5 将在未来数周跟进。能力、成本和产品节奏同时变化，比单一 Benchmark 涨分更值得优先跟踪。",
+        "boundary": "性能与成本结论主要来自 Anthropic 官方发布和其披露的评测设置；截至本轮核验，尚未发现 Artificial Analysis Intelligence Index 对 Opus 5.5 的独立同口径快照，因此不把厂商 Benchmark 直接写入本站独立模型榜，也不据此宣称其已在第三方综合榜排名第一。",
+        "source": "Anthropic",
+        "source_kind": "官方发布 / 官方评测 / 明确预告",
+        "url": "https://www.anthropic.com/claude-opus-5-5",
+        "link": "#/hot"
+      },
+      {
         "id": "agents-api-20260910",
         "category": "product",
         "heat": 96,
@@ -179,22 +195,6 @@
         "source_kind": "官方新闻稿",
         "url": "https://www.asml.com/en/news/press-releases/2026/tsmc-and-asml-announce-industry-transition-to-large-format-photomasks-for-high-na-euv",
         "link": "#/manufacturing?topic=fab-equipment"
-      },
-      {
-        "id": "aa-index-43-20260907",
-        "category": "benchmark",
-        "heat": 80,
-        "trend": "up",
-        "published": "2026-09-07",
-        "checked": "2026-09-22",
-        "title": "Artificial Analysis Intelligence Index 升到 v4.3：加入 AutomationBench-AA",
-        "summary": "新版本加入面向 Agent 工作流自动化的私有测试集，并升级 Terminal-Bench，继续向更真实的 Agent 任务移动。",
-        "why": "模型榜的变化不只是模型变强，评测本身也在换题、加私有集和提高任务复杂度。",
-        "boundary": "指数版本变化会改变可比性；不能把不同版本分数直接当作同一把尺。",
-        "source": "Artificial Analysis",
-        "source_kind": "评测方方法更新",
-        "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
-        "link": "#/benchmarks?mode=changes"
       }
     ]
   },
