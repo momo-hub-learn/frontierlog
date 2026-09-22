@@ -111,6 +111,23 @@ def validate_resets(data):
         if e['status'] in {'confirmed','announced'} and (e.get('review_basis')!='primary_source' or not primary.intersection(e['sources'])):fail('Confirmation needs primary-source review')
         if e['kind']=='announcement' and e['status']=='confirmed':fail('An announcement is not a completed reset')
         if not set(e.get('related_ids',[]))<=ids:fail('Unknown related record')
+        if e.get('post_id') is not None:
+            if not re.fullmatch(r'\d{8,32}',str(e['post_id'])):fail('Invalid X post ID')
+            evidence=e.get('evidence')
+            if not isinstance(evidence,dict):fail('Tibo post requires evidence metadata')
+            expected='https://x.com/'+data['account']+'/status/'+str(e['post_id'])
+            if evidence.get('post_url')!=expected:fail('Evidence post URL mismatch')
+            if evidence.get('source')!='first_party_x_page':fail('Evidence source must be first-party X')
+            state=evidence.get('screenshot_status')
+            if state not in {'pending','captured','unavailable'}:fail('Invalid screenshot state')
+            shot=evidence.get('screenshot')
+            if state=='captured':
+                if shot!=f"assets/tibo/{e['post_id']}.png":fail('Screenshot path must match post ID')
+                instant(evidence.get('captured_at'))
+                if evidence.get('capture_method') not in {'platform_twitter_embed','x_post_page','user_supplied_first_party_capture'}:fail('Invalid screenshot capture method')
+                if not re.fullmatch(r'[0-9a-f]{64}',str(evidence.get('sha256') or '')):fail('Invalid screenshot checksum')
+            else:
+                if shot is not None or evidence.get('captured_at') is not None or evidence.get('capture_method') is not None or evidence.get('sha256') is not None:fail('Uncaptured screenshot must not claim capture metadata')
     inbox=data.get('inbox',[])
     if not isinstance(inbox,list) or len(inbox)>3000:fail('Invalid intake')
     identifiers(inbox)
