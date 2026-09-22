@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, tibo-static-screenshots-20260922]
   workflow_dispatch:
 
 permissions:
@@ -32,7 +32,21 @@ jobs:
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "Coding Agent" dist-ci/index.html
           grep -q "分时热点" dist-ci/index.html
-          grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
-          grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
+          grep -q "X 原帖截图 / EVIDENCE" dist-ci/index.html
           grep -q "我们的推断 / INFERENCE" dist-ci/index.html
+          ! grep -q "platform.twitter.com/widgets.js" dist-ci/index.html
           ! grep -q "原帖证据 · 文本快照" dist-ci/index.html
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/resets.json').read_text())
+          rows=[e for e in d['events'] if e.get('post_id')]
+          captured=[e for e in rows if e['evidence']['screenshot_status']=='captured']
+          unavailable=[e for e in rows if e['evidence']['screenshot_status']=='unavailable']
+          assert len(rows)==5
+          assert len(captured)==4
+          assert len(unavailable)==1 and unavailable[0]['post_id']=='2098612714704891959'
+          for e in captured:
+              assert Path(e['evidence']['screenshot']).is_file()
+              assert (Path('dist-ci')/e['evidence']['screenshot']).is_file()
+          PY
