@@ -83,3 +83,8 @@ main{max-width:var(--v2-max-work)}
 .m-company-cell a:hover,.model-maker-link:hover,.v3-company-link:hover{color:var(--accent)}
 .m-company-cell .ico,.model-maker-link .ico,.v3-company-link .ico{width:10px;height:10px;flex:none}
 .v3-company-cell{min-width:0;color:var(--sub);font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Short title + explanatory subtitle, shared by editorial utility pages */
+.v2-single-title h1{margin-bottom:10px}
+.v2-single-title p{font-size:1rem!important;color:var(--sub)!important;line-height:1.6;margin:0}
+.v2-single-title small{display:block;margin-top:5px;font-size:.76rem;line-height:1.6;color:var(--muted);max-width:860px}
