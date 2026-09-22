@@ -263,6 +263,7 @@
       "scope": "Tuesday reset 相关回复 · 类型与适用套餐仍未说明",
       "boundary": "这是临近执行线索，不是完成确认；不能据此认定额度已经重置、确定发生时刻、banked/global 类型或覆盖范围。",
       "sources": [
+        "tibo-post-2102284586713522193",
         "zamantika-tibo-profile"
       ],
       "reviewed": "2026-09-22",
@@ -272,13 +273,14 @@
       ],
       "original_text": "@Cch_Chichieh Burn those tokens",
       "conversation_context": "被回复用户写道“i still have 50% left lmao, need to burn through it before the drop”，并引用 Tibo 的 Tuesday reset 预告。回复语义与即将到来的 reset 一致，但没有执行完成措辞。",
-      "interpretation": "我们理解：这是对“在 reset 前先把剩余额度用掉”的正面回应，说明 Tuesday reset 预告仍然有效、可能临近执行；证据仍只来自公开镜像，尚未取得可直读的一手原帖。",
+      "interpretation": "我们理解：这是对“在 reset 前先把剩余额度用掉”的正面回应，说明 Tuesday reset 预告仍然有效、可能临近执行；已定位对应 X 状态链接，但本站当前仍无法直接读取原帖正文，因此继续保持待核验，不能升级为已执行。",
       "evidence_strength": "low",
       "semantic_type": "reset_related",
       "not_proves": "未证明 reset 已执行、传播完成、额度已到账，也未确认具体时间、banked/global 类型、适用套餐或账户范围。",
       "reply_to_account": "Cch_Chichieh",
       "reply_to_text": "i still have 50% left lmao, need to burn through it before the drop",
-      "relation": "reply"
+      "relation": "reply",
+      "post_id": "2102284586713522193"
     }
   ],
   "sources": [
@@ -407,6 +409,15 @@
       "checked": "2026-09-22",
       "kind": "第三方定位线索",
       "note": "仅用于定位公开文本与帖子关系；不作为 reset 已执行、类型或覆盖范围的确认来源。"
+    },
+    {
+      "id": "tibo-post-2102284586713522193",
+      "publisher": "Tibo / X",
+      "title": "“Burn those tokens” reply",
+      "url": "https://x.com/thsottiaux/status/2102284586713522193",
+      "checked": "2026-09-22",
+      "kind": "原帖待直接核验",
+      "note": "公开线程镜像定位到该 Tibo 回复的 X 状态 ID；当前服务端仍无法直接读取 X 正文，因此该链接用于一手核验入口，不据此升级为 reset 已执行。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
