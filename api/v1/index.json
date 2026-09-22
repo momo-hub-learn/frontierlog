@@ -135,6 +135,23 @@
         "link": "#/models"
       },
       {
+        "id": "gpt-6-prompt-caching-20260922",
+        "category": "product",
+        "heat": 92,
+        "trend": "up",
+        "published": "2026-09-22",
+        "checked": "2026-09-22",
+        "title": "GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热",
+        "summary": "OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。",
+        "why": "对持续数小时的 Agent，瓶颈不只是模型价格，而是重复上下文与工具定义的复算成本。缓存命中可观测、可诊断、可显式控制后，长任务 Agent 的成本与首 Token 延迟更容易工程化优化。",
+        "boundary": "“最高 90%”是缓存输入 Token 的折扣上限，不等于整个任务成本下降 90%；命中率仍受模型、工具、设置和前缀稳定性影响。30 分钟是符合条件共享前缀的复用窗口，不应外推为所有缓存永久有效。",
+        "source": "OpenAI",
+        "source_kind": "官方产品 / 开发者基础设施",
+        "url": "https://openai.com/index/better-prompt-caching-for-gpt-6/",
+        "evidence_level": "high",
+        "link": "#/progress"
+      },
+      {
         "id": "gemini-live-38",
         "category": "model",
         "heat": 92,
@@ -151,38 +168,6 @@
         "link": "#/models"
       },
       {
-        "id": "anthropic-biomolecular-20260917",
-        "category": "research",
-        "heat": 90,
-        "trend": "up",
-        "published": "2026-09-17",
-        "checked": "2026-09-22",
-        "title": "Anthropic：Claude 优化 30+ 生物分子模型，平均加速约 4 倍",
-        "summary": "Anthropic 报告 Claude Science 对开源生物分子建模代码做性能和显存优化，并宣布开放优化代码与蛋白设计竞赛。",
-        "why": "“AI for Science”开始出现能直接改科研工具链、再用湿实验承接验证的路径。",
-        "boundary": "来自作者方研究发布；平均加速不代表每个模型、硬件和任务都有同样收益。",
-        "source": "Anthropic",
-        "source_kind": "作者研究发布",
-        "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
-        "link": "#/pharma?topic=molecules"
-      },
-      {
-        "id": "anthropic-lsvp-20260917",
-        "category": "product",
-        "heat": 88,
-        "trend": "up",
-        "published": "2026-09-17",
-        "checked": "2026-09-22",
-        "title": "Anthropic 开放 Life Sciences Verification Program Beta 申请",
-        "summary": "生命科学团队可申请更适合药物发现、研究生物学、临床开发和制造任务的模型访问与安全策略。",
-        "why": "通用模型的生命科学使用边界正在产品化，而不是只靠单次白名单。",
-        "boundary": "这是访问与安全计划，不是药物研发成功率或监管认可的证明。",
-        "source": "Anthropic",
-        "source_kind": "官方公告",
-        "url": "https://www.anthropic.com/news/life-sciences-verification-program",
-        "link": "#/pharma"
-      },
-      {
         "id": "anthropic-rd-automation-20260917",
         "category": "research",
         "heat": 91,
@@ -197,6 +182,22 @@
         "source_kind": "官方研究 / 内部测量",
         "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
         "link": "#/hot"
+      },
+      {
+        "id": "anthropic-biomolecular-20260917",
+        "category": "research",
+        "heat": 90,
+        "trend": "up",
+        "published": "2026-09-17",
+        "checked": "2026-09-22",
+        "title": "Anthropic：Claude 优化 30+ 生物分子模型，平均加速约 4 倍",
+        "summary": "Anthropic 报告 Claude Science 对开源生物分子建模代码做性能和显存优化，并宣布开放优化代码与蛋白设计竞赛。",
+        "why": "“AI for Science”开始出现能直接改科研工具链、再用湿实验承接验证的路径。",
+        "boundary": "来自作者方研究发布；平均加速不代表每个模型、硬件和任务都有同样收益。",
+        "source": "Anthropic",
+        "source_kind": "作者研究发布",
+        "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+        "link": "#/pharma?topic=molecules"
       }
     ]
   },

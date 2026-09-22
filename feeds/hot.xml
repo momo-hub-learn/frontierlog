@@ -41,6 +41,12 @@
 
 边界：官方能力说明和模型卡不能替代你的语音场景评测，尤其是打断、噪声和工具调用。
 
+站内热度 92；不是全网流量。</description></item><item><title>GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热</title><guid isPermaLink="false">frontierlog:hot:gpt-6-prompt-caching-20260922</guid><link>https://openai.com/index/better-prompt-caching-for-gpt-6/</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。
+
+为什么值得看：对持续数小时的 Agent，瓶颈不只是模型价格，而是重复上下文与工具定义的复算成本。缓存命中可观测、可诊断、可显式控制后，长任务 Agent 的成本与首 Token 延迟更容易工程化优化。
+
+边界：“最高 90%”是缓存输入 Token 的折扣上限，不等于整个任务成本下降 90%；命中率仍受模型、工具、设置和前缀稳定性影响。30 分钟是符合条件共享前缀的复用窗口，不应外推为所有缓存永久有效。
+
 站内热度 92；不是全网流量。</description></item><item><title>Anthropic 披露前沿实验室三项指标：Claude 已主导 26% AI 研发任务</title><guid isPermaLink="false">frontierlog:hot:anthropic-rd-automation-20260917</guid><link>https://www.anthropic.com/institute/measuring-pace-of-ai-development</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>Anthropic 9 月 22 日公开三组内部测量：截至 8 月，Claude 在按人类投入时间加权的 26% AI 研发工作中达到“Leads”，超过 90% 达“Collaborates”或更高；其最常用内部平台同时约有 3 万个研究与工程 Agent 运行，100% 动作经过在线监控。
 
 为什么值得看：这把“AI 帮忙研发下一代 AI”从抽象叙事推进到可连续观察的生产指标，并把 R&amp;D 自动化、Agent 监督和研发算力分配放进同一套框架。Anthropic 同时披露抽样周约 6% 的 AI R&amp;D 算力用于安全、AI 驱动 R&amp;D 中约 12% 用于安全，是判断递归自我改进速度与治理是否跟上的高价值早期信号。
@@ -53,10 +59,4 @@
 
 边界：来自作者方研究发布；平均加速不代表每个模型、硬件和任务都有同样收益。
 
-站内热度 90；不是全网流量。</description></item><item><title>Anthropic 开放 Life Sciences Verification Program Beta 申请</title><guid isPermaLink="false">frontierlog:hot:anthropic-lsvp-20260917</guid><link>https://www.anthropic.com/news/life-sciences-verification-program</link><pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate><description>生命科学团队可申请更适合药物发现、研究生物学、临床开发和制造任务的模型访问与安全策略。
-
-为什么值得看：通用模型的生命科学使用边界正在产品化，而不是只靠单次白名单。
-
-边界：这是访问与安全计划，不是药物研发成功率或监管认可的证明。
-
-站内热度 88；不是全网流量。</description></item></channel></rss>
+站内热度 90；不是全网流量。</description></item></channel></rss>
