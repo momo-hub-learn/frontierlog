@@ -13,6 +13,16 @@
       "note": "人工摘录一组模型配置，保留网页所示分数。不是全量榜单；速度与单任务成本来自相同模型页，数值会随评测更新。"
     },
     {
+      "id": "aa-glm-53-flash",
+      "publisher": "Artificial Analysis",
+      "title": "GLM 5.3 Flash model analysis",
+      "url": "https://artificialanalysis.ai/models/glm-5-3-flash/",
+      "checked": "2026-09-22",
+      "published": null,
+      "kind": "评测方模型页",
+      "note": "独立公开快照；当前给出 Intelligence Index 42、输出速度约 93.7 tok/s、Cost per Intelligence Index Task $0.25、输入/输出每百万 Token $0.15/$0.50、1M context。速度会随供应商与采样更新。"
+    },
+    {
       "id": "aa-method",
       "publisher": "Artificial Analysis",
       "title": "Intelligence Index v4.3.2",
@@ -54,7 +64,7 @@
       "methodology": "Intelligence Index v4.3.2",
       "mode": "manual_excerpt",
       "source": "aa-live",
-      "scope": "13 个配置的人工摘录，不是全榜。相同整数分不据此断言高下。",
+      "scope": "14 个配置的人工摘录，不是全榜。相同整数分不据此断言高下。",
       "rows": [
         {
           "id": "aa-opus-55-max",
@@ -247,6 +257,25 @@
           "source": "aa-live"
         },
         {
+          "id": "aa-glm-53-flash",
+          "name": "GLM 5.3 Flash",
+          "maker": "Z AI",
+          "intelligence": 42,
+          "speed": 93.7,
+          "cost_task": 0.25,
+          "input_price": 0.15,
+          "output_price": 0.5,
+          "coding": null,
+          "context": "1M",
+          "source_rank": null,
+          "source_order": 10,
+          "score_error": null,
+          "rank_spread": null,
+          "votes": null,
+          "preliminary": false,
+          "source": "aa-glm-53-flash"
+        },
+        {
           "id": "aa-gemini-high",
           "name": "Gemini 3.8 Flash (high)",
           "maker": "Google",
@@ -258,7 +287,7 @@
           "coding": null,
           "context": "1M",
           "source_rank": null,
-          "source_order": 10,
+          "source_order": 11,
           "score_error": null,
           "rank_spread": null,
           "votes": null,
@@ -277,7 +306,7 @@
           "coding": null,
           "context": "1M",
           "source_rank": null,
-          "source_order": 11,
+          "source_order": 12,
           "score_error": null,
           "rank_spread": null,
           "votes": null,
@@ -296,7 +325,7 @@
           "coding": null,
           "context": "1M",
           "source_rank": null,
-          "source_order": 12,
+          "source_order": 13,
           "score_error": null,
           "rank_spread": null,
           "votes": null,

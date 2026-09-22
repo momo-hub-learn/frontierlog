@@ -116,6 +116,24 @@
       "link": "#/models"
     },
     {
+      "id": "glm-53-flash-20260922",
+      "category": "model",
+      "heat": 93,
+      "trend": "up",
+      "published": "2026-09-22",
+      "checked": "2026-09-22",
+      "title": "Z.AI 发布 GLM-5.3-Flash：18B 激活参数，AA Intelligence Index 42",
+      "summary": "Z.AI 9 月 22 日正式发布 GLM-5.3-Flash：320B 总参数、18B 激活参数、1M context，原生多模态并开放权重。Artificial Analysis 当前独立快照给出 Intelligence Index 42、约 94 output tok/s、Cost per Intelligence Index Task $0.25。",
+      "why": "它把接近旗舰 GLM-5.3 的综合能力压到明显更低的推理成本，同时保留 1M 上下文、图像输入和开放权重，值得跟踪高频 Agent 与 coding 场景的单位任务成本变化。",
+      "boundary": "320B/18B、原生多模态与厂商 Benchmark 来自 Z.AI 官方发布；42、速度与 $0.25/task 来自 Artificial Analysis 当前公开快照。Z.AI 报告的 Terminal Bench 2.1 84.3 与 Artificial Analysis 使用的 Terminal-Bench 4.0 不是同一版本/设置，不能直接混成一个分数；AA 的速度数据也可能继续变化。",
+      "source": "Z.AI / Artificial Analysis",
+      "source_kind": "官方发布 + 独立公开榜",
+      "url": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+      "secondary_url": "https://artificialanalysis.ai/models/glm-5-3-flash/",
+      "evidence_level": "high",
+      "link": "#/models"
+    },
+    {
       "id": "gemini-live-38",
       "category": "model",
       "heat": 92,
@@ -178,22 +196,6 @@
       "source_kind": "官方研究 / 内部测量",
       "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
       "link": "#/hot"
-    },
-    {
-      "id": "quotient-formulation-20260917",
-      "category": "industry",
-      "heat": 85,
-      "trend": "up",
-      "published": "2026-09-17",
-      "checked": "2026-09-22",
-      "title": "Quotient Sciences：AI 算法用于临床研究中的制剂与剂量选择",
-      "summary": "公司报告一项健康受试者临床研究的中期结果，专有算法在三次给药期内达到预设药代目标。",
-      "why": "AI 药物研发的可验证节点从“生成候选”进一步进入制剂设计和临床阶段决策。",
-      "boundary": "这是公司公布的中期研究结果，不能外推到其他药物、适应症或最终临床结局。",
-      "source": "Quotient Sciences",
-      "source_kind": "公司研究公告",
-      "url": "https://www.quotientsciences.com/news/quotient-sciences-proprietary-ai-enhanced-solution-optimizes-formulation-clinical-study",
-      "link": "#/pharma?topic=clinical"
     }
   ]
 }
