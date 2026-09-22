@@ -384,7 +384,7 @@
     "last_attempt": null,
     "last_success": null,
     "error": null,
-    "note": "每 2 小时由站点迭代任务检索公开 X 线索；官方 X API 采集器也支持回复/引用上下文，但需要服务端 X_BEARER_TOKEN。机器候选不会自动升级成已确认重置。"
+    "note": "GitHub Actions 可每小时通过 X 官方 API 读取 @thsottiaux 的新公开帖子、回复和引用关系（需配置 X_BEARER_TOKEN）；新内容先进入待核验候选，不会自动升级为已确认。第三方站点只用于定位线索。"
   },
   "inbox": [],
   "profile_url": "https://x.com/thsottiaux",

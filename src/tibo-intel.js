@@ -25,36 +25,56 @@ function readingPanel(x){
   '</div>'
 }
 function featuredSignal(){
-  const ranked=RESET_DATA.events.filter(x=>x.post_id&&x.original_text).map(x=>({...x,_source:'event'})).sort((a,b)=>{
-    const sem={propagation_complete:6,reset_executed:5,banked_delivery:4,explicit_announcement:3,usage_explanation:2,timing_hint:1,non_reset_context:0};
-    const status={confirmed:3,announced:2,pending:1};
-    const strength={high:3,medium:2,low:1};
-    return (sem[b.semantic_type]||0)-(sem[a.semantic_type]||0)||(status[b.status]||0)-(status[a.status]||0)||(strength[b.evidence_strength]||0)-(strength[a.evidence_strength]||0)||String(b.published_at||b.date||'').localeCompare(String(a.published_at||a.date||''))
-  });
-  return ranked[0]||null
+  const events=RESET_DATA.events.filter(x=>x.post_id&&x.original_text).map(x=>({...x,_source:'event'}));
+  const inbox=(RESET_DATA.inbox||[]).filter(x=>x.post_id&&x.excerpt).map(x=>({...x,_source:'inbox',original_text:x.excerpt,not_proves:x.not_proves||x.reason}));
+  return [...events,...inbox]
+    .filter(x=>x.semantic_type!=='non_reset_context'&&/^https:\/\/x\.com\/thsottiaux\/status\//.test(originalUrl(x)))
+    .sort((a,b)=>String(b.published_at||b.observed_at||b.date||'').localeCompare(String(a.published_at||a.observed_at||a.date||'')))[0]||null
+}
+function heroReviewState(x){
+  if(x._source==='inbox')return '官方 X API 候选 · 待人工复核';
+  if(x.review_basis==='primary_source')return '一手来源已核验';
+  return '一手链接 · 待直接核验'
+}
+function heroStateLabel(x){
+  const type=semanticLabel[x.semantic_type]||RESET_KINDS[x.kind]||'重置相关';
+  if(x.semantic_type==='explicit_announcement')return type+' · 尚未执行确认';
+  if(x.semantic_type==='propagation_complete'||x.semantic_type==='reset_executed'||x.semantic_type==='banked_delivery')return type+' · '+(x.status==='confirmed'?'已确认':'待核验');
+  return type+' · '+(RESET_STATUS[x.status]||'待核验')
+}
+function officialSyncLabel(){
+  const s=RESET_DATA.sync||{};
+  if(s.status==='success'&&s.last_success)return '官方 X API 最近同步 '+when({published_at:s.last_success});
+  return '人工核对快照 '+(RESET_DATA.checked||'')
+}
+function featuredEvidence(x){
+  const url=originalUrl(x);
+  if(!x.post_id||url==='#')return fallbackQuote(x,url,'没有可直连的 X 原帖');
+  return '<div class="tibo-x-embed tibo-featured-x" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'" data-x-conversation="none"><div class="tibo-x-loading"><span>正在载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div>'
 }
 function featuredHero(){
   const x=featuredSignal();if(!x)return '';
   const url=originalUrl(x),stamp=when(x);
   const raw=String(x.original_text||x.summary||'').trim();
-  const headline=raw.length>96?raw.slice(0,93).trimEnd()+'…':raw;
+  const headline=raw.length>150?raw.slice(0,147).trimEnd()+'…':raw;
   const readingRaw=String(x.interpretation||x.summary||'').trim();
-  const reading=readingRaw.length>132?readingRaw.slice(0,129).trimEnd()+'…':readingRaw;
-  const label=semanticLabel[x.semantic_type]||RESET_KINDS[x.kind]||'公开信号';
+  const reading=readingRaw.length>150?readingRaw.slice(0,147).trimEnd()+'…':readingRaw;
+  const detail=x._source==='event'?'<button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看上下文 '+icon('arrow')+'</button>':'<span class="tibo-featured-machine">机器候选 · 待人工核验</span>';
   return '<section class="tibo-featured">'+
-    '<div class="tibo-featured-bar"><div><span class="tibo-featured-kicker">最近一次明确完成表述</span><span class="tibo-featured-status">'+esc(label)+'</span></div><time>'+esc(stamp)+'</time></div>'+
+    '<div class="tibo-featured-bar"><div><span class="tibo-featured-kicker">最新重置消息</span><span class="tibo-featured-status">'+esc(heroStateLabel(x))+'</span></div><time>'+esc(stamp)+'</time></div>'+
     '<div class="tibo-featured-grid">'+
-      '<div class="tibo-featured-copy"><p class="eyebrow">CURRENT CONCLUSION / STRONGEST PUBLIC EVIDENCE</p>'+
+      '<div class="tibo-featured-copy"><p class="eyebrow">LATEST RESET SIGNAL / TIBO ON X</p>'+
       '<h2>Tibo：'+esc(headline)+'</h2>'+
       '<p class="tibo-featured-reading">'+esc(reading)+'</p>'+
-      '<div class="tibo-featured-actions"><a class="tibo-featured-primary" href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a><button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看上下文 '+icon('arrow')+'</button></div></div>'+
-      '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>X 原帖截图</span><small>仅保留 Tibo 这条消息</small></div>'+
-      '<div class="tibo-featured-crop"><a class="tibo-featured-shot" href="'+url+'" target="_blank" rel="noopener noreferrer"><img src="./assets/tibo/'+esc(x.post_id)+'.png" width="1200" height="300" alt="Tibo 在 X 上的原帖截图"></a></div>'+
-      '<div class="tibo-featured-proof-foot"><span>点击截图打开原帖</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
+      '<div class="tibo-featured-source"><span>'+esc(heroReviewState(x))+'</span><span>'+esc(officialSyncLabel())+'</span></div>'+
+      '<div class="tibo-featured-actions"><a class="tibo-featured-primary" href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a>'+detail+'</div></div>'+
+      '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>X 官方原帖</span><small data-tibo-live-state>'+esc(sourceState(x))+'</small></div>'+
+      featuredEvidence(x)+
+      '<div class="tibo-featured-proof-foot"><span>优先直连 X 官方嵌入；失败时只保留原文摘录与原帖链接。</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
     '</div>'+
   '</section>'
 }
-function intelBlock(){const rows=signalRows();if(!rows.length)return '';return '<section class="tibo-intel"><div class="tibo-intel-head"><div><p class="eyebrow">TIBO / EVIDENCE → INFERENCE</p><h2>完整证据链：原话、上下文、推断分开看。</h2><p>头部只突出最强证据；这里保留其余原帖、回复和引用关系。X 无法加载时只显示本站保存的原文摘录与原帖链接，不模拟截图。</p></div><a href="'+safeLink(RESET_DATA.profile_url)+'" target="_blank" rel="noopener">@thsottiaux '+icon('external')+'</a></div><div class="tibo-evidence-list">'+rows.map(x=>'<article class="tibo-evidence-card '+esc(x.evidence_strength||'low')+'"><div class="tibo-evidence-col"><p class="tibo-col-label">X 官方原帖 / EVIDENCE</p>'+evidencePanel(x)+'</div><div class="tibo-inference-col"><p class="tibo-col-label">我们的推断 / INFERENCE</p>'+readingPanel(x)+'</div></article>').join('')+'</div></section>'}
+function intelBlock(){const rows=signalRows();if(!rows.length)return '';return '<section class="tibo-intel"><div class="tibo-intel-head"><div><p class="eyebrow">TIBO / EVIDENCE → INFERENCE</p><h2>完整证据链：原话、上下文、推断分开看。</h2><p>头部只展示最新的重置相关信号；历史完成记录留在证据链里，不再抢占首屏。X 无法加载时只显示本站保存的原文摘录与原帖链接，不模拟截图。</p></div><a href="'+safeLink(RESET_DATA.profile_url)+'" target="_blank" rel="noopener">@thsottiaux '+icon('external')+'</a></div><div class="tibo-evidence-list">'+rows.map(x=>'<article class="tibo-evidence-card '+esc(x.evidence_strength||'low')+'"><div class="tibo-evidence-col"><p class="tibo-col-label">X 官方原帖 / EVIDENCE</p>'+evidencePanel(x)+'</div><div class="tibo-inference-col"><p class="tibo-col-label">我们的推断 / INFERENCE</p>'+readingPanel(x)+'</div></article>').join('')+'</div></section>'}
 function loadXWidgets(){
   if(window.twttr?.widgets?.createTweet)return Promise.resolve(window.twttr);
   if(xWidgetsPromise)return xWidgetsPromise;
@@ -69,7 +89,7 @@ function loadXWidgets(){
 async function renderXEmbeds(){
   const mounts=[...document.querySelectorAll('.tibo-x-embed[data-x-post-id]:not([data-x-state])')];
   if(!mounts.length)return;
-  let api;try{api=await loadXWidgets()}catch{mounts.forEach(m=>{m.dataset.xState='failed';const id=m.dataset.xPostId,url=m.dataset.xUrl||'#';const x=signalRows().find(v=>String(v.post_id||'')===id);m.innerHTML=fallbackQuote(x||{},url)});return}
+  let api;try{api=await loadXWidgets()}catch{mounts.forEach(m=>{m.dataset.xState='failed';const id=m.dataset.xPostId,url=m.dataset.xUrl||'#';const x=signalRows().find(v=>String(v.post_id||'')===id);m.innerHTML=fallbackQuote(x||{},url);const live=m.closest('.tibo-featured-proof')?.querySelector('[data-tibo-live-state]');if(live)live.textContent='X 当前无法直连 · 状态保持待核验'});return}
   for(const mount of mounts){
     mount.dataset.xState='loading';
     const id=mount.dataset.xPostId,url=mount.dataset.xUrl||'#';
@@ -77,9 +97,9 @@ async function renderXEmbeds(){
     try{
       const el=await api.widgets.createTweet(id,mount,{dnt:true,theme:document.documentElement.dataset.theme==='dark'?'dark':'light',conversation:mount.dataset.xConversation||'all',align:'center'});
       if(!el)throw new Error('post unavailable');
-      placeholder?.remove();mount.dataset.xState='loaded'
+      placeholder?.remove();mount.dataset.xState='loaded';const live=mount.closest('.tibo-featured-proof')?.querySelector('[data-tibo-live-state]');if(live)live.textContent='X 官方嵌入已载入'
     }catch{
-      const x=signalRows().find(v=>String(v.post_id||'')===id);mount.dataset.xState='failed';mount.innerHTML=fallbackQuote(x||{},url)
+      const x=signalRows().find(v=>String(v.post_id||'')===id);mount.dataset.xState='failed';mount.innerHTML=fallbackQuote(x||{},url);const live=mount.closest('.tibo-featured-proof')?.querySelector('[data-tibo-live-state]');if(live)live.textContent='X 当前无法直连 · 状态保持待核验'
     }
   }
 }

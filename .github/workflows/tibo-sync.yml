@@ -1,0 +1,98 @@
+name: Tibo X sync
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tibo-sync.yml'
+      - 'scripts/collect_models.py'
+      - 'data/model-sync.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tibo-x-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check official X API credential
+        id: xauth
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: |
+          if [ -n "$X_BEARER_TOKEN" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "X_BEARER_TOKEN is not configured; keeping the published snapshot unchanged."
+          fi
+      - name: Collect new Tibo posts from official X API
+        if: steps.xauth.outputs.enabled == 'true'
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: |
+          cp data/resets.json /tmp/resets-before.json
+          python scripts/collect_models.py --only x --force
+      - name: Avoid no-op timestamp commits
+        if: steps.xauth.outputs.enabled == 'true'
+        run: |
+          python - <<'PY'
+          import json, shutil
+          from pathlib import Path
+          before=json.loads(Path('/tmp/resets-before.json').read_text())
+          after=json.loads(Path('data/resets.json').read_text())
+          def material(d):
+              s=d.get('sync',{})
+              return {
+                  'events':d.get('events',[]),
+                  'inbox':d.get('inbox',[]),
+                  'status':s.get('status'),
+                  'error':s.get('error'),
+                  'note':s.get('note'),
+                  'cursor':s.get('cursor')
+              }
+          if material(before)==material(after):
+              shutil.copyfile('/tmp/resets-before.json','data/resets.json')
+          PY
+      - name: Validate reset schema and collector behavior
+        if: steps.xauth.outputs.enabled == 'true'
+        run: python -m unittest tests.test_models
+      - name: Publish reset API and RSS
+        if: steps.xauth.outputs.enabled == 'true'
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0,'scripts')
+          from model_data import validate_resets, reset_rss
+          data=json.loads(Path('data/resets.json').read_text())
+          site=json.loads(Path('data/site.json').read_text())
+          validate_resets(data)
+          Path('api/v1/resets.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          Path('feeds/resets.xml').write_bytes(reset_rss(data,site))
+          PY
+      - name: Commit only verified public-data changes
+        if: steps.xauth.outputs.enabled == 'true'
+        run: |
+          if git diff --quiet -- data/resets.json api/v1/resets.json feeds/resets.xml; then
+            echo "No new public reset signal; nothing to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/resets.json api/v1/resets.json feeds/resets.xml
+          git commit -m "Sync Tibo public reset candidates"
+          git push
