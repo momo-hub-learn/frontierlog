@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, tibo-featured-evidence-20260922-v2]
   workflow_dispatch:
 
 permissions:
@@ -35,4 +35,7 @@ jobs:
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "我们的推断 / INFERENCE" dist-ci/index.html
+          grep -q "CURRENT CONCLUSION / STRONGEST PUBLIC EVIDENCE" dist-ci/index.html
+          grep -q "最近一次明确完成表述" dist-ci/index.html
+          grep -Fq 'data-x-conversation="none"' dist-ci/index.html
           ! grep -q "原帖证据 · 文本快照" dist-ci/index.html
