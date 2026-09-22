@@ -124,16 +124,18 @@ jobs:
           grep -q "原始证据 / X 官方原帖" /tmp/frontierlog-dist/index.html
           grep -q "LATEST RESET SIGNAL / TIBO ON X" /tmp/frontierlog-dist/index.html
           grep -q "data-x-conversation=\\\"none\\\"" /tmp/frontierlog-dist/index.html
-      - name: Publish generated Tibo UI
+      - name: Publish generated Tibo UI and data endpoints
         run: |
           cp /tmp/frontierlog-dist/index.html index.html
           cp /tmp/frontierlog-dist/404.html 404.html
-          if git diff --quiet -- index.html 404.html; then
+          cp /tmp/frontierlog-dist/api/v1/resets.json api/v1/resets.json
+          cp /tmp/frontierlog-dist/feeds/resets.xml feeds/resets.xml
+          if git diff --quiet -- index.html 404.html api/v1/resets.json feeds/resets.xml; then
             echo "Generated site already matches Tibo source."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html 404.html
+          git add index.html 404.html api/v1/resets.json feeds/resets.xml
           git commit -m "Build Tibo signal hero"
           git push
