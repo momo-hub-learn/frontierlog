@@ -49,7 +49,7 @@ jobs:
               'url': 'https://x.ai/news/grok-4-7',
               'link': '#/models'
           })
-          hot['items'].sort(key=lambda x: (-x['heat'], x['id']))
+          hot['items'] = sorted(hot['items'], key=lambda x: (-x['heat'], x['id']))[:10]
           p.write_text(json.dumps(hot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
           # Model board: Artificial Analysis has moved to Intelligence Index v4.3.2.
