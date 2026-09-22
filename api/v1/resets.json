@@ -195,26 +195,27 @@
       "effective_at": null,
       "precision": "instant",
       "source_timezone": "UTC",
-      "title": "Tibo 回复“3am on a Tuesday”：有时间暗示，但当前不能归为 Reset",
-      "summary": "公开镜像只确认 Tibo 回复 @My_Ai_Bi 写了“3am on a tuesday”。原句没有 reset、banked、额度或执行措辞；而 Tibo 同期持续在 tease Tuesday 的产品发布，因此把它直接当作重置时间证据并不稳妥。",
-      "scope": "上下文相关的时间线索 · 指向对象仍待核验",
-      "boundary": "不能据此断言“周二 3:00 重置”，也不能自行假设时区、适用套餐或 reset 类型。需要读取被回复原帖，或等待 Tibo 后续明确说明这个时间究竟对应发布还是额度变化。",
+      "title": "Tibo 回复“3am on a Tuesday”：回复对象是 GPT-6 Community Night，不应当作 Reset 预告",
+      "summary": "公开线程镜像显示，Tibo 的“3am on a tuesday”是直接回复 @My_Ai_Bi 的“the GPT-6 Community Night was 🔥”。这条上文本身是产品/社区活动语境，没有 reset、banked 或额度措辞；因此不再把这条回复作为重置时间线索。",
+      "scope": "GPT-6 Community Night / 产品活动语境 · 非重置确认",
+      "boundary": "这条回复最多能说明 Tibo 对该产品/活动话题给了“Tuesday 3am”式时间回应；不能推出周二 3:00 会 reset，也不能推断时区、套餐、banked/global 类型或任何额度变化。",
       "sources": [
-        "codexresets-tracker",
-        "tibo-post-2101920928070562029"
+        "tibo-post-2101920928070562029",
+        "zamantika-thread-2101920928070562029",
+        "codexresets-tracker"
       ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": [
-        "tibo-hint-2026-09-19-banked-reset"
-      ],
+      "related_ids": [],
       "original_text": "@My_Ai_Bi 3am on a tuesday",
-      "interpretation": "低置信度的 Tuesday timing hint；现有上下文不足以把它归入 reset，更可能需要和同期的 Tuesday 产品发布 tease 一起读。",
-      "evidence_strength": "low",
-      "semantic_type": "timing_hint",
-      "not_proves": "未确认时区、具体日期、它指向 reset 还是产品发布、适用套餐，以及任何额度变化是否会发生。",
+      "conversation_context": "被回复的 @My_Ai_Bi 原帖是“the GPT-6 Community Night was 🔥”；线程中还有其他用户追问 reset，但那些追问不是 Tibo 的原话，也不能反过来改变这条回复的语义。",
+      "interpretation": "我们理解：这更像产品/社区活动的时间玩笑或 tease，而不是 reset 信号。作为“重置”证据应降级为无关/误读纠正；只有后续 Tibo 明确提到 reset/额度，或 OpenAI 官方说明，才能建立重置关联。",
+      "evidence_strength": "medium",
+      "semantic_type": "non_reset_context",
+      "not_proves": "未证明会发生任何 reset；也未确认时区、具体发布日期、适用套餐、banked/global 类型或任何额度变化。",
       "post_id": "2101920928070562029",
       "reply_to_account": "My_Ai_Bi",
+      "reply_to_text": "the GPT-6 Community Night was 🔥",
       "relation": "reply"
     }
   ],
@@ -271,7 +272,16 @@
       "url": "https://x.com/thsottiaux/status/2101920928070562029",
       "checked": "2026-09-22",
       "kind": "原帖待直接核验",
-      "note": "公开链接已定位，但当前服务端直读 X 返回 403；必须结合回复对象理解。"
+      "note": "公开链接已定位，但当前服务端直读 X 返回 403；线程镜像显示它直接回复 GPT-6 Community Night 话题，因此不能脱离上文当作 reset 时间预告。"
+    },
+    {
+      "id": "zamantika-thread-2101920928070562029",
+      "publisher": "Zamantika",
+      "title": "Tibo / My_Ai_Bi reply thread mirror",
+      "url": "https://zamantika.com/thsottiaux/status/2101920928070562029",
+      "checked": "2026-09-22",
+      "kind": "第三方定位线索",
+      "note": "用于恢复被回复原帖“the GPT-6 Community Night was 🔥”与 Tibo“3am on a tuesday”的直接上下文；不作为 reset 确认来源。"
     },
     {
       "id": "tibo-post-2101352781219258527",
