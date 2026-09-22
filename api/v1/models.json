@@ -20,7 +20,7 @@
       "checked": "2026-09-22",
       "published": "2026-09-22",
       "kind": "评测方模型页",
-      "note": "独立公开快照：Intelligence Index 48、约 104.4 tok/s、输入/输出每百万 Token $2/$10、90% cache discount、872k context；当前 Cost per Intelligence Index Task 仍显示 N/A。"
+      "note": "独立公开快照：Intelligence Index 48、约 104.4 tok/s、输入/输出每百万 Token $2/$10、90% cache discount、872k context；Cost per Intelligence Index Task $1.06。Coding Agent Index 57（Codex harness）。"
     },
     {
       "id": "aa-gpt6-luna",
@@ -30,7 +30,7 @@
       "checked": "2026-09-22",
       "published": "2026-09-22",
       "kind": "评测方模型页",
-      "note": "独立公开快照：Intelligence Index 37、约 157.2 tok/s、输入/输出每百万 Token $0.10/$0.50、1M context；当前 Cost per Intelligence Index Task 仍显示 N/A。"
+      "note": "独立公开快照：Intelligence Index 37、约 157.2 tok/s、输入/输出每百万 Token $0.10/$0.50、1M context；Cost per Intelligence Index Task $0.07。Coding Agent Index 41（Codex harness）。"
     },
     {
       "id": "aa-mimo-v26-pro",
@@ -40,7 +40,7 @@
       "checked": "2026-09-22",
       "published": "2026-09-22",
       "kind": "评测方模型页",
-      "note": "独立公开快照：Intelligence Index 46、输出速度约 124.5 tok/s、Cost per Intelligence Index Task $0.13、输入/输出每百万 Token $0.435/$0.87、99% cache discount、1M context。速度是动态实测，后续可能变化。"
+      "note": "独立公开快照：Intelligence Index 46、输出速度约 110.8 tok/s、Cost per Intelligence Index Task $0.13、输入/输出每百万 Token $0.435/$0.87、99% cache discount、1M context。速度是动态实测，后续可能变化。"
     },
     {
       "id": "aa-glm-53-flash",
@@ -50,7 +50,7 @@
       "checked": "2026-09-22",
       "published": null,
       "kind": "评测方模型页",
-      "note": "独立公开快照；当前给出 Intelligence Index 42、输出速度约 65 tok/s、Cost per Intelligence Index Task $0.25、输入/输出每百万 Token $0.15/$0.50、1M context。速度会随供应商与采样更新。"
+      "note": "独立公开快照；当前给出 Intelligence Index 42、输出速度约 89.4 tok/s、Cost per Intelligence Index Task $0.25、输入/输出每百万 Token $0.15/$0.50、1M context。速度会随供应商与采样更新。"
     },
     {
       "id": "aa-method",
@@ -197,10 +197,10 @@
           "maker": "OpenAI",
           "intelligence": 48,
           "speed": 104.4,
-          "cost_task": null,
+          "cost_task": 1.06,
           "input_price": 2,
           "output_price": 10,
-          "coding": null,
+          "coding": 57,
           "context": "872k",
           "source_rank": null,
           "source_order": 5,
@@ -234,7 +234,7 @@
           "name": "MiMo-V2.6-Pro",
           "maker": "Xiaomi",
           "intelligence": 46,
-          "speed": 124.5,
+          "speed": 110.8,
           "cost_task": 0.13,
           "input_price": 0.435,
           "output_price": 0.87,
@@ -253,7 +253,7 @@
           "name": "Grok 4.7 (xhigh)",
           "maker": "SpaceXAI",
           "intelligence": 46,
-          "speed": 39,
+          "speed": 39.2,
           "cost_task": 3.74,
           "input_price": 2,
           "output_price": 6,
@@ -329,7 +329,7 @@
           "name": "GLM 5.3 Flash",
           "maker": "Z AI",
           "intelligence": 42,
-          "speed": 65,
+          "speed": 89.4,
           "cost_task": 0.25,
           "input_price": 0.15,
           "output_price": 0.5,
@@ -387,10 +387,10 @@
           "maker": "OpenAI",
           "intelligence": 37,
           "speed": 157.2,
-          "cost_task": null,
+          "cost_task": 0.07,
           "input_price": 0.1,
           "output_price": 0.5,
-          "coding": null,
+          "coding": 41,
           "context": "1M",
           "source_rank": null,
           "source_order": 15,
