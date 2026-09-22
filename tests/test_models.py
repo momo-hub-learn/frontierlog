@@ -57,7 +57,8 @@ class ValidationTests(unittest.TestCase):
   d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'));e.pop('evidence',None)
   with self.assertRaises(ValueError):validate_resets(d)
  def test_pending_screenshot_cannot_claim_file(self):
-  d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'));e['evidence']['screenshot']='assets/tibo/'+e['post_id']+'.png'
+  d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'))
+  e['evidence'].update(screenshot_status='pending',screenshot='assets/tibo/'+e['post_id']+'.png',captured_at=None,capture_method=None,sha256=None)
   with self.assertRaises(ValueError):validate_resets(d)
  def test_captured_screenshot_requires_checksum(self):
   d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'))
