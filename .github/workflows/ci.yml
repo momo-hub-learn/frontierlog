@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, tibo-evidence-cards-20260922]
   workflow_dispatch:
 
 permissions:
@@ -18,6 +18,10 @@ jobs:
           python-version: '3.11'
       - name: Unit tests
         run: python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+      - name: JavaScript syntax
+        run: |
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
       - name: Build static site
         run: python scripts/build.py --out dist-ci --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Verify v2 output
@@ -27,4 +31,7 @@ jobs:
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "Coding Agent" dist-ci/index.html
-          grep -q "分时热点" dist-ci/index.html\n          grep -q "原帖证据 · 文本快照" dist-ci/index.html\n          grep -q "EVIDENCE / 证据" dist-ci/index.html\n          grep -q "INFERENCE / 推断" dist-ci/index.html
+          grep -q "分时热点" dist-ci/index.html
+          grep -q "原帖证据 · 文本快照" dist-ci/index.html
+          grep -q "EVIDENCE / 证据" dist-ci/index.html
+          grep -q "INFERENCE / 推断" dist-ci/index.html
