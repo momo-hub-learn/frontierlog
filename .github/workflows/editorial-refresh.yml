@@ -1,0 +1,145 @@
+name: Editorial refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/editorial-refresh.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply verified editorial updates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          DAY = '2026-09-22'
+
+          # Hot list: add the newly released Grok 4.7 using first-party release
+          # details, with the independent benchmark finding clearly separated.
+          p = Path('data/hot.json')
+          hot = json.loads(p.read_text(encoding='utf-8'))
+          hot['checked'] = DAY
+          hot['items'] = [x for x in hot['items'] if x.get('id') != 'grok-47-20260921']
+          hot['items'].append({
+              'id': 'grok-47-20260921',
+              'category': 'model',
+              'heat': 94,
+              'trend': 'up',
+              'published': '2026-09-21',
+              'checked': DAY,
+              'title': 'Grok 4.7 发布：长任务与 Coding Agent 能力同步上升',
+              'summary': 'SpaceXAI 9 月 21 日发布 Grok 4.7，定位为更强的 coding 与 knowledge-work 模型；Artificial Analysis 独立评测给出 Intelligence Index 46，Grok Build 的 Coding Agent Index 56。',
+              'why': '这次变化不只是基础模型换代：在第一方 Grok Build harness 中，Coding Agent Index 从 Grok 4.6 的 47 升到 56，进入当前头部 coding agent 区间。',
+              'boundary': '产品能力描述来自厂商发布；46 与 56 是 Artificial Analysis 的独立评测快照，榜单和速度数据会继续更新，不能外推到所有代码库与长任务。',
+              'source': 'SpaceXAI / Artificial Analysis',
+              'source_kind': '官方发布 + 独立评测',
+              'url': 'https://x.ai/news/grok-4-7',
+              'link': '#/models'
+          })
+          hot['items'].sort(key=lambda x: (-x['heat'], x['id']))
+          p.write_text(json.dumps(hot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Model board: Artificial Analysis has moved to Intelligence Index v4.3.2.
+          p = Path('data/models.json')
+          models = json.loads(p.read_text(encoding='utf-8'))
+          models['checked'] = DAY
+          smap = {s['id']: s for s in models['sources']}
+          smap['aa-live']['checked'] = DAY
+          smap['aa-live']['note'] = '人工摘录一组模型配置，保留网页所示分数。不是全量榜单；速度与单任务成本来自相同模型页，数值会随评测更新。'
+          smap['aa-method'].update({
+              'title': 'Intelligence Index v4.3.2',
+              'url': 'https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3',
+              'checked': DAY,
+              'published': '2026-09-07',
+              'note': 'v4.3.2 纳入 AutomationBench-AA 与 Terminal-Bench 4.0；指数版本不同，分数不能直接跨版本比较。'
+          })
+          aa = next(b for b in models['boards'] if b['id'] == 'aa')
+          aa['checked'] = DAY
+          aa['methodology'] = 'Intelligence Index v4.3.2'
+          rows = [r for r in aa['rows'] if r.get('id') not in {'aa-grok-high', 'aa-grok-47-xhigh'}]
+          new_row = {
+              'id': 'aa-grok-47-xhigh',
+              'name': 'Grok 4.7 (xhigh)',
+              'maker': 'SpaceXAI',
+              'intelligence': 46,
+              'speed': 42.3,
+              'cost_task': 3.74,
+              'input_price': 2,
+              'output_price': 6,
+              'coding': 56,
+              'context': '500k',
+              'source_rank': None,
+              'source_order': 5,
+              'score_error': None,
+              'rank_spread': None,
+              'votes': None,
+              'preliminary': False,
+              'source': 'aa-live'
+          }
+          insert_at = next((i + 1 for i, r in enumerate(rows) if r.get('id') == 'aa-sol-max'), len(rows))
+          rows.insert(insert_at, new_row)
+          for i, row in enumerate(rows):
+              row['source_order'] = i
+          aa['rows'] = rows
+          p.write_text(json.dumps(models, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Capability page: refresh only the coding-agent row affected by the new release.
+          p = Path('data/capabilities.json')
+          caps = json.loads(p.read_text(encoding='utf-8'))
+          caps['checked'] = DAY
+          coding = caps['boards']['coding']
+          coding['note'] = '模型、Agent Harness 与执行设置共同决定结果。Grok Build 行已按 Artificial Analysis Coding Agent Index v1.5 的 Grok 4.7 结果更新。'
+          for row in coding['rows']:
+              if row.get('maker') == 'SpaceXAI' and row.get('detail') == 'Grok Build':
+                  row.update({
+                      'name': 'Grok 4.7 (xhigh)',
+                      'index': 56,
+                      'deep': 73,
+                      'terminal': 33,
+                      'atlas': 63,
+                      'cost': 8.82,
+                      'time': 39.2
+                  })
+                  break
+          else:
+              raise SystemExit('Grok Build row not found')
+          p.write_text(json.dumps(caps, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Validate source data and JavaScript
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+      - name: Build full static site
+        run: |
+          rm -rf /tmp/frontierlog-dist
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          grep -q 'Grok 4.7 (xhigh)' /tmp/frontierlog-dist/index.html
+          grep -q 'Intelligence Index v4.3.2' /tmp/frontierlog-dist/index.html
+          grep -q 'I promised a reset for Tuesday' /tmp/frontierlog-dist/index.html
+      - name: Publish verified refresh
+        run: |
+          cp -a /tmp/frontierlog-dist/. .
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/hot.json data/models.json data/capabilities.json index.html 404.html api/v1 feed.xml feeds sitemap.xml robots.txt assets/brand.svg
+          if git diff --cached --quiet; then
+            echo 'No material editorial changes.'
+            exit 0
+          fi
+          git commit -m 'Refresh Grok 4.7 signals and model benchmarks'
+          git pull --rebase origin main
+          git push origin main
