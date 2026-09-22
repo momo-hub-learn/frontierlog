@@ -43,9 +43,9 @@ function featuredHero(){
     '<p>在当前收录记录中，这条措辞最直接指向 reset rollout 已完成传播。它能证明 Tibo 公开表达“传播完成”，但仍不能代替你的个人额度页面，也不能单独推出所有套餐范围。</p>'+
     '<div class="tibo-featured-tags"><span>传播完成</span><span>证据语义强</span><span>个人额度仍需自查</span></div>'+
     '<div class="tibo-featured-actions"><button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看完整记录 '+icon('arrow')+'</button><a href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a></div></div>'+
-    '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>最强证据 / X 原帖</span><small>'+esc(when(x))+'</small></div>'+
-    '<div class="tibo-featured-crop"><div class="tibo-x-embed tibo-x-featured" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'" data-x-conversation="none"><div class="tibo-x-loading"><span>正在载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div></div>'+
-    '<div class="tibo-featured-proof-foot"><span>仅展示 Tibo 这条消息，完整上下文放在下方证据链。</span><code>'+esc(x.post_id)+'</code></div></div>'+
+    '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>最强证据 / X 原帖截图</span><small>'+esc(when(x))+'</small></div>'+
+    '<div class="tibo-featured-crop"><a class="tibo-featured-shot" href="'+url+'" target="_blank" rel="noopener noreferrer"><img src="./assets/tibo/'+esc(x.post_id)+'.png" width="1200" height="300" alt="Tibo 在 X 上发布“'+quote+'”的原帖截图"></a></div>'+
+    '<div class="tibo-featured-proof-foot"><span>真实 X 官方嵌入截图 · 仅保留 Tibo 这条消息。</span><code>'+esc(x.post_id)+'</code></div></div>'+
   '</section>'
 }
 function intelBlock(){const rows=signalRows();if(!rows.length)return '';return '<section class="tibo-intel"><div class="tibo-intel-head"><div><p class="eyebrow">TIBO / EVIDENCE → INFERENCE</p><h2>完整证据链：原话、上下文、推断分开看。</h2><p>头部只突出最强证据；这里保留其余原帖、回复和引用关系。X 无法加载时只显示本站保存的原文摘录与原帖链接，不模拟截图。</p></div><a href="'+safeLink(RESET_DATA.profile_url)+'" target="_blank" rel="noopener">@thsottiaux '+icon('external')+'</a></div><div class="tibo-evidence-list">'+rows.map(x=>'<article class="tibo-evidence-card '+esc(x.evidence_strength||'low')+'"><div class="tibo-evidence-col"><p class="tibo-col-label">X 官方原帖 / EVIDENCE</p>'+evidencePanel(x)+'</div><div class="tibo-inference-col"><p class="tibo-col-label">我们的推断 / INFERENCE</p>'+readingPanel(x)+'</div></article>').join('')+'</div></section>'}
