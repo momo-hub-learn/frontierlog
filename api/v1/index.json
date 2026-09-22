@@ -1599,7 +1599,7 @@
             "maker": "Kimi",
             "intelligence": 44,
             "speed": 43,
-            "cost_task": 2.0,
+            "cost_task": 2,
             "input_price": null,
             "output_price": null,
             "coding": null,
@@ -1824,7 +1824,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-09-21",
+    "checked": "2026-09-22",
     "account": "thsottiaux",
     "events": [
       {
@@ -1888,45 +1888,205 @@
         "related_ids": []
       },
       {
+        "id": "tibo-compensation-2026-09-09",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-09",
+        "published_at": "2026-09-09T18:23:34Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：部分 banked reset 未完全生效，受影响用户将补发一张",
+        "summary": "公开镜像与追踪页定位到 Tibo 的 X 原帖：部分用户使用 banked reset 时没有完整恢复 ChatGPT Work / Codex 用量；他说受影响时间窗口内使用过的人将再获得一张，并收到道歉邮件。",
+        "scope": "受影响时间窗口内使用过 banked reset 的用户 · 具体窗口与资格仍待第一方直读",
+        "boundary": "这是补偿/修复说明，不等于面向所有用户的 global reset，也不能推出补发已经对每个受影响账号到账。",
+        "sources": [
+          "tibo-post-2097752790177370535",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [],
+        "original_text": "There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex. Everyone who used one in the affected time window is getting another one and an email to apologize.",
+        "conversation_context": "该帖讨论的是 banked reset 使用后没有完整生效的事故与补偿，不是在宣布一次面向全部付费用户的新 global reset。",
+        "interpretation": "高价值的用量修复/补偿线索：Tibo 说明会向受影响用户补发 banked reset；由于本站本轮无法直接读取 X 原帖，保留为待核验。",
+        "evidence_strength": "medium",
+        "semantic_type": "usage_explanation",
+        "not_proves": "未证明所有用户受影响、所有受影响用户已到账，也未证明发生全局额度清零/恢复。",
+        "post_id": "2097752790177370535",
+        "relation": "original",
+        "evidence": {
+          "post_url": "https://x.com/thsottiaux/status/2097752790177370535",
+          "screenshot": "assets/tibo/2097752790177370535.png",
+          "screenshot_status": "captured",
+          "captured_at": "2026-09-22T04:55:52Z",
+          "capture_method": "platform_twitter_embed",
+          "source": "first_party_x_page",
+          "sha256": "f4596637cbbb9a8bc0b6cdfc6c97aedb5887c16c3de7b32ecb9e7ef3348c63d3"
+        }
+      },
+      {
         "id": "lead-2026-09-12",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-12",
+        "published_at": "2026-09-12T03:20:36Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：“a reset is also landing by midnight today”——明确预告，执行仍待核验",
+        "summary": "公开追踪页定位到 Tibo 的 X 原帖：在解释 Codex 质量修复后，他补充“a reset is also landing by midnight today”。这属于明确的重置预告，但本轮服务端直读 X 仍返回 403，因此本站不把它升级为已确认执行。",
+        "scope": "Codex / ChatGPT Work 相关用量 · 具体适用范围原帖未在本站直接核验",
+        "boundary": "“by midnight today”是目标时间，不等于已经完成；原句也未单独给出时区。只有后续明确执行/传播完成表述或 OpenAI 官方说明才能确认。",
+        "sources": [
+          "tibo-post-sep12",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [
+          "tibo-propagation-2026-09-12"
+        ],
+        "original_text": "And of course, a reset is also landing by midnight today.",
+        "conversation_context": "该句出现在 Tibo 关于 Codex 质量问题与修复的长帖末尾，是一个独立的 reset 预告；后续另有“Reset all propagated”记录指向执行完成。",
+        "interpretation": "明确预告会有一次 reset，但不是完成确认；“midnight”目标也不能在没有原帖时区说明的情况下自行换算成一个确定的北京时间。",
+        "evidence_strength": "medium",
+        "semantic_type": "explicit_announcement",
+        "not_proves": "未证明发放范围、精确时区、在预告时点已经执行，也未证明所有账户已传播完成。",
+        "post_id": "2098612714704891959",
+        "relation": "original",
+        "evidence": {
+          "post_url": "https://x.com/thsottiaux/status/2098612714704891959",
+          "screenshot": null,
+          "screenshot_status": "unavailable",
+          "captured_at": null,
+          "capture_method": null,
+          "source": "first_party_x_page",
+          "sha256": null,
+          "capture_error": "no_valid_first_party_render: "
+        }
+      },
+      {
+        "id": "tibo-propagation-2026-09-12",
         "kind": "global",
         "status": "pending",
         "date": "2026-09-12",
-        "published_at": null,
+        "published_at": "2026-09-12T08:09:17Z",
         "effective_at": null,
-        "precision": "source_date",
-        "source_timezone": null,
-        "title": "9 月 12 日重置消息：原帖待核验",
-        "summary": "参考站记录了相关重置消息，并存在关联 X 原帖链接。本次未能直接读取原帖，暂不将它计为本站确认记录。",
-        "scope": "尚未核实",
-        "boundary": "不能依据社区标签确认所有账号已重置；不计算距此次重置的倒计时。",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：“Reset all propagated. Sweet dreams.”——语义指向传播完成，原帖仍待直读",
+        "summary": "公开追踪页定位到 Tibo 在稍晚的 X 帖中写“Reset all propagated. Sweet dreams.”，并将其与此前 reset 预告关联。语义上这是 rollout / propagation 完成表述，但本站直读该 X 链接仍返回 403，因此暂不升级为确认记录。",
+        "scope": "此前预告的 reset · 具体套餐/账户范围需结合原帖与官方说明继续核验",
+        "boundary": "第三方页面的“confirmed”标签不能替代本站的第一方核验；在原帖可直接读取或 OpenAI 官方资料补齐前，不用它计算个人额度或断言所有套餐均已重置。",
         "sources": [
-          "aihot-reset",
-          "tibo-post-sep12"
+          "tibo-post-2098685367058612394",
+          "codexresets-tracker"
         ],
-        "reviewed": "2026-09-21",
+        "reviewed": "2026-09-22",
         "review_basis": "secondary_lead",
-        "related_ids": []
+        "related_ids": [
+          "lead-2026-09-12"
+        ],
+        "original_text": "Reset all propagated. Sweet dreams.",
+        "conversation_context": "该帖发生在 03:20 UTC 的“reset is also landing by midnight today”之后；公开追踪页显示它引用/承接前述重置预告。",
+        "interpretation": "措辞明确指向 reset rollout 已完成传播，证据语义很强；但本站当前仍缺直接可读的 Tibo 原帖，因此状态保持 pending，而不是 confirmed。",
+        "evidence_strength": "medium",
+        "semantic_type": "propagation_complete",
+        "not_proves": "在第一方原帖未能直接核验前，不把第三方抓取结果升级成正式确认；也不能由此读取任何个人账号余额。",
+        "post_id": "2098685367058612394",
+        "quote_of_id": "2098612714704891959",
+        "relation": "quote",
+        "evidence": {
+          "post_url": "https://x.com/thsottiaux/status/2098685367058612394",
+          "screenshot": "assets/tibo/2098685367058612394.png",
+          "screenshot_status": "captured",
+          "captured_at": "2026-09-22T04:56:01Z",
+          "capture_method": "platform_twitter_embed",
+          "source": "first_party_x_page",
+          "sha256": "abd79d48e5bbc40c068bb94c79f71446641eb4a832c62525f3edfbcf4cc9a597"
+        }
       },
       {
-        "id": "lead-2026-09-20",
+        "id": "tibo-hint-2026-09-19-banked-reset",
         "kind": "announcement",
         "status": "pending",
-        "date": "2026-09-20",
-        "published_at": null,
+        "date": "2026-09-19",
+        "published_at": "2026-09-19T16:48:00Z",
         "effective_at": null,
-        "precision": "source_date",
-        "source_timezone": null,
-        "title": "后续发卡安排：预告上下文待核验",
-        "summary": "参考站收录了 Tibo 的回复线索。本次未直接核验原帖上下文，先保存为待核验预告，不承诺下一次到账日期。",
-        "scope": "尚未核实",
-        "boundary": "不从含糊的星期描述推算精确时刻，预告到期也不会自动变成已完成。",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 对 banked reset 请求回复“OK fine”；Tuesday 更像发布线索",
+        "summary": "Udi 先明确说“这周没发有意思的东西，所以欠大家一张 banked reset”，Tibo 随后回复“OK fine. But it’s also still coming in Tuesday”。前半句可以视为对 banked reset 请求的接受式回应；后半句更自然地承接此前关于本周发布/ship 的讨论，不能直接解释成“周二发 reset”。",
+        "scope": "banked reset 相关回复 · 具体资格与发放范围未知",
+        "boundary": "不能据此认定重置卡已经到账，也不能推出“周二就是 reset 时间”“每天一张”“所有付费账号都有”或全局额度已恢复。仍需 Tibo 后续明确发放/执行表述或 OpenAI 官方说明。",
         "sources": [
-          "aihot-reset"
+          "tibo-post-2101352781219258527",
+          "zamantika-thread-2101352781219258527",
+          "toolify-reset-tracker"
         ],
-        "reviewed": "2026-09-21",
+        "reviewed": "2026-09-22",
         "review_basis": "secondary_lead",
-        "related_ids": []
+        "related_ids": [],
+        "original_text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
+        "conversation_context": "上文由 @udiWertheimer 明确索要 banked reset；Tibo 此前又在同一讨论中预告本周仍有接近 DevDay 级别的发布，因此 Tuesday 既可能被社区联想到 reset，也可能只是继续指向产品发布。",
+        "interpretation": "中等强度的 banked reset 接受/暗示，但不是完成确认。把 Tuesday 直接当作 reset 到账时间会过度解读。",
+        "evidence_strength": "medium",
+        "semantic_type": "reset_related",
+        "not_proves": "未证明已发放、周二发放、发放次数、适用套餐、到账时刻，也未证明发生 global reset。",
+        "post_id": "2101352781219258527",
+        "reply_to_account": "udiWertheimer",
+        "relation": "reply",
+        "evidence": {
+          "post_url": "https://x.com/thsottiaux/status/2101352781219258527",
+          "screenshot": "assets/tibo/2101352781219258527.png",
+          "screenshot_status": "captured",
+          "captured_at": "2026-09-22T04:56:04Z",
+          "capture_method": "platform_twitter_embed",
+          "source": "first_party_x_page",
+          "sha256": "a1dfb2a3571a18070ca036b60bd1b5867191b23e900cf5c96e5749437cfe5c3a"
+        }
+      },
+      {
+        "id": "tibo-hint-2026-09-21-3am-tuesday",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-21",
+        "published_at": "2026-09-21T06:26:00Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 回复“3am on a Tuesday”：回复对象是 GPT-6 Community Night，不应当作 Reset 预告",
+        "summary": "公开线程镜像显示，Tibo 的“3am on a tuesday”是直接回复 @My_Ai_Bi 的“the GPT-6 Community Night was 🔥”。这条上文本身是产品/社区活动语境，没有 reset、banked 或额度措辞；因此不再把这条回复作为重置时间线索。",
+        "scope": "GPT-6 Community Night / 产品活动语境 · 非重置确认",
+        "boundary": "这条回复最多能说明 Tibo 对该产品/活动话题给了“Tuesday 3am”式时间回应；不能推出周二 3:00 会 reset，也不能推断时区、套餐、banked/global 类型或任何额度变化。",
+        "sources": [
+          "tibo-post-2101920928070562029",
+          "zamantika-thread-2101920928070562029",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [],
+        "original_text": "@My_Ai_Bi 3am on a tuesday",
+        "conversation_context": "被回复的 @My_Ai_Bi 原帖是“the GPT-6 Community Night was 🔥”；线程中还有其他用户追问 reset，但那些追问不是 Tibo 的原话，也不能反过来改变这条回复的语义。",
+        "interpretation": "我们理解：这更像产品/社区活动的时间玩笑或 tease，而不是 reset 信号。作为“重置”证据应降级为无关/误读纠正；只有后续 Tibo 明确提到 reset/额度，或 OpenAI 官方说明，才能建立重置关联。",
+        "evidence_strength": "medium",
+        "semantic_type": "non_reset_context",
+        "not_proves": "未证明会发生任何 reset；也未确认时区、具体发布日期、适用套餐、banked/global 类型或任何额度变化。",
+        "post_id": "2101920928070562029",
+        "reply_to_account": "My_Ai_Bi",
+        "reply_to_text": "the GPT-6 Community Night was 🔥",
+        "relation": "reply",
+        "evidence": {
+          "post_url": "https://x.com/thsottiaux/status/2101920928070562029",
+          "screenshot": "assets/tibo/2101920928070562029.png",
+          "screenshot_status": "captured",
+          "captured_at": "2026-09-22T04:56:07Z",
+          "capture_method": "platform_twitter_embed",
+          "source": "first_party_x_page",
+          "sha256": "10c6e6af3d7c7efec041958d20b2adbac46a390f0332a93614db1e63ac2478d4"
+        }
       }
     ],
     "sources": [
@@ -1960,20 +2120,92 @@
       {
         "id": "tibo-post-sep12",
         "publisher": "Tibo / X",
-        "title": "9 月 12 日关联原帖",
+        "title": "“a reset is also landing by midnight today” post",
         "url": "https://x.com/thsottiaux/status/2098612714704891959",
-        "checked": "2026-09-21",
-        "kind": "原帖待核验",
-        "note": "本次访问被拒绝，未核验原文及其精确时间；原帖链接仅供进一步检查。"
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开追踪页定位到该原帖与发布时间；本轮服务端直读 X 返回 403，因此只作为待核验原帖链接。"
+      },
+      {
+        "id": "codexresets-tracker",
+        "publisher": "CodexResets.net",
+        "title": "Tibo public post tracker",
+        "url": "https://codexresets.net/",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于定位 Tibo 的公开 X 原帖、发布时间和回复关系；不继承其确认结论。"
+      },
+      {
+        "id": "tibo-post-2101920928070562029",
+        "publisher": "Tibo / X",
+        "title": "“3am on a tuesday” reply",
+        "url": "https://x.com/thsottiaux/status/2101920928070562029",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开链接已定位，但当前服务端直读 X 返回 403；线程镜像显示它直接回复 GPT-6 Community Night 话题，因此不能脱离上文当作 reset 时间预告。"
+      },
+      {
+        "id": "zamantika-thread-2101920928070562029",
+        "publisher": "Zamantika",
+        "title": "Tibo / My_Ai_Bi reply thread mirror",
+        "url": "https://zamantika.com/thsottiaux/status/2101920928070562029",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于恢复被回复原帖“the GPT-6 Community Night was 🔥”与 Tibo“3am on a tuesday”的直接上下文；不作为 reset 确认来源。"
+      },
+      {
+        "id": "tibo-post-2101352781219258527",
+        "publisher": "Tibo / X",
+        "title": "“OK fine. But it’s also still coming in Tuesday” reply",
+        "url": "https://x.com/thsottiaux/status/2101352781219258527",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "原帖链接和文本已由公开镜像定位；当前服务端直读 X 返回 403，因此保持待核验而非确认。"
+      },
+      {
+        "id": "zamantika-thread-2101352781219258527",
+        "publisher": "Zamantika",
+        "title": "Tibo / Udi reply thread mirror",
+        "url": "https://zamantika.com/thsottiaux/status/2101352781219258527",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于恢复 Udi 的 banked reset 请求与 Tibo 回复的上下文；不作为完成重置的确认来源。"
+      },
+      {
+        "id": "toolify-reset-tracker",
+        "publisher": "Toolify",
+        "title": "Codex reset public signal tracker",
+        "url": "https://www.toolify.ai/es/codex-reset",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于核对公开信号的 UTC 时间和原帖链接；其预测与分类不作为本站确认结论。"
+      },
+      {
+        "id": "tibo-post-2097752790177370535",
+        "publisher": "Tibo / X",
+        "title": "Banked reset compensation / repair post",
+        "url": "https://x.com/thsottiaux/status/2097752790177370535",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开镜像与追踪页定位到补偿说明原帖；本轮服务端直读 X 返回 403，因此不作为第一方已确认记录。"
+      },
+      {
+        "id": "tibo-post-2098685367058612394",
+        "publisher": "Tibo / X",
+        "title": "“Reset all propagated. Sweet dreams.” post",
+        "url": "https://x.com/thsottiaux/status/2098685367058612394",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开追踪页定位到传播完成表述及其 X 链接；本轮服务端直读 X 返回 403，故保持待核验。"
       }
     ],
-    "coverage": "首批记录，不是完整历史；没有完成实时轮询。",
+    "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
     "sync": {
       "status": "not_configured",
       "last_attempt": null,
       "last_success": null,
       "error": null,
-      "note": "X API 尚未接通。没有实时重置结论。"
+      "note": "每 2 小时由站点迭代任务检索公开 X 线索；官方 X API 采集器也支持回复/引用上下文，但需要服务端 X_BEARER_TOKEN。机器候选不会自动升级成已确认重置。"
     },
     "inbox": [],
     "profile_url": "https://x.com/thsottiaux",
