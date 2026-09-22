@@ -1,0 +1,65 @@
+name: Capture Tibo screenshots
+
+on:
+  push:
+    branches: [tibo-static-screenshots-20260922]
+    paths:
+      - scripts/capture_tibo_posts.mjs
+      - data/resets.json
+      - .github/workflows/capture-tibo-screenshots.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Capture first-party X renders
+        run: node scripts/capture_tibo_posts.mjs --require-all
+      - name: Unit tests
+        run: python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+      - name: JavaScript syntax
+        run: |
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          node --check scripts/capture_tibo_posts.mjs
+      - name: Build static site
+        run: python scripts/build.py --out dist-ci --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Verify captured evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/resets.json').read_text())
+          rows=[e for e in d['events'] if e.get('post_id')]
+          assert rows and all(e['evidence']['screenshot_status']=='captured' for e in rows)
+          for e in rows:
+              assert Path(e['evidence']['screenshot']).is_file()
+              assert (Path('dist-ci')/e['evidence']['screenshot']).is_file()
+          print('verified',len(rows),'Tibo screenshots')
+          PY
+      - name: Commit screenshot archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/resets.json assets/tibo
+          if git diff --cached --quiet; then
+            echo "No screenshot changes"
+          else
+            git commit -m "Archive first-party Tibo X screenshots"
+            git push
+          fi
