@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, automation/tibo-context-20260922]
   workflow_dispatch:
 
 permissions:
@@ -35,3 +35,5 @@ jobs:
           grep -q "原帖证据 · 文本快照" dist-ci/index.html
           grep -q "EVIDENCE / 证据" dist-ci/index.html
           grep -q "INFERENCE / 推断" dist-ci/index.html
+          grep -q "GPT-6 Community Night" dist-ci/index.html
+          grep -q "non_reset_context" dist-ci/index.html
