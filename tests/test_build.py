@@ -52,6 +52,15 @@ class BuildTests(unittest.TestCase):
             self.assertTrue(all(i.text.startswith(app['site']['base_url']) for i in rss.findall('./channel/item/link')))
             self.assertEqual(len({i.text for i in rss.findall('./channel/item/guid')}),len(self.c['events'])+15)
             self.assertIn('sitemap.xml',(d/'robots.txt').read_text())
+    def test_model_table_shows_company_logo_column(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('<th class="m-company-col">公司</th>',html)
+            self.assertIn('m-company-logo',html)
+            self.assertIn('https://openai.com/favicon.ico',html)
+            self.assertIn('https://www.anthropic.com/favicon.ico',html)
+
     def test_feed_escapes_text(self):
         c=copy.deepcopy(self.c);c['events'][0]['title']='A < B & C'
         s={**self.s,'base_url':'https://example.org/sub/'}
