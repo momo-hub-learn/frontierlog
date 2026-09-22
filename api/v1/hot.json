@@ -36,6 +36,22 @@
   ],
   "items": [
     {
+      "id": "gpt-6-sol-luna-20260922",
+      "category": "model",
+      "heat": 99,
+      "trend": "up",
+      "published": "2026-09-22",
+      "checked": "2026-09-22",
+      "title": "OpenAI 发布 GPT-6 Sol / Luna：更便宜的 GPT-6 已进 Work、Codex 与 API",
+      "summary": "OpenAI 9 月 22 日发布 GPT-6 Sol 与 GPT-6 Luna。官方 API 价为 Sol 每百万输入 / 输出 Token 2 / 10 美元、Luna 0.10 / 0.50 美元，并称相较 GPT-5.6 的促销价格降低 50%。",
+      "why": "这次变化不只是“又发两个模型”：GPT-6 的能力开始下沉到更高频、成本敏感的 Agent 工作。Sol / Luna 当天进入 ChatGPT Work、Codex 与 API，意味着前沿能力的竞争进一步转向单位任务成本、缓存效率和可持续长任务。",
+      "boundary": "性能与竞品对比来自 OpenAI 发布时披露的评测；截至本轮核验，Artificial Analysis 公共 LLM 榜尚未出现 GPT-6 Sol / Luna 的独立同口径条目，因此本站不把厂商分数写入独立模型榜。官方也明确说明 ChatGPT 内为逐步 rollout，未看到模型不等于发布信息有误。",
+      "source": "OpenAI",
+      "source_kind": "官方发布 / 官方定价 / 官方可用性",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "link": "#/progress"
+    },
+    {
       "id": "claude-opus-55-20260922",
       "category": "model",
       "heat": 98,
@@ -45,9 +61,9 @@
       "title": "Anthropic 发布 Claude Opus 5.5：称多数工作达 Fable 5.1 水平，典型成本低 40%",
       "summary": "Anthropic 9 月 22 日发布 Claude Opus 5.5。官方称其在多数工作达到 Claude Fable 5.1 水平；典型工作负载成本比 Opus 5 低 40%，输出速度快 30% 以上，API 定价降至每百万输入 / 输出 Token 4 / 20 美元。",
       "why": "这是同日旗舰模型更新，同时带出明确的前瞻信号：Anthropic 预告 Sonnet 5.5 与 Haiku 5.5 将在未来数周跟进。能力、成本和产品节奏同时变化，比单一 Benchmark 涨分更值得优先跟踪。",
-      "boundary": "性能与成本结论主要来自 Anthropic 官方发布和其披露的评测设置；截至本轮核验，尚未发现 Artificial Analysis Intelligence Index 对 Opus 5.5 的独立同口径快照，因此不把厂商 Benchmark 直接写入本站独立模型榜，也不据此宣称其已在第三方综合榜排名第一。",
-      "source": "Anthropic",
-      "source_kind": "官方发布 / 官方评测 / 明确预告",
+      "boundary": "Artificial Analysis 同日公开榜已给出独立同口径快照：Opus 5.5（max with fallback）Intelligence Index 58、Cost per Task $5.98、1M context，当前高于 Fable 5.1 与 GPT-6 Astra（均为 53）。这些是 Artificial Analysis 的公开榜快照，不是本站实测；该行速度项当前仍为 --，榜单后续可能继续更新。",
+      "source": "Anthropic / Artificial Analysis",
+      "source_kind": "官方发布 + 独立公开榜",
       "url": "https://www.anthropic.com/claude-opus-5-5",
       "link": "#/hot"
     },
@@ -178,22 +194,6 @@
       "source_kind": "公司研究公告",
       "url": "https://www.quotientsciences.com/news/quotient-sciences-proprietary-ai-enhanced-solution-optimizes-formulation-clinical-study",
       "link": "#/pharma?topic=clinical"
-    },
-    {
-      "id": "asml-tsmc-mask-20260908",
-      "category": "industry",
-      "heat": 82,
-      "trend": "flat",
-      "published": "2026-09-08",
-      "checked": "2026-09-22",
-      "title": "TSMC 与 ASML 推动 High NA EUV 12 英寸光罩产业计划",
-      "summary": "双方宣布推动大尺寸光罩，目标是 2031 年建立 12 英寸光罩试验线并支持后续先进节点生产准备。",
-      "why": "对晶圆厂关注点不是“AI 芯片又涨了”，而是制造技术、设备与材料路线发生什么变化。",
-      "boundary": "这是产业路线与合作计划，时间表不是量产承诺，实际生产准备仍取决于设备与供应链验证。",
-      "source": "ASML",
-      "source_kind": "官方新闻稿",
-      "url": "https://www.asml.com/en/news/press-releases/2026/tsmc-and-asml-announce-industry-transition-to-large-format-photomasks-for-high-na-euv",
-      "link": "#/manufacturing?topic=fab-equipment"
     }
   ]
 }
