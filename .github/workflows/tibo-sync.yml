@@ -8,11 +8,20 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/tibo-sync.yml'
+      - 'scripts/build.py'
       - 'scripts/collect_models.py'
       - 'data/model-sync.json'
       - 'data/resets.json'
-      - 'src/tibo-intel.js'
-      - 'src/tibo-intel.css'
+      - 'data/hot.json'
+      - 'data/hot-policy.json'
+      - 'data/models.json'
+      - 'data/capabilities.json'
+      - 'data/benchmarks.json'
+      - 'data/catalog.json'
+      - 'data/industry.json'
+      - 'data/topic-intake.json'
+      - 'data/site.json'
+      - 'src/**'
       - 'assets/tibo-intel.js'
       - 'assets/tibo-intel.css'
 
@@ -124,18 +133,21 @@ jobs:
           grep -q "原始证据 / X 官方原帖" /tmp/frontierlog-dist/index.html
           grep -q "LATEST RESET SIGNAL / TIBO ON X" /tmp/frontierlog-dist/index.html
           grep -q "data-x-conversation=\\\"none\\\"" /tmp/frontierlog-dist/index.html
-      - name: Publish generated Tibo UI and data endpoints
+      - name: Publish generated site and data endpoints
         run: |
           cp /tmp/frontierlog-dist/index.html index.html
           cp /tmp/frontierlog-dist/404.html 404.html
-          cp /tmp/frontierlog-dist/api/v1/resets.json api/v1/resets.json
-          cp /tmp/frontierlog-dist/feeds/resets.xml feeds/resets.xml
-          if git diff --quiet -- index.html 404.html api/v1/resets.json feeds/resets.xml; then
-            echo "Generated site already matches Tibo source."
+          cp -R /tmp/frontierlog-dist/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-dist/feeds/. feeds/
+          cp /tmp/frontierlog-dist/feed.xml feed.xml
+          cp /tmp/frontierlog-dist/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-dist/robots.txt robots.txt
+          if git diff --quiet -- index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt; then
+            echo "Generated site already matches verified source data."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html 404.html api/v1/resets.json feeds/resets.xml
-          git commit -m "Build Tibo signal hero"
+          git add index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
+          git commit -m "Build verified site snapshot"
           git push
