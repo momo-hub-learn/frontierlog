@@ -53,6 +53,17 @@ class ValidationTests(unittest.TestCase):
  def test_primary_required_for_confirmed(self):
   d=copy.deepcopy(E);d['events'][0]['sources']=['aihot-reset']
   with self.assertRaises(ValueError):validate_resets(d)
+ def test_tibo_post_requires_evidence_metadata(self):
+  d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'));e.pop('evidence',None)
+  with self.assertRaises(ValueError):validate_resets(d)
+ def test_pending_screenshot_cannot_claim_file(self):
+  d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'))
+  e['evidence'].update(screenshot_status='pending',screenshot='assets/tibo/'+e['post_id']+'.png',captured_at=None,capture_method=None,sha256=None)
+  with self.assertRaises(ValueError):validate_resets(d)
+ def test_captured_screenshot_requires_checksum(self):
+  d=copy.deepcopy(E);e=next(x for x in d['events'] if x.get('post_id'))
+  e['evidence'].update(screenshot_status='captured',screenshot='assets/tibo/'+e['post_id']+'.png',captured_at='2026-09-22T00:00:00Z',capture_method='platform_twitter_embed',sha256=None)
+  with self.assertRaises(ValueError):validate_resets(d)
  def test_false_success_rejected(self):
   d=copy.deepcopy(M);d['sync'].update(status='success',last_success=None)
   with self.assertRaises(ValueError):validate_models(d)
