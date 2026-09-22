@@ -32,11 +32,11 @@ function v2Progress(){
  $('#layout-buttons').hidden=true; $('#toolbar').hidden=true; $('#contextline').hidden=true;
  const usable=DATA.items.filter(t=>t.status==='code');
  const research=DATA.items.filter(t=>t.status==='research');
- const item=(t,mode)=>{const now=mode==='open'?t.summary:t.scope,label=mode==='open'?'现在可跑':'研究中';return `<button class="v2-cap-row" data-action="task" data-id="${t.id}"><span class="v2-cap-state ${mode}"></span><span><strong>${esc(t.title)}</strong><small>${label} · ${esc(t.name)} · ${esc(t.category)}</small></span><span class="v2-cap-copy"><b style="color:var(--text);font-weight:650">现在：</b>${esc(now)}<br><span style="color:var(--muted)">边界：</span>${esc(t.boundary)}</span>${icon('arrow')}</button>`};
- $('#content').innerHTML=`<div class="v2-pageintro"><div><p class="eyebrow">WHAT AI CAN ACTUALLY DO</p><h1>AI 又能干什么了？</h1><p>每项能力只出现一次：先看现在能做什么，再看还卡在哪里。</p></div><span class="v2-pagecount">${DATA.items.length} 个任务</span></div>
+ const item=(t,mode)=>{const label=mode==='open'?'可运行':'研究阶段';return `<button class="v2-cap-row" data-action="task" data-id="${t.id}"><span class="v2-cap-state ${mode}"></span><span><strong>${esc(t.title)}</strong><small>${label} · ${esc(t.category)} · ${esc(t.name)}</small></span><span class="v2-cap-copy"><b style="color:var(--text);font-weight:650">能做：</b>${esc(t.summary)}<br><span style="color:var(--muted)">最大限制：</span>${esc(t.boundary)}</span>${icon('arrow')}</button>`};
+ $('#content').innerHTML=`<div class="v2-pageintro"><div><p class="eyebrow">WHAT AI CAN ACTUALLY DO</p><h1>AI 又能干什么了？</h1><p>先看你能做什么，再看成熟度与最大限制；项目名只做次级信息。</p></div><span class="v2-pagecount">${DATA.items.length} 个任务</span></div>
  <div class="v2-cap-status-grid">
-  <section><header><span class="v2-status-dot open"></span><div><h2>已经能跑</h2><p>有公开实现或可运行路径；仍需你自己的业务验收。</p></div><b>${usable.length}</b></header><div>${usable.map(t=>item(t,'open')).join('')}</div></section>
-  <section><header><span class="v2-status-dot research"></span><div><h2>还在研究</h2><p>有研究证据，但访问、稳定性或复现条件还不够成熟。</p></div><b>${research.length}</b></header><div>${research.map(t=>item(t,'research')).join('')||'<p class="v2-emptyline">暂无单独研究阶段任务。</p>'}</div></section>
+  <section class="wide"><header><span class="v2-status-dot open"></span><div><h2>现在能用</h2><p>有公开实现或可运行路径；仍需你自己的业务验收。</p></div><b>${usable.length}</b></header><div>${usable.map(t=>item(t,'open')).join('')}</div></section>
+  <section class="wide"><header><span class="v2-status-dot research"></span><div><h2>还在研究</h2><p>有研究证据，但访问、稳定性或复现条件还不够成熟。</p></div><b>${research.length}</b></header><div>${research.map(t=>item(t,'research')).join('')||'<p class="v2-emptyline">暂无单独研究阶段任务。</p>'}</div></section>
  </div>`;
 }
 
