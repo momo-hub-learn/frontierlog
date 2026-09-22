@@ -103,6 +103,24 @@
         "link": "#/hot"
       },
       {
+        "id": "mimo-v26-pro-20260922",
+        "category": "model",
+        "heat": 95,
+        "trend": "up",
+        "published": "2026-09-22",
+        "checked": "2026-09-22",
+        "title": "Xiaomi 发布 MiMo-V2.6：Pro 在 AA 开放权重模型中升至 46 分",
+        "summary": "Xiaomi 9 月 22 日发布 MiMo-V2.6 系列：Pro 是原生全模态万亿参数旗舰，另有低成本 Flash 与最高 20 倍加速的 Pro-UltraSpeed。Artificial Analysis 当前独立快照给出 MiMo-V2.6-Pro Intelligence Index 46、约 54.6 output tok/s、Cost per Intelligence Index Task $0.13。",
+        "why": "MiMo-V2.6-Pro 把开放权重模型推进到 AA 当前 46 分档，同时每个 Intelligence Index 任务成本仅 $0.13；性能、开放权重、1M 上下文和低任务成本同时出现，是单位任务成本竞争的重要变化。",
+        "boundary": "系列发布时间与产品定位来自 Xiaomi MiMo 官方更新日志；46、54.6 tok/s、$0.13/task、$0.435/$0.87 每百万输入/输出 Token、1M context 与 MIT 权重信息来自 Artificial Analysis 当前公开模型页。AA 的速度是动态实测，后续可能变化；“开放权重领先”只指 AA 当前收录和同口径评测，不外推为所有 Benchmark 的绝对第一。",
+        "source": "Xiaomi MiMo / Artificial Analysis",
+        "source_kind": "官方发布 + 独立公开榜",
+        "url": "https://mimo.mi.com/docs/en-US/updates/model",
+        "secondary_url": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
+        "evidence_level": "high",
+        "link": "#/models"
+      },
+      {
         "id": "grok-47-20260921",
         "category": "model",
         "heat": 94,
@@ -184,22 +202,6 @@
         "source_kind": "官方研究 / 内部测量",
         "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
         "link": "#/hot"
-      },
-      {
-        "id": "anthropic-biomolecular-20260917",
-        "category": "research",
-        "heat": 90,
-        "trend": "up",
-        "published": "2026-09-17",
-        "checked": "2026-09-22",
-        "title": "Anthropic：Claude 优化 30+ 生物分子模型，平均加速约 4 倍",
-        "summary": "Anthropic 报告 Claude Science 对开源生物分子建模代码做性能和显存优化，并宣布开放优化代码与蛋白设计竞赛。",
-        "why": "“AI for Science”开始出现能直接改科研工具链、再用湿实验承接验证的路径。",
-        "boundary": "来自作者方研究发布；平均加速不代表每个模型、硬件和任务都有同样收益。",
-        "source": "Anthropic",
-        "source_kind": "作者研究发布",
-        "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
-        "link": "#/pharma?topic=molecules"
       }
     ]
   },
