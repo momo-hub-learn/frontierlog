@@ -10,6 +10,10 @@ on:
       - '.github/workflows/tibo-sync.yml'
       - 'scripts/collect_models.py'
       - 'data/model-sync.json'
+      - 'src/tibo-intel.js'
+      - 'src/tibo-intel.css'
+      - 'assets/tibo-intel.js'
+      - 'assets/tibo-intel.css'
 
 permissions:
   contents: write
@@ -95,4 +99,40 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/resets.json api/v1/resets.json feeds/resets.xml
           git commit -m "Sync Tibo public reset candidates"
+          git push
+
+  publish-tibo-ui:
+    if: github.event_name == 'push'
+    needs: sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify Tibo UI before publishing
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          grep -q "Tibo 预告：周二会有一次 reset" /tmp/frontierlog-dist/index.html
+          grep -q "原始证据 / X 官方原帖" /tmp/frontierlog-dist/index.html
+          grep -q "LATEST RESET SIGNAL / TIBO ON X" /tmp/frontierlog-dist/index.html
+          grep -q "data-x-conversation=\\\"none\\\"" /tmp/frontierlog-dist/index.html
+      - name: Publish generated Tibo UI
+        run: |
+          cp /tmp/frontierlog-dist/index.html index.html
+          cp /tmp/frontierlog-dist/404.html 404.html
+          if git diff --quiet -- index.html 404.html; then
+            echo "Generated site already matches Tibo source."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html 404.html
+          git commit -m "Build Tibo signal hero"
           git push

@@ -47,6 +47,24 @@ function officialSyncLabel(){
   if(s.status==='success'&&s.last_success)return '官方 X API 最近同步 '+when({published_at:s.last_success});
   return '人工核对快照 '+(RESET_DATA.checked||'')
 }
+function compactText(value,max=96){const text=String(value||'').replace(/^我们理解[：:]\s*/,'').trim();return text.length>max?text.slice(0,max-1).trimEnd()+'…':text}
+function heroHeadline(x){
+  const raw=String(x.original_text||x.title||x.summary||'');
+  if(x.semantic_type==='explicit_announcement')return /Tuesday|周二/i.test(raw)?'Tibo 预告：周二会有一次 reset':'Tibo：明确预告一次 reset';
+  if(x.semantic_type==='propagation_complete')return 'Tibo：reset 已完成传播';
+  if(x.semantic_type==='reset_executed')return 'Tibo：reset 已执行';
+  if(x.semantic_type==='banked_delivery')return 'Tibo：banked reset 已发放';
+  if(x.semantic_type==='usage_explanation')return 'Tibo：说明 reset 修复与补偿';
+  if(x.semantic_type==='denial')return 'Tibo：纠正 reset 相关说法';
+  const title=String(x.title||'').replace(/^Tibo[：:]\s*/,'').trim();
+  return 'Tibo：'+compactText(title||raw,46)
+}
+function heroBoundary(x){
+  if(x.semantic_type==='explicit_announcement')return '还不能视为已执行；具体时刻、banked / global 类型和适用套餐仍未确认。';
+  if(x.semantic_type==='propagation_complete')return x.status==='confirmed'?'不能据此读取个人账号余额或剩余额度。':'原帖仍待直接核验，暂不升级为正式确认。';
+  if(x.semantic_type==='usage_explanation')return '这是修复 / 补偿说明，不等于面向所有用户的 global reset。';
+  return compactText(x.not_proves||x.boundary||x.reason||'需要更多上下文。',92)
+}
 function featuredEvidence(x){
   const url=originalUrl(x);
   if(!x.post_id||url==='#')return fallbackQuote(x,url,'没有可直连的 X 原帖');
@@ -55,22 +73,24 @@ function featuredEvidence(x){
 function featuredHero(){
   const x=featuredSignal();if(!x)return '';
   const url=originalUrl(x),stamp=when(x);
-  const raw=String(x.original_text||x.summary||'').trim();
-  const headline=raw.length>150?raw.slice(0,147).trimEnd()+'…':raw;
-  const readingRaw=String(x.interpretation||x.summary||'').trim();
-  const reading=readingRaw.length>150?readingRaw.slice(0,147).trimEnd()+'…':readingRaw;
+  const reading=compactText(x.interpretation||x.summary,104);
   const detail=x._source==='event'?'<button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看上下文 '+icon('arrow')+'</button>':'<span class="tibo-featured-machine">机器候选 · 待人工核验</span>';
   return '<section class="tibo-featured">'+
     '<div class="tibo-featured-bar"><div><span class="tibo-featured-kicker">最新重置消息</span><span class="tibo-featured-status">'+esc(heroStateLabel(x))+'</span></div><time>'+esc(stamp)+'</time></div>'+
     '<div class="tibo-featured-grid">'+
       '<div class="tibo-featured-copy"><p class="eyebrow">LATEST RESET SIGNAL / TIBO ON X</p>'+
-      '<h2>Tibo：'+esc(headline)+'</h2>'+
+      '<h2>'+esc(heroHeadline(x))+'</h2>'+
       '<p class="tibo-featured-reading">'+esc(reading)+'</p>'+
-      '<div class="tibo-featured-source"><span>'+esc(heroReviewState(x))+'</span><span>'+esc(officialSyncLabel())+'</span></div>'+
-      '<div class="tibo-featured-actions"><a class="tibo-featured-primary" href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a>'+detail+'</div></div>'+
-      '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>X 官方原帖</span><small data-tibo-live-state>'+esc(sourceState(x))+'</small></div>'+
+      '<div class="tibo-featured-facts">'+
+        '<div><span>判断</span><strong>'+esc(semanticLabel[x.semantic_type]||RESET_KINDS[x.kind]||'待分类')+'</strong></div>'+
+        '<div><span>证据</span><strong>'+esc(strengthLabel[x.evidence_strength]||'待评估')+' · '+esc(heroReviewState(x))+'</strong></div>'+
+        '<div class="boundary"><span>边界</span><p>'+esc(heroBoundary(x))+'</p></div>'+
+      '</div>'+
+      '<div class="tibo-featured-actions"><a class="tibo-featured-primary" href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a>'+detail+'</div>'+
+      '<p class="tibo-featured-sync">'+esc(officialSyncLabel())+'</p></div>'+
+      '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>原始证据 / X 官方原帖</span><small data-tibo-live-state>'+esc(sourceState(x))+'</small></div>'+
       featuredEvidence(x)+
-      '<div class="tibo-featured-proof-foot"><span>优先直连 X 官方嵌入；失败时只保留原文摘录与原帖链接。</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
+      '<div class="tibo-featured-proof-foot"><span>嵌入失败时退回原文摘录，不模拟截图。</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
     '</div>'+
   '</section>'
 }
