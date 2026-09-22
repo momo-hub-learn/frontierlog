@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-09-21",
+    "checked": "2026-09-22",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -51,6 +51,22 @@
         "source_kind": "官方发布",
         "url": "https://openai.com/index/introducing-the-agents-api/",
         "link": "#/progress"
+      },
+      {
+        "id": "grok-47-20260921",
+        "category": "model",
+        "heat": 94,
+        "trend": "up",
+        "published": "2026-09-21",
+        "checked": "2026-09-22",
+        "title": "Grok 4.7 发布：长任务与 Coding Agent 能力同步上升",
+        "summary": "SpaceXAI 9 月 21 日发布 Grok 4.7，定位为更强的 coding 与 knowledge-work 模型；Artificial Analysis 独立评测给出 Intelligence Index 46，Grok Build 的 Coding Agent Index 56。",
+        "why": "这次变化不只是基础模型换代：在第一方 Grok Build harness 中，Coding Agent Index 从 Grok 4.6 的 47 升到 56，进入当前头部 coding agent 区间。",
+        "boundary": "产品能力描述来自厂商发布；46 与 56 是 Artificial Analysis 的独立评测快照，榜单和速度数据会继续更新，不能外推到所有代码库与长任务。",
+        "source": "SpaceXAI / Artificial Analysis",
+        "source_kind": "官方发布 + 独立评测",
+        "url": "https://x.ai/news/grok-4-7",
+        "link": "#/models"
       },
       {
         "id": "gemini-live-38",
@@ -179,22 +195,6 @@
         "source_kind": "官方模型卡",
         "url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
         "link": "#/models"
-      },
-      {
-        "id": "taiwan-packaging-park-20260921",
-        "category": "industry",
-        "heat": 72,
-        "trend": "up",
-        "published": "2026-09-21",
-        "checked": "2026-09-21",
-        "title": "台湾启动先进封装产业园建设，TSMC 规划验证与人才设施",
-        "summary": "路透报道高雄先进封装产业园动工，规划包括 TSMC 的技术验证实验室和培训设施。",
-        "why": "先进封装正在变成 AI 时代制造能力的一部分，值得与晶圆设备和工艺路线一起跟踪。",
-        "boundary": "这是产业建设进展，不等于新增产能已经投产；具体设施计划和运营时间仍可能变化。",
-        "source": "Reuters",
-        "source_kind": "新闻报道",
-        "url": "https://www.reuters.com/world/asia-pacific/taiwan-breaks-ground-advanced-packaging-park-anchored-by-tsmc-2026-09-21/",
-        "link": "#/manufacturing"
       }
     ]
   },
@@ -276,6 +276,808 @@
     },
     "last_evaluated": null,
     "last_decision": null
+  },
+  "capabilities": {
+    "version": 2,
+    "checked": "2026-09-22",
+    "groups": [
+      {
+        "id": "coding",
+        "title": "Coding Agent",
+        "icon": "terminal",
+        "subtitle": "模型 + Harness + 工具链",
+        "boards": [
+          "coding"
+        ]
+      },
+      {
+        "id": "multimodal",
+        "title": "多模态",
+        "icon": "image",
+        "subtitle": "图像 / 视频生成与编辑",
+        "boards": [
+          "t2i",
+          "imgedit",
+          "t2v",
+          "i2v"
+        ]
+      },
+      {
+        "id": "world",
+        "title": "世界模型",
+        "icon": "globe",
+        "subtitle": "交互、物理、空间与长期一致性",
+        "boards": [
+          "wbench",
+          "worldolympiad"
+        ]
+      },
+      {
+        "id": "voice",
+        "title": "语音",
+        "icon": "mic",
+        "subtitle": "TTS 与实时语音 Agent",
+        "boards": [
+          "tts",
+          "s2s"
+        ]
+      }
+    ],
+    "boards": {
+      "coding": {
+        "title": "Coding Agent Index",
+        "source": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/agents/coding-agents",
+        "note": "模型、Agent Harness 与执行设置共同决定结果。Grok Build 行已按 Artificial Analysis Coding Agent Index v1.5 的 Grok 4.7 结果更新。",
+        "primary": "index",
+        "columns": [
+          {
+            "key": "index",
+            "label": "Index",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "deep",
+            "label": "DeepSWE",
+            "unit": "%"
+          },
+          {
+            "key": "terminal",
+            "label": "Terminal-Bench",
+            "unit": "%"
+          },
+          {
+            "key": "atlas",
+            "label": "SWE-Atlas",
+            "unit": "%"
+          },
+          {
+            "key": "cost",
+            "label": "成本 / task",
+            "unit": "$"
+          },
+          {
+            "key": "time",
+            "label": "时间 / task",
+            "unit": "min"
+          }
+        ],
+        "rows": [
+          {
+            "name": "Fable 5.1 (max)",
+            "maker": "Anthropic",
+            "detail": "Claude Code",
+            "index": 62,
+            "deep": 64,
+            "terminal": 58,
+            "atlas": 65,
+            "cost": 12.39,
+            "time": 34.8
+          },
+          {
+            "name": "GPT-6 Astra (max)",
+            "maker": "OpenAI",
+            "detail": "Codex",
+            "index": 62,
+            "deep": 68,
+            "terminal": 56,
+            "atlas": 62,
+            "cost": 7.47,
+            "time": 29.4
+          },
+          {
+            "name": "Opus 5 (max)",
+            "maker": "Anthropic",
+            "detail": "Claude Code",
+            "index": 60,
+            "deep": 63,
+            "terminal": 55,
+            "atlas": 62,
+            "cost": 10.79,
+            "time": 41.9
+          },
+          {
+            "name": "GPT-5.6 Sol (max)",
+            "maker": "OpenAI",
+            "detail": "Codex",
+            "index": 55,
+            "deep": 72,
+            "terminal": 37,
+            "atlas": 54,
+            "cost": 6.35,
+            "time": 20.6
+          },
+          {
+            "name": "Grok 4.7 (xhigh)",
+            "maker": "SpaceXAI",
+            "detail": "Grok Build",
+            "index": 56,
+            "deep": 73,
+            "terminal": 33,
+            "atlas": 63,
+            "cost": 8.82,
+            "time": 39.2
+          }
+        ]
+      },
+      "t2i": {
+        "title": "文生图",
+        "source": "Artificial Analysis · Image Arena",
+        "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+        "note": "盲测偏好 Elo；价格与质量分开看。",
+        "primary": "elo",
+        "columns": [
+          {
+            "key": "elo",
+            "label": "Elo",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "samples",
+            "label": "样本",
+            "unit": ""
+          },
+          {
+            "key": "price",
+            "label": "价格 / 1k images",
+            "unit": "$"
+          },
+          {
+            "key": "release",
+            "label": "发布",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "GPT Image 2.5 Flare (max)",
+            "maker": "OpenAI",
+            "detail": "Text-to-Image",
+            "elo": 1188,
+            "samples": 5941,
+            "price": 210.7,
+            "release": "2026-09"
+          },
+          {
+            "name": "GPT Image 2.5 Sunburst (max)",
+            "maker": "OpenAI",
+            "detail": "Text-to-Image",
+            "elo": 1182,
+            "samples": 5858,
+            "price": 210.7,
+            "release": "2026-09"
+          },
+          {
+            "name": "GPT Image 2 (high)",
+            "maker": "OpenAI",
+            "detail": "Text-to-Image",
+            "elo": 1171,
+            "samples": 15046,
+            "price": 211,
+            "release": "2026-04"
+          },
+          {
+            "name": "Grok Imagine Image 2.0",
+            "maker": "SpaceXAI",
+            "detail": "Text-to-Image",
+            "elo": 1154,
+            "samples": 5881,
+            "price": 60,
+            "release": "2026-08"
+          },
+          {
+            "name": "MAI-Image-2.6",
+            "maker": "Microsoft AI",
+            "detail": "Text-to-Image",
+            "elo": 1147,
+            "samples": 8082,
+            "price": 38.9,
+            "release": "2026-08"
+          }
+        ]
+      },
+      "imgedit": {
+        "title": "图像编辑",
+        "source": "Artificial Analysis · Image Arena",
+        "url": "https://artificialanalysis.ai/image/leaderboard/editing",
+        "note": "相同图片与编辑指令下的盲测偏好 Elo。",
+        "primary": "elo",
+        "columns": [
+          {
+            "key": "elo",
+            "label": "Elo",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "samples",
+            "label": "样本",
+            "unit": ""
+          },
+          {
+            "key": "price",
+            "label": "价格 / 1k images",
+            "unit": "$"
+          },
+          {
+            "key": "release",
+            "label": "发布",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "GPT Image 2.5 Sunburst (max)",
+            "maker": "OpenAI",
+            "detail": "Image Edit",
+            "elo": 1176,
+            "samples": 5560,
+            "price": 210.7,
+            "release": "2026-09"
+          },
+          {
+            "name": "GPT Image 2.5 Flare (max)",
+            "maker": "OpenAI",
+            "detail": "Image Edit",
+            "elo": 1155,
+            "samples": 5753,
+            "price": 210.7,
+            "release": "2026-09"
+          },
+          {
+            "name": "MAI-Image-2.6",
+            "maker": "Microsoft AI",
+            "detail": "Image Edit",
+            "elo": 1132,
+            "samples": 13922,
+            "price": 38.9,
+            "release": "2026-08"
+          },
+          {
+            "name": "MAI-Image-2.6-Flash",
+            "maker": "Microsoft AI",
+            "detail": "Image Edit",
+            "elo": 1122,
+            "samples": 10023,
+            "price": 19.5,
+            "release": "2026-09"
+          },
+          {
+            "name": "GPT Image 2 (high)",
+            "maker": "OpenAI",
+            "detail": "Image Edit",
+            "elo": 1121,
+            "samples": 13391,
+            "price": 211,
+            "release": "2026-04"
+          }
+        ]
+      },
+      "t2v": {
+        "title": "文生视频",
+        "source": "Artificial Analysis · Video Arena",
+        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+        "note": "文生视频盲测偏好 Elo；质量、音频与价格应分别看。",
+        "primary": "elo",
+        "columns": [
+          {
+            "key": "elo",
+            "label": "Elo",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "samples",
+            "label": "样本",
+            "unit": ""
+          },
+          {
+            "key": "price",
+            "label": "价格 / min",
+            "unit": "$"
+          },
+          {
+            "key": "release",
+            "label": "发布",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "Wan 3.0",
+            "maker": "Alibaba",
+            "detail": "Text-to-Video",
+            "elo": 1243,
+            "samples": 5771,
+            "price": 12,
+            "release": "2026-08"
+          },
+          {
+            "name": "Gemini Omni Flash",
+            "maker": "Google",
+            "detail": "Text-to-Video",
+            "elo": 1238,
+            "samples": 16395,
+            "price": 6,
+            "release": "2026-05"
+          },
+          {
+            "name": "Minimax H3 Max",
+            "maker": "Fal",
+            "detail": "Text-to-Video",
+            "elo": 1231,
+            "samples": 5499,
+            "price": 2.4,
+            "release": "2026-08"
+          },
+          {
+            "name": "MiniMax H3",
+            "maker": "MiniMax",
+            "detail": "Text-to-Video",
+            "elo": 1225,
+            "samples": 8874,
+            "price": 7.8,
+            "release": "2026-07"
+          },
+          {
+            "name": "Dreamina Seedance 2.0 720p",
+            "maker": "ByteDance Seed",
+            "detail": "Text-to-Video",
+            "elo": 1220,
+            "samples": 22625,
+            "price": 9.07,
+            "release": "2026-03"
+          }
+        ]
+      },
+      "i2v": {
+        "title": "图生视频",
+        "source": "Artificial Analysis · Video Arena",
+        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+        "note": "图生视频独立排名，不和文生视频混成总分。",
+        "primary": "elo",
+        "columns": [
+          {
+            "key": "elo",
+            "label": "Elo",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "samples",
+            "label": "样本",
+            "unit": ""
+          },
+          {
+            "key": "price",
+            "label": "价格 / min",
+            "unit": "$"
+          },
+          {
+            "key": "release",
+            "label": "发布",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "Minimax H3 Max",
+            "maker": "Fal",
+            "detail": "Image-to-Video",
+            "elo": 1195,
+            "samples": 5569,
+            "price": 2.4,
+            "release": "2026-08"
+          },
+          {
+            "name": "MiniMax H3",
+            "maker": "MiniMax",
+            "detail": "Image-to-Video",
+            "elo": 1181,
+            "samples": 6949,
+            "price": 7.8,
+            "release": "2026-07"
+          },
+          {
+            "name": "Gemini Omni Flash",
+            "maker": "Google",
+            "detail": "Image-to-Video",
+            "elo": 1177,
+            "samples": 10079,
+            "price": 6,
+            "release": "2026-05"
+          },
+          {
+            "name": "HiDream-O1-Video",
+            "maker": "HiDream",
+            "detail": "Image-to-Video",
+            "elo": 1176,
+            "samples": 2815,
+            "price": 5.8,
+            "release": "2026-08"
+          },
+          {
+            "name": "Dreamina Seedance 2.0 720p",
+            "maker": "ByteDance Seed",
+            "detail": "Image-to-Video",
+            "elo": 1174,
+            "samples": 13797,
+            "price": 9.07,
+            "release": "2026-03"
+          }
+        ]
+      },
+      "wbench": {
+        "title": "WBench · 交互世界",
+        "source": "WBench",
+        "url": "https://meituan-longcat.github.io/WBench/",
+        "note": "交互式世界模型；覆盖质量、场景、交互、一致性与物理。",
+        "primary": "avg",
+        "columns": [
+          {
+            "key": "avg",
+            "label": "平均",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "quality",
+            "label": "质量",
+            "unit": ""
+          },
+          {
+            "key": "interaction",
+            "label": "交互",
+            "unit": ""
+          },
+          {
+            "key": "consistency",
+            "label": "一致性",
+            "unit": ""
+          },
+          {
+            "key": "physical",
+            "label": "物理",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "XGEN-Jing · camera bidirection",
+            "maker": "XGEN Labs",
+            "detail": "Open Source",
+            "avg": 81,
+            "quality": 80.9,
+            "interaction": 76.7,
+            "consistency": 85.7,
+            "physical": 73.3
+          },
+          {
+            "name": "XGEN-Jing · camera 4-step AR",
+            "maker": "XGEN Labs",
+            "detail": "Open Source",
+            "avg": 79.9,
+            "quality": 79.8,
+            "interaction": 79.5,
+            "consistency": 81.4,
+            "physical": 69.9
+          },
+          {
+            "name": "Kling 3.0 · text",
+            "maker": "Kling AI",
+            "detail": "API",
+            "avg": 79.4,
+            "quality": 80,
+            "interaction": 73.1,
+            "consistency": 83.9,
+            "physical": 69.2
+          },
+          {
+            "name": "Wan 2.7 · text",
+            "maker": "Alibaba",
+            "detail": "API",
+            "avg": 78.4,
+            "quality": 81,
+            "interaction": 72.1,
+            "consistency": 75.8,
+            "physical": 71.6
+          },
+          {
+            "name": "Seedance 1.5 · text",
+            "maker": "ByteDance",
+            "detail": "API",
+            "avg": 76.2,
+            "quality": 81.9,
+            "interaction": 68.3,
+            "consistency": 79.9,
+            "physical": 68.2
+          }
+        ]
+      },
+      "worldolympiad": {
+        "title": "WorldOlympiad",
+        "source": "Alibaba DAMO Academy",
+        "url": "https://alibaba-damo-academy.github.io/WorldOlympiad/",
+        "note": "覆盖物理一致性、3D 一致性、语义对齐和交互。",
+        "primary": "overall",
+        "columns": [
+          {
+            "key": "overall",
+            "label": "Overall",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "physical",
+            "label": "Physical",
+            "unit": ""
+          },
+          {
+            "key": "consistency3d",
+            "label": "3D Cons.",
+            "unit": ""
+          },
+          {
+            "key": "clip",
+            "label": "CLIP",
+            "unit": ""
+          },
+          {
+            "key": "interaction",
+            "label": "Interaction",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "LingBot-World",
+            "maker": "LingBot",
+            "detail": "World Model",
+            "overall": 0.683,
+            "physical": 0.942,
+            "consistency3d": 0.373,
+            "clip": 0.314,
+            "interaction": 0.734
+          },
+          {
+            "name": "Cosmos-Predict-2.5",
+            "maker": "NVIDIA",
+            "detail": "World Model",
+            "overall": 0.671,
+            "physical": 0.906,
+            "consistency3d": 0.399,
+            "clip": 0.313,
+            "interaction": 0.707
+          },
+          {
+            "name": "Rolling Forcing",
+            "maker": "Research",
+            "detail": "World Model",
+            "overall": 0.61,
+            "physical": 0.873,
+            "consistency3d": 0.321,
+            "clip": 0.327,
+            "interaction": 0.636
+          },
+          {
+            "name": "Yume-1.5",
+            "maker": "Yume",
+            "detail": "World Model",
+            "overall": 0.604,
+            "physical": 0.863,
+            "consistency3d": 0.301,
+            "clip": 0.306,
+            "interaction": 0.649
+          },
+          {
+            "name": "LongLive",
+            "maker": "Research",
+            "detail": "World Model",
+            "overall": 0.584,
+            "physical": 0.863,
+            "consistency3d": 0.363,
+            "clip": 0.323,
+            "interaction": 0.526
+          }
+        ]
+      },
+      "tts": {
+        "title": "文本转语音",
+        "source": "Artificial Analysis · Speech Arena",
+        "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
+        "note": "代表性音色的盲测偏好 Elo。",
+        "primary": "elo",
+        "columns": [
+          {
+            "key": "elo",
+            "label": "Elo",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "samples",
+            "label": "样本",
+            "unit": ""
+          },
+          {
+            "key": "price",
+            "label": "价格 / 1M chars",
+            "unit": "$"
+          },
+          {
+            "key": "release",
+            "label": "发布",
+            "unit": ""
+          }
+        ],
+        "rows": [
+          {
+            "name": "Sonic 3.6",
+            "maker": "Cartesia",
+            "detail": "TTS",
+            "elo": 1276,
+            "samples": 1822,
+            "price": 49,
+            "release": "2026-08"
+          },
+          {
+            "name": "Qwen-Audio-3.0-TTS-Plus",
+            "maker": "Alibaba",
+            "detail": "TTS",
+            "elo": 1260,
+            "samples": 1559,
+            "price": 27.6,
+            "release": "2026-09"
+          },
+          {
+            "name": "Realtime TTS-2",
+            "maker": "Inworld",
+            "detail": "TTS",
+            "elo": 1247,
+            "samples": 1262,
+            "price": 20.8,
+            "release": "2026-08"
+          },
+          {
+            "name": "Simba 3.2",
+            "maker": "SpeechifyAI",
+            "detail": "TTS",
+            "elo": 1240,
+            "samples": 2498,
+            "price": 6.6,
+            "release": "2026-07"
+          },
+          {
+            "name": "Luna TTS",
+            "maker": "VUI Labs",
+            "detail": "TTS",
+            "elo": 1231,
+            "samples": 2698,
+            "price": 80,
+            "release": "2026-06"
+          }
+        ]
+      },
+      "s2s": {
+        "title": "实时语音 Agent",
+        "source": "Artificial Analysis · Speech-to-Speech",
+        "url": "https://artificialanalysis.ai/speech-to-speech",
+        "note": "综合语音推理、对话动态、Agentic、任务成功、延迟和成本。",
+        "primary": "index",
+        "columns": [
+          {
+            "key": "index",
+            "label": "Index",
+            "unit": "",
+            "primary": true
+          },
+          {
+            "key": "reasoning",
+            "label": "推理",
+            "unit": "%"
+          },
+          {
+            "key": "conversation",
+            "label": "对话动态",
+            "unit": "%"
+          },
+          {
+            "key": "agentic",
+            "label": "Agentic",
+            "unit": "%"
+          },
+          {
+            "key": "task",
+            "label": "任务成功",
+            "unit": "%"
+          },
+          {
+            "key": "ttfa",
+            "label": "TTFA",
+            "unit": "s"
+          }
+        ],
+        "rows": [
+          {
+            "name": "GPT-Live-1 (Astra, medium)",
+            "maker": "OpenAI",
+            "detail": "Speech-to-Speech",
+            "index": 81.5,
+            "reasoning": 90,
+            "conversation": 94.9,
+            "agentic": 67.9,
+            "task": 87.4,
+            "ttfa": 1.34
+          },
+          {
+            "name": "Grok Voice Think Fast 2.0 High",
+            "maker": "SpaceXAI",
+            "detail": "Speech-to-Speech",
+            "index": 81.3,
+            "reasoning": 97,
+            "conversation": 95.1,
+            "agentic": 56.5,
+            "task": 94.6,
+            "ttfa": 0.7
+          },
+          {
+            "name": "GPT-Live-1 (Sol, low)",
+            "maker": "OpenAI",
+            "detail": "Speech-to-Speech",
+            "index": 80.1,
+            "reasoning": 89,
+            "conversation": 97.3,
+            "agentic": 59.3,
+            "task": 90.9,
+            "ttfa": 1.24
+          },
+          {
+            "name": "Gemini 3.8 Live",
+            "maker": "Google",
+            "detail": "Speech-to-Speech",
+            "index": 76,
+            "reasoning": 92,
+            "conversation": 96.1,
+            "agentic": 30.1,
+            "task": 93.2,
+            "ttfa": 1.18
+          },
+          {
+            "name": "GPT-Realtime-2.1 High",
+            "maker": "OpenAI",
+            "detail": "Speech-to-Speech",
+            "index": 73.9,
+            "reasoning": 96,
+            "conversation": 95.7,
+            "agentic": 45.7,
+            "task": 91.5,
+            "ttfa": 1.21
+          }
+        ]
+      }
+    }
   },
   "benchmarks": {
     "version": 1,
@@ -1385,27 +2187,27 @@
   },
   "models": {
     "version": 1,
-    "checked": "2026-09-21",
+    "checked": "2026-09-22",
     "sources": [
       {
         "id": "aa-live",
         "publisher": "Artificial Analysis",
         "title": "LLM Leaderboard",
         "url": "https://artificialanalysis.ai/leaderboards/models",
-        "checked": "2026-09-21",
+        "checked": "2026-09-22",
         "published": null,
         "kind": "评测方公开榜单",
-        "note": "人工摘录一组模型配置，保留网页所示整数分。不是全量榜单；速度与单任务成本来自相同表格。"
+        "note": "人工摘录一组模型配置，保留网页所示分数。不是全量榜单；速度与单任务成本来自相同模型页，数值会随评测更新。"
       },
       {
         "id": "aa-method",
         "publisher": "Artificial Analysis",
-        "title": "Intelligence Index v4.2",
-        "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2",
-        "checked": "2026-09-21",
-        "published": null,
+        "title": "Intelligence Index v4.3.2",
+        "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+        "checked": "2026-09-22",
+        "published": "2026-09-07",
         "kind": "评测方法",
-        "note": "指数版本不同，分数不能直接跨版本比较。"
+        "note": "v4.3.2 纳入 AutomationBench-AA 与 Terminal-Bench 4.0；指数版本不同，分数不能直接跨版本比较。"
       },
       {
         "id": "arena-text",
@@ -1435,8 +2237,8 @@
         "provider": "Artificial Analysis",
         "metric": "intelligence",
         "as_of": null,
-        "checked": "2026-09-21",
-        "methodology": "Intelligence Index v4.2",
+        "checked": "2026-09-22",
+        "methodology": "Intelligence Index v4.3.2",
         "mode": "manual_excerpt",
         "source": "aa-live",
         "scope": "12 个配置的人工摘录，不是全榜。相同整数分不据此断言高下。",
@@ -1537,6 +2339,25 @@
             "source": "aa-live"
           },
           {
+            "id": "aa-grok-47-xhigh",
+            "name": "Grok 4.7 (xhigh)",
+            "maker": "SpaceXAI",
+            "intelligence": 46,
+            "speed": 42.3,
+            "cost_task": 3.74,
+            "input_price": 2,
+            "output_price": 6,
+            "coding": 56,
+            "context": "500k",
+            "source_rank": null,
+            "source_order": 5,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-live"
+          },
+          {
             "id": "aa-qwen-max",
             "name": "Qwen3.8 Max (0902)",
             "maker": "Alibaba",
@@ -1548,7 +2369,7 @@
             "coding": null,
             "context": "984k",
             "source_rank": null,
-            "source_order": 5,
+            "source_order": 6,
             "score_error": null,
             "rank_spread": null,
             "votes": null,
@@ -1567,25 +2388,6 @@
             "coding": null,
             "context": "1M",
             "source_rank": null,
-            "source_order": 6,
-            "score_error": null,
-            "rank_spread": null,
-            "votes": null,
-            "preliminary": false,
-            "source": "aa-live"
-          },
-          {
-            "id": "aa-grok-high",
-            "name": "Grok 4.6 (high)",
-            "maker": "SpaceXAI",
-            "intelligence": 44,
-            "speed": 67,
-            "cost_task": 1.86,
-            "input_price": null,
-            "output_price": null,
-            "coding": null,
-            "context": "500k",
-            "source_rank": null,
             "source_order": 7,
             "score_error": null,
             "rank_spread": null,
@@ -1599,7 +2401,7 @@
             "maker": "Kimi",
             "intelligence": 44,
             "speed": 43,
-            "cost_task": 2.0,
+            "cost_task": 2,
             "input_price": null,
             "output_price": null,
             "coding": null,
@@ -1824,7 +2626,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-09-21",
+    "checked": "2026-09-22",
     "account": "thsottiaux",
     "events": [
       {
@@ -1888,45 +2690,190 @@
         "related_ids": []
       },
       {
+        "id": "tibo-compensation-2026-09-09",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-09",
+        "published_at": "2026-09-09T18:23:34Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：部分 banked reset 未完全生效，受影响用户将补发一张",
+        "summary": "公开镜像与追踪页定位到 Tibo 的 X 原帖：部分用户使用 banked reset 时没有完整恢复 ChatGPT Work / Codex 用量；他说受影响时间窗口内使用过的人将再获得一张，并收到道歉邮件。",
+        "scope": "受影响时间窗口内使用过 banked reset 的用户 · 具体窗口与资格仍待第一方直读",
+        "boundary": "这是补偿/修复说明，不等于面向所有用户的 global reset，也不能推出补发已经对每个受影响账号到账。",
+        "sources": [
+          "tibo-post-2097752790177370535",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [],
+        "original_text": "There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex. Everyone who used one in the affected time window is getting another one and an email to apologize.",
+        "conversation_context": "该帖讨论的是 banked reset 使用后没有完整生效的事故与补偿，不是在宣布一次面向全部付费用户的新 global reset。",
+        "interpretation": "高价值的用量修复/补偿线索：Tibo 说明会向受影响用户补发 banked reset；由于本站本轮无法直接读取 X 原帖，保留为待核验。",
+        "evidence_strength": "medium",
+        "semantic_type": "usage_explanation",
+        "not_proves": "未证明所有用户受影响、所有受影响用户已到账，也未证明发生全局额度清零/恢复。",
+        "post_id": "2097752790177370535",
+        "relation": "original"
+      },
+      {
         "id": "lead-2026-09-12",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-12",
+        "published_at": "2026-09-12T03:20:36Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：“a reset is also landing by midnight today”——明确预告，执行仍待核验",
+        "summary": "公开追踪页定位到 Tibo 的 X 原帖：在解释 Codex 质量修复后，他补充“a reset is also landing by midnight today”。这属于明确的重置预告，但本轮服务端直读 X 仍返回 403，因此本站不把它升级为已确认执行。",
+        "scope": "Codex / ChatGPT Work 相关用量 · 具体适用范围原帖未在本站直接核验",
+        "boundary": "“by midnight today”是目标时间，不等于已经完成；原句也未单独给出时区。只有后续明确执行/传播完成表述或 OpenAI 官方说明才能确认。",
+        "sources": [
+          "tibo-post-sep12",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [
+          "tibo-propagation-2026-09-12"
+        ],
+        "original_text": "And of course, a reset is also landing by midnight today.",
+        "conversation_context": "该句出现在 Tibo 关于 Codex 质量问题与修复的长帖末尾，是一个独立的 reset 预告；后续另有“Reset all propagated”记录指向执行完成。",
+        "interpretation": "明确预告会有一次 reset，但不是完成确认；“midnight”目标也不能在没有原帖时区说明的情况下自行换算成一个确定的北京时间。",
+        "evidence_strength": "medium",
+        "semantic_type": "explicit_announcement",
+        "not_proves": "未证明发放范围、精确时区、在预告时点已经执行，也未证明所有账户已传播完成。",
+        "post_id": "2098612714704891959",
+        "relation": "original"
+      },
+      {
+        "id": "tibo-propagation-2026-09-12",
         "kind": "global",
         "status": "pending",
         "date": "2026-09-12",
-        "published_at": null,
+        "published_at": "2026-09-12T08:09:17Z",
         "effective_at": null,
-        "precision": "source_date",
-        "source_timezone": null,
-        "title": "9 月 12 日重置消息：原帖待核验",
-        "summary": "参考站记录了相关重置消息，并存在关联 X 原帖链接。本次未能直接读取原帖，暂不将它计为本站确认记录。",
-        "scope": "尚未核实",
-        "boundary": "不能依据社区标签确认所有账号已重置；不计算距此次重置的倒计时。",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：“Reset all propagated. Sweet dreams.”——语义指向传播完成，原帖仍待直读",
+        "summary": "公开追踪页定位到 Tibo 在稍晚的 X 帖中写“Reset all propagated. Sweet dreams.”，并将其与此前 reset 预告关联。语义上这是 rollout / propagation 完成表述，但本站直读该 X 链接仍返回 403，因此暂不升级为确认记录。",
+        "scope": "此前预告的 reset · 具体套餐/账户范围需结合原帖与官方说明继续核验",
+        "boundary": "第三方页面的“confirmed”标签不能替代本站的第一方核验；在原帖可直接读取或 OpenAI 官方资料补齐前，不用它计算个人额度或断言所有套餐均已重置。",
         "sources": [
-          "aihot-reset",
-          "tibo-post-sep12"
+          "tibo-post-2098685367058612394",
+          "codexresets-tracker"
         ],
-        "reviewed": "2026-09-21",
+        "reviewed": "2026-09-22",
         "review_basis": "secondary_lead",
-        "related_ids": []
+        "related_ids": [
+          "lead-2026-09-12"
+        ],
+        "original_text": "Reset all propagated. Sweet dreams.",
+        "conversation_context": "该帖发生在 03:20 UTC 的“reset is also landing by midnight today”之后；公开追踪页显示它引用/承接前述重置预告。",
+        "interpretation": "措辞明确指向 reset rollout 已完成传播，证据语义很强；但本站当前仍缺直接可读的 Tibo 原帖，因此状态保持 pending，而不是 confirmed。",
+        "evidence_strength": "medium",
+        "semantic_type": "propagation_complete",
+        "not_proves": "在第一方原帖未能直接核验前，不把第三方抓取结果升级成正式确认；也不能由此读取任何个人账号余额。",
+        "post_id": "2098685367058612394",
+        "quote_of_id": "2098612714704891959",
+        "relation": "quote"
       },
       {
-        "id": "lead-2026-09-20",
+        "id": "tibo-hint-2026-09-19-banked-reset",
         "kind": "announcement",
         "status": "pending",
-        "date": "2026-09-20",
-        "published_at": null,
+        "date": "2026-09-19",
+        "published_at": "2026-09-19T16:48:00Z",
         "effective_at": null,
-        "precision": "source_date",
-        "source_timezone": null,
-        "title": "后续发卡安排：预告上下文待核验",
-        "summary": "参考站收录了 Tibo 的回复线索。本次未直接核验原帖上下文，先保存为待核验预告，不承诺下一次到账日期。",
-        "scope": "尚未核实",
-        "boundary": "不从含糊的星期描述推算精确时刻，预告到期也不会自动变成已完成。",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 对 banked reset 请求回复“OK fine”；Tuesday 更像发布线索",
+        "summary": "Udi 先明确说“这周没发有意思的东西，所以欠大家一张 banked reset”，Tibo 随后回复“OK fine. But it’s also still coming in Tuesday”。前半句可以视为对 banked reset 请求的接受式回应；后半句更自然地承接此前关于本周发布/ship 的讨论，不能直接解释成“周二发 reset”。",
+        "scope": "banked reset 相关回复 · 具体资格与发放范围未知",
+        "boundary": "不能据此认定重置卡已经到账，也不能推出“周二就是 reset 时间”“每天一张”“所有付费账号都有”或全局额度已恢复。仍需 Tibo 后续明确发放/执行表述或 OpenAI 官方说明。",
         "sources": [
-          "aihot-reset"
+          "tibo-post-2101352781219258527",
+          "zamantika-thread-2101352781219258527",
+          "toolify-reset-tracker"
         ],
-        "reviewed": "2026-09-21",
+        "reviewed": "2026-09-22",
         "review_basis": "secondary_lead",
-        "related_ids": []
+        "related_ids": [],
+        "original_text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
+        "conversation_context": "上文由 @udiWertheimer 明确索要 banked reset；Tibo 此前又在同一讨论中预告本周仍有接近 DevDay 级别的发布，因此 Tuesday 既可能被社区联想到 reset，也可能只是继续指向产品发布。",
+        "interpretation": "中等强度的 banked reset 接受/暗示，但不是完成确认。把 Tuesday 直接当作 reset 到账时间会过度解读。",
+        "evidence_strength": "medium",
+        "semantic_type": "reset_related",
+        "not_proves": "未证明已发放、周二发放、发放次数、适用套餐、到账时刻，也未证明发生 global reset。",
+        "post_id": "2101352781219258527",
+        "reply_to_account": "udiWertheimer",
+        "relation": "reply"
+      },
+      {
+        "id": "tibo-hint-2026-09-21-3am-tuesday",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-21",
+        "published_at": "2026-09-21T06:26:00Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 回复“3am on a Tuesday”：回复对象是 GPT-6 Community Night，不应当作 Reset 预告",
+        "summary": "公开线程镜像显示，Tibo 的“3am on a tuesday”是直接回复 @My_Ai_Bi 的“the GPT-6 Community Night was 🔥”。这条上文本身是产品/社区活动语境，没有 reset、banked 或额度措辞；因此不再把这条回复作为重置时间线索。",
+        "scope": "GPT-6 Community Night / 产品活动语境 · 非重置确认",
+        "boundary": "这条回复最多能说明 Tibo 对该产品/活动话题给了“Tuesday 3am”式时间回应；不能推出周二 3:00 会 reset，也不能推断时区、套餐、banked/global 类型或任何额度变化。",
+        "sources": [
+          "tibo-post-2101920928070562029",
+          "zamantika-thread-2101920928070562029",
+          "codexresets-tracker"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [],
+        "original_text": "@My_Ai_Bi 3am on a tuesday",
+        "conversation_context": "被回复的 @My_Ai_Bi 原帖是“the GPT-6 Community Night was 🔥”；线程中还有其他用户追问 reset，但那些追问不是 Tibo 的原话，也不能反过来改变这条回复的语义。",
+        "interpretation": "我们理解：这更像产品/社区活动的时间玩笑或 tease，而不是 reset 信号。作为“重置”证据应降级为无关/误读纠正；只有后续 Tibo 明确提到 reset/额度，或 OpenAI 官方说明，才能建立重置关联。",
+        "evidence_strength": "medium",
+        "semantic_type": "non_reset_context",
+        "not_proves": "未证明会发生任何 reset；也未确认时区、具体发布日期、适用套餐、banked/global 类型或任何额度变化。",
+        "post_id": "2101920928070562029",
+        "reply_to_account": "My_Ai_Bi",
+        "reply_to_text": "the GPT-6 Community Night was 🔥",
+        "relation": "reply"
+      },
+      {
+        "id": "tibo-announcement-2026-09-22-tuesday",
+        "kind": "announcement",
+        "status": "pending",
+        "date": "2026-09-22",
+        "published_at": "2026-09-22T04:31:32Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo：“I promised a reset for Tuesday”——明确预告，尚无执行确认",
+        "summary": "公开镜像定位到 Tibo 的 X 独立帖：他明确写道自己“promised a reset for Tuesday”。这比此前的模糊 Tuesday 讨论更直接，但当前仍没有完成/传播/到账表述。",
+        "scope": "reset 预告 · banked / global 类型与适用套餐未说明",
+        "boundary": "这是明确预告，不等于已执行。不能据此补出周二具体时刻，也不能把此前“3am on a Tuesday”回复反向解释为 reset 时间。",
+        "sources": [
+          "tibo-post-2102254445082116335",
+          "zamantika-tibo-profile"
+        ],
+        "reviewed": "2026-09-22",
+        "review_basis": "secondary_lead",
+        "related_ids": [
+          "tibo-hint-2026-09-19-banked-reset"
+        ],
+        "original_text": "Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.",
+        "conversation_context": "独立原帖；措辞回指此前对 Tuesday 的承诺，但本帖没有说明该承诺来自哪条具体对话，也没有明确 banked / global 类型。",
+        "interpretation": "我们理解：Tibo 明确说自己承诺周二会有一次 reset，因此可视为明确预告；当前没有出现 done、propagated、granted 等执行完成措辞。",
+        "evidence_strength": "medium",
+        "semantic_type": "explicit_announcement",
+        "not_proves": "仍不能推出 reset 已经执行、具体在周二几点执行、属于 banked 还是 global、覆盖哪些套餐，也不能推出此前“3am on a Tuesday”回复就是 reset 时间。",
+        "post_id": "2102254445082116335",
+        "relation": "original"
       }
     ],
     "sources": [
@@ -1960,20 +2907,110 @@
       {
         "id": "tibo-post-sep12",
         "publisher": "Tibo / X",
-        "title": "9 月 12 日关联原帖",
+        "title": "“a reset is also landing by midnight today” post",
         "url": "https://x.com/thsottiaux/status/2098612714704891959",
-        "checked": "2026-09-21",
-        "kind": "原帖待核验",
-        "note": "本次访问被拒绝，未核验原文及其精确时间；原帖链接仅供进一步检查。"
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开追踪页定位到该原帖与发布时间；本轮服务端直读 X 返回 403，因此只作为待核验原帖链接。"
+      },
+      {
+        "id": "codexresets-tracker",
+        "publisher": "CodexResets.net",
+        "title": "Tibo public post tracker",
+        "url": "https://codexresets.net/",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于定位 Tibo 的公开 X 原帖、发布时间和回复关系；不继承其确认结论。"
+      },
+      {
+        "id": "tibo-post-2101920928070562029",
+        "publisher": "Tibo / X",
+        "title": "“3am on a tuesday” reply",
+        "url": "https://x.com/thsottiaux/status/2101920928070562029",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开链接已定位，但当前服务端直读 X 返回 403；线程镜像显示它直接回复 GPT-6 Community Night 话题，因此不能脱离上文当作 reset 时间预告。"
+      },
+      {
+        "id": "zamantika-thread-2101920928070562029",
+        "publisher": "Zamantika",
+        "title": "Tibo / My_Ai_Bi reply thread mirror",
+        "url": "https://zamantika.com/thsottiaux/status/2101920928070562029",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于恢复被回复原帖“the GPT-6 Community Night was 🔥”与 Tibo“3am on a tuesday”的直接上下文；不作为 reset 确认来源。"
+      },
+      {
+        "id": "tibo-post-2101352781219258527",
+        "publisher": "Tibo / X",
+        "title": "“OK fine. But it’s also still coming in Tuesday” reply",
+        "url": "https://x.com/thsottiaux/status/2101352781219258527",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "原帖链接和文本已由公开镜像定位；当前服务端直读 X 返回 403，因此保持待核验而非确认。"
+      },
+      {
+        "id": "zamantika-thread-2101352781219258527",
+        "publisher": "Zamantika",
+        "title": "Tibo / Udi reply thread mirror",
+        "url": "https://zamantika.com/thsottiaux/status/2101352781219258527",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于恢复 Udi 的 banked reset 请求与 Tibo 回复的上下文；不作为完成重置的确认来源。"
+      },
+      {
+        "id": "toolify-reset-tracker",
+        "publisher": "Toolify",
+        "title": "Codex reset public signal tracker",
+        "url": "https://www.toolify.ai/es/codex-reset",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "用于核对公开信号的 UTC 时间和原帖链接；其预测与分类不作为本站确认结论。"
+      },
+      {
+        "id": "tibo-post-2097752790177370535",
+        "publisher": "Tibo / X",
+        "title": "Banked reset compensation / repair post",
+        "url": "https://x.com/thsottiaux/status/2097752790177370535",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开镜像与追踪页定位到补偿说明原帖；本轮服务端直读 X 返回 403，因此不作为第一方已确认记录。"
+      },
+      {
+        "id": "tibo-post-2098685367058612394",
+        "publisher": "Tibo / X",
+        "title": "“Reset all propagated. Sweet dreams.” post",
+        "url": "https://x.com/thsottiaux/status/2098685367058612394",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "公开追踪页定位到传播完成表述及其 X 链接；本轮服务端直读 X 返回 403，故保持待核验。"
+      },
+      {
+        "id": "tibo-post-2102254445082116335",
+        "publisher": "Tibo / X",
+        "title": "“I promised a reset for Tuesday” post",
+        "url": "https://x.com/thsottiaux/status/2102254445082116335",
+        "checked": "2026-09-22",
+        "kind": "原帖待直接核验",
+        "note": "原帖链接与状态 ID 已定位；当前服务端直读 X 仍受限，因此只保留为待核验的一手链接，不据此升级为已执行。"
+      },
+      {
+        "id": "zamantika-tibo-profile",
+        "publisher": "Zamantika",
+        "title": "Tibo public profile mirror",
+        "url": "https://zamantika.com/en/profile/thsottiaux",
+        "checked": "2026-09-22",
+        "kind": "第三方定位线索",
+        "note": "仅用于定位公开文本与帖子关系；不作为 reset 已执行、类型或覆盖范围的确认来源。"
       }
     ],
-    "coverage": "首批记录，不是完整历史；没有完成实时轮询。",
+    "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
     "sync": {
       "status": "not_configured",
       "last_attempt": null,
       "last_success": null,
       "error": null,
-      "note": "X API 尚未接通。没有实时重置结论。"
+      "note": "GitHub Actions 可每小时通过 X 官方 API 读取 @thsottiaux 的新公开帖子、回复和引用关系（需配置 X_BEARER_TOKEN）；新内容先进入待核验候选，不会自动升级为已确认。第三方站点只用于定位线索。"
     },
     "inbox": [],
     "profile_url": "https://x.com/thsottiaux",
