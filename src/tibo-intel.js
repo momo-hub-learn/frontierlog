@@ -24,7 +24,31 @@ function readingPanel(x){
     '<footer>'+(x._source==='event'?'<button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看完整记录 '+icon('arrow')+'</button>':'<span>机器候选 · 待核验</span>')+'</footer>'+
   '</div>'
 }
-function intelBlock(){const rows=signalRows();if(!rows.length)return '';return '<section class="tibo-intel"><div class="tibo-intel-head"><div><p class="eyebrow">TIBO / EVIDENCE → INFERENCE</p><h2>先看真正的 X 原帖，再看我们的判断。</h2><p>左边优先加载 X 官方原帖嵌入，右边才是我们的推断。若 X 因网络、删除或权限原因无法加载，只显示本站保存的原文摘录并保留原帖直达链接；不再模拟或伪装成 X 截图。</p></div><a href="'+safeLink(RESET_DATA.profile_url)+'" target="_blank" rel="noopener">@thsottiaux '+icon('external')+'</a></div><div class="tibo-evidence-list">'+rows.map(x=>'<article class="tibo-evidence-card '+esc(x.evidence_strength||'low')+'"><div class="tibo-evidence-col"><p class="tibo-col-label">X 官方原帖 / EVIDENCE</p>'+evidencePanel(x)+'</div><div class="tibo-inference-col"><p class="tibo-col-label">我们的推断 / INFERENCE</p>'+readingPanel(x)+'</div></article>').join('')+'</div></section>'}
+function featuredSignal(){
+  const ranked=RESET_DATA.events.filter(x=>x.post_id&&x.original_text).map(x=>({...x,_source:'event'})).sort((a,b)=>{
+    const sem={propagation_complete:6,reset_executed:5,banked_delivery:4,explicit_announcement:3,usage_explanation:2,timing_hint:1,non_reset_context:0};
+    const status={confirmed:3,announced:2,pending:1};
+    const strength={high:3,medium:2,low:1};
+    return (sem[b.semantic_type]||0)-(sem[a.semantic_type]||0)||(status[b.status]||0)-(status[a.status]||0)||(strength[b.evidence_strength]||0)-(strength[a.evidence_strength]||0)||String(b.published_at||b.date||'').localeCompare(String(a.published_at||a.date||''))
+  });
+  return ranked[0]||null
+}
+function featuredHero(){
+  const x=featuredSignal();if(!x)return '';
+  const url=originalUrl(x),day=(x.published_at||x.date||'').slice(0,10),quote=esc(x.original_text||x.summary||'');
+  return '<section class="tibo-featured">'+
+    '<div class="tibo-featured-copy"><p class="eyebrow">CURRENT CONCLUSION / STRONGEST PUBLIC EVIDENCE</p>'+
+    '<span class="tibo-featured-kicker">最近一次明确完成表述</span>'+
+    '<h2>'+esc(day)+'：Tibo 明确写下“Reset all propagated.”</h2>'+
+    '<p>在当前收录记录中，这条措辞最直接指向 reset rollout 已完成传播。它能证明 Tibo 公开表达“传播完成”，但仍不能代替你的个人额度页面，也不能单独推出所有套餐范围。</p>'+
+    '<div class="tibo-featured-tags"><span>传播完成</span><span>证据语义强</span><span>个人额度仍需自查</span></div>'+
+    '<div class="tibo-featured-actions"><button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看完整记录 '+icon('arrow')+'</button><a href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a></div></div>'+
+    '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>最强证据 / X 原帖截图</span><small>'+esc(when(x))+'</small></div>'+
+    '<div class="tibo-featured-crop"><a class="tibo-featured-shot" href="'+url+'" target="_blank" rel="noopener noreferrer"><img src="./assets/tibo/'+esc(x.post_id)+'.png" width="1200" height="300" alt="Tibo 在 X 上发布“'+quote+'”的原帖截图"></a></div>'+
+    '<div class="tibo-featured-proof-foot"><span>真实 X 官方嵌入截图 · 仅保留 Tibo 这条消息。</span><code>'+esc(x.post_id)+'</code></div></div>'+
+  '</section>'
+}
+function intelBlock(){const rows=signalRows();if(!rows.length)return '';return '<section class="tibo-intel"><div class="tibo-intel-head"><div><p class="eyebrow">TIBO / EVIDENCE → INFERENCE</p><h2>完整证据链：原话、上下文、推断分开看。</h2><p>头部只突出最强证据；这里保留其余原帖、回复和引用关系。X 无法加载时只显示本站保存的原文摘录与原帖链接，不模拟截图。</p></div><a href="'+safeLink(RESET_DATA.profile_url)+'" target="_blank" rel="noopener">@thsottiaux '+icon('external')+'</a></div><div class="tibo-evidence-list">'+rows.map(x=>'<article class="tibo-evidence-card '+esc(x.evidence_strength||'low')+'"><div class="tibo-evidence-col"><p class="tibo-col-label">X 官方原帖 / EVIDENCE</p>'+evidencePanel(x)+'</div><div class="tibo-inference-col"><p class="tibo-col-label">我们的推断 / INFERENCE</p>'+readingPanel(x)+'</div></article>').join('')+'</div></section>'}
 function loadXWidgets(){
   if(window.twttr?.widgets?.createTweet)return Promise.resolve(window.twttr);
   if(xWidgetsPromise)return xWidgetsPromise;
@@ -45,7 +69,7 @@ async function renderXEmbeds(){
     const id=mount.dataset.xPostId,url=mount.dataset.xUrl||'#';
     const placeholder=mount.querySelector('.tibo-x-loading');
     try{
-      const el=await api.widgets.createTweet(id,mount,{dnt:true,theme:document.documentElement.dataset.theme==='dark'?'dark':'light',conversation:'all',align:'center'});
+      const el=await api.widgets.createTweet(id,mount,{dnt:true,theme:document.documentElement.dataset.theme==='dark'?'dark':'light',conversation:mount.dataset.xConversation||'all',align:'center'});
       if(!el)throw new Error('post unavailable');
       placeholder?.remove();mount.dataset.xState='loaded'
     }catch{
@@ -54,7 +78,13 @@ async function renderXEmbeds(){
   }
 }
 const baseResetPage=resetPage;
-resetPage=function(){const html=baseResetPage();const block=intelBlock();return block?html.replace('<div class="m-controls">',block+'<div class="m-controls">'):html};
+resetPage=function(){
+  const html=baseResetPage(),feature=featuredHero(),block=intelBlock();
+  if(!feature&&!block)return html;
+  const start=html.indexOf('<div class="r-summary">'),controls=html.indexOf('<div class="m-controls">',start);
+  if(start<0||controls<0)return html.replace('<div class="m-controls">',feature+block+'<div class="m-controls">');
+  return html.slice(0,start)+feature+block+html.slice(controls)
+};
 const baseModuleMain=moduleMain;
 moduleMain=function(){baseModuleMain();if(state.view==='tibo')requestAnimationFrame(renderXEmbeds)};
 async function refreshTibo(){if(loading||!['http:','https:'].includes(location.protocol))return;loading=true;try{const u=new URL('api/v1/resets.json',location.href.split('#')[0]);const r=await fetch(u,{cache:'no-store',credentials:'omit'});if(!r.ok)throw new Error('HTTP '+r.status);const obj=await r.json();if(!obj||!Array.isArray(obj.events)||!Array.isArray(obj.inbox))throw new Error('invalid');RESET_DATA=obj;if(state.view==='tibo'){lastMain='';moduleMain()}}catch(e){console.warn('Tibo snapshot refresh failed',e)}finally{loading=false}}

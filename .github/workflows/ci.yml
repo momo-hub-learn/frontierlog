@@ -35,4 +35,8 @@ jobs:
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "我们的推断 / INFERENCE" dist-ci/index.html
+          grep -q "CURRENT CONCLUSION / STRONGEST PUBLIC EVIDENCE" dist-ci/index.html
+          grep -q "最近一次明确完成表述" dist-ci/index.html
+          grep -q "tibo-featured-shot" dist-ci/index.html
+          test -f assets/tibo/2098685367058612394.png
           ! grep -q "原帖证据 · 文本快照" dist-ci/index.html
