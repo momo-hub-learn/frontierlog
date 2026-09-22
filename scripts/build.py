@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+from hashlib import sha256
 from pathlib import Path
 from datetime import date, datetime, timezone
 from email.utils import format_datetime
@@ -98,6 +100,13 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     models=json.loads((ROOT/'data/models.json').read_text(encoding='utf-8'))
     resets=json.loads((ROOT/'data/resets.json').read_text(encoding='utf-8'))
     validate_models(models); validate_resets(resets)
+    for event in resets['events']:
+        evidence=event.get('evidence')
+        if evidence and evidence.get('screenshot_status')=='captured':
+            shot=ROOT/evidence['screenshot']
+            if not shot.is_file(): raise ValueError('Missing Tibo screenshot: '+str(shot))
+            digest=sha256(shot.read_bytes()).hexdigest()
+            if digest!=evidence['sha256']: raise ValueError('Tibo screenshot checksum mismatch: '+str(shot))
     benchmarks=json.loads((ROOT/'data/benchmarks.json').read_text(encoding='utf-8'))
     validate_benchmarks(benchmarks)
     hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
@@ -122,6 +131,8 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     (output/'.nojekyll').write_text('')
     (output/'assets').mkdir(exist_ok=True)
     (output/'assets/brand.svg').write_bytes((ROOT/'src/brand.svg').read_bytes())
+    if (ROOT/'assets/tibo').is_dir():
+        shutil.copytree(ROOT/'assets/tibo',output/'assets/tibo',dirs_exist_ok=True)
     write_json(output/'api/v1/index.json',app)
     write_json(output/'api/v1/events.json',{'snapshot':catalog['snapshot'],'events':catalog['events'],'sources':catalog['sources']})
     write_json(output/'api/v1/upstream.json',upstream)
@@ -154,7 +165,6 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         (output/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+base+'sitemap.xml\n')
     else:
         for name in ('feed.xml','sitemap.xml','robots.txt'):(output/name).unlink(missing_ok=True)
-        import shutil
         shutil.rmtree(output/'feeds',ignore_errors=True)
     return app
 
