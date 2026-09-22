@@ -54,7 +54,7 @@ function v2Brand(){
 }
 
 function v2Progress(){
- $('#hero').hidden=true; $('#stats').hidden=true; $('.workspace').hidden=false; $('#vertical-root').hidden=true;
+ $('#hero').hidden=true; $('#stats').hidden=true; $('.workspace').hidden=false; $('#vertical-root').hidden=true; $('.section-head').hidden=true;
  $('#section-eyebrow').textContent='CAPABILITY STATUS';
  $('#section-title').innerHTML=`<span class="mini-icon">${icon('zap')}</span><span>AI 能力进度</span>`;
  $('#layout-buttons').hidden=true; $('#toolbar').hidden=true; $('#contextline').hidden=true;
@@ -146,6 +146,7 @@ const v2BaseRenderMain=renderMain;
 renderMain=function(){
  v2BaseRenderMain();
  v2Brand();
+ $('.section-head').hidden=false;
  if(state.view==='progress')v2Progress();
  if(state.view==='activity')v2Activity();
  if(state.view==='toolkit')v2Toolkit();
