@@ -1,0 +1,47 @@
+name: Apply verified live metrics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-verified-live-metrics.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply verified source-backed metric refresh
+        run: python scripts/refresh_20260922_live_metrics.py
+      - name: Validate data and site build
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Publish generated site and data endpoints
+        run: |
+          cp /tmp/frontierlog-dist/index.html index.html
+          cp /tmp/frontierlog-dist/404.html 404.html
+          cp -R /tmp/frontierlog-dist/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-dist/feeds/. feeds/
+          cp /tmp/frontierlog-dist/feed.xml feed.xml
+          cp /tmp/frontierlog-dist/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-dist/robots.txt robots.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/models.json data/hot.json data/capabilities.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "No verified live-metric changes to publish."
+            exit 0
+          fi
+          git commit -m "Refresh verified live model metrics"
+          git push
