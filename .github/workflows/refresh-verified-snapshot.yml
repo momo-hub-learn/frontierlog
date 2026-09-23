@@ -1,0 +1,103 @@
+name: One-shot verified freshness refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-verified-snapshot.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh verified volatile data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          TODAY = '2026-09-23'
+
+          def load(path):
+              return json.loads(Path(path).read_text(encoding='utf-8'))
+
+          def save(path, data):
+              Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          models = load('data/models.json')
+          models['checked'] = TODAY
+          for source in models.get('sources', []):
+              if source.get('id') == 'aa-mimo-v26-pro':
+                  source['checked'] = TODAY
+                  source['note'] = '独立公开快照：Intelligence Index 46、输出速度约 54.6 tok/s、Cost per Intelligence Index Task $0.13、输入/输出每百万 Token $0.435/$0.87、99% cache discount、1M context。速度是动态实测，后续可能变化；本站以 Artificial Analysis 英文主模型页当前值为准。'
+          for board in models.get('boards', []):
+              if board.get('id') == 'aa':
+                  board['checked'] = TODAY
+                  for row in board.get('rows', []):
+                      if row.get('id') == 'aa-mimo-v26-pro':
+                          row['speed'] = 54.6
+          save('data/models.json', models)
+
+          hot = load('data/hot.json')
+          hot['checked'] = TODAY
+          for item in hot.get('items', []):
+              if item.get('id') == 'mimo-v26-pro-20260922':
+                  item['checked'] = TODAY
+                  item['summary'] = 'Xiaomi 9 月 22 日发布 MiMo-V2.6 系列：Pro 是原生全模态万亿参数旗舰，另有低成本 Flash 与最高 20 倍加速的 Pro-UltraSpeed。Artificial Analysis 当前英文主模型页独立快照给出 MiMo-V2.6-Pro Intelligence Index 46、约 54.6 output tok/s、Cost per Intelligence Index Task $0.13。'
+                  item['boundary'] = '系列发布时间与产品定位来自 Xiaomi MiMo 官方更新日志；46、约 54.6 tok/s、$0.13/task、$0.435/$0.87 每百万输入/输出 Token、1M context 与 MIT 权重信息来自 Artificial Analysis 当前英文主模型页。AA 的速度是动态实测且短期波动明显，其他语言缓存可能滞后，因此速度只代表本次核验快照；“开放权重领先”只指 AA 当前收录和同口径评测，不外推为所有 Benchmark 的绝对第一。'
+          save('data/hot.json', hot)
+
+          resets = load('data/resets.json')
+          resets['checked'] = TODAY
+          event = next((e for e in resets.get('events', []) if e.get('id') == 'tibo-banked-loading-2026-09-22'), None)
+          if event:
+              event['reviewed'] = TODAY
+              sources = list(event.get('sources', []))
+              if 'openai-community-gpt6-sol-luna' not in sources:
+                  sources.append('openai-community-gpt6-sol-luna')
+              event['sources'] = sources
+              event['summary'] = 'Tibo 的 X 帖称正在把一张 banked reset 加载到所有 Plus、Pro、Business 账号。OpenAI Developer Community 的 GPT-6 Sol / Luna 官方社区公告线程嵌入了该 Tibo 原帖并保留这句原文；措辞仍是 loading，表示发放进行中，不是完成确认。'
+              event['boundary'] = 'OpenAI 官方社区对原帖文字提供了第一方域名上的交叉佐证，但“loading”仍不等于每个账户都已经到账，也不是 global reset 或 rollout/propagation 完成。本站仍未拿到更新的 done / propagated / granted / 到账完成表述，因此状态保持 pending。'
+              event['interpretation'] = 'Tuesday reset 已从“明确预告”推进到“banked reset 正在加载”，类型与 Plus / Pro / Business 范围已更清楚；OpenAI 官方社区线程进一步佐证原帖文本，但执行完成仍需后续第一方完成表述。'
+          for source in resets.get('sources', []):
+              if source.get('id') == 'tibo-post-2102463847714247142':
+                  source['checked'] = TODAY
+                  source['note'] = 'X 状态 ID、原帖链接和文本已定位；OpenAI Developer Community 的官方社区公告线程同时嵌入该 Tibo 原帖并保留原文。当前服务端直读 X 正文仍受限，因此只确认“正在加载”的公告事实，不把它升级为已完成。'
+          if not any(s.get('id') == 'openai-community-gpt6-sol-luna' for s in resets.get('sources', [])):
+              resets.setdefault('sources', []).append({
+                  'id': 'openai-community-gpt6-sol-luna',
+                  'publisher': 'OpenAI Developer Community',
+                  'title': 'Announcing GPT-6 Sol and GPT-6 Luna in the API, Codex and ChatGPT',
+                  'url': 'https://community.openai.com/t/announcing-gpt-6-sol-and-gpt-6-luna-in-the-api-codex-and-chatgpt/1399925',
+                  'checked': TODAY,
+                  'kind': 'OpenAI 官方社区公告线程',
+                  'note': 'OpenAI 官方社区线程在 2026-09-22 18:28 的跟帖中嵌入 Tibo 的 X 原帖，并逐字保留“loading a banked reset into all accounts of our Plus, Pro and Business users”这一关键信息；用于交叉佐证公告文本，不把进行时措辞升级为完成状态。'
+              })
+          save('data/resets.json', resets)
+          PY
+      - name: Validate and build
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          grep -q '54.6' /tmp/frontierlog-dist/index.html
+          grep -q 'banked reset' /tmp/frontierlog-dist/index.html
+      - name: Commit verified refresh and remove one-shot workflow
+        run: |
+          rm -f .github/workflows/refresh-verified-snapshot.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/models.json data/hot.json data/resets.json .github/workflows/refresh-verified-snapshot.yml
+          git commit -m 'Refresh verified model and reset evidence'
+          git push
