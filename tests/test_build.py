@@ -60,6 +60,23 @@ class BuildTests(unittest.TestCase):
             self.assertIn('m-company-logo',html)
             self.assertIn('https://openai.com/favicon.ico',html)
             self.assertIn('https://www.anthropic.com/favicon.ico',html)
+            self.assertIn('https://robotics.xiaomi.com/favicon.ico',html)
+            self.assertIn('mLogoForMaker',html)
+
+    def test_frontier_model_tracks_render(self):
+        models=json.loads((ROOT/'data/models.json').read_text())
+        build.validate_models(models)
+        self.assertEqual([x['id'] for x in models['frontier_tracks']],['vla','world-models','neo-labs'])
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('前沿模型雷达',html)
+            self.assertIn('VLA / 具身智能',html)
+            self.assertIn('World Model / JEPA',html)
+            self.assertIn('Neo Labs / 新实验室',html)
+            self.assertIn('Helix 2.5',html)
+            self.assertIn('V-JEPA 2.1',html)
+            self.assertIn('Jev / System One Models',html)
 
     def test_feed_escapes_text(self):
         c=copy.deepcopy(self.c);c['events'][0]['title']='A < B & C'
