@@ -228,7 +228,7 @@
     "version": 1,
     "name": "HotPolicy",
     "mode": "shadow",
-    "decision_interval_minutes": 60,
+    "decision_interval_minutes": 120,
     "reward_horizon_hours": 24,
     "actions": [
       "publish",
@@ -236,7 +236,7 @@
       "merge"
     ],
     "status": "bootstrap",
-    "note": "每小时评估是否值得更新，但当前只做影子决策，不自动改写人工精选。积累足够反馈后再启用延迟奖励 contextual bandit。",
+    "note": "每 2 小时评估是否值得更新，但当前只做影子决策，不自动改写人工精选。积累足够反馈后再启用延迟奖励 contextual bandit。",
     "features": [
       {
         "id": "heat_now",
@@ -4228,7 +4228,7 @@
     "version": "1.0.0",
     "repository": "momo-hub-learn/frontierlog",
     "base_url": "https://momo-hub-learn.github.io/frontierlog/",
-    "description": "Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点按小时评估更新价值，模型策略当前处于影子模式。",
+    "description": "Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。",
     "build_commit": ""
   },
   "industry": {
