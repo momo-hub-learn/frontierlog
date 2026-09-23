@@ -1,0 +1,205 @@
+name: One-shot MLCR-AA update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-shot-mlcr-aa.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Add verified MLCR-AA benchmark and pharma signal
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          TODAY = '2026-09-23'
+
+          # Benchmark catalog: add the independent AA implementation without mixing it into Intelligence Index.
+          p = Path('data/benchmarks.json')
+          d = json.loads(p.read_text(encoding='utf-8'))
+          d['checked'] = TODAY
+
+          item = {
+              'id': 'mlcr-aa',
+              'name': 'MLCR-AA',
+              'group': 'pharma',
+              'edition': 'AA private held-out hard set / current leaderboard',
+              'subtitle': '长病历会读，不等于临床可自主。',
+              'summary': 'Artificial Analysis 基于 Wisedocs MLCR 独立运行的医学长上下文推理评测：使用约 25k–64k Token 的现实化合成病例，考查跨碎片记录的时序、因果、治疗模式与相关性推理。',
+              'metric': 'Overall pass rate ↑',
+              'metric_note': '回答先通过简洁度门槛（不超过参考答案 5× 且非空），再由 3 个 LLM judges 对专家标注真值判断准确性与完整性；只有简洁且多数判定准确、完整才计通过。当前英文页核验快照榜首为 Claude Fable 5.1：71.1%。',
+              'protocol': '固定 MLCR-AA 的 private held-out expert + compound hard set、模型配置、3 repeats/question 与 AA 当前评分流程；Wisedocs 公开 MLCR harness 与 MLCR-AA 不是同一评测配置。',
+              'boundary': '病例为合成数据，hard set 私有，评分使用 LLM judges；这不是患者级临床验证，也不能推导诊疗安全性。MLCR-AA 是 standalone evaluation，不进入 Artificial Analysis Intelligence Index v4.3.2。榜单会持续更新，71.1% 仅代表 2026-09-23 英文主页面快照。',
+              'business': '适合作为病历/理赔长文档审阅 Agent 的外部压力测试；真实上线仍需授权真实数据、专家复核、引用追溯、风险分层与人工升级机制。',
+              'setup': '优先阅读 Artificial Analysis 当前方法页与 Wisedocs 原始仓库；若复现公开 MLCR，必须明确标成公开 MLCR 结果，不能写成 MLCR-AA 分数。',
+              'topics': ['clinical', 'csr', 'medical-record-reasoning'],
+              'sources': ['b-mlcr-aa', 'b-mlcr-origin'],
+              'result_url': 'https://artificialanalysis.ai/evaluations/mlcr-aa',
+              'kind': 'benchmark',
+              'flag': '独立医疗长上下文',
+              'published': None,
+              'date_label': '首次收录 2026-09-23',
+              'checked': TODAY,
+              'verified_at': TODAY,
+              'evidence_level': 'high',
+              'tested': False,
+              'checks': [
+                  '固定 MLCR-AA 当前 hard set、模型配置、重复次数与评分流程',
+                  '把 Overall / Accuracy / Completeness / Conciseness 分开报告',
+                  '保留病例合成、私有留出集与 LLM judges 的限制说明',
+                  '迁移到业务时另建授权真实数据留出集，并由医学/理赔专家复核'
+              ]
+          }
+          if not any(x.get('id') == item['id'] for x in d['items']):
+              idx = next((i for i, x in enumerate(d['items']) if x.get('group') == 'pharma'), len(d['items']))
+              d['items'].insert(idx, item)
+
+          sources = [
+              {
+                  'id': 'b-mlcr-aa',
+                  'title': 'Medical Long Context Reasoning (MLCR-AA)',
+                  'publisher': 'Artificial Analysis',
+                  'url': 'https://artificialanalysis.ai/evaluations/mlcr-aa',
+                  'published': None,
+                  'date_label': '持续更新榜单；首次收录 2026-09-23',
+                  'checked': TODAY,
+                  'kind': '独立公开评测',
+                  'evidence_level': 'high'
+              },
+              {
+                  'id': 'b-mlcr-origin',
+                  'title': 'Medical Long Context Reasoning (MLCR) · official repository',
+                  'publisher': 'Wisedocs',
+                  'url': 'https://github.com/Wisedocs-AI/medical-long-context-reasoning',
+                  'published': '2026-06-18',
+                  'checked': TODAY,
+                  'kind': '原始基准 / 官方仓库',
+                  'evidence_level': 'high'
+              }
+          ]
+          existing = {x.get('id') for x in d['sources']}
+          d['sources'].extend(x for x in sources if x['id'] not in existing)
+          p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Industry page: surface the same signal as a practical pharma capability, with a separate limitation layer.
+          p = Path('data/industry.json')
+          d = json.loads(p.read_text(encoding='utf-8'))
+          d['checked'] = TODAY
+
+          topic = {
+              'id': 'medical-record-reasoning',
+              'sector': 'pharma',
+              'group': '临床与文档',
+              'title': '长病历推理与审阅',
+              'description': '跨就诊记录的时序、因果、完整性与来源核对',
+              'keywords': ['MLCR', 'medical long context', 'medical record review', 'claims', 'long context']
+          }
+          if not any(x.get('id') == topic['id'] for x in d['topics']):
+              idx = next((i + 1 for i, x in enumerate(d['topics']) if x.get('id') == 'csr'), len(d['topics']))
+              d['topics'].insert(idx, topic)
+
+          industry_sources = [
+              {
+                  'id': 'aa-mlcr',
+                  'title': 'Medical Long Context Reasoning (MLCR-AA)',
+                  'publisher': 'Artificial Analysis',
+                  'url': 'https://artificialanalysis.ai/evaluations/mlcr-aa',
+                  'published': None,
+                  'date_label': '持续更新榜单；首次收录 2026-09-23',
+                  'checked': TODAY,
+                  'kind': '独立公开 Benchmark',
+                  'evidence_level': 'high'
+              },
+              {
+                  'id': 'wisedocs-mlcr',
+                  'title': 'Medical Long Context Reasoning (MLCR)',
+                  'publisher': 'Wisedocs',
+                  'url': 'https://github.com/Wisedocs-AI/medical-long-context-reasoning',
+                  'published': '2026-06-18',
+                  'date_label': None,
+                  'checked': TODAY,
+                  'kind': 'Benchmark 原始仓库',
+                  'evidence_level': 'high'
+              }
+          ]
+          existing = {x.get('id') for x in d['sources']}
+          d['sources'].extend(x for x in industry_sources if x['id'] not in existing)
+
+          article = {
+              'id': 'mlcr-aa-long-record-review',
+              'sector': 'pharma',
+              'topics': ['clinical', 'medical-record-reasoning'],
+              'title': 'MLCR-AA：长病历推理进入独立公开评测',
+              'summary': 'Artificial Analysis 用 Wisedocs MLCR 的私有高难留出集评估长病历推理；当前英文主页面核验快照中，Claude Fable 5.1 的 Overall Pass Rate 为 71.1%。',
+              'why': '它把“能不能读几十万字病历”拆成更接近真实审阅的问题：模型必须跨碎片记录重建时序、判断因果与治疗模式，并同时做到准确、完整、简洁。',
+              'boundary': '约 25k–64k Token 的病例是现实化合成数据，MLCR-AA hard set 私有，评分依赖 3 个 LLM judges。71.1% 仍意味着显著失败空间；不能据此宣称模型可自主诊疗、自动拒赔或替代专家。该分数也不属于 Artificial Analysis Intelligence Index。',
+              'sources': ['aa-mlcr', 'wisedocs-mlcr'],
+              'kind': 'benchmark',
+              'access': '公开榜单 + 开源原始基准',
+              'published': None,
+              'date_label': '首次收录 2026-09-23',
+              'checked': TODAY,
+              'verified_at': TODAY,
+              'evidence_level': 'high',
+              'steps': [
+                  '先读 AA 方法页，固定当前 hard set 与评分口径',
+                  '把 Overall、Accuracy、Completeness、Conciseness 分开看',
+                  '在授权真实病历/理赔资料上另建留出集并保留引用证据',
+                  '高风险结论必须进入人工复核与升级流程'
+              ],
+              'metrics': [
+                  'Overall Pass Rate 与各分项',
+                  '长上下文遗漏 / 幻觉 / 过度冗长',
+                  '真实业务数据上的专家一致性与引用可追溯'
+              ],
+              'featured': True,
+              'tested': False
+          }
+          if not any(x.get('id') == article['id'] for x in d['articles']):
+              d['articles'].insert(0, article)
+
+          p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Validate source data and build before commit
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          python scripts/build.py --out /tmp/frontierlog-mlcr --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          test -f /tmp/frontierlog-mlcr/index.html
+          grep -q 'MLCR-AA' /tmp/frontierlog-mlcr/index.html
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path('data/benchmarks.json').read_text())
+          i=json.loads(Path('data/industry.json').read_text())
+          assert sum(x.get('id')=='mlcr-aa' for x in b['items']) == 1
+          assert sum(x.get('id')=='mlcr-aa-long-record-review' for x in i['articles']) == 1
+          assert any(x.get('id')=='b-mlcr-aa' for x in b['sources'])
+          assert any(x.get('id')=='aa-mlcr' for x in i['sources'])
+          PY
+      - name: Commit verified MLCR-AA source update
+        run: |
+          if git diff --quiet -- data/benchmarks.json data/industry.json; then
+            echo 'No MLCR-AA source change needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/benchmarks.json data/industry.json
+          git commit -m 'Add MLCR-AA medical long-context benchmark'
+          git push
