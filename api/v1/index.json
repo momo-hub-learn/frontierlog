@@ -3781,8 +3781,36 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-09-20",
+    "snapshot": "2026-09-23",
     "items": [
+      {
+        "id": "gemini-38-flash-tts",
+        "name": "Gemini 3.8 Flash TTS",
+        "title": "设计声音与可控配音",
+        "category": "语音处理",
+        "mark": "g~",
+        "accent": "pink",
+        "summary": "用自然语言设计声音并逐句控制表演；在满足权利与同意验证时，可用约 30 秒样本复制声线。",
+        "scope": "开发者已可在 Gemini API 与 Google AI Studio 使用 Flash / Flash-Lite；Flash 还进入 Gemini Notebook，Flash-Lite 进入 Google Vids。",
+        "boundary": "企业版 API 仍为 coming soon；AI Studio 的 voice replication 目前不在 Illinois、Texas、EEA、UK、Switzerland、India 提供；声音复制需权利与同意验证，生成音频带 SynthID。",
+        "repo": null,
+        "sources": [
+          "gemini-38-tts"
+        ],
+        "requirements": "Google AI Studio 或 Gemini API 访问；用于声线复制的音频必须有权使用并完成同意验证。",
+        "test": "用同一段 20–30 秒文案测试预设声线、自然语言设计声线，以及可用地区内的已授权声线复制，检查角色一致性和逐句指令遵循。",
+        "checks": [
+          "语言、口音与角色设定符合预期",
+          "逐句情绪、停顿等表演指令确实生效",
+          "复制声线只使用已授权样本，并记录地域与产品限制"
+        ],
+        "command": "",
+        "effort": "网页 / API",
+        "evidence": "Google 官方发布",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-09-23"
+      },
       {
         "id": "openhands",
         "name": "OpenHands",
@@ -4130,6 +4158,15 @@
         "published": null,
         "checked": "2026-09-20",
         "kind": "官方仓库"
+      },
+      {
+        "id": "gemini-38-tts",
+        "title": "Gemini 3.8 text-to-speech says hello",
+        "publisher": "Google",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+        "published": "2026-09-23",
+        "checked": "2026-09-23",
+        "kind": "官方发布"
       }
     ],
     "events": [
