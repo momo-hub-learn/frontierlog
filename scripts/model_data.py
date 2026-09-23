@@ -156,13 +156,6 @@ def model_rss(data,site):
         signature=sha256(json.dumps(b,sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:16]
         ET.SubElement(e,'guid',isPermaLink='false').text='frontierlog:models:'+b['id']+':'+signature
         ET.SubElement(e,'description').text=f"{b['scope']}\n方法：{b['methodology']}\n来源日期：{b.get('as_of') or '未标单一日期'}\n核对日期：{b['checked']}\n来源：{smap[b['source']]['url']}"
-    for track in data.get('frontier_tracks',[]):
-        for item in sorted(track['items'],key=lambda x:x['date'],reverse=True):
-            e=ET.SubElement(ch,'item');ET.SubElement(e,'title').text=track['title']+' · '+item['name']
-            ET.SubElement(e,'link').text=base+'#/models?frontier='+quote(track['id'])
-            ET.SubElement(e,'guid',isPermaLink='false').text='frontierlog:models:frontier:'+item['id']
-            ET.SubElement(e,'pubDate').text=format_datetime(datetime.combine(day(item['date']),datetime.min.time(),timezone.utc))
-            ET.SubElement(e,'description').text=f"{item['summary']}\n状态：{item['status_label']}\n标签：{' / '.join(item['tags'])}\n来源："+'\n'.join(smap[s]['url'] for s in item['sources'])
     return ET.tostring(rss,encoding='utf-8',xml_declaration=True)
 
 def reset_rss(data,site):
