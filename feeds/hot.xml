@@ -17,7 +17,13 @@
 
 边界：System One、RLCD、70–500ms、$0.042/MTok、两数量级效率提升等核心结果主要来自 TypeSafe 自己的定义和评测。TypeSafe 也明确承认其 workflow eval 由自家模型能力团队构造，可能存在偏差；RLCD 尚无公开论文、训练配方或独立大规模复现。“不能 hallucinate”准确说法是输出结构/类型不会越界，不等于业务判断永远正确。
 
-站内热度 98；不是全网流量。</description></item><item><title>SpaceXAI 披露 Grok Bot 客服实战：工单 +175%，团队未新增人手</title><guid isPermaLink="false">frontierlog:hot:grok-bot-support-20260922</guid><link>https://x.ai/news/grok-bot-customer-support</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 22 日称，合并 Cursor 后其支持团队在工单量增加 175% 的情况下未新增支持人员；Grok Bot 已进入预调查、问题复现、退款、队列优先级与事故检测等流程。公司称在明确退款规则下 99% 的退款请求可无人处理，优化后每个已解决工单成本低至 $0.20–$0.30。
+站内热度 98；不是全网流量。</description></item><item><title>Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言</title><guid isPermaLink="false">frontierlog:hot:gemini-38-tts-20260923</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。
+
+为什么值得看：这次升级把 TTS 从“选一个预设音色”推进到可设计、可复制、可持续控制的语音生成工作流，并直接面向配音、长内容与实时语音 Agent。若这些控制能力在真实生产中保持稳定，语音 Agent 的品牌声线、跨语言本地化与规模化内容制作门槛都会继续下降。
+
+边界：功能、可用范围与安全机制来自 Google 官方发布；Google 同文引用 Hume AI Voice Design Benchmark 与 Voice Arena 的领先结果，但本站本轮未用这些厂商引用值改写现有独立 TTS 榜单，也不据此宣称其已在所有语音 Benchmark 上绝对第一。声音复制要求权利与同意验证，生成音频带 SynthID，企业可用性仍在分阶段 rollout。
+
+站内热度 96；不是全网流量。</description></item><item><title>SpaceXAI 披露 Grok Bot 客服实战：工单 +175%，团队未新增人手</title><guid isPermaLink="false">frontierlog:hot:grok-bot-support-20260922</guid><link>https://x.ai/news/grok-bot-customer-support</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 22 日称，合并 Cursor 后其支持团队在工单量增加 175% 的情况下未新增支持人员；Grok Bot 已进入预调查、问题复现、退款、队列优先级与事故检测等流程。公司称在明确退款规则下 99% 的退款请求可无人处理，优化后每个已解决工单成本低至 $0.20–$0.30。
 
 为什么值得看：这是 Agent 从“回答问题”进入真实业务闭环的一手生产案例：它不仅生成回复，还连接 Plain、Linear、Datadog，执行有限动作、管理队列，并通过 traces、evals 与人工审批逐步扩大自治范围。
 
@@ -53,10 +59,4 @@
 
 边界：“最高 90%”是缓存输入 Token 的折扣上限，不等于整个任务成本下降 90%；命中率仍受模型、工具、设置和前缀稳定性影响。30 分钟是符合条件共享前缀的复用窗口，不应外推为所有缓存永久有效。
 
-站内热度 92；不是全网流量。</description></item><item><title>Anthropic 披露前沿实验室三项指标：Claude 已主导 26% AI 研发任务</title><guid isPermaLink="false">frontierlog:hot:anthropic-rd-automation-20260917</guid><link>https://www.anthropic.com/institute/measuring-pace-of-ai-development</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>Anthropic 9 月 22 日公开三组内部测量：截至 8 月，Claude 在按人类投入时间加权的 26% AI 研发工作中达到“Leads”，超过 90% 达“Collaborates”或更高；其最常用内部平台同时约有 3 万个研究与工程 Agent 运行，100% 动作经过在线监控。
-
-为什么值得看：这把“AI 帮忙研发下一代 AI”从抽象叙事推进到可连续观察的生产指标，并把 R&amp;D 自动化、Agent 监督和研发算力分配放进同一套框架。Anthropic 同时披露抽样周约 6% 的 AI R&amp;D 算力用于安全、AI 驱动 R&amp;D 中约 12% 用于安全，是判断递归自我改进速度与治理是否跟上的高价值早期信号。
-
-边界：这些数字来自 Anthropic 对自身流程的内部测量，不是独立审计；约 3 万 Agent 只覆盖其最常用内部平台，算力占比只取 7 月 13–20 日一周快照。“Leads”仍包含人类监督，且没有任何被测 AI R&amp;D 工作达到完全自主。Anthropic 表示计划引入第三方评估者，但这不等于当前数据已被第三方验证。
-
-站内热度 91；不是全网流量。</description></item></channel></rss>
+站内热度 92；不是全网流量。</description></item></channel></rss>

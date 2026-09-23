@@ -94,6 +94,24 @@
         "first_seen_at": "2026-09-23T18:12:46+08:00"
       },
       {
+        "id": "gemini-38-tts-20260923",
+        "category": "model",
+        "heat": 96,
+        "trend": "up",
+        "published": "2026-09-23",
+        "checked": "2026-09-23",
+        "title": "Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言",
+        "summary": "Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。",
+        "why": "这次升级把 TTS 从“选一个预设音色”推进到可设计、可复制、可持续控制的语音生成工作流，并直接面向配音、长内容与实时语音 Agent。若这些控制能力在真实生产中保持稳定，语音 Agent 的品牌声线、跨语言本地化与规模化内容制作门槛都会继续下降。",
+        "boundary": "功能、可用范围与安全机制来自 Google 官方发布；Google 同文引用 Hume AI Voice Design Benchmark 与 Voice Arena 的领先结果，但本站本轮未用这些厂商引用值改写现有独立 TTS 榜单，也不据此宣称其已在所有语音 Benchmark 上绝对第一。声音复制要求权利与同意验证，生成音频带 SynthID，企业可用性仍在分阶段 rollout。",
+        "source": "Google",
+        "source_kind": "官方模型 / 产品发布",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+        "link": "#/hot",
+        "evidence_level": "high",
+        "first_seen_at": "2026-09-23T17:17:00Z"
+      },
+      {
         "id": "grok-bot-support-20260922",
         "category": "product",
         "heat": 96,
@@ -203,24 +221,6 @@
         "evidence_level": "high",
         "link": "#/progress",
         "first_seen_at": "2026-09-23T05:25:07+08:00"
-      },
-      {
-        "id": "anthropic-rd-automation-20260917",
-        "category": "research",
-        "heat": 91,
-        "trend": "up",
-        "published": "2026-09-22",
-        "checked": "2026-09-23",
-        "title": "Anthropic 披露前沿实验室三项指标：Claude 已主导 26% AI 研发任务",
-        "summary": "Anthropic 9 月 22 日公开三组内部测量：截至 8 月，Claude 在按人类投入时间加权的 26% AI 研发工作中达到“Leads”，超过 90% 达“Collaborates”或更高；其最常用内部平台同时约有 3 万个研究与工程 Agent 运行，100% 动作经过在线监控。",
-        "why": "这把“AI 帮忙研发下一代 AI”从抽象叙事推进到可连续观察的生产指标，并把 R&D 自动化、Agent 监督和研发算力分配放进同一套框架。Anthropic 同时披露抽样周约 6% 的 AI R&D 算力用于安全、AI 驱动 R&D 中约 12% 用于安全，是判断递归自我改进速度与治理是否跟上的高价值早期信号。",
-        "boundary": "这些数字来自 Anthropic 对自身流程的内部测量，不是独立审计；约 3 万 Agent 只覆盖其最常用内部平台，算力占比只取 7 月 13–20 日一周快照。“Leads”仍包含人类监督，且没有任何被测 AI R&D 工作达到完全自主。Anthropic 表示计划引入第三方评估者，但这不等于当前数据已被第三方验证。",
-        "source": "Anthropic",
-        "source_kind": "官方研究 / 内部测量",
-        "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
-        "link": "#/hot",
-        "evidence_level": "high",
-        "first_seen_at": "2026-09-22T23:23:28+08:00"
       }
     ]
   },
