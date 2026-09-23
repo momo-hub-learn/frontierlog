@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-22",
+  "checked": "2026-09-23",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -9,12 +9,30 @@
     "last_success": null
   },
   "categories": [
-    {"id": "all", "title": "全部"},
-    {"id": "model", "title": "模型"},
-    {"id": "product", "title": "产品"},
-    {"id": "industry", "title": "行业"},
-    {"id": "research", "title": "研究"},
-    {"id": "benchmark", "title": "Benchmark"}
+    {
+      "id": "all",
+      "title": "全部"
+    },
+    {
+      "id": "model",
+      "title": "模型"
+    },
+    {
+      "id": "product",
+      "title": "产品"
+    },
+    {
+      "id": "industry",
+      "title": "行业"
+    },
+    {
+      "id": "research",
+      "title": "研究"
+    },
+    {
+      "id": "benchmark",
+      "title": "Benchmark"
+    }
   ],
   "items": [
     {
@@ -89,11 +107,11 @@
       "heat": 95,
       "trend": "up",
       "published": "2026-09-22",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "title": "Xiaomi 发布 MiMo-V2.6：Pro 在 AA 开放权重模型中升至 46 分",
-      "summary": "Xiaomi 9 月 22 日发布 MiMo-V2.6 系列：Pro 是原生全模态万亿参数旗舰，另有低成本 Flash 与最高 20 倍加速的 Pro-UltraSpeed。Artificial Analysis 当前独立快照给出 MiMo-V2.6-Pro Intelligence Index 46、约 110.8 output tok/s、Cost per Intelligence Index Task $0.13。",
+      "summary": "Xiaomi 9 月 22 日发布 MiMo-V2.6 系列：Pro 是原生全模态万亿参数旗舰，另有低成本 Flash 与最高 20 倍加速的 Pro-UltraSpeed。Artificial Analysis 当前英文主模型页独立快照给出 MiMo-V2.6-Pro Intelligence Index 46、约 54.6 output tok/s、Cost per Intelligence Index Task $0.13。",
       "why": "MiMo-V2.6-Pro 把开放权重模型推进到 AA 当前 46 分档，同时每个 Intelligence Index 任务成本仅 $0.13；性能、开放权重、1M 上下文和低任务成本同时出现，是单位任务成本竞争的重要变化。",
-      "boundary": "系列发布时间与产品定位来自 Xiaomi MiMo 官方更新日志；46、约 110.8 tok/s、$0.13/task、$0.435/$0.87 每百万输入/输出 Token、1M context 与 MIT 权重信息来自 Artificial Analysis 当前公开模型页。AA 的速度是动态实测，后续可能变化；“开放权重领先”只指 AA 当前收录和同口径评测，不外推为所有 Benchmark 的绝对第一。",
+      "boundary": "系列发布时间与产品定位来自 Xiaomi MiMo 官方更新日志；46、约 54.6 tok/s、$0.13/task、$0.435/$0.87 每百万输入/输出 Token、1M context 与 MIT 权重信息来自 Artificial Analysis 当前英文主模型页。AA 的速度是动态实测且短期波动明显，其他语言缓存可能滞后，因此速度只代表本次核验快照；“开放权重领先”只指 AA 当前收录和同口径评测，不外推为所有 Benchmark 的绝对第一。",
       "source": "Xiaomi MiMo / Artificial Analysis",
       "source_kind": "官方发布 + 独立公开榜",
       "url": "https://mimo.mi.com/docs/en-US/updates/model",

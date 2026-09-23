@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-22",
+  "checked": "2026-09-23",
   "account": "thsottiaux",
   "events": [
     {
@@ -16,7 +16,9 @@
       "summary": "OpenAI 说明，符合资格的 Plus、Pro、Business 既有账号在该日获发一次可留待使用的重置；新账号有单独截止条件。",
       "scope": "Plus / Pro / Business · 符合资格的账号",
       "boundary": "卡片需要主动使用；发卡不等于额度已经恢复。资格与有效期看个人账号。",
-      "sources": ["oa-banked"],
+      "sources": [
+        "oa-banked"
+      ],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -34,7 +36,9 @@
       "summary": "OpenAI 说明，符合资格的 Plus、Pro、Business 既有账号在该日获发一次可留待使用的重置；新账号有单独截止条件。",
       "scope": "Plus / Pro / Business · 符合资格的账号",
       "boundary": "卡片需要主动使用；发卡不等于额度已经恢复。资格与有效期看个人账号。",
-      "sources": ["oa-banked"],
+      "sources": [
+        "oa-banked"
+      ],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -52,7 +56,9 @@
       "summary": "官方说明记载在 9 月 7 日提供了全局用量重置，直接应用于相应额度，不保存为一张重置卡。",
       "scope": "Plus / Pro / Business · 官方说明范围",
       "boundary": "这里使用来源记日，未提供具体时刻；不是完整的重置历史，也不反映此刻个人账号余额。",
-      "sources": ["oa-banked"],
+      "sources": [
+        "oa-banked"
+      ],
       "reviewed": "2026-09-21",
       "review_basis": "primary_source",
       "related_ids": []
@@ -70,7 +76,10 @@
       "summary": "公开镜像与追踪页定位到 Tibo 的 X 原帖：部分用户使用 banked reset 时没有完整恢复 ChatGPT Work / Codex 用量；他说受影响时间窗口内使用过的人将再获得一张，并收到道歉邮件。",
       "scope": "受影响时间窗口内使用过 banked reset 的用户 · 具体窗口与资格仍待第一方直读",
       "boundary": "这是补偿/修复说明，不等于面向所有用户的 global reset，也不能推出补发已经对每个受影响账号到账。",
-      "sources": ["tibo-post-2097752790177370535", "codexresets-tracker"],
+      "sources": [
+        "tibo-post-2097752790177370535",
+        "codexresets-tracker"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
       "related_ids": [],
@@ -96,10 +105,15 @@
       "summary": "公开追踪页定位到 Tibo 的 X 原帖：在解释 Codex 质量修复后，他补充“a reset is also landing by midnight today”。这属于明确的重置预告，但本轮服务端直读 X 仍返回 403，因此本站不把它升级为已确认执行。",
       "scope": "Codex / ChatGPT Work 相关用量 · 具体适用范围原帖未在本站直接核验",
       "boundary": "“by midnight today”是目标时间，不等于已经完成；原句也未单独给出时区。只有后续明确执行/传播完成表述或 OpenAI 官方说明才能确认。",
-      "sources": ["tibo-post-sep12", "codexresets-tracker"],
+      "sources": [
+        "tibo-post-sep12",
+        "codexresets-tracker"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": ["tibo-propagation-2026-09-12"],
+      "related_ids": [
+        "tibo-propagation-2026-09-12"
+      ],
       "original_text": "And of course, a reset is also landing by midnight today.",
       "conversation_context": "该句出现在 Tibo 关于 Codex 质量问题与修复的长帖末尾，是一个独立的 reset 预告；后续另有“Reset all propagated”记录指向执行完成。",
       "interpretation": "明确预告会有一次 reset，但不是完成确认；“midnight”目标也不能在没有原帖时区说明的情况下自行换算成一个确定的北京时间。",
@@ -122,10 +136,15 @@
       "summary": "公开追踪页定位到 Tibo 在稍晚的 X 帖中写“Reset all propagated. Sweet dreams.”，并将其与此前 reset 预告关联。语义上这是 rollout / propagation 完成表述，但本站直读该 X 链接仍返回 403，因此暂不升级为确认记录。",
       "scope": "此前预告的 reset · 具体套餐/账户范围需结合原帖与官方说明继续核验",
       "boundary": "第三方页面的“confirmed”标签不能替代本站的第一方核验；在原帖可直接读取或 OpenAI 官方资料补齐前，不用它计算个人额度或断言所有套餐均已重置。",
-      "sources": ["tibo-post-2098685367058612394", "codexresets-tracker"],
+      "sources": [
+        "tibo-post-2098685367058612394",
+        "codexresets-tracker"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": ["lead-2026-09-12"],
+      "related_ids": [
+        "lead-2026-09-12"
+      ],
       "original_text": "Reset all propagated. Sweet dreams.",
       "conversation_context": "该帖发生在 03:20 UTC 的“reset is also landing by midnight today”之后；公开追踪页显示它引用/承接前述重置预告。",
       "interpretation": "措辞明确指向 reset rollout 已完成传播，证据语义很强；但本站当前仍缺直接可读的 Tibo 原帖，因此状态保持 pending，而不是 confirmed。",
@@ -149,7 +168,11 @@
       "summary": "Udi 先明确说“这周没发有意思的东西，所以欠大家一张 banked reset”，Tibo 随后回复“OK fine. But it’s also still coming in Tuesday”。前半句可以视为对 banked reset 请求的接受式回应；后半句更自然地承接此前关于本周发布/ship 的讨论，不能直接解释成“周二发 reset”。",
       "scope": "banked reset 相关回复 · 具体资格与发放范围未知",
       "boundary": "不能据此认定重置卡已经到账，也不能推出“周二就是 reset 时间”“每天一张”“所有付费账号都有”或全局额度已恢复。仍需 Tibo 后续明确发放/执行表述或 OpenAI 官方说明。",
-      "sources": ["tibo-post-2101352781219258527", "zamantika-thread-2101352781219258527", "toolify-reset-tracker"],
+      "sources": [
+        "tibo-post-2101352781219258527",
+        "zamantika-thread-2101352781219258527",
+        "toolify-reset-tracker"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
       "related_ids": [],
@@ -176,7 +199,11 @@
       "summary": "公开线程镜像显示，Tibo 的“3am on a tuesday”是直接回复 @My_Ai_Bi 的“the GPT-6 Community Night was 🔥”。这条上文本身是产品/社区活动语境，没有 reset、banked 或额度措辞；因此不再把这条回复作为重置时间线索。",
       "scope": "GPT-6 Community Night / 产品活动语境 · 非重置确认",
       "boundary": "这条回复最多能说明 Tibo 对该产品/活动话题给了“Tuesday 3am”式时间回应；不能推出周二 3:00 会 reset，也不能推断时区、套餐、banked/global 类型或任何额度变化。",
-      "sources": ["tibo-post-2101920928070562029", "zamantika-thread-2101920928070562029", "codexresets-tracker"],
+      "sources": [
+        "tibo-post-2101920928070562029",
+        "zamantika-thread-2101920928070562029",
+        "codexresets-tracker"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
       "related_ids": [],
@@ -204,10 +231,15 @@
       "summary": "公开镜像定位到 Tibo 的 X 独立帖：他明确写道自己“promised a reset for Tuesday”。这比此前的模糊 Tuesday 讨论更直接，但当前仍没有完成/传播/到账表述。",
       "scope": "reset 预告 · banked / global 类型与适用套餐未说明",
       "boundary": "这是明确预告，不等于已执行。不能据此补出周二具体时刻，也不能把此前“3am on a Tuesday”回复反向解释为 reset 时间。",
-      "sources": ["tibo-post-2102254445082116335", "zamantika-tibo-profile"],
+      "sources": [
+        "tibo-post-2102254445082116335",
+        "zamantika-tibo-profile"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": ["tibo-hint-2026-09-19-banked-reset"],
+      "related_ids": [
+        "tibo-hint-2026-09-19-banked-reset"
+      ],
       "original_text": "Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.",
       "conversation_context": "独立原帖；措辞回指此前对 Tuesday 的承诺，但本帖没有说明该承诺来自哪条具体对话，也没有明确 banked / global 类型。",
       "interpretation": "我们理解：Tibo 明确说自己承诺周二会有一次 reset，因此可视为明确预告；当前没有出现 done、propagated、granted 等执行完成措辞。",
@@ -230,10 +262,15 @@
       "summary": "在一名用户引用 Tibo 的 Tuesday reset 预告并表示“need to burn through it before the drop”后，公开线程镜像显示 Tibo 回复“Burn those tokens”。这加强了“重置临近”的语境，但仍没有 done、propagated、granted 或到账信息。",
       "scope": "Tuesday reset 相关回复 · 类型与适用套餐仍未说明",
       "boundary": "这是临近执行线索，不是完成确认；不能据此认定额度已经重置、确定发生时刻、banked/global 类型或覆盖范围。",
-      "sources": ["tibo-post-2102284586713522193", "zamantika-tibo-profile"],
+      "sources": [
+        "tibo-post-2102284586713522193",
+        "zamantika-tibo-profile"
+      ],
       "reviewed": "2026-09-22",
       "review_basis": "secondary_lead",
-      "related_ids": ["tibo-announcement-2026-09-22-tuesday"],
+      "related_ids": [
+        "tibo-announcement-2026-09-22-tuesday"
+      ],
       "original_text": "@Cch_Chichieh Burn those tokens",
       "conversation_context": "被回复用户写道“i still have 50% left lmao, need to burn through it before the drop”，并引用 Tibo 的 Tuesday reset 预告。回复语义与即将到来的 reset 一致，但没有执行完成措辞。",
       "interpretation": "我们理解：这是对“在 reset 前先把剩余额度用掉”的正面回应，说明 Tuesday reset 预告仍然有效、可能临近执行；已定位对应 X 状态链接，但本站当前仍无法直接读取原帖正文，因此继续保持待核验，不能升级为已执行。",
@@ -255,16 +292,23 @@
       "precision": "instant",
       "source_timezone": "UTC",
       "title": "Tibo：banked reset 正在加载到 Plus / Pro / Business",
-      "summary": "公开 X API 追踪页定位到 Tibo 新帖：在宣布 GPT-6 Sol / Luna 与价格调整时，他写道正在把一张 banked reset 加载到所有 Plus、Pro、Business 账号。措辞是 loading，表示发放进行中，不是完成确认。",
+      "summary": "Tibo 的 X 帖称正在把一张 banked reset 加载到所有 Plus、Pro、Business 账号。OpenAI Developer Community 的 GPT-6 Sol / Luna 官方社区公告线程嵌入了该 Tibo 原帖并保留这句原文；措辞仍是 loading，表示发放进行中，不是完成确认。",
       "scope": "Plus / Pro / Business · 原帖措辞为 all accounts",
-      "boundary": "“loading”不等于每个账户都已经到账，也不是 global reset 或 rollout/propagation 完成。本站当前官方 X API 凭证未配置、服务端直读 X 仍受限，因此保持 pending。",
-      "sources": ["tibo-post-2102463847714247142", "modelyard-tibo-2102463847714247142"],
-      "reviewed": "2026-09-22",
+      "boundary": "OpenAI 官方社区对原帖文字提供了第一方域名上的交叉佐证，但“loading”仍不等于每个账户都已经到账，也不是 global reset 或 rollout/propagation 完成。本站仍未拿到更新的 done / propagated / granted / 到账完成表述，因此状态保持 pending。",
+      "sources": [
+        "tibo-post-2102463847714247142",
+        "modelyard-tibo-2102463847714247142",
+        "openai-community-gpt6-sol-luna"
+      ],
+      "reviewed": "2026-09-23",
       "review_basis": "secondary_lead",
-      "related_ids": ["tibo-announcement-2026-09-22-tuesday", "tibo-hint-2026-09-22-burn-tokens"],
+      "related_ids": [
+        "tibo-announcement-2026-09-22-tuesday",
+        "tibo-hint-2026-09-22-burn-tokens"
+      ],
       "original_text": "GPT-6 Sol and Luna are out. Not only are they a very significant improvement across the board, but also in writing and general \"you know when you try it\" quality. We are also permanently reducing the API price by 50% making both of them viable for a ton of new usecases and making your usage go further too, even on the subscriptions. And one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let's go!",
       "conversation_context": "独立原帖；同帖同时宣布 GPT-6 Sol / Luna。相比凌晨的 Tuesday reset 预告，这次把 reset 类型明确为 banked，并把范围明确到 Plus / Pro / Business。",
-      "interpretation": "我们理解：Tuesday reset 已从“明确预告”推进到“banked reset 正在加载”，类型和套餐范围都更清楚；但 loading 仍是进行时，必须与“已到账 / 已传播完成”分开。",
+      "interpretation": "Tuesday reset 已从“明确预告”推进到“banked reset 正在加载”，类型与 Plus / Pro / Business 范围已更清楚；OpenAI 官方社区线程进一步佐证原帖文本，但执行完成仍需后续第一方完成表述。",
       "evidence_strength": "medium",
       "semantic_type": "banked_announcement",
       "not_proves": "未证明每个 Plus / Pro / Business 账号已经收到重置卡、发放已经完成、发生 global reset，也未说明重置卡的有效期或使用截止时间。",
@@ -413,9 +457,9 @@
       "publisher": "Tibo / X",
       "title": "Banked reset loading into Plus / Pro / Business accounts",
       "url": "https://x.com/thsottiaux/status/2102463847714247142",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "kind": "原帖待直接核验",
-      "note": "X 状态 ID、原帖链接和文本由公开 Direct X API 追踪页定位；状态 ID 内含的 X Snowflake 时间对应 2026-09-22 18:23:37.841 UTC。本站服务端仍无法直接读取 X 正文，因此不把 loading 升级为已完成。"
+      "note": "X 状态 ID、原帖链接和文本已定位；OpenAI Developer Community 的官方社区公告线程同时嵌入该 Tibo 原帖并保留原文。当前服务端直读 X 正文仍受限，因此只确认“正在加载”的公告事实，不把它升级为已完成。"
     },
     {
       "id": "modelyard-tibo-2102463847714247142",
@@ -425,6 +469,15 @@
       "checked": "2026-09-22",
       "kind": "第三方定位线索",
       "note": "页面标记 Direct X API，用于定位 Tibo 原帖、文本与发布时间；本站不继承其 DIRECT_VERIFIED 标签，只有可直接核验的 Tibo 原帖或 OpenAI 官方说明才升级确认。"
+    },
+    {
+      "id": "openai-community-gpt6-sol-luna",
+      "publisher": "OpenAI Developer Community",
+      "title": "Announcing GPT-6 Sol and GPT-6 Luna in the API, Codex and ChatGPT",
+      "url": "https://community.openai.com/t/announcing-gpt-6-sol-and-gpt-6-luna-in-the-api-codex-and-chatgpt/1399925",
+      "checked": "2026-09-23",
+      "kind": "OpenAI 官方社区公告线程",
+      "note": "OpenAI 官方社区线程在 2026-09-22 18:28 的跟帖中嵌入 Tibo 的 X 原帖，并逐字保留“loading a banked reset into all accounts of our Plus, Pro and Business users”这一关键信息；用于交叉佐证公告文本，不把进行时措辞升级为完成状态。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
