@@ -7,7 +7,7 @@
       "publisher": "Artificial Analysis",
       "title": "LLM Leaderboard",
       "url": "https://artificialanalysis.ai/leaderboards/models",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "published": null,
       "kind": "评测方公开榜单",
       "note": "人工摘录一组模型配置，保留网页所示分数。不是全量榜单；速度与单任务成本来自相同模型页，数值会随评测更新。"
@@ -17,20 +17,20 @@
       "publisher": "Artificial Analysis",
       "title": "GPT-6 Sol (max) model analysis",
       "url": "https://artificialanalysis.ai/models/gpt-6-sol",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "published": "2026-09-22",
       "kind": "评测方模型页",
-      "note": "独立公开快照：Intelligence Index 48、约 104.4 tok/s、输入/输出每百万 Token $2/$10、90% cache discount、872k context；Cost per Intelligence Index Task $1.06。Coding Agent Index 57（Codex harness）。"
+      "note": "独立公开快照：Intelligence Index 48、约 115.2 tok/s、输入/输出每百万 Token $2/$10、90% cache discount、872k context；Cost per Intelligence Index Task $1.06。Coding Agent Index 57（Codex harness）。速度为动态实测，后续可能变化。"
     },
     {
       "id": "aa-gpt6-luna",
       "publisher": "Artificial Analysis",
       "title": "GPT-6 Luna (max) model analysis",
       "url": "https://artificialanalysis.ai/models/gpt-6-luna",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "published": "2026-09-22",
       "kind": "评测方模型页",
-      "note": "独立公开快照：Intelligence Index 37、约 157.2 tok/s、输入/输出每百万 Token $0.10/$0.50、1M context；Cost per Intelligence Index Task $0.07。Coding Agent Index 41（Codex harness）。"
+      "note": "独立公开快照：Intelligence Index 37、约 153.9 tok/s、输入/输出每百万 Token $0.10/$0.50、90% cache discount、1M context；Cost per Intelligence Index Task $0.07。Coding Agent Index 41（Codex harness）。速度为动态实测，后续可能变化。"
     },
     {
       "id": "aa-mimo-v26-pro",
@@ -47,7 +47,7 @@
       "publisher": "Artificial Analysis",
       "title": "GLM 5.3 Flash model analysis",
       "url": "https://artificialanalysis.ai/models/glm-5-3-flash/",
-      "checked": "2026-09-22",
+      "checked": "2026-09-23",
       "published": null,
       "kind": "评测方模型页",
       "note": "独立公开快照；当前给出 Intelligence Index 42、输出速度约 89.4 tok/s、Cost per Intelligence Index Task $0.25、输入/输出每百万 Token $0.15/$0.50、1M context。速度会随供应商与采样更新。"
@@ -196,7 +196,7 @@
           "name": "GPT-6 Sol (max)",
           "maker": "OpenAI",
           "intelligence": 48,
-          "speed": 104.4,
+          "speed": 115.2,
           "cost_task": 1.06,
           "input_price": 2,
           "output_price": 10,
@@ -253,7 +253,7 @@
           "name": "Grok 4.7 (xhigh)",
           "maker": "SpaceXAI",
           "intelligence": 46,
-          "speed": 39.2,
+          "speed": 39.3,
           "cost_task": 3.74,
           "input_price": 2,
           "output_price": 6,
@@ -386,7 +386,7 @@
           "name": "GPT-6 Luna (max)",
           "maker": "OpenAI",
           "intelligence": 37,
-          "speed": 157.2,
+          "speed": 153.9,
           "cost_task": 0.07,
           "input_price": 0.1,
           "output_price": 0.5,
