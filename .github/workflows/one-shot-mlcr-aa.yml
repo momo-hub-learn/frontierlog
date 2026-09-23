@@ -1,4 +1,4 @@
-name: One-shot hot list repair
+name: One-shot verified site publish
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  repair:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,43 +20,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Restore the curated hot list to ten items
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          p=Path('data/hot.json')
-          d=json.loads(p.read_text(encoding='utf-8'))
-          before=len(d['items'])
-          d['items']=[x for x in d['items'] if x.get('id')!='gemini-live-38']
-          assert before == 11, f'expected current regression to contain 11 items, got {before}'
-          assert len(d['items']) == 10, f'expected repaired list to contain 10 items, got {len(d["items"])}'
-          assert any(x.get('id')=='jev-system-one-20260915' for x in d['items'])
-          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          PY
-      - name: Validate complete site before commit
+      - name: Verify current source and build complete site
         run: |
           python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
           node --check src/tibo-intel.js
           node --check assets/tibo-intel.js
-          python scripts/build.py --out /tmp/frontierlog-hot-repair --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
-          test -f /tmp/frontierlog-hot-repair/index.html
+          python scripts/build.py --out /tmp/frontierlog-publish --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          test -f /tmp/frontierlog-publish/index.html
           python - <<'PY'
           import json
           from pathlib import Path
           h=json.loads(Path('data/hot.json').read_text())
+          out=json.loads(Path('/tmp/frontierlog-publish/api/v1/hot.json').read_text())
           assert len(h['items']) == 10
-          assert not any(x.get('id')=='gemini-live-38' for x in h['items'])
-          assert any(x.get('id')=='jev-system-one-20260915' for x in h['items'])
+          assert len(out['items']) == 10
+          assert any(x.get('id')=='jev-system-one-20260915' for x in out['items'])
+          assert not any(x.get('id')=='gemini-live-38' for x in out['items'])
           PY
-      - name: Commit verified hot list repair
+      - name: Publish generated site snapshot
         run: |
-          if git diff --quiet -- data/hot.json; then
-            echo 'No hot-list repair needed.'
+          cp /tmp/frontierlog-publish/index.html index.html
+          cp /tmp/frontierlog-publish/404.html 404.html
+          cp -R /tmp/frontierlog-publish/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-publish/feeds/. feeds/
+          cp /tmp/frontierlog-publish/feed.xml feed.xml
+          cp /tmp/frontierlog-publish/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-publish/robots.txt robots.txt
+          if git diff --quiet -- index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt; then
+            echo 'Generated site is already current.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/hot.json
-          git commit -m 'Restore ten-item hot list after Jev update'
+          git add index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
+          git commit -m 'Publish repaired hot-list snapshot'
           git push
