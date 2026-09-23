@@ -1,6 +1,76 @@
-/* Compact intraday timeline: date groups first, exact clocks only when verified. */
-.intraday-general{margin-top:34px}.intraday-legend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.75rem}.intraday-legend span{display:flex;align-items:center;gap:5px}.intraday-legend i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}.intraday-legend i.seen{background:var(--panel);border:2px solid var(--accent)}.intraday-legend i.date{background:var(--muted);opacity:.42}
-.intraday-timeline{margin-top:4px;border-top:1px solid var(--line)}.intraday-day{border-bottom:1px solid var(--line);padding:0}.intraday-day>summary{list-style:none;cursor:pointer;padding:18px 0 12px;display:flex;align-items:center;justify-content:space-between;color:var(--text);user-select:none}.intraday-day>summary::-webkit-details-marker{display:none}.intraday-day>summary>span{display:flex;align-items:baseline;gap:9px}.intraday-day>summary b{font-size:1.08rem;letter-spacing:-.025em}.intraday-day>summary em{font-style:normal;color:var(--muted);font-size:.8rem}.intraday-day>summary small{color:var(--muted);font-size:.78rem}.intraday-day>summary .ico{width:14px;height:14px;color:var(--muted);transition:transform .18s}.intraday-day:not([open])>summary .ico{transform:rotate(-90deg)}
-.intraday-list{padding:0 0 7px}.intraday-row{padding:15px 0 17px;border-top:1px solid var(--soft-line)}.intraday-row:first-child{border-top:0}.intraday-cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:7px}.intraday-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.76rem}.intraday-stamp{display:inline-flex;align-items:center;font:600 .68rem var(--mono);color:var(--sub);letter-spacing:.01em}.intraday-stamp.source{color:var(--accent)}.intraday-stamp.seen{color:var(--accent)}.intraday-stamp.date{color:var(--muted);font-family:var(--sans);font-weight:500}.intraday-score{display:flex;align-items:center;gap:5px;white-space:nowrap;color:var(--muted);font-size:.7rem}.intraday-score strong{font:700 .84rem var(--display);color:var(--accent)}.intraday-title{display:block;width:100%;text-align:left;font-size:1.04rem;line-height:1.5;font-weight:740;letter-spacing:-.018em;margin:0 0 6px}.intraday-title:hover{color:var(--accent)}.intraday-summary{color:var(--sub);font-size:.88rem;line-height:1.72;margin:0;max-width:980px}.intraday-actions{display:flex;align-items:center;gap:15px;margin-top:8px}.intraday-actions button,.intraday-actions a{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-size:.74rem}.intraday-actions .ico{width:12px;height:12px}.intraday-actions button:hover,.intraday-actions a:hover{color:var(--accent)}
-.v10-hot .intraday-timeline{margin-top:16px}.v10-hot .intraday-day:first-child>summary{padding-top:8px}
-@media(max-width:760px){.intraday-cardtop{display:block}.intraday-score{margin-top:7px;justify-content:flex-start}.intraday-title{font-size:1rem}.intraday-summary{font-size:.85rem}.intraday-legend{margin-top:9px}}@media(max-width:480px){.intraday-row{padding:13px 0 15px}.intraday-day>summary>span{gap:7px;flex-wrap:wrap}.intraday-day>summary b{font-size:1.02rem}.intraday-actions{flex-wrap:wrap}}
+/* Verified intraday timeline: a visible axis, explicit nodes, no invented clocks. */
+.intraday-general{margin-top:34px}
+.intraday-legend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.75rem}
+.intraday-legend span{display:flex;align-items:center;gap:5px}
+.intraday-legend i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.intraday-legend i.seen{background:var(--panel);border:2px solid var(--accent)}
+.intraday-legend i.date{background:var(--muted);opacity:.42}
+
+.intraday-timeline{margin-top:8px}
+.intraday-day{position:relative;border-top:1px solid var(--line)}
+.intraday-day:last-child{border-bottom:1px solid var(--line)}
+.intraday-day>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:22px 0 15px;user-select:none}
+.intraday-day>summary::-webkit-details-marker{display:none}
+.intraday-day>summary .ico{width:14px;height:14px;color:var(--muted);transition:transform .18s}
+.intraday-day:not([open])>summary .ico{transform:rotate(-90deg)}
+.intraday-daymark{display:flex;align-items:center;gap:9px;position:relative}
+.intraday-daymark>i{width:11px;height:11px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 5px var(--bg);position:relative;z-index:3}
+.intraday-daymark b{font-size:1.1rem;letter-spacing:-.025em}
+.intraday-daymark em{font-style:normal;color:var(--muted);font-size:.8rem}
+.intraday-daymark small{color:var(--muted);font-size:.78rem}
+
+.intraday-list{position:relative;padding:0 0 15px 0}
+.intraday-list:before{content:"";position:absolute;left:92px;top:-4px;bottom:18px;width:1px;background:linear-gradient(to bottom,var(--line),color-mix(in srgb,var(--line) 45%,transparent));}
+.intraday-row{position:relative;display:grid;grid-template-columns:92px minmax(0,1fr);gap:22px;padding:0 0 18px}
+.intraday-row:last-child{padding-bottom:8px}
+.intraday-timecol{position:relative;padding-top:16px;text-align:left;min-height:60px}
+.intraday-timecol time{display:block;font:700 .78rem var(--mono);color:var(--text);font-variant-numeric:tabular-nums}
+.intraday-timecol small{display:block;margin-top:4px;font-size:.64rem;color:var(--muted);line-height:1.35}
+.intraday-node{position:absolute;right:-5px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--accent);z-index:2}
+.intraday-row.seen .intraday-node{background:var(--panel);box-shadow:0 0 0 1px var(--accent)}
+.intraday-row.date .intraday-node{background:var(--bg);box-shadow:0 0 0 1px var(--muted)}
+.intraday-row:after{content:"";position:absolute;left:97px;top:25px;width:17px;height:1px;background:var(--line)}
+
+.intraday-content{min-width:0;padding:14px 0 17px;border-bottom:1px solid var(--soft-line)}
+.intraday-row:last-child .intraday-content{border-bottom:0}
+.intraday-cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:8px}
+.intraday-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.75rem}
+.intraday-score{display:flex;align-items:center;gap:5px;white-space:nowrap;color:var(--muted);font-size:.7rem}
+.intraday-score strong{font:700 .86rem var(--display);color:var(--accent)}
+.intraday-title{display:block;width:100%;text-align:left;font-size:1.05rem;line-height:1.5;font-weight:750;letter-spacing:-.018em;margin:0 0 6px}
+.intraday-title:hover{color:var(--accent)}
+.intraday-summary{color:var(--sub);font-size:.88rem;line-height:1.72;margin:0;max-width:980px}
+.intraday-actions{display:flex;align-items:center;gap:15px;margin-top:8px}
+.intraday-actions button,.intraday-actions a{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-size:.73rem}
+.intraday-actions .ico{width:12px;height:12px}
+.intraday-actions button:hover,.intraday-actions a:hover{color:var(--accent)}
+
+.v10-hot .intraday-timeline{margin-top:16px}
+.v10-hot .intraday-day:first-child>summary{padding-top:10px}
+
+@media(max-width:760px){
+  .intraday-list:before{left:72px}
+  .intraday-row{grid-template-columns:72px minmax(0,1fr);gap:17px}
+  .intraday-row:after{left:77px;width:12px}
+  .intraday-timecol time{font-size:.74rem}
+  .intraday-timecol small{font-size:.6rem}
+  .intraday-cardtop{display:block}
+  .intraday-score{margin-top:7px;justify-content:flex-start}
+  .intraday-title{font-size:1rem}
+  .intraday-summary{font-size:.85rem}
+  .intraday-legend{margin-top:9px}
+}
+@media(max-width:520px){
+  .intraday-day>summary{padding:18px 0 12px}
+  .intraday-daymark{gap:7px;flex-wrap:wrap}
+  .intraday-daymark b{font-size:1.02rem}
+  .intraday-list{padding-left:17px}
+  .intraday-list:before{left:4px}
+  .intraday-row{display:block;padding:0 0 14px 16px}
+  .intraday-row:after{left:4px;top:16px;width:12px}
+  .intraday-timecol{padding-top:0;display:flex;align-items:baseline;gap:8px;min-height:0;margin-bottom:6px}
+  .intraday-timecol small{margin-top:0}
+  .intraday-node{left:-17px;right:auto;top:11px}
+  .intraday-content{padding:8px 0 13px}
+  .intraday-actions{flex-wrap:wrap}
+}
