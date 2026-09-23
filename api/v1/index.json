@@ -3812,6 +3812,34 @@
         "reviewed": "2026-09-23"
       },
       {
+        "id": "gemini-connected-apps",
+        "name": "Gemini Connected Apps",
+        "title": "跨应用直接办事",
+        "category": "Agent / 办公",
+        "mark": "g@",
+        "accent": "blue",
+        "summary": "把 Airtable、Linear、Adobe、Webflow、Peloton 等第三方服务接进 Gemini，在同一对话里调用工具处理项目、创作与生活任务。",
+        "scope": "Google 9 月 23 日宣布新一批 Connected Apps 开始 rollout；可在 Gemini 设置中连接，也可在对话里用 @ 提及或直接提出请求。",
+        "boundary": "官方措辞是“beginning to roll out today”，不等于所有账号立即可见；能连接应用也不等于复杂跨应用任务一定一次完成，仍要核对权限、写入结果和最终状态。",
+        "repo": null,
+        "sources": [
+          "gemini-connected-apps-sep23"
+        ],
+        "requirements": "需要账号已获得相应 Connected Apps，并只连接你有权访问的服务和数据；涉及写入或外部动作时先用测试项目验证。",
+        "test": "选一个测试 Linear 或 Airtable 项目，先让 Gemini读取指定信息，再新建一条测试任务或记录；逐项核对目标应用、字段、权限和最终落盘结果。",
+        "checks": [
+          "账号确实已出现目标 Connected App",
+          "读取与写入都落在指定项目和权限范围",
+          "以目标应用最终状态验收，而不是只看 Gemini 回复"
+        ],
+        "command": "",
+        "effort": "网页 / Connected Apps",
+        "evidence": "Google 官方发布",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-09-23"
+      },
+      {
         "id": "openhands",
         "name": "OpenHands",
         "title": "代码修改与验证",
@@ -4167,9 +4195,31 @@
         "published": "2026-09-23",
         "checked": "2026-09-23",
         "kind": "官方发布"
+      },
+      {
+        "id": "gemini-connected-apps-sep23",
+        "title": "A new wave of Connected Apps is rolling out to Gemini",
+        "publisher": "Google",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/",
+        "published": "2026-09-23",
+        "checked": "2026-09-23",
+        "kind": "官方发布"
       }
     ],
     "events": [
+      {
+        "id": "gemini-connected-apps-rollout",
+        "task": "gemini-connected-apps",
+        "date": "2026-09-23",
+        "kind": "release",
+        "title": "Gemini 新一批 Connected Apps 开始 rollout",
+        "summary": "Google 宣布 Airtable、Linear、monday.com、Adobe、Webflow、Peloton、SeatGeek 等新连接开始进入 Gemini。",
+        "delta": "Gemini 的可执行边界继续从 Google 自家服务扩到第三方生产力、创作与生活工具；官方只确认开始 rollout，不等于所有账号已可用。",
+        "sources": [
+          "gemini-connected-apps-sep23"
+        ],
+        "reviewed": "2026-09-23"
+      },
       {
         "id": "docling-v2-129",
         "task": "docling",
