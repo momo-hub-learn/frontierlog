@@ -167,6 +167,24 @@
         "first_seen_at": "2026-09-23T05:47:50+08:00"
       },
       {
+        "id": "google-private-ai-memory-20260923",
+        "category": "product",
+        "heat": 94,
+        "trend": "up",
+        "published": "2026-09-23",
+        "checked": "2026-09-23",
+        "title": "Google 给云端 AI 加长期记忆：密钥只留在设备",
+        "summary": "Google DeepMind 9 月 23 日披露 Private AI Compute 的持久化服务器端记忆架构：个人上下文存入专用加密存储，解密密钥只保留在用户设备；模型需要信息时，通过认证的端到端加密通道进入安全隔离环境，临时解密、更新上下文后立即重新加密。",
+        "why": "个人 Agent 要持续数周乃至跨设备协作，长期记忆与隐私一直是基础设施瓶颈。Google 正把此前“任务结束即清空”的无状态私密云推理，推进到可跨设备延续上下文的持久记忆；如果按计划进入产品，这会直接改变个人 Agent 的记忆层设计。",
+        "boundary": "这是 Google DeepMind 的官方技术更新，措辞是“will enable”，不等于所有 Gemini 用户现在已经获得通用长期记忆。Google 称密钥只在个人设备、数据对其他人乃至 Google 不可读，并同时公布技术简报、软件透明验证机制和独立安全审计；本站未对这些安全属性做独立复验。",
+        "source": "Google DeepMind",
+        "source_kind": "官方技术更新",
+        "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+        "link": "#/hot",
+        "evidence_level": "high",
+        "first_seen_at": "2026-09-23T19:13:17Z"
+      },
+      {
         "id": "grok-47-20260921",
         "category": "model",
         "heat": 94,
@@ -203,24 +221,6 @@
         "evidence_level": "high",
         "link": "#/models",
         "first_seen_at": "2026-09-23T03:32:43+08:00"
-      },
-      {
-        "id": "gpt-6-prompt-caching-20260922",
-        "category": "product",
-        "heat": 92,
-        "trend": "up",
-        "published": "2026-09-22",
-        "checked": "2026-09-23",
-        "title": "GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热",
-        "summary": "OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。",
-        "why": "对持续数小时的 Agent，瓶颈不只是模型价格，而是重复上下文与工具定义的复算成本。缓存命中可观测、可诊断、可显式控制后，长任务 Agent 的成本与首 Token 延迟更容易工程化优化。",
-        "boundary": "“最高 90%”是缓存输入 Token 的折扣上限，不等于整个任务成本下降 90%；命中率仍受模型、工具、设置和前缀稳定性影响。30 分钟是符合条件共享前缀的复用窗口，不应外推为所有缓存永久有效。",
-        "source": "OpenAI",
-        "source_kind": "官方产品 / 开发者基础设施",
-        "url": "https://openai.com/index/better-prompt-caching-for-gpt-6/",
-        "evidence_level": "high",
-        "link": "#/progress",
-        "first_seen_at": "2026-09-23T05:25:07+08:00"
       }
     ]
   },

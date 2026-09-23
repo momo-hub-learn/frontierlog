@@ -41,7 +41,13 @@
 
 边界：这是 OpenAI 的官方声明，不是数学界已完成独立验证。公告本身未公开完整问题清单、证明文本或审稿结果，因此本站只记录为重大前沿信号，不写成“这些问题已被公认解决”。
 
-站内热度 95；不是全网流量。</description></item><item><title>Grok 4.7 发布：长任务与 Coding Agent 能力同步上升</title><guid isPermaLink="false">frontierlog:hot:grok-47-20260921</guid><link>https://x.ai/news/grok-4-7</link><pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 21 日发布 Grok 4.7，定位为更强的 coding 与 knowledge-work 模型；Artificial Analysis 独立评测给出 Intelligence Index 46，Grok Build 的 Coding Agent Index 56。
+站内热度 95；不是全网流量。</description></item><item><title>Google 给云端 AI 加长期记忆：密钥只留在设备</title><guid isPermaLink="false">frontierlog:hot:google-private-ai-memory-20260923</guid><link>https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google DeepMind 9 月 23 日披露 Private AI Compute 的持久化服务器端记忆架构：个人上下文存入专用加密存储，解密密钥只保留在用户设备；模型需要信息时，通过认证的端到端加密通道进入安全隔离环境，临时解密、更新上下文后立即重新加密。
+
+为什么值得看：个人 Agent 要持续数周乃至跨设备协作，长期记忆与隐私一直是基础设施瓶颈。Google 正把此前“任务结束即清空”的无状态私密云推理，推进到可跨设备延续上下文的持久记忆；如果按计划进入产品，这会直接改变个人 Agent 的记忆层设计。
+
+边界：这是 Google DeepMind 的官方技术更新，措辞是“will enable”，不等于所有 Gemini 用户现在已经获得通用长期记忆。Google 称密钥只在个人设备、数据对其他人乃至 Google 不可读，并同时公布技术简报、软件透明验证机制和独立安全审计；本站未对这些安全属性做独立复验。
+
+站内热度 94；不是全网流量。</description></item><item><title>Grok 4.7 发布：长任务与 Coding Agent 能力同步上升</title><guid isPermaLink="false">frontierlog:hot:grok-47-20260921</guid><link>https://x.ai/news/grok-4-7</link><pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 21 日发布 Grok 4.7，定位为更强的 coding 与 knowledge-work 模型；Artificial Analysis 独立评测给出 Intelligence Index 46，Grok Build 的 Coding Agent Index 56。
 
 为什么值得看：这次变化不只是基础模型换代：在第一方 Grok Build harness 中，Coding Agent Index 从 Grok 4.6 的 47 升到 56，进入当前头部 coding agent 区间。
 
@@ -53,10 +59,4 @@
 
 边界：发布时间、320B/18B、原生多模态与厂商 Benchmark 来自 Z.AI 当前官方发布页；42、速度与 $0.25/task 来自 Artificial Analysis 当前公开快照。Z.AI 报告的 Terminal Bench 2.1 84.3 与 Artificial Analysis 使用的 Terminal-Bench 4.0 不是同一版本/设置，不能直接混成一个分数；AA 的速度数据是动态实测，后续可能继续变化。
 
-站内热度 93；不是全网流量。</description></item><item><title>GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热</title><guid isPermaLink="false">frontierlog:hot:gpt-6-prompt-caching-20260922</guid><link>https://openai.com/index/better-prompt-caching-for-gpt-6/</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。
-
-为什么值得看：对持续数小时的 Agent，瓶颈不只是模型价格，而是重复上下文与工具定义的复算成本。缓存命中可观测、可诊断、可显式控制后，长任务 Agent 的成本与首 Token 延迟更容易工程化优化。
-
-边界：“最高 90%”是缓存输入 Token 的折扣上限，不等于整个任务成本下降 90%；命中率仍受模型、工具、设置和前缀稳定性影响。30 分钟是符合条件共享前缀的复用窗口，不应外推为所有缓存永久有效。
-
-站内热度 92；不是全网流量。</description></item></channel></rss>
+站内热度 93；不是全网流量。</description></item></channel></rss>
