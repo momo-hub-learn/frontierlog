@@ -112,6 +112,25 @@
         "first_seen_at": "2026-09-23T17:17:00Z"
       },
       {
+        "id": "mentalhealthbench-20260923",
+        "category": "benchmark",
+        "heat": 96,
+        "trend": "up",
+        "published": "2026-09-23",
+        "checked": "2026-09-23",
+        "title": "OpenAI 发布 MentalHealthBench：1,215 段真实感对话测心理健康回应",
+        "summary": "OpenAI 9 月 23 日发布开放基准 MentalHealthBench：1,215 段合成但贴近真实使用的心理健康对话，由来自 22 个国家的 80+ 名持证心理学家和精神科医生参与制定细则，覆盖非急性、高危、紧急情境及成人、青少年、照护者和临床人员。官方论文的整体 task-clipped score 为 GPT-6 Astra 57.3、GPT-6 Sol 53.9、Claude Opus 5.5 52.4。",
+        "why": "它把敏感对话评测从“是否拒绝/是否安全”推进到更细的上下文追问、用户自主性、可执行建议、现实检验与紧急程度校准；这是一个值得单独跟踪的新 Benchmark 类别，而不是通用智力榜的替代品。",
+        "boundary": "发布日期来自 OpenAI，但官方页面未提供精确发布时间，本站只记录日期与首次收录时间。57.3/53.9/52.4 是 OpenAI 自己发布的 Benchmark 结果，不是本站实测或独立榜单；评估使用 GPT-5.6 Sol 自动评分器，场景为合成对话，产品级安全措施也未必被完整复现，不能把分数解读为临床疗效或诊疗能力。",
+        "source": "OpenAI",
+        "source_kind": "官方开放 Benchmark + 论文",
+        "url": "https://openai.com/index/introducing-mentalhealthbench/",
+        "secondary_url": "https://cdn.openai.com/ctf-cdn/MentalHealthBench_A_Comprehensive_Benchmark_of_AI_Capabilities_in_Realistic_Mental_Health_Conversations.pdf",
+        "link": "#/benchmarks",
+        "evidence_level": "high",
+        "first_seen_at": "2026-09-23T22:12:12Z"
+      },
+      {
         "id": "grok-bot-support-20260922",
         "category": "product",
         "heat": 96,
@@ -202,25 +221,6 @@
         "evidence_level": "high",
         "link": "#/models",
         "first_seen_at": "2026-09-22T19:21:33+08:00"
-      },
-      {
-        "id": "glm-53-flash-20260922",
-        "category": "model",
-        "heat": 93,
-        "trend": "up",
-        "published": "2026-09-23",
-        "checked": "2026-09-23",
-        "title": "Z.AI 发布 GLM-5.3-Flash：18B 激活参数，AA Intelligence Index 42",
-        "summary": "Z.AI 官方发布页当前标注 9 月 23 日发布 GLM-5.3-Flash：320B 总参数、18B 激活参数、1M context，原生多模态并开放权重。Artificial Analysis 当前独立快照给出 Intelligence Index 42、约 64.0 output tok/s、Cost per Intelligence Index Task $0.25。",
-        "why": "它把接近旗舰 GLM-5.3 的综合能力压到明显更低的推理成本，同时保留 1M 上下文、图像输入和开放权重，值得跟踪高频 Agent 与 coding 场景的单位任务成本变化。",
-        "boundary": "发布时间、320B/18B、原生多模态与厂商 Benchmark 来自 Z.AI 当前官方发布页；42、速度与 $0.25/task 来自 Artificial Analysis 当前公开快照。Z.AI 报告的 Terminal Bench 2.1 84.3 与 Artificial Analysis 使用的 Terminal-Bench 4.0 不是同一版本/设置，不能直接混成一个分数；AA 的速度数据是动态实测，后续可能继续变化。",
-        "source": "Z.AI / Artificial Analysis",
-        "source_kind": "官方发布 + 独立公开榜",
-        "url": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
-        "secondary_url": "https://artificialanalysis.ai/models/glm-5-3-flash/",
-        "evidence_level": "high",
-        "link": "#/models",
-        "first_seen_at": "2026-09-23T03:32:43+08:00"
       }
     ]
   },
