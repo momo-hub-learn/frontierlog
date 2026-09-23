@@ -1,0 +1,115 @@
+name: One-shot AA live snapshot refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-shot-aa-refresh.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: one-shot-aa-live-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh current Artificial Analysis speed snapshots
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          models_path = Path('data/models.json')
+          hot_path = Path('data/hot.json')
+          models = json.loads(models_path.read_text(encoding='utf-8'))
+          hot = json.loads(hot_path.read_text(encoding='utf-8'))
+
+          # These are live evaluator measurements, not fixed model specifications.
+          # Guard every old value so a concurrent/manual update cannot be silently overwritten.
+          expected = {
+              'aa-gpt6-sol-max': (126, 131.2),
+              'aa-gpt6-luna-max': (157.2, 162.4),
+              'aa-mimo-v26-pro': (54.6, 54.2),
+              'aa-grok-47-xhigh': (39.2, 39.0),
+              'aa-glm-53-flash': (64, 61.4),
+          }
+          aa = next(b for b in models['boards'] if b['id'] == 'aa')
+          rows = {r['id']: r for r in aa['rows']}
+          for rid, (old, new) in expected.items():
+              actual = rows[rid].get('speed')
+              if actual != old:
+                  raise SystemExit(f'{rid}: expected speed {old!r}, found {actual!r}; refusing stale overwrite')
+              rows[rid]['speed'] = new
+
+          source_replacements = {
+              'aa-gpt6-sol': ('约 126.0 tok/s', '约 131.2 tok/s'),
+              'aa-gpt6-luna': ('约 157.2 tok/s', '约 162.4 tok/s'),
+              'aa-mimo-v26-pro': ('约 54.6 tok/s', '约 54.2 tok/s'),
+              'aa-glm-53-flash': ('约 64.0 tok/s', '约 61.4 tok/s'),
+          }
+          sources = {s['id']: s for s in models['sources']}
+          for sid, (old, new) in source_replacements.items():
+              note = sources[sid]['note']
+              if old not in note:
+                  raise SystemExit(f'{sid}: expected note fragment not found; refusing stale overwrite')
+              sources[sid]['note'] = note.replace(old, new, 1)
+
+          hot_items = {x['id']: x for x in hot['items']}
+          for item_id, old, new in [
+              ('mimo-v26-pro-20260922', '54.6', '54.2'),
+              ('glm-53-flash-20260922', '64.0', '61.4'),
+          ]:
+              item = hot_items[item_id]
+              changed = 0
+              for field in ('summary', 'boundary'):
+                  value = item.get(field)
+                  if isinstance(value, str) and old in value:
+                      item[field] = value.replace(old, new)
+                      changed += 1
+              if changed == 0:
+                  raise SystemExit(f'{item_id}: expected hot snapshot value {old} not found; refusing stale overwrite')
+
+          models_path.write_text(json.dumps(models, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          hot_path.write_text(json.dumps(hot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Verify schemas, tests and static build
+        run: |
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          node --check src/tibo-intel.js
+          node --check assets/tibo-intel.js
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          test -f /tmp/frontierlog-dist/index.html
+          test -f /tmp/frontierlog-dist/api/v1/models.json
+          grep -q '131.2' /tmp/frontierlog-dist/api/v1/models.json
+          grep -q '162.4' /tmp/frontierlog-dist/api/v1/models.json
+          grep -q '61.4' /tmp/frontierlog-dist/api/v1/models.json
+          grep -q '54.2' /tmp/frontierlog-dist/api/v1/models.json
+      - name: Publish verified source data and generated site
+        run: |
+          cp /tmp/frontierlog-dist/index.html index.html
+          cp /tmp/frontierlog-dist/404.html 404.html
+          cp -R /tmp/frontierlog-dist/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-dist/feeds/. feeds/
+          cp /tmp/frontierlog-dist/feed.xml feed.xml
+          cp /tmp/frontierlog-dist/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-dist/robots.txt robots.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/models.json data/hot.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
+          if git diff --cached --quiet; then
+            echo 'No snapshot changes to publish.'
+            exit 0
+          fi
+          git commit -m 'Refresh live Artificial Analysis speeds'
+          git push origin HEAD:main
