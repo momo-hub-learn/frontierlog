@@ -491,7 +491,7 @@ window.addEventListener('load',()=>{try{const l=document.createElement('link');l
 try{const t=localStorage.getItem('aip.theme.v2.1');document.documentElement.dataset.theme=t==='dark'?'dark':'light'}catch{document.documentElement.dataset.theme='light'}
 document.querySelector('meta[name=theme-color]').content=document.documentElement.dataset.theme==='dark'?'#101819':'#f5f7f4';
 </script>
-</head>
+<link rel="stylesheet" href="./assets/top5-editorial.css?v=1">\n</head>
 <body>
 <a class="skip" href="#main">跳到内容</a>
 <aside id="sidebar" class="sidebar" aria-label="主导航">
@@ -1475,4 +1475,4 @@ async function refreshTibo(){if(loading||!['http:','https:'].includes(location.p
 window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#/tibo'))refreshTibo()});
 if(state.view==='tibo'){refreshTibo();requestAnimationFrame(renderXEmbeds)}
 })();</script>
-</body></html>
+<script src="./assets/top5-editorial.js?v=1"></script>\n</body></html>
