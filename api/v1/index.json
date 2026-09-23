@@ -73,6 +73,24 @@
         "evidence_level": "high"
       },
       {
+        "id": "jev-system-one-20260915",
+        "category": "model",
+        "heat": 98,
+        "trend": "up",
+        "published": "2026-09-15",
+        "checked": "2026-09-23",
+        "title": "Jev 走红：TypeSafe 把 AI 从“生成文本”拆出一个高速决策层",
+        "summary": "TypeSafe AI 9 月 15 日发布首个 System One Model Jev：它不生成自由文本，而是接收程序状态和结构化问题，返回类型安全的选择、评分或概率，并给出置信度。TypeSafe 官方定价为每百万输入 Token $0.042、输出不计费，官方称典型端到端延迟约 70–500ms。",
+        "why": "Jev 值得关注的不是“又一个小模型”，而是它在挑战当前 Agent 架构默认假设：并非每一步判断都需要调用生成式 LLM。若这种“LLM 负责生成 / Jev 类模型负责路由、判断、校验、打分”的分层成立，Agent 的成本、延迟、可控性和可观测性都可能明显改变。最近媒体和开发者讨论升温，说明它已从一次新品发布变成值得追踪的架构信号。",
+        "boundary": "System One、RLCD、70–500ms、$0.042/MTok、两数量级效率提升等核心结果主要来自 TypeSafe 自己的定义和评测。TypeSafe 也明确承认其 workflow eval 由自家模型能力团队构造，可能存在偏差；RLCD 尚无公开论文、训练配方或独立大规模复现。“不能 hallucinate”准确说法是输出结构/类型不会越界，不等于业务判断永远正确。",
+        "source": "TypeSafe AI / 独立媒体",
+        "source_kind": "官方发布 + 外部关注升温",
+        "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+        "secondary_url": "https://indianexpress.com/article/technology/artificial-intelligence/meet-jev-new-ai-model-from-chatgpt-inventor-10887591/",
+        "evidence_level": "high",
+        "link": "#/hot"
+      },
+      {
         "id": "grok-bot-support-20260922",
         "category": "product",
         "heat": 96,
@@ -176,23 +194,6 @@
         "url": "https://openai.com/index/better-prompt-caching-for-gpt-6/",
         "evidence_level": "high",
         "link": "#/progress"
-      },
-      {
-        "id": "gemini-live-38",
-        "category": "model",
-        "heat": 92,
-        "trend": "up",
-        "published": "2026-09-15",
-        "checked": "2026-09-23",
-        "title": "Gemini 3.8 Live 加入 Extended Thinking：实时语音也开始做更长推理",
-        "summary": "Google 发布 Gemini 3.8 Live 与 Live Extended Thinking，面向低延迟对话、视觉 grounding 和复杂多步任务。",
-        "why": "实时语音模型不再只追求延迟，开始把更强推理作为独立档位。",
-        "boundary": "官方能力说明和模型卡不能替代你的语音场景评测，尤其是打断、噪声和工具调用。",
-        "source": "Google",
-        "source_kind": "官方发布",
-        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
-        "link": "#/models",
-        "evidence_level": "high"
       },
       {
         "id": "anthropic-rd-automation-20260917",

@@ -11,6 +11,12 @@
 
 边界：Artificial Analysis 当前公开榜仍给出 Opus 5.5（max with fallback）Intelligence Index 58、Cost per Task $5.98、1M context。这是独立评测快照，不是本站实测；榜单后续可能继续更新。
 
+站内热度 98；不是全网流量。</description></item><item><title>Jev 走红：TypeSafe 把 AI 从“生成文本”拆出一个高速决策层</title><guid isPermaLink="false">frontierlog:hot:jev-system-one-20260915</guid><link>https://typesafe.ai/blog/introducing-system-one-models-and-jev</link><pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate><description>TypeSafe AI 9 月 15 日发布首个 System One Model Jev：它不生成自由文本，而是接收程序状态和结构化问题，返回类型安全的选择、评分或概率，并给出置信度。TypeSafe 官方定价为每百万输入 Token $0.042、输出不计费，官方称典型端到端延迟约 70–500ms。
+
+为什么值得看：Jev 值得关注的不是“又一个小模型”，而是它在挑战当前 Agent 架构默认假设：并非每一步判断都需要调用生成式 LLM。若这种“LLM 负责生成 / Jev 类模型负责路由、判断、校验、打分”的分层成立，Agent 的成本、延迟、可控性和可观测性都可能明显改变。最近媒体和开发者讨论升温，说明它已从一次新品发布变成值得追踪的架构信号。
+
+边界：System One、RLCD、70–500ms、$0.042/MTok、两数量级效率提升等核心结果主要来自 TypeSafe 自己的定义和评测。TypeSafe 也明确承认其 workflow eval 由自家模型能力团队构造，可能存在偏差；RLCD 尚无公开论文、训练配方或独立大规模复现。“不能 hallucinate”准确说法是输出结构/类型不会越界，不等于业务判断永远正确。
+
 站内热度 98；不是全网流量。</description></item><item><title>SpaceXAI 披露 Grok Bot 客服实战：工单 +175%，团队未新增人手</title><guid isPermaLink="false">frontierlog:hot:grok-bot-support-20260922</guid><link>https://x.ai/news/grok-bot-customer-support</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 22 日称，合并 Cursor 后其支持团队在工单量增加 175% 的情况下未新增支持人员；Grok Bot 已进入预调查、问题复现、退款、队列优先级与事故检测等流程。公司称在明确退款规则下 99% 的退款请求可无人处理，优化后每个已解决工单成本低至 $0.20–$0.30。
 
 为什么值得看：这是 Agent 从“回答问题”进入真实业务闭环的一手生产案例：它不仅生成回复，还连接 Plain、Linear、Datadog，执行有限动作、管理队列，并通过 traces、evals 与人工审批逐步扩大自治范围。
@@ -41,13 +47,7 @@
 
 边界：发布时间、320B/18B、原生多模态与厂商 Benchmark 来自 Z.AI 当前官方发布页；42、速度与 $0.25/task 来自 Artificial Analysis 当前公开快照。Z.AI 报告的 Terminal Bench 2.1 84.3 与 Artificial Analysis 使用的 Terminal-Bench 4.0 不是同一版本/设置，不能直接混成一个分数；AA 的速度数据是动态实测，后续可能继续变化。
 
-站内热度 93；不是全网流量。</description></item><item><title>Gemini 3.8 Live 加入 Extended Thinking：实时语音也开始做更长推理</title><guid isPermaLink="false">frontierlog:hot:gemini-live-38</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/</link><pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate><description>Google 发布 Gemini 3.8 Live 与 Live Extended Thinking，面向低延迟对话、视觉 grounding 和复杂多步任务。
-
-为什么值得看：实时语音模型不再只追求延迟，开始把更强推理作为独立档位。
-
-边界：官方能力说明和模型卡不能替代你的语音场景评测，尤其是打断、噪声和工具调用。
-
-站内热度 92；不是全网流量。</description></item><item><title>GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热</title><guid isPermaLink="false">frontierlog:hot:gpt-6-prompt-caching-20260922</guid><link>https://openai.com/index/better-prompt-caching-for-gpt-6/</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。
+站内热度 93；不是全网流量。</description></item><item><title>GPT-6 Prompt Caching 升级：30 分钟复用窗口、诊断面板与预热</title><guid isPermaLink="false">frontierlog:hot:gpt-6-prompt-caching-20260922</guid><link>https://openai.com/index/better-prompt-caching-for-gpt-6/</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 22 日更新 GPT-6 Prompt Caching：符合条件的共享前缀在 30 分钟窗口内可复用，缓存输入 Token 最高可享 90% 折扣，并新增命中率 Dashboard、cache miss 诊断、显式断点与 prewarming。
 
 为什么值得看：对持续数小时的 Agent，瓶颈不只是模型价格，而是重复上下文与工具定义的复算成本。缓存命中可观测、可诊断、可显式控制后，长任务 Agent 的成本与首 Token 延迟更容易工程化优化。
 
