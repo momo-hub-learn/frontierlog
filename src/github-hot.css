@@ -1,0 +1,58 @@
+/* GitHub Trending — official GitHub signal, separate from editorial heat. */
+.gh-preview{margin-top:28px}
+.gh-preview .v10-section-head{margin-bottom:12px}
+.gh-preview-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.gh-preview-row{display:grid;grid-template-columns:72px minmax(0,1fr) 150px;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
+.gh-preview-row:last-child{border-bottom:0}
+.gh-preview-row:hover{background:var(--hover)}
+.gh-preview-rank{font:700 .68rem var(--mono);color:var(--muted)}
+.gh-preview-main{min-width:0}
+.gh-preview-main strong{display:block;font:700 .9rem var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gh-preview-main small{display:block;color:var(--sub);font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+.gh-preview-heat{justify-self:stretch;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px;min-width:0}
+.gh-preview-heat b{font:800 .95rem var(--display,var(--sans));color:var(--accent)}
+.gh-preview-heat small{font-size:.65rem;color:var(--muted);text-align:right}
+.gh-preview-heat i{grid-column:1/-1;display:block;height:4px;background:var(--raised);border-radius:999px;margin-top:5px;overflow:hidden}
+.gh-preview-heat i:after{content:"";display:block;width:var(--gh-w);height:100%;background:var(--lime);border-radius:inherit}
+.gh-preview-foot{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.68rem;margin-top:7px;padding:0 2px}
+
+.gh-hot-page{max-width:1180px;margin:0 auto 55px}
+.gh-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin:8px 0 20px}
+.gh-head h1{font-size:2.2rem;line-height:1.2;letter-spacing:-.055em;margin:6px 0 8px}
+.gh-head>div>p:not(.eyebrow){color:var(--sub);font-size:.9rem;max-width:720px}
+.gh-head-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;color:var(--muted);font-size:.72rem}
+.gh-head-meta span,.gh-head-meta a{display:inline-flex;align-items:center;gap:6px}
+.gh-head-meta a:hover{color:var(--accent)}
+.gh-head-meta .ico{width:12px;height:12px}
+.gh-method{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:var(--raised);font-size:.76rem;color:var(--sub);margin-bottom:12px}
+.gh-method b{color:var(--text)}
+.gh-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.gh-row{display:grid;grid-template-columns:58px minmax(0,1fr) 190px;gap:16px;align-items:center;padding:15px 17px;border-bottom:1px solid var(--line)}
+.gh-row:last-child{border-bottom:0}
+.gh-row:hover{background:var(--hover)}
+.gh-rank{font:750 .8rem var(--mono);color:var(--muted)}
+.gh-main{min-width:0}
+.gh-repo{font:750 .96rem var(--mono);display:flex;align-items:center;gap:8px;min-width:0}
+.gh-repo em{font:700 .62rem var(--sans);font-style:normal;color:var(--accent);background:var(--accent-bg);border:1px solid color-mix(in srgb,var(--accent) 18%,var(--line));border-radius:999px;padding:2px 6px;white-space:nowrap}
+.gh-main p{color:var(--sub);font-size:.78rem;line-height:1.55;margin-top:4px}
+.gh-sub{display:flex;gap:11px;align-items:center;color:var(--muted);font-size:.68rem;margin-top:5px}
+.gh-delta{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:6px}
+.gh-delta strong{font:850 1.05rem var(--display,var(--sans));color:var(--accent)}
+.gh-delta span{font-size:.66rem;color:var(--muted);text-align:right}
+.gh-delta i{grid-column:1/-1;display:block;height:5px;border-radius:999px;background:var(--raised);overflow:hidden}
+.gh-delta i:after{content:"";display:block;width:var(--gh-w);height:100%;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:inherit}
+.gh-note{font-size:.7rem;color:var(--muted);line-height:1.6;margin-top:8px;padding:0 2px}
+
+@media(max-width:760px){
+ .gh-preview-row{grid-template-columns:56px minmax(0,1fr);gap:9px}
+ .gh-preview-heat{grid-column:2}
+ .gh-preview-foot{display:block}
+ .gh-hot-page{padding:0}
+ .gh-head{display:block}
+ .gh-head-meta{justify-content:flex-start;margin-top:12px}
+ .gh-row{grid-template-columns:38px minmax(0,1fr);gap:10px}
+ .gh-delta{grid-column:2}
+ .gh-method{grid-template-columns:1fr}
+ .gh-repo{font-size:.86rem}
+ .gh-main p{font-size:.74rem}
+}
