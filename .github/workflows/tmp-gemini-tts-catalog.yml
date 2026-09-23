@@ -1,0 +1,87 @@
+name: Temporary Gemini TTS catalog update
+
+on:
+  push:
+    branches: ['preview/gemini-38-tts-runnable-20260923']
+
+permissions:
+  contents: write
+
+jobs:
+  update-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Add verified Gemini 3.8 TTS runnable entry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/catalog.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          item_id = 'gemini-38-flash-tts'
+          source_id = 'gemini-38-tts'
+          if not any(x.get('id') == item_id for x in data['items']):
+              data['items'].insert(0, {
+                  'id': item_id,
+                  'name': 'Gemini 3.8 Flash TTS',
+                  'title': '设计声音与可控配音',
+                  'category': '语音处理',
+                  'mark': 'g~',
+                  'accent': 'pink',
+                  'summary': '用自然语言设计声音并逐句控制表演；在满足权利与同意验证时，可用约 30 秒样本复制声线。',
+                  'scope': '开发者已可在 Gemini API 与 Google AI Studio 使用 Flash / Flash-Lite；Flash 还进入 Gemini Notebook，Flash-Lite 进入 Google Vids。',
+                  'boundary': '企业版 API 仍为 coming soon；AI Studio 的 voice replication 目前不在 Illinois、Texas、EEA、UK、Switzerland、India 提供；声音复制需权利与同意验证，生成音频带 SynthID。',
+                  'repo': None,
+                  'sources': [source_id],
+                  'requirements': 'Google AI Studio 或 Gemini API 访问；用于声线复制的音频必须有权使用并完成同意验证。',
+                  'test': '用同一段 20–30 秒文案测试预设声线、自然语言设计声线，以及可用地区内的已授权声线复制，检查角色一致性和逐句指令遵循。',
+                  'checks': [
+                      '语言、口音与角色设定符合预期',
+                      '逐句情绪、停顿等表演指令确实生效',
+                      '复制声线只使用已授权样本，并记录地域与产品限制'
+                  ],
+                  'command': '',
+                  'effort': '网页 / API',
+                  'evidence': 'Google 官方发布',
+                  'status': 'code',
+                  'tested': False,
+                  'reviewed': '2026-09-23'
+              })
+          if not any(x.get('id') == source_id for x in data['sources']):
+              data['sources'].append({
+                  'id': source_id,
+                  'title': 'Gemini 3.8 text-to-speech says hello',
+                  'publisher': 'Google',
+                  'url': 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/',
+                  'published': '2026-09-23',
+                  'checked': '2026-09-23',
+                  'kind': '官方发布'
+              })
+          data['snapshot'] = '2026-09-23'
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Unit tests
+        run: python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+      - name: Build static site
+        run: python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Verify runnable entry is rendered
+        run: |
+          grep -q 'Gemini 3.8 Flash TTS' /tmp/frontierlog-dist/index.html
+          grep -q '设计声音与可控配音' /tmp/frontierlog-dist/index.html
+          grep -q 'voice replication' /tmp/frontierlog-dist/index.html
+      - name: Commit verified data only
+        run: |
+          rm .github/workflows/tmp-gemini-tts-catalog.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/catalog.json .github/workflows/tmp-gemini-tts-catalog.yml
+          git commit -m 'Add Gemini 3.8 TTS to runnable tools'
+          git push origin HEAD:${GITHUB_REF_NAME}
