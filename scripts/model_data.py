@@ -88,6 +88,24 @@ def validate_models(data):
             if spread is not None and (not isinstance(spread,list) or len(spread)!=2 or any(type(v)!=int or v<1 for v in spread) or spread[0]>spread[1]):fail('Invalid rank interval')
             if r.get('preliminary') is not None and not isinstance(r['preliminary'],bool):fail('Invalid provisional flag')
 
+    tracks=data.get('frontier_tracks',[])
+    if not isinstance(tracks,list) or len(tracks)>20:fail('Invalid frontier tracks')
+    identifiers(tracks);frontier_ids=set()
+    valid_status={'open','limited_access','proprietary','early_access','research','available','preview'}
+    for track in tracks:
+        text(track.get('title'),'frontier track title');text(track.get('description'),'frontier track description')
+        items=track.get('items')
+        if not isinstance(items,list) or not items or len(items)>100:fail('Invalid frontier track items')
+        ids=identifiers(items)
+        if ids & frontier_ids:fail('Duplicate frontier item ID')
+        frontier_ids|=ids
+        for item in items:
+            text(item.get('name'),'frontier item name');text(item.get('maker'),'frontier item maker')
+            text(item.get('summary'),'frontier item summary');text(item.get('status_label'),'frontier status label');day(item['date'])
+            if item.get('status') not in valid_status:fail('Invalid frontier item status')
+            if not isinstance(item.get('tags'),list) or any(not isinstance(x,str) or not x.strip() for x in item['tags']):fail('Invalid frontier tags')
+            if not item.get('sources') or not set(item['sources'])<=sids:fail('Frontier source missing')
+
 def validate_resets(data):
     if data.get('version')!=1:fail('Unsupported reset schema')
     day(data['checked']);sids=sources(data);sync(data)
@@ -138,6 +156,13 @@ def model_rss(data,site):
         signature=sha256(json.dumps(b,sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:16]
         ET.SubElement(e,'guid',isPermaLink='false').text='frontierlog:models:'+b['id']+':'+signature
         ET.SubElement(e,'description').text=f"{b['scope']}\n方法：{b['methodology']}\n来源日期：{b.get('as_of') or '未标单一日期'}\n核对日期：{b['checked']}\n来源：{smap[b['source']]['url']}"
+    for track in data.get('frontier_tracks',[]):
+        for item in sorted(track['items'],key=lambda x:x['date'],reverse=True):
+            e=ET.SubElement(ch,'item');ET.SubElement(e,'title').text=track['title']+' · '+item['name']
+            ET.SubElement(e,'link').text=base+'#/models?frontier='+quote(track['id'])
+            ET.SubElement(e,'guid',isPermaLink='false').text='frontierlog:models:frontier:'+item['id']
+            ET.SubElement(e,'pubDate').text=format_datetime(datetime.combine(day(item['date']),datetime.min.time(),timezone.utc))
+            ET.SubElement(e,'description').text=f"{item['summary']}\n状态：{item['status_label']}\n标签：{' / '.join(item['tags'])}\n来源："+'\n'.join(smap[s]['url'] for s in item['sources'])
     return ET.tostring(rss,encoding='utf-8',xml_declaration=True)
 
 def reset_rss(data,site):
