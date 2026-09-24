@@ -17,7 +17,13 @@
 
 边界：System One、RLCD、70–500ms、$0.042/MTok、两数量级效率提升等核心结果主要来自 TypeSafe 自己的定义和评测。TypeSafe 也明确承认其 workflow eval 由自家模型能力团队构造，可能存在偏差；RLCD 尚无公开论文、训练配方或独立大规模复现。“不能 hallucinate”准确说法是输出结构/类型不会越界，不等于业务判断永远正确。
 
-站内热度 98；不是全网流量。</description></item><item><title>Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言</title><guid isPermaLink="false">frontierlog:hot:gemini-38-tts-20260923</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。
+站内热度 98；不是全网流量。</description></item><item><title>Meta Connect：Muse 进入 AI 眼镜，Ray-Ban Meta Audio 开放预购</title><guid isPermaLink="false">frontierlog:hot:meta-connect-muse-glasses-20260923</guid><link>https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Meta 9 月 23 日在 Connect 宣布把个人 AI Agent Muse 带到 AI 眼镜，主打免手持地管理任务与长期目标；同时发布 Ray-Ban Meta Audio，43 克、单次最长约 12 小时续航，起价 349 美元，已开放预购并计划 10 月 13 日发货。
+
+为什么值得看：更重要的信号不是又一副眼镜，而是个人 Agent 开始从手机 / 网页走向全天佩戴的硬件入口：如果 Muse 的任务执行与上下文能力在眼镜上可稳定使用，Agent 的产品形态会从“打开一个 App”继续向常驻、免手持交互迁移。
+
+边界：功能、价格、重量、续航和发货计划都来自 Meta 官方 Connect 公告；官方页面只标注 2026-09-23，没有提供精确发布时间，因此本站不写成“几小时前发布”。Muse 进入眼镜不等于所有设备或地区已立即获得完整 Agent 能力，真实任务成功率、权限边界和续航仍需上市后单独验证。
+
+站内热度 97；不是全网流量。</description></item><item><title>Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言</title><guid isPermaLink="false">frontierlog:hot:gemini-38-tts-20260923</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。
 
 为什么值得看：这次升级把 TTS 从“选一个预设音色”推进到可设计、可复制、可持续控制的语音生成工作流，并直接面向配音、长内容与实时语音 Agent。若这些控制能力在真实生产中保持稳定，语音 Agent 的品牌声线、跨语言本地化与规模化内容制作门槛都会继续下降。
 
@@ -52,11 +58,5 @@
 为什么值得看：个人 Agent 要持续数周乃至跨设备协作，长期记忆与隐私一直是基础设施瓶颈。Google 正把此前“任务结束即清空”的无状态私密云推理，推进到可跨设备延续上下文的持久记忆；如果按计划进入产品，这会直接改变个人 Agent 的记忆层设计。
 
 边界：这是 Google DeepMind 的官方技术更新，措辞是“will enable”，不等于所有 Gemini 用户现在已经获得通用长期记忆。Google 称密钥只在个人设备、数据对其他人乃至 Google 不可读，并同时公布技术简报、软件透明验证机制和独立安全审计；本站未对这些安全属性做独立复验。
-
-站内热度 94；不是全网流量。</description></item><item><title>Grok 4.7 发布：长任务与 Coding Agent 能力同步上升</title><guid isPermaLink="false">frontierlog:hot:grok-47-20260921</guid><link>https://x.ai/news/grok-4-7</link><pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 21 日发布 Grok 4.7，定位为更强的 coding 与 knowledge-work 模型；Artificial Analysis 独立评测给出 Intelligence Index 46，Grok Build 的 Coding Agent Index 56。
-
-为什么值得看：这次变化不只是基础模型换代：在第一方 Grok Build harness 中，Coding Agent Index 从 Grok 4.6 的 47 升到 56，进入当前头部 coding agent 区间。
-
-边界：产品能力描述来自厂商发布；46 与 56 是 Artificial Analysis 的独立评测快照，榜单和速度数据会继续更新，不能外推到所有代码库与长任务。
 
 站内热度 94；不是全网流量。</description></item></channel></rss>
