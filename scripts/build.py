@@ -61,6 +61,29 @@ def validate(catalog: dict, upstream: dict, site: dict) -> None:
     if site.get('repository') and not REPO_RE.fullmatch(site['repository']): raise ValueError('Invalid site repository')
     if site.get('base_url') and not https_url(site['base_url']): raise ValueError('Base URL must use HTTPS')
 
+def validate_product_radar(data:dict)->None:
+    if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported product radar schema')
+    checked=date.fromisoformat(data['checked'])
+    if checked>date.today(): raise ValueError('Future product radar check date')
+    groups=data.get('groups'); items=data.get('items')
+    if not isinstance(groups,list) or len(groups)<2 or not isinstance(items,list) or not 5<=len(items)<=12: raise ValueError('Invalid product radar lists')
+    gids=[g.get('id') for g in groups]
+    if len(gids)!=len(set(gids)) or any(not isinstance(x,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*',x) for x in gids): raise ValueError('Invalid product radar groups')
+    for g in groups:
+        if not isinstance(g.get('title'),str) or not g['title'].strip() or not isinstance(g.get('description'),str) or not g['description'].strip(): raise ValueError('Incomplete product radar group')
+    ids=[x.get('id') for x in items]
+    if len(ids)!=len(set(ids)): raise ValueError('Duplicate product radar ID')
+    required=('name','company','summary','source_label','evidence','boundary')
+    for item in items:
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]*',item.get('id','')): raise ValueError('Unsafe product radar ID')
+        if item.get('group') not in set(gids): raise ValueError('Unknown product radar group')
+        tags=item.get('tags')
+        if not isinstance(tags,list) or not 2<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() for t in tags): raise ValueError('Invalid product radar tags')
+        for key in required:
+            if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing product radar '+key)
+        for key in ('product_url','source_url'):
+            if not https_url(item.get(key,'')): raise ValueError('Invalid product radar URL: '+key)
+
 def write_json(path: Path, obj: object) -> None:
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -102,6 +125,8 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     validate_benchmarks(benchmarks)
     hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
     validate_hot(hot)
+    product_radar=json.loads((ROOT/'data/product-radar.json').read_text(encoding='utf-8'))
+    validate_product_radar(product_radar)
     hot_policy=json.loads((ROOT/'data/hot-policy.json').read_text(encoding='utf-8'))
     capabilities=json.loads((ROOT/'data/capabilities.json').read_text(encoding='utf-8'))
     deep_dives=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
@@ -155,7 +180,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
             hist_times.append(datetime.fromisoformat(point['at'].replace('Z','+00:00')))
         if hist_times!=sorted(hist_times) or len(set(hist_times))!=len(hist_times): raise ValueError('Unordered GitHub hot star history')
-    app={'hot':hot,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    app={'hot':hot,'product_radar':product_radar,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
     css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
     js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.js').read_text(encoding='utf-8')
@@ -181,6 +206,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/resets.json',resets)
     write_json(output/'api/v1/benchmarks.json',benchmarks)
     write_json(output/'api/v1/hot.json',hot)
+    write_json(output/'api/v1/product-radar.json',product_radar)
     write_json(output/'api/v1/hot-policy.json',hot_policy)
     write_json(output/'api/v1/github-hot.json',github_hot)
     write_json(output/'api/v1/capabilities.json',capabilities)

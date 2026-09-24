@@ -1,6 +1,8 @@
 'use strict';
 /* Editorial hot list. Heat is a transparent FrontierLog signal, never claimed as web traffic. */
 const HOT=APP.hot;
+const PRODUCT_RADAR=APP.product_radar||{groups:[],items:[],checked:'',note:''};
+const PRODUCT_GROUPS=new Map((PRODUCT_RADAR.groups||[]).map(x=>[x.id,x]));
 const HOT_ITEMS=new Map(HOT.items.map(x=>[x.id,x]));
 const HOT_CATS=new Map(HOT.categories.map(x=>[x.id,x]));
 PATHS.fire='<path d="M13 2s1 4-2 6c-1-3-4-3-4-6-3 3-4 7-2 11 2 5 6 8 7 8s6-2 7-7c1-5-2-8-4-10 0 3-1 5-3 6 1-4-1-6 1-8z"/>';
@@ -11,7 +13,27 @@ function hState(){const p=hParams();return {cat:HOT_CATS.has(p.get('cat'))?p.get
 function hRoute(patch={},replace=false){const p=hParams();for(const [k,v]of Object.entries(patch)){if(v===null||v===undefined||v==='')p.delete(k);else p.set(k,String(v))}const h='#/hot'+(p.size?'?'+p.toString():'');if(replace)history.replaceState(null,'',h);else history.pushState(null,'',h);parseRoute()}
 function hRows(){const s=hState(),q=s.q.toLowerCase();return HOT.items.filter(x=>(s.cat==='all'||x.category===s.cat)&&(!q||[x.title,x.summary,x.why,x.source,HOT_CATS.get(x.category)?.title].join(' ').toLowerCase().includes(q))).sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published))}
 function hTrend(x){const [g,label]=H_TREND[x.trend]||H_TREND.flat;return `<span class="h-trend ${x.trend}" title="${label}">${g}</span>`}
-function hTabs(s){return `<nav class="h-tabs" aria-label="热点分类">${HOT.categories.map(c=>`<button class="h-tab ${s.cat===c.id?'active':''}" data-ha="cat" data-id="${c.id}" ${s.cat===c.id?'aria-current="page"':''}>${icon(H_ICON[c.id]||'sparkles')}${esc(c.title)}<small>${c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length}</small></button>`).join('')}</nav>`}
+function hCategoryCount(id){const news=id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===id).length;return id==='product'?news+(PRODUCT_RADAR.items||[]).length:news}
+function hTabs(s){return `<nav class="h-tabs" aria-label="热点分类">${HOT.categories.map(c=>`<button class="h-tab ${s.cat===c.id?'active':''}" data-ha="cat" data-id="${c.id}" ${s.cat===c.id?'aria-current="page"':''}>${icon(H_ICON[c.id]||'sparkles')}${esc(c.title)}<small>${hCategoryCount(c.id)}</small></button>`).join('')}</nav>`}
+function hProductRadar(s){
+ if(s.cat!=='product')return '';
+ const q=String(s.q||'').toLowerCase();
+ const rows=(PRODUCT_RADAR.items||[]).filter(x=>!q||[x.name,x.company,x.summary,x.source_label,...(x.tags||[])].join(' ').toLowerCase().includes(q));
+ const groups=(PRODUCT_RADAR.groups||[]).map(g=>({...g,items:rows.filter(x=>x.group===g.id)})).filter(g=>g.items.length);
+ const card=x=>'<article class="h-product-card">'+
+  '<div class="h-product-cardtop"><div class="h-product-tags">'+(x.tags||[]).map((t,i)=>'<span class="'+(i===0?'primary':'')+'">'+esc(t)+'</span>').join('')+'</div><small>'+esc(x.source_label)+'</small></div>'+
+  '<h3>'+esc(x.name)+'</h3><p class="h-product-company">'+esc(x.company)+'</p>'+
+  '<p class="h-product-summary">'+esc(x.summary)+'</p>'+
+  '<div class="h-product-evidence"><b>验证</b><span>'+esc(x.evidence)+'</span></div>'+
+  '<div class="h-product-boundary"><b>边界</b><span>'+esc(x.boundary)+'</span></div>'+
+  '<footer><a href="'+safeLink(x.product_url)+'" target="_blank" rel="noopener noreferrer">产品官网 '+icon('external')+'</a><a href="'+safeLink(x.source_url)+'" target="_blank" rel="noopener noreferrer">验证标签 '+icon('external')+'</a></footer>'+
+ '</article>';
+ return '<section class="h-product-radar">'+
+  '<header class="h-product-radar-head"><div><p class="eyebrow">AI PRODUCT RADAR / VERIFIED PORTFOLIO SIGNALS</p><h2>'+esc(PRODUCT_RADAR.title||'AI 产品雷达')+'</h2><p>热点流看“今天发生了什么”；这里补长期值得跟踪的 AI-native 产品。投资 / 孵化标签只做早期信号，不当成产品能力背书。</p></div><span>'+rows.length+' / '+(PRODUCT_RADAR.items||[]).length+' 个产品</span></header>'+
+  groups.map(g=>'<section class="h-product-group"><div class="h-product-grouphead"><div><h3>'+esc(g.title)+'</h3><p>'+esc(g.description)+'</p></div><b>'+g.items.length+'</b></div><div class="h-product-grid">'+g.items.map(card).join('')+'</div></section>').join('')+
+  '<footer class="h-product-radar-note">'+esc(PRODUCT_RADAR.note||'')+' · 核对 '+esc(PRODUCT_RADAR.checked||'—')+'</footer>'+
+ '</section>'
+}
 function hBoard(rows){const top=rows.slice(0,5);return `<section class="h-board"><div class="h-board-head"><h2>${icon('fire')}当前热点</h2><span class="h-info">${icon('info')} 站内热度，不是全网流量</span></div>${top.length?top.map((x,i)=>`<article class="h-row"><div class="h-rank">${i+1}</div><div class="h-main"><button class="h-title" data-ha="detail" data-id="${x.id}">${esc(x.title)}</button><div class="h-sub"><span class="h-cat">${icon(H_ICON[x.category]||'sparkles')}${esc(HOT_CATS.get(x.category).title)}</span><span>${esc(x.source)}</span><span class="h-source-kind">${esc(x.source_kind)}</span><time>${esc(x.published)}</time></div></div><div class="h-heat"><strong>${x.heat}${hTrend(x)}</strong><span>热度</span></div></article>`).join(''):`<div class="h-empty"><h3>没有匹配热点</h3><p>换个关键词或分类。</p></div>`}</section>`}
 function hStream(rows){const rest=rows.slice(5);return `<div class="h-below"><section class="h-stream">${rest.length?rest.map(x=>`<article class="h-story"><div class="h-sub"><span class="h-cat">${icon(H_ICON[x.category]||'sparkles')}${esc(HOT_CATS.get(x.category).title)}</span><time>${esc(x.published)}</time><span>${esc(x.source)}</span></div><h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p><div class="h-story-foot"><a href="${safeLink(x.url)}" target="_blank" rel="noopener noreferrer">原始来源 ${icon('external')}</a><button data-ha="detail" data-id="${x.id}">为什么值得看 ${icon('arrow')}</button></div></article>`).join(''):`<div class="h-empty"><h3>前五就是全部匹配项</h3><p>切换分类继续看。</p></div>`}</section><aside class="h-aside"><p class="eyebrow">HOW WE RANK</p><h3>热度不是浏览量。</h3><p>${esc(HOT.method.note)}</p><div class="h-rule"><b>时效</b><span>越新的有效变化越优先。</span></div><div class="h-rule"><b>影响范围</b><span>模型、工具链、业务环节是否真的变化。</span></div><div class="h-rule"><b>主题匹配</b><span>优先医药、制造、模型、Agent 与 Benchmark。</span></div><button class="button" data-ha="method">查看数据状态</button></aside></div>`}
 function hotPage(){const s=hState(),rows=hRows();return `<section class="h-wrap"><header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> HIGH-SIGNAL AI / CURATED</p><h1>热点榜<span class="accent">.</span></h1><p>不追所有新闻，只追今天最值得继续看的变化。</p></div><div class="h-meta"><span><i class="state-dot"></i> 人工核对快照</span><span>${esc(HOT.checked)}</span><span>${rows.length} / ${HOT.items.length} 条</span></div></header><div class="h-filterbar">${hTabs(s)}<label class="h-search">${icon('search')}<input id="h-search" type="search" value="${esc(s.q)}" placeholder="搜索标题、来源、摘要…" aria-label="搜索热点"><kbd>/</kbd></label></div>${hBoard(rows)}${hStream(rows)}</section>`}

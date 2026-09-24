@@ -105,7 +105,7 @@ hTabs=function(s){
   const tabs=HOT.categories.map(c=>{
     const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
     const on=!active&&s.cat===c.id;
-    return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+(c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length)+'</small></a>'
+    return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+hCategoryCount(c.id)+'</small></a>'
   });
   const github='<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>';
   const first=tabs.shift()||'';

@@ -78,6 +78,27 @@ class BuildTests(unittest.TestCase):
             self.assertIn('V-JEPA 2.1',html)
             self.assertIn('Jev / System One Models',html)
 
+    def test_product_radar_and_research_radar_render(self):
+        radar=json.loads((ROOT/'data/product-radar.json').read_text())
+        build.validate_product_radar(radar)
+        self.assertEqual(len(radar['items']),8)
+        self.assertEqual({g['id'] for g in radar['groups']},{'legal','enterprise-agent'})
+        self.assertTrue(all(any(t.startswith('YC') or t=='Sequoia' for t in x['tags']) for x in radar['items']))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);app=build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertEqual(len(app['product_radar']['items']),8)
+            self.assertTrue((d/'api/v1/product-radar.json').exists())
+            self.assertIn('AI 产品雷达',html)
+            self.assertIn('Harvey',html)
+            self.assertIn('Lightfield',html)
+            self.assertIn('Enterprise Agent',html)
+            self.assertIn('前沿范式',html)
+            self.assertIn('跨学科 AI',html)
+            self.assertIn('Neo Labs',html)
+            self.assertIn('AI × Biology',html)
+            self.assertIn('Action-Conditioned World Models',html)
+
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

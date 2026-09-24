@@ -21,6 +21,8 @@ jobs:
       - name: JavaScript syntax
         run: |
           node --check src/tibo-intel.js
+          node --check src/hot.js
+          node --check src/v10.js
           node --check src/v2.js
           node --check src/top5-editorial.js
           node --check src/github-hot.js
@@ -36,6 +38,7 @@ jobs:
         run: |
           test -f dist-ci/index.html
           test -f dist-ci/api/v1/hot-policy.json
+          test -f dist-ci/api/v1/product-radar.json
           test -f dist-ci/api/v1/github-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
@@ -71,6 +74,12 @@ jobs:
           grep -q "本周新解锁 / 明显更新" dist-ci/index.html
           grep -q "AVAILABLE NOW" dist-ci/index.html
           grep -q "p4-progress" dist-ci/index.html
+          grep -q "AI 产品雷达" dist-ci/index.html
+          grep -q "Harvey" dist-ci/index.html
+          grep -q "Lightfield" dist-ci/index.html
+          grep -q "前沿范式" dist-ci/index.html
+          grep -q "跨学科 AI" dist-ci/index.html
+          grep -q "Neo Labs" dist-ci/index.html
           grep -q "v3-company-cell.*mCompanyCell" src/product-v3.js
           grep -q "Microsoft AI.*favicon.ico" src/models.js
           grep -q "Jev 到底应该放在 Agent Stack 的哪一层" dist-ci/index.html
