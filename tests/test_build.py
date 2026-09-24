@@ -132,6 +132,10 @@ class BuildTests(unittest.TestCase):
         self.assertTrue(any(x['source_id']=='zhang-xiaojun' for x in radar['media_items']))
         self.assertTrue(any(x['source_id']=='silicon-valley-101' for x in radar['media_items']))
         self.assertTrue(any(x['source_id']=='google-research-blog' for x in radar['media_items']))
+        picks=[x for x in radar['media_items'] if x.get('editor_pick')]
+        self.assertGreaterEqual(len(picks),15)
+        self.assertTrue(all(2 <= len(x.get('highlights',[])) <= 3 for x in picks))
+        self.assertTrue(all(x.get('value_hint') for x in picks))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')
             html=(d/'index.html').read_text()
@@ -151,6 +155,11 @@ class BuildTests(unittest.TestCase):
             self.assertIn('42章经',html)
             self.assertIn('十字路口 Crossing',html)
             self.assertIn('Podcast / YouTube 只作为内容格式',html)
+            self.assertIn('v2-media-takeaways',html)
+            self.assertIn('值得看',html)
+            self.assertIn('技术密度高 · 适合精读',html)
+            self.assertIn('本地测试通过，不等于上线后真的能稳定服务。',html)
+            self.assertIn("limit=activeType==='all'?2:3",html)
             self.assertIn('v2-radar-tabs',html)
             self.assertIn('v2-radar-subtabs',html)
             self.assertIn("function v2ActivityTypeHref(type)",html)
