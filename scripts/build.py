@@ -104,6 +104,23 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     validate_hot(hot)
     hot_policy=json.loads((ROOT/'data/hot-policy.json').read_text(encoding='utf-8'))
     capabilities=json.loads((ROOT/'data/capabilities.json').read_text(encoding='utf-8'))
+    deep_dives=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
+    if deep_dives.get('version') != 1 or not isinstance(deep_dives.get('articles'),list):
+        raise ValueError('Unsupported deep-dives schema')
+    deep_ids=[a.get('id') for a in deep_dives['articles']]
+    if len(deep_ids)!=len(set(deep_ids)): raise ValueError('Duplicate deep-dive ID')
+    for a in deep_dives['articles']:
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]*',a.get('id','')): raise ValueError('Unsafe deep-dive ID')
+        date.fromisoformat(a['published'])
+        if not isinstance(a.get('sections'),list) or len(a['sections'])<4: raise ValueError('Incomplete deep-dive sections')
+        if not isinstance(a.get('sources'),list) or not a['sources']: raise ValueError('Missing deep-dive sources')
+        source_ids=[s.get('id') for s in a['sources']]
+        if len(source_ids)!=len(set(source_ids)): raise ValueError('Duplicate deep-dive source ID')
+        for s in a['sources']:
+            if not https_url(s.get('url','')): raise ValueError('Invalid deep-dive source URL')
+        known=set(source_ids)
+        for section in a['sections']:
+            if not set(section.get('source_refs',[])).issubset(known): raise ValueError('Unknown deep-dive source ref')
     github_hot=json.loads((ROOT/'data/github-hot.json').read_text(encoding='utf-8'))
     if github_hot.get('version') != 1: raise ValueError('Unsupported GitHub hot schema version')
     datetime.fromisoformat(github_hot['checked_at'])
@@ -115,10 +132,10 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         gh_seen.add(row['repo'])
         if not https_url(row.get('url','')): raise ValueError('Invalid GitHub hot repository URL')
         if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','stars','forks','stars_today')): raise ValueError('Invalid GitHub hot metric')
-    app={'hot':hot,'hot_policy':hot_policy,'github_hot':github_hot,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    app={'hot':hot,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
-    css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')
-    js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')
+    css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')
+    js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')
     for marker in ('@@CSS@@','@@JS@@','@@DATA@@','@@FEED@@'):
         if template.count(marker)!=1:raise ValueError('Template marker missing or duplicated: '+marker)
     payload=json.dumps(app,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
@@ -144,6 +161,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/hot-policy.json',hot_policy)
     write_json(output/'api/v1/github-hot.json',github_hot)
     write_json(output/'api/v1/capabilities.json',capabilities)
+    write_json(output/'api/v1/deep-dives.json',deep_dives)
     write_json(output/'api/v1/topic-intake.json',intake)
     if site['base_url']:
         # Unified RSS preserves original event dates and stable identifiers.
