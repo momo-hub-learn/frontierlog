@@ -21,6 +21,36 @@ function ghTopicTabs(){
   return '<nav class="gh-topics" aria-label="GitHub 项目主题">'+one('all','全部',items.length)+cats.map(c=>one(c.id,c.title,items.filter(x=>x.category===c.id).length)).join('')+'</nav>'
 }
 
+function ghRepoMonth(raw){
+  if(!raw)return '—';
+  const d=new Date(raw);if(Number.isNaN(d.getTime()))return '—';
+  return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit'}).format(d).replace('/','.');
+}
+function ghRepoPush(raw){
+  if(!raw)return '—';
+  const d=new Date(raw);if(Number.isNaN(d.getTime()))return '—';
+  return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replaceAll('/','.');
+}
+function ghTrend(x){
+  const h=(x.star_history||[]).filter(p=>p&&Number.isFinite(Number(p.stars))&&p.at).sort((a,b)=>String(a.at).localeCompare(String(b.at)));
+  if(h.length<2)return null;
+  const first=h[0],last=h[h.length-1],hours=(Date.parse(last.at)-Date.parse(first.at))/36e5;
+  if(!(hours>0))return null;
+  const gain=Number(last.stars)-Number(first.stars);
+  return {h,first,last,hours,gain,rate:gain/hours}
+}
+function ghSpark(x){
+  const t=ghTrend(x);if(!t)return '';
+  const vals=t.h.map(p=>Number(p.stars)),lo=Math.min(...vals),hi=Math.max(...vals),span=Math.max(1,hi-lo);
+  const pts=vals.map((v,i)=>{const px=t.h.length===1?50:i/(t.h.length-1)*100,py=22-(v-lo)/span*18;return px.toFixed(1)+','+py.toFixed(1)}).join(' ');
+  return '<svg class="gh-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'"></polyline></svg>'
+}
+function ghTrendLabel(x){
+  const t=ghTrend(x);if(!t)return '';
+  const hours=t.hours<10?t.hours.toFixed(1):Math.round(t.hours);
+  const rate=t.rate>=10?Math.round(t.rate):t.rate.toFixed(1);
+  return '近 '+hours+'h +'+ghFmt(t.gain)+' Star · ≈ '+rate+'/h'
+}
 function ghFmt(n){
   const v=Number(n)||0;
   if(v>=100000)return (v/1000).toFixed(0)+'k';
@@ -87,13 +117,13 @@ function ghInline(){
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
   return '<section class="gh-inline">'+
     '<div class="gh-inline-head"><div><strong>GitHub Trending · Today</strong><span>官方榜位 + 今日新增 Star，作为开发者采用信号。</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
-    '<div class="gh-method"><b>怎么看</b><span>左侧 # 保留 GitHub Trending 官方页面顺序；“今日 Star”保留 GitHub 页面显示值。本站优先按技术层级细分：Agent Runtime / Harness / Memory / Skills / Tool Router / Interface / Coding Agent；具体产品再标行业或 Multi-Agent 应用。</span></div>'+
+    '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和近 8 小时 Star 斜率。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
     (rows.length?'<div class="gh-list">'+rows.map(x=>
       '<a class="gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="gh-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+
-        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
-        '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i></div>'+
+        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span><span>创建 '+esc(ghRepoMonth(x.repo_created_at))+'</span><span title="北京时间">推送 '+esc(ghRepoPush(x.repo_pushed_at))+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
+        '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i>'+ghSpark(x)+'<small class="gh-velocity">'+esc(ghTrendLabel(x))+'</small></div>'+
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词继续看。</p></div>')+
     '<footer class="gh-note">'+esc(GH.note||'')+'</footer>'+

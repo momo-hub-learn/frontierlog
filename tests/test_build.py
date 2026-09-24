@@ -112,6 +112,19 @@ class BuildTests(unittest.TestCase):
             self.assertIn('Persistent Memory',html)
             self.assertNotIn('<em>AI 相关</em>',html)
 
+    def test_github_hot_shows_time_and_star_trend(self):
+        data=json.loads((ROOT/'data/github-hot.json').read_text())
+        self.assertTrue(all(x.get('repo_created_at') and x.get('repo_pushed_at') for x in data['items']))
+        self.assertTrue(all(len(x.get('star_history',[])) >= 3 for x in data['items']))
+        self.assertTrue(all(x['star_history'][-1]['stars'] >= x['star_history'][0]['stars'] for x in data['items']))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('gh-spark',html)
+            self.assertIn('近 '+hours+\"h +',html)
+            self.assertIn('创建 '+esc(ghRepoMonth',html)
+            self.assertIn('推送 '+esc(ghRepoPush',html)
+
     def test_hot_panel_title_is_inline_bilingual(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

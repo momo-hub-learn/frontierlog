@@ -56,6 +56,9 @@ jobs:
           grep -q "Agent Runtime" dist-ci/index.html
           grep -q "Agent Harness" dist-ci/index.html
           grep -q "Agent Memory" dist-ci/index.html
+          grep -q "gh-spark" dist-ci/index.html
+          grep -q "repo_created_at" data/github-hot.json
+          grep -q "star_history" data/github-hot.json
           grep -q "Persistent Memory" dist-ci/index.html
           grep -q "\"category\": \"agent-memory\"" data/github-hot.json
           ! grep -q "\"category\": \"agent-framework\"" data/github-hot.json
