@@ -843,7 +843,7 @@
       "mode": "public_rss",
       "interval_minutes": 120,
       "last_success": "2026-09-24T15:31:08Z",
-      "note": "播客/访谈源每2小时读取公开 RSS；发布会只收官方页面。RSS 新条目先作为媒体信号，不自动改写成产品已发布事实。"
+      "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
       {
@@ -938,6 +938,160 @@
           "llm"
         ],
         "filter_scope": "title"
+      },
+      {
+        "id": "openai-engineering",
+        "name": "OpenAI Engineering",
+        "publisher": "OpenAI",
+        "kind": "technical",
+        "formats": [
+          "Engineering Blog",
+          "官方技术"
+        ],
+        "url": "https://openai.com/news/engineering/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "anthropic-engineering",
+        "name": "Anthropic Engineering",
+        "publisher": "Anthropic",
+        "kind": "technical",
+        "formats": [
+          "Engineering Blog",
+          "官方技术"
+        ],
+        "url": "https://www.anthropic.com/engineering",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "google-research-blog",
+        "name": "Google Research Blog",
+        "publisher": "Google Research",
+        "kind": "technical",
+        "formats": [
+          "Research Blog",
+          "官方技术"
+        ],
+        "url": "https://research.google/blog/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "nvidia-technical-blog",
+        "name": "NVIDIA Technical Blog",
+        "publisher": "NVIDIA",
+        "kind": "technical",
+        "formats": [
+          "Technical Blog",
+          "官方技术"
+        ],
+        "url": "https://developer.nvidia.com/blog/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "microsoft-research-blog",
+        "name": "Microsoft Research Blog",
+        "publisher": "Microsoft Research",
+        "kind": "technical",
+        "formats": [
+          "Research Blog",
+          "官方技术"
+        ],
+        "url": "https://www.microsoft.com/en-us/research/blog/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "meta-ai-research",
+        "name": "Meta AI Research",
+        "publisher": "Meta AI Research",
+        "kind": "technical",
+        "formats": [
+          "Research Blog",
+          "官方技术"
+        ],
+        "url": "https://research.meta.ai/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "zhang-xiaojun",
+        "name": "张小珺Jùn｜商业访谈录",
+        "publisher": "张小珺",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "Video",
+          "中文"
+        ],
+        "url": "https://www.xiaoyuzhoufm.com/podcast/626b46ea9cbbf0451cf5a962",
+        "authority": "creator-page",
+        "sync": "manual-first-party"
+      },
+      {
+        "id": "silicon-valley-101",
+        "name": "硅谷101",
+        "publisher": "泓君 / Valley101",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube",
+          "中文"
+        ],
+        "url": "https://sv101.fireside.fm/",
+        "feed_url": "https://feeds.fireside.fm/sv101/rss",
+        "authority": "first-party",
+        "sync": "rss",
+        "include_keywords": [
+          "ai",
+          "agent",
+          "model",
+          "llm",
+          "chip",
+          "gpu",
+          "robot",
+          "openai",
+          "anthropic",
+          "deepseek",
+          "kimi",
+          "inference",
+          "具身",
+          "模型",
+          "芯片",
+          "智能体",
+          "机器人"
+        ],
+        "filter_scope": "title"
+      },
+      {
+        "id": "42zhangjing",
+        "name": "42章经",
+        "publisher": "曲凯 / 42章经",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "中文"
+        ],
+        "url": "https://www.xiaoyuzhoufm.com/podcast/648b0b641c48983391a63f98",
+        "authority": "creator-page",
+        "sync": "manual-first-party"
+      },
+      {
+        "id": "crossing",
+        "name": "十字路口 Crossing",
+        "publisher": "Koji / Ronghui",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube",
+          "中文"
+        ],
+        "url": "https://www.xiaoyuzhoufm.com/podcast/60502e253c92d4f62c2a9577",
+        "authority": "creator-page",
+        "sync": "manual-first-party"
       }
     ],
     "events": [
@@ -1002,6 +1156,40 @@
     ],
     "media_items": [
       {
+        "id": "google-long-video-20260924",
+        "source_id": "google-research-blog",
+        "published": "2026-09-24",
+        "title": "Automating coherent long-form video generation",
+        "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
+        "url": "https://research.google/blog/coherent-long-form-video-generation/",
+        "tags": [
+          "Multi-Agent",
+          "Video",
+          "Long-horizon"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "latent-space-39d297cf4c37",
+        "source_id": "latent-space",
+        "published": "2026-09-24",
+        "title": "Foundries vs Navigators: Lowering the Cost of Science",
+        "summary": "Guest Post: In science, thinking has gotten cheap but doing has not. This asymmetry is reshaping how research companies operate, largely inconspicuously.",
+        "url": "https://www.latent.space/p/foundries-vs-navigators-lowering",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
+        "id": "latent-space-7db66d39eb06",
+        "source_id": "latent-space",
+        "published": "2026-09-24",
+        "title": "[AINews] Meta Connect 2026: Muse glasses, voice, video, and Charm",
+        "summary": "Team Zuck is absolutely on fire.",
+        "url": "https://www.latent.space/p/ainews-meta-connect-2026-muse-glasses",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
         "id": "no-priors-michael-lee-20260924",
         "source_id": "no-priors",
         "published": "2026-09-24",
@@ -1015,26 +1203,6 @@
         "origin": "verified-manual"
       },
       {
-        "id": "latent-space-7db66d39eb06",
-        "source_id": "latent-space",
-        "published": "2026-09-24",
-        "title": "[AINews] Meta Connect 2026: Muse glasses, voice, video, and Charm",
-        "summary": "Team Zuck is absolutely on fire.",
-        "url": "https://www.latent.space/p/ainews-meta-connect-2026-muse-glasses",
-        "tags": [],
-        "origin": "rss"
-      },
-      {
-        "id": "latent-space-39d297cf4c37",
-        "source_id": "latent-space",
-        "published": "2026-09-24",
-        "title": "Foundries vs Navigators: Lowering the Cost of Science",
-        "summary": "Guest Post: In science, thinking has gotten cheap but doing has not. This asymmetry is reshaping how research companies operate, largely inconspicuously.",
-        "url": "https://www.latent.space/p/foundries-vs-navigators-lowering",
-        "tags": [],
-        "origin": "rss"
-      },
-      {
         "id": "latent-biosecurity-20260923",
         "source_id": "latent-space",
         "published": "2026-09-23",
@@ -1044,6 +1212,62 @@
         "tags": [
           "BioAI",
           "Safety"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "meta-muse-avatar-blog-20260923",
+        "source_id": "meta-ai-research",
+        "published": "2026-09-23",
+        "title": "Bringing Your Muse to Life",
+        "summary": "Meta 公开 Muse Realtime Avatar 的实时视频生成架构、蒸馏、KV cache 与服务优化，给出了约 870ms 首字节延迟等系统指标。",
+        "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
+        "tags": [
+          "Realtime",
+          "Avatar",
+          "Inference"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "microsoft-physical-ai-offload-blog-20260923",
+        "source_id": "microsoft-research-blog",
+        "published": "2026-09-23",
+        "title": "Offloaded inference for real-world physical AI robotics",
+        "summary": "Microsoft Research 讨论把机器人推理卸载到外部 GPU 的系统设计，并量化轻量硬件下规划、感知和 VLA 的性能代价。",
+        "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
+        "tags": [
+          "Physical AI",
+          "Robotics",
+          "Systems"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "nvidia-swe-serve-20260923",
+        "source_id": "nvidia-technical-blog",
+        "published": "2026-09-23",
+        "title": "How SWE-Serve Exposes the Gap Between Local Tests and Live Serving",
+        "summary": "NVIDIA 用 53 个推理服务工程任务评估 Coding Agent，揭示“本地测试通过”与真实模型服务可用之间仍有显著差距。",
+        "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving/",
+        "tags": [
+          "Coding Agent",
+          "Benchmark",
+          "Serving"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "crossing-embodied-scaling-20260921",
+        "source_id": "crossing",
+        "published": "2026-09-21",
+        "title": "“我看到了 Scaling Law 的信号”：具身智能、世界模型与真正的泛化",
+        "summary": "十字路口与清华徐梦迪讨论机器人 in-context learning、具身数据闭环、世界模型和泛化边界，偏研究与产业交叉。",
+        "url": "https://www.xiaoyuzhoufm.com/episode/6ab0504f0916f6f8b4466ece",
+        "tags": [
+          "VLA",
+          "World Model",
+          "Robotics"
         ],
         "origin": "verified-manual"
       },
@@ -1090,6 +1314,34 @@
         "origin": "verified-manual"
       },
       {
+        "id": "google-retrieve-for-train-20260915",
+        "source_id": "google-research-blog",
+        "published": "2026-09-15",
+        "title": "Bypassing inference bottlenecks with Retrieve-for-Train",
+        "summary": "Google Research 探索用 Retrieve-for-Train 把复杂搜索中的部分推理成本前移到训练阶段，关注 test-time search 的效率边界。",
+        "url": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+        "tags": [
+          "Search",
+          "Training",
+          "Inference"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "silicon-valley-101-chips-20260915",
+        "source_id": "silicon-valley-101",
+        "published": "2026-09-15",
+        "title": "推理芯片之战：Groq、Cerebras 与 OpenAI 三条路径",
+        "summary": "硅谷101从架构和产品约束拆解主流推理芯片路线，并讨论 Bill Dally 的设计哲学，适合把模型进展与硬件约束连起来看。",
+        "url": "https://sv101.fireside.fm/264",
+        "tags": [
+          "AI Infra",
+          "Inference",
+          "Chips"
+        ],
+        "origin": "verified-manual"
+      },
+      {
         "id": "dwarkesh-3e0ac0110708",
         "source_id": "dwarkesh",
         "published": "2026-09-11",
@@ -1100,6 +1352,20 @@
           "RSI"
         ],
         "origin": "rss"
+      },
+      {
+        "id": "openai-storage-billion-20260911",
+        "source_id": "openai-engineering",
+        "published": "2026-09-11",
+        "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+        "summary": "OpenAI Engineering 拆解 ChatGPT 在线存储扩展到十亿级用户后的架构与工程约束，适合跟踪 frontier AI 产品背后的系统能力。",
+        "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+        "tags": [
+          "Infrastructure",
+          "Storage",
+          "Scale"
+        ],
+        "origin": "verified-manual"
       },
       {
         "id": "dwarkesh-c192d8d53f35",
@@ -1114,6 +1380,20 @@
         "origin": "rss"
       },
       {
+        "id": "zhang-xiaojun-zengming-20260903",
+        "source_id": "zhang-xiaojun",
+        "published": "2026-09-03",
+        "title": "和曾鸣聊产业史观：AI 基础设施、Agent 入口与原生应用阶段",
+        "summary": "张小珺与曾鸣用互联网产业史对照 AI，讨论模型公司、Agent 入口、组织形态和原生应用阶段，适合建立更长周期的产业判断框架。",
+        "url": "https://www.xiaoyuzhoufm.com/episode/6a97f287f03e74ee6b03ea5b",
+        "tags": [
+          "AI Strategy",
+          "Agents",
+          "Industry"
+        ],
+        "origin": "verified-manual"
+      },
+      {
         "id": "lex-fridman-0f403a2ded05",
         "source_id": "lex-fridman",
         "published": "2026-08-26",
@@ -1125,6 +1405,48 @@
           "Coding"
         ],
         "origin": "rss"
+      },
+      {
+        "id": "zhang-xiaojun-kimi-k3-20260826",
+        "source_id": "zhang-xiaojun",
+        "published": "2026-08-26",
+        "title": "领读 Kimi K3 技术报告：架构创新、蒸馏与开源 MoE",
+        "summary": "以 Kimi K3 技术报告为主线串联线性注意力、MoE、Muon、蒸馏与训练基础设施，技术密度高，适合做体系化补课。",
+        "url": "https://www.xiaoyuzhoufm.com/episode/6a8eadd61352af56ff3c6017",
+        "tags": [
+          "Kimi",
+          "MoE",
+          "Training"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "42zhangjing-sovereign-ai-20260826",
+        "source_id": "42zhangjing",
+        "published": "2026-08-26",
+        "title": "一个人、两周、数百美元，如何训出登顶 Hugging Face 的模型",
+        "summary": "42章经从个人后训练实践切入数据工程、蒸馏、Local AI 与主权 AI，价值在于把“自己训模型”拆成具体成本、流程和卡点。",
+        "url": "https://www.xiaoyuzhoufm.com/episode/6a8ed6e7ef65145dfcc5d249",
+        "tags": [
+          "Sovereign AI",
+          "Post-training",
+          "Local AI"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "anthropic-containment-20260525",
+        "source_id": "anthropic-engineering",
+        "published": "2026-05-25",
+        "title": "How we contain Claude across products",
+        "summary": "Anthropic 解释如何限制 Claude 在 Claude.ai、Claude Code 与 Cowork 中的潜在 blast radius，把 Agent 权限扩大与系统级隔离放在一起讨论。",
+        "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+        "tags": [
+          "Agent Safety",
+          "Containment",
+          "Claude Code"
+        ],
+        "origin": "verified-manual"
       },
       {
         "id": "lex-fridman-099efef3527c",
