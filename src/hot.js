@@ -19,7 +19,21 @@ const H_PRIMARY_TABS=[
 function hParams(){return new URLSearchParams(location.hash.split('?')[1]||'')}
 function hNormalizeCat(raw){return ['research','benchmark','research-eval'].includes(raw)?'research-eval':HOT_CATS.has(raw)?raw:'all'}
 function hState(){const p=hParams(),ptag=p.get('ptag');return {cat:hNormalizeCat(p.get('cat')),q:(p.get('q')||'').slice(0,300).trim(),ptag:(PRODUCT_RADAR.filters||[]).some(x=>x.id===ptag)?ptag:'all',item:HOT_ITEMS.has(p.get('item'))?p.get('item'):null}}
-function hRoute(patch={},replace=false){const p=hParams();for(const [k,v]of Object.entries(patch)){if(v===null||v===undefined||v==='')p.delete(k);else p.set(k,String(v))}const h='#/hot'+(p.size?'?'+p.toString():'');if(replace)history.replaceState(null,'',h);else history.pushState(null,'',h);parseRoute()}
+function hRoute(patch={},replace=false){
+ const p=hParams();
+ // Category navigation leaves the platform view, including its private filters.
+ // Keep a news search across news categories, but never carry a repository query over.
+ if(Object.prototype.hasOwnProperty.call(patch,'cat')){
+  if(['github','hf'].includes(p.get('tab')))p.delete('q');
+  for(const key of ['tab','ghcat','hftype','hfq'])p.delete(key)
+ }
+ for(const [k,v]of Object.entries(patch)){
+  if(v===null||v===undefined||v==='')p.delete(k);else p.set(k,String(v))
+ }
+ const h='#/hot'+(p.size?'?'+p.toString():'');
+ if(replace||h===location.hash)history.replaceState(null,'',h);else history.pushState(null,'',h);
+ parseRoute()
+}
 function hCatMatches(cat,itemCat){return cat==='all'||cat===itemCat||(cat==='research-eval'&&['research','benchmark'].includes(itemCat))}
 function hRows(){const s=hState(),q=s.q.toLowerCase();return HOT.items.filter(x=>hCatMatches(s.cat,x.category)&&(!q||[x.title,x.summary,x.why,x.source,HOT_CATS.get(x.category)?.title].join(' ').toLowerCase().includes(q))).sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published))}
 function hTrend(x){const [g,label]=H_TREND[x.trend]||H_TREND.flat;return `<span class="h-trend ${x.trend}" title="${label}">${g}</span>`}
@@ -171,7 +185,7 @@ function hDetail(id){
 }
 function hMethod(){showModal('HOT LIST / DATA STATUS',`<h2 id="modal-title">热点榜现在是人工快照。</h2><p class="dialog-intro">${HOT.items.length} 条高信号进展，核对 ${HOT.checked}。热度分只用于本站排序。</p><div class="health-row"><span>自动抓取</span><span>${HOT.method.automatic?'已开启':'未开启'}</span></div><div class="health-row"><span>最后自动成功</span><span>${HOT.method.last_success||'无'}</span></div><div class="health-row"><span>榜单口径</span><span>编辑信号 / 非流量</span></div><section class="detail-section"><h3>为什么不用“全网热度”</h3><p>没有可靠的跨平台统一浏览量，就不制造 145、87 这类看似精确的网络热度。当前分数综合时效、影响范围、主题匹配和来源可信度；每条保留原始链接。</p></section><div class="action-row"><button class="button primary" data-ha="export">导出热点 JSON</button><button class="button" data-ha="rss">RSS</button></div>`,'hot')}
 function renderHot(){lastMain='';$('#hero').hidden=true;$('#stats').hidden=true;$('.workspace').hidden=true;$('#legacy-saved').innerHTML='';const root=$('#vertical-root');root.hidden=false;root.innerHTML=hotPage();document.body.classList.remove('nav-open');$('#compare-tray').hidden=true}
-document.addEventListener('click',e=>{const el=e.target.closest('[data-ha]');if(!el)return;e.preventDefault();const a=el.dataset.ha,id=el.dataset.id;if(a==='cat')return hRoute({cat:id==='all'?null:id,item:null,ptag:null},true);if(a==='product-tag')return hRoute({cat:'product',ptag:id==='all'?null:id,item:null},true);if(a==='detail')return hRoute({item:id});if(a==='method')return hMethod();if(a==='export')return download('frontierlog-hot.json',JSON.stringify(HOT,null,2),'application/json;charset=utf-8');if(a==='rss'){const url=SITE.base_url+'feeds/hot.xml';return showModal('RSS / HOT LIST',`<h2 id="modal-title">订阅热点榜</h2><p class="dialog-intro">只有本站内容重新发布后才会更新；当前没有自动全网抓取。</p><div class="codebox"><pre>${esc(url)}</pre></div><div class="action-row"><a class="button primary" href="${safeLink(url)}" target="_blank" rel="noopener noreferrer">打开 RSS ${icon('external')}</a><button class="button" data-ha="copy-rss">复制地址</button></div>`,'hot')}if(a==='copy-rss')return copyText(SITE.base_url+'feeds/hot.xml')});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-ha]');if(!el)return;e.preventDefault();const a=el.dataset.ha,id=el.dataset.id;if(a==='cat')return hRoute({cat:id==='all'?null:id,item:null,ptag:null});if(a==='product-tag')return hRoute({cat:'product',ptag:id==='all'?null:id,item:null},true);if(a==='detail')return hRoute({item:id});if(a==='method')return hMethod();if(a==='export')return download('frontierlog-hot.json',JSON.stringify(HOT,null,2),'application/json;charset=utf-8');if(a==='rss'){const url=SITE.base_url+'feeds/hot.xml';return showModal('RSS / HOT LIST',`<h2 id="modal-title">订阅热点榜</h2><p class="dialog-intro">只有本站内容重新发布后才会更新；当前没有自动全网抓取。</p><div class="codebox"><pre>${esc(url)}</pre></div><div class="action-row"><a class="button primary" href="${safeLink(url)}" target="_blank" rel="noopener noreferrer">打开 RSS ${icon('external')}</a><button class="button" data-ha="copy-rss">复制地址</button></div>`,'hot')}if(a==='copy-rss')return copyText(SITE.base_url+'feeds/hot.xml')});
 document.addEventListener('input',e=>{if(e.target.id!=='h-search')return;const pos=e.target.selectionStart;hRoute({q:e.target.value,item:null},true);const input=$('#h-search');input?.focus({preventScroll:true});try{input.setSelectionRange(pos,pos)}catch{}});
 /* Preserve deep links and inject hot signals into the curated landing page. */
 const beforeHotDetails=moduleDetailsFromRoute;
