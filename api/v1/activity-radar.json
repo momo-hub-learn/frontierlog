@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-09-24T22:53:45Z",
+  "checked_at": "2026-09-24T23:07:38Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-09-24T22:53:45Z",
+    "last_success": "2026-09-24T23:07:38Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -328,7 +328,14 @@
         "Enterprise AI",
         "组织变革"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "产业判断强 · 适合完整听",
+      "highlights": [
+        "AI 进入传统企业，核心不是“加一个助手”，而是重写组织和流程。",
+        "frontier engineering 要真正嵌进业务系统，而不是停留在 Demo。",
+        "判断企业 AI 成熟度时，要同时看技术能力和组织改造能力。"
+      ]
     },
     {
       "id": "latent-space-7db66d39eb06",
@@ -362,7 +369,14 @@
         "Video",
         "Long-horizon"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "技术密度高 · 适合精读",
+      "highlights": [
+        "长视频生成正在从“逐段生成”转向多 Agent 协同编排。",
+        "视觉记忆被用来缓解人物、场景与叙事连续性漂移。",
+        "闭环评估与纠错开始成为长时程生成系统的一部分。"
+      ]
     },
     {
       "id": "nvidia-swe-serve-20260923",
@@ -376,7 +390,14 @@
         "Benchmark",
         "Serving"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "Benchmark 值得跟 · 适合精读",
+      "highlights": [
+        "53 个推理服务工程任务把 Coding Agent 拉到真实 serving 环境。",
+        "本地测试通过，不等于上线后真的能稳定服务。",
+        "Coding Agent 评测正在从写代码扩展到部署、运行和系统约束。"
+      ]
     },
     {
       "id": "microsoft-physical-ai-offload-blog-20260923",
@@ -390,7 +411,14 @@
         "Robotics",
         "Systems"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "系统视角强 · 适合精读",
+      "highlights": [
+        "机器人能力不仅取决于 VLA，本地算力位置本身也是能力边界。",
+        "把推理卸载到外部 GPU 可以换取更强实时性或更低本体负担。",
+        "网络延迟、带宽与可用性会成为 Physical AI 的核心系统变量。"
+      ]
     },
     {
       "id": "meta-muse-avatar-blog-20260923",
@@ -404,7 +432,14 @@
         "Avatar",
         "Inference"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "实时生成工程 · 适合精读",
+      "highlights": [
+        "实时 Avatar 不只靠模型，还依赖蒸馏、KV cache 与服务优化。",
+        "Meta 公布约 870ms 首字节延迟，说明竞争开始进入实时系统工程。",
+        "实时视频生成的瓶颈正从“能不能生成”转向“延迟与持续服务”。"
+      ]
     },
     {
       "id": "latent-biosecurity-20260923",
@@ -417,7 +452,14 @@
         "BioAI",
         "Safety"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "跨学科视角 · 适合完整听",
+      "highlights": [
+        "frontier model 同时改变生物安全中的进攻与防御能力。",
+        "能力提升越快，发布节奏与安全缓释之间的张力越大。",
+        "BioAI 是观察模型能力外溢到高风险领域的重要窗口。"
+      ]
     },
     {
       "id": "latent-jev-20260921",
@@ -431,7 +473,14 @@
         "System One",
         "Production AI"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "架构反常识 · 适合完整听",
+      "highlights": [
+        "Jev 的核心问题不是“生成更多文本”，而是做受约束的结构化决策。",
+        "System One 路线强调低延迟、类型边界与生产环境可控性。",
+        "它提供了一个与大模型自由生成不同的 Agent 决策层思路。"
+      ]
     },
     {
       "id": "crossing-embodied-scaling-20260921",
@@ -445,7 +494,14 @@
         "World Model",
         "Robotics"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "具身前沿 · 适合完整听",
+      "highlights": [
+        "机器人 in-context learning 被视为观察具身 Scaling Law 的重要信号。",
+        "真正的泛化依赖数据闭环，而不只是扩大模型参数。",
+        "World Model、VLA 与机器人数据正在逐渐汇成一套系统问题。"
+      ]
     },
     {
       "id": "no-priors-stefano-20260918",
@@ -459,7 +515,14 @@
         "Inference",
         "AI Infra"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "推理栈前沿 · 适合完整听",
+      "highlights": [
+        "Diffusion 路线正在尝试进入文本与代码推理，而不只做图像。",
+        "核心变量包括吞吐、GPU 利用率和推理并行方式。",
+        "如果成立，下一代 inference stack 可能不再围绕传统自回归解码设计。"
+      ]
     },
     {
       "id": "silicon-valley-101-d9c8d636eced",
@@ -485,7 +548,14 @@
         "Alignment",
         "RSI"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "前沿判断强 · 建议完整听",
+      "highlights": [
+        "Agent swarm 被讨论为自动化 AI research 的潜在放大器。",
+        "recursive self-improvement 的真实边界仍取决于研究闭环是否能稳定跑通。",
+        "alignment 与能力加速不是两条独立路线，而会在多 Agent 系统中交织。"
+      ]
     },
     {
       "id": "silicon-valley-101-chips-20260915",
@@ -499,7 +569,14 @@
         "Inference",
         "Chips"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "硬件补课 · 适合完整听",
+      "highlights": [
+        "Groq、Cerebras 与主流 GPU 路线代表不同的推理架构取舍。",
+        "芯片设计约束会直接影响模型延迟、吞吐和成本。",
+        "理解推理芯片，才能更准确判断模型价格与 Agent 成本的下限。"
+      ]
     },
     {
       "id": "google-retrieve-for-train-20260915",
@@ -513,7 +590,14 @@
         "Training",
         "Inference"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "研究方法新 · 适合精读",
+      "highlights": [
+        "Retrieve-for-Train 尝试把一部分 test-time search 成本前移到训练阶段。",
+        "目标不是单纯减少搜索，而是改变“训练时学什么、推理时找什么”的分工。",
+        "它适合持续跟踪复杂推理是否会从更长思考转向更强预训练。"
+      ]
     },
     {
       "id": "openai-storage-billion-20260911",
@@ -527,7 +611,14 @@
         "Storage",
         "Scale"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "基础设施视角 · 适合精读",
+      "highlights": [
+        "十亿级用户把存储系统本身变成 AI 产品的核心能力。",
+        "真正的规模化瓶颈并不都出现在模型推理层。",
+        "这类工程文章适合判断 frontier 产品从 Demo 到全球服务之间差了什么。"
+      ]
     },
     {
       "id": "dwarkesh-3e0ac0110708",
@@ -565,7 +656,14 @@
         "Agents",
         "Industry"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "产业框架强 · 建议完整听",
+      "highlights": [
+        "用互联网产业史去判断 AI 所处阶段，而不是只追单次模型发布。",
+        "模型公司、Agent 入口与原生应用可能对应不同层级的价值捕获。",
+        "组织形态和基础设施变化，可能比短期产品功能更能决定长期格局。"
+      ]
     },
     {
       "id": "zhang-xiaojun-kimi-k3-20260826",
@@ -579,7 +677,14 @@
         "MoE",
         "Training"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "技术补课 · 适合完整听",
+      "highlights": [
+        "用 Kimi K3 技术报告串起线性注意力、MoE、Muon 与蒸馏。",
+        "重点不是单个术语，而是这些组件如何共同影响训练效率。",
+        "对想理解开源 MoE 与训练基础设施的人，信息密度很高。"
+      ]
     },
     {
       "id": "lex-fridman-0f403a2ded05",
@@ -606,7 +711,14 @@
         "Post-training",
         "Local AI"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "实战感强 · 适合完整听",
+      "highlights": [
+        "个人后训练已经可以用更低预算完成完整实验闭环。",
+        "数据工程、蒸馏与训练流程往往比“换一个更大基座”更关键。",
+        "Local AI / 主权 AI 的价值可以从成本、隐私和可控性三个方向看。"
+      ]
     },
     {
       "id": "silicon-valley-101-ce74e51be4f9",
@@ -632,7 +744,14 @@
         "Containment",
         "Claude Code"
       ],
-      "origin": "verified-manual"
+      "origin": "verified-manual",
+      "editor_pick": true,
+      "value_hint": "Agent 安全必读 · 适合精读",
+      "highlights": [
+        "Agent 权限越大，产品级 containment 越重要。",
+        "Claude.ai、Claude Code、Cowork 的风险边界并不相同。",
+        "安全竞争正在从模型对齐扩展到权限、隔离和 blast radius 控制。"
+      ]
     },
     {
       "id": "lex-fridman-099efef3527c",
