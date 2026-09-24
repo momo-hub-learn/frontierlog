@@ -54,14 +54,14 @@ function ghPreview(){
 const ghBaseTabs=hTabs;
 hTabs=function(s){
   const active=ghActive();
-  return '<nav class="h-tabs" aria-label="热点分类">'+
-    HOT.categories.map(c=>{
-      const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
-      const on=!active&&s.cat===c.id;
-      return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+(c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length)+'</small></a>'
-    }).join('')+
-    '<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>'+
-  '</nav>'
+  const tabs=HOT.categories.map(c=>{
+    const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
+    const on=!active&&s.cat===c.id;
+    return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+(c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length)+'</small></a>'
+  });
+  const github='<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>';
+  const first=tabs.shift()||'';
+  return '<nav class="h-tabs" aria-label="热点分类">'+first+github+tabs.join('')+'</nav>'
 };
 
 function ghInline(){
