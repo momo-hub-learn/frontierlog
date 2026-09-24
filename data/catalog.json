@@ -59,6 +59,35 @@
       "reviewed": "2026-09-23"
     },
     {
+      "id": "chatgpt-voice-work",
+      "name": "ChatGPT Voice + Work",
+      "title": "用语音直接调插件办事",
+      "category": "Agent / 办公",
+      "mark": "v@",
+      "accent": "blue",
+      "summary": "在 Voice 里调用账号已有的插件和 Connected Apps；在 Work 中可直接用语音启动文档、表格、演示文稿、连接应用和浏览器任务。",
+      "scope": "OpenAI 9 月 23 日宣布 Live 已在 web、iOS、Android 支持插件；Voice in Work 已在 web 和 mobile 可用，未完成任务可在通话结束后继续以文本运行。",
+      "boundary": "可见插件、Connected Apps、Work 与 Voice 均受套餐、地区、Workspace 设置和既有权限限制；能用语音启动不等于跨应用任务一定成功，涉及写入或外部动作仍要核对审批和最终状态。",
+      "repo": null,
+      "sources": [
+        "openai-voice-plugins-sep23",
+        "openai-work-voice"
+      ],
+      "requirements": "需要账号获得 Voice；要在 Work 中使用则还需要 Work 访问。先确认相应插件或连接应用已安装并获授权。",
+      "test": "在一个低风险测试场景里，用 Voice 让 Work 读取已授权连接应用、创建一份测试文档或表格，并在结束语音后继续一个未完成步骤；最后核对实际产物和目标应用状态。",
+      "checks": [
+        "Voice 会话里确实可调用账号已有插件或连接应用",
+        "Work 的文档、表格或浏览器任务实际落盘并符合权限范围",
+        "结束通话后的连续任务能在文本里继续，且敏感动作仍经过审批"
+      ],
+      "command": "",
+      "effort": "网页 / 移动端",
+      "evidence": "OpenAI 官方发布",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-09-23"
+    },
+    {
       "id": "openhands",
       "name": "OpenHands",
       "title": "代码修改与验证",
@@ -423,9 +452,41 @@
       "published": "2026-09-23",
       "checked": "2026-09-23",
       "kind": "官方发布"
+    },
+    {
+      "id": "openai-voice-plugins-sep23",
+      "title": "ChatGPT — Release Notes · Use plugins in Voice and get work done by speaking",
+      "publisher": "OpenAI",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "published": "2026-09-23",
+      "checked": "2026-09-23",
+      "kind": "官方发布"
+    },
+    {
+      "id": "openai-work-voice",
+      "title": "ChatGPT Work and Codex · Use Voice with Work or Codex",
+      "publisher": "OpenAI",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "published": null,
+      "checked": "2026-09-23",
+      "kind": "官方文档"
     }
   ],
   "events": [
+    {
+      "id": "chatgpt-voice-plugins-work-sep23",
+      "task": "chatgpt-voice-work",
+      "date": "2026-09-23",
+      "kind": "release",
+      "title": "ChatGPT Voice 开始调用插件并进入 Work",
+      "summary": "OpenAI 宣布 Live 在 web、iOS、Android 支持插件；Voice 同时进入 Work，可用语音启动文档、表格、演示文稿、连接应用和浏览器任务。",
+      "delta": "语音入口从对话继续向调用工具并执行工作移动；但可用插件、写入权限、审批和任务成功率仍取决于账号与 Workspace 配置。",
+      "sources": [
+        "openai-voice-plugins-sep23",
+        "openai-work-voice"
+      ],
+      "reviewed": "2026-09-23"
+    },
     {
       "id": "gemini-connected-apps-rollout",
       "task": "gemini-connected-apps",
