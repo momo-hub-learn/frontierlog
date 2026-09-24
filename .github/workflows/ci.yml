@@ -45,12 +45,19 @@ jobs:
           test -f dist-ci/api/v1/huggingface-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
-          grep -q "发布会 / 播客 / 视频雷达" dist-ci/index.html
+          grep -q "AI 前沿现场" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
           grep -q "Dwarkesh Podcast" dist-ci/index.html
-          grep -q "值得看的发布会" dist-ci/index.html
-          grep -q "播客精选" dist-ci/index.html
-          grep -q "YouTube 优秀视频" dist-ci/index.html
+          grep -q "官方发布" dist-ci/index.html
+          grep -q "技术深读" dist-ci/index.html
+          grep -q "深度对谈" dist-ci/index.html
+          grep -q "技术演讲" dist-ci/index.html
+          grep -q "实战 Demo" dist-ci/index.html
+          grep -q "OpenAI Engineering" dist-ci/index.html
+          grep -q "Anthropic Engineering" dist-ci/index.html
+          grep -q "Google Research Blog" dist-ci/index.html
+          grep -q "张小珺Jùn｜商业访谈录" dist-ci/index.html
+          grep -q "硅谷101" dist-ci/index.html
           grep -q "v2-radar-tabs" dist-ci/index.html
           grep -q "v2-radar-subtabs" dist-ci/index.html
           grep -q "v2ActivityTypeHref" dist-ci/index.html

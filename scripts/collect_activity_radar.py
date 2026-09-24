@@ -95,7 +95,7 @@ def main():
     auto=unique
     merged=manual+auto
     merged.sort(key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
-    d['media_items']=merged[:18]
+    d['media_items']=merged[:36]
     now=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
     d['checked_at']=now;d['sync']['last_success']=now
     text_out=json.dumps(d,ensure_ascii=False,indent=2)+'\n'
