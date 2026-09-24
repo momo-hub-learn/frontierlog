@@ -3,7 +3,7 @@
   "checked_at": "2026-09-24T04:15:14-07:00",
   "source_url": "https://github.com/trending",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
-  "note": "完整榜单严格沿用 GitHub Trending 默认 Today 页面顺序；总 Star/Fork、语言与 stars_today 保留该轮 GitHub 页面显示语义，其中 stars_today 是 GitHub 页面显示的今日新增 Star，不是本站估算。本站额外按项目当前用途细分主题（如 Agent 框架、Coding Agent、MCP / 知识、金融应用），并保留少量关键词标签；这些标签只帮助阅读，不改变 GitHub 官方榜位，也不代表模型能力或本站实测。",
+  "note": "完整榜单严格沿用 GitHub Trending 默认 Today 页面顺序；总 Star/Fork、语言与 stars_today 保留该轮 GitHub 页面显示语义，其中 stars_today 是 GitHub 页面显示的今日新增 Star，不是本站估算。本站分类优先按技术层级与实际用途细分：Agent Runtime、Harness、Memory、Skills、Tool Router、Agent Interface、Coding Agent，以及行业 / Multi-Agent 应用等；每条再补 3–4 个技术标签。分类与标签只用于阅读和筛选，不改变 GitHub 官方榜位，也不代表本站实测。",
   "items": [
     {
       "rank": 1,
@@ -15,11 +15,12 @@
       "stars_today": 664,
       "url": "https://github.com/anthropics/financial-services",
       "ai_related": true,
-      "category": "agent-app",
+      "category": "vertical-agent",
       "tags": [
-        "金融",
+        "金融 Agent",
         "Claude",
-        "Skills"
+        "Skills",
+        "Connectors"
       ]
     },
     {
@@ -32,10 +33,11 @@
       "stars_today": 1543,
       "url": "https://github.com/google/ax",
       "ai_related": true,
-      "category": "agent-framework",
+      "category": "agent-runtime",
       "tags": [
-        "编排",
         "Runtime",
+        "Orchestration",
+        "编排",
         "Go"
       ]
     },
@@ -52,7 +54,9 @@
       "category": "coding-agent",
       "tags": [
         "Claude Code",
-        "CLI"
+        "CLI",
+        "配置",
+        "监控"
       ]
     },
     {
@@ -65,10 +69,11 @@
       "stars_today": 87,
       "url": "https://github.com/BuilderIO/agent-native",
       "ai_related": true,
-      "category": "agent-framework",
+      "category": "agent-app-framework",
       "tags": [
         "Agent-Native",
-        "应用框架"
+        "App Framework",
+        "TypeScript"
       ]
     },
     {
@@ -81,10 +86,11 @@
       "stars_today": 474,
       "url": "https://github.com/obra/superpowers",
       "ai_related": true,
-      "category": "coding-agent",
+      "category": "agent-skills",
       "tags": [
-        "Skills",
-        "开发工作流"
+        "Agent Skills",
+        "Coding Workflow",
+        "Shell"
       ]
     },
     {
@@ -97,11 +103,12 @@
       "stars_today": 1142,
       "url": "https://github.com/dream-num/univer",
       "ai_related": true,
-      "category": "agent-app",
+      "category": "agent-harness",
       "tags": [
-        "Office",
+        "Office Harness",
         "文档 / 表格",
-        "Harness"
+        "幻灯片 / PDF",
+        "Canvas"
       ]
     },
     {
@@ -116,8 +123,9 @@
       "ai_related": false,
       "category": "market-data",
       "tags": [
-        "行情",
-        "提醒"
+        "实时行情",
+        "提醒",
+        "公司信息"
       ]
     },
     {
@@ -130,10 +138,11 @@
       "stars_today": 558,
       "url": "https://github.com/agent-substrate/substrate",
       "ai_related": true,
-      "category": "agent-infra",
+      "category": "agent-runtime",
       "tags": [
         "Runtime",
-        "Substrate"
+        "Execution Substrate",
+        "Go"
       ]
     },
     {
@@ -146,11 +155,12 @@
       "stars_today": 115,
       "url": "https://github.com/strands-agents/harness-sdk",
       "ai_related": true,
-      "category": "agent-infra",
+      "category": "agent-harness",
       "tags": [
-        "Harness",
-        "多模型",
-        "生产"
+        "Harness SDK",
+        "Multi-Model",
+        "Production",
+        "Python / TS"
       ]
     },
     {
@@ -163,10 +173,11 @@
       "stars_today": 57,
       "url": "https://github.com/HKUDS/CLI-Anything",
       "ai_related": true,
-      "category": "coding-agent",
+      "category": "agent-interface",
       "tags": [
-        "CLI",
-        "软件操作"
+        "Agent-Native CLI",
+        "软件操作",
+        "Tool Use"
       ]
     },
     {
@@ -179,10 +190,11 @@
       "stars_today": 506,
       "url": "https://github.com/superdesigndev/treg",
       "ai_related": true,
-      "category": "agent-infra",
+      "category": "agent-router",
       "tags": [
-        "Router",
-        "Tool Routing"
+        "Tool Routing",
+        "OpenRouter-like",
+        "Router"
       ]
     },
     {
@@ -197,8 +209,9 @@
       "ai_related": true,
       "category": "ai-devtool",
       "tags": [
-        "Design",
-        "Harness"
+        "Design Language",
+        "Harness",
+        "AI Design"
       ]
     },
     {
@@ -213,7 +226,8 @@
       "ai_related": false,
       "category": "security-forensics",
       "tags": [
-        "移动设备",
+        "Mobile Forensics",
+        "入侵迹象",
         "取证"
       ]
     },
@@ -227,11 +241,12 @@
       "stars_today": 190,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
       "ai_related": true,
-      "category": "mcp-knowledge",
+      "category": "agent-memory",
       "tags": [
         "MCP",
-        "知识图谱",
-        "代码记忆"
+        "Codebase Memory",
+        "Knowledge Graph",
+        "Persistent Memory"
       ]
     },
     {
@@ -247,7 +262,8 @@
       "category": "graphics-3d",
       "tags": [
         "3DGS",
-        "视频转 3D"
+        "Video-to-3D",
+        "Splat / Mesh"
       ]
     },
     {
@@ -262,8 +278,9 @@
       "ai_related": true,
       "category": "coding-agent",
       "tags": [
+        "Video Coding Agent",
         "视频编辑",
-        "Coding Agent"
+        "Code Tooling"
       ]
     },
     {
@@ -276,34 +293,55 @@
       "stars_today": 95,
       "url": "https://github.com/TNT-Likely/PanWatch",
       "ai_related": true,
-      "category": "agent-app",
+      "category": "multi-agent-app",
       "tags": [
-        "金融",
+        "TradingAgents",
         "Multi-Agent",
-        "自托管"
+        "金融",
+        "Self-hosted"
       ]
     }
   ],
   "categories": [
     {
-      "id": "agent-app",
-      "title": "Agent 应用"
+      "id": "vertical-agent",
+      "title": "行业 Agent"
     },
     {
-      "id": "agent-framework",
-      "title": "Agent 框架"
+      "id": "multi-agent-app",
+      "title": "Multi-Agent 应用"
+    },
+    {
+      "id": "agent-app-framework",
+      "title": "Agent App Framework"
+    },
+    {
+      "id": "agent-runtime",
+      "title": "Agent Runtime"
+    },
+    {
+      "id": "agent-harness",
+      "title": "Agent Harness"
+    },
+    {
+      "id": "agent-skills",
+      "title": "Agent Skills"
+    },
+    {
+      "id": "agent-interface",
+      "title": "Agent Interface"
+    },
+    {
+      "id": "agent-router",
+      "title": "Tool Router"
+    },
+    {
+      "id": "agent-memory",
+      "title": "Agent Memory"
     },
     {
       "id": "coding-agent",
       "title": "Coding Agent"
-    },
-    {
-      "id": "agent-infra",
-      "title": "Agent 基础设施"
-    },
-    {
-      "id": "mcp-knowledge",
-      "title": "MCP / 知识"
     },
     {
       "id": "ai-devtool",

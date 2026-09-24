@@ -87,12 +87,12 @@ function ghInline(){
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
   return '<section class="gh-inline">'+
     '<div class="gh-inline-head"><div><strong>GitHub Trending · Today</strong><span>官方榜位 + 今日新增 Star，作为开发者采用信号。</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
-    '<div class="gh-method"><b>怎么看</b><span>左侧 # 保留 GitHub Trending 官方页面顺序；“今日 Star”保留 GitHub 页面显示值。主题标签由本站按项目当前用途细分，只帮助快速判断这是 Agent 框架、Coding Agent、MCP / 知识还是具体应用，不改变官方榜位。</span></div>'+
+    '<div class="gh-method"><b>怎么看</b><span>左侧 # 保留 GitHub Trending 官方页面顺序；“今日 Star”保留 GitHub 页面显示值。本站优先按技术层级细分：Agent Runtime / Harness / Memory / Skills / Tool Router / Interface / Coding Agent；具体产品再标行业或 Multi-Agent 应用。</span></div>'+
     ghTopicTabs()+
     (rows.length?'<div class="gh-list">'+rows.map(x=>
       '<a class="gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="gh-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+
-        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em>'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
+        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
         '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i></div>'+
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词继续看。</p></div>')+
@@ -106,7 +106,7 @@ hotPage=function(){
   const s=hState(),q=ghQuery();
   return '<section class="h-wrap v10-hot gh-embedded">'+
     '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> HOT SIGNALS / NEWEST FIRST</p><h1>热点时间线<span class="accent">.</span></h1><p>新闻热点看时间，GitHub 热榜看开发者采用信号；两种口径不混排行。</p></div><div class="h-meta"><span><i class="state-dot"></i> GitHub Trending</span><span>'+esc(ghWhen())+'</span></div></header>'+
-    '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="gh-search" type="search" value="'+esc(q)+'" placeholder="搜索仓库、语言、描述…" aria-label="搜索 GitHub 热榜"><kbd>/</kbd></label></div>'+
+    '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="gh-search" type="search" value="'+esc(q)+'" placeholder="搜索仓库、类型、标签…" aria-label="搜索 GitHub 热榜"><kbd>/</kbd></label></div>'+
     ghInline()+
   '</section>'
 };

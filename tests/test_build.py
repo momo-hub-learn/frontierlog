@@ -97,15 +97,19 @@ class BuildTests(unittest.TestCase):
     def test_github_hot_uses_granular_topics(self):
         data=json.loads((ROOT/'data/github-hot.json').read_text())
         cats={c['id'] for c in data['categories']}
-        self.assertGreaterEqual(len(cats),6)
+        self.assertGreaterEqual(len(cats),10)
+        self.assertFalse({'agent-app','agent-framework','agent-infra','mcp-knowledge'} & cats)
+        self.assertTrue({'agent-runtime','agent-harness','agent-memory','agent-skills','agent-router'} <= cats)
         self.assertTrue(all(x['category'] in cats for x in data['items']))
-        self.assertTrue(all(1 <= len(x['tags']) <= 4 for x in data['items']))
+        self.assertTrue(all(3 <= len(x['tags']) <= 4 for x in data['items'] if x['ai_related']))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertIn('gh-topic-chip',html)
-            self.assertIn('Coding Agent',html)
-            self.assertIn('MCP / 知识',html)
+            self.assertIn('Agent Runtime',html)
+            self.assertIn('Agent Harness',html)
+            self.assertIn('Agent Memory',html)
+            self.assertIn('Persistent Memory',html)
             self.assertNotIn('<em>AI 相关</em>',html)
 
     def test_hot_panel_title_is_inline_bilingual(self):

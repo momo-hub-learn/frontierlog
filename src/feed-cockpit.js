@@ -59,7 +59,7 @@ function fcGithubPanel(){
     '<span class="fc-gh-star"><b>+'+fmt(x.stars_today)+'</b><small>today</small></span>'+
    '</a>'
   ).join('')+'</div>'+
-  '<div class="fc-gh-foot">GitHub Trending · AI / Agent 相关项目</div>'+
+  '<div class="fc-gh-foot">GitHub Trending · Runtime / Harness / Memory / Coding Agent 等细分</div>'+
  '</section>'
 }
 function fcCockpit(){
