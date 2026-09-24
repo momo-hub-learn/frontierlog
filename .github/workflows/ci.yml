@@ -39,6 +39,7 @@ jobs:
           test -f dist-ci/api/v1/github-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
+          ! grep -q "<h1>今天，AI 走到哪了？</h1>" dist-ci/index.html
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "v2-tool-dock" dist-ci/index.html
           grep -q "V2_TOOL_DOCK_KEY" dist-ci/index.html

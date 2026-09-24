@@ -108,6 +108,14 @@ class BuildTests(unittest.TestCase):
             self.assertIn('MCP / 知识',html)
             self.assertNotIn('<em>AI 相关</em>',html)
 
+    def test_feed_header_has_no_redundant_big_title(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertNotIn('<h1>今天，AI 走到哪了？</h1>',html)
+            self.assertIn('每日精选 /',html)
+            self.assertIn('全部热点',html)
+
     def test_feed_escapes_text(self):
         c=copy.deepcopy(self.c);c['events'][0]['title']='A < B & C'
         s={**self.s,'base_url':'https://example.org/sub/'}
