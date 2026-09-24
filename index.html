@@ -1450,30 +1450,12 @@ modelPage=function(){
  return `<div class="m-wrap v2-model-wrap">${modelHubTabs('rankings')}<header class="v2-model-head"><div><p class="eyebrow">BASE MODELS / ${esc(b.provider.toUpperCase())}</p><h1>基础模型</h1><p>先选来源，再选指标。速度、成本和偏好不混成一个总分。</p></div><div class="v2-model-meta"><span>${b.rows.length} 配置</span><span>${providers.length} 厂商</span><span>${esc((b.as_of||b.checked).replaceAll('-','.'))}</span></div></header><nav class="m-tabs v2-source-tabs" aria-label="评测来源">${MODEL_DATA.boards.map(x=>`<button class="m-tab ${x.id===b.id?'active':''}" data-ma="board" data-id="${x.id}">${esc(x.title)}<small>${esc(x.provider==='Arena'?'ARENA':'AA')}</small></button>`).join('')}</nav><div class="v2-rankbar"><div class="m-segments">${legal.map(k=>`<button class="m-segment ${metric===k?'active':''}" data-ma="metric" data-id="${k}">${M_METRICS[k][0]}</button>`).join('')}</div><div class="m-tools"><label class="m-search">${icon('search')}<input id="m-search" type="search" value="${esc(q)}" placeholder="搜索模型、厂商…"></label><select class="m-select" id="m-maker"><option value="all">全部厂商</option>${providers.map(x=>`<option value="${esc(x)}" ${x===maker?'selected':''}>${esc(x)}</option>`).join('')}</select><label class="m-check"><input id="m-only" type="checkbox" ${only?'checked':''}>只看关注</label></div></div>${top?`<div class="v2-current-first"><span>#1 当前样本</span><strong>${esc(top.name)}</strong><em>${esc(mMetricValue(top,metric))} ${esc(info[2])}</em></div>`:''}<section class="m-tablebox v2-model-table"><div class="m-tablehead"><h2>${esc(b.title)}<small>${esc(info[1])}${info[3]?'由低到高':'由高到低'}</small></h2>${mSourceLink(b.source)}</div>${rows.length?modelTable(rows,b,metric):`<div class="m-empty"><h3>没有匹配模型</h3></div>`}<div class="m-tablefoot"><span>${esc(b.scope)}</span><button class="plain" data-ma="model-method">如何读这份榜单 ${icon('info')}</button></div></section>${modelCompare.size?`<div class="m-comparebar"><span>${modelCompare.size} / 3 个配置</span>${mButton('比较','compare','','primary')}${mButton('清空','compare-clear')}</div>`:''}</div>`;
 };
 
-const v2BaseHotRows=hRows;
-hRows=function(){
- const rows=v2BaseHotRows(),sort=new URLSearchParams(location.hash.split('?')[1]||'').get('sort')||'latest';
- return sort==='heat'?[...rows].sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published)):rows;
-};
-const v2BaseHotPage=hotPage;
-hotPage=function(){
- const sort=new URLSearchParams(location.hash.split('?')[1]||'').get('sort')||'latest';
- let html=v2BaseHotPage();
- const switcher=`<div class="v2-hot-sort"><span>排序</span><button class="${sort==='latest'?'active':''}" data-v2-hot-sort="latest">${icon('clock')}最新</button><button class="${sort==='heat'?'active':''}" data-v2-hot-sort="heat">${icon('fire')}热度</button></div>`;
- return html.replace('<div class="h-filterbar">',switcher+'<div class="h-filterbar">');
-};
-
+// 热点页固定按时间倒序；不再提供“最新 / 热度”二次排序。
 function v2SavedSummary(){
  if(state.view!=='saved')return;
  const host=$('#legacy-saved'); if(!host||host.querySelector('.v2-saved-head'))return;
  host.insertAdjacentHTML('afterbegin',`<section class="v2-saved-head"><div><p class="eyebrow">YOUR PERSONAL INDEX</p><h1>我的关注</h1><p>主题、模型、文章和 Benchmark 汇到一个地方。</p></div><div class="v2-saved-stats"><span><b>${topicFollows.size}</b>主题</span><span><b>${msaved.size}</b>模型</span><span><b>${articleSaved.size}</b>文章</span><span><b>${bSaved.size}</b>Benchmark</span></div></section>`);
 }
-
-document.addEventListener('click',e=>{
- const b=e.target.closest('[data-v2-hot-sort]'); if(!b)return;
- const p=new URLSearchParams(location.hash.split('?')[1]||''); if(b.dataset.v2HotSort==='latest')p.delete('sort');else p.set('sort','heat');
- history.pushState(null,'','#/hot'+(p.size?'?'+p.toString():'')); parseRoute();
-});
 
 const v2BaseRenderMain=renderMain;
 renderMain=function(){
@@ -1800,14 +1782,14 @@ function ghPreview(){
 const ghBaseTabs=hTabs;
 hTabs=function(s){
   const active=ghActive();
-  return '<nav class="h-tabs" aria-label="热点分类">'+
-    HOT.categories.map(c=>{
-      const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
-      const on=!active&&s.cat===c.id;
-      return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+(c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length)+'</small></a>'
-    }).join('')+
-    '<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>'+
-  '</nav>'
+  const tabs=HOT.categories.map(c=>{
+    const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
+    const on=!active&&s.cat===c.id;
+    return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+(c.id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===c.id).length)+'</small></a>'
+  });
+  const github='<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>';
+  const first=tabs.shift()||'';
+  return '<nav class="h-tabs" aria-label="热点分类">'+first+github+tabs.join('')+'</nav>'
 };
 
 function ghInline(){
