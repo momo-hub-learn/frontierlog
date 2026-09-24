@@ -660,6 +660,240 @@
       }
     ]
   },
+  "activity_radar": {
+    "version": 1,
+    "checked_at": "2026-09-24T23:18:58+08:00",
+    "sync": {
+      "mode": "public_rss",
+      "interval_minutes": 120,
+      "last_success": null,
+      "note": "播客/访谈源每2小时读取公开 RSS；发布会只收官方页面。RSS 新条目先作为媒体信号，不自动改写成产品已发布事实。"
+    },
+    "sources": [
+      {
+        "id": "apple-events",
+        "name": "Apple Events",
+        "publisher": "Apple",
+        "kind": "event",
+        "formats": [
+          "官方发布会"
+        ],
+        "url": "https://www.apple.com/apple-events/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "nvidia-gtc",
+        "name": "NVIDIA GTC",
+        "publisher": "NVIDIA",
+        "kind": "event",
+        "formats": [
+          "Keynote",
+          "官方发布会"
+        ],
+        "url": "https://www.nvidia.com/gtc/",
+        "authority": "official",
+        "sync": "official-page"
+      },
+      {
+        "id": "dwarkesh",
+        "name": "Dwarkesh Podcast",
+        "publisher": "Dwarkesh Patel",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube"
+        ],
+        "url": "https://www.dwarkesh.com/podcast",
+        "feed_url": "https://www.dwarkesh.com/feed",
+        "authority": "first-party",
+        "sync": "rss"
+      },
+      {
+        "id": "latent-space",
+        "name": "Latent Space",
+        "publisher": "swyx / Latent Space",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube"
+        ],
+        "url": "https://www.latent.space/podcast",
+        "feed_url": "https://www.latent.space/feed",
+        "authority": "first-party",
+        "sync": "rss"
+      },
+      {
+        "id": "no-priors",
+        "name": "No Priors",
+        "publisher": "Sarah Guo / Elad Gil",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube"
+        ],
+        "url": "https://linktr.ee/nopriors",
+        "feed_url": "https://feeds.megaphone.fm/nopriors",
+        "authority": "first-party",
+        "sync": "rss"
+      },
+      {
+        "id": "lex-fridman",
+        "name": "Lex Fridman Podcast",
+        "publisher": "Lex Fridman",
+        "kind": "media",
+        "formats": [
+          "Podcast",
+          "YouTube"
+        ],
+        "url": "https://lexfridman.com/podcast",
+        "feed_url": "https://lexfridman.com/feed/podcast/",
+        "authority": "first-party",
+        "sync": "rss",
+        "include_keywords": [
+          "ai",
+          "agent",
+          "programming",
+          "coding",
+          "nvidia",
+          "gpu",
+          "robot",
+          "machine learning",
+          "llm"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": "nvidia-gtc-dc-2026",
+        "source_id": "nvidia-gtc",
+        "date": "2026-12-01",
+        "status": "upcoming",
+        "title": "NVIDIA GTC Washington, D.C. 2026 Keynote",
+        "summary": "下一场重点官方发布会。NVIDIA 将在 12 月 1 日举行 Keynote，议题覆盖 physical AI、AI factories、agentic AI 等。",
+        "url": "https://www.nvidia.com/gtc/dc/conference-schedule/",
+        "tags": [
+          "NVIDIA",
+          "Keynote",
+          "Agentic AI",
+          "Physical AI"
+        ]
+      },
+      {
+        "id": "apple-september-2026",
+        "source_id": "apple-events",
+        "date": "2026-09-09",
+        "status": "replay",
+        "title": "Apple September Event 2026",
+        "summary": "Apple 9 月发布会官方回放入口；适合追踪 Apple Intelligence、终端 AI 与芯片相关变化。",
+        "url": "https://www.apple.com/apple-events/event-stream/",
+        "tags": [
+          "Apple",
+          "Apple Intelligence",
+          "端侧 AI"
+        ]
+      },
+      {
+        "id": "apple-wwdc26",
+        "source_id": "apple-events",
+        "date": "2026-06-08",
+        "status": "replay",
+        "title": "WWDC26 Keynote",
+        "summary": "Apple 在 WWDC26 集中发布下一代 Apple Intelligence 与 Siri AI 等软件与开发者能力。",
+        "url": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/",
+        "tags": [
+          "WWDC",
+          "Siri AI",
+          "Apple Intelligence"
+        ]
+      },
+      {
+        "id": "nvidia-gtc-sj-2026",
+        "source_id": "nvidia-gtc",
+        "date": "2026-03-16",
+        "status": "replay",
+        "title": "NVIDIA GTC 2026 Keynote",
+        "summary": "Jensen Huang 的 GTC 2026 keynote，覆盖 accelerated computing、AI factories、open models、agentic systems 与 physical AI。",
+        "url": "https://www.nvidia.com/gtc/keynote/",
+        "tags": [
+          "NVIDIA",
+          "Jensen Huang",
+          "AI Factory",
+          "Agents"
+        ]
+      }
+    ],
+    "media_items": [
+      {
+        "id": "no-priors-michael-lee-20260924",
+        "source_id": "no-priors",
+        "published": "2026-09-24",
+        "title": "Re-Founding Incumbents for the AI Era — Michael Lee",
+        "summary": "讨论如何从企业内部重构传统公司，以及 frontier engineering 如何真正进入业务。",
+        "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
+        "tags": [
+          "Enterprise AI",
+          "组织变革"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "latent-biosecurity-20260923",
+        "source_id": "latent-space",
+        "published": "2026-09-23",
+        "title": "Bio-security is an AI Arms Race — Eric Nguyen",
+        "summary": "从 bio-security 视角讨论 frontier model 带来的攻防能力变化。",
+        "url": "https://www.latent.space/p/bio-security-is-an-ai-arms-race-eric",
+        "tags": [
+          "BioAI",
+          "Safety"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "latent-jev-20260921",
+        "source_id": "latent-space",
+        "published": "2026-09-21",
+        "title": "Jev: System One models for Prod, not God — Diogo Almeida",
+        "summary": "TypeSafe AI CEO Diogo Almeida 深聊 Jev、System One models 与生产环境可靠性。",
+        "url": "https://www.latent.space/p/jev",
+        "tags": [
+          "Jev",
+          "System One",
+          "Production AI"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "no-priors-stefano-20260918",
+        "source_id": "no-priors",
+        "published": "2026-09-18",
+        "title": "Why Diffusion Will Win AI Inference — Stefano Ermon",
+        "summary": "讨论 diffusion text/code model、推理效率、GPU 利用率与下一代 inference stack。",
+        "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
+        "tags": [
+          "Diffusion",
+          "Inference",
+          "AI Infra"
+        ],
+        "origin": "verified-manual"
+      },
+      {
+        "id": "dwarkesh-noam-20260917",
+        "source_id": "dwarkesh",
+        "published": "2026-09-17",
+        "title": "Noam Brown — Agent swarms, alignment, & recursive self-improvement",
+        "summary": "围绕 multi-agent、自动化 AI research、alignment 与 recursive self-improvement 的深度访谈。",
+        "url": "https://www.dwarkesh.com/p/noam-brown",
+        "tags": [
+          "Agent Swarms",
+          "Alignment",
+          "RSI"
+        ],
+        "origin": "verified-manual"
+      }
+    ]
+  },
   "hot_policy": {
     "version": 1,
     "name": "HotPolicy",
