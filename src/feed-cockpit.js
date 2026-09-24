@@ -1,6 +1,6 @@
 'use strict';
 (()=>{
-/* 精选头部：左侧紧凑热点，右侧「拆一下」+ GitHub 热仓。 */
+/* 精选头部：全宽热点 + 三张工具卡；关注卡固定在左侧并自适应为方块。 */
 function fcHotPanel(){
  const rows=v10HotByHeat(HOT.items).slice(0,5);
  return '<section class="fc-panel fc-hot-panel">'+
@@ -12,6 +12,27 @@ function fcHotPanel(){
     '<span class="fc-hot-score"><b>'+esc(String(x.heat))+'</b>'+hTrend(x)+'</span>'+
    '</a>'
   ).join('')+'</div>'+
+ '</section>'
+}
+function fcPersonalPanel(){
+ const p=v10Prefs(),followed=p.topics.size+p.models;
+ const latest=v10HotByTime(HOT.items.filter(x=>v10PersonalMatch(x,p)))[0];
+ const state=followed?'has-follow':'is-empty';
+ const title=followed?'你的关注':'只看与你有关的热点';
+ const copy=followed
+  ?'已关注 '+followed+' 项；只把匹配主题或模型的高信号变化放进来。'
+  :'关注主题或模型后，这里会变成你的本地过滤器，不再占一整条横幅。';
+ const latestBlock=latest
+  ?'<a class="fc-personal-latest" href="#/hot?item='+encodeURIComponent(latest.id)+'"><span>最新相关</span><b>'+esc(latest.title)+'</b>'+icon('arrow')+'</a>'
+  :'<div class="fc-personal-latest empty"><span>开始关注</span><b>先选主题或模型，之后只看相关更新。</b></div>';
+ return '<section class="fc-panel fc-personal-panel '+state+'">'+
+  '<div class="fc-personal-head"><div><p class="eyebrow">FOR YOU / LOCAL</p><h2>'+esc(title)+'</h2></div><strong class="fc-personal-count">'+esc(String(followed))+'</strong></div>'+
+  '<p class="fc-personal-copy">'+esc(copy)+'</p>'+
+  '<div class="fc-personal-actions">'+
+   '<a href="#/topics"><span>选择主题</span><strong>'+esc(String(p.topics.size))+'</strong><small>医药 / 制造</small></a>'+
+   '<a href="#/models"><span>关注模型</span><strong>'+esc(String(p.models))+'</strong><small>模型 / 公司</small></a>'+
+  '</div>'+
+  latestBlock+
  '</section>'
 }
 function fcDeepPanel(){
@@ -42,18 +63,22 @@ function fcGithubPanel(){
  '</section>'
 }
 function fcCockpit(){
- return '<section class="fc-cockpit"><div class="fc-left">'+fcHotPanel()+'</div><aside class="fc-right">'+fcDeepPanel()+fcGithubPanel()+'</aside></section>'
+ return '<section class="fc-cockpit">'+
+  fcHotPanel()+
+  '<div class="fc-tool-grid">'+fcPersonalPanel()+fcDeepPanel()+fcGithubPanel()+'</div>'+
+ '</section>'
 }
 function fcStripLegacy(html){
  return html
   .replace(/<section class="top5-editorial">[\s\S]*?<\/section>/,'')
   .replace(/<section class="d-feed">[\s\S]*?<\/section>/,'')
   .replace(/<section class="gh-preview">[\s\S]*?<\/section>/,'')
+  .replace(/<section class="v10-personal[\s\S]*?<\/section>/,'')
 }
 const fcBaseFeedPage=feedPage;
 feedPage=function(){
  let html=fcStripLegacy(fcBaseFeedPage());
- html=html.replace('先看全站 Top 5，再看你的关注，最后按时间浏览通用 AI 变化。','左边扫热点，右边看「拆一下」和 GitHub 热仓，再往下看你的关注与每日时间线。');
+ html=html.replace('先看全站 Top 5，再看你的关注，最后按时间浏览通用 AI 变化。','先扫热点，再看你的关注、「拆一下」和 GitHub 热仓，最后进入分时热点。');
  const block=fcCockpit();
  const marker='<section class="v10-personal',at=html.indexOf(marker);
  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
