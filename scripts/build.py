@@ -228,10 +228,31 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
             hist_times.append(datetime.fromisoformat(point['at'].replace('Z','+00:00')))
         if hist_times!=sorted(hist_times) or len(set(hist_times))!=len(hist_times): raise ValueError('Unordered GitHub hot star history')
-    app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    huggingface_hot=json.loads((ROOT/'data/huggingface-hot.json').read_text(encoding='utf-8'))
+    if huggingface_hot.get('version') != 1: raise ValueError('Unsupported Hugging Face hot schema version')
+    datetime.fromisoformat(huggingface_hot['checked_at'])
+    for key in ('source_url','api_url'):
+        if not https_url(huggingface_hot.get(key,'')): raise ValueError('Invalid Hugging Face hot source URL')
+    hf_items=huggingface_hot.get('items')
+    if not isinstance(hf_items,list) or not 5<=len(hf_items)<=50: raise ValueError('Invalid Hugging Face hot items')
+    hf_seen=set()
+    for row in hf_items:
+        mid=row.get('id','')
+        if not REPO_RE.fullmatch(mid): raise ValueError('Invalid Hugging Face model ID')
+        if mid in hf_seen: raise ValueError('Duplicate Hugging Face model')
+        hf_seen.add(mid)
+        if not https_url(row.get('url','')): raise ValueError('Invalid Hugging Face model URL')
+        if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','trending_score','likes','downloads')): raise ValueError('Invalid Hugging Face metric')
+        datetime.fromisoformat(row['created_at'].replace('Z','+00:00'))
+        for key in ('task','library'):
+            if not isinstance(row.get(key),str) or not row[key].strip(): raise ValueError('Missing Hugging Face '+key)
+        tags=row.get('tags')
+        if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
+    if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
+    app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
-    css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
-    js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.js').read_text(encoding='utf-8')
+    css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/huggingface-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
+    js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/huggingface-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.js').read_text(encoding='utf-8')
     for marker in ('@@CSS@@','@@JS@@','@@DATA@@','@@FEED@@'):
         if template.count(marker)!=1:raise ValueError('Template marker missing or duplicated: '+marker)
     payload=json.dumps(app,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
@@ -258,6 +279,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/activity-radar.json',activity_radar)
     write_json(output/'api/v1/hot-policy.json',hot_policy)
     write_json(output/'api/v1/github-hot.json',github_hot)
+    write_json(output/'api/v1/huggingface-hot.json',huggingface_hot)
     write_json(output/'api/v1/capabilities.json',capabilities)
     write_json(output/'api/v1/deep-dives.json',deep_dives)
     write_json(output/'api/v1/topic-intake.json',intake)
