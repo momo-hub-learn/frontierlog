@@ -504,6 +504,162 @@
       }
     ]
   },
+  "product_radar": {
+    "version": 1,
+    "checked": "2026-09-24",
+    "title": "AI 产品雷达",
+    "note": "产品雷达用于长期跟踪 AI-native 应用，不参与热点热度排名。Sequoia / YC 标签只表示已由对应机构公开 Portfolio / Company Directory 验证，不代表产品质量背书。",
+    "groups": [
+      {
+        "id": "legal",
+        "title": "Legal AI",
+        "description": "法律研究、起草、交易、企业法务与 AI-native 律所。"
+      },
+      {
+        "id": "enterprise-agent",
+        "title": "Enterprise Agent",
+        "description": "把 AI 从问答推进到企业知识、客服、销售与工作流执行。"
+      }
+    ],
+    "items": [
+      {
+        "id": "harvey",
+        "name": "Harvey",
+        "company": "Harvey",
+        "group": "legal",
+        "tags": [
+          "Legal",
+          "Sequoia",
+          "Law firms / In-house"
+        ],
+        "summary": "面向律所、企业法务和专业服务团队的生成式 AI 平台；Harvey 还在推进 Legal Agent Benchmark 与专用模型路线。",
+        "product_url": "https://www.harvey.ai/",
+        "source_url": "https://sequoiacap.com/companies/harvey",
+        "source_label": "Sequoia Portfolio",
+        "evidence": "Sequoia 公开 Portfolio 验证；Harvey 2026-09-09 官方融资公告披露现有投资者包含 Sequoia。",
+        "boundary": "投资关系与公司自报采用数据都不等于独立任务成功率；具体法律工作仍需权限、引用和人工复核。"
+      },
+      {
+        "id": "lightfield",
+        "name": "Lightfield",
+        "company": "Lightfield",
+        "group": "legal",
+        "tags": [
+          "Legal",
+          "YC F26",
+          "In-house"
+        ],
+        "summary": "连接邮件、聊天和业务系统，先收集上下文、应用公司政策与历史决策，再把完成的法务工作交给内部律师审批。",
+        "product_url": "https://trylightfield.ai",
+        "source_url": "https://www.ycombinator.com/companies/lightfield",
+        "source_label": "Y Combinator",
+        "evidence": "YC 官方公司档案 · Fall 2026。",
+        "boundary": "处于早期公司阶段；YC 描述是公司档案，不等于独立评测或大规模部署证明。"
+      },
+      {
+        "id": "general-legal",
+        "name": "General Legal",
+        "company": "General Legal",
+        "group": "legal",
+        "tags": [
+          "Legal",
+          "YC W26",
+          "AI-native law firm"
+        ],
+        "summary": "面向高增长公司的 AI-native 律所，覆盖商业、公司与雇佣法律工作。",
+        "product_url": "https://general.legal",
+        "source_url": "https://www.ycombinator.com/companies/general-legal",
+        "source_label": "Y Combinator",
+        "evidence": "YC 官方公司档案 · Winter 2026。",
+        "boundary": "服务质量、案件结果与价格优势没有在本站独立核验；法律结论仍由执业体系负责。"
+      },
+      {
+        "id": "legora",
+        "name": "Legora",
+        "company": "Legora",
+        "group": "legal",
+        "tags": [
+          "Legal",
+          "YC W24",
+          "Lawyer workspace"
+        ],
+        "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
+        "product_url": "https://www.legora.com/",
+        "source_url": "https://www.ycombinator.com/companies/legora",
+        "source_label": "Y Combinator",
+        "evidence": "YC 官方公司档案 · Winter 2024。",
+        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。"
+      },
+      {
+        "id": "sierra",
+        "name": "Sierra",
+        "company": "Sierra",
+        "group": "enterprise-agent",
+        "tags": [
+          "Enterprise Agent",
+          "Sequoia",
+          "Customer experience"
+        ],
+        "summary": "面向企业客户体验的对话式 AI Agent，可按品牌与业务规则定制面向客户的执行代理。",
+        "product_url": "https://sierra.ai/",
+        "source_url": "https://sequoiacap.com/companies/sierra",
+        "source_label": "Sequoia Portfolio",
+        "evidence": "Sequoia 公开 Portfolio · Partnered 2023。",
+        "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。"
+      },
+      {
+        "id": "glean",
+        "name": "Glean",
+        "company": "Glean",
+        "group": "enterprise-agent",
+        "tags": [
+          "Enterprise Agent",
+          "Sequoia",
+          "Knowledge / Work"
+        ],
+        "summary": "在企业内部跨应用聚合知识、权限与个性化上下文，向工作助手和可执行 Agent 延伸。",
+        "product_url": "https://www.glean.com/",
+        "source_url": "https://sequoiacap.com/companies/glean",
+        "source_label": "Sequoia Portfolio",
+        "evidence": "Sequoia 公开 Portfolio · Partnered 2022。",
+        "boundary": "企业搜索与 Agent 的效果高度依赖权限、连接器、数据质量和组织知识结构。"
+      },
+      {
+        "id": "clay",
+        "name": "Clay",
+        "company": "Clay",
+        "group": "enterprise-agent",
+        "tags": [
+          "Enterprise Agent",
+          "Sequoia",
+          "GTM"
+        ],
+        "summary": "面向 RevOps 与增长团队的数据与工作流平台，AI Agent 用于客户研究、个性化触达和 GTM 自动化。",
+        "product_url": "https://www.clay.com/",
+        "source_url": "https://sequoiacap.com/companies/clay",
+        "source_label": "Sequoia Portfolio",
+        "evidence": "Sequoia 公开 Portfolio · Partnered 2019。",
+        "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。"
+      },
+      {
+        "id": "inkeep",
+        "name": "Inkeep",
+        "company": "Inkeep",
+        "group": "enterprise-agent",
+        "tags": [
+          "Enterprise Agent",
+          "YC W23",
+          "Support / Automation"
+        ],
+        "summary": "提供代码与 no-code 的 Agent 平台，把知识检索、MCP / 集成、支持与自动化放在同一套工作流里。",
+        "product_url": "https://inkeep.com",
+        "source_url": "https://www.ycombinator.com/companies/inkeep",
+        "source_label": "Y Combinator",
+        "evidence": "YC 官方公司档案 · Winter 2023。",
+        "boundary": "YC 档案列出的客户与能力仍需按具体场景核验；Agent 的稳定性取决于连接器、工具权限与评测。"
+      }
+    ]
+  },
   "hot_policy": {
     "version": 1,
     "name": "HotPolicy",
@@ -588,7 +744,7 @@
     "checked_at": "2026-09-24T04:15:14-07:00",
     "source_url": "https://github.com/trending",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
-    "note": "完整榜单严格沿用 GitHub Trending 默认 Today 页面顺序；总 Star/Fork、语言与 stars_today 保留该轮 GitHub 页面显示语义，其中 stars_today 是 GitHub 页面显示的今日新增 Star，不是本站估算。本站分类优先按技术层级与实际用途细分：Agent Runtime、Harness、Memory、Skills、Tool Router、Agent Interface、Coding Agent，以及行业 / Multi-Agent 应用等；每条再补 3–4 个技术标签。分类与标签只用于阅读和筛选，不改变 GitHub 官方榜位，也不代表本站实测。",
+    "note": "榜位与“今日 Star”来自 GitHub Trending 官方 Today 页面；仓库创建时间与最近推送时间来自 GitHub Repository API。趋势线使用本站连续保存的 3 次 GitHub Trending 快照中的总 Star 变化，当前窗口约 8 小时。这样可以区分“老仓突然翻红”和“新仓高速增长”；这些信号只反映开发者关注与仓库活跃度，不代表模型能力或本站实测。",
     "items": [
       {
         "rank": 1,
@@ -606,6 +762,22 @@
           "Claude",
           "Skills",
           "Connectors"
+        ],
+        "repo_created_at": "2026-02-23T19:24:50Z",
+        "repo_pushed_at": "2026-09-21T21:10:41Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 36979
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 37119
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 37143
+          }
         ]
       },
       {
@@ -624,6 +796,22 @@
           "Orchestration",
           "编排",
           "Go"
+        ],
+        "repo_created_at": "2026-03-30T17:55:01Z",
+        "repo_pushed_at": "2026-09-24T15:04:15Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 9151
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 9511
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 9557
+          }
         ]
       },
       {
@@ -642,6 +830,22 @@
           "CLI",
           "配置",
           "监控"
+        ],
+        "repo_created_at": "2025-07-04T01:26:26Z",
+        "repo_pushed_at": "2026-09-24T14:01:07Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 31517
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 31636
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 31653
+          }
         ]
       },
       {
@@ -659,6 +863,22 @@
           "Agent-Native",
           "App Framework",
           "TypeScript"
+        ],
+        "repo_created_at": "2026-03-12T14:57:10Z",
+        "repo_pushed_at": "2026-09-24T15:04:21Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 6577
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 6695
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 6711
+          }
         ]
       },
       {
@@ -676,6 +896,22 @@
           "Agent Skills",
           "Coding Workflow",
           "Shell"
+        ],
+        "repo_created_at": "2025-10-09T19:45:18Z",
+        "repo_pushed_at": "2026-09-22T18:22:49Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 290713
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 290896
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 290920
+          }
         ]
       },
       {
@@ -694,6 +930,22 @@
           "文档 / 表格",
           "幻灯片 / PDF",
           "Canvas"
+        ],
+        "repo_created_at": "2022-09-29T12:09:14Z",
+        "repo_pushed_at": "2026-09-24T14:02:42Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 16368
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 16564
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 16579
+          }
         ]
       },
       {
@@ -711,6 +963,22 @@
           "实时行情",
           "提醒",
           "公司信息"
+        ],
+        "repo_created_at": "2025-09-28T18:16:32Z",
+        "repo_pushed_at": "2026-09-23T18:08:31Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 18864
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 19012
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 19042
+          }
         ]
       },
       {
@@ -728,6 +996,22 @@
           "Runtime",
           "Execution Substrate",
           "Go"
+        ],
+        "repo_created_at": "2026-05-13T19:02:38Z",
+        "repo_pushed_at": "2026-09-24T09:14:34Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 3521
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 3629
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 3647
+          }
         ]
       },
       {
@@ -746,6 +1030,22 @@
           "Multi-Model",
           "Production",
           "Python / TS"
+        ],
+        "repo_created_at": "2025-05-14T19:59:51Z",
+        "repo_pushed_at": "2026-09-24T13:53:58Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 7871
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 7998
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 8015
+          }
         ]
       },
       {
@@ -763,6 +1063,22 @@
           "Agent-Native CLI",
           "软件操作",
           "Tool Use"
+        ],
+        "repo_created_at": "2026-03-08T13:52:57Z",
+        "repo_pushed_at": "2026-09-22T02:01:29Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 49955
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 50085
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 50099
+          }
         ]
       },
       {
@@ -780,6 +1096,22 @@
           "Tool Routing",
           "OpenRouter-like",
           "Router"
+        ],
+        "repo_created_at": "2026-07-15T13:38:07Z",
+        "repo_pushed_at": "2026-09-24T14:43:29Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 2744
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 2873
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 2890
+          }
         ]
       },
       {
@@ -797,6 +1129,22 @@
           "Design Language",
           "Harness",
           "AI Design"
+        ],
+        "repo_created_at": "2025-11-16T01:52:04Z",
+        "repo_pushed_at": "2026-09-24T00:46:01Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 70364
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 70532
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 70562
+          }
         ]
       },
       {
@@ -814,6 +1162,22 @@
           "Mobile Forensics",
           "入侵迹象",
           "取证"
+        ],
+        "repo_created_at": "2021-07-16T05:50:44Z",
+        "repo_pushed_at": "2026-09-22T18:17:06Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 14492
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 14553
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 14566
+          }
         ]
       },
       {
@@ -832,6 +1196,22 @@
           "Codebase Memory",
           "Knowledge Graph",
           "Persistent Memory"
+        ],
+        "repo_created_at": "2026-02-24T22:01:00Z",
+        "repo_pushed_at": "2026-09-24T02:51:00Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 44589
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 44723
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 44747
+          }
         ]
       },
       {
@@ -849,6 +1229,22 @@
           "3DGS",
           "Video-to-3D",
           "Splat / Mesh"
+        ],
+        "repo_created_at": "2024-05-04T03:03:05Z",
+        "repo_pushed_at": "2026-09-24T04:27:11Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 752
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 832
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 841
+          }
         ]
       },
       {
@@ -866,6 +1262,22 @@
           "Video Coding Agent",
           "视频编辑",
           "Code Tooling"
+        ],
+        "repo_created_at": "2026-04-12T01:34:42Z",
+        "repo_pushed_at": "2026-09-24T04:50:14Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 26524
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 26666
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 26693
+          }
         ]
       },
       {
@@ -884,6 +1296,22 @@
           "Multi-Agent",
           "金融",
           "Self-hosted"
+        ],
+        "repo_created_at": "2026-01-23T13:34:00Z",
+        "repo_pushed_at": "2026-09-24T14:16:47Z",
+        "star_history": [
+          {
+            "at": "2026-09-24T03:17:47Z",
+            "stars": 1542
+          },
+          {
+            "at": "2026-09-24T09:13:14Z",
+            "stars": 1687
+          },
+          {
+            "at": "2026-09-24T11:15:14Z",
+            "stars": 1717
+          }
         ]
       }
     ],
@@ -944,7 +1372,13 @@
         "id": "graphics-3d",
         "title": "3D / 图形"
       }
-    ]
+    ],
+    "trend_window": {
+      "start_at": "2026-09-24T03:17:47Z",
+      "end_at": "2026-09-24T11:15:14Z",
+      "source": "本站连续保存的 GitHub Trending 官方快照",
+      "snapshots": 3
+    }
   },
   "deep_dives": {
     "version": 1,
