@@ -29,17 +29,17 @@
 
 边界：功能、可用范围与安全机制来自 Google 官方发布；Google 同文引用 Hume AI Voice Design Benchmark 与 Voice Arena 的领先结果，但本站本轮未用这些厂商引用值改写现有独立 TTS 榜单，也不据此宣称其已在所有语音 Benchmark 上绝对第一。声音复制要求权利与同意验证，生成音频带 SynthID，企业可用性仍在分阶段 rollout。
 
-站内热度 96；不是全网流量。</description></item><item><title>SpaceXAI 披露 Grok Bot 客服实战：工单 +175%，团队未新增人手</title><guid isPermaLink="false">frontierlog:hot:grok-bot-support-20260922</guid><link>https://x.ai/news/grok-bot-customer-support</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>SpaceXAI 9 月 22 日称，合并 Cursor 后其支持团队在工单量增加 175% 的情况下未新增支持人员；Grok Bot 已进入预调查、问题复现、退款、队列优先级与事故检测等流程。公司称在明确退款规则下 99% 的退款请求可无人处理，优化后每个已解决工单成本低至 $0.20–$0.30。
-
-为什么值得看：这是 Agent 从“回答问题”进入真实业务闭环的一手生产案例：它不仅生成回复，还连接 Plain、Linear、Datadog，执行有限动作、管理队列，并通过 traces、evals 与人工审批逐步扩大自治范围。
-
-边界：这些效果数字来自 SpaceXAI 自身案例研究，不是独立审计；“可能需要多招 200 人”是反事实估计，不能当作实际节省。99% 只针对公司定义了清晰规则的退款请求，也不能外推到全部客服工单或其他企业。
-
 站内热度 96；不是全网流量。</description></item><item><title>OpenAI 发布 MentalHealthBench：1,215 段真实感对话测心理健康回应</title><guid isPermaLink="false">frontierlog:hot:mentalhealthbench-20260923</guid><link>https://openai.com/index/introducing-mentalhealthbench/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 23 日发布开放基准 MentalHealthBench：1,215 段合成但贴近真实使用的心理健康对话，由来自 22 个国家的 80+ 名持证心理学家和精神科医生参与制定细则，覆盖非急性、高危、紧急情境及成人、青少年、照护者和临床人员。官方论文的整体 task-clipped score 为 GPT-6 Astra 57.3、GPT-6 Sol 53.9、Claude Opus 5.5 52.4。
 
 为什么值得看：它把敏感对话评测从“是否拒绝/是否安全”推进到更细的上下文追问、用户自主性、可执行建议、现实检验与紧急程度校准；这是一个值得单独跟踪的新 Benchmark 类别，而不是通用智力榜的替代品。
 
 边界：发布日期来自 OpenAI，但官方页面未提供精确发布时间，本站只记录日期与首次收录时间。57.3/53.9/52.4 是 OpenAI 自己发布的 Benchmark 结果，不是本站实测或独立榜单；评估使用 GPT-5.6 Sol 自动评分器，场景为合成对话，产品级安全措施也未必被完整复现，不能把分数解读为临床疗效或诊疗能力。
+
+站内热度 96；不是全网流量。</description></item><item><title>Microsoft：机器人推理开始从机载 GPU 拆到边缘 / 云</title><guid isPermaLink="false">frontierlog:hot:microsoft-physical-ai-offload-20260923</guid><link>https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Microsoft Research 9 月 23 日公布机器人推理卸载研究，并把能力加入开源 Physical AI Toolchain。在其代表性移动操作测试中，较轻 GPU 让地图与规划最高慢 383%，导航及时障碍检测下降 30%，VLA 准确率最高下降 50%；Stretch-3 将 GPU 推理卸载后，官方测试显示电池续航可提升 100% 以上。
+
+为什么值得看：这是 Physical AI 从“模型和机器人本体”走向系统基础设施的明显信号：当 VLA、规划与感知模型继续变大，机器人能力边界越来越取决于推理放在哪、网络多稳定、GPU 如何调度。工具链已把机器人、边缘 GPU 与云之间的推理分配做成 Kubernetes 化能力。
+
+边界：383%、30%、50% 与续航结果均来自 Microsoft 自己的研究环境，不是本站或独立产线实测，不能外推到所有机器人。卸载还受网络时延、带宽与可用 GPU 约束；官方仓库明确 T5 fleet intelligence 仍在 roadmap，当前交付范围是 T0–T4。
 
 站内热度 96；不是全网流量。</description></item><item><title>Xiaomi 发布 MiMo-V2.6：Pro 在 AA 开放权重模型中升至 46 分</title><guid isPermaLink="false">frontierlog:hot:mimo-v26-pro-20260922</guid><link>https://mimo.mi.com/docs/en-US/updates/model</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>Xiaomi 9 月 22 日发布 MiMo-V2.6 系列：Pro 是原生全模态万亿参数旗舰，另有低成本 Flash 与最高 20 倍加速的 Pro-UltraSpeed。Artificial Analysis 当前英文主模型页独立快照给出 MiMo-V2.6-Pro Intelligence Index 46、约 54.2 output tok/s、Cost per Intelligence Index Task $0.13。
 
