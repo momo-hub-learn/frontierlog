@@ -2533,7 +2533,7 @@ feedPage=function(){
  let html=fcStripLegacy(fcBaseFeedPage());
  html=html.replace('先看全站 Top 5，再看你的关注，最后按时间浏览通用 AI 变化。','先扫热点，再看你的关注、「拆一下」和 GitHub 热仓，最后进入分时热点。');
  const block=fcCockpit();
- const marker='<section class="v10-personal',at=html.indexOf(marker);
+ const marker='<section class="v10-general',at=html.indexOf(marker);
  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
 };
 if(state.view==='feed'){lastMain='';renderMain()}
