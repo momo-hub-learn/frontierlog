@@ -128,6 +128,23 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     product_radar=json.loads((ROOT/'data/product-radar.json').read_text(encoding='utf-8'))
     validate_product_radar(product_radar)
     hot_policy=json.loads((ROOT/'data/hot-policy.json').read_text(encoding='utf-8'))
+    activity_radar=json.loads((ROOT/'data/activity-radar.json').read_text(encoding='utf-8'))
+    if activity_radar.get('version') != 1: raise ValueError('Unsupported activity radar schema')
+    datetime.fromisoformat(activity_radar['checked_at'].replace('Z','+00:00'))
+    ar_sources={s['id']:s for s in activity_radar.get('sources',[])}
+    if len(ar_sources)!=len(activity_radar.get('sources',[])): raise ValueError('Duplicate activity radar source')
+    for s in ar_sources.values():
+        if not https_url(s.get('url','')): raise ValueError('Invalid activity radar source URL')
+        if s.get('feed_url') and not https_url(s['feed_url']): raise ValueError('Invalid activity radar feed URL')
+    for e in activity_radar.get('events',[]):
+        date.fromisoformat(e['date'])
+        if e.get('source_id') not in ar_sources or not https_url(e.get('url','')): raise ValueError('Invalid activity radar event')
+    ar_ids=set()
+    for m in activity_radar.get('media_items',[]):
+        if m.get('id') in ar_ids: raise ValueError('Duplicate activity radar item')
+        ar_ids.add(m.get('id'))
+        date.fromisoformat(m['published'])
+        if m.get('source_id') not in ar_sources or not https_url(m.get('url','')): raise ValueError('Invalid activity radar media')
     capabilities=json.loads((ROOT/'data/capabilities.json').read_text(encoding='utf-8'))
     deep_dives=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
     if deep_dives.get('version') != 1 or not isinstance(deep_dives.get('articles'),list):
@@ -180,7 +197,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
             hist_times.append(datetime.fromisoformat(point['at'].replace('Z','+00:00')))
         if hist_times!=sorted(hist_times) or len(set(hist_times))!=len(hist_times): raise ValueError('Unordered GitHub hot star history')
-    app={'hot':hot,'product_radar':product_radar,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
     css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
     js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.js').read_text(encoding='utf-8')
@@ -207,6 +224,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/benchmarks.json',benchmarks)
     write_json(output/'api/v1/hot.json',hot)
     write_json(output/'api/v1/product-radar.json',product_radar)
+    write_json(output/'api/v1/activity-radar.json',activity_radar)
     write_json(output/'api/v1/hot-policy.json',hot_policy)
     write_json(output/'api/v1/github-hot.json',github_hot)
     write_json(output/'api/v1/capabilities.json',capabilities)

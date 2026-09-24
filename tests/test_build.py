@@ -99,6 +99,20 @@ class BuildTests(unittest.TestCase):
             self.assertIn('AI × Biology',html)
             self.assertIn('Action-Conditioned World Models',html)
 
+    def test_activity_radar_renders_official_events_and_interviews(self):
+        radar=json.loads((ROOT/'data/activity-radar.json').read_text())
+        self.assertTrue(any(x['status']=='upcoming' for x in radar['events']))
+        self.assertTrue({'dwarkesh','latent-space','no-priors','lex-fridman'} <= {x['id'] for x in radar['sources']})
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);app=build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertTrue((d/'api/v1/activity-radar.json').exists())
+            self.assertIn('发布会 / 访谈雷达',html)
+            self.assertIn('NVIDIA GTC Washington, D.C. 2026 Keynote',html)
+            self.assertIn('Noam Brown — Agent swarms',html)
+            self.assertIn('Dwarkesh Podcast',html)
+            self.assertIn('公开 RSS 每 2 小时检查',html)
+
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
