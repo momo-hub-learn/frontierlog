@@ -58,6 +58,10 @@ jobs:
           grep -q "Google Research Blog" dist-ci/index.html
           grep -q "张小珺Jùn｜商业访谈录" dist-ci/index.html
           grep -q "硅谷101" dist-ci/index.html
+          grep -q "v2-media-takeaways" dist-ci/index.html
+          grep -q "值得看" dist-ci/index.html
+          grep -q "技术密度高 · 适合精读" dist-ci/index.html
+          grep -q "本地测试通过，不等于上线后真的能稳定服务。" dist-ci/index.html
           grep -q "v2-radar-tabs" dist-ci/index.html
           grep -q "v2-radar-subtabs" dist-ci/index.html
           grep -q "v2ActivityTypeHref" dist-ci/index.html
