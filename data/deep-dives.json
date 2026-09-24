@@ -10,19 +10,19 @@
       ],
       "title": "拆一下 Jev：为什么 Agent 不一定要让 LLM 做所有判断？",
       "short_title": "Jev 到底应该放在 Agent Stack 的哪一层？",
-      "subtitle": "Jev 值得关注的，不是它比 LLM 更“聪明”，而是它把路由、评分、校验和概率判断变成另一种模型调用。",
-      "dek": "把“生成”与“决策”拆开看：LLM 继续负责开放式推理与生成，System One 类模型负责高频、结构化、可校准的判断，再由代码把两者编排起来。",
+      "subtitle": "Jev 真正值得研究的，不是“又一个更快更便宜的模型”，而是它把一个长期被 Prompt 吞掉的问题重新暴露出来：Agent 里的哪些判断应该交给模型，哪些应该留在代码，哪些才真的需要生成式 LLM。",
+      "dek": "如果把 Agent 看成一个软件系统，而不是一段会调用工具的 Prompt，那么“生成”和“决策”其实是两种不同的计算。Jev 的意义，就在于把这条边界重新画出来。",
       "published": "2026-09-24",
-      "read_minutes": 9,
+      "read_minutes": 15,
       "tags": [
         "Agent 架构",
         "System One",
         "Jev",
         "Decision Model"
       ],
-      "thesis": "如果 Jev 这条路线成立，Agent 的下一轮架构竞争可能不只是“换更强的 LLM”，而是把不同形状的智能调用放到不同层。",
+      "thesis": "真正的架构变化不是“用 Jev 替掉 LLM”，而是把 Agent 拆成确定性代码、结构化判断、开放式推理与人工兜底四层；模型不再承包所有智能。",
       "architecture": {
-        "note": "下面是 AI坐标根据公开资料整理出的“集成架构建议”，不是 TypeSafe 公布的 Jev 模型内部结构，也不是唯一正确的 Agent 架构。",
+        "note": "这是 AI坐标基于 TypeSafe 的公开接口、workflow eval 与开发者案例整理出的“集成架构”。它不是 Jev 模型内部结构，也不是 TypeSafe 规定的唯一用法。",
         "before": [
           {
             "label": "事件 / 用户输入",
@@ -34,7 +34,7 @@
           },
           {
             "label": "LLM",
-            "detail": "理解 + 路由 + 判断 + 生成 + 校验",
+            "detail": "理解意图、选工具、判断、生成、校验",
             "kind": "llm"
           },
           {
@@ -42,8 +42,8 @@
             "kind": "tool"
           },
           {
-            "label": "LLM 再判断",
-            "detail": "重试 / 验证 / 下一步",
+            "label": "LLM",
+            "detail": "检查结果、决定重试 / 下一步",
             "kind": "llm"
           },
           {
@@ -53,124 +53,247 @@
         ],
         "after": [
           {
-            "label": "事件 / 用户输入",
+            "label": "事件 / 状态",
             "kind": "input"
           },
           {
-            "label": "Agent Runtime",
-            "kind": "runtime"
+            "label": "确定性代码",
+            "detail": "算术、硬规则、权限、状态机",
+            "kind": "code"
           },
           {
-            "label": "任务分流",
-            "detail": "开放式生成 → LLM；结构化判断 → Jev",
-            "kind": "split"
-          },
-          {
-            "label": "LLM",
-            "detail": "推理 / 生成 / 代码 / 长文本",
-            "kind": "llm"
-          },
-          {
-            "label": "Jev / System One",
-            "detail": "Choice / Score / 概率判断 / Guardrail",
+            "label": "System One / Jev",
+            "detail": "Noul / Choice / Score、概率、置信度",
             "kind": "jev"
           },
           {
-            "label": "代码阈值与分支",
-            "detail": "何时执行、升级、重试、交给人",
-            "kind": "code"
+            "label": "LLM",
+            "detail": "开放式推理、生成、代码、长文本",
+            "kind": "llm"
+          },
+          {
+            "label": "策略层",
+            "detail": "阈值、升级、重试、人工兜底",
+            "kind": "split"
           },
           {
             "label": "Tool / API",
             "kind": "tool"
           },
           {
-            "label": "结果 / 再校验",
+            "label": "结果 / 观测",
             "kind": "output"
           }
         ]
       },
       "sections": [
         {
-          "key": "one",
-          "eyebrow": "01 / 一句话讲明白",
-          "title": "Jev 不是为了“更会说”，而是为了让软件直接消费判断",
+          "key": "interface",
+          "eyebrow": "01",
+          "kicker": "先把问题说清楚",
+          "title": "Jev 改的首先不是“模型能力”，而是 AI 给软件的接口形状",
           "paragraphs": [
-            "TypeSafe 把 Jev 定义为首个公开的 System One Model：输入可以是非结构化状态，但输出空间、类型和问题结构由开发者预先定义，模型返回 Choice、Score 或概率式判断，并附带概率 / 置信信息。",
-            "这和“让 LLM 生成一段 JSON”看起来相似，但产品目标不同：Jev 放弃自由文本生成，换取更快、更便宜、类型安全、适合高频嵌入程序逻辑的决策接口。"
+            "LLM 的默认输出是字符串。字符串非常强：它可以是一段解释、代码、SQL、计划，也可以伪装成 JSON。正因为太通用，软件真正要执行动作之前，往往还要经历解析、schema 校验、重试、兜底，甚至再调一次模型确认。",
+            "Jev 走的是相反方向。TypeSafe 的 /v1/systemone API 不是让模型自由生成，而是让开发者先定义问题结构和答案空间。公开接口目前至少包含 Noul、Choice、Score 三类问题：是 / 否概率、从有限候选中选择并给出分布、以及在一个等级尺度上评分。",
+            "这意味着“模型会什么”与“软件能依赖什么”被分开了。Jev 可以判断错，但输出类型不会突然变成另一种东西；它给出的不是一段需要人读懂的解释，而是程序下一行代码就能消费的值和概率。"
           ],
+          "primitives": [
+            {
+              "name": "Noul",
+              "label": "Yes / No",
+              "detail": "返回某件事成立的概率。适合是否升级、是否异常、是否需要人工介入。"
+            },
+            {
+              "name": "Choice",
+              "label": "One of N",
+              "detail": "在预先定义的候选里返回概率分布，并给出置信信息。适合路由、分类、选工具。"
+            },
+            {
+              "name": "Score",
+              "label": "Ordered scale",
+              "detail": "在等级 / 分值空间里给出评分和分布。适合风险、质量、优先级判断。"
+            }
+          ],
+          "pullquote": "这不是“让 LLM 更严格地输出 JSON”，而是把模型的产品接口从“生成一串 token”换成“返回软件可以直接执行的决策变量”。",
           "source_refs": [
-            "typesafe-launch",
             "typesafe-api",
+            "typesafe-launch",
             "register"
           ]
         },
         {
-          "key": "old",
-          "eyebrow": "02 / 旧架构怎么做",
-          "title": "今天很多 Agent 把微小判断也塞给同一个生成式 LLM",
+          "key": "harness",
+          "eyebrow": "02",
+          "kicker": "真正重要的架构变化",
+          "title": "把 Policy 从 Prompt 里拿出来：模型只回答窄问题，工作流由代码负责",
           "paragraphs": [
-            "一个常见 Agent 循环里，同一个 LLM 既要理解用户意图，又要选工具、判断是否重试、检查结果、评分质量，还要生成最终文本。好处是通用；代价是每一个微小分支都要付出生成式模型的延迟与成本。",
-            "当工作流只有几步时，这个设计足够简单；当 Agent 变成长任务、多工具、多次校验和高并发之后，“调用多少次 LLM”本身就会变成系统瓶颈。"
+            "TypeSafe 自己的 workflow eval 其实比 Jev 的速度数字更值得看。它的核心方法不是“换一个模型解决完整任务”，而是先把业务策略拆成两类东西：确定性逻辑交给代码，无法硬编码但答案空间有限的判断交给模型。",
+            "例如在公开的费用报销工作流里，金额、日期、账号、状态这些可以精确计算的内容由代码处理；模型负责识别费用类型、判断描述和凭证是否匹配、判断某些条件是否成立。最终是批准、挂起还是退回，并不是模型自由发挥，而是代码根据前面的判断走规则。",
+            "这件事对 Agent 很关键。今天很多 Agent 把“策略”写进一个大 Prompt：模型既读规则，也解释规则，还要自己决定规则什么时候触发。把策略重新搬回代码，相当于让模型从“系统控制器”退回“感知 / 判断组件”。它少做了一些事，但整个系统反而更容易测试、追踪和修改。"
           ],
-          "analysis": true,
+          "case_study": {
+            "title": "一个更像工程系统的工作流",
+            "label": "TypeSafe workflow eval · Expense / Invoice 类任务",
+            "steps": [
+              {
+                "who": "Code",
+                "text": "计算金额、日期、账户状态；处理确定性规则。"
+              },
+              {
+                "who": "Jev / Model",
+                "text": "回答一组独立的 Noul / Choice / Score 问题。"
+              },
+              {
+                "who": "Code",
+                "text": "把概率和结构化答案代入业务条件，决定是否批准、挂起、退回。"
+              },
+              {
+                "who": "Human",
+                "text": "当置信不足、条件冲突或风险过高时升级人工。"
+              }
+            ],
+            "note": "AI坐标的抽象总结；具体公开 eval 还包括 Security Incidents、Agent Trace Observability、Invoice Processing、Customer Service。"
+          },
+          "pullquote": "最深的一层变化不是“Jev 比 LLM 快”，而是：Agent 的 Harness 开始重新变成一等公民。",
           "source_refs": [
-            "techcrunch"
+            "typesafe-evals",
+            "typesafe-launch"
           ]
         },
         {
-          "key": "new",
-          "eyebrow": "03 / 新架构改了哪里",
-          "title": "把开放式生成和结构化判断拆成两条路径",
+          "key": "calibration",
+          "eyebrow": "03",
+          "kicker": "自动化为什么需要概率",
+          "title": "一个判断能不能自动执行，取决于它知不知道自己什么时候不确定",
           "paragraphs": [
-            "公开资料更支持一种“分层使用”理解：LLM 继续处理需要自由表达、复杂推理和生成的任务；Jev 处理那些候选空间可以提前定义、但规则很难手写死的判断，例如路由、分类、评分、是否升级、是否重试、是否通过 Guardrail。",
-            "TypeSafe 自己把这类能力比作“smart if-statements”；TechCrunch 报道的开发者案例也集中在安全分类、邮件分类、模型路由和 Agent trace 监控，而不是用 Jev 替代长文本生成。"
+            "分类准确率高，不等于可以放心自动化。一个模型即使平均 95% 正确，如果它在错误的 5% 里仍然表现得非常自信，系统就很难知道什么时候该停下来。",
+            "所谓“校准”，理想状态可以粗略理解为：当模型对一批判断都给出大约 0.8 的概率时，这批判断最终应当有接近 80% 是对的。只有这样，概率才不只是 UI 上的装饰，而可以进入程序控制流。",
+            "TypeSafe 把 RLCD（Reinforcement Learning for Calibrated Decisions）作为 Jev 的核心训练方向，并声称每个输出都带有概率 / 置信信息。但目前训练配方、公开论文和大规模独立校准测试仍然有限，所以“它是否真的在你的分布上校准”必须自己测，而不能从官网的一条曲线直接继承。",
+            "一旦概率足够可信，架构才出现一个很重要的新接口：高置信度自动执行，中间区域再次检查或调用 LLM，低置信度直接升级人工。阈值属于应用策略，而不是模型替你决定。"
           ],
+          "equation": {
+            "left": "p(action) ≥ τ_auto",
+            "center": "→ 自动执行",
+            "right": "否则 → 二次检查 / LLM / Human"
+          },
           "source_refs": [
             "typesafe-launch",
-            "techcrunch",
-            "register"
-          ],
-          "show_architecture": true
-        },
-        {
-          "key": "why-now",
-          "eyebrow": "04 / 为什么现在值得看",
-          "title": "Agent 越长，决策层的成本、延迟和可观测性越重要",
-          "paragraphs": [
-            "TypeSafe 官方宣称 Jev 在其 System One workflow eval 上处于显著更低的成本 / 延迟区间，并强调输出并行采样、结构化概率和置信度。官方同时承认 193.6× 更快、444.6× 更便宜属于其工作流中的高端案例，不能当作所有任务的固定倍率。",
-            "真正值得跟踪的不是某个倍率，而是架构信号：当智能调用足够便宜和足够快，过去因为“调用一次 LLM 太重”而不值得做的实时路由、逐步骤校验、海量对象打分，开始有机会成为默认基础设施。"
-          ],
-          "source_refs": [
-            "typesafe-launch",
-            "typesafe-home"
+            "typesafe-home",
+            "typesafe-evals"
           ],
           "analysis": true
         },
         {
-          "key": "when",
-          "eyebrow": "05 / 什么时候值得用",
-          "title": "最适合的是“答案空间已知，但规则不好写”的问题",
-          "bullets": [
+          "key": "stack",
+          "eyebrow": "04",
+          "kicker": "应该放在哪一层",
+          "title": "一个更合理的 Agent Stack，可能需要四种“智能”而不是一个万能模型",
+          "paragraphs": [
+            "如果沿着这条思路继续往下推，一个生产级 Agent 不应该先问“这一步用哪个大模型”，而应该先问“这一步到底是什么形状的计算”。",
+            "能精确表达的规则就写代码；答案空间已知、但规则很难手写的判断，可以交给 System One 类模型；需要探索未知空间、写代码、做长链条推理或生成内容时，再调用 LLM；一旦进入不可逆、高风险或分布外区域，就把控制权交给人。",
+            "这不是为了追求架构洁癖，而是为了让每一层都暴露出不同的失败方式。代码会有 bug，Jev 会判断错，LLM 会生成错误或跑偏，人会慢也会犯错。真正可靠的系统不是假设某一层不会失败，而是让失败可见、可测、可路由。"
+          ],
+          "show_architecture": true,
+          "comparison": [
             {
-              "title": "路由 / 分类",
-              "detail": "从已知候选中选下一步、选工具、选模型、分流工单。"
+              "layer": "确定性代码",
+              "best": "算术、权限、状态机、硬规则",
+              "strength": "可验证、便宜、稳定",
+              "risk": "规则覆盖不到模糊判断"
             },
             {
-              "title": "评分 / 风险判断",
-              "detail": "给候选打分，或根据概率决定自动执行、升级人工、再次检查。"
+              "layer": "Jev / System One",
+              "best": "分类、路由、评分、Guardrail",
+              "strength": "结构化、低延迟、带概率",
+              "risk": "语义判断仍可能错；依赖校准"
             },
             {
-              "title": "Agent Guardrail",
-              "detail": "监控命令、trace 或模型输出，做安全 / 合规 / 异常判断。"
+              "layer": "LLM",
+              "best": "开放式推理、生成、代码、未知答案空间",
+              "strength": "通用性最高",
+              "risk": "慢、贵、输出自由度高"
             },
             {
-              "title": "高频批处理",
-              "detail": "对大量对象做相互独立的判断，尤其在延迟和单次成本很敏感时。"
+              "layer": "Human",
+              "best": "高风险、歧义、策略例外、最终责任",
+              "strength": "可处理真正新情况",
+              "risk": "吞吐低、成本高"
             }
           ],
+          "source_refs": [
+            "typesafe-launch",
+            "typesafe-evals",
+            "techcrunch"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "economics",
+          "eyebrow": "05",
+          "kicker": "为什么现在突然值得做",
+          "title": "当一次“智能判断”从秒级降到百毫秒级，系统设计空间会变",
           "paragraphs": [
-            "反过来，如果任务需要写长文本、生成代码、探索未知答案空间，或者要做长链条开放式推理，Jev 并不是公开资料里被证明的替代方案。"
+            "TypeSafe 公布的 Jev 价格是每十亿输入 token 42 美元（也就是每百万 0.042 美元），输出不单独计费；官方给出的典型端到端延迟约 70–500ms。它还在自家 workflow eval 中展示了最高 193.6× 更快、444.6× 更便宜的案例，同时明确说这些倍率属于高端案例，不应该外推到所有任务。",
+            "单次便宜十倍和工作流便宜十倍不是一回事。真正有架构意义的是复利：一个 Agent 如果要做几十次路由、评分、结果检查和 trace 监控，模型调用成本与延迟会沿着整条链累积。越长的 Agent，越容易从“每一步都用 LLM”里感受到结构性浪费。",
+            "TechCrunch 报道的早期开发者案例也集中在这个方向。Vercel 的工程师把命令安全分类器从 ChatGPT Luna 5.6 换成 Jev后，报告速度快 5–18 倍且准确率更高；另一个商业邮件分类测试里，Gemini 略准，但成本高 10–20 倍。这些都是单点开发者测试，不是统一 Benchmark，却很好地说明了为什么大家最先拿它替换的是“微判断”，而不是写作或复杂推理。",
+            "如果这个成本曲线能稳定下来，过去不值得做的事情会变得合理：每个工具调用前都做风险检查、每个 Agent trace 都实时打分、上万条对象同时分类、把模型判断嵌进 UI 的 100ms 交互预算。"
+          ],
+          "source_refs": [
+            "typesafe-launch",
+            "typesafe-home",
+            "techcrunch"
+          ]
+        },
+        {
+          "key": "correctness",
+          "eyebrow": "06",
+          "kicker": "最容易被误读的一点",
+          "title": "Type-safe 解决的是“输出越界”，不是“语义永远正确”",
+          "paragraphs": [
+            "TypeSafe 在发布材料里用了“can’t hallucinate / zero hallucinations”这样的强表述。若只看工程接口，它指向的是一个非常具体的保证：输出空间在调用前被定义，模型不会突然返回一个 schema 之外的类型，软件不需要担心“本来应该是枚举，却吐出一段散文”。",
+            "但这不等于判断本身永远正确。一个 Choice 完全可能在三个合法选项里选错；一个 Score 可以合法地给出错误分数；一个概率也可能在你的真实业务分布上失去校准。",
+            "因此，System One 模型把一类失败从“格式错误 / 自由生成错误”里移走了，却没有消灭语义错误。它把可靠性问题变得更窄、更容易观测，这本身已经很有价值，但不能偷换成“模型不会犯错”。"
+          ],
+          "pullquote": "类型安全让错误更容易被系统处理；它不是正确性的证明。",
+          "source_refs": [
+            "typesafe-launch",
+            "typesafe-home",
+            "register"
+          ]
+        },
+        {
+          "key": "fit",
+          "eyebrow": "07",
+          "kicker": "什么时候用，什么时候别用",
+          "title": "最好的 Jev 问题，都有一个共同特征：答案空间已知，判断规则却不好写死",
+          "paragraphs": [
+            "如果你可以提前列出候选动作，但很难用 if/else 覆盖所有语义情况，这就是 Jev 最自然的位置。相反，如果你连答案空间都不知道，需要模型探索、写作、规划、解释或创造新结构，生成式 LLM 仍然更合适。"
+          ],
+          "bullets": [
+            {
+              "title": "适合：路由与分类",
+              "detail": "从有限候选中选工具、选处理队列、选下一步动作。"
+            },
+            {
+              "title": "适合：评分与优先级",
+              "detail": "风险、质量、紧急度、是否升级等连续或有序判断。"
+            },
+            {
+              "title": "适合：Agent Guardrail",
+              "detail": "监控工具调用、命令、trace 和模型输出，做廉价的持续检查。"
+            },
+            {
+              "title": "适合：高频批处理",
+              "detail": "大量对象相互独立地做窄判断，延迟和单位成本很敏感。"
+            },
+            {
+              "title": "不适合：开放式生成",
+              "detail": "长文本、代码、解释、创作，本身需要字符串生成。"
+            },
+            {
+              "title": "不适合：答案空间未知",
+              "detail": "复杂探索、开放世界规划、需要提出新假设的问题。"
+            }
           ],
           "source_refs": [
             "typesafe-launch",
@@ -179,31 +302,59 @@
           ]
         },
         {
-          "key": "boundary",
-          "eyebrow": "06 / 别高兴太早",
-          "title": "最关键的未知数，仍然在模型内部、校准质量和外部复现",
+          "key": "unknowns",
+          "eyebrow": "08",
+          "kicker": "接下来真正该盯什么",
+          "title": "Jev 能不能成为一个新层，取决于五个还没有充分回答的问题",
           "bullets": [
             {
-              "title": "模型内部结构没公开",
-              "detail": "TypeSafe 说有新的 model architecture、parallel sampler 和 RLCD，但没有公开完整模型结构、训练配方或论文。TechCrunch 报道也明确说公司对底层架构保持谨慎披露。"
+              "title": "独立 Benchmark",
+              "detail": "目前最系统的 workflow eval 仍主要来自 TypeSafe，自外部、跨任务的大规模复现还少。"
             },
             {
-              "title": "“不会 hallucinate”不能理解成“永远判断正确”",
-              "detail": "更准确的说法是输出类型 / schema 不会越界；模型仍可能选错、评分错或给出错误概率。"
+              "title": "校准在分布漂移下是否稳定",
+              "detail": "线上数据一变，概率还能不能保持可解释，是自动执行阈值能否成立的关键。"
             },
             {
-              "title": "最亮眼的 workflow eval 主要来自 TypeSafe 自己",
-              "detail": "TypeSafe 明确承认工作流由自家模型能力团队构造，可能存在偏差；独立大规模复现仍然有限。"
+              "title": "模型内部与 RLCD 细节",
+              "detail": "新 architecture、parallel sampler、RLCD 都被提到，但公开技术细节仍不充分。"
             },
             {
-              "title": "分层 Agent 是我们的架构建议",
-              "detail": "“LLM 负责生成，Jev 负责路由 / 评分 / 校验”是基于公开用例做出的集成推断，不是 TypeSafe 官方规定的唯一架构。"
+              "title": "可观测性与版本漂移",
+              "detail": "如果同一个阈值在模型升级后含义变化，工作流需要怎样回归测试和重新校准。"
+            },
+            {
+              "title": "生态会不会迅速复制",
+              "detail": "如果需求真实，开源模型、LLM 单 token / classifier 模式以及其他厂商很可能进入同一个价格区间。"
             }
+          ],
+          "paragraphs": [
+            "The Register 报道的开发者测试已经在追问最重要的问题：快、便宜之外，它到底够不够好。这个问题最终不会由一次发布会回答，而会由真实工作流里的 calibration curve、错误成本和长期回归测试回答。"
           ],
           "source_refs": [
             "typesafe-launch",
-            "techcrunch"
-          ]
+            "techcrunch",
+            "register"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "boundary",
+          "eyebrow": "09",
+          "kicker": "不要过度解读",
+          "title": "Jev 现在更像一个有潜力成为“新基础设施层”的早期信号，而不是已经被证明的新范式",
+          "paragraphs": [
+            "TypeSafe 已经公开了可调用的 API、问题原语、价格、workflow eval 和一批开发者案例，这使 Jev 比纯概念更值得认真研究。但它仍处于 early access，模型内部结构与 RLCD 训练方法没有完整公开，最强的系统性评测主要由公司自己设计。",
+            "所以更稳妥的结论不是“Jev 会替代 LLM”，也不是“Agent 以后都应该四层化”。更值得下注的判断是：当 Agent 开始真正进入生产，模型接口会从单一的文本生成逐渐分化。不同步骤会需要不同价格、延迟、输出约束和置信机制的智能原语。",
+            "Jev 可能只是这个趋势的第一个醒目标本。真正重要的问题，是未来的软件栈里，“智能”会不会像数据库、缓存、队列一样被拆成多个专用层，而不是继续由一个万能 Prompt 承包。"
+          ],
+          "source_refs": [
+            "typesafe-launch",
+            "typesafe-evals",
+            "techcrunch",
+            "register"
+          ],
+          "analysis": true
         }
       ],
       "sources": [
@@ -232,6 +383,14 @@
           "url": "https://api.typesafe.ai/docs"
         },
         {
+          "id": "typesafe-evals",
+          "publisher": "TypeSafe AI",
+          "title": "Workflow evals · Structured workflows for automation tasks",
+          "kind": "官方公开评测 / Harness 示例",
+          "date": "2026-09-24",
+          "url": "https://evals.typesafe.ai/"
+        },
+        {
           "id": "techcrunch",
           "publisher": "TechCrunch",
           "title": "A new kind of AI model from a ChatGPT inventor is thrilling developers",
@@ -247,6 +406,11 @@
           "date": "2026-09-23",
           "url": "https://www.theregister.com/devops/2026/09/23/shut-up-and-calculate-jevs-new-ai-primitives-for-coders/5298431"
         }
+      ],
+      "opening": [
+        "过去两年，Agent 架构里有一个很少被质疑的默认值：只要某一步需要一点“智能”，就再调一次 LLM。选工具、判断任务是否完成、决定要不要重试、检查输出、给结果打分——这些动作形状完全不同，却常常被塞进同一种生成式接口。",
+        "这种做法在原型阶段非常合理。自然语言是最通用的接口，LLM 也确实什么都能做一点。但当 Agent 从五步 Demo 变成几十步工作流，从单用户变成高并发系统，问题就出现了：很多步骤根本不需要“生成”，它们只需要在一个已知空间里做稳定、可校准、便宜的判断。",
+        "Jev 最值得看的地方因此不是模型榜上的一条新曲线，而是一种新的软件边界：把自由文本生成留给 LLM，把一部分结构化判断变成另一类模型调用，再把最终控制权交还给代码。"
       ]
     }
   ]
