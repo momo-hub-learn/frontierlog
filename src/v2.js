@@ -30,7 +30,7 @@ const MODEL_COMPANIES=[
 ];
 window.MODEL_COMPANIES=MODEL_COMPANIES;
 const V2_TOOL_LINKS=[
- {view:'tibo',href:'#/tibo',title:'Tibo 重置',desc:'Reset / banked / rollout',icon:'reset'}
+ {view:'tibo',href:'#/tibo',title:'Tibo 重置',icon:'reset'}
 ];
 const V2_TOOL_DOCK_KEY='aic.v2.toolDockPosition';
 let v2ToolDrag=null;
@@ -70,8 +70,8 @@ function v2ToolDock(){
  let dock=document.getElementById('v2-tool-dock');
  const active=state.view==='benchmarks'?'benchmarks':state.view;
  const wasOpen=Boolean(dock?.classList.contains('open'));
- const links=V2_TOOL_LINKS.map(t=>`<a class="v2-tool-link ${active===t.view?'active':''}" href="${t.href}" role="menuitem" ${active===t.view?'aria-current="page"':''}><span class="v2-tool-link-icon">${icon(t.icon)}</span><span><strong>${t.title}</strong><small>${t.desc}</small></span>${icon('arrow')}</a>`).join('');
- const html=`<div id="v2-tool-dock" class="v2-tool-dock ${V2_TOOL_LINKS.some(t=>t.view===active)?'is-tool-page':''} ${wasOpen?'open':''}"><button class="v2-tool-orb" type="button" data-v2-tool-toggle aria-label="Tibo 重置工具，可拖动" title="拖动调整位置；悬停查看工具" aria-expanded="${wasOpen?'true':'false'}">${icon('reset')}<span class="v2-tool-orb-dot" aria-hidden="true"></span></button><div class="v2-tool-popover" role="menu" aria-label="可用工具"><div class="v2-tool-popover-head"><strong>工具</strong><small>拖动圆球可移动</small></div>${links}</div></div>`;
+ const links=V2_TOOL_LINKS.map(t=>`<a class="v2-tool-link ${active===t.view?'active':''}" href="${t.href}" role="menuitem" ${active===t.view?'aria-current="page"':''}><span class="v2-tool-link-icon">${icon(t.icon)}</span><strong>${t.title}</strong>${icon('arrow')}</a>`).join('');
+ const html=`<div id="v2-tool-dock" class="v2-tool-dock ${V2_TOOL_LINKS.some(t=>t.view===active)?'is-tool-page':''} ${wasOpen?'open':''}"><button class="v2-tool-orb" type="button" data-v2-tool-toggle aria-label="Tibo 重置工具，可拖动" title="拖动调整位置；悬停打开 Tibo 重置" aria-expanded="${wasOpen?'true':'false'}">${icon('reset')}<span class="v2-tool-orb-dot" aria-hidden="true"></span></button><div class="v2-tool-popover" role="menu" aria-label="Tibo 重置快捷入口">${links}</div></div>`;
  if(dock)dock.outerHTML=html;else document.body.insertAdjacentHTML('beforeend',html);
  v2ApplyToolDockPosition(document.getElementById('v2-tool-dock'));
 }
