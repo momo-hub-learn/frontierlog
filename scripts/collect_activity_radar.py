@@ -86,7 +86,12 @@ def main():
             if kept>=3:break
     if not ok:raise SystemExit('no public feeds fetched successfully')
     existing={(x['source_id'],x['title'].strip().lower()) for x in manual}
-    auto=[x for x in auto if (x['source_id'],x['title'].strip().lower()) not in existing]
+    unique=[];seen_ids=set();seen_titles=set()
+    for x in auto:
+        title_key=(x['source_id'],x['title'].strip().lower())
+        if title_key in existing or title_key in seen_titles or x['id'] in seen_ids:continue
+        seen_titles.add(title_key);seen_ids.add(x['id']);unique.append(x)
+    auto=unique
     merged=manual+auto
     merged.sort(key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
     d['media_items']=merged[:18]
