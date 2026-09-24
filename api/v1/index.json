@@ -5605,7 +5605,7 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-09-23",
+    "snapshot": "2026-09-24",
     "items": [
       {
         "id": "gemini-38-flash-tts",
@@ -5849,7 +5849,8 @@
         "boundary": "当前访问资格与完整复现条件未核验；研究结果不等于通用能力。",
         "repo": null,
         "sources": [
-          "alphaevolve"
+          "alphaevolve",
+          "alphaevolve-paper"
         ],
         "requirements": "先阅读原始研究。当前开放权限与所需资源未核验。",
         "test": "冻结一个独立评价器和资源预算，对比候选算法与基线。",
@@ -5877,7 +5878,8 @@
         "boundary": "生成报告不等于科学发现；实验有效性和可复现性需独立核对。",
         "repo": "SakanaAI/AI-Scientist",
         "sources": [
-          "ai-scientist"
+          "ai-scientist",
+          "ai-scientist-paper"
         ],
         "requirements": "Linux、NVIDIA GPU、CUDA/PyTorch 和模型配置。生成代码只在受限环境执行。",
         "test": "从一个小模板开始，固定数据、指标和预算，复核代码与完整日志。",
@@ -6075,6 +6077,24 @@
         "published": null,
         "checked": "2026-09-23",
         "kind": "官方文档"
+      },
+      {
+        "id": "alphaevolve-paper",
+        "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+        "publisher": "AlphaEvolve authors / Google DeepMind",
+        "url": "https://arxiv.org/abs/2506.13131",
+        "published": "2025-06-16",
+        "checked": "2026-09-24",
+        "kind": "作者预印本"
+      },
+      {
+        "id": "ai-scientist-paper",
+        "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+        "publisher": "Sakana AI / authors",
+        "url": "https://arxiv.org/abs/2408.06292",
+        "published": "2024-08-12",
+        "checked": "2026-09-24",
+        "kind": "作者预印本"
       }
     ],
     "events": [
@@ -6135,6 +6155,28 @@
         "tag": "0.13.10"
       },
       {
+        "id": "alphaevolve-preprint",
+        "task": "alphaevolve",
+        "date": "2025-06-16",
+        "kind": "research",
+        "title": "AlphaEvolve 白皮书发布到 arXiv",
+        "summary": "AlphaEvolve 作者公开白皮书，系统性描述其演化式 coding agent、自动评价与算法发现结果。",
+        "delta": "当前核验到的是 arXiv 预印本；不把预印本写成已被顶会或期刊正式收录。",
+        "sources": [
+          "alphaevolve-paper"
+        ],
+        "reviewed": "2026-09-24",
+        "publication": {
+          "status": "preprint",
+          "venue": "arXiv",
+          "tier": "preprint",
+          "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+          "url": "https://arxiv.org/abs/2506.13131",
+          "ccf": null,
+          "verified": "2026-09-24"
+        }
+      },
+      {
         "id": "alphaevolve-launch",
         "task": "alphaevolve",
         "date": "2025-05-14",
@@ -6171,7 +6213,38 @@
         "sources": [
           "docling-report"
         ],
-        "reviewed": "2026-09-20"
+        "reviewed": "2026-09-20",
+        "publication": {
+          "status": "preprint",
+          "venue": "arXiv",
+          "tier": "preprint",
+          "title": "Docling Technical Report",
+          "url": "https://arxiv.org/abs/2408.09869",
+          "ccf": null,
+          "verified": "2026-09-24"
+        }
+      },
+      {
+        "id": "ai-scientist-paper",
+        "task": "ai-scientist",
+        "date": "2024-08-12",
+        "kind": "research",
+        "title": "The AI Scientist 论文预印本公开",
+        "summary": "Sakana AI 团队公开 The AI Scientist 论文，描述从选题、实验、写作到模拟审稿的自动化科研流程。",
+        "delta": "当前核验到的是 arXiv 预印本；论文中“超过顶会录用阈值”是其自动审稿实验结果，不等于该论文已被顶会录用。",
+        "sources": [
+          "ai-scientist-paper"
+        ],
+        "reviewed": "2026-09-24",
+        "publication": {
+          "status": "preprint",
+          "venue": "arXiv",
+          "tier": "preprint",
+          "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+          "url": "https://arxiv.org/abs/2408.06292",
+          "ccf": null,
+          "verified": "2026-09-24"
+        }
       },
       {
         "id": "graphrag-launch",
