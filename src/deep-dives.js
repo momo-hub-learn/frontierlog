@@ -96,9 +96,10 @@ function dPage(a){
  return '<article class="d-page">'+
   '<header class="d-hero">'+
    '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+'</span><span>'+esc(String(a.read_minutes))+' min read</span></div>'+
-   '<h1>'+esc(a.title)+'</h1><p class="d-dek">'+esc(a.dek)+'</p>'+
-   '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
-   '<blockquote class="d-thesis"><span>核心判断</span><strong>'+esc(a.thesis)+'</strong></blockquote>'+
+   '<div class="d-hero-grid"><div class="d-hero-copy">'+
+    '<h1>'+esc(a.title)+'</h1><p class="d-dek">'+esc(a.dek)+'</p>'+
+    '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
+   '</div><blockquote class="d-thesis"><span>核心判断</span><strong>'+esc(a.thesis)+'</strong></blockquote></div>'+
   '</header>'+
   '<div class="d-reading-shell">'+dToc(a)+'<main class="d-article">'+dOpening(a)+a.sections.map(s=>dSection(a,s)).join('')+dSources(a)+'</main></div>'+
  '</article>'
