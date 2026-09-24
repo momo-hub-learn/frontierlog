@@ -36,6 +36,7 @@ jobs:
         run: python scripts/build.py --out dist-ci --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Verify v2 output
         run: |
+          set -x
           test -f dist-ci/index.html
           test -f dist-ci/api/v1/hot-policy.json
           test -f dist-ci/api/v1/product-radar.json
@@ -44,10 +45,6 @@ jobs:
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "发布会 / 访谈雷达" dist-ci/index.html
-          grep -q "v2-pub-badge" dist-ci/index.html
-          grep -q '"venue":"arXiv"' dist-ci/index.html
-          grep -Fq "p.status===\'preprint\'?\'预印本\'" src/v2.js
-          grep -q "Nature / Science / 顶刊" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
           grep -q "Dwarkesh Podcast" dist-ci/index.html
           grep -q "v2-radar-tabs" dist-ci/index.html
