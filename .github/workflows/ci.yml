@@ -26,6 +26,7 @@ jobs:
           node --check src/v2.js
           node --check src/top5-editorial.js
           node --check src/github-hot.js
+          node --check src/huggingface-hot.js
           node --check src/deep-dives.js
           node --check src/feed-cockpit.js
           node --check src/product-v3.js
@@ -41,6 +42,7 @@ jobs:
           test -f dist-ci/api/v1/product-radar.json
           test -f dist-ci/api/v1/activity-radar.json
           test -f dist-ci/api/v1/github-hot.json
+          test -f dist-ci/api/v1/huggingface-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "发布会 / 播客 / 视频雷达" dist-ci/index.html
@@ -66,6 +68,10 @@ jobs:
           grep -q "分时热点" dist-ci/index.html
           grep -q "GitHub AI 热仓" dist-ci/index.html
           grep -q "GitHub 热榜" dist-ci/index.html
+          grep -q "HuggingFace 热榜" dist-ci/index.html
+          grep -q "HuggingFace 模型热榜" dist-ci/index.html
+          grep -q "Hugging Face Models · Trending" dist-ci/index.html
+          grep -q "trending_score" data/huggingface-hot.json
           grep -q "gh-topic-chip" dist-ci/index.html
           grep -q "Agent Runtime" dist-ci/index.html
           grep -q "Agent Harness" dist-ci/index.html
