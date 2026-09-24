@@ -29,6 +29,42 @@ const MODEL_COMPANIES=[
  {id:'vui-labs',name:'VUI Labs',aliases:['VUI Labs'],url:'https://doc.vuilabs.ai/api-reference/system-voices/'}
 ];
 window.MODEL_COMPANIES=MODEL_COMPANIES;
+const V2_TOOL_LINKS=[
+ {view:'toolkit',href:'#/toolkit',title:'今天能跑',desc:'公开工具与上手路径',icon:'wrench'},
+ {view:'benchmarks',href:'#/benchmarks',title:'Benchmark',desc:'评测口径与业务验证',icon:'gauge'},
+ {view:'tibo',href:'#/tibo',title:'Tibo 重置',desc:'Reset / banked / rollout',icon:'reset'}
+];
+function v2ToolDock(){
+ let dock=document.getElementById('v2-tool-dock');
+ const active=state.view==='benchmarks'?'benchmarks':state.view;
+ const wasOpen=Boolean(dock?.classList.contains('open'));
+ const links=V2_TOOL_LINKS.map(t=>`<a class="v2-tool-link ${active===t.view?'active':''}" href="${t.href}" role="menuitem" ${active===t.view?'aria-current="page"':''}><span class="v2-tool-link-icon">${icon(t.icon)}</span><span><strong>${t.title}</strong><small>${t.desc}</small></span>${icon('arrow')}</a>`).join('');
+ const html=`<div id="v2-tool-dock" class="v2-tool-dock ${V2_TOOL_LINKS.some(t=>t.view===active)?'is-tool-page':''} ${wasOpen?'open':''}"><button class="v2-tool-orb" type="button" data-v2-tool-toggle aria-label="打开工具箱" aria-expanded="${wasOpen?'true':'false'}">${icon('wrench')}<span class="v2-tool-orb-dot" aria-hidden="true"></span></button><div class="v2-tool-popover" role="menu" aria-label="可用工具"><div class="v2-tool-popover-head"><strong>工具箱</strong><small>快捷入口</small></div>${links}</div></div>`;
+ if(dock)dock.outerHTML=html;else document.body.insertAdjacentHTML('beforeend',html);
+}
+function v2CloseToolDock(){
+ const dock=document.getElementById('v2-tool-dock');if(!dock)return;
+ dock.classList.remove('open');
+ const button=dock.querySelector('[data-v2-tool-toggle]');if(button)button.setAttribute('aria-expanded','false');
+}
+if(!window.__AIC_V2_TOOL_DOCK_BOUND){
+ window.__AIC_V2_TOOL_DOCK_BOUND=true;
+ document.addEventListener('click',e=>{
+  const toggle=e.target.closest('[data-v2-tool-toggle]');
+  const dock=document.getElementById('v2-tool-dock');
+  if(toggle&&dock){
+   e.preventDefault();
+   const open=!dock.classList.contains('open');
+   dock.classList.toggle('open',open);
+   toggle.setAttribute('aria-expanded',String(open));
+   return;
+  }
+  if(e.target.closest('#v2-tool-dock a'))return v2CloseToolDock();
+  if(dock&&!e.target.closest('#v2-tool-dock'))v2CloseToolDock();
+ });
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')v2CloseToolDock()});
+}
+
 
 
 function v2Count(key){
@@ -36,12 +72,13 @@ function v2Count(key){
  return counts[key]??0;
 }
 renderNav=function(){
- const groups=[['内容',['feed','hot','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']],['模型',['models']],['我的',['saved']],['工具',['tibo']]];
+ const groups=[['内容',['feed','hot','progress','activity']],['主题',['topics','pharma','manufacturing']],['模型',['models']]];
  const active=state.view==='benchmarks'?'models':state.view;
  $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
  $('#crumb').textContent=pages[state.view][0];
  $('#source-count').textContent=DATA.sources.length+VERT.sources.length+MODEL_DATA.sources.length+RESET_DATA.sources.length+BENCH.sources.length;
  $('#snapshot-date').textContent=VERT.checked.replaceAll('-','.');
+ v2ToolDock();
 };
 
 function v2Brand(){

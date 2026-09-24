@@ -78,6 +78,20 @@ class BuildTests(unittest.TestCase):
             self.assertIn('V-JEPA 2.1',html)
             self.assertIn('Jev / System One Models',html)
 
+    def test_sidebar_uses_floating_tool_dock(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('id="v2-tool-dock"',html)
+            self.assertIn('工具箱',html)
+            self.assertIn("['内容',['feed','hot','progress','activity']]",html)
+            self.assertNotIn("['我的',['saved']]",html)
+            self.assertNotIn("['工具',['tibo']]",html)
+            self.assertIn("href='#/toolkit'".replace("'","\""),html.replace("'","\""))
+            self.assertIn('#/benchmarks',html)
+            self.assertIn('#/tibo',html)
+            self.assertIn('href="#/saved"',html)
+
     def test_feed_escapes_text(self):
         c=copy.deepcopy(self.c);c['events'][0]['title']='A < B & C'
         s={**self.s,'base_url':'https://example.org/sub/'}
