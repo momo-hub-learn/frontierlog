@@ -20,7 +20,7 @@ class BenchmarkTests(unittest.TestCase):
  def test_seed_counts_and_kinds(self):
   validate_benchmarks(self.data)
   self.assertEqual(len(self.data['items']),20)
-  self.assertEqual(len(self.data['sources']),28)
+  self.assertEqual(len(self.data['sources']),29)
   self.assertEqual(len(self.data['suites']),5)
   self.assertEqual(sum(b['kind']=='dataset' for b in self.data['items']),2)
  def test_duplicate_item(self):self.reject(lambda d:d['items'].append(copy.deepcopy(d['items'][0])))
@@ -60,10 +60,10 @@ class BenchmarkTests(unittest.TestCase):
   self.assertTrue(s['gap']);self.assertTrue(s['sources'])
  def test_feed_keeps_event_dates_and_provenance(self):
   xml=ET.fromstring(benchmark_rss(self.data,self.site));items=xml.findall('channel/item')
-  self.assertEqual(len(items),4)
+  self.assertEqual(len(items),len(self.data['changes']))
   src_dates={x['date'] for x in self.data['changes']}
   self.assertEqual({parsedate_to_datetime(i.findtext('pubDate')).date().isoformat() for i in items},src_dates)
-  self.assertEqual(len({i.findtext('guid') for i in items}),4)
+  self.assertEqual(len({i.findtext('guid') for i in items}),len(self.data['changes']))
   self.assertTrue(all('https://' in i.findtext('description') for i in items))
   self.assertTrue(all('/frontierlog/#/benchmarks' in i.findtext('link') for i in items))
  def test_feed_repeat_stable(self):self.assertEqual(benchmark_rss(self.data,self.site),benchmark_rss(self.data,self.site))
