@@ -23,6 +23,7 @@ jobs:
           node --check src/tibo-intel.js
           node --check src/top5-editorial.js
           node --check src/github-hot.js
+          node --check src/deep-dives.js
           node --check assets/tibo-intel.js
       - name: Build static site
         run: python scripts/build.py --out dist-ci --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
@@ -31,12 +32,15 @@ jobs:
           test -f dist-ci/index.html
           test -f dist-ci/api/v1/hot-policy.json
           test -f dist-ci/api/v1/github-hot.json
+          test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "Coding Agent" dist-ci/index.html
           grep -q "分时热点" dist-ci/index.html
           grep -q "GitHub AI 热仓" dist-ci/index.html
           grep -q "GitHub 热榜" dist-ci/index.html
+          grep -q "本周深读 / 拆一下" dist-ci/index.html
+          grep -q "Jev 到底应该放在 Agent Stack 的哪一层" dist-ci/index.html
           grep -q "爆热 98+" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
