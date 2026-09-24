@@ -1,8 +1,8 @@
 /* AI坐标 v2 — three page templates: feed / data workbench / vertical map */
 :root{--v2-radius:12px;--v2-control:9px;--v2-gap:16px;--v2-max-feed:1180px;--v2-max-work:1360px}
 main{max-width:var(--v2-max-work)}
-.brand.brand-v9{margin-bottom:26px;padding:0 8px 20px;border-bottom:1px solid var(--line);gap:11px}
-.brand-v9 .brandmark{width:40px;height:40px}.brand-v9 .brand-copy strong{font-family:var(--display,var(--sans));font-size:24px!important;font-weight:800!important;letter-spacing:-.055em!important}.brand-v9 .brand-cn:after,.brand-v9 strong:after{display:none!important}
+.brand.brand-v9{margin-bottom:30px;padding:6px 10px 26px;border-bottom:1px solid var(--line);gap:15px;min-height:72px}
+.brand-v9 .brandmark{width:52px;height:52px;flex:0 0 52px}.brand-v9 .brand-copy strong{font-family:var(--display,var(--sans));font-size:31px!important;font-weight:800!important;line-height:1!important;letter-spacing:-.055em!important}.brand-v9 .brand-cn:after,.brand-v9 strong:after{display:none!important}
 .navgroup-label{font-family:var(--sans);font-size:.72rem;letter-spacing:.04em;text-transform:none;margin:18px 11px 6px;color:var(--muted)}
 .navitem{border-radius:9px;padding:10px 11px;margin:2px 0}.navitem.active{background:var(--accent-bg);font-weight:650}.navitem.active:before{display:none}.navitem small{font-family:var(--display,var(--sans));font-variant-numeric:tabular-nums}
 .button,.iconbutton,.searchbox,.m-search,.m-select,.h-search,.b-search{border-radius:var(--v2-control)}
@@ -88,3 +88,5 @@ main{max-width:var(--v2-max-work)}
 .v2-single-title h1{margin-bottom:10px}
 .v2-single-title p{font-size:1rem!important;color:var(--sub)!important;line-height:1.6;margin:0}
 .v2-single-title small{display:block;margin-top:5px;font-size:.76rem;line-height:1.6;color:var(--muted);max-width:860px}
+
+@media(max-width:760px){.brand.brand-v9{padding:4px 8px 20px;gap:12px;min-height:62px}.brand-v9 .brandmark{width:46px;height:46px;flex-basis:46px}.brand-v9 .brand-copy strong{font-size:27px!important}}
