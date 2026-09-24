@@ -173,24 +173,37 @@ function v2Progress(){
  </div>`;
 }
 
+function v2ActivitySourceId(){
+ const p=new URLSearchParams(location.hash.split('?')[1]||''),id=p.get('source');
+ return (ACTIVITY_RADAR.sources||[]).some(x=>x.id===id)?id:'all';
+}
+function v2ActivitySourceHref(id){return id==='all'?'#/activity':'#/activity?source='+encodeURIComponent(id)}
 function v2Activity(){
  $('#hero').hidden=true; $('#stats').hidden=true; $('.workspace').hidden=false; $('#vertical-root').hidden=true; $('.section-head').hidden=true;
  $('#section-eyebrow').textContent='EVENTS & CONVERSATIONS'; $('#section-title').innerHTML=`<span class="mini-icon">${icon('history')}</span><span>发布会 / 访谈雷达</span>`;
  $('#layout-buttons').hidden=true; $('#toolbar').hidden=true; $('#contextline').hidden=true;
- const sourceMap=new Map((ACTIVITY_RADAR.sources||[]).map(x=>[x.id,x]));
- const eventRows=[...(ACTIVITY_RADAR.events||[])].sort((a,b)=>(a.status==='upcoming'?0:1)-(b.status==='upcoming'?0:1)||b.date.localeCompare(a.date));
- const media=[...(ACTIVITY_RADAR.media_items||[])].sort((a,b)=>b.published.localeCompare(a.published)).slice(0,10);
- const sourceChips=(ACTIVITY_RADAR.sources||[]).map(s=>`<a class="v2-radar-source" href="${safeLink(s.url)}" target="_blank" rel="noopener noreferrer"><strong>${esc(s.name)}</strong><small>${esc((s.formats||[]).join(' · '))} · ${s.sync==='rss'?'RSS':'官方页'}</small></a>`).join('');
+ const sources=ACTIVITY_RADAR.sources||[],sourceMap=new Map(sources.map(x=>[x.id,x])),activeSource=v2ActivitySourceId();
+ const allEvents=[...(ACTIVITY_RADAR.events||[])].sort((a,b)=>(a.status==='upcoming'?0:1)-(b.status==='upcoming'?0:1)||b.date.localeCompare(a.date));
+ const allMedia=[...(ACTIVITY_RADAR.media_items||[])].sort((a,b)=>b.published.localeCompare(a.published));
+ const eventRows=allEvents.filter(x=>activeSource==='all'||x.source_id===activeSource);
+ const media=allMedia.filter(x=>activeSource==='all'||x.source_id===activeSource).slice(0,activeSource==='all'?10:12);
+ const sourceCount=id=>allEvents.filter(x=>x.source_id===id).length+allMedia.filter(x=>x.source_id===id).length;
+ const tab=(id,title,count,sub='')=>`<a class="v2-radar-tab ${activeSource===id?'active':''}" href="${v2ActivitySourceHref(id)}" ${activeSource===id?'aria-current="page"':''}><span><strong>${esc(title)}</strong>${sub?'<em>'+esc(sub)+'</em>':''}</span><small>${count}</small></a>`;
+ const sourceTabs='<nav class="v2-radar-tabs" aria-label="发布会与访谈来源筛选">'+tab('all','全部',allEvents.length+allMedia.length,'All sources')+sources.map(s=>tab(s.id,s.name,sourceCount(s.id),s.kind==='event'?'官方发布会':'RSS')).join('')+'</nav>';
  const eventCard=e=>{const s=sourceMap.get(e.source_id)||{};return `<a class="v2-event-card ${e.status}" href="${safeLink(e.url)}" target="_blank" rel="noopener noreferrer"><div class="v2-event-date"><b>${esc(e.date.slice(5).replace('-','月')+'日')}</b><span>${esc(e.date.slice(0,4))}</span></div><div><div class="v2-radar-meta"><span>${e.status==='upcoming'?'下一场':'回放'}</span><small>${esc(s.publisher||s.name||'官方')}</small></div><h3>${esc(e.title)}</h3><p>${esc(e.summary)}</p><div class="v2-radar-tags">${(e.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>${icon('external')}</a>`};
  const mediaCard=m=>{const s=sourceMap.get(m.source_id)||{};return `<a class="v2-media-card" href="${safeLink(m.url)}" target="_blank" rel="noopener noreferrer"><div class="v2-media-top"><span>${esc(s.name||m.source_id)}</span><time>${esc(m.published.replaceAll('-','.'))}</time></div><h3>${esc(m.title)}</h3><p>${esc(m.summary||'')}</p><div class="v2-radar-tags">${(m.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="v2-media-foot"><small>${esc((s.formats||[]).join(' / '))}</small><span>打开原内容 ${icon('external')}</span></div></a>`};
  const groups={}; DATA.events.forEach(e=>(groups[e.task]??=[]).push(e)); (UP.releases||[]).forEach(e=>(groups[e.task]??=[]).push({...e,kind:'upstream',date:(e.published_at||'').slice(0,10),summary:e.name||'上游版本发布',delta:'机器收录，尚未人工核验。'}));
  const rows=Object.entries(groups).map(([id,ev])=>({task:tasks.get(id),events:ev.sort((a,b)=>b.date.localeCompare(a.date))})).filter(x=>x.task).sort((a,b)=>(b.events[0]?.date||'').localeCompare(a.events[0]?.date||''));
  const status=e=>e.kind==='research'?['研究','research']:e.kind==='upstream'?['待核验','pending']:['公开发布','release'];
- $('#content').innerHTML=`<div class="v2-pageintro v2-activity-intro"><div><h1>发布会 / 访谈雷达</h1><p>官方发布会看方向，一手访谈听大佬怎么想；项目兑现单独追，不把观点当成已发布事实。</p><small>Dwarkesh、Latent Space、No Priors、Lex 等公开 RSS 每 2 小时检查；Apple / NVIDIA 只用官方发布会页面。</small></div><span class="v2-pagecount">${(ACTIVITY_RADAR.sources||[]).length} 个高信号源</span></div>
- <div class="v2-radar-sources">${sourceChips}</div>
- <section class="v2-radar-section"><header><div><p class="eyebrow">KEYNOTES / OFFICIAL</p><h2>近期发布会</h2></div><small>优先官方直播 / 回放</small></header><div class="v2-event-grid">${eventRows.map(eventCard).join('')}</div></section>
- <section class="v2-radar-section"><header><div><p class="eyebrow">INTERVIEWS / PODCASTS</p><h2>大佬访谈 & 高信号播客</h2></div><small>最近核验 ${esc(ACTIVITY_RADAR.checked_at||'—')}</small></header><div class="v2-media-grid">${media.map(mediaCard).join('')}</div></section>
- <section class="v2-radar-section"><header><div><p class="eyebrow">PROMISE → REALITY</p><h2>发布后兑现</h2></div><small>宣布、研究、落地分开记</small></header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><span class="v2-life-chip">${label}</span><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`;
+ const eventSection=eventRows.length?`<section class="v2-radar-section"><header><div><p class="eyebrow">KEYNOTES / OFFICIAL</p><h2>近期发布会</h2></div><small>${activeSource==='all'?'优先官方直播 / 回放':esc(sourceMap.get(activeSource)?.name||'官方来源')}</small></header><div class="v2-event-grid">${eventRows.map(eventCard).join('')}</div></section>`:'';
+ const mediaSection=media.length?`<section class="v2-radar-section"><header><div><p class="eyebrow">INTERVIEWS / PODCASTS</p><h2>大佬访谈 & 高信号播客</h2></div><small>最近核验 ${esc(ACTIVITY_RADAR.checked_at||'—')}</small></header><div class="v2-media-grid">${media.map(mediaCard).join('')}</div></section>`:'';
+ const emptySection=!eventRows.length&&!media.length?'<div class="v2-radar-empty"><h3>这个来源暂时没有已收录内容</h3><p>切换到“全部”或其他来源继续看。</p></div>':'';
+ const lifecycleSection=activeSource==='all'?`<section class="v2-radar-section"><header><div><p class="eyebrow">PROMISE → REALITY</p><h2>发布后兑现</h2></div><small>宣布、研究、落地分开记</small></header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><span class="v2-life-chip">${label}</span><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`:'';
+ const activeLabel=activeSource==='all'?'全部来源':(sourceMap.get(activeSource)?.name||activeSource);
+ const visibleCount=eventRows.length+media.length;
+ $('#content').innerHTML=`<div class="v2-pageintro v2-activity-intro"><div><h1>发布会 / 访谈雷达</h1><p>官方发布会看方向，一手访谈听大佬怎么想；项目兑现单独追，不把观点当成已发布事实。</p><small>点上方来源 Tab 直接筛选；Dwarkesh、Latent Space、No Priors、Lex 等公开 RSS 每 2 小时检查，Apple / NVIDIA 只用官方发布会页面。</small></div><span class="v2-pagecount">${activeSource==='all'?sources.length+' 个高信号源':esc(activeLabel)+' · '+visibleCount+' 条'}</span></div>
+ ${sourceTabs}
+ ${eventSection}${mediaSection}${emptySection}${lifecycleSection}`;
 }
 
 

@@ -120,6 +120,13 @@ class BuildTests(unittest.TestCase):
             self.assertIn('Noam Brown — Agent swarms',html)
             self.assertIn('Dwarkesh Podcast',html)
             self.assertIn('公开 RSS 每 2 小时检查',html)
+            self.assertIn('v2-radar-tabs',html)
+            self.assertIn("function v2ActivitySourceHref(id)",html)
+            self.assertIn("'#/activity?source='",html)
+            self.assertIn("apple-events",html)
+            self.assertIn("dwarkesh",html)
+            self.assertIn("function v2ActivitySourceId()",html)
+            self.assertIn("activeSource==='all'",html)
 
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:

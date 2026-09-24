@@ -46,6 +46,9 @@ jobs:
           grep -q "发布会 / 访谈雷达" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
           grep -q "Dwarkesh Podcast" dist-ci/index.html
+          grep -q "v2-radar-tabs" dist-ci/index.html
+          grep -q "v2ActivitySourceHref" dist-ci/index.html
+          grep -Fq "'#/activity?source='" dist-ci/index.html
           ! grep -q "<h1>今天，AI 走到哪了？</h1>" dist-ci/index.html
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "v2-tool-dock" dist-ci/index.html
