@@ -51,6 +51,9 @@ jobs:
           grep -q "v3-company-cell.*mCompanyCell" src/product-v3.js
           grep -q "Microsoft AI.*favicon.ico" src/models.js
           grep -q "Jev 到底应该放在 Agent Stack 的哪一层" dist-ci/index.html
+          ! grep -q "d-arch-flow.*overflow-x:auto" src/deep-dives.css
+          grep -q "d-arch-flow{display:grid" src/deep-dives.css
+          grep -q "d-breakout{width:100%;margin-left:0}" src/deep-dives.css
           grep -q "爆热 98+" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
