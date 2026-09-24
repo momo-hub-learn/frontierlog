@@ -1780,6 +1780,355 @@
       "snapshots": 3
     }
   },
+  "huggingface_hot": {
+    "version": 1,
+    "checked_at": "2026-09-25T00:11:00+08:00",
+    "source_url": "https://huggingface.co/models?sort=trending",
+    "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
+    "source_scope": "Hugging Face Models · Trending · Top 20",
+    "note": "完整顺序来自 Hugging Face 官方 Models Trending / API 的 trendingScore 降序。trendingScore、likes、downloads 都是 Hugging Face 官方字段；它们代表平台热度与使用信号，不代表模型能力、质量或本站实测。",
+    "items": [
+      {
+        "rank": 1,
+        "id": "convaiinnovations/laya",
+        "url": "https://huggingface.co/convaiinnovations/laya",
+        "trending_score": 3150,
+        "likes": 3297,
+        "downloads": 0,
+        "task": "text-classification",
+        "library": "transformers",
+        "created_at": "2026-09-18T05:05:55Z",
+        "tags": [
+          "system-one",
+          "routing",
+          "scoring",
+          "guardrails"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "Qwen/Qwen-Image-2.1",
+        "url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+        "trending_score": 2008,
+        "likes": 2142,
+        "downloads": 37618,
+        "task": "text-to-image",
+        "library": "diffusers",
+        "created_at": "2026-09-14T03:47:26Z",
+        "tags": [
+          "image-generation",
+          "image-editing",
+          "qwen",
+          "diffusers"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+        "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
+        "trending_score": 1819,
+        "likes": 1992,
+        "downloads": 2991233,
+        "task": "text-generation",
+        "library": "llama.cpp",
+        "created_at": "2026-09-16T23:40:56Z",
+        "tags": [
+          "ternary",
+          "2-bit",
+          "on-device",
+          "gguf"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "XingChen-AGI/Xing4.0-29B-A4B",
+        "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B",
+        "trending_score": 1461,
+        "likes": 1641,
+        "downloads": 41923,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-09-16T06:44:40Z",
+        "tags": [
+          "xing4_0",
+          "text-generation",
+          "conversational",
+          "custom_code"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
+        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
+        "trending_score": 1385,
+        "likes": 1569,
+        "downloads": 575697,
+        "task": "text-to-image",
+        "library": "gguf",
+        "created_at": "2026-09-20T15:51:13Z",
+        "tags": [
+          "gguf",
+          "image-generation",
+          "comfyui",
+          "text-to-image"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "Comfy-Org/Qwen-Image-2.1",
+        "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+        "trending_score": 629,
+        "likes": 655,
+        "downloads": 2858923,
+        "task": "other",
+        "library": "diffusion-single-file",
+        "created_at": "2026-09-15T19:41:09Z",
+        "tags": [
+          "comfyui",
+          "qwen-image",
+          "fine-tune"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "Altworld/Hemmingway-1",
+        "url": "https://huggingface.co/Altworld/Hemmingway-1",
+        "trending_score": 595,
+        "likes": 609,
+        "downloads": 4541,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-09-20T12:10:31Z",
+        "tags": [
+          "creative-writing",
+          "qwen3.8",
+          "chat",
+          "conversational"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+        "trending_score": 533,
+        "likes": 3696,
+        "downloads": 606028,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-10T02:17:58Z",
+        "tags": [
+          "deepseek_v41",
+          "multimodal",
+          "mit",
+          "eval-results"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "Qwen/Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "trending_score": 505,
+        "likes": 16186,
+        "downloads": 6765008,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-08-05T08:22:59Z",
+        "tags": [
+          "qwen3.8",
+          "multimodal",
+          "conversational",
+          "eval-results"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "TaichuAI/ZDTaichu5.0-9B",
+        "url": "https://huggingface.co/TaichuAI/ZDTaichu5.0-9B",
+        "trending_score": 480,
+        "likes": 1032,
+        "downloads": 8313,
+        "task": "image-text-to-text",
+        "library": "custom",
+        "created_at": "2026-09-04T02:55:48Z",
+        "tags": [
+          "multimodal",
+          "spatial-reasoning",
+          "agent",
+          "video-understanding"
+        ]
+      },
+      {
+        "rank": 11,
+        "id": "AlexWortega/openjev",
+        "url": "https://huggingface.co/AlexWortega/openjev",
+        "trending_score": 472,
+        "likes": 547,
+        "downloads": 0,
+        "task": "text-classification",
+        "library": "transformers",
+        "created_at": "2026-09-16T18:25:10Z",
+        "tags": [
+          "nli",
+          "cross-encoder",
+          "reranker",
+          "text-classification"
+        ]
+      },
+      {
+        "rank": 12,
+        "id": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+        "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+        "trending_score": 460,
+        "likes": 470,
+        "downloads": 9841,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-09-21T15:39:33Z",
+        "tags": [
+          "multimodal",
+          "audio",
+          "agent",
+          "long-context"
+        ]
+      },
+      {
+        "rank": 13,
+        "id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+        "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+        "trending_score": 431,
+        "likes": 436,
+        "downloads": 18821,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-09-21T15:39:51Z",
+        "tags": [
+          "multimodal",
+          "audio",
+          "agent",
+          "long-context"
+        ]
+      },
+      {
+        "rank": 14,
+        "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+        "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+        "trending_score": 414,
+        "likes": 422,
+        "downloads": 5705,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-21T18:18:40Z",
+        "tags": [
+          "agentic",
+          "distillation",
+          "code",
+          "tool-use"
+        ]
+      },
+      {
+        "rank": 15,
+        "id": "Lightricks/LTX-2.5",
+        "url": "https://huggingface.co/Lightricks/LTX-2.5",
+        "trending_score": 381,
+        "likes": 4959,
+        "downloads": 1637601,
+        "task": "image-to-video",
+        "library": "diffusion-single-file",
+        "created_at": "2026-07-23T07:55:24Z",
+        "tags": [
+          "image-to-video",
+          "text-to-video",
+          "audio-to-video",
+          "ltx-2.5"
+        ]
+      },
+      {
+        "rank": 16,
+        "id": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "trending_score": 368,
+        "likes": 1633,
+        "downloads": 1465429,
+        "task": "image-text-to-text",
+        "library": "gguf",
+        "created_at": "2026-08-28T18:38:03Z",
+        "tags": [
+          "quantization",
+          "multimodal",
+          "vision",
+          "gguf"
+        ]
+      },
+      {
+        "rank": 17,
+        "id": "prism-ml/Ternary-Bonsai-2-27B-mlx-2bit",
+        "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit",
+        "trending_score": 347,
+        "likes": 365,
+        "downloads": 51644,
+        "task": "text-generation",
+        "library": "mlx",
+        "created_at": "2026-09-16T23:41:18Z",
+        "tags": [
+          "ternary",
+          "2-bit",
+          "on-device",
+          "mlx"
+        ]
+      },
+      {
+        "rank": 18,
+        "id": "harshatheg/Qwen-2.5-1B-RLCD",
+        "url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD",
+        "trending_score": 334,
+        "likes": 563,
+        "downloads": 0,
+        "task": "text-generation",
+        "library": "mlx",
+        "created_at": "2026-09-16T01:35:33Z",
+        "tags": [
+          "structured-generation",
+          "constrained-decoding",
+          "classification",
+          "mlx"
+        ]
+      },
+      {
+        "rank": 19,
+        "id": "netease-youdao/Confucius4-R2T2",
+        "url": "https://huggingface.co/netease-youdao/Confucius4-R2T2",
+        "trending_score": 328,
+        "likes": 385,
+        "downloads": 4930,
+        "task": "automatic-speech-recognition",
+        "library": "custom",
+        "created_at": "2026-09-10T12:16:21Z",
+        "tags": [
+          "asr",
+          "streaming",
+          "low-latency",
+          "multilingual"
+        ]
+      },
+      {
+        "rank": 20,
+        "id": "yandex/AliceAI-Foundation-80B-A3B-Base",
+        "url": "https://huggingface.co/yandex/AliceAI-Foundation-80B-A3B-Base",
+        "trending_score": 293,
+        "likes": 311,
+        "downloads": 2678,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-09-12T10:32:07Z",
+        "tags": [
+          "mixture-of-experts",
+          "text-generation",
+          "vllm",
+          "apache-2.0"
+        ]
+      }
+    ]
+  },
   "deep_dives": {
     "version": 1,
     "checked": "2026-09-24",
