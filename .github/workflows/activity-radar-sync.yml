@@ -30,6 +30,13 @@ jobs:
           python-version: '3.11'
       - name: Sync public podcast feeds
         run: python scripts/collect_activity_radar.py
+      - name: Rebase collected data on latest main
+        run: |
+          cp data/activity-radar.json /tmp/activity-radar.json
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/activity-radar.json data/activity-radar.json
+          cp /tmp/activity-radar.json api/v1/activity-radar.json
       - name: Validate and build site
         run: |
           python -m unittest tests.test_build
