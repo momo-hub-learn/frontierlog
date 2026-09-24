@@ -81,6 +81,10 @@ jobs:
           grep -q "AI 产品雷达" dist-ci/index.html
           grep -q "Harvey" dist-ci/index.html
           grep -q "Lightfield" dist-ci/index.html
+          grep -q "RECENT MOVES / VERIFIED" dist-ci/index.html
+          grep -q "近期进展" dist-ci/index.html
+          grep -q "product-tag" dist-ci/index.html
+          grep -q "AIUC-1 Agent 安全与治理认证" dist-ci/index.html
           grep -q "前沿范式" dist-ci/index.html
           grep -q "跨学科 AI" dist-ci/index.html
           grep -q "Neo Labs" dist-ci/index.html

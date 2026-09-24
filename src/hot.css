@@ -153,3 +153,26 @@ dialog[data-type="hot"].wide #modal-body{padding:0}
 .h-product-card footer{display:flex;gap:14px;flex-wrap:wrap;margin-top:11px}.h-product-card footer a{display:inline-flex;align-items:center;gap:4px;font-size:.69rem;color:var(--sub)}.h-product-card footer a:hover{color:var(--accent)}.h-product-card footer .ico{width:11px}
 .h-product-radar-note{font-size:.65rem;color:var(--muted);line-height:1.55;margin-top:15px;padding-top:11px;border-top:1px solid var(--line)}
 @media(max-width:760px){.h-product-radar{padding:15px}.h-product-radar-head{display:block}.h-product-radar-head>span{display:block;margin-top:8px}.h-product-grid{grid-template-columns:1fr}}
+
+/* Product radar filters + verified recent progress timeline. */
+.h-product-filters{display:flex;gap:7px;flex-wrap:wrap;padding:14px 0 2px}
+.h-product-filter{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 9px;color:var(--sub);font-size:.72rem}
+.h-product-filter small{font:600 .58rem var(--mono);color:var(--muted)}
+.h-product-filter:hover{background:var(--hover);color:var(--text)}
+.h-product-filter.active{background:var(--ink);border-color:var(--ink);color:#fff}.h-product-filter.active small{color:#c7d2ce}
+.h-product-moves{margin:15px 0 20px;border:1px solid var(--line);border-radius:11px;background:var(--panel);overflow:hidden}
+.h-product-moves-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:13px 15px;border-bottom:1px solid var(--soft-line);background:color-mix(in srgb,var(--raised) 48%,var(--panel))}
+.h-product-moves-head h3{font-size:1rem;margin-top:2px}.h-product-moves-head p:not(.eyebrow){font-size:.69rem;color:var(--muted);margin-top:3px}.h-product-moves-head>span{font:650 .64rem var(--mono);color:var(--muted);white-space:nowrap}
+.h-product-move-list{display:grid;grid-template-columns:1fr 1fr}
+.h-product-move{display:grid;grid-template-columns:48px 72px 92px minmax(0,1fr) 13px;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--soft-line);min-width:0}
+.h-product-move:nth-child(odd){border-right:1px solid var(--soft-line)}.h-product-move:hover{background:var(--hover)}
+.h-product-move time{font:650 .64rem var(--mono);color:var(--muted)}.h-product-move-kind{font-size:.61rem;color:var(--accent);background:var(--accent-bg);border-radius:999px;padding:2px 6px;width:max-content}
+.h-product-move strong{font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.h-product-move p{font-size:.72rem;line-height:1.45;color:var(--sub);min-width:0}
+.h-product-move .ico{width:11px;color:var(--muted)}
+.h-product-latest{display:grid;grid-template-columns:auto 1fr 12px;gap:4px 8px;align-items:center;margin:10px 0 11px;padding:9px 10px;border-radius:8px;background:var(--raised)}
+.h-product-latest>span{grid-column:1;font-size:.61rem;color:var(--accent);font-weight:700}.h-product-latest time{grid-column:2;font:600 .59rem var(--mono);color:var(--muted);justify-self:end}
+.h-product-latest strong{grid-column:1/3;font-size:.71rem;line-height:1.45;font-weight:600;color:var(--sub)}.h-product-latest>.ico{grid-column:3;grid-row:1/3;width:11px;color:var(--muted)}
+.h-product-latest:hover strong,.h-product-latest:hover>.ico{color:var(--accent)}.h-product-latest.empty{display:block}.h-product-latest.empty strong{display:block;margin-top:3px;color:var(--muted)}
+.h-product-radar-empty{padding:34px 18px;text-align:center;color:var(--muted)}.h-product-radar-empty h3{font-size:1rem;color:var(--text);margin-bottom:5px}.h-product-radar-empty p{font-size:.74rem}
+@media(max-width:980px){.h-product-move-list{grid-template-columns:1fr}.h-product-move:nth-child(odd){border-right:0}.h-product-move{grid-template-columns:48px 72px 90px minmax(0,1fr) 13px}}
+@media(max-width:620px){.h-product-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}.h-product-filters::-webkit-scrollbar{display:none}.h-product-filter{white-space:nowrap}.h-product-moves-head{align-items:flex-start}.h-product-move{grid-template-columns:45px auto minmax(0,1fr) 12px}.h-product-move strong{grid-column:3}.h-product-move p{grid-column:1/4;padding-top:2px}.h-product-move-kind{grid-column:2}.h-product-move .ico{grid-column:4;grid-row:1/3}}

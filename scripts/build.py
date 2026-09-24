@@ -79,10 +79,32 @@ def validate_product_radar(data:dict)->None:
         if item.get('group') not in set(gids): raise ValueError('Unknown product radar group')
         tags=item.get('tags')
         if not isinstance(tags,list) or not 2<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() for t in tags): raise ValueError('Invalid product radar tags')
+        filter_ids=item.get('filter_ids')
+        if not isinstance(filter_ids,list) or not filter_ids or len(filter_ids)!=len(set(filter_ids)): raise ValueError('Invalid product radar filters')
         for key in required:
             if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing product radar '+key)
         for key in ('product_url','source_url'):
             if not https_url(item.get(key,'')): raise ValueError('Invalid product radar URL: '+key)
+        timeline=item.get('timeline')
+        if not isinstance(timeline,list): raise ValueError('Invalid product radar timeline')
+        last=None
+        for event in timeline:
+            if not isinstance(event,dict): raise ValueError('Invalid product radar timeline event')
+            ed=date.fromisoformat(event.get('date',''))
+            if ed>checked: raise ValueError('Future product radar event')
+            if last and ed>last: raise ValueError('Product radar timeline must be newest first')
+            last=ed
+            for key in ('kind','title'):
+                if not isinstance(event.get(key),str) or not event[key].strip(): raise ValueError('Incomplete product radar timeline event')
+            if not https_url(event.get('url','')): raise ValueError('Invalid product radar timeline URL')
+    filters=data.get('filters')
+    if not isinstance(filters,list) or not filters: raise ValueError('Missing product radar filters')
+    fids=[f.get('id') for f in filters]
+    if len(fids)!=len(set(fids)) or any(not isinstance(x,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*',x) for x in fids): raise ValueError('Invalid product radar filter IDs')
+    if any(not isinstance(f.get('title'),str) or not f['title'].strip() for f in filters): raise ValueError('Invalid product radar filter title')
+    known=set(fids)
+    for item in items:
+        if not set(item['filter_ids']).issubset(known): raise ValueError('Unknown product radar filter')
 
 def write_json(path: Path, obj: object) -> None:
     path.parent.mkdir(parents=True,exist_ok=True)
