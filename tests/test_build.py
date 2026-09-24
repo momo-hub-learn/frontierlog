@@ -107,6 +107,20 @@ class BuildTests(unittest.TestCase):
             self.assertIn('AI × Biology',html)
             self.assertIn('Action-Conditioned World Models',html)
 
+    def test_publication_status_badges_render_in_timeline(self):
+        catalog=json.loads((ROOT/'data/catalog.json').read_text())
+        pubs=[e['publication'] for e in catalog['events'] if e.get('publication')]
+        self.assertGreaterEqual(len(pubs),3)
+        self.assertTrue(all(p['status']=='preprint' for p in pubs))
+        self.assertTrue(all(p['venue']=='arXiv' for p in pubs))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('v2-pub-badge',html)
+            self.assertIn('预印本 · arXiv',html)
+            self.assertIn("p.ccf?'CCF '+p.ccf",html)
+            self.assertIn('Nature / Science / 顶刊',html)
+
     def test_activity_radar_renders_official_events_and_interviews(self):
         radar=json.loads((ROOT/'data/activity-radar.json').read_text())
         self.assertTrue(any(x['status']=='upcoming' for x in radar['events']))
