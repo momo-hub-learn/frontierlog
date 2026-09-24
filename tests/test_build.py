@@ -85,7 +85,7 @@ class BuildTests(unittest.TestCase):
             self.assertIn('id="v2-tool-dock"',html)
             self.assertIn('V2_TOOL_DOCK_KEY',html)
             self.assertIn('pointermove',html)
-            self.assertIn("['内容',['feed','hot','progress','models','activity']]",html)
+            self.assertIn("['内容',['feed','hot','models','progress','activity','toolkit']]",html)
             self.assertNotIn("['模型',['models']]",html)
             self.assertNotIn("['我的',['saved']]",html)
             self.assertNotIn("['工具',['tibo']]",html)

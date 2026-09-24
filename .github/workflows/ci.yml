@@ -43,7 +43,7 @@ jobs:
           grep -q "v2-tool-dock" dist-ci/index.html
           grep -q "V2_TOOL_DOCK_KEY" dist-ci/index.html
           grep -q "pointermove" dist-ci/index.html
-          grep -Fq "const groups=[['内容',['feed','hot','progress','models','activity']]" src/v2.js
+          grep -Fq "const groups=[['内容',['feed','hot','models','progress','activity','toolkit']]" src/v2.js
           ! grep -Fq "{view:'toolkit',href:'#/toolkit'" src/v2.js
           ! grep -Fq "{view:'benchmarks',href:'#/benchmarks'" src/v2.js
           grep -Fq "{view:'tibo',href:'#/tibo'" src/v2.js

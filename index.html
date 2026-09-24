@@ -1981,7 +1981,7 @@ function v2Count(key){
  return counts[key]??0;
 }
 renderNav=function(){
- const groups=[['内容',['feed','hot','progress','models','activity']],['主题',['topics','pharma','manufacturing']]];
+ const groups=[['内容',['feed','hot','models','progress','activity','toolkit']],['主题',['topics','pharma','manufacturing']]];
  const active=state.view==='benchmarks'?'models':state.view;
  $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
  $('#crumb').textContent=pages[state.view][0];
