@@ -44,21 +44,6 @@ function hfTabs(){
     return '<a class="hf-type-chip '+(active===id?'active':'')+'" href="'+hfHref(id)+'" '+(active===id?'aria-current="page"':'')+'><span>'+esc(title)+'</span><small>'+count+'</small></a>'
   }).join('')+'</nav>'
 }
-function hfPreview(){
-  const rows=(HF.items||[]).slice(0,5);if(!rows.length)return '';
-  const max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
-  return '<section class="hf-preview">'+
-    '<div class="v10-section-head"><div><p class="eyebrow">HUGGING FACE / MODEL SIGNAL</p><h2>HuggingFace 模型热榜</h2><p>直接看 Hugging Face 官方 Models Trending；趋势分是平台热度信号，不是模型能力分。</p></div><a href="#/hot?tab=hf">完整 HuggingFace 热榜 '+icon('arrow')+'</a></div>'+
-    '<div class="hf-preview-list">'+rows.map(x=>
-      '<a class="hf-preview-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
-        '<span class="hf-preview-rank">HF #'+String(x.rank).padStart(2,'0')+'</span>'+
-        '<span class="hf-preview-main"><strong>'+esc(x.id)+'</strong><small>'+esc(x.task||'—')+' · '+esc(x.library||'—')+'</small></span>'+
-        '<span class="hf-preview-score"><b>'+hfFmt(x.trending_score)+'</b><small>Trending</small><i style="--hf-w:'+Math.max(4,Math.round((Number(x.trending_score)||0)/max*100))+'%"></i></span>'+
-      '</a>'
-    ).join('')+'</div>'+
-    '<div class="hf-preview-foot"><span>官方 Trending 顺序 · 不等于模型能力榜</span><span>核验 '+esc(hfWhen())+'</span></div>'+
-  '</section>'
-}
 function hfInline(){
   const rows=hfRows(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
   return '<section class="hf-inline">'+
@@ -102,12 +87,6 @@ document.addEventListener('input',e=>{
   history.replaceState(null,'','#/hot?'+p.toString());parseRoute();
   const n=document.getElementById('hf-search');if(n){n.focus({preventScroll:true});try{n.setSelectionRange(pos,pos)}catch{}}
 });
-
-const hfBaseFeedPage=feedPage;
-feedPage=function(){
-  const html=hfBaseFeedPage(),block=hfPreview(),marker='<section class="v10-personal',at=html.indexOf(marker);
-  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
-};
 
 if(state.view==='feed'){lastMain='';renderMain()}
 })();

@@ -35,23 +35,6 @@
 .hf-score i:after{content:"";display:block;width:var(--hf-w);height:100%;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:inherit}
 .hf-note{font-size:.7rem;color:var(--muted);line-height:1.6;margin-top:8px;padding:0 2px}
 
-.hf-preview{margin-top:28px}
-.hf-preview .v10-section-head{margin-bottom:12px}
-.hf-preview-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-.hf-preview-row{display:grid;grid-template-columns:60px minmax(0,1fr) 150px;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
-.hf-preview-row:last-child{border-bottom:0}
-.hf-preview-row:hover{background:var(--hover)}
-.hf-preview-rank{font:700 .68rem var(--mono);color:var(--muted)}
-.hf-preview-main{min-width:0}
-.hf-preview-main strong{display:block;font:700 .88rem var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hf-preview-main small{display:block;color:var(--sub);font-size:.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
-.hf-preview-score{justify-self:stretch;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px;min-width:0}
-.hf-preview-score b{font:800 .95rem var(--display,var(--sans));color:var(--accent)}
-.hf-preview-score small{font-size:.65rem;color:var(--muted);text-align:right}
-.hf-preview-score i{grid-column:1/-1;display:block;height:4px;background:var(--raised);border-radius:999px;margin-top:5px;overflow:hidden}
-.hf-preview-score i:after{content:"";display:block;width:var(--hf-w);height:100%;background:var(--lime);border-radius:inherit}
-.hf-preview-foot{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.68rem;margin-top:7px;padding:0 2px}
-
 @media(max-width:760px){
  .hf-inline-head{display:block}
  .hf-inline-head>div:last-child{margin-top:7px;justify-content:flex-start}
@@ -59,7 +42,4 @@
  .hf-score{grid-column:2}
  .hf-method{grid-template-columns:1fr}
  .hf-model{font-size:.84rem}
- .hf-preview-row{grid-template-columns:48px minmax(0,1fr);gap:9px}
- .hf-preview-score{grid-column:2}
- .hf-preview-foot{display:block}
 }
