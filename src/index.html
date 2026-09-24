@@ -7,7 +7,11 @@
 <meta name="description" content="每天按时间线追踪 AI 热点，并汇总模型榜、Benchmark、医药与制造业的高信号进展。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%3E%0A%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2258%22%20height%3D%2258%22%20rx%3D%2218%22%20fill%3D%22%23EEF3E8%22%2F%3E%0A%3Cpath%20d%3D%22M18%2017v30h30%22%20stroke%3D%22%23152B29%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M23%2039.5%2032%2031l8%203%208-13%22%20stroke%3D%22%233D672C%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Ccircle%20cx%3D%2248%22%20cy%3D%2221%22%20r%3D%226.3%22%20fill%3D%22%23D5F36B%22%20stroke%3D%22%23152B29%22%20stroke-width%3D%223.2%22%2F%3E%0A%3Ccircle%20cx%3D%2218%22%20cy%3D%2247%22%20r%3D%222.6%22%20fill%3D%22%23152B29%22%2F%3E%0A%3C%2Fsvg%3E">
 @@FEED@@
-<style>@@CSS@@</style>
+<style>@@CSS@@
+.m-company-name.m-company-link{color:inherit;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px}
+.m-company-name.m-company-link:hover,.m-company-name.m-company-link:focus-visible{opacity:.78;text-decoration-style:solid}
+.m-company-name.m-company-link .m-company-out{font-size:.72em;margin-left:.2em;vertical-align:.06em}
+</style>
 <script>
 // Load the optional display fonts after the first paint; system fonts remain the no-network fallback.
 window.addEventListener('load',()=>{try{const l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap';document.head.appendChild(l)}catch{}},{once:true});
@@ -50,5 +54,14 @@ document.querySelector('meta[name=theme-color]').content=document.documentElemen
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-bar"><span id="modal-label"></span><button class="iconbutton" data-action="close-modal" aria-label="关闭对话框"><span data-icon="close"></span></button></div><div id="modal-body"></div></dialog>
 <dialog id="palette" class="palette" aria-label="快捷搜索"><div class="palette-search"><span data-icon="search"></span><input id="palette-input" aria-label="搜索项目和页面" placeholder="搜索项目，或跳转到页面…" autocomplete="off"><kbd>ESC</kbd></div><div id="palette-results"></div><div class="palette-foot"><span>↑ ↓ 选择 &nbsp; ↵ 打开</span><span>QUICK NAVIGATION</span></div></dialog>
 <input type="file" id="benchmark-import" accept="application/json,.json" hidden><input type="file" id="model-import" accept="application/json,.json" hidden><input type="file" id="vertical-import" accept="application/json,.json" hidden><input type="file" id="import-file" accept="application/json,.json" hidden><div id="toast" class="toast" role="status"></div>
-<script id="app-data" type="application/json">@@DATA@@</script><script>@@JS@@</script>
+<script id="app-data" type="application/json">@@DATA@@</script><script>@@JS@@
+;(()=>{
+ const urls={Anthropic:'https://www.anthropic.com/',OpenAI:'https://openai.com/',Meta:'https://ai.meta.com/',Xiaomi:'https://robotics.xiaomi.com/',Alibaba:'https://www.alibabacloud.com/','Z AI':'https://z.ai/',SpaceXAI:'https://x.ai/',Kimi:'https://www.kimi.com/',Google:'https://ai.google/','Google DeepMind':'https://deepmind.google/',DeepSeek:'https://www.deepseek.com/',MiniMax:'https://www.minimax.io/',NVIDIA:'https://www.nvidia.com/',Figure:'https://www.figure.ai/','World Labs':'https://www.worldlabs.ai/','Meta FAIR':'https://ai.meta.com/research/','TypeSafe AI':'https://typesafe.ai/','AMI Labs':'https://amilabs.xyz/',Subconscious:'https://www.subconscious.dev/','Hugging Face':'https://huggingface.co/','Physical Intelligence':'https://www.physicalintelligence.company/'};
+ mCompanyCell=function(r){
+  const logo=mLogoForMaker(r.maker),url=urls[mMakerKey(r.maker)];
+  const mark='<span class="m-company-logo" aria-hidden="true"><span>'+esc(mMakerInitials(r.maker))+'</span>'+(logo?'<img src="'+safeLink(logo)+'" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true">':'')+'</span>';
+  const name=url?'<a class="m-company-name m-company-link" href="'+safeLink(url)+'" target="_blank" rel="noopener noreferrer" title="'+esc(r.maker)+' 官网">'+esc(r.maker)+'<span class="m-company-out" aria-hidden="true">↗</span></a>':'<span class="m-company-name">'+esc(r.maker)+'</span>';
+  return '<div class="m-company">'+mark+name+'</div>';
+ };
+})();</script>
 </body></html>
