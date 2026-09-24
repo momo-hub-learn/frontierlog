@@ -952,6 +952,9 @@ main{max-width:var(--v2-max-work)}
 .fc-panel{border:1px solid var(--line);border-radius:13px;background:var(--panel);overflow:hidden;box-shadow:var(--surface-shadow)}
 .fc-panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 18px 13px;border-bottom:1px solid var(--soft-line)}
 .fc-panel-head h2{font-size:1.28rem;letter-spacing:-.035em;margin-top:2px}
+.fc-panel-titleline{display:flex;align-items:baseline;gap:10px;min-width:0}
+.fc-panel-titleline h2{margin:0}
+.fc-panel-titleline .eyebrow{font-size:.66rem;letter-spacing:.09em;white-space:nowrap}
 .fc-panel-head>a{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);white-space:nowrap}
 .fc-panel-head>a:hover{color:var(--accent)}
 .fc-panel-head>a .ico{width:12px}
@@ -2627,7 +2630,7 @@ else if(state.view==='feed'){lastMain='';renderMain()}
 function fcHotPanel(){
  const rows=v10HotByHeat(HOT.items).slice(0,5);
  return '<section class="fc-panel fc-hot-panel">'+
-  '<div class="fc-panel-head"><div><p class="eyebrow">HOT / NOW</p><h2>热点</h2></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / NOW</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
   '<div class="fc-hot-list">'+rows.map((x,i)=>
    '<a class="fc-hot-row" href="#/hot?item='+encodeURIComponent(x.id)+'">'+
     '<span class="fc-hot-rank">'+String(i+1).padStart(2,'0')+'</span>'+
