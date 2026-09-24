@@ -30,17 +30,50 @@ const MODEL_COMPANIES=[
 ];
 window.MODEL_COMPANIES=MODEL_COMPANIES;
 const V2_TOOL_LINKS=[
- {view:'toolkit',href:'#/toolkit',title:'今天能跑',desc:'公开工具与上手路径',icon:'wrench'},
- {view:'benchmarks',href:'#/benchmarks',title:'Benchmark',desc:'评测口径与业务验证',icon:'gauge'},
  {view:'tibo',href:'#/tibo',title:'Tibo 重置',desc:'Reset / banked / rollout',icon:'reset'}
 ];
+const V2_TOOL_DOCK_KEY='aic.v2.toolDockPosition';
+let v2ToolDrag=null;
+function v2ReadToolDockPosition(){
+ try{
+  const p=JSON.parse(localStorage.getItem(V2_TOOL_DOCK_KEY)||'null');
+  if(p&&Number.isFinite(p.x)&&Number.isFinite(p.y))return p;
+ }catch{}
+ return null;
+}
+function v2ClampToolDock(dock,x,y){
+ const w=dock?.offsetWidth||48,h=dock?.offsetHeight||48,pad=10;
+ return {x:Math.max(pad,Math.min(window.innerWidth-w-pad,x)),y:Math.max(pad,Math.min(window.innerHeight-h-pad,y))};
+}
+function v2OrientToolDock(dock){
+ if(!dock)return;
+ const r=dock.getBoundingClientRect();
+ dock.dataset.popX=(r.left+r.width/2)>window.innerWidth/2?'left':'right';
+ dock.dataset.popY=(r.top+r.height/2)>window.innerHeight/2?'up':'down';
+}
+function v2ApplyToolDockPosition(dock,pos=v2ReadToolDockPosition()){
+ if(!dock)return;
+ if(pos){
+  const p=v2ClampToolDock(dock,pos.x,pos.y);
+  dock.style.left=p.x+'px';dock.style.top=p.y+'px';dock.style.right='auto';dock.style.bottom='auto';
+ }else{
+  dock.style.removeProperty('left');dock.style.removeProperty('top');dock.style.removeProperty('right');dock.style.removeProperty('bottom');
+ }
+ requestAnimationFrame(()=>v2OrientToolDock(dock));
+}
+function v2SaveToolDockPosition(dock){
+ if(!dock)return;
+ const r=dock.getBoundingClientRect(),p=v2ClampToolDock(dock,r.left,r.top);
+ try{localStorage.setItem(V2_TOOL_DOCK_KEY,JSON.stringify(p))}catch{}
+}
 function v2ToolDock(){
  let dock=document.getElementById('v2-tool-dock');
  const active=state.view==='benchmarks'?'benchmarks':state.view;
  const wasOpen=Boolean(dock?.classList.contains('open'));
  const links=V2_TOOL_LINKS.map(t=>`<a class="v2-tool-link ${active===t.view?'active':''}" href="${t.href}" role="menuitem" ${active===t.view?'aria-current="page"':''}><span class="v2-tool-link-icon">${icon(t.icon)}</span><span><strong>${t.title}</strong><small>${t.desc}</small></span>${icon('arrow')}</a>`).join('');
- const html=`<div id="v2-tool-dock" class="v2-tool-dock ${V2_TOOL_LINKS.some(t=>t.view===active)?'is-tool-page':''} ${wasOpen?'open':''}"><button class="v2-tool-orb" type="button" data-v2-tool-toggle aria-label="打开工具箱" aria-expanded="${wasOpen?'true':'false'}">${icon('wrench')}<span class="v2-tool-orb-dot" aria-hidden="true"></span></button><div class="v2-tool-popover" role="menu" aria-label="可用工具"><div class="v2-tool-popover-head"><strong>工具箱</strong><small>快捷入口</small></div>${links}</div></div>`;
+ const html=`<div id="v2-tool-dock" class="v2-tool-dock ${V2_TOOL_LINKS.some(t=>t.view===active)?'is-tool-page':''} ${wasOpen?'open':''}"><button class="v2-tool-orb" type="button" data-v2-tool-toggle aria-label="Tibo 重置工具，可拖动" title="拖动调整位置；悬停查看工具" aria-expanded="${wasOpen?'true':'false'}">${icon('reset')}<span class="v2-tool-orb-dot" aria-hidden="true"></span></button><div class="v2-tool-popover" role="menu" aria-label="可用工具"><div class="v2-tool-popover-head"><strong>工具</strong><small>拖动圆球可移动</small></div>${links}</div></div>`;
  if(dock)dock.outerHTML=html;else document.body.insertAdjacentHTML('beforeend',html);
+ v2ApplyToolDockPosition(document.getElementById('v2-tool-dock'));
 }
 function v2CloseToolDock(){
  const dock=document.getElementById('v2-tool-dock');if(!dock)return;
@@ -49,11 +82,42 @@ function v2CloseToolDock(){
 }
 if(!window.__AIC_V2_TOOL_DOCK_BOUND){
  window.__AIC_V2_TOOL_DOCK_BOUND=true;
+ document.addEventListener('pointerdown',e=>{
+  const toggle=e.target.closest('[data-v2-tool-toggle]');
+  if(!toggle||(e.pointerType==='mouse'&&e.button!==0))return;
+  const dock=toggle.closest('#v2-tool-dock');if(!dock)return;
+  const r=dock.getBoundingClientRect();
+  v2ToolDrag={pointerId:e.pointerId,dock,toggle,startX:e.clientX,startY:e.clientY,dx:e.clientX-r.left,dy:e.clientY-r.top,moved:false};
+  try{toggle.setPointerCapture(e.pointerId)}catch{}
+ });
+ document.addEventListener('pointermove',e=>{
+  const d=v2ToolDrag;if(!d||d.pointerId!==e.pointerId)return;
+  if(!d.moved&&Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<5)return;
+  if(!d.moved){d.moved=true;d.dock.classList.add('dragging');v2CloseToolDock()}
+  const p=v2ClampToolDock(d.dock,e.clientX-d.dx,e.clientY-d.dy);
+  d.dock.style.left=p.x+'px';d.dock.style.top=p.y+'px';d.dock.style.right='auto';d.dock.style.bottom='auto';
+  v2OrientToolDock(d.dock);
+  e.preventDefault();
+ },{passive:false});
+ const endDrag=e=>{
+  const d=v2ToolDrag;if(!d||d.pointerId!==e.pointerId)return;
+  try{d.toggle.releasePointerCapture(e.pointerId)}catch{}
+  if(d.moved){
+   d.dock.classList.remove('dragging');
+   d.dock.dataset.justDragged='1';
+   v2SaveToolDockPosition(d.dock);v2OrientToolDock(d.dock);
+   setTimeout(()=>{if(d.dock)d.dock.removeAttribute('data-just-dragged')},0);
+  }
+  v2ToolDrag=null;
+ };
+ document.addEventListener('pointerup',endDrag);
+ document.addEventListener('pointercancel',endDrag);
  document.addEventListener('click',e=>{
   const toggle=e.target.closest('[data-v2-tool-toggle]');
   const dock=document.getElementById('v2-tool-dock');
   if(toggle&&dock){
    e.preventDefault();
+   if(dock.dataset.justDragged==='1')return;
    const open=!dock.classList.contains('open');
    dock.classList.toggle('open',open);
    toggle.setAttribute('aria-expanded',String(open));
@@ -63,8 +127,11 @@ if(!window.__AIC_V2_TOOL_DOCK_BOUND){
   if(dock&&!e.target.closest('#v2-tool-dock'))v2CloseToolDock();
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape')v2CloseToolDock()});
+ window.addEventListener('resize',()=>{
+  const dock=document.getElementById('v2-tool-dock');if(!dock)return;
+  const saved=v2ReadToolDockPosition();if(saved){v2ApplyToolDockPosition(dock,saved);v2SaveToolDockPosition(dock)}else v2OrientToolDock(dock);
+ });
 }
-
 
 
 function v2Count(key){
@@ -72,7 +139,7 @@ function v2Count(key){
  return counts[key]??0;
 }
 renderNav=function(){
- const groups=[['内容',['feed','hot','progress','activity']],['主题',['topics','pharma','manufacturing']],['模型',['models']]];
+ const groups=[['内容',['feed','hot','progress','models','activity']],['主题',['topics','pharma','manufacturing']]];
  const active=state.view==='benchmarks'?'models':state.view;
  $('#nav').innerHTML=groups.map(([label,keys])=>`<div class="navgroup-label">${label}</div>${keys.map(key=>`<a href="#/${key}" class="navitem ${active===key?'active':''}" ${active===key?'aria-current="page"':''}>${icon(pages[key][1])}<span>${esc(pages[key][0])}</span><small>${String(v2Count(key)).padStart(2,'0')}</small></a>`).join('')}`).join('');
  $('#crumb').textContent=pages[state.view][0];

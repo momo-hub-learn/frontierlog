@@ -41,9 +41,12 @@ jobs:
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "v2-cap-status-grid" dist-ci/index.html
           grep -q "v2-tool-dock" dist-ci/index.html
-          grep -q "工具箱" dist-ci/index.html
-          ! grep -q "\[\x27我的\x27,\[\x27saved\x27\]\]" src/v2.js
-          ! grep -q "\[\x27工具\x27,\[\x27tibo\x27\]\]" src/v2.js
+          grep -q "V2_TOOL_DOCK_KEY" dist-ci/index.html
+          grep -q "pointermove" dist-ci/index.html
+          grep -q "\[\x27内容\x27,\[\x27feed\x27,\x27hot\x27,\x27progress\x27,\x27models\x27,\x27activity\x27\]\]" src/v2.js
+          ! grep -q "{view:\x27toolkit\x27,href:\x27#/toolkit\x27" src/v2.js
+          ! grep -q "{view:\x27benchmarks\x27,href:\x27#/benchmarks\x27" src/v2.js
+          grep -q "{view:\x27tibo\x27,href:\x27#/tibo\x27" src/v2.js
           grep -q "Coding Agent" dist-ci/index.html
           grep -q "分时热点" dist-ci/index.html
           grep -q "GitHub AI 热仓" dist-ci/index.html
