@@ -779,6 +779,259 @@
       }
     ]
   },
+  "deep_dives": {
+    "version": 1,
+    "checked": "2026-09-24",
+    "series": "拆一下",
+    "articles": [
+      {
+        "id": "jev-agent-decision-layer",
+        "hot_ids": [
+          "jev-system-one-20260915"
+        ],
+        "title": "拆一下 Jev：为什么 Agent 不一定要让 LLM 做所有判断？",
+        "short_title": "Jev 到底应该放在 Agent Stack 的哪一层？",
+        "subtitle": "Jev 值得关注的，不是它比 LLM 更“聪明”，而是它把路由、评分、校验和概率判断变成另一种模型调用。",
+        "dek": "把“生成”与“决策”拆开看：LLM 继续负责开放式推理与生成，System One 类模型负责高频、结构化、可校准的判断，再由代码把两者编排起来。",
+        "published": "2026-09-24",
+        "read_minutes": 9,
+        "tags": [
+          "Agent 架构",
+          "System One",
+          "Jev",
+          "Decision Model"
+        ],
+        "thesis": "如果 Jev 这条路线成立，Agent 的下一轮架构竞争可能不只是“换更强的 LLM”，而是把不同形状的智能调用放到不同层。",
+        "architecture": {
+          "note": "下面是 AI坐标根据公开资料整理出的“集成架构建议”，不是 TypeSafe 公布的 Jev 模型内部结构，也不是唯一正确的 Agent 架构。",
+          "before": [
+            {
+              "label": "事件 / 用户输入",
+              "kind": "input"
+            },
+            {
+              "label": "Agent Runtime",
+              "kind": "runtime"
+            },
+            {
+              "label": "LLM",
+              "detail": "理解 + 路由 + 判断 + 生成 + 校验",
+              "kind": "llm"
+            },
+            {
+              "label": "Tool / API",
+              "kind": "tool"
+            },
+            {
+              "label": "LLM 再判断",
+              "detail": "重试 / 验证 / 下一步",
+              "kind": "llm"
+            },
+            {
+              "label": "结果",
+              "kind": "output"
+            }
+          ],
+          "after": [
+            {
+              "label": "事件 / 用户输入",
+              "kind": "input"
+            },
+            {
+              "label": "Agent Runtime",
+              "kind": "runtime"
+            },
+            {
+              "label": "任务分流",
+              "detail": "开放式生成 → LLM；结构化判断 → Jev",
+              "kind": "split"
+            },
+            {
+              "label": "LLM",
+              "detail": "推理 / 生成 / 代码 / 长文本",
+              "kind": "llm"
+            },
+            {
+              "label": "Jev / System One",
+              "detail": "Choice / Score / 概率判断 / Guardrail",
+              "kind": "jev"
+            },
+            {
+              "label": "代码阈值与分支",
+              "detail": "何时执行、升级、重试、交给人",
+              "kind": "code"
+            },
+            {
+              "label": "Tool / API",
+              "kind": "tool"
+            },
+            {
+              "label": "结果 / 再校验",
+              "kind": "output"
+            }
+          ]
+        },
+        "sections": [
+          {
+            "key": "one",
+            "eyebrow": "01 / 一句话讲明白",
+            "title": "Jev 不是为了“更会说”，而是为了让软件直接消费判断",
+            "paragraphs": [
+              "TypeSafe 把 Jev 定义为首个公开的 System One Model：输入可以是非结构化状态，但输出空间、类型和问题结构由开发者预先定义，模型返回 Choice、Score 或概率式判断，并附带概率 / 置信信息。",
+              "这和“让 LLM 生成一段 JSON”看起来相似，但产品目标不同：Jev 放弃自由文本生成，换取更快、更便宜、类型安全、适合高频嵌入程序逻辑的决策接口。"
+            ],
+            "source_refs": [
+              "typesafe-launch",
+              "typesafe-api",
+              "register"
+            ]
+          },
+          {
+            "key": "old",
+            "eyebrow": "02 / 旧架构怎么做",
+            "title": "今天很多 Agent 把微小判断也塞给同一个生成式 LLM",
+            "paragraphs": [
+              "一个常见 Agent 循环里，同一个 LLM 既要理解用户意图，又要选工具、判断是否重试、检查结果、评分质量，还要生成最终文本。好处是通用；代价是每一个微小分支都要付出生成式模型的延迟与成本。",
+              "当工作流只有几步时，这个设计足够简单；当 Agent 变成长任务、多工具、多次校验和高并发之后，“调用多少次 LLM”本身就会变成系统瓶颈。"
+            ],
+            "analysis": true,
+            "source_refs": [
+              "techcrunch"
+            ]
+          },
+          {
+            "key": "new",
+            "eyebrow": "03 / 新架构改了哪里",
+            "title": "把开放式生成和结构化判断拆成两条路径",
+            "paragraphs": [
+              "公开资料更支持一种“分层使用”理解：LLM 继续处理需要自由表达、复杂推理和生成的任务；Jev 处理那些候选空间可以提前定义、但规则很难手写死的判断，例如路由、分类、评分、是否升级、是否重试、是否通过 Guardrail。",
+              "TypeSafe 自己把这类能力比作“smart if-statements”；TechCrunch 报道的开发者案例也集中在安全分类、邮件分类、模型路由和 Agent trace 监控，而不是用 Jev 替代长文本生成。"
+            ],
+            "source_refs": [
+              "typesafe-launch",
+              "techcrunch",
+              "register"
+            ],
+            "show_architecture": true
+          },
+          {
+            "key": "why-now",
+            "eyebrow": "04 / 为什么现在值得看",
+            "title": "Agent 越长，决策层的成本、延迟和可观测性越重要",
+            "paragraphs": [
+              "TypeSafe 官方宣称 Jev 在其 System One workflow eval 上处于显著更低的成本 / 延迟区间，并强调输出并行采样、结构化概率和置信度。官方同时承认 193.6× 更快、444.6× 更便宜属于其工作流中的高端案例，不能当作所有任务的固定倍率。",
+              "真正值得跟踪的不是某个倍率，而是架构信号：当智能调用足够便宜和足够快，过去因为“调用一次 LLM 太重”而不值得做的实时路由、逐步骤校验、海量对象打分，开始有机会成为默认基础设施。"
+            ],
+            "source_refs": [
+              "typesafe-launch",
+              "typesafe-home"
+            ],
+            "analysis": true
+          },
+          {
+            "key": "when",
+            "eyebrow": "05 / 什么时候值得用",
+            "title": "最适合的是“答案空间已知，但规则不好写”的问题",
+            "bullets": [
+              {
+                "title": "路由 / 分类",
+                "detail": "从已知候选中选下一步、选工具、选模型、分流工单。"
+              },
+              {
+                "title": "评分 / 风险判断",
+                "detail": "给候选打分，或根据概率决定自动执行、升级人工、再次检查。"
+              },
+              {
+                "title": "Agent Guardrail",
+                "detail": "监控命令、trace 或模型输出，做安全 / 合规 / 异常判断。"
+              },
+              {
+                "title": "高频批处理",
+                "detail": "对大量对象做相互独立的判断，尤其在延迟和单次成本很敏感时。"
+              }
+            ],
+            "paragraphs": [
+              "反过来，如果任务需要写长文本、生成代码、探索未知答案空间，或者要做长链条开放式推理，Jev 并不是公开资料里被证明的替代方案。"
+            ],
+            "source_refs": [
+              "typesafe-launch",
+              "techcrunch",
+              "register"
+            ]
+          },
+          {
+            "key": "boundary",
+            "eyebrow": "06 / 别高兴太早",
+            "title": "最关键的未知数，仍然在模型内部、校准质量和外部复现",
+            "bullets": [
+              {
+                "title": "模型内部结构没公开",
+                "detail": "TypeSafe 说有新的 model architecture、parallel sampler 和 RLCD，但没有公开完整模型结构、训练配方或论文。TechCrunch 报道也明确说公司对底层架构保持谨慎披露。"
+              },
+              {
+                "title": "“不会 hallucinate”不能理解成“永远判断正确”",
+                "detail": "更准确的说法是输出类型 / schema 不会越界；模型仍可能选错、评分错或给出错误概率。"
+              },
+              {
+                "title": "最亮眼的 workflow eval 主要来自 TypeSafe 自己",
+                "detail": "TypeSafe 明确承认工作流由自家模型能力团队构造，可能存在偏差；独立大规模复现仍然有限。"
+              },
+              {
+                "title": "分层 Agent 是我们的架构建议",
+                "detail": "“LLM 负责生成，Jev 负责路由 / 评分 / 校验”是基于公开用例做出的集成推断，不是 TypeSafe 官方规定的唯一架构。"
+              }
+            ],
+            "source_refs": [
+              "typesafe-launch",
+              "techcrunch"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "typesafe-launch",
+            "publisher": "TypeSafe AI",
+            "title": "Introducing System One Models & Jev",
+            "kind": "官方发布",
+            "date": "2026-09-15",
+            "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+          },
+          {
+            "id": "typesafe-home",
+            "publisher": "TypeSafe AI",
+            "title": "System One Models / Jev",
+            "kind": "官方产品页",
+            "date": "2026-09-24",
+            "url": "https://typesafe.ai/"
+          },
+          {
+            "id": "typesafe-api",
+            "publisher": "TypeSafe AI",
+            "title": "TypeSafe API · /v1/systemone",
+            "kind": "官方 API 文档",
+            "date": "2026-09-24",
+            "url": "https://api.typesafe.ai/docs"
+          },
+          {
+            "id": "techcrunch",
+            "publisher": "TechCrunch",
+            "title": "A new kind of AI model from a ChatGPT inventor is thrilling developers",
+            "kind": "独立媒体 / 开发者案例",
+            "date": "2026-09-18",
+            "url": "https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-chatgpt-inventor-is-thrilling-developers/"
+          },
+          {
+            "id": "register",
+            "publisher": "The Register",
+            "title": "Shut up and calculate: Jev's new AI primitives for coders",
+            "kind": "独立媒体 / 技术拆解",
+            "date": "2026-09-23",
+            "url": "https://www.theregister.com/devops/2026/09/23/shut-up-and-calculate-jevs-new-ai-primitives-for-coders/5298431"
+          }
+        ]
+      }
+    ]
+  },
   "capabilities": {
     "version": 2,
     "checked": "2026-09-22",
