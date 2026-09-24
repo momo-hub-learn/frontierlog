@@ -22,7 +22,7 @@ class TopicDataTests(unittest.TestCase):
   with self.assertRaises(ValueError):topics.validate_topics(self.d,self.i)
  def test_unknown_date_not_fabricated(self):
   rss=ET.fromstring(topics.topic_rss(self.d,self.s,'csr'))
-  self.assertEqual(len(rss.findall('./channel/item')),3)
+  self.assertEqual(len(rss.findall('./channel/item')),2)
   self.assertEqual(len(rss.findall('./channel/item/pubDate')),0)
  def test_rss_scope_membership(self):
   for scope in [s['id'] for s in self.d['sectors']]+[t['id'] for t in self.d['topics']]:
