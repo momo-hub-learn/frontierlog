@@ -4,7 +4,7 @@
 function fcHotPanel(){
  const rows=v10HotByHeat(HOT.items).slice(0,5);
  return '<section class="fc-panel fc-hot-panel">'+
-  '<div class="fc-panel-head"><div><p class="eyebrow">HOT / NOW</p><h2>热点</h2></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / NOW</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
   '<div class="fc-hot-list">'+rows.map((x,i)=>
    '<a class="fc-hot-row" href="#/hot?item='+encodeURIComponent(x.id)+'">'+
     '<span class="fc-hot-rank">'+String(i+1).padStart(2,'0')+'</span>'+

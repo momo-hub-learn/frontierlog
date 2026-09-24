@@ -3,6 +3,9 @@
 .fc-panel{border:1px solid var(--line);border-radius:13px;background:var(--panel);overflow:hidden;box-shadow:var(--surface-shadow)}
 .fc-panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 18px 13px;border-bottom:1px solid var(--soft-line)}
 .fc-panel-head h2{font-size:1.28rem;letter-spacing:-.035em;margin-top:2px}
+.fc-panel-titleline{display:flex;align-items:baseline;gap:10px;min-width:0}
+.fc-panel-titleline h2{margin:0}
+.fc-panel-titleline .eyebrow{font-size:.66rem;letter-spacing:.09em;white-space:nowrap}
 .fc-panel-head>a{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);white-space:nowrap}
 .fc-panel-head>a:hover{color:var(--accent)}
 .fc-panel-head>a .ico{width:12px}

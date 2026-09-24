@@ -59,6 +59,8 @@ jobs:
           grep -q "本周深读 / 拆一下" dist-ci/index.html
           grep -q "GITHUB / TODAY" dist-ci/index.html
           grep -q "fc-cockpit" dist-ci/index.html
+          grep -q "fc-panel-titleline.*热点.*HOT / NOW" dist-ci/index.html
+          ! grep -q "<p class=\\\"eyebrow\\\">HOT / NOW</p><h2>热点</h2>" dist-ci/index.html
           grep -q "本周新解锁 / 明显更新" dist-ci/index.html
           grep -q "AVAILABLE NOW" dist-ci/index.html
           grep -q "p4-progress" dist-ci/index.html

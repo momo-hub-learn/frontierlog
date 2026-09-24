@@ -108,6 +108,13 @@ class BuildTests(unittest.TestCase):
             self.assertIn('MCP / 知识',html)
             self.assertNotIn('<em>AI 相关</em>',html)
 
+    def test_hot_panel_title_is_inline_bilingual(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / NOW</span>',html)
+            self.assertNotIn('<p class="eyebrow">HOT / NOW</p><h2>热点</h2>',html)
+
     def test_feed_header_has_no_redundant_big_title(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
