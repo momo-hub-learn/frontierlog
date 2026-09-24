@@ -931,6 +931,44 @@ main{max-width:var(--v2-max-work)}
 @media(max-width:720px){.fc-right{grid-template-columns:1fr}.fc-deep-panel,.fc-gh-panel{min-height:0}.fc-hot-row{grid-template-columns:24px minmax(0,1fr) 44px;padding:10px 12px}.fc-hot-meta small{display:none}.fc-hot-main>strong{font-size:.79rem}.fc-panel-head{padding-left:13px;padding-right:13px}}
 @media(max-width:480px){.fc-cockpit{gap:10px;margin-top:18px}.fc-hot-row{min-height:66px}.fc-hot-meta time{display:none}.fc-mini-arch{grid-template-columns:1fr 12px 1fr 12px 1fr}.fc-mini-arch>span{padding:6px}.fc-mini-arch small{font-size:.48rem}}
 
+/* Progress v4 — capability page as a product surface, not a wide database table. */
+.p4-progress{max-width:1240px;margin:0 auto 64px}
+.p4-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding:10px 0 27px;border-bottom:1px solid var(--line)}
+.p4-head h1{font-family:var(--display,var(--sans));font-size:2.55rem;line-height:1.15;letter-spacing:-.06em;margin:7px 0 9px}
+.p4-head>div>p:last-child{max-width:760px;color:var(--sub);font-size:.92rem;line-height:1.65}
+.p4-stats{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.p4-stats span{display:inline-flex;align-items:baseline;gap:5px;border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:8px 10px;color:var(--muted);font-size:.67rem;white-space:nowrap}
+.p4-stats b{font:800 1rem var(--display,var(--sans));color:var(--text)}
+.p4-new,.p4-available,.p4-research{margin-top:28px}
+.p4-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:13px}
+.p4-section-head h2{font-size:1.38rem;letter-spacing:-.04em;margin-top:2px}
+.p4-section-head>div>span{display:block;color:var(--muted);font-size:.75rem;margin-top:3px}
+.p4-section-head>b{font:750 1rem var(--display,var(--sans));color:var(--muted)}
+.p4-new-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.p4-new-card{border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent-bg) 55%,var(--panel)),var(--panel) 45%);padding:18px;display:flex;flex-direction:column;min-height:300px}
+.p4-new-card>header{display:flex;align-items:center;justify-content:space-between;gap:10px}.p4-fresh{font:700 .61rem var(--mono);color:var(--accent)}
+.p4-status{display:inline-flex;align-items:center;border-radius:999px;padding:3px 7px;font-size:.61rem;font-weight:750;white-space:nowrap}
+.p4-status.direct{background:var(--lime);color:var(--ink)}.p4-status.limited{background:#fff3df;color:#9b6019}.p4-status.local{background:var(--accent-bg);color:var(--accent)}.p4-status.research{background:color-mix(in srgb,var(--violet) 10%,var(--panel));color:var(--violet)}
+.p4-evidence{font-size:.63rem;color:var(--muted);margin-top:11px}.p4-new-card h3{font-size:1.22rem;line-height:1.42;letter-spacing:-.035em;margin:7px 0 9px}
+.p4-can{font-size:.84rem;line-height:1.7;color:var(--sub)}
+.p4-limit{margin-top:15px;padding-top:12px;border-top:1px solid var(--soft-line);display:grid;grid-template-columns:42px 1fr;gap:8px}
+.p4-limit>span{font-size:.62rem;color:var(--orange);font-weight:700;padding-top:2px}.p4-limit p{font-size:.7rem;line-height:1.58;color:var(--muted)}
+.p4-new-card footer,.p4-card footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px}.p4-new-card footer>span,.p4-card footer>span{font-size:.61rem;color:var(--muted)}
+.p4-actions{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end}.p4-action{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--panel);border-radius:7px;padding:5px 7px;font-size:.63rem;color:var(--sub);line-height:1.2}.p4-action:hover{background:var(--hover);color:var(--text)}.p4-action.primary{background:var(--ink);border-color:var(--ink);color:#fff}.p4-action.detail{background:transparent}.p4-action .ico{width:10px;height:10px}
+.p4-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.p4-card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:15px 16px;display:flex;flex-direction:column;min-height:250px}
+.p4-card:hover{border-color:color-mix(in srgb,var(--accent) 28%,var(--line))}
+.p4-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.p4-card-top>div{display:flex;align-items:center;gap:7px;min-width:0}.p4-evidence-inline{font-size:.59rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p4-open{color:var(--muted);padding:3px}.p4-open:hover{color:var(--accent)}.p4-open .ico{width:13px}
+.p4-card h3{font-size:1rem;line-height:1.45;letter-spacing:-.02em;margin:10px 0 2px}.p4-project{font-size:.62rem;color:var(--muted);margin-bottom:10px}
+.p4-limit.compact{grid-template-columns:50px 1fr;margin-top:12px}.p4-limit.compact>span{color:var(--muted)}
+.p4-card footer{border-top:1px solid var(--soft-line);margin-top:auto;padding-top:11px}
+.p4-research-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.p4-research-card{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:15px 16px;border-bottom:1px solid var(--soft-line)}.p4-research-card:last-child{border-bottom:0}
+.p4-research-mark{width:34px;height:34px;border-radius:9px;background:color-mix(in srgb,var(--violet) 9%,var(--panel));color:var(--violet);display:grid;place-items:center}.p4-research-mark .ico{width:16px}
+.p4-research-main{min-width:0}.p4-research-main>div{display:flex;gap:7px;align-items:center}.p4-research-main h3{font-size:.9rem;margin:6px 0 3px}.p4-research-main>p{font-size:.75rem;color:var(--sub);line-height:1.5}.p4-research-main>small{display:block;font-size:.63rem;color:var(--muted);margin-top:4px}
+@media(max-width:900px){.p4-head{display:block}.p4-stats{justify-content:flex-start;margin-top:14px}.p4-new-grid,.p4-grid{grid-template-columns:1fr}.p4-new-card{min-height:0}.p4-card{min-height:0}}
+@media(max-width:620px){.p4-head h1{font-size:2rem}.p4-section-head{align-items:flex-start}.p4-new-card,.p4-card{padding:15px}.p4-new-card footer,.p4-card footer{display:block}.p4-actions{justify-content:flex-start;margin-top:9px}.p4-research-card{grid-template-columns:30px minmax(0,1fr)}.p4-research-card>.p4-actions{grid-column:2}.p4-evidence-inline{display:none}}
 .m-company-name.m-company-link{color:inherit;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px}
 .m-company-name.m-company-link:hover,.m-company-name.m-company-link:focus-visible{opacity:.78;text-decoration-style:solid}
 .m-company-name.m-company-link .m-company-out{font-size:.72em;margin-left:.2em;vertical-align:.06em}
@@ -2384,6 +2422,106 @@ feedPage=function(){
  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
 };
 if(state.view==='feed'){lastMain='';renderMain()}
+})();
+'use strict';
+(()=>{
+/* Progress v4 — productized capability page: what's new → what works → what is still research. */
+function p4SourceRows(t){return (t.sources||[]).map(id=>sources.get(id)).filter(Boolean)}
+function p4LatestEvidence(t){
+ const rows=p4SourceRows(t);
+ const dated=rows.filter(s=>s.published).sort((a,b)=>String(b.published).localeCompare(String(a.published)));
+ const s=dated[0]||rows[0]||null;
+ return {source:s,date:s?.published||t.reviewed||DATA.snapshot};
+}
+function p4Days(a,b){try{return Math.round((Date.parse(a+'T00:00:00Z')-Date.parse(b+'T00:00:00Z'))/86400000)}catch{return 999}}
+function p4Status(t){
+ if(t.status==='research')return {label:'研究阶段',cls:'research',maturity:'公开研究 · 未核验访问'};
+ const map={
+  'gemini-38-flash-tts':{label:'可直接体验',cls:'direct',maturity:'网页 / API · 未本站实测'},
+  'gemini-connected-apps':{label:'限量开放',cls:'limited',maturity:'灰度 rollout · 需账号权限'},
+  'chatgpt-voice-work':{label:'可直接用',cls:'direct',maturity:'账号开放 · 受套餐 / 地区限制'}
+ };
+ if(map[t.id])return map[t.id];
+ if(/本地运行|Lean 环境|GPU 环境|沙箱环境/.test(t.effort||''))return {label:'可本地跑',cls:'local',maturity:(t.effort||'本地环境')+' · 未本站实测'};
+ if(t.repo)return {label:'可部署',cls:'local',maturity:(t.effort||'开源实现')+' · 未本站实测'};
+ return {label:'可使用',cls:'direct',maturity:(t.effort||'公开路径')+' · 未本站实测'};
+}
+function p4Experience(t){
+ const map={
+  'gemini-38-flash-tts':['https://aistudio.google.com/','立即体验'],
+  'gemini-connected-apps':['https://gemini.google.com/','打开 Gemini'],
+  'chatgpt-voice-work':['https://chatgpt.com/','打开 ChatGPT']
+ };
+ if(map[t.id])return map[t.id];
+ if(t.repo)return ['https://github.com/'+t.repo,'打开项目'];
+ const s=p4SourceRows(t)[0];return s?[s.url,t.status==='research'?'原始研究':'查看入口']:null
+}
+function p4Authority(t){
+ const {source,date}=p4LatestEvidence(t);
+ return {publisher:source?.publisher||t.name,kind:source?.kind||'公开资料',date}
+}
+function p4Actions(t,compact=false){
+ const exp=p4Experience(t),src=p4SourceRows(t)[0];
+ return '<div class="p4-actions">'+
+  (exp?'<a class="p4-action primary" href="'+safeLink(exp[0])+'" target="_blank" rel="noopener noreferrer">'+esc(exp[1])+' '+icon('external')+'</a>':'')+
+  (src&&(!exp||src.url!==exp[0])?'<a class="p4-action" href="'+safeLink(src.url)+'" target="_blank" rel="noopener noreferrer">来源 '+icon('external')+'</a>':'')+
+  '<button class="p4-action detail" data-action="task" data-id="'+esc(t.id)+'">详情 '+icon('arrow')+'</button>'+
+ '</div>'
+}
+function p4Fresh(t){
+ const e=p4LatestEvidence(t),days=p4Days(DATA.snapshot,e.date);
+ return days>=0&&days<=7
+}
+function p4NewCard(t){
+ const st=p4Status(t),ev=p4Authority(t);
+ return '<article class="p4-new-card">'+
+  '<header><span class="p4-status '+st.cls+'">'+esc(st.label)+'</span><span class="p4-fresh">NEW '+esc(ev.date.slice(5).replace('-','.'))+'</span></header>'+
+  '<div class="p4-evidence">'+esc(ev.publisher)+' · '+esc(ev.kind)+'</div>'+
+  '<h3>'+esc(t.title)+'</h3>'+
+  '<p class="p4-can">'+esc(t.summary)+'</p>'+
+  '<div class="p4-limit"><span>限制</span><p>'+esc(t.boundary)+'</p></div>'+
+  '<footer><span>'+esc(st.maturity)+'</span>'+p4Actions(t)+'</footer>'+
+ '</article>'
+}
+function p4CapabilityCard(t){
+ const st=p4Status(t),ev=p4Authority(t);
+ return '<article class="p4-card">'+
+  '<div class="p4-card-top"><div><span class="p4-status '+st.cls+'">'+esc(st.label)+'</span><span class="p4-evidence-inline">'+esc(ev.publisher)+' · '+esc(ev.kind)+' · '+esc(ev.date.slice(5).replace('-','.'))+'</span></div><button class="p4-open" data-action="task" data-id="'+esc(t.id)+'" aria-label="打开 '+esc(t.title)+'">'+icon('arrow')+'</button></div>'+
+  '<h3>'+esc(t.title)+'</h3><p class="p4-project">'+esc(t.name)+' · '+esc(t.category)+'</p>'+
+  '<p class="p4-can">'+esc(t.summary)+'</p>'+
+  '<div class="p4-limit compact"><span>还卡在</span><p>'+esc(t.boundary)+'</p></div>'+
+  '<footer><span>'+esc(st.maturity)+'</span>'+p4Actions(t,true)+'</footer>'+
+ '</article>'
+}
+function p4ResearchCard(t){
+ const ev=p4Authority(t),st=p4Status(t);
+ return '<article class="p4-research-card">'+
+  '<div class="p4-research-mark">'+icon('flask')+'</div>'+
+  '<div class="p4-research-main"><div><span class="p4-status research">'+esc(st.label)+'</span><span class="p4-evidence-inline">'+esc(ev.publisher)+' · '+esc(ev.kind)+' · '+esc(ev.date.slice(5).replace('-','.'))+'</span></div><h3>'+esc(t.title)+'</h3><p>'+esc(t.summary)+'</p><small>'+esc(t.boundary)+'</small></div>'+
+  p4Actions(t,true)+
+ '</article>'
+}
+function p4Progress(){
+ $('#hero').hidden=true;$('#stats').hidden=true;$('.workspace').hidden=false;$('#vertical-root').hidden=true;$('.section-head').hidden=true;
+ $('#layout-buttons').hidden=true;$('#toolbar').hidden=true;$('#contextline').hidden=true;
+ const usable=DATA.items.filter(t=>t.status==='code');
+ const research=DATA.items.filter(t=>t.status==='research');
+ const fresh=usable.filter(p4Fresh).sort((a,b)=>p4LatestEvidence(b).date.localeCompare(p4LatestEvidence(a).date));
+ const stable=usable.filter(t=>!p4Fresh(t));
+ $('#content').innerHTML='<div class="p4-progress">'+
+  '<header class="p4-head"><div><p class="eyebrow">CAPABILITY MAP / VERIFIED SOURCES</p><h1>AI，又能干什么了？</h1><p>先看最近新增 / 明显更新的能力，再看已经有公开路径的能力。每一项都标入口、来源、核验时间和当前限制。</p></div>'+
+   '<div class="p4-stats"><span><b>'+fresh.length+'</b>本周新增 / 更新</span><span><b>'+usable.length+'</b>现在能用</span><span><b>'+research.length+'</b>研究阶段</span></div></header>'+
+  (fresh.length?'<section class="p4-new"><div class="p4-section-head"><div><p class="eyebrow">NEW THIS WEEK</p><h2>本周新解锁 / 明显更新</h2><span>先看真正改变“现在能做什么”的变化。</span></div><b>'+fresh.length+'</b></div><div class="p4-new-grid">'+fresh.map(p4NewCard).join('')+'</div></section>':'')+
+  '<section class="p4-available"><div class="p4-section-head"><div><p class="eyebrow">AVAILABLE NOW</p><h2>持续可用</h2><span>有公开实现、API 或产品入口；不等于已经通过你的业务验收。</span></div><b>'+stable.length+'</b></div><div class="p4-grid">'+stable.map(p4CapabilityCard).join('')+'</div></section>'+
+  (research.length?'<section class="p4-research"><div class="p4-section-head"><div><p class="eyebrow">RESEARCH EDGE</p><h2>还在研究</h2><span>有研究证据，但访问、稳定性或复现条件还不够成熟。</span></div><b>'+research.length+'</b></div><div class="p4-research-list">'+research.map(p4ResearchCard).join('')+'</div></section>':'')+
+  '</div>';
+}
+const p4BaseRenderMain=renderMain;
+renderMain=function(){
+ p4BaseRenderMain();
+ if(state.view==='progress')p4Progress();
+};
+if(state.view==='progress'){lastMain='';renderMain()}
 })();
 ;(()=>{
  const urls={Anthropic:'https://www.anthropic.com/',OpenAI:'https://openai.com/',Meta:'https://ai.meta.com/',Xiaomi:'https://robotics.xiaomi.com/',Alibaba:'https://www.alibabacloud.com/','Z AI':'https://z.ai/',SpaceXAI:'https://x.ai/',Kimi:'https://www.kimi.com/',Google:'https://ai.google/','Google DeepMind':'https://deepmind.google/',DeepSeek:'https://www.deepseek.com/',MiniMax:'https://www.minimax.io/',NVIDIA:'https://www.nvidia.com/',Figure:'https://www.figure.ai/','World Labs':'https://www.worldlabs.ai/','Meta FAIR':'https://ai.meta.com/research/','TypeSafe AI':'https://typesafe.ai/','AMI Labs':'https://amilabs.xyz/',Subconscious:'https://www.subconscious.dev/','Hugging Face':'https://huggingface.co/','Physical Intelligence':'https://www.physicalintelligence.company/'};
