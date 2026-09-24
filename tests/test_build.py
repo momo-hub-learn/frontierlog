@@ -117,7 +117,8 @@ class BuildTests(unittest.TestCase):
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertIn('v2-pub-badge',html)
-            self.assertIn('预印本 · arXiv',html)
+            self.assertIn('"venue":"arXiv"',html)
+            self.assertIn("p.status==='preprint'?'预印本'",html)
             self.assertIn("p.ccf?'CCF '+p.ccf",html)
             self.assertIn('Nature / Science / 顶刊',html)
 
@@ -133,7 +134,7 @@ class BuildTests(unittest.TestCase):
             self.assertIn('NVIDIA GTC Washington, D.C. 2026 Keynote',html)
             self.assertIn('Noam Brown — Agent swarms',html)
             self.assertIn('Dwarkesh Podcast',html)
-            self.assertIn('公开 RSS 每 2 小时检查',html)
+            self.assertIn('访谈源每 2 小时检查',html)
             self.assertIn('v2-radar-tabs',html)
             self.assertIn("function v2ActivitySourceHref(id)",html)
             self.assertIn("'#/activity?source='",html)

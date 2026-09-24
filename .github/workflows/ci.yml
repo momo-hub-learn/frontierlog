@@ -45,7 +45,8 @@ jobs:
           grep -q "AI 能力进度" dist-ci/index.html
           grep -q "发布会 / 访谈雷达" dist-ci/index.html
           grep -q "v2-pub-badge" dist-ci/index.html
-          grep -q "预印本 · arXiv" dist-ci/index.html
+          grep -q '"venue":"arXiv"' dist-ci/index.html
+          grep -Fq "p.status===\'preprint\'?\'预印本\'" src/v2.js
           grep -q "Nature / Science / 顶刊" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
           grep -q "Dwarkesh Podcast" dist-ci/index.html
