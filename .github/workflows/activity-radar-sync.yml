@@ -41,7 +41,7 @@ jobs:
         run: |
           python -m unittest tests.test_build
           python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
-          grep -q "发布会 / 访谈雷达" /tmp/frontierlog-dist/index.html
+          grep -q "AI 前沿现场" /tmp/frontierlog-dist/index.html
       - name: Publish media signals and generated site
         run: |
           cp /tmp/frontierlog-dist/index.html index.html
