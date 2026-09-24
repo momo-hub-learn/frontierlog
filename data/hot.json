@@ -9,30 +9,12 @@
     "last_success": null
   },
   "categories": [
-    {
-      "id": "all",
-      "title": "全部"
-    },
-    {
-      "id": "model",
-      "title": "模型"
-    },
-    {
-      "id": "product",
-      "title": "产品"
-    },
-    {
-      "id": "industry",
-      "title": "行业"
-    },
-    {
-      "id": "research",
-      "title": "研究"
-    },
-    {
-      "id": "benchmark",
-      "title": "Benchmark"
-    }
+    {"id":"all","title":"全部"},
+    {"id":"model","title":"模型"},
+    {"id":"product","title":"产品"},
+    {"id":"industry","title":"行业"},
+    {"id":"research","title":"研究"},
+    {"id":"benchmark","title":"Benchmark"}
   ],
   "items": [
     {
@@ -130,22 +112,23 @@
       "first_seen_at": "2026-09-23T22:12:12Z"
     },
     {
-      "id": "grok-bot-support-20260922",
-      "category": "product",
+      "id": "microsoft-physical-ai-offload-20260923",
+      "category": "industry",
       "heat": 96,
       "trend": "up",
-      "published": "2026-09-22",
+      "published": "2026-09-23",
       "checked": "2026-09-23",
-      "title": "SpaceXAI 披露 Grok Bot 客服实战：工单 +175%，团队未新增人手",
-      "summary": "SpaceXAI 9 月 22 日称，合并 Cursor 后其支持团队在工单量增加 175% 的情况下未新增支持人员；Grok Bot 已进入预调查、问题复现、退款、队列优先级与事故检测等流程。公司称在明确退款规则下 99% 的退款请求可无人处理，优化后每个已解决工单成本低至 $0.20–$0.30。",
-      "why": "这是 Agent 从“回答问题”进入真实业务闭环的一手生产案例：它不仅生成回复，还连接 Plain、Linear、Datadog，执行有限动作、管理队列，并通过 traces、evals 与人工审批逐步扩大自治范围。",
-      "boundary": "这些效果数字来自 SpaceXAI 自身案例研究，不是独立审计；“可能需要多招 200 人”是反事实估计，不能当作实际节省。99% 只针对公司定义了清晰规则的退款请求，也不能外推到全部客服工单或其他企业。",
-      "source": "SpaceXAI",
-      "source_kind": "官方生产案例",
-      "url": "https://x.ai/news/grok-bot-customer-support",
-      "link": "#/hot",
+      "title": "Microsoft：机器人推理开始从机载 GPU 拆到边缘 / 云",
+      "summary": "Microsoft Research 9 月 23 日公布机器人推理卸载研究，并把能力加入开源 Physical AI Toolchain。在其代表性移动操作测试中，较轻 GPU 让地图与规划最高慢 383%，导航及时障碍检测下降 30%，VLA 准确率最高下降 50%；Stretch-3 将 GPU 推理卸载后，官方测试显示电池续航可提升 100% 以上。",
+      "why": "这是 Physical AI 从“模型和机器人本体”走向系统基础设施的明显信号：当 VLA、规划与感知模型继续变大，机器人能力边界越来越取决于推理放在哪、网络多稳定、GPU 如何调度。工具链已把机器人、边缘 GPU 与云之间的推理分配做成 Kubernetes 化能力。",
+      "boundary": "383%、30%、50% 与续航结果均来自 Microsoft 自己的研究环境，不是本站或独立产线实测，不能外推到所有机器人。卸载还受网络时延、带宽与可用 GPU 约束；官方仓库明确 T5 fleet intelligence 仍在 roadmap，当前交付范围是 T0–T4。",
+      "source": "Microsoft Research / Microsoft GitHub",
+      "source_kind": "官方研究 + 官方开源仓库",
+      "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
+      "secondary_url": "https://github.com/microsoft/physical-ai-toolchain",
+      "link": "#/manufacturing",
       "evidence_level": "high",
-      "first_seen_at": "2026-09-23T11:22:18+08:00"
+      "first_seen_at": "2026-09-23T20:17:47-07:00"
     },
     {
       "id": "openai-math-advisory-20260921",
