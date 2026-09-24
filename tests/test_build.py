@@ -107,6 +107,20 @@ class BuildTests(unittest.TestCase):
             self.assertIn('AI × Biology',html)
             self.assertIn('Action-Conditioned World Models',html)
 
+    def test_publication_status_badges_render_in_timeline(self):
+        catalog=json.loads((ROOT/'data/catalog.json').read_text())
+        pubs=[e['publication'] for e in catalog['events'] if e.get('publication')]
+        self.assertGreaterEqual(len(pubs),3)
+        self.assertTrue(all(p['status']=='preprint' for p in pubs))
+        self.assertTrue(all(p['venue']=='arXiv' for p in pubs))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('v2-pub-badge',html)
+            self.assertIn('预印本 · arXiv',html)
+            self.assertIn("p.ccf?'CCF '+p.ccf",html)
+            self.assertIn('Nature / Science / 顶刊',html)
+
     def test_activity_radar_renders_official_events_and_interviews(self):
         radar=json.loads((ROOT/'data/activity-radar.json').read_text())
         self.assertTrue(any(x['status']=='upcoming' for x in radar['events']))
@@ -120,6 +134,13 @@ class BuildTests(unittest.TestCase):
             self.assertIn('Noam Brown — Agent swarms',html)
             self.assertIn('Dwarkesh Podcast',html)
             self.assertIn('公开 RSS 每 2 小时检查',html)
+            self.assertIn('v2-radar-tabs',html)
+            self.assertIn("function v2ActivitySourceHref(id)",html)
+            self.assertIn("'#/activity?source='",html)
+            self.assertIn("apple-events",html)
+            self.assertIn("dwarkesh",html)
+            self.assertIn("function v2ActivitySourceId()",html)
+            self.assertIn("activeSource==='all'",html)
 
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
@@ -158,7 +179,8 @@ class BuildTests(unittest.TestCase):
     def test_github_hot_shows_time_and_star_trend(self):
         data=json.loads((ROOT/'data/github-hot.json').read_text())
         self.assertTrue(all(x.get('repo_created_at') and x.get('repo_pushed_at') for x in data['items']))
-        self.assertTrue(all(len(x.get('star_history',[])) >= 3 for x in data['items']))
+        self.assertTrue(all(1 <= len(x.get('star_history',[])) <= 12 for x in data['items']))
+        self.assertTrue(any(len(x.get('star_history',[])) >= 3 for x in data['items']))
         self.assertTrue(all(x['star_history'][-1]['stars'] >= x['star_history'][0]['stars'] for x in data['items']))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

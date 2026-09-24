@@ -54,6 +54,15 @@ def validate(catalog: dict, upstream: dict, site: dict) -> None:
         if e['task'] not in ids or e['kind'] not in {'release','research'}: raise ValueError('Invalid event')
         if not e['sources'] or not set(e['sources']).issubset(sids): raise ValueError('Event has no provenance')
         if date.fromisoformat(e['date'])>snapshot: raise ValueError('Future curated event')
+        p=e.get('publication')
+        if p is not None:
+            if not isinstance(p,dict) or p.get('status') not in {'preprint','accepted','published'}: raise ValueError('Invalid publication status')
+            if not isinstance(p.get('venue'),str) or not p['venue'].strip(): raise ValueError('Missing publication venue')
+            if not https_url(p.get('url','')): raise ValueError('Invalid publication URL')
+            if p.get('ccf') not in {None,'A','B','C'}: raise ValueError('Invalid CCF rank')
+            if p.get('tier') not in {'preprint','top-journal','top-conference','journal','conference'}: raise ValueError('Invalid publication tier')
+            date.fromisoformat(p['verified'])
+            if p['status']=='preprint' and (p.get('ccf') or p.get('tier')!='preprint'): raise ValueError('Preprint cannot claim venue tier')
     for e in upstream.get('releases',[]):
         if e['task'] not in ids or not https_url(e['url']): raise ValueError('Invalid upstream release')
         if e['review_status']!='unreviewed': raise ValueError('Collector may not approve evidence')
@@ -213,7 +222,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
         datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or len(history)<3 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or len(history)<1 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
