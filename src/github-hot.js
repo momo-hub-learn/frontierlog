@@ -2,6 +2,24 @@
 (()=>{
 const GH=APP.github_hot||{items:[],checked_at:'',source_url:'https://github.com/trending',source_scope:'GitHub Trending'};
 pages.github=['热点榜 · GitHub','github'];
+const GH_CATS=new Map((GH.categories||[]).map(c=>[c.id,c]));
+function ghCategory(x){return GH_CATS.get(x.category)?.title||'其他'}
+function ghTopic(){
+  const raw=new URLSearchParams(location.hash.split('?')[1]||'').get('ghcat');
+  return raw&&GH_CATS.has(raw)?raw:'all'
+}
+function ghTopicHref(id){
+  const p=new URLSearchParams(location.hash.split('?')[1]||'');
+  p.set('tab','github');
+  if(id==='all')p.delete('ghcat');else p.set('ghcat',id);
+  return '#/hot?'+p.toString()
+}
+function ghTopicTabs(){
+  const active=ghTopic(),items=GH.items||[];
+  const cats=(GH.categories||[]).filter(c=>items.some(x=>x.category===c.id));
+  const one=(id,title,count)=>'<a class="gh-topic-chip '+(active===id?'active':'')+'" href="'+ghTopicHref(id)+'" '+(active===id?'aria-current="page"':'')+'><span>'+esc(title)+'</span><small>'+count+'</small></a>';
+  return '<nav class="gh-topics" aria-label="GitHub 项目主题">'+one('all','全部',items.length)+cats.map(c=>one(c.id,c.title,items.filter(x=>x.category===c.id).length)).join('')+'</nav>'
+}
 
 function ghFmt(n){
   const v=Number(n)||0;
@@ -24,8 +42,8 @@ function ghQuery(){
   return (new URLSearchParams(location.hash.split('?')[1]||'').get('q')||'').slice(0,300).trim();
 }
 function ghRows(){
-  const q=ghQuery().toLowerCase();
-  return (GH.items||[]).filter(x=>!q||[x.repo,x.description,x.language,x.ai_related?'AI':''].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.rank-b.rank);
+  const q=ghQuery().toLowerCase(),cat=ghTopic();
+  return (GH.items||[]).filter(x=>(cat==='all'||x.category===cat)&&(!q||[x.repo,x.description,x.language,ghCategory(x),...(x.tags||[])].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.rank-b.rank);
 }
 function ghPreviewRows(){
   return (GH.items||[]).filter(x=>x.ai_related).sort((a,b)=>b.stars_today-a.stars_today||a.rank-b.rank).slice(0,5);
@@ -69,11 +87,12 @@ function ghInline(){
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
   return '<section class="gh-inline">'+
     '<div class="gh-inline-head"><div><strong>GitHub Trending · Today</strong><span>官方榜位 + 今日新增 Star，作为开发者采用信号。</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
-    '<div class="gh-method"><b>怎么看</b><span>左侧 # 保留 GitHub Trending 官方页面顺序；“今日 Star”保留 GitHub 页面显示值。AI 相关标签只用于本站识别，不改变官方榜位，也不等于模型能力更强。</span></div>'+
+    '<div class="gh-method"><b>怎么看</b><span>左侧 # 保留 GitHub Trending 官方页面顺序；“今日 Star”保留 GitHub 页面显示值。主题标签由本站按项目当前用途细分，只帮助快速判断这是 Agent 框架、Coding Agent、MCP / 知识还是具体应用，不改变官方榜位。</span></div>'+
+    ghTopicTabs()+
     (rows.length?'<div class="gh-list">'+rows.map(x=>
       '<a class="gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="gh-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+
-        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+(x.ai_related?'<em>AI 相关</em>':'')+'</div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span></div></div>'+
+        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em>'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
         '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i></div>'+
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词继续看。</p></div>')+

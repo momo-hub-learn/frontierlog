@@ -51,6 +51,10 @@ jobs:
           grep -q "分时热点" dist-ci/index.html
           grep -q "GitHub AI 热仓" dist-ci/index.html
           grep -q "GitHub 热榜" dist-ci/index.html
+          grep -q "gh-topic-chip" dist-ci/index.html
+          grep -q "MCP / 知识" dist-ci/index.html
+          grep -q "\"category\": \"coding-agent\"" data/github-hot.json
+          ! grep -q "<em>AI 相关</em>" src/github-hot.js
           grep -q "本周深读 / 拆一下" dist-ci/index.html
           grep -q "GITHUB / TODAY" dist-ci/index.html
           grep -q "fc-cockpit" dist-ci/index.html

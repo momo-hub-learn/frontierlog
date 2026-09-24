@@ -94,6 +94,20 @@ class BuildTests(unittest.TestCase):
             self.assertNotIn("{view:'benchmarks',href:'#/benchmarks'",html)
             self.assertIn('href="#/saved"',html)
 
+    def test_github_hot_uses_granular_topics(self):
+        data=json.loads((ROOT/'data/github-hot.json').read_text())
+        cats={c['id'] for c in data['categories']}
+        self.assertGreaterEqual(len(cats),6)
+        self.assertTrue(all(x['category'] in cats for x in data['items']))
+        self.assertTrue(all(1 <= len(x['tags']) <= 4 for x in data['items']))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('gh-topic-chip',html)
+            self.assertIn('Coding Agent',html)
+            self.assertIn('MCP / 知识',html)
+            self.assertNotIn('<em>AI 相关</em>',html)
+
     def test_feed_escapes_text(self):
         c=copy.deepcopy(self.c);c['events'][0]['title']='A < B & C'
         s={**self.s,'base_url':'https://example.org/sub/'}

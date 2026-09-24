@@ -55,3 +55,6 @@
  .gh-preview-heat{grid-column:2}
  .gh-preview-foot{display:block}
 }
+.gh-topics{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 0 12px;padding:1px 0 2px}.gh-topics::-webkit-scrollbar{display:none}
+.gh-topic-chip{display:inline-flex;align-items:center;gap:6px;min-width:max-content;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 8px;color:var(--sub);font-size:.7rem;line-height:1}.gh-topic-chip:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));color:var(--text)}.gh-topic-chip.active{background:var(--ink);border-color:var(--ink);color:white}.gh-topic-chip small{font:600 .62rem var(--mono);opacity:.65}
+.gh-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.gh-tags span{font-size:.62rem;line-height:1.2;color:var(--muted);background:var(--raised);border-radius:5px;padding:3px 5px}

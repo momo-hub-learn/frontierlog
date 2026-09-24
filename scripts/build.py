@@ -125,6 +125,14 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     if github_hot.get('version') != 1: raise ValueError('Unsupported GitHub hot schema version')
     datetime.fromisoformat(github_hot['checked_at'])
     if not https_url(github_hot.get('source_url','')): raise ValueError('Invalid GitHub hot source URL')
+    gh_categories=github_hot.get('categories')
+    if not isinstance(gh_categories,list) or not gh_categories: raise ValueError('Missing GitHub hot categories')
+    gh_category_ids=set()
+    for c in gh_categories:
+        cid=c.get('id')
+        if not isinstance(cid,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*',cid) or cid in gh_category_ids: raise ValueError('Invalid GitHub hot category')
+        if not isinstance(c.get('title'),str) or not c['title'].strip(): raise ValueError('Missing GitHub hot category title')
+        gh_category_ids.add(cid)
     gh_seen=set()
     for row in github_hot.get('items',[]):
         if not REPO_RE.fullmatch(row.get('repo','')): raise ValueError('Invalid GitHub hot repository')
@@ -132,6 +140,10 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         gh_seen.add(row['repo'])
         if not https_url(row.get('url','')): raise ValueError('Invalid GitHub hot repository URL')
         if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','stars','forks','stars_today')): raise ValueError('Invalid GitHub hot metric')
+        if row.get('category') not in gh_category_ids: raise ValueError('Unknown GitHub hot category')
+        if not isinstance(row.get('ai_related'),bool): raise ValueError('Invalid GitHub AI relation flag')
+        tags=row.get('tags')
+        if not isinstance(tags,list) or not 1 <= len(tags) <= 4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>40 for t in tags): raise ValueError('Invalid GitHub hot tags')
     app={'hot':hot,'hot_policy':hot_policy,'github_hot':github_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
     css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
