@@ -30,16 +30,26 @@ jobs:
           python-version: '3.11'
       - name: Sync public podcast feeds
         run: python scripts/collect_activity_radar.py
-      - name: Validate build
-        run: python -m unittest tests.test_build
-      - name: Commit new media signals
+      - name: Validate and build site
         run: |
-          if git diff --quiet -- data/activity-radar.json api/v1/activity-radar.json; then
-            echo "No activity-radar change."
+          python -m unittest tests.test_build
+          python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          grep -q "发布会 / 访谈雷达" /tmp/frontierlog-dist/index.html
+      - name: Publish media signals and generated site
+        run: |
+          cp /tmp/frontierlog-dist/index.html index.html
+          cp /tmp/frontierlog-dist/404.html 404.html
+          cp -R /tmp/frontierlog-dist/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-dist/feeds/. feeds/
+          cp /tmp/frontierlog-dist/feed.xml feed.xml
+          cp /tmp/frontierlog-dist/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-dist/robots.txt robots.txt
+          if git diff --quiet -- data/activity-radar.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt; then
+            echo "No activity-radar or generated-site change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/activity-radar.json api/v1/activity-radar.json
+          git add data/activity-radar.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
           git commit -m "Sync activity radar media feeds"
           git push

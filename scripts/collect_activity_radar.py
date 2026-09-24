@@ -77,7 +77,7 @@ def main():
         kws=[x.lower() for x in s.get('include_keywords',[])]
         kept=0
         for x in rows:
-            hay=(x['title']+' '+x['summary']).lower()
+            hay=(x['title'] if s.get('filter_scope')=='title' else x['title']+' '+x['summary']).lower()
             if kws and not any(k in hay for k in kws):continue
             if not x['title'] or not x['url'] or not x['date']:continue
             key=hashlib.sha1((sid+'|'+x['url']).encode()).hexdigest()[:12]
