@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-09-24T15:31:08Z",
+  "checked_at": "2026-09-24T22:53:45Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-09-24T15:31:08Z",
+    "last_success": "2026-09-24T22:53:45Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -318,40 +318,6 @@
   ],
   "media_items": [
     {
-      "id": "google-long-video-20260924",
-      "source_id": "google-research-blog",
-      "published": "2026-09-24",
-      "title": "Automating coherent long-form video generation",
-      "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
-      "url": "https://research.google/blog/coherent-long-form-video-generation/",
-      "tags": [
-        "Multi-Agent",
-        "Video",
-        "Long-horizon"
-      ],
-      "origin": "verified-manual"
-    },
-    {
-      "id": "latent-space-39d297cf4c37",
-      "source_id": "latent-space",
-      "published": "2026-09-24",
-      "title": "Foundries vs Navigators: Lowering the Cost of Science",
-      "summary": "Guest Post: In science, thinking has gotten cheap but doing has not. This asymmetry is reshaping how research companies operate, largely inconspicuously.",
-      "url": "https://www.latent.space/p/foundries-vs-navigators-lowering",
-      "tags": [],
-      "origin": "rss"
-    },
-    {
-      "id": "latent-space-7db66d39eb06",
-      "source_id": "latent-space",
-      "published": "2026-09-24",
-      "title": "[AINews] Meta Connect 2026: Muse glasses, voice, video, and Charm",
-      "summary": "Team Zuck is absolutely on fire.",
-      "url": "https://www.latent.space/p/ainews-meta-connect-2026-muse-glasses",
-      "tags": [],
-      "origin": "rss"
-    },
-    {
       "id": "no-priors-michael-lee-20260924",
       "source_id": "no-priors",
       "published": "2026-09-24",
@@ -365,43 +331,36 @@
       "origin": "verified-manual"
     },
     {
-      "id": "latent-biosecurity-20260923",
+      "id": "latent-space-7db66d39eb06",
       "source_id": "latent-space",
-      "published": "2026-09-23",
-      "title": "Bio-security is an AI Arms Race — Eric Nguyen",
-      "summary": "从 bio-security 视角讨论 frontier model 带来的攻防能力变化。",
-      "url": "https://www.latent.space/p/bio-security-is-an-ai-arms-race-eric",
-      "tags": [
-        "BioAI",
-        "Safety"
-      ],
-      "origin": "verified-manual"
+      "published": "2026-09-24",
+      "title": "[AINews] Meta Connect 2026: Muse glasses, voice, video, and Charm",
+      "summary": "Team Zuck is absolutely on fire.",
+      "url": "https://www.latent.space/p/ainews-meta-connect-2026-muse-glasses",
+      "tags": [],
+      "origin": "rss"
     },
     {
-      "id": "meta-muse-avatar-blog-20260923",
-      "source_id": "meta-ai-research",
-      "published": "2026-09-23",
-      "title": "Bringing Your Muse to Life",
-      "summary": "Meta 公开 Muse Realtime Avatar 的实时视频生成架构、蒸馏、KV cache 与服务优化，给出了约 870ms 首字节延迟等系统指标。",
-      "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
-      "tags": [
-        "Realtime",
-        "Avatar",
-        "Inference"
-      ],
-      "origin": "verified-manual"
+      "id": "latent-space-39d297cf4c37",
+      "source_id": "latent-space",
+      "published": "2026-09-24",
+      "title": "Foundries vs Navigators: Lowering the Cost of Science",
+      "summary": "Guest Post: In science, thinking has gotten cheap but doing has not. This asymmetry is reshaping how research companies operate, largely inconspicuously.",
+      "url": "https://www.latent.space/p/foundries-vs-navigators-lowering",
+      "tags": [],
+      "origin": "rss"
     },
     {
-      "id": "microsoft-physical-ai-offload-blog-20260923",
-      "source_id": "microsoft-research-blog",
-      "published": "2026-09-23",
-      "title": "Offloaded inference for real-world physical AI robotics",
-      "summary": "Microsoft Research 讨论把机器人推理卸载到外部 GPU 的系统设计，并量化轻量硬件下规划、感知和 VLA 的性能代价。",
-      "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
+      "id": "google-long-video-20260924",
+      "source_id": "google-research-blog",
+      "published": "2026-09-24",
+      "title": "Automating coherent long-form video generation",
+      "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
+      "url": "https://research.google/blog/coherent-long-form-video-generation/",
       "tags": [
-        "Physical AI",
-        "Robotics",
-        "Systems"
+        "Multi-Agent",
+        "Video",
+        "Long-horizon"
       ],
       "origin": "verified-manual"
     },
@@ -420,16 +379,43 @@
       "origin": "verified-manual"
     },
     {
-      "id": "crossing-embodied-scaling-20260921",
-      "source_id": "crossing",
-      "published": "2026-09-21",
-      "title": "“我看到了 Scaling Law 的信号”：具身智能、世界模型与真正的泛化",
-      "summary": "十字路口与清华徐梦迪讨论机器人 in-context learning、具身数据闭环、世界模型和泛化边界，偏研究与产业交叉。",
-      "url": "https://www.xiaoyuzhoufm.com/episode/6ab0504f0916f6f8b4466ece",
+      "id": "microsoft-physical-ai-offload-blog-20260923",
+      "source_id": "microsoft-research-blog",
+      "published": "2026-09-23",
+      "title": "Offloaded inference for real-world physical AI robotics",
+      "summary": "Microsoft Research 讨论把机器人推理卸载到外部 GPU 的系统设计，并量化轻量硬件下规划、感知和 VLA 的性能代价。",
+      "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
       "tags": [
-        "VLA",
-        "World Model",
-        "Robotics"
+        "Physical AI",
+        "Robotics",
+        "Systems"
+      ],
+      "origin": "verified-manual"
+    },
+    {
+      "id": "meta-muse-avatar-blog-20260923",
+      "source_id": "meta-ai-research",
+      "published": "2026-09-23",
+      "title": "Bringing Your Muse to Life",
+      "summary": "Meta 公开 Muse Realtime Avatar 的实时视频生成架构、蒸馏、KV cache 与服务优化，给出了约 870ms 首字节延迟等系统指标。",
+      "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
+      "tags": [
+        "Realtime",
+        "Avatar",
+        "Inference"
+      ],
+      "origin": "verified-manual"
+    },
+    {
+      "id": "latent-biosecurity-20260923",
+      "source_id": "latent-space",
+      "published": "2026-09-23",
+      "title": "Bio-security is an AI Arms Race — Eric Nguyen",
+      "summary": "从 bio-security 视角讨论 frontier model 带来的攻防能力变化。",
+      "url": "https://www.latent.space/p/bio-security-is-an-ai-arms-race-eric",
+      "tags": [
+        "BioAI",
+        "Safety"
       ],
       "origin": "verified-manual"
     },
@@ -448,6 +434,20 @@
       "origin": "verified-manual"
     },
     {
+      "id": "crossing-embodied-scaling-20260921",
+      "source_id": "crossing",
+      "published": "2026-09-21",
+      "title": "“我看到了 Scaling Law 的信号”：具身智能、世界模型与真正的泛化",
+      "summary": "十字路口与清华徐梦迪讨论机器人 in-context learning、具身数据闭环、世界模型和泛化边界，偏研究与产业交叉。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6ab0504f0916f6f8b4466ece",
+      "tags": [
+        "VLA",
+        "World Model",
+        "Robotics"
+      ],
+      "origin": "verified-manual"
+    },
+    {
       "id": "no-priors-stefano-20260918",
       "source_id": "no-priors",
       "published": "2026-09-18",
@@ -462,6 +462,18 @@
       "origin": "verified-manual"
     },
     {
+      "id": "silicon-valley-101-d9c8d636eced",
+      "source_id": "silicon-valley-101",
+      "published": "2026-09-17",
+      "title": "外滩大会线下圆桌｜敢把钱包交给AI吗？聊聊Agent交易爆发前夜的信任基建",
+      "summary": "本期节目来自2026 Inclusion·外滩大会主论坛圆桌——“当Agent成为交易主体”。 Agent的爆发不止于应用层，当应用不断涌现，底层的交易和支付方式也在被重写。今年的AI交易正沿着两条线同时展开：一条是Agent帮人完成任务，比如今年6月上线的AI版支付宝，一句话就能打车、点咖啡；另一条是Agent-to-Agent，比如两个月前，Mastercard发布了专为机器间支付设计的网络服务。 当Agent从对话走向办事、从推荐走向交易，“信任”成了绕不开的关键词。它替你花出的每一分钱，都真的经过了你授权吗？发起交易的Agent究竟是谁？它的支付权限有多大？出了问题又该由谁负责？这些围绕授权、身份、权限、责任的一个个问题，决",
+      "url": "https://sv101.fireside.fm/265",
+      "tags": [
+        "Agents"
+      ],
+      "origin": "rss"
+    },
+    {
       "id": "dwarkesh-noam-20260917",
       "source_id": "dwarkesh",
       "published": "2026-09-17",
@@ -472,20 +484,6 @@
         "Agent Swarms",
         "Alignment",
         "RSI"
-      ],
-      "origin": "verified-manual"
-    },
-    {
-      "id": "google-retrieve-for-train-20260915",
-      "source_id": "google-research-blog",
-      "published": "2026-09-15",
-      "title": "Bypassing inference bottlenecks with Retrieve-for-Train",
-      "summary": "Google Research 探索用 Retrieve-for-Train 把复杂搜索中的部分推理成本前移到训练阶段，关注 test-time search 的效率边界。",
-      "url": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
-      "tags": [
-        "Search",
-        "Training",
-        "Inference"
       ],
       "origin": "verified-manual"
     },
@@ -504,16 +502,18 @@
       "origin": "verified-manual"
     },
     {
-      "id": "dwarkesh-3e0ac0110708",
-      "source_id": "dwarkesh",
-      "published": "2026-09-11",
-      "title": "AI researchers debate how close we are to recursive self-improvement",
-      "summary": "“We're nowhere near the ceiling.”",
-      "url": "https://www.dwarkesh.com/p/john-beren-charlie",
+      "id": "google-retrieve-for-train-20260915",
+      "source_id": "google-research-blog",
+      "published": "2026-09-15",
+      "title": "Bypassing inference bottlenecks with Retrieve-for-Train",
+      "summary": "Google Research 探索用 Retrieve-for-Train 把复杂搜索中的部分推理成本前移到训练阶段，关注 test-time search 的效率边界。",
+      "url": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
       "tags": [
-        "RSI"
+        "Search",
+        "Training",
+        "Inference"
       ],
-      "origin": "rss"
+      "origin": "verified-manual"
     },
     {
       "id": "openai-storage-billion-20260911",
@@ -528,6 +528,18 @@
         "Scale"
       ],
       "origin": "verified-manual"
+    },
+    {
+      "id": "dwarkesh-3e0ac0110708",
+      "source_id": "dwarkesh",
+      "published": "2026-09-11",
+      "title": "AI researchers debate how close we are to recursive self-improvement",
+      "summary": "“We're nowhere near the ceiling.”",
+      "url": "https://www.dwarkesh.com/p/john-beren-charlie",
+      "tags": [
+        "RSI"
+      ],
+      "origin": "rss"
     },
     {
       "id": "dwarkesh-c192d8d53f35",
@@ -556,19 +568,6 @@
       "origin": "verified-manual"
     },
     {
-      "id": "lex-fridman-0f403a2ded05",
-      "source_id": "lex-fridman",
-      "published": "2026-08-26",
-      "title": "#501 – DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding & Linux",
-      "summary": "DHH is the creator of Ruby on Rails, Omarchy Linux, CTO of 37signals, and a racecar driver. Thank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors/ep501-sc See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc. Transcript: https://lexfridman.com/dhh-2-",
-      "url": "https://lexfridman.com/dhh-2/?utm_source=rss&utm_medium=rss&utm_campaign=dhh-2",
-      "tags": [
-        "Agents",
-        "Coding"
-      ],
-      "origin": "rss"
-    },
-    {
       "id": "zhang-xiaojun-kimi-k3-20260826",
       "source_id": "zhang-xiaojun",
       "published": "2026-08-26",
@@ -583,6 +582,19 @@
       "origin": "verified-manual"
     },
     {
+      "id": "lex-fridman-0f403a2ded05",
+      "source_id": "lex-fridman",
+      "published": "2026-08-26",
+      "title": "#501 – DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding & Linux",
+      "summary": "DHH is the creator of Ruby on Rails, Omarchy Linux, CTO of 37signals, and a racecar driver. Thank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors/ep501-sc See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc. Transcript: https://lexfridman.com/dhh-2-",
+      "url": "https://lexfridman.com/dhh-2/?utm_source=rss&utm_medium=rss&utm_campaign=dhh-2",
+      "tags": [
+        "Agents",
+        "Coding"
+      ],
+      "origin": "rss"
+    },
+    {
       "id": "42zhangjing-sovereign-ai-20260826",
       "source_id": "42zhangjing",
       "published": "2026-08-26",
@@ -595,6 +607,18 @@
         "Local AI"
       ],
       "origin": "verified-manual"
+    },
+    {
+      "id": "silicon-valley-101-ce74e51be4f9",
+      "source_id": "silicon-valley-101",
+      "published": "2026-08-19",
+      "title": "E249｜Token经济转点：OpenClaw、Hermes到本地自研的Agent进化之路",
+      "summary": "去年年底，硅谷掀起了一股风潮——“Token Maxing”（最大化token使用量），科技公司创始人和工程师们争相晒出账单，比谁家Token消耗更吓人，以此彰显对AI的全力押注。但到了今年年中，成本失控和虚假生产力让这场烧钱竞赛到达了转折点。Uber在四个月里烧穿了全年的AI预算，Meta被迫给员工设定token使用上限，一些公司会提醒员工使用AI的时候注意成本。大家开始认真思考：如何更经济地使用Token？ 这期节目的嘉宾黄东旭，就是Token Maxing热潮的亲历者。他曾经每天烧掉三四百美元，只用最前沿的模型。让他逐渐转变的，是中国开源模型们的崛起，大量的日常任务都可以做到“只烧电费，不烧Token”。他的结论是：不是前沿模",
+      "url": "https://sv101.fireside.fm/262",
+      "tags": [
+        "Agents"
+      ],
+      "origin": "rss"
     },
     {
       "id": "anthropic-containment-20260525",
