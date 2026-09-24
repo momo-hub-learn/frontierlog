@@ -36,6 +36,16 @@ def validate_hot(data:dict)->None:
         u=urlparse(item['url'])
         if u.scheme!='https' or not u.hostname or u.username or u.password: raise ValueError('Unsafe hot source URL')
         if item.get('link') and not str(item['link']).startswith('#/'): raise ValueError('Unsafe internal link')
+        for list_key, required in (('access',('label','note','url')),('related',('source','title','url'))):
+            rows=item.get(list_key,[])
+            if not isinstance(rows,list): raise ValueError('Invalid hot '+list_key)
+            for row in rows:
+                if not isinstance(row,dict): raise ValueError('Invalid hot '+list_key+' row')
+                for key in required:
+                    if not isinstance(row.get(key),str) or not row[key].strip(): raise ValueError('Missing hot '+list_key+' '+key)
+                ru=urlparse(row['url'])
+                if ru.scheme!='https' or not ru.hostname or ru.username or ru.password: raise ValueError('Unsafe hot '+list_key+' URL')
+                if row.get('date') and date.fromisoformat(row['date'])>checked: raise ValueError('Future hot related date')
         for key in ['title','summary','why','boundary','source','source_kind']:
             if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing '+key)
 
