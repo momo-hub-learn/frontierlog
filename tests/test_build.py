@@ -121,9 +121,9 @@ class BuildTests(unittest.TestCase):
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertIn('gh-spark',html)
-            self.assertIn('近 '+hours+\"h +',html)
-            self.assertIn('创建 '+esc(ghRepoMonth',html)
-            self.assertIn('推送 '+esc(ghRepoPush',html)
+            self.assertIn('ghTrendLabel(x)',html)
+            self.assertIn('repo_created_at',html)
+            self.assertIn('repo_pushed_at',html)
 
     def test_hot_panel_title_is_inline_bilingual(self):
         with tempfile.TemporaryDirectory() as td:
