@@ -537,7 +537,32 @@
         "source_url": "https://sequoiacap.com/companies/harvey",
         "source_label": "Sequoia Portfolio",
         "evidence": "Sequoia 公开 Portfolio 验证；Harvey 2026-09-09 官方融资公告披露现有投资者包含 Sequoia。",
-        "boundary": "投资关系与公司自报采用数据都不等于独立任务成功率；具体法律工作仍需权限、引用和人工复核。"
+        "boundary": "投资关系与公司自报采用数据都不等于独立任务成功率；具体法律工作仍需权限、引用和人工复核。",
+        "filter_ids": [
+          "legal",
+          "sequoia",
+          "in-house"
+        ],
+        "timeline": [
+          {
+            "date": "2026-09-23",
+            "kind": "Product",
+            "title": "Custom Harvey Agents 可直接在 Microsoft Word 中运行",
+            "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word"
+          },
+          {
+            "date": "2026-09-09",
+            "kind": "Company",
+            "title": "Harvey 完成 5.5 亿美元融资，估值 155 亿美元",
+            "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+          },
+          {
+            "date": "2026-05-06",
+            "kind": "Benchmark",
+            "title": "开源 Legal Agent Benchmark，评测长时程法律 Agent 工作",
+            "url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark"
+          }
+        ]
       },
       {
         "id": "lightfield",
@@ -554,7 +579,13 @@
         "source_url": "https://www.ycombinator.com/companies/lightfield",
         "source_label": "Y Combinator",
         "evidence": "YC 官方公司档案 · Fall 2026。",
-        "boundary": "处于早期公司阶段；YC 描述是公司档案，不等于独立评测或大规模部署证明。"
+        "boundary": "处于早期公司阶段；YC 描述是公司档案，不等于独立评测或大规模部署证明。",
+        "filter_ids": [
+          "legal",
+          "yc",
+          "in-house"
+        ],
+        "timeline": []
       },
       {
         "id": "general-legal",
@@ -571,7 +602,25 @@
         "source_url": "https://www.ycombinator.com/companies/general-legal",
         "source_label": "Y Combinator",
         "evidence": "YC 官方公司档案 · Winter 2026。",
-        "boundary": "服务质量、案件结果与价格优势没有在本站独立核验；法律结论仍由执业体系负责。"
+        "boundary": "服务质量、案件结果与价格优势没有在本站独立核验；法律结论仍由执业体系负责。",
+        "filter_ids": [
+          "legal",
+          "yc"
+        ],
+        "timeline": [
+          {
+            "date": "2026-09-14",
+            "kind": "Market",
+            "title": "发布 2026 YC AI-native 律所对比，继续明确 AI-native law firm 类别",
+            "url": "https://general.legal/blog/yc-ai-native-law-firms"
+          },
+          {
+            "date": "2026-08-11",
+            "kind": "Research",
+            "title": "发布 AI-native law firm 完整指南，跟踪该服务模式的形成",
+            "url": "https://general.legal/blog/what-is-an-ai-native-law-firm"
+          }
+        ]
       },
       {
         "id": "legora",
@@ -588,7 +637,26 @@
         "source_url": "https://www.ycombinator.com/companies/legora",
         "source_label": "Y Combinator",
         "evidence": "YC 官方公司档案 · Winter 2024。",
-        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。"
+        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
+        "filter_ids": [
+          "legal",
+          "yc",
+          "in-house"
+        ],
+        "timeline": [
+          {
+            "date": "2026-09-24",
+            "kind": "Adoption",
+            "title": "Veolia 选择 Legora 支撑全球法务团队的 AI 工作",
+            "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function"
+          },
+          {
+            "date": "2026-09-23",
+            "kind": "Data",
+            "title": "与 American Law Institute 合作，把 Restatements 接入法律研究平台",
+            "url": "https://legora.com/newsroom"
+          }
+        ]
       },
       {
         "id": "sierra",
@@ -605,7 +673,26 @@
         "source_url": "https://sequoiacap.com/companies/sierra",
         "source_label": "Sequoia Portfolio",
         "evidence": "Sequoia 公开 Portfolio · Partnered 2023。",
-        "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。"
+        "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。",
+        "filter_ids": [
+          "enterprise-agent",
+          "sequoia",
+          "customer-experience"
+        ],
+        "timeline": [
+          {
+            "date": "2026-09-17",
+            "kind": "Governance",
+            "title": "Sierra 宣布通过 AIUC-1 Agent 安全与治理认证",
+            "url": "https://sierra.ai/uk/blog/sierra-achieves-aiuc-1-certification"
+          },
+          {
+            "date": "2026-09-10",
+            "kind": "Product",
+            "title": "发布下一代多模态 Agent，把语音、文本和视觉合并到同一会话",
+            "url": "https://sierra.ai/blog"
+          }
+        ]
       },
       {
         "id": "glean",
@@ -622,7 +709,20 @@
         "source_url": "https://sequoiacap.com/companies/glean",
         "source_label": "Sequoia Portfolio",
         "evidence": "Sequoia 公开 Portfolio · Partnered 2022。",
-        "boundary": "企业搜索与 Agent 的效果高度依赖权限、连接器、数据质量和组织知识结构。"
+        "boundary": "企业搜索与 Agent 的效果高度依赖权限、连接器、数据质量和组织知识结构。",
+        "filter_ids": [
+          "enterprise-agent",
+          "sequoia",
+          "knowledge-work"
+        ],
+        "timeline": [
+          {
+            "date": "2026-08-26",
+            "kind": "Product",
+            "title": "Glean Agents 增加独立执行、Agent identity、A2A、evals 与治理能力",
+            "url": "https://www.glean.com/blog/glean-agents-go-2026"
+          }
+        ]
       },
       {
         "id": "clay",
@@ -639,7 +739,26 @@
         "source_url": "https://sequoiacap.com/companies/clay",
         "source_label": "Sequoia Portfolio",
         "evidence": "Sequoia 公开 Portfolio · Partnered 2019。",
-        "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。"
+        "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。",
+        "filter_ids": [
+          "enterprise-agent",
+          "sequoia",
+          "gtm"
+        ],
+        "timeline": [
+          {
+            "date": "2026-09-23",
+            "kind": "Product",
+            "title": "Agent Plugin 已面向客户 GA，可从 Claude Code / Codex 构建 GTM 工具和工作流",
+            "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases"
+          },
+          {
+            "date": "2026-09-09",
+            "kind": "Company",
+            "title": "Clay 完成 1.15 亿美元 Series D，估值 71 亿美元",
+            "url": "https://www.clay.com/blog"
+          }
+        ]
       },
       {
         "id": "inkeep",
@@ -656,17 +775,74 @@
         "source_url": "https://www.ycombinator.com/companies/inkeep",
         "source_label": "Y Combinator",
         "evidence": "YC 官方公司档案 · Winter 2023。",
-        "boundary": "YC 档案列出的客户与能力仍需按具体场景核验；Agent 的稳定性取决于连接器、工具权限与评测。"
+        "boundary": "YC 档案列出的客户与能力仍需按具体场景核验；Agent 的稳定性取决于连接器、工具权限与评测。",
+        "filter_ids": [
+          "enterprise-agent",
+          "yc",
+          "support-automation"
+        ],
+        "timeline": [
+          {
+            "date": "2026-06-02",
+            "kind": "Product",
+            "title": "AI teammates for customer experience 正式 GA，统一客户助手、内部 Coworker 与自动化",
+            "url": "https://inkeep.com/blog/ai-teammates-customer-experience"
+          },
+          {
+            "date": "2026-03-11",
+            "kind": "Product",
+            "title": "Inkeep Agents 进入 Slack，支持线程上下文与工具动作审批",
+            "url": "https://inkeep.com/blog/agent-in-slack"
+          }
+        ]
+      }
+    ],
+    "filters": [
+      {
+        "id": "legal",
+        "title": "Legal AI"
+      },
+      {
+        "id": "enterprise-agent",
+        "title": "Enterprise Agent"
+      },
+      {
+        "id": "sequoia",
+        "title": "Sequoia"
+      },
+      {
+        "id": "yc",
+        "title": "Y Combinator"
+      },
+      {
+        "id": "in-house",
+        "title": "In-house"
+      },
+      {
+        "id": "customer-experience",
+        "title": "Customer Experience"
+      },
+      {
+        "id": "knowledge-work",
+        "title": "Knowledge / Work"
+      },
+      {
+        "id": "gtm",
+        "title": "GTM"
+      },
+      {
+        "id": "support-automation",
+        "title": "Support / Automation"
       }
     ]
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-09-24T23:18:58+08:00",
+    "checked_at": "2026-09-24T15:28:19Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": null,
+      "last_success": "2026-09-24T15:28:19Z",
       "note": "播客/访谈源每2小时读取公开 RSS；发布会只收官方页面。RSS 新条目先作为媒体信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -760,7 +936,8 @@
           "robot",
           "machine learning",
           "llm"
-        ]
+        ],
+        "filter_scope": "title"
       }
     ],
     "events": [
@@ -838,6 +1015,26 @@
         "origin": "verified-manual"
       },
       {
+        "id": "latent-space-7db66d39eb06",
+        "source_id": "latent-space",
+        "published": "2026-09-24",
+        "title": "[AINews] Meta Connect 2026: Muse glasses, voice, video, and Charm",
+        "summary": "Team Zuck is absolutely on fire.",
+        "url": "https://www.latent.space/p/ainews-meta-connect-2026-muse-glasses",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
+        "id": "latent-space-39d297cf4c37",
+        "source_id": "latent-space",
+        "published": "2026-09-24",
+        "title": "Foundries vs Navigators: Lowering the Cost of Science",
+        "summary": "Guest Post: In science, thinking has gotten cheap but doing has not. This asymmetry is reshaping how research companies operate, largely inconspicuously.",
+        "url": "https://www.latent.space/p/foundries-vs-navigators-lowering",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
         "id": "latent-biosecurity-20260923",
         "source_id": "latent-space",
         "published": "2026-09-23",
@@ -879,6 +1076,18 @@
         "origin": "verified-manual"
       },
       {
+        "id": "lex-fridman-631048efee60",
+        "source_id": "lex-fridman",
+        "published": "2026-09-17",
+        "title": "#502 – Psychiatry, Insane Asylums, Mental Illness, ECT, Lobotomies, Freud & Jung",
+        "summary": "Andrew Scull is a historian of psychiatry. Thank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors/ep502-sc See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc. Transcript: https://lexfridman.com/andrew-scull-transcript CONTACT LEX: Feedback – give fe",
+        "url": "https://lexfridman.com/andrew-scull/?utm_source=rss&utm_medium=rss&utm_campaign=andrew-scull",
+        "tags": [
+          "Agents"
+        ],
+        "origin": "rss"
+      },
+      {
         "id": "dwarkesh-noam-20260917",
         "source_id": "dwarkesh",
         "published": "2026-09-17",
@@ -891,6 +1100,64 @@
           "RSI"
         ],
         "origin": "verified-manual"
+      },
+      {
+        "id": "dwarkesh-3e0ac0110708",
+        "source_id": "dwarkesh",
+        "published": "2026-09-11",
+        "title": "AI researchers debate how close we are to recursive self-improvement",
+        "summary": "“We're nowhere near the ceiling.”",
+        "url": "https://www.dwarkesh.com/p/john-beren-charlie",
+        "tags": [
+          "RSI"
+        ],
+        "origin": "rss"
+      },
+      {
+        "id": "dwarkesh-c192d8d53f35",
+        "source_id": "dwarkesh",
+        "published": "2026-09-08",
+        "title": "Pretraining progress is mostly coming from data",
+        "summary": "Breaking down 6 years of pretraining progress into data vs model improvements",
+        "url": "https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data",
+        "tags": [
+          "Models"
+        ],
+        "origin": "rss"
+      },
+      {
+        "id": "lex-fridman-0f403a2ded05",
+        "source_id": "lex-fridman",
+        "published": "2026-08-26",
+        "title": "#501 – DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding & Linux",
+        "summary": "DHH is the creator of Ruby on Rails, Omarchy Linux, CTO of 37signals, and a racecar driver. Thank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors/ep501-sc See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc. Transcript: https://lexfridman.com/dhh-2-",
+        "url": "https://lexfridman.com/dhh-2/?utm_source=rss&utm_medium=rss&utm_campaign=dhh-2",
+        "tags": [
+          "Agents",
+          "Coding",
+          "Models"
+        ],
+        "origin": "rss"
+      },
+      {
+        "id": "lex-fridman-66abdce4594a",
+        "source_id": "lex-fridman",
+        "published": "2026-08-12",
+        "title": "#500 – Khabib Nurmagomedov: Dagestan, MMA, UFC, Islam, Conor, Fedor & Football",
+        "summary": "Khabib Nurmagomedov is one of the greatest fighters of all time, who retired from the UFC undefeated with a perfect 29-0 record. We did this conversation entirely in Russian. It’s translated and dubbed into English. Both language audio tracks (and subtitles) are available on YouTube. Here, only the English audio is ava",
+        "url": "https://lexfridman.com/khabib-nurmagomedov/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedov",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
+        "id": "no-priors-6c788b96a547",
+        "source_id": "no-priors",
+        "published": "2023-06-29",
+        "title": "Bringing AI to the Data Cloud, with Snowflake's CEO Frank Slootman",
+        "summary": "Frank Slootman, CEO of Snowflake Computing, joins Sarah Guo and Elad Gil this week on No Priors. Before scaling Snowflake to its blockbuster IPO and beyond, Frank was also the CEO from early to scale for landmark enterprise companies ServiceNow and Data Domain. Frank grew up in the Netherlands and is also the author of",
+        "url": "https://no-priors.com/",
+        "tags": [],
+        "origin": "rss"
       }
     ]
   },
