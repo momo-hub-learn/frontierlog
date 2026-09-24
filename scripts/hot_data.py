@@ -37,8 +37,8 @@ def validate_hot(data:dict)->None:
         if u.scheme!='https' or not u.hostname or u.username or u.password: raise ValueError('Unsafe hot source URL')
         if item.get('link') and not str(item['link']).startswith('#/'): raise ValueError('Unsafe internal link')
         for list_key, required in (('access',('label','note','url')),('related',('source','title','url'))):
-            rows=item.get(list_key,[])
-            if not isinstance(rows,list): raise ValueError('Invalid hot '+list_key)
+            rows=item.get(list_key)
+            if not isinstance(rows,list) or not rows: raise ValueError('Missing hot '+list_key)
             for row in rows:
                 if not isinstance(row,dict): raise ValueError('Invalid hot '+list_key+' row')
                 for key in required:
