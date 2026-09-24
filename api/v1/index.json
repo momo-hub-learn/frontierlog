@@ -53,7 +53,35 @@
         "link": "#/progress",
         "secondary_url": "https://artificialanalysis.ai/leaderboards/models",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T02:26:01+08:00"
+        "first_seen_at": "2026-09-23T02:26:01+08:00",
+        "access": [
+          {
+            "label": "OpenAI Platform",
+            "note": "API 调用入口 · 需账号 / API 权限",
+            "url": "https://platform.openai.com/",
+            "kind": "try"
+          },
+          {
+            "label": "API Changelog",
+            "note": "GPT-6 Sol / Luna 模型 ID、价格与接口说明",
+            "url": "https://developers.openai.com/api/docs/changelog",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "The Indian Express / Reuters",
+            "date": "2026-09-23",
+            "title": "OpenAI expands GPT-6 lineup with cheaper Sol and Luna models",
+            "url": "https://indianexpress.com/article/technology/artificial-intelligence/openai-expands-gpt-6-lineup-with-cheaper-sol-and-luna-models-10890033/"
+          },
+          {
+            "source": "Techmeme",
+            "date": "2026-09-22",
+            "title": "GPT-6 Sol / Luna 发布后的媒体与开发者讨论汇总",
+            "url": "https://www.techmeme.com/260922/p43"
+          }
+        ]
       },
       {
         "id": "claude-opus-55-20260922",
@@ -72,7 +100,41 @@
         "link": "#/hot",
         "secondary_url": "https://artificialanalysis.ai/articles/claude-opus-5-5/",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T01:19:34+08:00"
+        "first_seen_at": "2026-09-23T01:19:34+08:00",
+        "access": [
+          {
+            "label": "Claude",
+            "note": "官方对话入口 · 可用性取决于账号与套餐",
+            "url": "https://claude.ai/",
+            "kind": "try"
+          },
+          {
+            "label": "Claude Platform",
+            "note": "API / Console 与开发者入口",
+            "url": "https://platform.claude.com/",
+            "kind": "gateway"
+          },
+          {
+            "label": "Platform Release Notes",
+            "note": "Opus 5.5 API、上下文与价格说明",
+            "url": "https://platform.claude.com/docs/en/release-notes/overview",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "Reuters",
+            "date": "2026-09-22",
+            "title": "Anthropic unveils Claude Opus 5.5",
+            "url": "https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/"
+          },
+          {
+            "source": "The Verge",
+            "date": "2026-09-22",
+            "title": "Anthropic launches Claude Opus 5.5 with stricter safeguards for cybersecurity",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/998868/anthropic-claude-opus-5-5-cybersecurity"
+          }
+        ]
       },
       {
         "id": "jev-system-one-20260915",
@@ -155,7 +217,35 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
         "link": "#/hot",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T17:17:00Z"
+        "first_seen_at": "2026-09-23T17:17:00Z",
+        "access": [
+          {
+            "label": "Google AI Studio",
+            "note": "官方在线体验 / Prompt 调试入口",
+            "url": "https://aistudio.google.com/",
+            "kind": "try"
+          },
+          {
+            "label": "Gemini 3.8 Flash TTS 文档",
+            "note": "模型 ID、能力与 API 参数",
+            "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts",
+            "kind": "docs"
+          },
+          {
+            "label": "Gemini API Changelog",
+            "note": "TTS 正式版与 Voices 端点发布说明",
+            "url": "https://ai.google.dev/gemini-api/docs/changelog",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "Google AI for Developers",
+            "date": "2026-09-22",
+            "title": "Gemini API release notes: Gemini 3.8 Flash TTS / Flash-Lite TTS",
+            "url": "https://ai.google.dev/gemini-api/docs/changelog"
+          }
+        ]
       },
       {
         "id": "mentalhealthbench-20260923",
@@ -174,7 +264,29 @@
         "secondary_url": "https://cdn.openai.com/ctf-cdn/MentalHealthBench_A_Comprehensive_Benchmark_of_AI_Capabilities_in_Realistic_Mental_Health_Conversations.pdf",
         "link": "#/benchmarks",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T22:12:12Z"
+        "first_seen_at": "2026-09-23T22:12:12Z",
+        "access": [
+          {
+            "label": "Benchmark 论文",
+            "note": "方法、评分设置与完整实验结果",
+            "url": "https://cdn.openai.com/ctf-cdn/MentalHealthBench_A_Comprehensive_Benchmark_of_AI_Capabilities_in_Realistic_Mental_Health_Conversations.pdf",
+            "kind": "docs"
+          },
+          {
+            "label": "官方 Benchmark 页面",
+            "note": "场景、Rubric 与模型结果概览",
+            "url": "https://openai.com/index/introducing-mentalhealthbench/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "date": "2026-09-23",
+            "title": "MentalHealthBench: open benchmark and methodology",
+            "url": "https://openai.com/index/introducing-mentalhealthbench/"
+          }
+        ]
       },
       {
         "id": "microsoft-physical-ai-offload-20260923",
@@ -193,7 +305,29 @@
         "secondary_url": "https://github.com/microsoft/physical-ai-toolchain",
         "link": "#/manufacturing",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T20:17:47-07:00"
+        "first_seen_at": "2026-09-23T20:17:47-07:00",
+        "access": [
+          {
+            "label": "Physical AI Toolchain",
+            "note": "官方开源仓库 · 可查看代码与示例",
+            "url": "https://github.com/microsoft/physical-ai-toolchain",
+            "kind": "gateway"
+          },
+          {
+            "label": "Quickstart",
+            "note": "从本地 T0 到训练 / 推理的上手路径",
+            "url": "https://microsoft.github.io/physical-ai-toolchain/getting-started/quickstart/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "AI Understanding",
+            "date": "2026-09-23",
+            "title": "Microsoft releases offloaded inference tooling for physical AI robotics",
+            "url": "https://aiunderstanding.org/news/microsoft-releases-offloaded-inference-tooling-for-physical-ai-robotics"
+          }
+        ]
       },
       {
         "id": "openai-math-advisory-20260921",
@@ -211,7 +345,35 @@
         "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
         "link": "#/hot",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-22T20:22:34+08:00"
+        "first_seen_at": "2026-09-22T20:22:34+08:00",
+        "access": [
+          {
+            "label": "Navier–Stokes 证明页面",
+            "note": "官方论文与 Lean formalized proof 入口",
+            "url": "https://openai.com/index/navier-stokes-solution/",
+            "kind": "docs"
+          },
+          {
+            "label": "数学顾问组公告",
+            "note": "OpenAI 对评审与发布机制的说明",
+            "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "The Guardian",
+            "date": "2026-09-20",
+            "title": "The Guardian view on AI v mathematicians: humans are still vital to the field",
+            "url": "https://www.theguardian.com/commentisfree/2026/sep/20/the-guardian-view-on-ai-v-mathematicians-humans-are-still-vital-to-the-field-but-tech-firms-refuse-to-see-that"
+          },
+          {
+            "source": "Folha de S.Paulo",
+            "date": "2026-09-19",
+            "title": "O que a IA representa para o futuro da matemática",
+            "url": "https://www1.folha.uol.com.br/ciencia/2026/09/o-que-a-ia-representa-para-o-futuro-da-matematica.shtml"
+          }
+        ]
       },
       {
         "id": "mimo-v26-pro-20260922",
@@ -230,7 +392,35 @@
         "secondary_url": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
         "evidence_level": "high",
         "link": "#/models",
-        "first_seen_at": "2026-09-23T05:47:50+08:00"
+        "first_seen_at": "2026-09-23T05:47:50+08:00",
+        "access": [
+          {
+            "label": "Hugging Face · MiMo-V2.6",
+            "note": "官方开放权重与模型集合",
+            "url": "https://huggingface.co/collections/XiaomiMiMo/mimo-v26",
+            "kind": "gateway"
+          },
+          {
+            "label": "MiMo-V2.6 技术发布",
+            "note": "RL 训练、开放资源与模型说明",
+            "url": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+            "kind": "docs"
+          },
+          {
+            "label": "Xiaomi MiMo 模型更新",
+            "note": "官方模型版本与定位",
+            "url": "https://mimo.mi.com/docs/en-US/updates/model",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "VentureBeat",
+            "date": "2026-09-21",
+            "title": "Xiaomi's MiMo-V2.6-Pro debuts alongside cheaper V2.6-Flash",
+            "url": "https://venturebeat.com/technology/better-than-deepseek-xiaomis-mimo-v2-6-pro-debuts-as-the-top-open-weights-model-in-the-world-alongside-cheaper-v2-6-flash"
+          }
+        ]
       },
       {
         "id": "google-private-ai-memory-20260923",
@@ -248,7 +438,29 @@
         "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
         "link": "#/hot",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T19:13:17Z"
+        "first_seen_at": "2026-09-23T19:13:17Z",
+        "access": [
+          {
+            "label": "Private AI Compute 技术更新",
+            "note": "架构、密钥与 server-side memory 说明",
+            "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+            "kind": "docs"
+          },
+          {
+            "label": "Google DeepMind News",
+            "note": "相关技术更新与后续发布入口",
+            "url": "https://deepmind.google/blog/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "VFF",
+            "date": "2026-09-23",
+            "title": "Google DeepMind Adds Private Memory to AI Compute",
+            "url": "https://vff.ai/article/2026/09/23/advancing-private-ai-compute-with-secure-server-side-memory"
+          }
+        ]
       },
       {
         "id": "meta-connect-muse-glasses-20260923",
@@ -266,7 +478,29 @@
         "url": "https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/",
         "link": "#/hot",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T19:17:19-07:00"
+        "first_seen_at": "2026-09-23T19:17:19-07:00",
+        "access": [
+          {
+            "label": "Meta AI Glasses",
+            "note": "官方产品页 · Ray-Ban Meta Audio / AI glasses",
+            "url": "https://www.meta.com/ai-glasses/",
+            "kind": "try"
+          },
+          {
+            "label": "Meta Connect 公告",
+            "note": "Muse 与 Ray-Ban Meta Audio 发布说明",
+            "url": "https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "Meta Store",
+            "date": "2026-09-23",
+            "title": "AI glasses product lineup and Ray-Ban Meta Audio",
+            "url": "https://www.meta.com/ai-glasses/"
+          }
+        ]
       }
     ]
   },
