@@ -54,6 +54,9 @@ jobs:
           ! grep -q "d-arch-flow.*overflow-x:auto" src/deep-dives.css
           grep -q "d-arch-flow{display:grid" src/deep-dives.css
           grep -q "d-breakout{width:100%;margin-left:0}" src/deep-dives.css
+          grep -q "d-arch-node small{display:block;font-size:.68rem" src/deep-dives.css
+          grep -q "d-case-step p{font-size:.77rem" src/deep-dives.css
+          grep -q "d-opening p,.d-section>p{font-size:1rem" src/deep-dives.css
           grep -q "爆热 98+" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
