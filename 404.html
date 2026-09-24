@@ -898,23 +898,6 @@ main{max-width:var(--v2-max-work)}
 .hf-score i:after{content:"";display:block;width:var(--hf-w);height:100%;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:inherit}
 .hf-note{font-size:.7rem;color:var(--muted);line-height:1.6;margin-top:8px;padding:0 2px}
 
-.hf-preview{margin-top:28px}
-.hf-preview .v10-section-head{margin-bottom:12px}
-.hf-preview-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-.hf-preview-row{display:grid;grid-template-columns:60px minmax(0,1fr) 150px;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
-.hf-preview-row:last-child{border-bottom:0}
-.hf-preview-row:hover{background:var(--hover)}
-.hf-preview-rank{font:700 .68rem var(--mono);color:var(--muted)}
-.hf-preview-main{min-width:0}
-.hf-preview-main strong{display:block;font:700 .88rem var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hf-preview-main small{display:block;color:var(--sub);font-size:.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
-.hf-preview-score{justify-self:stretch;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px;min-width:0}
-.hf-preview-score b{font:800 .95rem var(--display,var(--sans));color:var(--accent)}
-.hf-preview-score small{font-size:.65rem;color:var(--muted);text-align:right}
-.hf-preview-score i{grid-column:1/-1;display:block;height:4px;background:var(--raised);border-radius:999px;margin-top:5px;overflow:hidden}
-.hf-preview-score i:after{content:"";display:block;width:var(--hf-w);height:100%;background:var(--lime);border-radius:inherit}
-.hf-preview-foot{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.68rem;margin-top:7px;padding:0 2px}
-
 @media(max-width:760px){
  .hf-inline-head{display:block}
  .hf-inline-head>div:last-child{margin-top:7px;justify-content:flex-start}
@@ -922,9 +905,6 @@ main{max-width:var(--v2-max-work)}
  .hf-score{grid-column:2}
  .hf-method{grid-template-columns:1fr}
  .hf-model{font-size:.84rem}
- .hf-preview-row{grid-template-columns:48px minmax(0,1fr);gap:9px}
- .hf-preview-score{grid-column:2}
- .hf-preview-foot{display:block}
 }
 
 
@@ -2813,21 +2793,6 @@ function hfTabs(){
     return '<a class="hf-type-chip '+(active===id?'active':'')+'" href="'+hfHref(id)+'" '+(active===id?'aria-current="page"':'')+'><span>'+esc(title)+'</span><small>'+count+'</small></a>'
   }).join('')+'</nav>'
 }
-function hfPreview(){
-  const rows=(HF.items||[]).slice(0,5);if(!rows.length)return '';
-  const max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
-  return '<section class="hf-preview">'+
-    '<div class="v10-section-head"><div><p class="eyebrow">HUGGING FACE / MODEL SIGNAL</p><h2>HuggingFace 模型热榜</h2><p>直接看 Hugging Face 官方 Models Trending；趋势分是平台热度信号，不是模型能力分。</p></div><a href="#/hot?tab=hf">完整 HuggingFace 热榜 '+icon('arrow')+'</a></div>'+
-    '<div class="hf-preview-list">'+rows.map(x=>
-      '<a class="hf-preview-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
-        '<span class="hf-preview-rank">HF #'+String(x.rank).padStart(2,'0')+'</span>'+
-        '<span class="hf-preview-main"><strong>'+esc(x.id)+'</strong><small>'+esc(x.task||'—')+' · '+esc(x.library||'—')+'</small></span>'+
-        '<span class="hf-preview-score"><b>'+hfFmt(x.trending_score)+'</b><small>Trending</small><i style="--hf-w:'+Math.max(4,Math.round((Number(x.trending_score)||0)/max*100))+'%"></i></span>'+
-      '</a>'
-    ).join('')+'</div>'+
-    '<div class="hf-preview-foot"><span>官方 Trending 顺序 · 不等于模型能力榜</span><span>核验 '+esc(hfWhen())+'</span></div>'+
-  '</section>'
-}
 function hfInline(){
   const rows=hfRows(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
   return '<section class="hf-inline">'+
@@ -2871,12 +2836,6 @@ document.addEventListener('input',e=>{
   history.replaceState(null,'','#/hot?'+p.toString());parseRoute();
   const n=document.getElementById('hf-search');if(n){n.focus({preventScroll:true});try{n.setSelectionRange(pos,pos)}catch{}}
 });
-
-const hfBaseFeedPage=feedPage;
-feedPage=function(){
-  const html=hfBaseFeedPage(),block=hfPreview(),marker='<section class="v10-personal',at=html.indexOf(marker);
-  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
-};
 
 if(state.view==='feed'){lastMain='';renderMain()}
 })();
