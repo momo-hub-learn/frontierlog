@@ -44,7 +44,20 @@ const M_COMPANY_LOGOS={
   'AMI Labs':'https://amilabs.xyz/favicon.ico',
   Subconscious:'https://www.subconscious.dev/favicon.ico',
   'Hugging Face':'https://huggingface.co/favicon.ico',
-  'Physical Intelligence':'https://www.physicalintelligence.company/favicon.ico'
+  'Physical Intelligence':'https://www.physicalintelligence.company/favicon.ico',
+  'Microsoft AI':'https://microsoft.ai/favicon.ico',
+  'ByteDance Seed':'https://seed.bytedance.com/favicon.ico',
+  ByteDance:'https://seed.bytedance.com/favicon.ico',
+  Fal:'https://fal.ai/favicon.ico',
+  HiDream:'https://hidream.ai/favicon.ico',
+  'XGEN Labs':'https://xgenlabs.ai/favicon.ico',
+  'Kling AI':'https://kling.ai/favicon.ico',
+  LingBot:'https://www.robbyant.com/favicon.ico',
+  Yume:'https://github.com/stdstu12.png?size=64',
+  Cartesia:'https://www.cartesia.ai/favicon.ico',
+  Inworld:'https://inworld.ai/favicon.ico',
+  SpeechifyAI:'https://speechify.ai/favicon.ico',
+  'VUI Labs':'https://doc.vuilabs.ai/favicon.ico'
 };
 const M_COMPANY_ALIASES={'Z.ai':'Z AI',Moonshot:'Kimi','xAI':'SpaceXAI','GoogleDeepMind':'Google DeepMind','Meta AI':'Meta','Xiaomi Robotics':'Xiaomi'};
 function mMakerKey(maker){return M_COMPANY_ALIASES[maker]||maker}

@@ -25,6 +25,7 @@ jobs:
           node --check src/github-hot.js
           node --check src/deep-dives.js
           node --check src/feed-cockpit.js
+          node --check src/product-v3.js
           node --check src/progress-v4.js
           node --check assets/tibo-intel.js
       - name: Build static site
@@ -47,6 +48,8 @@ jobs:
           grep -q "本周新解锁 / 明显更新" dist-ci/index.html
           grep -q "AVAILABLE NOW" dist-ci/index.html
           grep -q "p4-progress" dist-ci/index.html
+          grep -q "v3-company-cell.*mCompanyCell" src/product-v3.js
+          grep -q "Microsoft AI.*favicon.ico" src/models.js
           grep -q "Jev 到底应该放在 Agent Stack 的哪一层" dist-ci/index.html
           grep -q "爆热 98+" dist-ci/index.html
           grep -q "X 官方原帖 / EVIDENCE" dist-ci/index.html
