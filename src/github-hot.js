@@ -99,23 +99,11 @@ function ghPreview(){
   '</section>';
 }
 
-const ghBaseTabs=hTabs;
-hTabs=function(s){
-  const active=ghActive();
-  const tabs=HOT.categories.map(c=>{
-    const href=c.id==='all'?'#/hot':'#/hot?cat='+encodeURIComponent(c.id);
-    const on=!active&&s.cat===c.id;
-    return '<a class="h-tab '+(on?'active':'')+'" href="'+href+'" '+(on?'aria-current="page"':'')+'>'+icon(H_ICON[c.id]||'sparkles')+esc(c.title)+'<small>'+hCategoryCount(c.id)+'</small></a>'
-  });
-  const github='<a class="h-tab gh-hot-tab '+(active?'active':'')+'" href="#/hot?tab=github" '+(active?'aria-current="page"':'')+'>'+icon('github')+'GitHub 热榜<small>'+String((GH.items||[]).length)+'</small></a>';
-  const first=tabs.shift()||'';
-  return '<nav class="h-tabs" aria-label="热点分类">'+first+github+tabs.join('')+'</nav>'
-};
-
 function ghInline(){
   const rows=ghRows();
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
   return '<section class="gh-inline">'+
+    hOpenTabs('github')+
     '<div class="gh-inline-head"><div><strong>GitHub Trending · Today</strong><span>官方榜位 + 今日新增 Star，作为开发者采用信号。</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+

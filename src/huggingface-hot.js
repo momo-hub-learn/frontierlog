@@ -47,6 +47,7 @@ function hfTabs(){
 function hfInline(){
   const rows=hfRows(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
   return '<section class="hf-inline">'+
+    hOpenTabs('hf')+
     '<div class="hf-inline-head"><div><strong>Hugging Face Models · Trending</strong><span>官方 trendingScore + Likes + Downloads，观察模型生态热度。</span></div><div><span>核验 '+esc(hfWhen())+'</span><a href="'+safeLink(HF.source_url)+'" target="_blank" rel="noopener noreferrer">打开 Hugging Face 原榜 '+icon('external')+'</a></div></div>'+
     '<div class="hf-method"><b>怎么看</b><span>左侧 # 保留 Hugging Face 官方 Trending 顺序；右侧 Trending 是官方 API 的 trendingScore。它只反映平台趋势信号，不代表模型质量、Benchmark 成绩或本站实测。Likes / Downloads 也只按 Hugging Face 官方字段展示。</span></div>'+
     hfTabs()+
@@ -60,14 +61,6 @@ function hfInline(){
     '<footer class="hf-note">'+esc(HF.note||'')+'</footer>'+
   '</section>'
 }
-
-const hfBaseTabs=hTabs;
-hTabs=function(s){
-  let html=hfBaseTabs(s),active=hfActive();
-  if(active)html=html.replace(/class="h-tab active"/g,'class="h-tab"').replace(/ aria-current="page"/g,'');
-  const tab='<a class="h-tab hf-hot-tab '+(active?'active':'')+'" href="#/hot?tab=hf" '+(active?'aria-current="page"':'')+'>'+icon('layers')+'HuggingFace 热榜<small>'+String((HF.items||[]).length)+'</small></a>';
-  return html.replace('</nav>',tab+'</nav>')
-};
 
 const hfBaseHotPage=hotPage;
 hotPage=function(){

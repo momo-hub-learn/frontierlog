@@ -68,3 +68,8 @@
 .gh-spark polyline{fill:none;stroke:var(--accent);stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
 .gh-velocity{grid-column:1/-1;display:block;margin-top:2px;font-size:.62rem;color:var(--muted);text-align:right;white-space:nowrap}
 @media(max-width:760px){.gh-velocity{text-align:left}.gh-spark{max-width:180px}}
+
+.h-open-tabs{display:flex;align-items:center;gap:6px;margin:0 0 13px;padding:3px;border:1px solid var(--line);background:color-mix(in srgb,var(--raised) 55%,var(--panel));border-radius:9px;width:max-content}
+.h-open-tabs a{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:6px;font-size:.7rem;color:var(--sub)}
+.h-open-tabs a:hover{background:var(--panel);color:var(--text)}.h-open-tabs a.active{background:var(--panel);color:var(--accent);font-weight:750;box-shadow:0 0 0 1px var(--line) inset}
+.h-open-tabs .ico{width:12px;height:12px}.h-open-tabs small{font:600 .61rem var(--mono);color:var(--muted)}

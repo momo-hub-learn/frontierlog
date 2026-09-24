@@ -7,14 +7,43 @@ const HOT_ITEMS=new Map(HOT.items.map(x=>[x.id,x]));
 const HOT_CATS=new Map(HOT.categories.map(x=>[x.id,x]));
 PATHS.fire='<path d="M13 2s1 4-2 6c-1-3-4-3-4-6-3 3-4 7-2 11 2 5 6 8 7 8s6-2 7-7c1-5-2-8-4-10 0 3-1 5-3 6 1-4-1-6 1-8z"/>';
 const H_TREND={up:['↗','上升'],flat:['—','持平'],down:['↘','回落']};
-const H_ICON={all:'sparkles',model:'cpu',product:'box',industry:'factory',research:'flask',benchmark:'gauge'};
+const H_ICON={all:'sparkles',model:'cpu',product:'box',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
+const H_PRIMARY_TABS=[
+ {id:'all',title:'全部',icon:'sparkles'},
+ {id:'open',title:'开源',icon:'github',href:'#/hot?tab=github'},
+ {id:'model',title:'模型',icon:'cpu'},
+ {id:'product',title:'产品',icon:'box'},
+ {id:'industry',title:'行业',icon:'factory'},
+ {id:'research-eval',title:'研究 / 评测',icon:'flask'}
+];
 function hParams(){return new URLSearchParams(location.hash.split('?')[1]||'')}
-function hState(){const p=hParams(),ptag=p.get('ptag');return {cat:HOT_CATS.has(p.get('cat'))?p.get('cat'):'all',q:(p.get('q')||'').slice(0,300).trim(),ptag:(PRODUCT_RADAR.filters||[]).some(x=>x.id===ptag)?ptag:'all',item:HOT_ITEMS.has(p.get('item'))?p.get('item'):null}}
+function hNormalizeCat(raw){return ['research','benchmark','research-eval'].includes(raw)?'research-eval':HOT_CATS.has(raw)?raw:'all'}
+function hState(){const p=hParams(),ptag=p.get('ptag');return {cat:hNormalizeCat(p.get('cat')),q:(p.get('q')||'').slice(0,300).trim(),ptag:(PRODUCT_RADAR.filters||[]).some(x=>x.id===ptag)?ptag:'all',item:HOT_ITEMS.has(p.get('item'))?p.get('item'):null}}
 function hRoute(patch={},replace=false){const p=hParams();for(const [k,v]of Object.entries(patch)){if(v===null||v===undefined||v==='')p.delete(k);else p.set(k,String(v))}const h='#/hot'+(p.size?'?'+p.toString():'');if(replace)history.replaceState(null,'',h);else history.pushState(null,'',h);parseRoute()}
-function hRows(){const s=hState(),q=s.q.toLowerCase();return HOT.items.filter(x=>(s.cat==='all'||x.category===s.cat)&&(!q||[x.title,x.summary,x.why,x.source,HOT_CATS.get(x.category)?.title].join(' ').toLowerCase().includes(q))).sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published))}
+function hCatMatches(cat,itemCat){return cat==='all'||cat===itemCat||(cat==='research-eval'&&['research','benchmark'].includes(itemCat))}
+function hRows(){const s=hState(),q=s.q.toLowerCase();return HOT.items.filter(x=>hCatMatches(s.cat,x.category)&&(!q||[x.title,x.summary,x.why,x.source,HOT_CATS.get(x.category)?.title].join(' ').toLowerCase().includes(q))).sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published))}
 function hTrend(x){const [g,label]=H_TREND[x.trend]||H_TREND.flat;return `<span class="h-trend ${x.trend}" title="${label}">${g}</span>`}
-function hCategoryCount(id){const news=id==='all'?HOT.items.length:HOT.items.filter(x=>x.category===id).length;return id==='product'?news+(PRODUCT_RADAR.items||[]).length:news}
-function hTabs(s){return `<nav class="h-tabs" aria-label="热点分类">${HOT.categories.map(c=>`<button class="h-tab ${s.cat===c.id?'active':''}" data-ha="cat" data-id="${c.id}" ${s.cat===c.id?'aria-current="page"':''}>${icon(H_ICON[c.id]||'sparkles')}${esc(c.title)}<small>${hCategoryCount(c.id)}</small></button>`).join('')}</nav>`}
+function hCategoryCount(id){
+ if(id==='open')return (APP.github_hot?.items||[]).length+(APP.huggingface_hot?.items||[]).length;
+ const cats=id==='research-eval'?['research','benchmark']:[id];
+ const news=id==='all'?HOT.items.length:HOT.items.filter(x=>cats.includes(x.category)).length;
+ return id==='product'?news+(PRODUCT_RADAR.items||[]).length:news
+}
+function hTabs(s){
+ const platform=hParams().get('tab'),openActive=['github','hf'].includes(platform);
+ return '<nav class="h-tabs" aria-label="热点分类">'+H_PRIMARY_TABS.map(t=>{
+  const active=t.id==='open'?openActive:!openActive&&s.cat===t.id;
+  if(t.href)return '<a class="h-tab '+(active?'active':'')+'" href="'+t.href+'" '+(active?'aria-current="page"':'')+'>'+icon(t.icon)+esc(t.title)+'<small>'+hCategoryCount(t.id)+'</small></a>';
+  return '<button class="h-tab '+(active?'active':'')+'" data-ha="cat" data-id="'+t.id+'" '+(active?'aria-current="page"':'')+'>'+icon(t.icon)+esc(t.title)+'<small>'+hCategoryCount(t.id)+'</small></button>'
+ }).join('')+'</nav>'
+}
+function hOpenTabs(active){
+ const gh=(APP.github_hot?.items||[]).length,hf=(APP.huggingface_hot?.items||[]).length;
+ return '<nav class="h-open-tabs" aria-label="开源平台">'+
+  '<a class="'+(active==='github'?'active':'')+'" href="#/hot?tab=github">'+icon('github')+'GitHub<small>'+gh+'</small></a>'+
+  '<a class="'+(active==='hf'?'active':'')+'" href="#/hot?tab=hf">'+icon('layers')+'Hugging Face<small>'+hf+'</small></a>'+
+ '</nav>'
+}
 function hProductLatest(x){return Array.isArray(x.timeline)&&x.timeline.length?x.timeline[0]:null}
 function hProductEvents(rows){
  return rows.flatMap(x=>(x.timeline||[]).map(e=>({...e,product:x.name,product_id:x.id,filter_ids:x.filter_ids||[]})))

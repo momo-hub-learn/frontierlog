@@ -69,6 +69,10 @@ jobs:
           grep -q "GitHub AI 热仓" dist-ci/index.html
           grep -q "GitHub 热榜" dist-ci/index.html
           grep -q "HuggingFace 热榜" dist-ci/index.html
+          grep -q "title:\x27开源\x27" dist-ci/index.html
+          grep -q "title:\x27研究 / 评测\x27" dist-ci/index.html
+          grep -q "h-open-tabs" dist-ci/index.html
+          grep -q "h-filterbar .h-search{width:230px;flex:0 0 230px" dist-ci/index.html
           grep -q "href=\"#/hot?tab=hf\"" dist-ci/index.html
           ! grep -q "hfBaseFeedPage" src/huggingface-hot.js
           grep -q "Hugging Face Models · Trending" dist-ci/index.html

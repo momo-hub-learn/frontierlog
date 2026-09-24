@@ -162,6 +162,19 @@ class BuildTests(unittest.TestCase):
             self.assertNotIn("{view:'benchmarks',href:'#/benchmarks'",html)
             self.assertIn('href="#/saved"',html)
 
+    def test_hot_tabs_are_compact_and_group_related_sources(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn("title:'开源'",html)
+            self.assertIn("title:'研究 / 评测'",html)
+            self.assertIn('h-open-tabs',html)
+            self.assertIn('GitHub<small>',html)
+            self.assertIn('Hugging Face<small>',html)
+            self.assertIn('.h-filterbar .h-search{width:230px;flex:0 0 230px',html)
+            self.assertNotIn("+'GitHub 热榜<small>'+String((GH.items||[]).length)",html)
+            self.assertNotIn("+'HuggingFace 热榜<small>'+String((HF.items||[]).length)",html)
+
     def test_github_hot_uses_granular_topics(self):
         data=json.loads((ROOT/'data/github-hot.json').read_text())
         cats={c['id'] for c in data['categories']}
