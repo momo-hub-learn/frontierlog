@@ -1,0 +1,73 @@
+name: Trending refresh checks
+
+on:
+  push:
+    branches: ['preview/trending-sync-*']
+    paths:
+      - 'scripts/collect_trending.py'
+      - 'tests/test_trending_sync.py'
+      - '.github/workflows/trending-sync.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trending-refresh-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parser and repository regression tests
+        run: |
+          python -m unittest tests.test_trending_sync
+          python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+          for file in src/*.js; do node --check "$file"; done
+          node tests/product-browser.test.cjs
+      - name: Refresh official trending snapshots
+        run: python scripts/collect_trending.py
+      - name: Validate refreshed semantics
+        run: |
+          python - <<'PY'
+          import json
+          gh=json.load(open('data/github-hot.json'))
+          hf=json.load(open('data/huggingface-hot.json'))
+          assert len(gh['items']) >= 5
+          assert [x['rank'] for x in gh['items']] == list(range(1,len(gh['items'])+1))
+          assert all(isinstance(x['stars_today'],int) and x['stars_today'] >= 0 for x in gh['items'])
+          assert len(hf['items']) == 20
+          assert [x['rank'] for x in hf['items']] == list(range(1,21))
+          assert all(isinstance(x['trending_score'],(int,float)) for x in hf['items'])
+          assert '不代表模型能力' in gh['note']
+          assert '不代表模型能力' in hf['note']
+          PY
+      - name: Build static site
+        run: |
+          python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          test -f dist/index.html
+          test -f dist/404.html
+          grep -q 'GitHub Trending · Today' dist/index.html
+          grep -q 'Hugging Face Models · Trending' dist/index.html
+          git diff --check
+      - name: Record tested source
+        run: git rev-parse HEAD > source-sha.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trending-refresh-review
+          path: |
+            source-sha.txt
+            data/github-hot.json
+            data/huggingface-hot.json
+            dist/index.html
+            dist/404.html
+          retention-days: 3
