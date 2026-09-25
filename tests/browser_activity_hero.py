@@ -18,7 +18,7 @@ class Quiet(SimpleHTTPRequestHandler):
 server = ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(ROOT/'dist')))
 threading.Thread(target=server.serve_forever,daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}/'
-checks, errors = [], []
+checks, errors, typography = [], [], {}
 def passed(name):
     checks.append(name)
     print('PASS', name, flush=True)
@@ -48,8 +48,9 @@ try:
         assert len(page.locator('.ah-intro').inner_text()) < 125
         expect(page.locator('.ah-feature .ah-start')).to_contain_text('12/02 03:00')
         expect(page.locator('.ah-feature .ah-local')).to_contain_text('12/01 14:00')
-        assert page.locator('.ah-hero').bounding_box()['height'] < 300
-        passed('compact header, one feature, correct Beijing and source-local times')
+        # A readable type scale is allowed more space than the former 10px labels.
+        assert page.locator('.ah-hero').bounding_box()['height'] < 370
+        passed('readable header, one feature, correct Beijing and source-local times')
         expect(page.locator('.ah-rules-panel')).not_to_be_visible()
         page.locator('.ah-rules summary').click()
         expect(page.locator('.ah-rules-panel')).to_be_visible()
@@ -94,13 +95,36 @@ try:
         assert dates==sorted(dates,reverse=True)
         passed('editor/time sorting changes the actual visible cards')
         go('#/activity')
-        for width in [360,390,768,1280,1640]:
+        for width in [320,360,390,768,1024,1280,1640]:
             page.set_viewport_size({'width':width,'height':1000})
-            page.wait_for_timeout(80)
+            page.wait_for_timeout(350)
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'), width
             for selector in ['.ah-hero','.ah-feature','.ah-filterbar','.ah-event']:
                 for rect in page.locator(selector).evaluate_all('es=>es.map(e=>({x:e.getBoundingClientRect().x,r:e.getBoundingClientRect().right,sw:e.scrollWidth,cw:e.clientWidth}))'):
                     assert rect['x']>=0 and rect['r']<=width+1 and rect['sw']<=rect['cw']+2,(width,selector,rect)
+            # Regressions must fail if later compact styles shrink the text again.
+            roles = {
+                '.ah-intro h1':32, '.ah-dek':17, '.ah-metadata':14,
+                '.ah-feature h2':21, '.ah-start':16, '.ah-local':14,
+                '.ah-calendar':15, '.ah-countdown':14,
+                '.ah-event h3':19, '.ah-event p':16,
+                '.ah-event-meta time':14, '.ah-event-meta small':14,
+                '.v2-radar-tags span':13,
+                '.v2-radar-section>header h2':24,
+                '.v2-media-card h3':20, '.v2-media-card>p':16,
+                '.v2-media-top':14, '.v2-media-top time':14,
+                '.v2-media-takeaways li':16,
+                '.ah-filterbar .v2-radar-tab strong':16,
+            }
+            typography[width] = {}
+            for selector, minimum in roles.items():
+                element = page.locator(selector).first
+                actual = element.evaluate('e=>parseFloat(getComputedStyle(e).fontSize)')
+                typography[width][selector] = actual
+                assert actual >= minimum - 0.05, (width, selector, actual, minimum)
+            for selector in ['.ah-event p', '.v2-media-card>p', '.v2-media-takeaways li']:
+                for sizes in page.locator(selector).evaluate_all('es=>es.map(e=>({h:e.clientHeight,sh:e.scrollHeight,w:e.clientWidth,sw:e.scrollWidth}))'):
+                    assert sizes['sh'] <= sizes['h']+2 and sizes['sw'] <= sizes['w']+2, (width,selector,sizes)
             page.locator('.ah-rules summary').click()
             rect=page.locator('.ah-rules-panel').bounding_box()
             assert rect['x']>=0 and rect['x']+rect['width']<=width+1,(width,rect)
@@ -109,6 +133,20 @@ try:
             page.evaluate('window.scrollTo(0,0)')
             page.screenshot(path=str(OUT/f'{width}-activity.png'))
             passed(f'{width}px: header, feature, cards, filters and rules stay in viewport')
+        passed('titles, summaries, metadata and technical takeaways meet minimum readable sizes')
+        # Text-only enlargement at 200% must reflow without clipping the page.
+        for width in [390,1640]:
+            page.set_viewport_size({'width':width,'height':1000})
+            page.evaluate("document.documentElement.style.fontSize='200%'")
+            page.wait_for_timeout(350)
+            assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'), ('text200',width)
+            for selector in ['.ah-feature','.ah-event','.v2-media-card']:
+                for size in page.locator(selector).evaluate_all('es=>es.map(e=>({w:e.clientWidth,sw:e.scrollWidth}))'):
+                    assert size['sw'] <= size['w']+2, ('text200',width,selector,size)
+            page.evaluate("document.documentElement.style.removeProperty('font-size')")
+        passed('200 percent text enlargement reflows at phone and desktop widths')
+        page.set_viewport_size({'width':1640,'height':1000})
+        page.wait_for_timeout(350)
         page.evaluate("document.documentElement.dataset.theme='dark'")
         page.screenshot(path=str(OUT/'dark-activity.png'))
         page.evaluate("document.documentElement.dataset.theme='light'")
@@ -125,7 +163,7 @@ try:
         expect(page.locator('.ah-hero')).to_have_count(1)
         assert not errors, errors
         passed('other pages unchanged, return route works, no uncaught JS errors')
-        (OUT/'checks.json').write_text(json.dumps({'mode':'memory' if MEMORY else 'http','checks':checks,'errors':errors},ensure_ascii=False,indent=2))
+        (OUT/'checks.json').write_text(json.dumps({'mode':'memory' if MEMORY else 'http','checks':checks,'errors':errors,'typography':typography},ensure_ascii=False,indent=2))
         browser.close()
 finally:
     server.shutdown()
