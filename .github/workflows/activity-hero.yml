@@ -1,0 +1,103 @@
+name: Activity header checks
+on:
+  push:
+    branches: [main, 'preview/activity-hero-20260925']
+    paths:
+      - 'src/activity-hero.*'
+      - 'scripts/activity_feature.py'
+      - 'scripts/build.py'
+      - 'data/activity-feature.json'
+      - 'assets/activity/**'
+      - 'tests/activity-hero.test.cjs'
+      - 'tests/browser_activity_hero.py'
+      - '.github/workflows/activity-hero.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: activity-header-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unit, behavior and static build checks
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --check src/activity-hero.js
+          node tests/activity-hero.test.cjs
+          python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          meta=json.loads(Path('data/activity-feature.json').read_text())
+          for event in meta['events'].values():
+              path=Path(event['artwork']['local'])
+              data=path.read_bytes()
+              assert data[:4]==b'RIFF' and data[8:12]==b'WEBP' and len(data)>100
+              assert (Path('dist')/path).read_bytes()==data
+          PY
+      - name: Install Chromium and Chinese fonts
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Browser interactions and responsive layouts
+        run: |
+          python tests/browser_activity_hero.py
+          python tests/browser_deep_visual.py
+      - name: Preserve verified source and outputs
+        run: |
+          git rev-parse HEAD > source-sha.txt
+          git archive --format=zip HEAD -o review-source.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: activity-header-review
+          path: |
+            source-sha.txt
+            review-source.zip
+            dist
+            test-results/activity-hero
+            test-results/jev
+          retention-days: 7
+  preview-snapshot:
+    needs: verify
+    if: github.ref == 'refs/heads/preview/activity-hero-20260925'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: activity-header-review
+          path: .activity-review
+      - name: Commit only tested generated snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(cat .activity-review/source-sha.txt)" = "$GITHUB_SHA"
+          for file in index.html 404.html api/v1/index.json api/v1/activity-feature.json; do
+            mkdir -p "$(dirname "$file")"
+            cp ".activity-review/dist/$file" "$file"
+          done
+          git add index.html 404.html api/v1/index.json api/v1/activity-feature.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'build: refresh verified activity header snapshots'
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
