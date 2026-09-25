@@ -1,43 +1,151 @@
 name: Activity header checks
 on:
   push:
-    branches: ['preview/activity-hero-20260925']
-    paths: ['.github/workflows/activity-hero.yml']
+    branches: [main, 'preview/activity-hero-20260925']
+    paths:
+      - 'src/activity-hero.*'
+      - 'scripts/activity_feature.py'
+      - 'scripts/build.py'
+      - 'data/activity-feature.json'
+      - 'assets/activity/**'
+      - 'tests/activity-hero.test.cjs'
+      - 'tests/browser_activity_hero.py'
+      - '.github/workflows/activity-hero.yml'
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: activity-header-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  review:
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Snapshot current source
-        run: git archive --format=zip HEAD -o activity-source.zip
-      - name: Read official event artwork metadata
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare reviewed integration and official thumbnails on preview only
+        if: github.ref == 'refs/heads/preview/activity-hero-20260925'
         run: |
+          python -m pip install Pillow==11.3.0
           python - <<'PY'
-          import json, re, urllib.request
-          from html.parser import HTMLParser
-          class Meta(HTMLParser):
-              def __init__(self): super().__init__(); self.rows=[]
-              def handle_starttag(self, tag, attrs):
-                  a=dict(attrs)
-                  if tag=='meta' and a.get('property','').startswith('og:'): self.rows.append(a)
-                  if tag=='img' and any(t in str(a).lower() for t in ('keynote','jensen','wwdc','event')): self.rows.append(a)
-          pages=['https://www.nvidia.com/gtc/dc/','https://www.nvidia.com/gtc/keynote/','https://www.apple.com/apple-events/','https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/']
-          out={}
-          for url in pages:
-              try:
-                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
-                  html=urllib.request.urlopen(req,timeout=30).read().decode('utf-8','replace')
-                  p=Meta();p.feed(html);out[url]=p.rows
-              except Exception as e: out[url]={'error':str(e)}
-          open('official-artwork.json','w').write(json.dumps(out,ensure_ascii=False,indent=2))
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from urllib.parse import urlparse
+          from PIL import Image
+          import io, json
+          p=Path('scripts/build.py');text=p.read_text()
+          if "app['activity_feature']" not in text:
+              edits=[
+                ("    template=(ROOT/'src/index.html').read_text(encoding='utf-8')", "    from activity_feature import load_feature\n    app['activity_feature']=load_feature(ROOT, activity_radar)\n"),
+                ("    for marker in ('@@CSS@@','@@JS@@','@@DATA@@','@@FEED@@'):", "    css+='\\n'+(ROOT/'src/activity-hero.css').read_text(encoding='utf-8')\n    js+='\\n'+(ROOT/'src/activity-hero.js').read_text(encoding='utf-8')\n"),
+                ("    write_json(output/'api/v1/index.json',app)", "    from shutil import copytree\n    copytree(ROOT/'assets/activity', output/'assets/activity', dirs_exist_ok=True)\n    write_json(output/'api/v1/activity-feature.json',app['activity_feature'])\n")]
+              for anchor,insert in edits:
+                  assert text.count(anchor)==1, anchor
+                  text=text.replace(anchor,insert+anchor)
+              p.write_text(text)
+          p=Path('src/activity-hero.css');text=p.read_text()
+          if 'Closed details must not contribute' not in text:
+              text+='''
+          .ah-view-switch [data-ah-view=list] .ico{display:none}
+          .ah-view-switch [data-ah-view=list]:before{content:'☷';font:500 22px/1 var(--sans)}
+          /* Closed details must not contribute a hidden absolute panel to page overflow. */
+          .ah-rules:not([open]) .ah-rules-panel{display:none}
+          .ah-page .v2-lifecycle-list{grid-template-columns:minmax(0,1fr)}
+          .ah-page .v2-lifecycle,.ah-page .v2-life-track{min-width:0;max-width:100%}
+          .ah-page .v2-lifecycle>header>div{min-width:0;flex-wrap:wrap}
+          .ah-page .v2-lifecycle h2{overflow-wrap:anywhere;min-width:0}
+          @container (max-width:800px){.ah-filterbar .v2-radar-tabs{flex:1 0 100%;width:100%}.ah-filterbar .ah-display-tools{margin-left:auto}}
+          @container (max-width:480px){.ah-page .v2-lifecycle{padding:16px}.ah-rules-panel{width:100%;max-width:100%;left:0}}
+          .ah-feature:before{right:0;top:0;width:160px;height:140px;background:radial-gradient(ellipse at top right,#96c74015,transparent 70%)}
+          '''
+              p.write_text(text)
+          data=json.loads(Path('data/activity-feature.json').read_text())
+          for event in data['events'].values():
+              art=event['artwork'];dest=Path(art['local'])
+              if dest.exists() and dest.stat().st_size>0: continue
+              assert dest.parent==Path('assets/activity') and dest.suffix=='.webp'
+              req=Request(art['url'],headers={'User-Agent':'Mozilla/5.0'})
+              with urlopen(req,timeout=30) as r:
+                  assert urlparse(r.url).hostname in {'www.apple.com','www.nvidia.com'}
+                  raw=r.read(10_000_001)
+              assert len(raw)<=10_000_000
+              im=Image.open(io.BytesIO(raw));im.load();im=im.convert('RGB')
+              im.thumbnail((640,640))
+              dest.parent.mkdir(parents=True,exist_ok=True)
+              im.save(dest,'WEBP',quality=86,method=6)
+              print(dest,im.size,dest.stat().st_size)
           PY
+      - name: Unit, behavior and static build checks
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --check src/activity-hero.js
+          node tests/activity-hero.test.cjs
+          python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Install Chromium and Chinese fonts
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Browser interactions and responsive layouts
+        run: |
+          python tests/browser_activity_hero.py
+          python tests/browser_deep_visual.py
+      - name: Preserve verified source and outputs
+        run: |
+          git rev-parse HEAD > source-sha.txt
+          git archive --format=zip HEAD -o review-source.zip
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: activity-header-review
           path: |
-            activity-source.zip
-            official-artwork.json
+            source-sha.txt
+            review-source.zip
+            scripts/build.py
+            src/activity-hero.css
+            assets/activity
+            dist
+            test-results/activity-hero
+            test-results/jev
           retention-days: 7
+  preview-snapshot:
+    needs: verify
+    if: github.ref == 'refs/heads/preview/activity-hero-20260925'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: activity-header-review
+          path: .activity-review
+      - name: Commit only tested integration and generated snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(cat .activity-review/source-sha.txt)" = "$GITHUB_SHA"
+          cp .activity-review/scripts/build.py scripts/build.py
+          cp .activity-review/src/activity-hero.css src/activity-hero.css
+          cp .activity-review/assets/activity/*.webp assets/activity/
+          for file in index.html 404.html api/v1/index.json api/v1/activity-feature.json; do
+            mkdir -p "$(dirname "$file")"
+            cp ".activity-review/dist/$file" "$file"
+          done
+          git add scripts/build.py src/activity-hero.css assets/activity/*.webp index.html 404.html api/v1/index.json api/v1/activity-feature.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'build: publish verified activity header and official event previews'
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
