@@ -29,64 +29,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare reviewed integration and official thumbnails on preview only
-        if: github.ref == 'refs/heads/preview/activity-hero-20260925'
-        run: |
-          python -m pip install Pillow==11.3.0
-          python - <<'PY'
-          from pathlib import Path
-          from urllib.request import Request, urlopen
-          from urllib.parse import urlparse
-          from PIL import Image
-          import io, json
-          p=Path('scripts/build.py');text=p.read_text()
-          if "app['activity_feature']" not in text:
-              edits=[
-                ("    template=(ROOT/'src/index.html').read_text(encoding='utf-8')", "    from activity_feature import load_feature\n    app['activity_feature']=load_feature(ROOT, activity_radar)\n"),
-                ("    for marker in ('@@CSS@@','@@JS@@','@@DATA@@','@@FEED@@'):", "    css+='\\n'+(ROOT/'src/activity-hero.css').read_text(encoding='utf-8')\n    js+='\\n'+(ROOT/'src/activity-hero.js').read_text(encoding='utf-8')\n"),
-                ("    write_json(output/'api/v1/index.json',app)", "    from shutil import copytree\n    copytree(ROOT/'assets/activity', output/'assets/activity', dirs_exist_ok=True)\n    write_json(output/'api/v1/activity-feature.json',app['activity_feature'])\n")]
-              for anchor,insert in edits:
-                  assert text.count(anchor)==1, anchor
-                  text=text.replace(anchor,insert+anchor)
-              p.write_text(text)
-          p=Path('src/activity-hero.css');text=p.read_text()
-          if 'Closed details must not contribute' not in text:
-              text+='''
-          .ah-view-switch [data-ah-view=list] .ico{display:none}
-          .ah-view-switch [data-ah-view=list]:before{content:'☷';font:500 22px/1 var(--sans)}
-          /* Closed details must not contribute a hidden absolute panel to page overflow. */
-          .ah-rules:not([open]) .ah-rules-panel{display:none}
-          .ah-page .v2-lifecycle-list{grid-template-columns:minmax(0,1fr)}
-          .ah-page .v2-lifecycle,.ah-page .v2-life-track{min-width:0;max-width:100%}
-          .ah-page .v2-lifecycle>header>div{min-width:0;flex-wrap:wrap}
-          .ah-page .v2-lifecycle h2{overflow-wrap:anywhere;min-width:0}
-          @container (max-width:800px){.ah-filterbar .v2-radar-tabs{flex:1 0 100%;width:100%}.ah-filterbar .ah-display-tools{margin-left:auto}}
-          @container (max-width:480px){.ah-page .v2-lifecycle{padding:16px}.ah-rules-panel{width:100%;max-width:100%;left:0}}
-          .ah-feature:before{right:0;top:0;width:160px;height:140px;background:radial-gradient(ellipse at top right,#96c74015,transparent 70%)}
-          '''
-              p.write_text(text)
-          data=json.loads(Path('data/activity-feature.json').read_text())
-          for event in data['events'].values():
-              art=event['artwork'];dest=Path(art['local'])
-              if dest.exists() and dest.stat().st_size>0: continue
-              assert dest.parent==Path('assets/activity') and dest.suffix=='.webp'
-              req=Request(art['url'],headers={'User-Agent':'Mozilla/5.0'})
-              with urlopen(req,timeout=30) as r:
-                  assert urlparse(r.url).hostname in {'www.apple.com','www.nvidia.com'}
-                  raw=r.read(10_000_001)
-              assert len(raw)<=10_000_000
-              im=Image.open(io.BytesIO(raw));im.load();im=im.convert('RGB')
-              im.thumbnail((640,640))
-              dest.parent.mkdir(parents=True,exist_ok=True)
-              im.save(dest,'WEBP',quality=86,method=6)
-              print(dest,im.size,dest.stat().st_size)
-          PY
       - name: Unit, behavior and static build checks
         run: |
           python -m unittest discover -s tests -p 'test_*.py'
           node --check src/activity-hero.js
           node tests/activity-hero.test.cjs
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          meta=json.loads(Path('data/activity-feature.json').read_text())
+          for event in meta['events'].values():
+              path=Path(event['artwork']['local'])
+              data=path.read_bytes()
+              assert data[:4]==b'RIFF' and data[8:12]==b'WEBP' and len(data)>100
+              assert (Path('dist')/path).read_bytes()==data
+          PY
       - name: Install Chromium and Chinese fonts
         run: |
           python -m pip install playwright==1.55.0
@@ -107,9 +65,6 @@ jobs:
           path: |
             source-sha.txt
             review-source.zip
-            scripts/build.py
-            src/activity-hero.css
-            assets/activity
             dist
             test-results/activity-hero
             test-results/jev
@@ -129,23 +84,20 @@ jobs:
         with:
           name: activity-header-review
           path: .activity-review
-      - name: Commit only tested integration and generated snapshots
+      - name: Commit only tested generated snapshots
         shell: bash
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test "$(cat .activity-review/source-sha.txt)" = "$GITHUB_SHA"
-          cp .activity-review/scripts/build.py scripts/build.py
-          cp .activity-review/src/activity-hero.css src/activity-hero.css
-          cp .activity-review/assets/activity/*.webp assets/activity/
           for file in index.html 404.html api/v1/index.json api/v1/activity-feature.json; do
             mkdir -p "$(dirname "$file")"
             cp ".activity-review/dist/$file" "$file"
           done
-          git add scripts/build.py src/activity-hero.css assets/activity/*.webp index.html 404.html api/v1/index.json api/v1/activity-feature.json
+          git add index.html 404.html api/v1/index.json api/v1/activity-feature.json
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'build: publish verified activity header and official event previews'
+            git commit -m 'build: refresh verified activity header snapshots'
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
