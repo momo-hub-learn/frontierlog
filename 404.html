@@ -1146,6 +1146,11 @@ main{max-width:var(--v2-max-work)}
  .hf-sub{font-size:.8125rem}
 }
 
+/* Fast-moving rankings older than six hours are visually downgraded. */
+.trend-stale-card,.trend-stale-banner{border:1px solid color-mix(in srgb,#b7791f 38%,var(--line));background:color-mix(in srgb,#b7791f 7%,var(--panel));border-radius:10px;padding:12px 14px;color:var(--sub);font-size:.875rem;line-height:1.6}
+.trend-stale-card{margin:0 0 12px}
+.trend-stale-banner{margin:0 0 12px}
+
 
 .tibo-featured-source{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.tibo-featured-source span,.tibo-featured-machine{font-size:.67rem;color:var(--muted);border:1px solid var(--soft-line);background:var(--raised);border-radius:999px;padding:4px 8px;line-height:1.45}
 .tibo-featured-x{width:100%;min-height:250px;display:flex;align-items:flex-start;justify-content:center}.tibo-featured-x>div.twitter-tweet,.tibo-featured-x iframe{width:100%!important;max-width:none!important;margin:0!important}.tibo-featured-proof .tibo-x-loading{min-height:250px;border-style:solid;background:var(--panel)}
@@ -3712,6 +3717,48 @@ document.addEventListener('input',e=>{
 });
 
 if(state.view==='feed'){lastMain='';renderMain()}
+})();
+
+'use strict';
+(()=>{
+const MAX_AGE_HOURS=6;
+function stale(raw){
+  const t=Date.parse(String(raw||''));
+  return !Number.isFinite(t)||(Date.now()-t)/36e5>MAX_AGE_HOURS;
+}
+function note(section,text,cls){
+  if(!section||section.querySelector('.'+cls))return;
+  const n=document.createElement('div');
+  n.className=cls;
+  n.textContent=text;
+  section.prepend(n);
+}
+function apply(){
+  if(stale(APP.github_hot&&APP.github_hot.checked_at)){
+    document.querySelectorAll('.gh-preview').forEach(section=>{
+      const list=section.querySelector('.gh-preview-list');
+      if(list)list.hidden=true;
+      note(section,'GitHub 热榜快照已超过 6 小时：旧排名已隐藏，请以官方 Today 榜为准。','trend-stale-card');
+    });
+    document.querySelectorAll('.gh-inline').forEach(section=>{
+      note(section,'快照已过期：以下仅保留上次核验结果，不代表当前 GitHub Trending。','trend-stale-banner');
+      const title=section.querySelector('.gh-inline-head strong');
+      if(title)title.textContent='GitHub Trending · 上次核验快照';
+      section.querySelectorAll('.gh-delta span').forEach(x=>x.textContent='核验时 Today Star');
+    });
+  }
+  if(stale(APP.huggingface_hot&&APP.huggingface_hot.checked_at)){
+    document.querySelectorAll('.hf-inline').forEach(section=>{
+      note(section,'快照已过期：以下仅保留上次核验结果，不代表当前 Hugging Face Trending。','trend-stale-banner');
+      const title=section.querySelector('.hf-inline-head strong');
+      if(title)title.textContent='Hugging Face Models · 上次核验快照';
+      section.querySelectorAll('.hf-score span').forEach(x=>x.textContent='核验时 Trending');
+    });
+  }
+}
+const baseRenderMain=renderMain;
+renderMain=function(){baseRenderMain();queueMicrotask(apply)};
+apply();
 })();
 
 'use strict';
