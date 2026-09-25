@@ -2,13 +2,14 @@ name: Deep guide checks
 
 on:
   push:
-    branches: ['preview/jev-visual-guide-20260925']
+    branches: [main, 'preview/jev-visual-guide-20260925']
     paths:
       - 'src/deep-dives.js'
       - 'src/deep-dives.css'
       - 'data/deep-dives.json'
       - 'examples/jev/**'
-      - 'tests/test_deep_visual*'
+      - 'tests/test_deep_visual.py'
+      - 'tests/browser_deep_visual.py'
       - '.github/workflows/deep-guide.yml'
   workflow_dispatch:
 
@@ -22,6 +23,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,17 +32,63 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Tests and build
+      - name: Unit tests, syntax and static build
         run: |
           python -m unittest discover -s tests -p 'test_*.py'
           node --check src/deep-dives.js
-          python scripts/build.py --out dist-jev --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          python examples/jev/jev_knowledge_demo.py
+          python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Browser interaction and responsive checks
+        run: python tests/browser_deep_visual.py
       - name: Reproducible source snapshot
-        run: git archive --format=zip HEAD -o review-source.zip
+        run: |
+          git archive --format=zip HEAD -o review-source.zip
+          git rev-parse HEAD > source-sha.txt
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: jev-guide-review
           path: |
             review-source.zip
-            dist-jev
+            source-sha.txt
+            dist
+            test-results/jev
           retention-days: 7
+
+  preview-snapshot:
+    needs: verify
+    if: github.ref == 'refs/heads/preview/jev-visual-guide-20260925'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: jev-guide-review
+          path: .jev-review
+      - name: Commit only generated preview files after checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Never replace a newer preview revision and never force-push.
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(cat .jev-review/source-sha.txt)" = "$GITHUB_SHA"
+          for file in index.html 404.html api/v1/index.json api/v1/deep-dives.json; do
+            test -f ".jev-review/dist/$file"
+            cp ".jev-review/dist/$file" "$file"
+          done
+          git add index.html 404.html api/v1/index.json api/v1/deep-dives.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'build: refresh verified Jev visual guide snapshots'
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
