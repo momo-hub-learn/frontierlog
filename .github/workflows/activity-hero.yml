@@ -1,7 +1,7 @@
 name: Activity header checks
 on:
   push:
-    branches: [main, 'preview/activity-hero-20260925']
+    branches: [main, 'preview/activity-hero-20260925', 'preview/activity-type-20260925']
     paths:
       - 'src/activity-hero.*'
       - 'scripts/activity_feature.py'
@@ -71,7 +71,7 @@ jobs:
           retention-days: 7
   preview-snapshot:
     needs: verify
-    if: github.ref == 'refs/heads/preview/activity-hero-20260925'
+    if: github.ref == 'refs/heads/preview/activity-hero-20260925' || github.ref == 'refs/heads/preview/activity-type-20260925'
     runs-on: ubuntu-latest
     permissions:
       contents: write
