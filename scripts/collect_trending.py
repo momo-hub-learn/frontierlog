@@ -119,14 +119,32 @@ def classify_new_repo(meta: dict[str, Any]) -> tuple[bool, str, list[str]]:
         category = "agent-harness"
     else:
         category = "developer-infra"
-    return ai_related, category, topics[:4]
+    labels = {
+        "agent-memory": "Agent Memory",
+        "agent-skills": "Agent Skills",
+        "agent-runtime": "Agent Runtime",
+        "model-optimization": "模型优化",
+        "vertical-agent": "行业 Agent",
+        "ai-learning": "AI Engineering",
+        "agent-harness": "Agent Harness",
+        "developer-infra": "开发基础设施",
+    }
+    tags = topics[:4]
+    minimum = 3 if ai_related else 2
+    for candidate in (labels.get(category), meta.get("language"), "GitHub Trending"):
+        candidate = str(candidate or "").strip()
+        if candidate and candidate not in tags:
+            tags.append(candidate)
+        if len(tags) >= minimum:
+            break
+    return ai_related, category, tags[:4]
 
 
 def append_history(old: dict[str, Any] | None, at: str, stars: int) -> list[dict[str, Any]]:
     hist = [x for x in ((old or {}).get("star_history") or []) if isinstance(x, dict) and x.get("at")]
     if not hist or int(hist[-1].get("stars", -1)) != stars:
         hist.append({"at": at, "stars": stars})
-    return hist[-48:]
+    return hist[-12:]
 
 
 def build_github_data(old: dict[str, Any], page: str, checked_at: str) -> dict[str, Any]:

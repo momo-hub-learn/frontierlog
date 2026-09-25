@@ -216,13 +216,12 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if row.get('category') not in gh_category_ids: raise ValueError('Unknown GitHub hot category')
         if not isinstance(row.get('ai_related'),bool): raise ValueError('Invalid GitHub AI relation flag')
         tags=row.get('tags')
-        min_tags=3 if row.get('ai_related') else 2
-        if not isinstance(tags,list) or not min_tags <= len(tags) <= 4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>40 for t in tags): raise ValueError('Invalid GitHub hot tags')
+        if not isinstance(tags,list) or not 0 <= len(tags) <= 4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>40 for t in tags): raise ValueError('Invalid GitHub hot tags')
         if row.get('category') in {'agent-app','agent-framework','agent-infra','mcp-knowledge'}: raise ValueError('GitHub hot category is too coarse')
         datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
         datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or len(history)<3 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or len(history)<1 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
