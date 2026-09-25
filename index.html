@@ -1551,7 +1551,7 @@ main{max-width:var(--v2-max-work)}
 .ah-rules-panel>small{display:block;font-size:.75rem;line-height:1.75;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);color:var(--muted)}
 [data-ah-feature-slot]{min-width:0}
 .ah-feature{position:relative;isolation:isolate;overflow:hidden;min-width:0;background:linear-gradient(112deg,#182527,#101719);border:1px solid #34413f;border-radius:13px;padding:17px 20px;color:#f5f9f8;box-shadow:0 4px 14px #15212409}
-.ah-feature:before{content:'';position:absolute;z-index:-1;width:220px;height:220px;border-radius:50%;right:-100px;top:-110px;background:radial-gradient(circle,#96c74015,transparent 70%);pointer-events:none}
+.ah-feature:before{content:'';position:absolute;z-index:-1;width:160px;height:140px;border-radius:50%;right:0;top:0;background:radial-gradient(ellipse at top right,#96c74015,transparent 70%);pointer-events:none}
 .ah-feature-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
 .ah-eyebrow{color:#c5d1cb;font-size:.75rem;font-weight:650;letter-spacing:.045em;line-height:1.5}
 .ah-countdown{font:600 .74rem/1.5 var(--mono);color:var(--ah-lime);white-space:nowrap}
@@ -1623,6 +1623,7 @@ main{max-width:var(--v2-max-work)}
  .ah-feature-actions{margin-top:12px}.ah-feature h2{font-size:1.16rem}
  .ah-filterbar{flex-wrap:wrap;gap:4px}.ah-display-tools{margin-left:auto;padding:6px 0}
  .ah-page .v2-event-grid{grid-template-columns:minmax(0,1fr)}.ah-page .ah-event{grid-template-columns:126px minmax(0,1fr)}.ah-event .ah-art{min-height:130px}
+ .ah-filterbar .v2-radar-tabs{flex:1 0 100%;width:100%}
 }
 @container (max-width:480px){
  .ah-intro h1{font-size:1.85rem}.ah-metadata{font-size:.68rem;gap:4px 10px}.ah-rules summary{min-height:34px}
@@ -1636,10 +1637,10 @@ main{max-width:var(--v2-max-work)}
  .ah-page .ah-event h3{font-size:.86rem;line-height:1.5}.ah-page .ah-event p{font-size:.75rem;line-height:1.7}.ah-event-copy{padding-right:3px}
  .ah-event-meta{gap:6px}.ah-event-meta time{font-size:.74rem}.ah-event-meta small{font-size:.62rem}.ah-event-meta>span{font-size:.6rem}
  .ah-page .ah-event .v2-radar-tags span{font-size:.6rem}.ah-out{top:8px;right:8px;font-size:.72rem}
+ .ah-page .v2-lifecycle{padding:16px}.ah-rules-panel{width:100%;max-width:100%;left:0}
 }
 @media(prefers-reduced-motion:reduce){.ah-page *{transition:none!important}}
 @media print{.ah-rules,.ah-display-tools,.ah-feature-actions,.ah-countdown{display:none}.ah-hero{display:block}.ah-feature{margin-top:15px;print-color-adjust:exact}.ah-page .ah-event{break-inside:avoid}.ah-page{container-type:normal}}
-
 .ah-view-switch [data-ah-view=list] .ico{display:none}
 .ah-view-switch [data-ah-view=list]:before{content:'☷';font:500 22px/1 var(--sans)}
 /* Closed details must not contribute a hidden absolute panel to page overflow. */
@@ -1648,9 +1649,8 @@ main{max-width:var(--v2-max-work)}
 .ah-page .v2-lifecycle,.ah-page .v2-life-track{min-width:0;max-width:100%}
 .ah-page .v2-lifecycle>header>div{min-width:0;flex-wrap:wrap}
 .ah-page .v2-lifecycle h2{overflow-wrap:anywhere;min-width:0}
-@container (max-width:800px){.ah-filterbar .v2-radar-tabs{flex:1 0 100%;width:100%}.ah-filterbar .ah-display-tools{margin-left:auto}}
-@container (max-width:480px){.ah-page .v2-lifecycle{padding:16px}.ah-rules-panel{width:100%;max-width:100%;left:0}}
-.ah-feature:before{right:0;top:0;width:160px;height:140px;background:radial-gradient(ellipse at top right,#96c74015,transparent 70%)}
+/* Keep the photographic part of these official posters, not half-cut titles. */
+[data-ah-feature="nvidia-gtc-dc-2026"] .ah-art img,.ah-event[data-ah-id^="nvidia"] .ah-art img{object-position:100% 50%}
 
 .m-company-name.m-company-link{color:inherit;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px}
 .m-company-name.m-company-link:hover,.m-company-name.m-company-link:focus-visible{opacity:.78;text-decoration-style:solid}
