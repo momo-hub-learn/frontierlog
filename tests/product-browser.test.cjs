@@ -11,7 +11,7 @@ const clone=x=>JSON.parse(JSON.stringify(x));
 const data=clone(original);
 const hot={items:[]};
 const listeners={};
-const ctx={PRODUCT_RADAR:data,HOT:hot,APP:{},URL,URLSearchParams,Date,console,
+const ctx={window:{addEventListener(){}},PRODUCT_RADAR:data,HOT:hot,APP:{},URL,URLSearchParams,Date,console,
  location:{hash:'#/hot?cat=product'},history:{pushState(_a,_b,hash){ctx.location.hash=hash}},
  document:{addEventListener(type,fn){(listeners[type]??=[]).push(fn)}},
  esc:x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
@@ -96,5 +96,23 @@ check('normal tab click refreshes the route; modified click opens normally',()=>
  const target={closest:()=>({getAttribute:()=> '#/hot?cat=product&pview=map'})};
  handler({target,button:0,ctrlKey:true,preventDefault(){prevented++}});assert.equal(prevented,0);
  handler({target,button:0,preventDefault(){prevented++}});assert.equal(prevented,1);assert.equal(ctx.location.hash,'#/hot?cat=product&pview=map');assert.equal(ctx.lastMain,'');assert.equal(ctx.renders,1);
+});
+check('horizontal history is oldest to newest with exactly one latest node',()=>{
+ const p=data.items.find(x=>x.id==='harvey'),html=pb.historyHTML(p,pb.chronology(p));
+ assert(html.includes('pb-history-track'));assert(html.includes('data-history-action="latest"'));
+ assert(html.indexOf('2026-05-06')<html.indexOf('2026-09-09'));assert(html.indexOf('2026-09-09')<html.indexOf('2026-09-23'));
+ assert.equal((html.match(/class="pb-milestone is-latest"/g)||[]).length,1);
+ assert(html.includes('节点间距不代表时长'));assert(html.includes('不代表因果或能力排名'));
+});
+check('verified detail fields are visible and missing evidence never gets upgraded',()=>{
+ const p=clone(data.items.find(x=>x.id==='harvey'));let html=pb.historyHTML(p,pb.chronology(p));
+ assert(html.includes('75,000+'));assert(html.includes('Custom Workflows'));assert(html.includes('我们的解读'));assert(html.includes('证据与边界'));
+ p.timeline[0].verified_at='';p.timeline[0].summary='MUST_NOT_SHOW_UNVERIFIED';p.timeline[0].facts=[{label:'fake',value:'999%'}];
+ html=pb.historyHTML(p,pb.chronology(p));assert(!html.includes('MUST_NOT_SHOW_UNVERIFIED'));assert(!html.includes('999%'));assert(html.includes('未重新核验'));
+});
+check('timeline extras escape text and source credentials remain blocked',()=>{
+ const p=clone(data.items.find(x=>x.id==='harvey'));p.timeline[0].summary='<script>alert(1)</script>';p.timeline[0].facts=[{label:'<b>x</b>',value:'<img onerror=bad>'}];
+ const html=pb.historyHTML(p,pb.chronology(p));assert(!html.includes('<script>'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('<img onerror'));
+ p.timeline[0].url='javascript:alert(1)';const safe=pb.historyHTML(p,pb.chronology(p));assert(!safe.includes('href="javascript:'));
 });
 console.log(`Product browser: ${tests} behavioral checks passed.`);

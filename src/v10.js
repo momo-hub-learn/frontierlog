@@ -108,15 +108,46 @@ const PB=(()=>{
   return (recent.length?timeline(recent,s):'<p class="pb-muted pb-no-recent">过去 30 天暂无已收录进展；历史记录保留在下方。</p>')+(older.length?'<details class="pb-archive"'+(!recent.length?' open':'')+'><summary>历史进展 <span>'+older.length+' 条 · '+esc(cutoff)+' 之前</span></summary>'+timeline(older,s)+'</details>':'');
  }
  function empty(s,title){return '<div class="pb-empty"><h3>'+esc(title)+'</h3><p>可以放宽场景、投资背景或搜索条件。</p>'+link(s,{scene:'all',investor:'all',kind:'all',product:'',q:'',legacy:''},'清除筛选','button')+'</div>'}
+ // A product history is an ordinal sequence, not a proportional time chart.
+ const READING={Product:'关注实际入口、开放范围与人工复核方式。',Company:'区分融资与估值信息，不把资本信号当作产品能力。',Benchmark:'关注任务定义、评分口径与可复现材料。',Adoption:'关注采用范围；客户公告不等于独立效果评测。',Governance:'关注认证范围与适用版本，不外推为全面安全保证。',Data:'关注合作范围、数据权限与可用性。'};
+ function historyHTML(x,history){
+  const rows=[...history].reverse(),trackId='pb-history-'+x.id;
+  const cards=rows.map((e,i)=>{
+   const last=i===rows.length-1,valid=canonical(e.url),precise=!!valid&&specific(e.url);
+   const source=valid?new URL(valid).hostname.replace(/^www\./,''):'来源待补';
+   const rich=precise&&e.evidence_level==='primary_source'&&dateOK(e.verified_at);
+   const facts=rich&&Array.isArray(e.facts)?e.facts.filter(f=>f&&typeof f.label==='string'&&typeof f.value==='string').slice(0,3):[];
+   const titleId=trackId+'-title-'+i;
+   return '<li class="pb-milestone'+(last?' is-latest':'')+'" data-history-node>'+ 
+    '<div class="pb-milestone-date"><time datetime="'+e.date+'">'+e.date.replaceAll('-','.')+'</time><span class="pb-milestone-dot" aria-hidden="true"></span></div>'+
+    '<article class="pb-milestone-card" aria-labelledby="'+esc(titleId)+'"><div class="pb-milestone-top"><span class="pb-kind" data-kind="'+esc(e.kind)+'">'+esc(KINDS[e.kind]||e.kind)+'</span>'+(last?'<span class="pb-latest-badge">最新记录</span>':'')+'</div>'+
+    '<h3 id="'+esc(titleId)+'">'+esc(e.title)+'</h3>'+
+    '<p class="pb-milestone-summary">'+(rich&&e.summary?esc(e.summary):'<span class="pb-inline-label">阅读重点</span>'+esc(READING[e.kind]||'回到原始来源，确认发布内容、适用范围与限制。'))+'</p>'+
+    (facts.length?'<dl class="pb-milestone-facts">'+facts.map(f=>'<div><dt>'+esc(f.label)+'</dt><dd>'+esc(f.value)+'</dd></div>').join('')+'</dl>':'')+
+    (rich&&e.interpretation?'<p class="pb-milestone-insight"><span class="pb-inline-label">我们的解读</span>'+esc(e.interpretation)+'</p>':'')+
+    '<div class="pb-milestone-source">'+external(e.url,source)+(rich?'<span>一手原文 · 已核验</span>':'<span class="pb-warning">'+(precise?'沿用收录 · 未重新核验':'栏目页，精确原文待补')+'</span>')+'</div>'+
+    '<details class="pb-node-evidence"><summary>证据与边界</summary>'+
+    '<p>发布时间：'+e.date.replaceAll('-','.')+(rich?' · 原文日期已核对':' · 沿用已有记录')+'</p>'+
+    '<p>核验日期：'+(rich?esc(e.verified_at):'待核验；不沿用名录核对时间')+'</p>'+
+    (rich&&e.scope?'<p><b>适用范围：</b>'+esc(e.scope)+'</p>':'')+
+    '<p><b>不能推出：</b>'+esc(rich&&e.limitations?e.limitations:'这条记录本身不能证明任务成功率、规模化可用性或本站实测效果。')+'</p></details></article></li>';
+  }).join('');
+  const path=rows.map(e=>KINDS[e.kind]||e.kind).filter((kind,i,a)=>i===0||kind!==a[i-1]);
+  return '<div class="pb-history-shell"><div class="pb-history-toolbar"><span>从早到晚 · 节点间距不代表时长</span><div class="pb-history-controls">'+
+   '<button type="button" data-history-action="previous" aria-label="查看更早节点" aria-controls="'+esc(trackId)+'">←</button>'+
+   '<button type="button" data-history-action="next" aria-label="查看更晚节点" aria-controls="'+esc(trackId)+'">→</button>'+
+   '<button type="button" data-history-action="latest" aria-controls="'+esc(trackId)+'">最新节点</button></div></div>'+
+   '<div class="pb-history-track" id="'+esc(trackId)+'" tabindex="0" role="region" aria-label="'+esc(x.name)+' 完整时间线，可左右滑动或使用方向键"><ol class="pb-history-nodes">'+cards+'</ol></div>'+
+   (path.length>1&&path.length<=6?'<div class="pb-history-path"><b>节点脉络</b><span>'+path.map(esc).join(' <span aria-hidden="true">→</span> ')+'</span><small>仅表示时间顺序，不代表因果或能力排名。</small></div>':'')+'</div>';
+ }
  function card(x,s){
   const history=chronology(x),latest=history[0],adoption=history.find(e=>e.kind==='Adoption'),backers=INVESTORS.filter(([id])=>id!=='all'&&ids(x).includes(id));
   const latestHTML=latest?'<time datetime="'+latest.date+'">'+latest.date.replaceAll('-','.')+'</time><p>'+esc(latest.title)+'</p>':'<p class="pb-muted">暂无带日期的进展</p>';
-  const eventRows=history.map(e=>'<li><time datetime="'+e.date+'">'+e.date.replaceAll('-','.')+'</time><span class="pb-kind">'+esc(KINDS[e.kind]||e.kind)+'</span><p>'+external(e.url,e.title)+'</p>'+(!specific(e.url)?'<small class="pb-warning">栏目页，精确原文待补</small>':'')+'</li>').join('');
   return '<article class="pb-card" data-product-id="'+esc(x.id)+'"><header><span class="pb-monogram" aria-hidden="true">'+esc(x.name.slice(0,2).toUpperCase())+'</span><div><h2>'+esc(x.name)+'</h2><span>'+esc(sceneName(x))+(x.company!==x.name?' · '+esc(x.company):'')+'</span></div><div class="pb-backers">'+backers.map(([id,name])=>link(s,{investor:id,product:''},esc(name),'pb-backer')).join('')+'</div></header>'+
    '<div class="pb-capability"><span class="pb-label">现在能做</span><p>'+esc(x.summary)+'</p></div>'+
    '<div class="pb-latest"><span class="pb-label">最新记录</span>'+latestHTML+'</div>'+
    '<dl class="pb-facts"><div><dt>采用信号</dt><dd>'+(adoption?esc(adoption.title)+'<small>公司公告 · 非独立效果评测</small>':'<span class="pb-muted">暂无已收录的客户采用公告</span>')+'</dd></div><div><dt>最大限制</dt><dd>'+esc(x.boundary)+'</dd></div></dl>'+
-   '<details class="pb-card-history"'+(s.product===x.id?' open':'')+'><summary>完整时间线 <span>'+history.length+' 个节点</span></summary>'+(history.length?'<ol>'+eventRows+'</ol>':'<p class="pb-muted">尚无可展示的日期节点，不用首次收录时间冒充发布时间。</p>')+'</details>'+
+   '<details class="pb-card-history"'+(s.product===x.id?' open':'')+'><summary>完整时间线 <span>'+history.length+' 个节点</span></summary>'+(history.length?historyHTML(x,history):'<p class="pb-muted">尚无可展示的日期节点，不用首次收录时间冒充发布时间。</p>')+'</details>'+
    '<details class="pb-evidence"><summary>来源与证据</summary><dl><div><dt>产品说明</dt><dd>'+external(x.product_url,'产品官网')+'<small>简介沿用已收录资料，未标记为本站实测。</small></dd></div><div><dt>客户采用</dt><dd>'+(adoption?external(adoption.url,'采用公告'):'<span class="pb-muted">待补客户公告或独立案例</span>')+'</dd></div><div><dt>投资背景</dt><dd>'+external(x.source_url,x.source_label)+'<small>'+esc(x.evidence)+'</small></dd></div></dl></details>'+
    '<footer>'+external(x.product_url,'产品官网')+link(s,{pview:'updates',product:x.id,kind:'all'},'查看动态 '+icon('arrow'))+'</footer></article>';
  }
@@ -131,7 +162,7 @@ const PB=(()=>{
    (s.pview==='updates'?updates(stream,s):matches.length?'<div class="pb-grid">'+matches.map(x=>card(x,s)).join('')+'</div>':empty(s,'当前筛选下暂无已建档产品'))+
    '<details class="pb-notes"><summary>收录与证据口径</summary><p>本页沿用已收录资料，不因页面改版刷新发布日期或核对时间。投资 / 孵化关系不代表能力排名；产品说明、客户采用和投资背景分别展示来源。未定位到具体文章的记录标注“精确原文待补”。行业文章不等于产品发布。</p><p>产品动态合并名录时间线与产品热点；未入库产品只在无场景 / 投资筛选时展示。产品地图首批覆盖法律与企业应用，不代表全行业。</p></details></section>';
  }
- return {read,href,products,events,chronology,canonical,specific,page,scene,updates};
+ return {read,href,products,events,chronology,canonical,specific,page,scene,updates,historyHTML};
 })();
 // Product tabs count products, not a sum of companies and news events.
 const pbPreviousCategoryCount=hCategoryCount;
@@ -145,6 +176,36 @@ document.addEventListener('change',e=>{
  if(!e.target.matches('[data-pb-field="kind"]'))return;
  history.pushState(null,'',PB.href(PB.read(),{kind:e.target.value}));lastMain='';parseRoute();
 });
+// The track owns horizontal scrolling; never scroll the whole page to focus a node.
+function pbHistorySync(track){
+ const max=track.scrollWidth-track.clientWidth,controls=track.closest('.pb-history-shell').querySelector('.pb-history-controls');
+ controls.hidden=max<=2;
+ controls.querySelector('[data-history-action="previous"]').disabled=track.scrollLeft<=2;
+ for(const action of ['next','latest'])controls.querySelector('[data-history-action="'+action+'"]').disabled=track.scrollLeft>=max-2;
+}
+function pbHistoryMove(track,action,instant=false){
+ const nodes=[...track.querySelectorAll('[data-history-node]')],width=(nodes[0]?.getBoundingClientRect().width||track.clientWidth)+16;
+ const left=action==='latest'?track.scrollWidth:action==='first'?0:track.scrollLeft+(action==='previous'?-width:width);
+ track.scrollTo({left,behavior:instant||matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+ pbHistorySync(track);
+}
+document.addEventListener('toggle',e=>{
+ if(!e.target.matches('.pb-card-history')||!e.target.open)return;
+ requestAnimationFrame(()=>{const track=e.target.querySelector('.pb-history-track');if(!track)return;
+  if(!track.dataset.initialized){pbHistoryMove(track,'latest',true);track.dataset.initialized='true'}else pbHistorySync(track);
+ });
+},true);
+document.addEventListener('click',e=>{
+ const button=e.target.closest('button[data-history-action]');if(!button)return;
+ const track=document.getElementById(button.getAttribute('aria-controls'));if(track)pbHistoryMove(track,button.dataset.historyAction);
+});
+document.addEventListener('keydown',e=>{
+ if(!e.target.matches('.pb-history-track')||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+ const action={ArrowLeft:'previous',ArrowRight:'next',Home:'first',End:'latest'}[e.key];
+ if(action){e.preventDefault();pbHistoryMove(e.target,action)}
+});
+document.addEventListener('scroll',e=>{if(e.target.matches?.('.pb-history-track'))pbHistorySync(e.target)},true);
+window.addEventListener('resize',()=>requestAnimationFrame(()=>document.querySelectorAll('.pb-card-history[open] .pb-history-track').forEach(pbHistorySync)));
 /* End product browser. */
 
 // Refresh the landing after late overrides are loaded.

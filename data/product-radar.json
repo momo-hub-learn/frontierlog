@@ -42,19 +42,78 @@
           "date": "2026-09-23",
           "kind": "Product",
           "title": "Custom Harvey Agents 可直接在 Microsoft Word 中运行",
-          "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word"
+          "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
+          "summary": "在已打开的 Word 文档中运行团队自建 Agent，输出修改建议；应用后以修订模式写回文档。",
+          "facts": [
+            {
+              "label": "入口",
+              "value": "Harvey for Word 插件"
+            },
+            {
+              "label": "输入",
+              "value": "当前文档 / Vault 材料"
+            },
+            {
+              "label": "输出",
+              "value": "建议预览 / 修订痕迹"
+            }
+          ],
+          "interpretation": "值得关注的是审阅入口与人工确认环节的衔接，而不只是多了一个聊天窗口。",
+          "scope": "仅支持通过 Agent Builder 界面创建的 Custom Agents；需安装 Word 插件。",
+          "limitations": "此次发布暂不支持 Custom Workflows；不能由功能上线推出准确率、节时幅度或无需律师复核。",
+          "published_at": "2026-09-23",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
         },
         {
           "date": "2026-09-09",
           "kind": "Company",
           "title": "Harvey 完成 5.5 亿美元融资，估值 155 亿美元",
-          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+          "summary": "官方公告披露，本轮由 Diffusion 与 Lightspeed 共同领投，Sequoia 等现有投资者继续参与。",
+          "facts": [
+            {
+              "label": "融资额",
+              "value": "5.5 亿美元"
+            },
+            {
+              "label": "估值",
+              "value": "155 亿美元"
+            }
+          ],
+          "interpretation": "这是资本与公司扩张信号；判断产品价值仍需另看采用范围与独立任务评测。",
+          "scope": "2026 年 9 月 9 日公司融资公告；金额与估值为该轮披露口径。",
+          "limitations": "融资额、估值与投资关系不能证明模型能力、法律任务成功率或商业化效果。",
+          "published_at": "2026-09-09",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
         },
         {
           "date": "2026-05-06",
           "kind": "Benchmark",
           "title": "开源 Legal Agent Benchmark，评测长时程法律 Agent 工作",
-          "url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark"
+          "url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark",
+          "summary": "任务以指令和案件材料为输入，要求 Agent 交付可供审阅的工作成果；首版覆盖长流程法律工作。",
+          "facts": [
+            {
+              "label": "任务",
+              "value": "1,200+"
+            },
+            {
+              "label": "法律领域",
+              "value": "24 类"
+            },
+            {
+              "label": "专家评分标准",
+              "value": "75,000+"
+            }
+          ],
+          "interpretation": "评测对象从短问答转向完整工作产物，更适合观察 Agent 的任务完成过程。",
+          "scope": "2026 年 5 月 6 日首版 LAB 发布口径；官方公告附开源仓库入口。",
+          "limitations": "首发时未发布排行榜；此历史节点不能说明当前榜单状态，也不构成本站复现实验或 Harvey 能力领先的证据。",
+          "published_at": "2026-05-06",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
         }
       ]
     },
