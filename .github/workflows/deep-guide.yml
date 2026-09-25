@@ -1,0 +1,46 @@
+name: Deep guide checks
+
+on:
+  push:
+    branches: ['preview/jev-visual-guide-20260925']
+    paths:
+      - 'src/deep-dives.js'
+      - 'src/deep-dives.css'
+      - 'data/deep-dives.json'
+      - 'examples/jev/**'
+      - 'tests/test_deep_visual*'
+      - '.github/workflows/deep-guide.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deep-guide-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Tests and build
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --check src/deep-dives.js
+          python scripts/build.py --out dist-jev --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Reproducible source snapshot
+        run: git archive --format=zip HEAD -o review-source.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jev-guide-review
+          path: |
+            review-source.zip
+            dist-jev
+          retention-days: 7
