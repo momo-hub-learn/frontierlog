@@ -2596,7 +2596,7 @@
   },
   "deep_dives": {
     "version": 1,
-    "checked": "2026-09-24",
+    "checked": "2026-09-25",
     "series": "拆一下",
     "articles": [
       {
@@ -2604,409 +2604,666 @@
         "hot_ids": [
           "jev-system-one-20260915"
         ],
-        "title": "拆一下 Jev：为什么 Agent 不一定要让 LLM 做所有判断？",
+        "title": "拆一下 Jev：从输入输出到决策系统",
         "short_title": "Jev 到底应该放在 Agent Stack 的哪一层？",
-        "subtitle": "Jev 真正值得研究的，不是“又一个更快更便宜的模型”，而是它把一个长期被 Prompt 吞掉的问题重新暴露出来：Agent 里的哪些判断应该交给模型，哪些应该留在代码，哪些才真的需要生成式 LLM。",
-        "dek": "如果把 Agent 看成一个软件系统，而不是一段会调用工具的 Prompt，那么“生成”和“决策”其实是两种不同的计算。Jev 的意义，就在于把这条边界重新画出来。",
+        "subtitle": "用一次真实接口格式的调用、三种输出、参考实现源码和四类产品方案，看懂 Jev 到底做什么。",
+        "dek": "一份工业知识问答，串起 Noul、Choice、Score 的真实接口、NanoJev 参考代码与 Agent 集成。再看主题研究、模型评测和本体审校能怎样落地。",
         "published": "2026-09-24",
-        "read_minutes": 15,
+        "read_minutes": 18,
         "tags": [
-          "Agent 架构",
-          "System One",
-          "Jev",
-          "Decision Model"
+          "输入 / 输出",
+          "源码拆解",
+          "架构图解",
+          "产品与评测"
         ],
-        "thesis": "真正的架构变化不是“用 Jev 替掉 LLM”，而是把 Agent 拆成确定性代码、结构化判断、开放式推理与人工兜底四层；模型不再承包所有智能。",
-        "architecture": {
-          "note": "这是 AI坐标基于 TypeSafe 的公开接口、workflow eval 与开发者案例整理出的“集成架构”。它不是 Jev 模型内部结构，也不是 TypeSafe 规定的唯一用法。",
-          "before": [
-            {
-              "label": "事件 / 用户输入",
-              "kind": "input"
-            },
-            {
-              "label": "Agent Runtime",
-              "kind": "runtime"
-            },
-            {
-              "label": "LLM",
-              "detail": "理解意图、选工具、判断、生成、校验",
-              "kind": "llm"
-            },
-            {
-              "label": "Tool / API",
-              "kind": "tool"
-            },
-            {
-              "label": "LLM",
-              "detail": "检查结果、决定重试 / 下一步",
-              "kind": "llm"
-            },
-            {
-              "label": "结果",
-              "kind": "output"
-            }
-          ],
-          "after": [
-            {
-              "label": "事件 / 状态",
-              "kind": "input"
-            },
-            {
-              "label": "确定性代码",
-              "detail": "算术、硬规则、权限、状态机",
-              "kind": "code"
-            },
-            {
-              "label": "System One / Jev",
-              "detail": "Noul / Choice / Score、概率、置信度",
-              "kind": "jev"
-            },
-            {
-              "label": "LLM",
-              "detail": "开放式推理、生成、代码、长文本",
-              "kind": "llm"
-            },
-            {
-              "label": "策略层",
-              "detail": "阈值、升级、重试、人工兜底",
-              "kind": "split"
-            },
-            {
-              "label": "Tool / API",
-              "kind": "tool"
-            },
-            {
-              "label": "结果 / 观测",
-              "kind": "output"
-            }
-          ]
-        },
+        "thesis": "输入材料和问题，输出概率、选项或评分。Jev 负责有界判断，代码保留流程、权限与行动的控制权。",
         "sections": [
           {
-            "key": "interface",
+            "key": "scene",
             "eyebrow": "01",
-            "kicker": "先把问题说清楚",
-            "title": "Jev 改的首先不是“模型能力”，而是 AI 给软件的接口形状",
-            "paragraphs": [
-              "LLM 的默认输出是字符串。字符串非常强：它可以是一段解释、代码、SQL、计划，也可以伪装成 JSON。正因为太通用，软件真正要执行动作之前，往往还要经历解析、schema 校验、重试、兜底，甚至再调一次模型确认。",
-              "Jev 走的是相反方向。TypeSafe 的 /v1/systemone API 不是让模型自由生成，而是让开发者先定义问题结构和答案空间。公开接口目前至少包含 Noul、Choice、Score 三类问题：是 / 否概率、从有限候选中选择并给出分布、以及在一个等级尺度上评分。",
-              "这意味着“模型会什么”与“软件能依赖什么”被分开了。Jev 可以判断错，但输出类型不会突然变成另一种东西；它给出的不是一段需要人读懂的解释，而是程序下一行代码就能消费的值和概率。"
-            ],
-            "primitives": [
+            "kicker": "先看一个问题",
+            "title": "相关的材料，未必支持正确的结论",
+            "blocks": [
               {
-                "name": "Noul",
-                "label": "Yes / No",
-                "detail": "返回某件事成立的概率。适合是否升级、是否异常、是否需要人工介入。"
+                "type": "scene",
+                "question": "B17 批次良率下降的原因是什么？",
+                "evidence": "B17 良率由 97% 降至 92%。同期 ETCH-03 出现温控报警。尚无根因分析报告。",
+                "claim": "“ETCH-03 的温控异常造成了 B17 良率下降。”",
+                "verdict": "材料相关 ≠ 因果已证明",
+                "caption": "虚构工业案例。批次、设备、良率数字仅用于解释接口，不是生产数据。"
               },
               {
-                "name": "Choice",
-                "label": "One of N",
-                "detail": "在预先定义的候选里返回概率分布，并给出置信信息。适合路由、分类、选工具。"
+                "type": "flow",
+                "title": "一次调用经过什么？",
+                "nodes": [
+                  {
+                    "title": "准备材料",
+                    "detail": "问题、证据、候选结论 → state"
+                  },
+                  {
+                    "title": "定义问题",
+                    "detail": "是否支持 / 下一步 / 相关程度 → questions"
+                  },
+                  {
+                    "title": "Jev API",
+                    "detail": "返回答案与概率；这里不假设内部网络"
+                  },
+                  {
+                    "title": "代码处理",
+                    "detail": "校验类型，应用策略；必要时补检索或复核"
+                  }
+                ],
+                "caption": "这是集成流程，不是官方模型内部架构。"
               },
               {
-                "name": "Score",
-                "label": "Ordered scale",
-                "detail": "在等级 / 分值空间里给出评分和分布。适合风险、质量、优先级判断。"
+                "type": "text",
+                "text": "你提交的是“材料 + 具体问题 + 答案空间”，而不是要求模型自由写一篇原因分析。Jev 给回判断值；写回答、找新证据、执行工具仍是其他组件的工作。"
               }
             ],
-            "pullquote": "这不是“让 LLM 更严格地输出 JSON”，而是把模型的产品接口从“生成一串 token”换成“返回软件可以直接执行的决策变量”。",
             "source_refs": [
-              "typesafe-api",
-              "typesafe-launch",
-              "register"
-            ]
+              "api"
+            ],
+            "analysis": false
           },
           {
-            "key": "harness",
+            "key": "interface",
             "eyebrow": "02",
-            "kicker": "真正重要的架构变化",
-            "title": "把 Policy 从 Prompt 里拿出来：模型只回答窄问题，工作流由代码负责",
-            "paragraphs": [
-              "TypeSafe 自己的 workflow eval 其实比 Jev 的速度数字更值得看。它的核心方法不是“换一个模型解决完整任务”，而是先把业务策略拆成两类东西：确定性逻辑交给代码，无法硬编码但答案空间有限的判断交给模型。",
-              "例如在公开的费用报销工作流里，金额、日期、账号、状态这些可以精确计算的内容由代码处理；模型负责识别费用类型、判断描述和凭证是否匹配、判断某些条件是否成立。最终是批准、挂起还是退回，并不是模型自由发挥，而是代码根据前面的判断走规则。",
-              "这件事对 Agent 很关键。今天很多 Agent 把“策略”写进一个大 Prompt：模型既读规则，也解释规则，还要自己决定规则什么时候触发。把策略重新搬回代码，相当于让模型从“系统控制器”退回“感知 / 判断组件”。它少做了一些事，但整个系统反而更容易测试、追踪和修改。"
+            "kicker": "输入与输出",
+            "title": "同一份材料，三种不同的输入与输出",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "切换下面的 Noul / Choice / Score，看同一份 state 如何配上不同的问题，得到不同类型的输出。左边是可以组成请求的字段，右边只是预设响应摘录。"
+              },
+              {
+                "type": "demo"
+              },
+              {
+                "type": "note",
+                "title": "同一次请求，问题不会互读答案",
+                "text": "next_step 并不是读到 supported = 0.08 后才选择补检索。每个问题各自基于 state 作答；结果需要相互依赖时，由代码组合，或发起下一轮调用。"
+              },
+              {
+                "type": "cards",
+                "title": "三个会影响实现的细节",
+                "items": [
+                  {
+                    "title": "ID 不是提示词",
+                    "detail": "supported 等问题 ID 只用于匹配响应，不送入推理。判断目标要写进 instructions。Choice 的候选名称与描述则会送入模型。"
+                  },
+                  {
+                    "title": "合法不等于正确",
+                    "detail": "合法枚举仍可能选错。confidence 描述分布的集中程度；业务正确率与执行阈值需要校准集检验。"
+                  },
+                  {
+                    "title": "版本需要冻结",
+                    "detail": "示例固定 jev-1.13.0。官方文档核对于 2026-09-25；别名可能变化。文本以外的材料先转成文本，中文与行业缩写单独评测。"
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "title": "本地试跑：默认离线，不产生模型调用",
+                "code": "python examples/jev/jev_knowledge_demo.py\n\n# 设置 TYPESAFE_API_KEY 后，显式 --live 才会消耗 API 额度\npython examples/jev/jev_knowledge_demo.py --live",
+                "caption": "仓库 examples/jev/ 提供脚本。页面不收集密钥、不调用付费接口；不自动执行工具。",
+                "language": "bash"
+              }
             ],
-            "case_study": {
-              "title": "一个更像工程系统的工作流",
-              "label": "TypeSafe workflow eval · Expense / Invoice 类任务",
-              "steps": [
-                {
-                  "who": "Code",
-                  "text": "计算金额、日期、账户状态；处理确定性规则。"
-                },
-                {
-                  "who": "Jev / Model",
-                  "text": "回答一组独立的 Noul / Choice / Score 问题。"
-                },
-                {
-                  "who": "Code",
-                  "text": "把概率和结构化答案代入业务条件，决定是否批准、挂起、退回。"
-                },
-                {
-                  "who": "Human",
-                  "text": "当置信不足、条件冲突或风险过高时升级人工。"
-                }
-              ],
-              "note": "AI坐标的抽象总结；具体公开 eval 还包括 Security Incidents、Agent Trace Observability、Invoice Processing、Customer Service。"
-            },
-            "pullquote": "最深的一层变化不是“Jev 比 LLM 快”，而是：Agent 的 Harness 开始重新变成一等公民。",
             "source_refs": [
-              "typesafe-evals",
-              "typesafe-launch"
-            ]
+              "api",
+              "noul",
+              "choice",
+              "score",
+              "confidence",
+              "models"
+            ],
+            "analysis": false
           },
           {
-            "key": "calibration",
+            "key": "implementation",
             "eyebrow": "03",
-            "kicker": "自动化为什么需要概率",
-            "title": "一个判断能不能自动执行，取决于它知不知道自己什么时候不确定",
-            "paragraphs": [
-              "分类准确率高，不等于可以放心自动化。一个模型即使平均 95% 正确，如果它在错误的 5% 里仍然表现得非常自信，系统就很难知道什么时候该停下来。",
-              "所谓“校准”，理想状态可以粗略理解为：当模型对一批判断都给出大约 0.8 的概率时，这批判断最终应当有接近 80% 是对的。只有这样，概率才不只是 UI 上的装饰，而可以进入程序控制流。",
-              "TypeSafe 把 RLCD（Reinforcement Learning for Calibrated Decisions）作为 Jev 的核心训练方向，并声称每个输出都带有概率 / 置信信息。但目前训练配方、公开论文和大规模独立校准测试仍然有限，所以“它是否真的在你的分布上校准”必须自己测，而不能从官网的一条曲线直接继承。",
-              "一旦概率足够可信，架构才出现一个很重要的新接口：高置信度自动执行，中间区域再次检查或调用 LLM，低置信度直接升级人工。阈值属于应用策略，而不是模型替你决定。"
+            "kicker": "核心代码",
+            "title": "输入怎样变成候选概率？拆开一条参考路径",
+            "blocks": [
+              {
+                "type": "note",
+                "title": "第三方参考实现 ≠ 官方 Jev 源码",
+                "text": "下面拆 NanoJev 的公开 Python 实现，不是对官方网络的逆向结论。官方发布介绍了并行输出与 RLCD，但本次核对的材料不足以逐行重建其完整网络和训练配方。"
+              },
+              {
+                "type": "implementation",
+                "title": "参考计算图：从候选文本到概率",
+                "caption": "逻辑简图基于 NanoJev 的 DecisionModel.forward。代码片段经过压缩，不能单独当成完整模型运行。"
+              },
+              {
+                "type": "code",
+                "title": "① 构造候选路径 · prepare_examples()",
+                "code": "prefix = encode(state) + encode(question)\npaths = [\n    prefix + encode(candidate_a) + [eos],\n    prefix + encode(candidate_b) + [eos],\n    prefix + encode(candidate_c) + [eos],\n]",
+                "caption": "逻辑节选：候选描述也是输入。不是永远固定为同一组标签的分类头；动态候选仍受模型能力与上下文限制。",
+                "language": "python"
+              },
+              {
+                "type": "code",
+                "title": "② 一次批量前向 · DecisionModel.forward()",
+                "code": "hidden = backbone(\n    input_ids=tokens, attention_mask=mask,\n    use_cache=False\n).last_hidden_state\n\n# 每条路径的最后一个有效位置\nvectors = hidden[path_indices, lengths - 1]\nlogits = scalar(layer_norm(vectors)).squeeze(-1)\n\n# 原实现还包含：分组、有效候选掩码，\n# 以及 Choice 可选的集合注意力残差修正。",
+                "caption": "此参考实现重复候选路径的前缀，并批量计算；“一次前向”不等于候选变多没有成本。没有先生成长答案再解析 JSON。",
+                "language": "python"
+              },
+              {
+                "type": "cards",
+                "title": "③ 输出映射 · answer_from_probabilities()",
+                "items": [
+                  {
+                    "title": "Boolean / 是非",
+                    "detail": "单个标量 z 构成 logits [0, z]。softmax 后的 P(true) 等价于 sigmoid(z)。"
+                  },
+                  {
+                    "title": "Choice / 单选",
+                    "detail": "在同一问题的有效候选内做 softmax，保留完整分布，并选择概率最高的一项。"
+                  },
+                  {
+                    "title": "Score / 等级",
+                    "detail": "得到各等级的概率，再计算 Σ 等级索引 × 概率。平均分相同，分布仍可能完全不同。"
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "title": "④ 训练目标 · loss_for()",
+                "code": "loss = -(target * logits.log_softmax(-1)).sum(-1)\n# target 可以是金标 one-hot，或教师的软概率分布。",
+                "caption": "这是参考实现中的交叉熵目标，不等同于官方 RLCD。监督、蒸馏或 softmax 本身都不保证校准。",
+                "language": "python"
+              },
+              {
+                "type": "text",
+                "text": "NanoJev 在自己的请求里使用 boolean；官方 Jev HTTP 接口使用 noul。示例适配层应显式转换字段，不能直接把两套 API 当成完全兼容。"
+              }
             ],
-            "equation": {
-              "left": "p(action) ≥ τ_auto",
-              "center": "→ 自动执行",
-              "right": "否则 → 二次检查 / LLM / Human"
-            },
             "source_refs": [
-              "typesafe-launch",
-              "typesafe-home",
-              "typesafe-evals"
+              "nano-forward",
+              "nano-output",
+              "launch"
             ],
             "analysis": true
           },
           {
             "key": "stack",
             "eyebrow": "04",
-            "kicker": "应该放在哪一层",
-            "title": "一个更合理的 Agent Stack，可能需要四种“智能”而不是一个万能模型",
-            "paragraphs": [
-              "如果沿着这条思路继续往下推，一个生产级 Agent 不应该先问“这一步用哪个大模型”，而应该先问“这一步到底是什么形状的计算”。",
-              "能精确表达的规则就写代码；答案空间已知、但规则很难手写的判断，可以交给 System One 类模型；需要探索未知空间、写代码、做长链条推理或生成内容时，再调用 LLM；一旦进入不可逆、高风险或分布外区域，就把控制权交给人。",
-              "这不是为了追求架构洁癖，而是为了让每一层都暴露出不同的失败方式。代码会有 bug，Jev 会判断错，LLM 会生成错误或跑偏，人会慢也会犯错。真正可靠的系统不是假设某一层不会失败，而是让失败可见、可测、可路由。"
-            ],
-            "show_architecture": true,
-            "comparison": [
+            "kicker": "如何接入 Agent",
+            "title": "不要把 Jev 和 LLM 串成每次都要经过的流水线",
+            "blocks": [
               {
-                "layer": "确定性代码",
-                "best": "算术、权限、状态机、硬规则",
-                "strength": "可验证、便宜、稳定",
-                "risk": "规则覆盖不到模糊判断"
+                "type": "router",
+                "title": "Agent Runtime：代码负责按需路由",
+                "caption": "AI 坐标提出的集成方案，非 TypeSafe 指定架构。四类职责是条件分支，不是四次必经调用。"
               },
               {
-                "layer": "Jev / System One",
-                "best": "分类、路由、评分、Guardrail",
-                "strength": "结构化、低延迟、带概率",
-                "risk": "语义判断仍可能错；依赖校准"
+                "type": "text",
+                "text": "本例里，Jev 可以帮助判断证据是否充分；新的检索由检索器完成，回答改写由生成模型完成。一次追加检索后重新判断，但必须有最大轮次、预算和人工出口，不能无限循环。"
               },
               {
-                "layer": "LLM",
-                "best": "开放式推理、生成、代码、未知答案空间",
-                "strength": "通用性最高",
-                "risk": "慢、贵、输出自由度高"
+                "type": "code",
+                "title": "策略层示意：先有权限和校准，再谈自动化",
+                "code": "def choose_path(answers, policy, context):\n    if not context.permission_ok:\n        return \"stop\"\n    if not policy.validated_for_current_version:\n        return \"human_review\"\n    if context.high_risk or context.budget_exhausted:\n        return \"human_review\"\n    if answers[\"supported\"][\"noul\"] < policy.support_floor:\n        return \"retrieve_more\"\n    return \"verify_before_answer\"",
+                "caption": "伪代码：阈值来自独立校准集，不内置万能 0.8。返回的是路径名，不是动作授权；错误响应和冲突结果应停止自动处理。",
+                "language": "python"
               },
               {
-                "layer": "Human",
-                "best": "高风险、歧义、策略例外、最终责任",
-                "strength": "可处理真正新情况",
-                "risk": "吞吐低、成本高"
+                "type": "note",
+                "title": "反馈回流 ≠ 在线自动训练 Jev",
+                "text": "回流的是失败样本、问题定义、候选与阈值版本。先复测，再发布策略变更。官方当前不提供基于客户数据的专属微调；硬权限、知识库写入审核与回滚仍由系统负责。"
               }
             ],
             "source_refs": [
-              "typesafe-launch",
-              "typesafe-evals",
-              "techcrunch"
+              "confidence",
+              "models",
+              "jaggedness"
             ],
             "analysis": true
           },
           {
-            "key": "economics",
+            "key": "applications",
             "eyebrow": "05",
-            "kicker": "为什么现在突然值得做",
-            "title": "当一次“智能判断”从秒级降到百毫秒级，系统设计空间会变",
-            "paragraphs": [
-              "TypeSafe 公布的 Jev 价格是每十亿输入 token 42 美元（也就是每百万 0.042 美元），输出不单独计费；官方给出的典型端到端延迟约 70–500ms。它还在自家 workflow eval 中展示了最高 193.6× 更快、444.6× 更便宜的案例，同时明确说这些倍率属于高端案例，不应该外推到所有任务。",
-              "单次便宜十倍和工作流便宜十倍不是一回事。真正有架构意义的是复利：一个 Agent 如果要做几十次路由、评分、结果检查和 trace 监控，模型调用成本与延迟会沿着整条链累积。越长的 Agent，越容易从“每一步都用 LLM”里感受到结构性浪费。",
-              "TechCrunch 报道的早期开发者案例也集中在这个方向。Vercel 的工程师把命令安全分类器从 ChatGPT Luna 5.6 换成 Jev后，报告速度快 5–18 倍且准确率更高；另一个商业邮件分类测试里，Gemini 略准，但成本高 10–20 倍。这些都是单点开发者测试，不是统一 Benchmark，却很好地说明了为什么大家最先拿它替换的是“微判断”，而不是写作或复杂推理。",
-              "如果这个成本曲线能稳定下来，过去不值得做的事情会变得合理：每个工具调用前都做风险检查、每个 Agent trace 都实时打分、上万条对象同时分类、把模型判断嵌进 UI 的 100ms 交互预算。"
+            "kicker": "四类可实施产品",
+            "title": "四个产品方向：从输入到验收",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "以下是建议的 MVP 与实验设计，不是已经完成的产品或收益。选择一个方向查看具体输入输出、部署位置、数据起点与验收指标。"
+              },
+              {
+                "type": "applications"
+              }
             ],
             "source_refs": [
-              "typesafe-launch",
-              "typesafe-home",
-              "techcrunch"
-            ]
+              "ragtruth",
+              "atbench",
+              "alignment",
+              "oaei"
+            ],
+            "analysis": true
           },
           {
-            "key": "correctness",
+            "key": "evaluation",
             "eyebrow": "06",
-            "kicker": "最容易被误读的一点",
-            "title": "Type-safe 解决的是“输出越界”，不是“语义永远正确”",
-            "paragraphs": [
-              "TypeSafe 在发布材料里用了“can’t hallucinate / zero hallucinations”这样的强表述。若只看工程接口，它指向的是一个非常具体的保证：输出空间在调用前被定义，模型不会突然返回一个 schema 之外的类型，软件不需要担心“本来应该是枚举，却吐出一段散文”。",
-              "但这不等于判断本身永远正确。一个 Choice 完全可能在三个合法选项里选错；一个 Score 可以合法地给出错误分数；一个概率也可能在你的真实业务分布上失去校准。",
-              "因此，System One 模型把一类失败从“格式错误 / 自由生成错误”里移走了，却没有消灭语义错误。它把可靠性问题变得更窄、更容易观测，这本身已经很有价值，但不能偷换成“模型不会犯错”。"
-            ],
-            "pullquote": "类型安全让错误更容易被系统处理；它不是正确性的证明。",
-            "source_refs": [
-              "typesafe-launch",
-              "typesafe-home",
-              "register"
-            ]
-          },
-          {
-            "key": "fit",
-            "eyebrow": "07",
-            "kicker": "什么时候用，什么时候别用",
-            "title": "最好的 Jev 问题，都有一个共同特征：答案空间已知，判断规则却不好写死",
-            "paragraphs": [
-              "如果你可以提前列出候选动作，但很难用 if/else 覆盖所有语义情况，这就是 Jev 最自然的位置。相反，如果你连答案空间都不知道，需要模型探索、写作、规划、解释或创造新结构，生成式 LLM 仍然更合适。"
-            ],
-            "bullets": [
+            "kicker": "怎样证明有效",
+            "title": "把“工作流变好”与“Jev 更好”分开测",
+            "blocks": [
               {
-                "title": "适合：路由与分类",
-                "detail": "从有限候选中选工具、选处理队列、选下一步动作。"
+                "type": "experiment",
+                "title": "公平对照：冻结数据，拆开两个变量",
+                "caption": "这是待执行实验设计，不是性能排行榜。所有方案使用同一测试集与金标；不填造出来的准确率、成本或延迟。"
               },
               {
-                "title": "适合：评分与优先级",
-                "detail": "风险、质量、紧急度、是否升级等连续或有序判断。"
+                "type": "cards",
+                "title": "验收要回答四个问题",
+                "items": [
+                  {
+                    "title": "质量有没有丢？",
+                    "detail": "先定义坏答案 / 危险动作 / 错误合并，再测漏放与误拦。Agent 还要用实际环境状态验收任务成功。"
+                  },
+                  {
+                    "title": "概率值可信么？",
+                    "detail": "使用人工标签或可验证环境结果；报告可靠性图、Brier 分数和风险—覆盖率。只在校准集调阈值。"
+                  },
+                  {
+                    "title": "系统真的省么？",
+                    "detail": "计算端到端 p50 / p95、重试、检索、额外模型与人工升级成本。失败调用也进入成本分母。"
+                  },
+                  {
+                    "title": "换场景还行么？",
+                    "detail": "按时间、主题或实体切分；加入中文、长上下文、行业缩写、候选重排与“无合适答案”测试。"
+                  }
+                ]
               },
               {
-                "title": "适合：Agent Guardrail",
-                "detail": "监控工具调用、命令、trace 和模型输出，做廉价的持续检查。"
+                "type": "text",
+                "text": "TypeSafe 的 workflow eval 已区分整段 Prompt 与结构化工作流，并让其他模型也使用拆分后的工作流。它的参考标签方法与官方自测身份需要一起报告；不能把厂商倍率直接写成自己的业务收益。"
               },
               {
-                "title": "适合：高频批处理",
-                "detail": "大量对象相互独立地做窄判断，延迟和单位成本很敏感。"
-              },
-              {
-                "title": "不适合：开放式生成",
-                "detail": "长文本、代码、解释、创作，本身需要字符串生成。"
-              },
-              {
-                "title": "不适合：答案空间未知",
-                "detail": "复杂探索、开放世界规划、需要提出新假设的问题。"
+                "type": "note",
+                "title": "首个实验交付物",
+                "text": "冻结数据清单 + 问题/候选版本 + 原始响应 + 延迟/成本日志 + 错误样本 + 同口径结果表。页面目前没有真实 Jev 实测，不展示伪造曲线。"
               }
             ],
             "source_refs": [
-              "typesafe-launch",
-              "techcrunch",
-              "register"
-            ]
-          },
-          {
-            "key": "unknowns",
-            "eyebrow": "08",
-            "kicker": "接下来真正该盯什么",
-            "title": "Jev 能不能成为一个新层，取决于五个还没有充分回答的问题",
-            "bullets": [
-              {
-                "title": "独立 Benchmark",
-                "detail": "目前最系统的 workflow eval 仍主要来自 TypeSafe，自外部、跨任务的大规模复现还少。"
-              },
-              {
-                "title": "校准在分布漂移下是否稳定",
-                "detail": "线上数据一变，概率还能不能保持可解释，是自动执行阈值能否成立的关键。"
-              },
-              {
-                "title": "模型内部与 RLCD 细节",
-                "detail": "新 architecture、parallel sampler、RLCD 都被提到，但公开技术细节仍不充分。"
-              },
-              {
-                "title": "可观测性与版本漂移",
-                "detail": "如果同一个阈值在模型升级后含义变化，工作流需要怎样回归测试和重新校准。"
-              },
-              {
-                "title": "生态会不会迅速复制",
-                "detail": "如果需求真实，开源模型、LLM 单 token / classifier 模式以及其他厂商很可能进入同一个价格区间。"
-              }
-            ],
-            "paragraphs": [
-              "The Register 报道的开发者测试已经在追问最重要的问题：快、便宜之外，它到底够不够好。这个问题最终不会由一次发布会回答，而会由真实工作流里的 calibration curve、错误成本和长期回归测试回答。"
-            ],
-            "source_refs": [
-              "typesafe-launch",
-              "techcrunch",
-              "register"
+              "evals",
+              "jaggedness"
             ],
             "analysis": true
           },
           {
             "key": "boundary",
-            "eyebrow": "09",
-            "kicker": "不要过度解读",
-            "title": "Jev 现在更像一个有潜力成为“新基础设施层”的早期信号，而不是已经被证明的新范式",
-            "paragraphs": [
-              "TypeSafe 已经公开了可调用的 API、问题原语、价格、workflow eval 和一批开发者案例，这使 Jev 比纯概念更值得认真研究。但它仍处于 early access，模型内部结构与 RLCD 训练方法没有完整公开，最强的系统性评测主要由公司自己设计。",
-              "所以更稳妥的结论不是“Jev 会替代 LLM”，也不是“Agent 以后都应该四层化”。更值得下注的判断是：当 Agent 开始真正进入生产，模型接口会从单一的文本生成逐渐分化。不同步骤会需要不同价格、延迟、输出约束和置信机制的智能原语。",
-              "Jev 可能只是这个趋势的第一个醒目标本。真正重要的问题，是未来的软件栈里，“智能”会不会像数据库、缓存、队列一样被拆成多个专用层，而不是继续由一个万能 Prompt 承包。"
+            "eyebrow": "07",
+            "kicker": "带走什么",
+            "title": "先做一个可检验的判断组件，而不是万能智能层",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "建议从“答案与证据一致性”开始做旁路评测，再复用到主题审核、Agent 检查和知识审校。公共接口统一记录输入版本、证据来源、候选概率、代码策略与人工结果；每个方向独立定义标签和错误成本。"
+              },
+              {
+                "type": "cards",
+                "title": "三条边界始终留在页面上",
+                "items": [
+                  {
+                    "title": "已核对",
+                    "detail": "官方 HTTP 字段、三类原语及其语义；第三方参考实现的计算与后处理路径。"
+                  },
+                  {
+                    "title": "本文设计",
+                    "detail": "集成架构、四类产品方案、代码策略示例和实验对照；不冒充官方标准方案。"
+                  },
+                  {
+                    "title": "仍待验证",
+                    "detail": "中文和私有领域质量、独立概率校准、真实端到端成本、任务成功率与安全性收益。"
+                  }
+                ]
+              },
+              {
+                "type": "note",
+                "title": "企业与主权 AI 的部署边界",
+                "text": "调用官方云 API 不等于私有化。敏感材料要先满足组织的数据出域要求；使用本地参考模型也必须独立训练、评测与审计，不能继承官方 Jev 的效果主张。"
+              }
             ],
             "source_refs": [
-              "typesafe-launch",
-              "typesafe-evals",
-              "techcrunch",
-              "register"
+              "models"
             ],
             "analysis": true
           }
         ],
         "sources": [
           {
-            "id": "typesafe-launch",
-            "publisher": "TypeSafe AI",
+            "id": "api",
+            "publisher": "TypeSafe",
+            "title": "HTTP API：请求、响应与错误处理",
+            "kind": "官方接口",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/api"
+          },
+          {
+            "id": "noul",
+            "publisher": "TypeSafe",
+            "title": "Noul：命题成立概率",
+            "kind": "官方文档",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/primitives/noul"
+          },
+          {
+            "id": "choice",
+            "publisher": "TypeSafe",
+            "title": "Choice：候选、概率与独立问题",
+            "kind": "官方文档",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/primitives/choice"
+          },
+          {
+            "id": "score",
+            "publisher": "TypeSafe",
+            "title": "Score：有序等级与加权期望",
+            "kind": "官方文档",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/primitives/score"
+          },
+          {
+            "id": "confidence",
+            "publisher": "TypeSafe",
+            "title": "Confidence：统计量不等于业务正确率",
+            "kind": "官方文档",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/confidence"
+          },
+          {
+            "id": "models",
+            "publisher": "TypeSafe",
+            "title": "模型版本、文本输入与语言支持",
+            "kind": "官方文档",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/models"
+          },
+          {
+            "id": "launch",
+            "publisher": "TypeSafe",
             "title": "Introducing System One Models & Jev",
-            "kind": "官方发布",
+            "kind": "官方发布 / 厂商主张",
             "date": "2026-09-15",
             "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
           },
           {
-            "id": "typesafe-home",
-            "publisher": "TypeSafe AI",
-            "title": "System One Models / Jev",
-            "kind": "官方产品页",
-            "date": "2026-09-24",
-            "url": "https://typesafe.ai/"
+            "id": "nano-forward",
+            "publisher": "NanoJev",
+            "title": "train_toy_decisions.py · DecisionModel.forward / loss_for",
+            "kind": "第三方参考源码，不是官方 Jev",
+            "date": "2026-09-25",
+            "url": "https://github.com/TianyuCodings/NanoJev/blob/main/scripts/train_toy_decisions.py"
           },
           {
-            "id": "typesafe-api",
-            "publisher": "TypeSafe AI",
-            "title": "TypeSafe API · /v1/systemone",
-            "kind": "官方 API 文档",
-            "date": "2026-09-24",
-            "url": "https://api.typesafe.ai/docs"
+            "id": "nano-output",
+            "publisher": "NanoJev",
+            "title": "predict_toy_decisions.py · prepare_examples / answer_from_probabilities",
+            "kind": "第三方参考源码，不是官方 Jev",
+            "date": "2026-09-25",
+            "url": "https://github.com/TianyuCodings/NanoJev/blob/main/scripts/predict_toy_decisions.py"
           },
           {
-            "id": "typesafe-evals",
-            "publisher": "TypeSafe AI",
-            "title": "Workflow evals · Structured workflows for automation tasks",
-            "kind": "官方公开评测 / Harness 示例",
-            "date": "2026-09-24",
+            "id": "evals",
+            "publisher": "TypeSafe",
+            "title": "Workflow evals：结构化工作流对照",
+            "kind": "厂商评测，非本站复测",
+            "date": "2026-09-25",
             "url": "https://evals.typesafe.ai/"
           },
           {
-            "id": "techcrunch",
-            "publisher": "TechCrunch",
-            "title": "A new kind of AI model from a ChatGPT inventor is thrilling developers",
-            "kind": "独立媒体 / 开发者案例",
-            "date": "2026-09-18",
-            "url": "https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-chatgpt-inventor-is-thrilling-developers/"
+            "id": "jaggedness",
+            "publisher": "TypeSafe",
+            "title": "Jev 1.13：长上下文与对抗性输入局限",
+            "kind": "官方已知局限",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
           },
           {
-            "id": "register",
-            "publisher": "The Register",
-            "title": "Shut up and calculate: Jev's new AI primitives for coders",
-            "kind": "独立媒体 / 技术拆解",
-            "date": "2026-09-23",
-            "url": "https://www.theregister.com/devops/2026/09/23/shut-up-and-calculate-jevs-new-ai-primitives-for-coders/5298431"
+            "id": "ragtruth",
+            "publisher": "RAGTruth 作者",
+            "title": "RAGTruth：回答及幻觉跨度标注",
+            "kind": "研究数据 / 原始仓库",
+            "date": "2026-09-25",
+            "url": "https://github.com/ParticleMedia/RAGTruth"
+          },
+          {
+            "id": "atbench",
+            "publisher": "ATBench 作者",
+            "title": "ATBench：Agent 轨迹安全评测",
+            "kind": "研究论文 / 数据入口",
+            "date": "2026-09-25",
+            "url": "https://arxiv.org/abs/2604.02022"
+          },
+          {
+            "id": "alignment",
+            "publisher": "TypeSafe",
+            "title": "Knowledge graph entity alignment cookbook",
+            "kind": "官方可实现案例",
+            "date": "2026-09-25",
+            "url": "https://docs.typesafe.ai/cookbooks/entity_alignment"
+          },
+          {
+            "id": "oaei",
+            "publisher": "OAEI",
+            "title": "Ontology Alignment Evaluation Initiative 2026",
+            "kind": "本体匹配评测入口",
+            "date": "2026-09-25",
+            "url": "https://oaei.ontologymatching.org/2026/"
           }
         ],
         "opening": [
-          "过去两年，Agent 架构里有一个很少被质疑的默认值：只要某一步需要一点“智能”，就再调一次 LLM。选工具、判断任务是否完成、决定要不要重试、检查输出、给结果打分——这些动作形状完全不同，却常常被塞进同一种生成式接口。",
-          "这种做法在原型阶段非常合理。自然语言是最通用的接口，LLM 也确实什么都能做一点。但当 Agent 从五步 Demo 变成几十步工作流，从单用户变成高并发系统，问题就出现了：很多步骤根本不需要“生成”，它们只需要在一个已知空间里做稳定、可校准、便宜的判断。",
-          "Jev 最值得看的地方因此不是模型榜上的一条新曲线，而是一种新的软件边界：把自由文本生成留给 LLM，把一部分结构化判断变成另一类模型调用，再把最终控制权交还给代码。"
+          "从一个具体问题开始：一份材料提到设备报警，能否证明它造成了良率下降？下面用同一条虚构工业记录贯穿全文。所有概率均为教学示意，不是本站运行 Jev 得到的结果。"
+        ],
+        "updated": "2026-09-25",
+        "demo": {
+          "label": "虚构案例 · 预设输出 · 不调用 API",
+          "request": {
+            "model": "jev-1.13.0",
+            "state": {
+              "question": "B17 批次良率下降的原因是什么？",
+              "evidence": "B17 良率由97%降至92%。同期 ETCH-03 出现温控报警。尚无根因分析报告。",
+              "claim": "ETCH-03 的温控异常造成了 B17 良率下降。"
+            },
+            "questions": {
+              "supported": {
+                "type": "noul",
+                "instructions": "仅依据 state.evidence，是否有充分证据支持 state.claim？同时出现不等于因果证明。"
+              },
+              "next_step": {
+                "type": "choice",
+                "instructions": "依据 state.question 和现有 state.evidence，选择下一步的信息处理路径。不要执行动作。",
+                "criteria": {
+                  "retrieve_more": "现有证据不足，应继续检索根因报告或相关记录。",
+                  "answer_now": "现有证据已充分，可以回答原因。",
+                  "human_review": "问题需要专家裁决，不能仅通过继续检索解决。"
+                }
+              },
+              "relevance": {
+                "type": "score",
+                "instructions": "评价 state.evidence 与 state.question 的相关性，而不是它是否足以证明因果。",
+                "criteria": [
+                  "材料与所问批次或良率问题无关。",
+                  "材料涉及相关工艺或设备，但未提供所问批次的直接记录。",
+                  "材料直接涉及所问批次的良率变化或同期设备记录。"
+                ]
+              }
+            }
+          },
+          "answers": {
+            "supported": {
+              "type": "noul",
+              "noul": 0.08
+            },
+            "next_step": {
+              "type": "choice",
+              "choice": "retrieve_more",
+              "probabilities": {
+                "retrieve_more": 0.9,
+                "answer_now": 0.02,
+                "human_review": 0.08
+              }
+            },
+            "relevance": {
+              "type": "score",
+              "score": 1.8,
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.2,
+                "2": 0.8
+              }
+            }
+          },
+          "explanations": [
+            {
+              "key": "supported",
+              "name": "Noul",
+              "question": "现有材料能证明这个结论吗？",
+              "meaning": "模型给“材料足以支持该结论”的概率为 0.08，因此倾向于否。这不是温控异常造成良率下降的真实概率。低值表示倾向于否，不等于不确定。",
+              "action": "程序保留材料，但不把这句因果结论作为已证实事实。",
+              "trap": "Noul 回答的是你写出的命题；没有额外的 confidence 字段。"
+            },
+            {
+              "key": "next_step",
+              "name": "Choice",
+              "question": "下一步走哪条路径？",
+              "meaning": "retrieve_more 是三个候选里概率最高的一项。它是路径建议，不是已经完成了一次检索。",
+              "action": "代码还要检查预算、权限与停止条件，才决定是否补检索。",
+              "trap": "Choice 是单选。多主题标签应拆成多个 Noul；候选不完备时增加“其他 / 不适用”。"
+            },
+            {
+              "key": "relevance",
+              "name": "Score",
+              "question": "材料与问题的相关性处于哪一档？",
+              "meaning": "等级从 0 开始。0×0 + 1×0.2 + 2×0.8 = 1.8。材料高度相关，仍可能不足以证明因果。",
+              "action": "可用于检索排序；不能把 1.8/2 当成答案正确率。",
+              "trap": "Score 是等级索引的加权期望，不是物理量预测。各级应写完整、独立、可区分的描述。"
+            }
+          ]
+        },
+        "applications": [
+          {
+            "id": "theme",
+            "tab": "主题研究",
+            "product": "AI 坐标 · 更新与证据审核台",
+            "goal": "在同样编辑人力下，少漏掉真正重要的进展，不增加错误收录。",
+            "input": "新公告正文、来源/时间、项目旧记录、候选主题、待核验断言。",
+            "output": "多主题标签；是否有实质更新；发布 / 自报成绩 / 独立测试 / 信息不足；待核验项。",
+            "primitives": "多个 Noul 做多标签与变化判断；Choice 区分证据类别；Score 排编辑优先级，不冒充全网热度。",
+            "steps": [
+              "采集与解析",
+              "召回项目旧记录",
+              "Jev 判断增量",
+              "代码去重与日期检查",
+              "编辑确认后入库"
+            ],
+            "mvp": "先接编辑审核队列，只给建议，不自动发布。建议从一批已审核历史公告建立标注集。",
+            "data": "自己的历史内容及人工决策。按同一事件分组、按时间切分，避免重复公告跨进测试集。",
+            "metrics": [
+              "重要更新漏检率",
+              "前十条推荐有效率",
+              "错误入库率",
+              "每条编辑耗时"
+            ],
+            "boundary": "日期、版本、来源身份先由可追溯记录核对。模型不能仅凭文风证明消息来自官方。",
+            "experiment": "同一召回集合下，比较关键词规则、通用 LLM 与 Jev；检查节省的审核时间是否以更多误收录为代价。",
+            "refs": [
+              "api",
+              "choice"
+            ]
+          },
+          {
+            "id": "model",
+            "tab": "模型 / RAG",
+            "product": "答案与证据一致性评测服务",
+            "goal": "在相同错误漏放率下，减少昂贵裁判调用。",
+            "input": "用户问题、检索材料、模型回答，以及对齐回原文位置的具体断言。",
+            "output": "每条断言的支持 / 冲突 / 证据不足标签、概率和对应证据 ID。",
+            "primitives": "Choice 做三分类；Noul 检查特定证据是否支持断言；Score 只用于相关性等单一等级维度。",
+            "steps": [
+              "生成模型拆断言",
+              "匹配支持材料",
+              "Jev 核验证据",
+              "策略放行或补检索",
+              "必要时改写与复核"
+            ],
+            "mvp": "先做离线回答审核报告，标出问题句子，不急于接管线上回答。",
+            "data": "RAGTruth 提供回答及幻觉跨度。它不是现成的原子断言金标；需要对齐、人工抽查并单独评估拆分误差。",
+            "metrics": [
+              "坏答案漏放率",
+              "好答案误拦率",
+              "断言级 F1 / Brier",
+              "正确放行答案成本"
+            ],
+            "boundary": "断言拆分是额外组件；不要把生成断言、检索证据也宣称为 Jev 自带能力。",
+            "experiment": "固定检索材料，比较 LLM 单次裁判、分解式 LLM、分解式 Jev、轻量判别模型；再评端到端误差传播。",
+            "refs": [
+              "ragtruth",
+              "api"
+            ]
+          },
+          {
+            "id": "agent",
+            "tab": "Agent",
+            "product": "动作前检查 + 动作后验收",
+            "goal": "减少不合理动作，但不靠“什么都拦住”制造安全收益。",
+            "input": "用户目标、必要轨迹前缀、候选工具/参数、权限范围与已有执行结果。",
+            "output": "动作是否偏离目标、是否缺证据；继续 / 补信息 / 重规划 / 人工复核的建议。",
+            "primitives": "Noul 检查约束与证据；Choice 路由下一步。硬权限、参数范围和写操作审批交给代码。",
+            "steps": [
+              "Agent 提出动作",
+              "硬权限与参数检查",
+              "必要时语义检查",
+              "代码决定是否执行",
+              "根据环境结果验收"
+            ],
+            "mvp": "先旁路记录风险，不改变执行结果；标注真实误拦/漏放后再小范围接入。",
+            "data": "ATBench 用于轨迹安全与诊断。动作前检查只能看到该动作之前的上下文；完整轨迹标签不能直接变成每个步骤的金标。",
+            "metrics": [
+              "危险动作漏放率",
+              "正常动作误拦率",
+              "任务成功率",
+              "额外延迟与调用量"
+            ],
+            "boundary": "安全标签不等于任务成功。任务验收必须另用环境断言、状态变化或人工结果；不读取未来轨迹泄漏答案。",
+            "experiment": "同时报告安全和成功率；比较仅硬规则、LLM guard、Jev guard。超预算、冲突与服务错误均须显式回退。",
+            "refs": [
+              "atbench",
+              "jaggedness"
+            ]
+          },
+          {
+            "id": "knowledge",
+            "tab": "知识 / 本体",
+            "product": "实体与本体候选关系审校台",
+            "goal": "严格控制错误合并的前提下，减少专家审校量。",
+            "input": "实体/概念对、名称定义、属性、邻接关系、召回证据与本体约束。",
+            "output": "实体是否同一；概念等价 / A 下位于 B / B 下位于 A / 无关系 / 复核。",
+            "primitives": "实体同一性可用 Noul；无序本体关系用 Choice。Score 只排复核优先级，不用平均分决定关系。",
+            "steps": [
+              "规则或向量召回",
+              "Jev 判断候选关系",
+              "本体约束检查",
+              "专家确认",
+              "带来源与回滚写库"
+            ],
+            "mvp": "只产出候选映射与证据，不直接合并正式知识库；保留版本、审批和可撤销变更。",
+            "data": "实体对齐可参考 TypeSafe cookbook；本体匹配选 OAEI 对应赛道。两个任务分别标注、分别报告。",
+            "metrics": [
+              "候选召回率",
+              "错误合并率",
+              "约束冲突率",
+              "覆盖率与专家耗时"
+            ],
+            "boundary": "召回漏掉的对象无法靠后续判断救回。概念等价与实体同一不是同一种标签。",
+            "experiment": "先固定候选召回，再比较语义判别与约束检查的增益；错误合并作为关键约束，不只看总体准确率。",
+            "refs": [
+              "alignment",
+              "oaei"
+            ]
+          }
         ]
       }
     ]
