@@ -46,8 +46,21 @@ function fcDeepPanel(){
   '<div class="fc-side-foot"><span>读完整架构解析</span>'+icon('arrow')+'</div>'+
  '</a>'
 }
+function fcTrendAgeHours(raw){
+ const t=Date.parse(raw||'');return Number.isFinite(t)?Math.max(0,(Date.now()-t)/36e5):Infinity
+}
+function fcTrendStale(data){return fcTrendAgeHours(data?.checked_at)>6}
+function fcTrendStamp(data){
+ const raw=String(data?.checked_at||'');if(!raw)return '待核验';
+ try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}catch{return raw}
+}
 function fcGithubPanel(){
  const gh=APP.github_hot||{items:[],checked_at:''};
+ if(fcTrendStale(gh))return '<section class="fc-panel fc-gh-panel">'+
+  '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / SNAPSHOT</p><h2>GitHub 热仓</h2></div><a href="#/hot?tab=github">上次快照 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-personal-latest empty"><span>过期快照 · '+esc(fcTrendStamp(gh))+'</span><b>超过 6 小时未完成官方核验，暂不展示“今日 Top”。</b></div>'+
+  '<div class="fc-gh-foot">旧榜仅作历史参考 · 等下一次 GitHub Trending 官方核验后恢复</div>'+
+ '</section>';
  const rows=(gh.items||[]).filter(x=>x.ai_related).sort((a,b)=>(b.stars_today||0)-(a.stars_today||0)||a.rank-b.rank).slice(0,3);
  const fmt=n=>{const v=Number(n)||0;return v>=1000?(v/1000).toFixed(v>=10000?0:1)+'k':String(v)};
  return '<section class="fc-panel fc-gh-panel">'+
@@ -83,5 +96,27 @@ feedPage=function(){
  const marker='<section class="v10-general',at=html.indexOf(marker);
  return at>=0?html.slice(0,at)+block+html.slice(at):html+block
 };
+
+function fcTrendFreshnessGuard(){
+ const pairs=[
+  ['.gh-embedded .gh-inline',APP.github_hot,'GitHub Trending'],
+  ['.hf-embedded .hf-inline',APP.huggingface_hot,'Hugging Face Trending']
+ ];
+ pairs.forEach(([selector,data,label])=>{
+  if(!fcTrendStale(data))return;
+  const host=document.querySelector(selector);if(!host||host.querySelector('.fc-trend-stale'))return;
+  const note=document.createElement('div');note.className='gh-method fc-trend-stale';
+  const b=document.createElement('b');b.textContent='过期快照';
+  const span=document.createElement('span');span.textContent='最后核验 '+fcTrendStamp(data)+'，已超过 6 小时；以下只保留为历史快照，不代表当前 '+label+'。';
+  note.append(b,span);host.prepend(note)
+ });
+ const ghMeta=document.querySelector('.gh-embedded .h-meta span:last-child');
+ if(ghMeta&&fcTrendStale(APP.github_hot))ghMeta.textContent='过期快照 · '+fcTrendStamp(APP.github_hot);
+ const hfMeta=document.querySelector('.hf-embedded .h-meta span:last-child');
+ if(hfMeta&&fcTrendStale(APP.huggingface_hot))hfMeta.textContent='过期快照 · '+fcTrendStamp(APP.huggingface_hot)
+}
+const fcFreshBaseRenderMain=renderMain;
+renderMain=function(){fcFreshBaseRenderMain();fcTrendFreshnessGuard()};
+
 if(state.view==='feed'){lastMain='';renderMain()}
 })();
