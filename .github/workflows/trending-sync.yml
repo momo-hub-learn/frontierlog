@@ -5,6 +5,7 @@ on:
     branches: ['preview/trending-sync-*']
     paths:
       - 'scripts/collect_trending.py'
+      - 'scripts/build.py'
       - 'tests/test_trending_sync.py'
       - '.github/workflows/trending-sync.yml'
   workflow_dispatch:
