@@ -1,0 +1,4 @@
+/* Fast-moving rankings older than six hours are visually downgraded. */
+.trend-stale-card,.trend-stale-banner{border:1px solid color-mix(in srgb,#b7791f 38%,var(--line));background:color-mix(in srgb,#b7791f 7%,var(--panel));border-radius:10px;padding:12px 14px;color:var(--sub);font-size:.875rem;line-height:1.6}
+.trend-stale-card{margin:0 0 12px}
+.trend-stale-banner{margin:0 0 12px}
