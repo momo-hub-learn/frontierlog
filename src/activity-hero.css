@@ -107,3 +107,15 @@
 }
 @media(prefers-reduced-motion:reduce){.ah-page *{transition:none!important}}
 @media print{.ah-rules,.ah-display-tools,.ah-feature-actions,.ah-countdown{display:none}.ah-hero{display:block}.ah-feature{margin-top:15px;print-color-adjust:exact}.ah-page .ah-event{break-inside:avoid}.ah-page{container-type:normal}}
+
+.ah-view-switch [data-ah-view=list] .ico{display:none}
+.ah-view-switch [data-ah-view=list]:before{content:'☷';font:500 22px/1 var(--sans)}
+/* Closed details must not contribute a hidden absolute panel to page overflow. */
+.ah-rules:not([open]) .ah-rules-panel{display:none}
+.ah-page .v2-lifecycle-list{grid-template-columns:minmax(0,1fr)}
+.ah-page .v2-lifecycle,.ah-page .v2-life-track{min-width:0;max-width:100%}
+.ah-page .v2-lifecycle>header>div{min-width:0;flex-wrap:wrap}
+.ah-page .v2-lifecycle h2{overflow-wrap:anywhere;min-width:0}
+@container (max-width:800px){.ah-filterbar .v2-radar-tabs{flex:1 0 100%;width:100%}.ah-filterbar .ah-display-tools{margin-left:auto}}
+@container (max-width:480px){.ah-page .v2-lifecycle{padding:16px}.ah-rules-panel{width:100%;max-width:100%;left:0}}
+.ah-feature:before{right:0;top:0;width:160px;height:140px;background:radial-gradient(ellipse at top right,#96c74015,transparent 70%)}

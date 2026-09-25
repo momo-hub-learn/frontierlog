@@ -250,9 +250,13 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
     if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
     app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    from activity_feature import load_feature
+    app['activity_feature']=load_feature(ROOT, activity_radar)
     template=(ROOT/'src/index.html').read_text(encoding='utf-8')
     css=(ROOT/'src/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/polish.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/type-icons.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/huggingface-hot.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.css').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.css').read_text(encoding='utf-8')
     js=(ROOT/'src/app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/vertical.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/models.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/benchmarks.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v9.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v10.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/intraday.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/v2.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/product-v3.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/top5-editorial.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/tibo-intel.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/github-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/huggingface-hot.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/deep-dives.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/feed-cockpit.js').read_text(encoding='utf-8')+'\n'+(ROOT/'src/progress-v4.js').read_text(encoding='utf-8')
+    css+='\n'+(ROOT/'src/activity-hero.css').read_text(encoding='utf-8')
+    js+='\n'+(ROOT/'src/activity-hero.js').read_text(encoding='utf-8')
     for marker in ('@@CSS@@','@@JS@@','@@DATA@@','@@FEED@@'):
         if template.count(marker)!=1:raise ValueError('Template marker missing or duplicated: '+marker)
     payload=json.dumps(app,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
@@ -267,6 +271,9 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     (output/'.nojekyll').write_text('')
     (output/'assets').mkdir(exist_ok=True)
     (output/'assets/brand.svg').write_bytes((ROOT/'src/brand.svg').read_bytes())
+    from shutil import copytree
+    copytree(ROOT/'assets/activity', output/'assets/activity', dirs_exist_ok=True)
+    write_json(output/'api/v1/activity-feature.json',app['activity_feature'])
     write_json(output/'api/v1/index.json',app)
     write_json(output/'api/v1/events.json',{'snapshot':catalog['snapshot'],'events':catalog['events'],'sources':catalog['sources']})
     write_json(output/'api/v1/upstream.json',upstream)
