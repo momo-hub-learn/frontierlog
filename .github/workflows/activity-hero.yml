@@ -1,0 +1,43 @@
+name: Activity header checks
+on:
+  push:
+    branches: ['preview/activity-hero-20260925']
+    paths: ['.github/workflows/activity-hero.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot current source
+        run: git archive --format=zip HEAD -o activity-source.zip
+      - name: Read official event artwork metadata
+        run: |
+          python - <<'PY'
+          import json, re, urllib.request
+          from html.parser import HTMLParser
+          class Meta(HTMLParser):
+              def __init__(self): super().__init__(); self.rows=[]
+              def handle_starttag(self, tag, attrs):
+                  a=dict(attrs)
+                  if tag=='meta' and a.get('property','').startswith('og:'): self.rows.append(a)
+                  if tag=='img' and any(t in str(a).lower() for t in ('keynote','jensen','wwdc','event')): self.rows.append(a)
+          pages=['https://www.nvidia.com/gtc/dc/','https://www.nvidia.com/gtc/keynote/','https://www.apple.com/apple-events/','https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/']
+          out={}
+          for url in pages:
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+                  html=urllib.request.urlopen(req,timeout=30).read().decode('utf-8','replace')
+                  p=Meta();p.feed(html);out[url]=p.rows
+              except Exception as e: out[url]={'error':str(e)}
+          open('official-artwork.json','w').write(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: activity-header-review
+          path: |
+            activity-source.zip
+            official-artwork.json
+          retention-days: 7
