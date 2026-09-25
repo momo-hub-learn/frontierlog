@@ -222,7 +222,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
         datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or len(history)<3 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or len(history)<1 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
@@ -244,8 +244,8 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if not https_url(row.get('url','')): raise ValueError('Invalid Hugging Face model URL')
         if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','trending_score','likes','downloads')): raise ValueError('Invalid Hugging Face metric')
         datetime.fromisoformat(row['created_at'].replace('Z','+00:00'))
-        for key in ('task','library'):
-            if not isinstance(row.get(key),str) or not row[key].strip(): raise ValueError('Missing Hugging Face '+key)
+        if not isinstance(row.get('task'),str) or not row['task'].strip(): raise ValueError('Missing Hugging Face task')
+        if not isinstance(row.get('library'),str): raise ValueError('Invalid Hugging Face library')
         tags=row.get('tags')
         if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
     if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
