@@ -241,12 +241,15 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if mid in hf_seen: raise ValueError('Duplicate Hugging Face model')
         hf_seen.add(mid)
         if not https_url(row.get('url','')): raise ValueError('Invalid Hugging Face model URL')
-        if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','trending_score','likes','downloads')): raise ValueError('Invalid Hugging Face metric')
+        if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','likes','downloads')): raise ValueError('Invalid Hugging Face metric')
+        score=row.get('trending_score')
+        if isinstance(score,bool) or not isinstance(score,(int,float)) or score < 0: raise ValueError('Invalid Hugging Face trending score')
         datetime.fromisoformat(row['created_at'].replace('Z','+00:00'))
-        for key in ('task','library'):
-            if not isinstance(row.get(key),str) or not row[key].strip(): raise ValueError('Missing Hugging Face '+key)
+        if not isinstance(row.get('task'),str) or not row['task'].strip(): raise ValueError('Missing Hugging Face task')
+        library=row.get('library')
+        if library is not None and (not isinstance(library,str) or not library.strip()): raise ValueError('Invalid Hugging Face library')
         tags=row.get('tags')
-        if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
+        if not isinstance(tags,list) or not 0<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
     if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
     app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     from activity_feature import load_feature
