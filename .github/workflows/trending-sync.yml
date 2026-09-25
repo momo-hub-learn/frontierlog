@@ -7,6 +7,7 @@ on:
       - 'scripts/collect_trending.py'
       - 'scripts/build.py'
       - 'tests/test_trending_sync.py'
+      - 'tests/test_build.py'
       - '.github/workflows/trending-sync.yml'
   workflow_dispatch:
 
