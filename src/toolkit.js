@@ -1,7 +1,34 @@
 'use strict';
 /* Task-first toolkit. Editorial guides are separate from runtime verification. */
 const TK = (()=>{
- const data=APP.toolkit;
+ const TK_SOURCE_MAP=new Map((APP.catalog.sources||[]).map(s=>[s.id,s]));
+ const TK_META={
+  docling:{publisher:'Docling Project',group:'documents',access:'local',input:'一份获授权的 PDF',output:'结构化文档 / Markdown',cost:'本地计算；预留模型下载与存储空间。'},
+  whisper:{publisher:'OpenAI',group:'audio',access:'local',input:'获授权的短音频',output:'转写文本与字幕文件',cost:'本地计算；模型大小影响内存、速度与存储。'},
+  graphrag:{publisher:'Microsoft',group:'documents',access:'model',input:'少量获授权文本 + 问题',output:'基于索引的答案与可核对依据',cost:'索引、嵌入与查询可能产生模型费用。'},
+  'gemini-38-flash-tts':{publisher:'Google',group:'audio',access:'web',input:'一段自有文稿 + 语气指令',output:'可试听的生成语音',cost:'用量、配额与计费以账号内官方信息为准。',entry_url:'https://aistudio.google.com/'},
+  'chatgpt-voice-work':{publisher:'OpenAI',group:'office',access:'web',input:'语音指令 + 授权的工作材料',output:'任务结果，可接续文字对话',cost:'套餐、限额与工作区设置以账号内显示为准。',entry_url:'https://chatgpt.com/'},
+  'gemini-connected-apps':{publisher:'Google',group:'office',access:'web',input:'指令 + 已授权应用的测试数据',output:'跨应用查询或操作结果',cost:'账号和接入应用的套餐、额度分别适用。',entry_url:'https://gemini.google.com/'},
+  openhands:{publisher:'OpenHands',group:'agents',access:'model',input:'隔离仓库 + 问题描述 + 测试',output:'代码变更与可检查的执行记录',cost:'模型调用与后端运行可能分别产生费用。'},
+  'browser-use':{publisher:'Browser Use',group:'agents',access:'model',input:'授权测试网站 + 清晰任务',output:'浏览器操作与可核对结果',cost:'模型调用与可选云端浏览器可能另行计费。'},
+  mathlib:{publisher:'Lean Community',group:'research',access:'research',input:'形式化命题 + 证明代码',output:'Lean 检查结果或错误信息',cost:'本地环境与依赖下载；运行条件按选用入口确认。',entry_url:'https://live.lean-lang.org/'},
+  'ai-scientist':{publisher:'Sakana AI',group:'research',access:'research',input:'官方实验模板 + 数据 + 模型配置',output:'实验日志、图表和报告草稿',cost:'计算资源、模型调用及依赖安装成本；先限制实验规模。'}
+ };
+ const data={version:1,
+  groups:[{id:'documents',label:'文档与知识'},{id:'audio',label:'语音处理'},{id:'office',label:'办公自动化'},{id:'agents',label:'开发与浏览器'},{id:'research',label:'科研验证'}],
+  access_modes:[{id:'local',label:'本地工具'},{id:'model',label:'模型服务 · 需配置'},{id:'web',label:'网页 · 需权限'},{id:'research',label:'科研环境'}],
+  items:(APP.catalog.items||[]).filter(t=>t.status==='code'&&TK_META[t.id]).map(t=>{
+   const m=TK_META[t.id],srcs=(t.sources||[]).map(id=>TK_SOURCE_MAP.get(id)).filter(Boolean);
+   return {id:t.id,publisher:m.publisher,group:m.group,access:m.access,headline:t.title,input:m.input,output:m.output,
+    requirements:t.requirements||'按官方资料准备环境。',limitation:t.boundary||t.scope||'需按官方限制使用。',cost:m.cost,
+    steps:[{title:'先看官方入口',body:'先阅读一手资料，确认当前版本、账号或环境条件。'},
+     {title:'从一个小任务开始',body:t.test||'用可核对的小样本完成第一轮验证。',command:t.command||undefined},
+     {title:'按结果验收',body:(t.checks||[]).join('；')||'核对实际输出并记录结果。'}],
+    troubleshooting:'先检查版本、权限、输入和运行环境，再缩小到可复现的小样本。',
+    sources:srcs.map(s=>({title:s.title,url:s.url,published_at:s.published||null,verified_at:s.checked||t.reviewed||APP.catalog.snapshot})),
+    entry_url:m.entry_url||null,evidence_level:'primary-docs',runtime_tested:false};
+  })
+ };
  const guides=new Map(data.items.map(x=>[x.id,x]));
  const openIds=new Set();
  const groupIds=new Set(data.groups.map(x=>x.id)),modeIds=new Set(data.access_modes.map(x=>x.id));
