@@ -22,9 +22,9 @@ class DeepVisualTests(unittest.TestCase):
 
     def test_illustration_is_not_reported_as_measurement(self):
         self.assertIn('预设', self.article['demo']['label'])
-        self.assertIn('不是本站运行', self.article['opening'][0])
+        self.assertIn('不是本站运行', ''.join(self.article['opening']))
         text = json.dumps(self.article, ensure_ascii=False)
-        self.assertIn('没有真实 Jev 实测', text)
+        self.assertIn('没有真实 Jev 推理', text)
         self.assertIn('不是官方 Jev', text)
 
     def test_probability_and_score_contract(self):
@@ -48,7 +48,7 @@ class DeepVisualTests(unittest.TestCase):
 
     def test_unique_sections_sources_and_apps(self):
         sections = self.article['sections']
-        self.assertEqual(len(sections), 7)
+        self.assertEqual(len(sections), 6)
         self.assertEqual(len({x['key'] for x in sections}), len(sections))
         source_ids = {s['id'] for s in self.article['sources']}
         self.assertEqual(len(source_ids), len(self.article['sources']))
@@ -60,7 +60,7 @@ class DeepVisualTests(unittest.TestCase):
 
     def test_rich_block_types_have_renderers(self):
         kinds = {b['type'] for s in self.article['sections'] for b in s['blocks']}
-        self.assertTrue({'scene','demo','flow','implementation','router','applications','experiment','code'} <= kinds)
+        self.assertTrue({'scene','demo','task_anatomy','tensor','knowledge_flow','distribution','applications','experiment','code'} <= kinds)
         js = (ROOT / 'src/deep-dives.js').read_text()
         for kind in kinds:
             self.assertIn("case '" + kind + "':", js)

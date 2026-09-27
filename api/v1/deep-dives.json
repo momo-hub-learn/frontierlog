@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-25",
+  "checked": "2026-09-27",
   "series": "拆一下",
   "articles": [
     {
@@ -8,26 +8,30 @@
       "hot_ids": [
         "jev-system-one-20260915"
       ],
-      "title": "拆一下 Jev：从输入输出到决策系统",
+      "title": "拆一下 Jev：不生成答案的模型，如何参与 Agent 决策？",
       "short_title": "Jev 到底应该放在 Agent Stack 的哪一层？",
-      "subtitle": "用一次真实接口格式的调用、三种输出、参考实现源码和四类产品方案，看懂 Jev 到底做什么。",
-      "dek": "一份工业知识问答，串起 Noul、Choice、Score 的真实接口、NanoJev 参考代码与 Agent 集成。再看主题研究、模型评测和本体审校能怎样落地。",
+      "subtitle": "沿着一个知识 Agent 的四次判断，拆开接口、候选计算、校准与行动边界。",
+      "dek": "从一条看似合理的因果结论开始，追问判断怎样计算、概率凭什么可信，以及代码何时应该接管。",
       "published": "2026-09-24",
-      "read_minutes": 18,
+      "read_minutes": 32,
       "tags": [
-        "输入 / 输出",
-        "源码拆解",
-        "架构图解",
-        "产品与评测"
+        "技术长文",
+        "计算机制",
+        "知识 Agent",
+        "工程取舍"
       ],
-      "thesis": "输入材料和问题，输出概率、选项或评分。Jev 负责有界判断，代码保留流程、权限与行动的控制权。",
+      "thesis": "返回结构化判断，只是起点。真正的系统问题是：判断指向什么、错误如何暴露，以及谁有权把概率变成行动。",
       "sections": [
         {
           "key": "scene",
           "eyebrow": "01",
-          "kicker": "先看一个问题",
-          "title": "相关的材料，未必支持正确的结论",
+          "kicker": "问题从哪里来",
+          "title": "从会回答，到会做决定",
           "blocks": [
+            {
+              "type": "text",
+              "text": "给提示词加一句“不要编造原因”可以是改进，但它没有回答更基本的架构问题：理解材料、判断证据、组织语言和决定是否采取行动，为什么必须被视为一个不可拆分的任务？如果一次回答失败，我们需要知道究竟是没找对材料、误解了材料，还是明明证据不足却仍然放行。"
+            },
             {
               "type": "scene",
               "question": "B17 批次良率下降的原因是什么？",
@@ -37,80 +41,154 @@
               "caption": "虚构工业案例。批次、设备、良率数字仅用于解释接口，不是生产数据。"
             },
             {
-              "type": "flow",
-              "title": "一次调用经过什么？",
-              "nodes": [
-                {
-                  "title": "准备材料",
-                  "detail": "问题、证据、候选结论 → state"
-                },
-                {
-                  "title": "定义问题",
-                  "detail": "是否支持 / 下一步 / 相关程度 → questions"
-                },
-                {
-                  "title": "Jev API",
-                  "detail": "返回答案与概率；这里不假设内部网络"
-                },
-                {
-                  "title": "代码处理",
-                  "detail": "校验类型，应用策略；必要时补检索或复核"
-                }
-              ],
-              "caption": "这是集成流程，不是官方模型内部架构。"
+              "type": "text",
+              "text": "拆开这次请求，就会看到四种工作。比较批次编号、核对报告是否已作废，是可以明确写出的规则；判断一句话是否被材料支持，需要理解语义；把分散材料组织成解释，是生成任务；决定继续检索还是升级处理，还要考虑剩余预算、错误代价与操作权限。它们服务于同一个目标，却不必共用同一个决策机制。"
+            },
+            {
+              "type": "task_anatomy",
+              "title": "图 1 · 同一项任务，不同类型的计算",
+              "caption": "本文的任务分解，不是已经证明优于其他方案的结果。LLM 也可以承担其中的有界判断。"
             },
             {
               "type": "text",
-              "text": "你提交的是“材料 + 具体问题 + 答案空间”，而不是要求模型自由写一篇原因分析。Jev 给回判断值；写回答、找新证据、执行工具仍是其他组件的工作。"
+              "text": "TypeSafe 把 Jev 定位为面向软件的结构化决策模型：输入状态和预先定义的问题，返回概率、候选或等级，而不是开放文本。官方介绍还提出并行输出与 RLCD 训练目标。本文把这些作为厂商对产品的描述，接下来分别检查接口能确认什么、公开参考代码能解释什么，以及业务收益必须怎样验证。",
+              "refs": [
+                "launch",
+                "rlcd"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "“让 LLM 输出 JSON”为什么还不是同一个问题？"
+            },
+            {
+              "type": "text",
+              "text": "这首先不是能力上的二选一。通用 LLM 也能做分类、核验与评分；TypeSafe 自己提供了由 LLM API 支撑的客户端替代实现。一个系统完全可以保留相同的输入输出协议，只替换判断后端。因此，只展示一次合法 JSON，不能证明 Jev 的独特性。",
+              "refs": [
+                "adapter"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "我们应当区分接口、计算和系统三个层面。接口规定软件接收哪些字段，计算决定这些字段怎样得到，系统效果则关乎相同质量约束下的成本与覆盖率。把协议收紧可以减少解析和越界问题，但不自动消除语义错误；采用不同计算方式可能降低等待，却仍需计算额外检索、重试和复核的成本。"
+            },
+            {
+              "type": "text",
+              "text": "这里也没有必要把传统分类器、语义蕴含模型或重排器排除在外。标签长期固定、领域数据充足时，一个较小的专用判别器可能就够用；候选和问题经常变化时，能够接受描述性条件的接口更方便。它们都是后面评测中的候选方案，而不是给 Jev 配的陪衬。"
+            },
+            {
+              "type": "transition",
+              "text": "于是，第一个问题不再是“要不要换一个更强的模型”，而是“哪些判断值得从整段生成中拆出来”。只有把判断的含义限定清楚，我们才知道该调用什么接口，也才可能为它建立独立测试。"
             }
           ],
           "source_refs": [
-            "api"
+            "launch",
+            "adapter",
+            "rlcd"
           ],
-          "analysis": false
+          "analysis": true
         },
         {
           "key": "interface",
           "eyebrow": "02",
-          "kicker": "输入与输出",
-          "title": "同一份材料，三种不同的输入与输出",
+          "kicker": "先定义判断",
+          "title": "三个原语，表达的是三种不同的不确定性",
           "blocks": [
             {
               "type": "text",
-              "text": "切换下面的 Noul / Choice / Score，看同一份 state 如何配上不同的问题，得到不同类型的输出。左边是可以组成请求的字段，右边只是预设响应摘录。"
+              "text": "回到 B17。我们不是让 Jev 再写一次原因分析，而是准备同一份 state：用户问题、原始证据和待检查的候选结论。然后在 questions 中定义三个窄问题。问题 ID 只用于让程序对上返回字段，不会替代 instructions；判断目标和标准必须显式写入请求。",
+              "refs": [
+                "api"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "Noul：某个命题是否成立，不是事情“有多严重”"
+            },
+            {
+              "type": "text",
+              "text": "第一个命题是：“仅依据这份材料，是否有充分证据支持这句因果结论？”Noul 返回回答为是的概率。示意值 0.08 表示倾向于不支持；它不是温控异常真实致因概率为 8%，也不是故障严重程度只有 8 分。我们问的是证据关系，模型就只能在这个问题边界内提供答案。",
+              "refs": [
+                "noul"
+              ]
+            },
+            {
+              "type": "signal",
+              "title": "命题判断",
+              "key": "supported"
+            },
+            {
+              "type": "text",
+              "text": "“证据不支持”仍然可能包含两种情形：材料与结论矛盾，或者材料没有提供足够信息。当前 Noul 把它们都归在“否”这一侧。如果产品必须区分二者，就应把任务改成支持／冲突／信息不足的 Choice，或者拆出额外命题，而不能从一个低值倒推出材料已经证明结论错误。"
+            },
+            {
+              "type": "subheading",
+              "title": "Choice：在候选空间内区分，不替系统授权下一步"
+            },
+            {
+              "type": "text",
+              "text": "第二个问题改为“这段材料主要属于哪一种证据形态”：观测记录、因果分析材料，或其他／信息不足。这样返回的 observation 是内容分类，而不是一个把权限和风险也偷偷包进去的“继续执行”。系统接下来如何处理，留到策略层决定。"
+            },
+            {
+              "type": "signal",
+              "title": "有限候选选择",
+              "key": "document_kind"
+            },
+            {
+              "type": "text",
+              "text": "Choice 返回选中项与完整候选分布。候选名称和描述都会进入模型，所以 observation 不是一个完全无语义的数据库主键。“其他／信息不足”也不是装饰：假如列表中根本没有正确答案，最高概率选项依然会存在。多标签则应拆成多个命题，而不是用单选题逼每份材料只属于一个主题。",
+              "refs": [
+                "choice"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "还有一种更隐蔽的问题：把一个候选拆成两个近义选项，或加入高度相似的描述，就改变了比较空间。某项概率降低，可能来自候选竞争，而不必然来自新证据。业务阈值应与候选定义一起版本化；不能在旧候选集上调好阈值，再悄悄换一组更细的类别。"
+            },
+            {
+              "type": "subheading",
+              "title": "Score：等级的期望，不是“答案正确率”"
+            },
+            {
+              "type": "text",
+              "text": "第三个问题只评价材料与提问的相关程度。我们写出三个可区分的等级：无关；涉及工艺但无目标批次直接记录；直接涉及 B17 的变化或同期设备记录。Score 按等级索引计算概率加权值，因此 0×0 + 1×0.2 + 2×0.8 = 1.8。它可以用于排序，不能被读作“答案有 90% 的概率正确”。",
+              "refs": [
+                "score"
+              ]
+            },
+            {
+              "type": "signal",
+              "title": "有序等级评价",
+              "key": "relevance"
+            },
+            {
+              "type": "text",
+              "text": "有序并不天然意味着等距。把相邻等级按 0、1、2 编号，是这个接口采用的数值约定，不是“从无关到一般相关”与“从一般到高度相关”具有相同业务价值的证明。要据此计算损失，应该在程序里另定义等级效用，而不是把任何评分都机械相加。"
+            },
+            {
+              "type": "subheading",
+              "title": "同一次请求，并不等于一个相互推理的小组"
+            },
+            {
+              "type": "text",
+              "text": "三道题都读取原始 state，而不是让后一题读取前一题的答案。需要依赖结果时，代码应在响应后组合，或在补充证据后再发下一次请求。计算上分别作答也不意味着统计独立：它们共享材料和模型，同一条误读可能同时影响三个结果，不能把数值直接相乘当成系统成功率。",
+              "refs": [
+                "choice"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "这一点也决定了输入怎么组织。把整座知识库塞入 state 不如明确列出候选证据、来源标识和待核验断言；但这些标识来自外部系统，模型只能阅读它们，不能认证它们。Jev 当前官方输入是文本，中文和行业缩写需要独立评测。示例固定 jev-1.13.0，不把会移动的别名用于可复现实验。",
+              "refs": [
+                "models"
+              ]
             },
             {
               "type": "demo"
             },
             {
-              "type": "note",
-              "title": "同一次请求，问题不会互读答案",
-              "text": "next_step 并不是读到 supported = 0.08 后才选择补检索。每个问题各自基于 state 作答；结果需要相互依赖时，由代码组合，或发起下一轮调用。"
-            },
-            {
-              "type": "cards",
-              "title": "三个会影响实现的细节",
-              "items": [
-                {
-                  "title": "ID 不是提示词",
-                  "detail": "supported 等问题 ID 只用于匹配响应，不送入推理。判断目标要写进 instructions。Choice 的候选名称与描述则会送入模型。"
-                },
-                {
-                  "title": "合法不等于正确",
-                  "detail": "合法枚举仍可能选错。confidence 描述分布的集中程度；业务正确率与执行阈值需要校准集检验。"
-                },
-                {
-                  "title": "版本需要冻结",
-                  "detail": "示例固定 jev-1.13.0。官方文档核对于 2026-09-25；别名可能变化。文本以外的材料先转成文本，中文与行业缩写单独评测。"
-                }
-              ]
-            },
-            {
-              "type": "code",
-              "title": "本地试跑：默认离线，不产生模型调用",
-              "code": "python examples/jev/jev_knowledge_demo.py\n\n# 设置 TYPESAFE_API_KEY 后，显式 --live 才会消耗 API 额度\npython examples/jev/jev_knowledge_demo.py --live",
-              "caption": "仓库 examples/jev/ 提供脚本。页面不收集密钥、不调用付费接口；不自动执行工具。",
-              "language": "bash"
+              "type": "transition",
+              "text": "到这里，我们能写出一次合法调用，也能解释每个数值究竟回答了什么。但协议成立并不等于理解了模型。既然同样的接口可以接不同后端，下一步要拆的就不是 JSON，而是候选文本如何变成概率。"
             }
           ],
           "source_refs": [
@@ -118,131 +196,399 @@
             "noul",
             "choice",
             "score",
-            "confidence",
             "models"
           ],
-          "analysis": false
+          "analysis": true
         },
         {
           "key": "implementation",
           "eyebrow": "03",
-          "kicker": "核心代码",
-          "title": "输入怎样变成候选概率？拆开一条参考路径",
+          "kicker": "拆开计算",
+          "title": "从候选文本，到可比较的分数",
           "blocks": [
             {
-              "type": "note",
-              "title": "第三方参考实现 ≠ 官方 Jev 源码",
-              "text": "下面拆 NanoJev 的公开 Python 实现，不是对官方网络的逆向结论。官方发布介绍了并行输出与 RLCD，但本次核对的材料不足以逐行重建其完整网络和训练配方。"
+              "type": "text",
+              "text": "先划定证据边界：本节拆的是 NanoJev 的公开参考实验，不是官方 Jev 的完整网络。我们固定到仓库提交 76fdfc9，阅读其中的输入组织、DecisionModel.forward、loss_for 和结果后处理。官方提供的产品介绍不足以据此确认它采用了相同底座、注意力结构或训练配方。",
+              "refs": [
+                "nano-forward",
+                "nano-output",
+                "launch"
+              ]
             },
             {
-              "type": "implementation",
-              "title": "参考计算图：从候选文本到概率",
-              "caption": "逻辑简图基于 NanoJev 的 DecisionModel.forward。代码片段经过压缩，不能单独当成完整模型运行。"
+              "type": "subheading",
+              "title": "候选本身为什么也是输入？"
             },
             {
-              "type": "code",
-              "title": "① 构造候选路径 · prepare_examples()",
-              "code": "prefix = encode(state) + encode(question)\npaths = [\n    prefix + encode(candidate_a) + [eos],\n    prefix + encode(candidate_b) + [eos],\n    prefix + encode(candidate_c) + [eos],\n]",
-              "caption": "逻辑节选：候选描述也是输入。不是永远固定为同一组标签的分类头；动态候选仍受模型能力与上下文限制。",
-              "language": "python"
-            },
-            {
-              "type": "code",
-              "title": "② 一次批量前向 · DecisionModel.forward()",
-              "code": "hidden = backbone(\n    input_ids=tokens, attention_mask=mask,\n    use_cache=False\n).last_hidden_state\n\n# 每条路径的最后一个有效位置\nvectors = hidden[path_indices, lengths - 1]\nlogits = scalar(layer_norm(vectors)).squeeze(-1)\n\n# 原实现还包含：分组、有效候选掩码，\n# 以及 Choice 可选的集合注意力残差修正。",
-              "caption": "此参考实现重复候选路径的前缀，并批量计算；“一次前向”不等于候选变多没有成本。没有先生成长答案再解析 JSON。",
-              "language": "python"
-            },
-            {
-              "type": "cards",
-              "title": "③ 输出映射 · answer_from_probabilities()",
-              "items": [
-                {
-                  "title": "Boolean / 是非",
-                  "detail": "单个标量 z 构成 logits [0, z]。softmax 后的 P(true) 等价于 sigmoid(z)。"
-                },
-                {
-                  "title": "Choice / 单选",
-                  "detail": "在同一问题的有效候选内做 softmax，保留完整分布，并选择概率最高的一项。"
-                },
-                {
-                  "title": "Score / 等级",
-                  "detail": "得到各等级的概率，再计算 Σ 等级索引 × 概率。平均分相同，分布仍可能完全不同。"
-                }
+              "type": "text",
+              "text": "设状态为 s，问题为 q，候选描述为 cᵢ。参考实现构造的是 [s; q; cᵢ; Decision; EOS]，让共享参数的底座为每条候选路径得到一个表示。固定三分类头通常把输出槽位直接对应到三种固定标签；这里输出槽位跟着当前候选映射，候选语义通过输入参与计算。它更像“带任务描述的候选评分”，但这种设计并不自动赋予任意新任务上的泛化能力。",
+              "refs": [
+                "nano-forward"
               ]
             },
             {
               "type": "code",
-              "title": "④ 训练目标 · loss_for()",
-              "code": "loss = -(target * logits.log_softmax(-1)).sum(-1)\n# target 可以是金标 one-hot，或教师的软概率分布。",
-              "caption": "这是参考实现中的交叉熵目标，不等同于官方 RLCD。监督、蒸馏或 softmax 本身都不保证校准。",
-              "language": "python"
+              "title": "① 输入路径 · 逻辑节选，不是完整模型",
+              "language": "python",
+              "code": "prefix = encode(state) + encode(question)\npaths = [\n    prefix + encode(candidate) + encode('Decision:') + [eos]\n    for candidate in candidates\n]",
+              "caption": "原实现还包含题型、字段序列化、长度检查和候选 ID 映射。模型读到的文本必须与训练时约定一致。",
+              "refs": [
+                "nano-output"
+              ]
             },
             {
               "type": "text",
-              "text": "NanoJev 在自己的请求里使用 boolean；官方 Jev HTTP 接口使用 noul。示例适配层应显式转换字段，不能直接把两套 API 当成完全兼容。"
+              "text": "训练与推理的序列化不是边角工程：把同一条 JSON 换一种拼接方式，可能改变模型实际看到的标点、顺序与语境。该参考脚本拒绝超过长度上限的路径，而不是悄悄截掉末尾候选；它也检查教师概率是否对应同一组候选。先保证“这组概率到底在评价哪几项”，再谈损失函数才有意义。",
+              "refs": [
+                "nano-forward",
+                "nano-output"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "一次批量前向，张量里发生了什么？"
+            },
+            {
+              "type": "text",
+              "text": "用上一节的一次请求作计数示意：是非题在此实现中只有一条语义路径，三选一产生三条路径，三级评分也产生三条，共七条。注意，这个“七”来自参考实现的组织方法，不是官方 API 暴露的内部结构。下图中的 Lmax 是本批最长序列长度，D 是底座隐藏维度，不使用猜测的参数量或实测 token 数。"
+            },
+            {
+              "type": "tensor",
+              "title": "图 2 · 七条候选路径，如何汇成三组答案",
+              "caption": "NanoJev 参考实现的形状推导；路径数来自本文题目设置，非官方 Jev 的计算或耗时实测。"
+            },
+            {
+              "type": "code",
+              "title": "② 取表示并打分 · 对应 forward() 主路径",
+              "language": "python",
+              "code": "hidden = backbone(\n    input_ids=tokens, attention_mask=attention,\n    use_cache=False\n).last_hidden_state\n\n# [7, Lmax, D] → [7, D]\nleaves = hidden[path_index, lengths - 1]\n# 按题重新分组，补齐候选并维护 valid 掩码\nh = group_candidates(leaves)\nz = scalar(layer_norm(h)).squeeze(-1)\nlogits = z.masked_fill(~valid, -1e9)",
+              "caption": "group_candidates 是解释性占位函数，压缩了原代码的分组循环；没有声称此片段可独立运行。",
+              "refs": [
+                "nano-forward"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "为什么取最后一个有效位置？在这里，输入末尾是决策位置及 EOS；使用能够访问此前输入的底座表示，让这一位置承接状态、问题和候选的上下文。lengths - 1 是每条路径真实的末端，不是统一的补齐末端。把 padding 向量误当候选表示，得到的数字即使能 softmax，也已经失去正确输入对应关系。"
+            },
+            {
+              "type": "text",
+              "text": "LayerNorm 先规范表示，共享的 Linear(D, 1) 再为每个候选输出一个标量。这个标量尚不是概率；不同题目之间也不应该直接比较。代码需要把同一道题的候选放回同一组，再屏蔽无效槽位，否则补齐出来的“候选”也会分走概率质量。",
+              "refs": [
+                "nano-forward"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "为什么还需要候选集合注意力？"
+            },
+            {
+              "type": "text",
+              "text": "独立打分适合回答“这个候选看起来有多匹配”；多个高度相似的候选之间如何区分，则可能需要比较。此实现为 Choice 提供一个可选分支：把候选表示与候选数量的对数特征拼接，投影后做多头注意力，再以残差形式修正候选分数。无效候选由掩码排除，布尔和评分问题不走这个 Choice 修正分支。",
+              "refs": [
+                "nano-forward"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "这是一次明确的设计取舍：让候选之间交互，可能有助于区分相近描述，但也增加候选集相关性和计算。仅凭网络里存在注意力，不能断言结果一定改善。应在相同样本上对比关闭／开启集合注意力，并测试候选重排、同义候选、增加无关候选后的变化。结构可能支持某些对称性，但候选名称、文本位置与底座表示仍可能影响输出。"
+            },
+            {
+              "type": "subheading",
+              "title": "三个输出，怎样从 logits 映射出来？"
+            },
+            {
+              "type": "math",
+              "title": "从分数到类型化结果",
+              "lines": [
+                "Boolean：logits = [0, z] → P(true) = sigmoid(z)",
+                "Choice：pᵢ = exp(zᵢ) / Σⱼ exp(zⱼ) → argmaxᵢ pᵢ",
+                "Score：pᵢ = softmax(z)ᵢ → score = Σᵢ i × pᵢ"
+              ],
+              "caption": "描述的是公开参考实现的输出映射；数值稳定 softmax 与有效候选掩码在工程实现中不可省略。"
+            },
+            {
+              "type": "text",
+              "text": "布尔题只学习一个标量，等价于把 false 的参考 logit 设为零；Choice 保留全部候选概率并取最大项；Score 保留等级概率并求索引期望。NanoJev 在自己的输入中称布尔题为 boolean，官方 HTTP 接口称为 noul；适配器需要明确转换，不能把第三方脚本当作可直接替换的官方服务。",
+              "refs": [
+                "nano-forward",
+                "nano-output"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "训练优化的是什么？RLCD 又知道到哪一步？"
+            },
+            {
+              "type": "text",
+              "text": "参考实验中的 loss_for 支持两类目标：真实标签转成 one-hot，或者采用教师模型的软分布。其核心是 L = −Σᵢ yᵢ log pᵢ。对于归一化软目标 q，这相当于 H(q) + KL(q∥p)：优化使学生接近教师分布，但教师判断错误时，接近教师并不意味着接近真实结果。该实现会隔离不满足约定的教师分布，而不是把它当可靠金标。",
+              "refs": [
+                "nano-forward"
+              ]
+            },
+            {
+              "type": "code",
+              "title": "③ 训练目标 · 对应 loss_for()",
+              "language": "python",
+              "code": "loss = -(target * logits.float().log_softmax(-1)).sum(-1)\n# target：one-hot 标签，或经过检查的教师概率分布",
+              "caption": "这是参考实验里的交叉熵，不是官方 RLCD 的复现。代码能说明监督方式，不能证明学习后的校准质量。",
+              "refs": [
+                "nano-forward"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "官方将 RLCD 展开为 Reinforcement Learning for Calibrated Decisions，强调使概率与正确性对应的训练目标。但本次核对的官方介绍没有给出足够完整的奖励定义、采样策略和优化细节，无法从目标名称推断完整算法。我们可以解释它希望优化什么，不应该替它补写尚未公开的训练方法，也不应把监督蒸馏说成同一种训练。",
+              "refs": [
+                "rlcd"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "“非生成”省在哪里，又没有省掉什么？"
+            },
+            {
+              "type": "text",
+              "text": "这条参考路径没有循环生成答案 token，而是从已知候选的表示直接得到分数，因此去掉了逐词输出答案的解码环节。它仍要编码输入、处理注意力并计算所有候选。若有 K 个候选、公共前缀长 L、候选平均长度为 C，当前重复前缀的组织至少需要处理约 K(L+C) 个输入位置；真实运行还受 padding、注意力、显存、批量和并行度影响。这个表达式是输入位置计数，不是延迟预测。"
+            },
+            {
+              "type": "text",
+              "text": "共享前缀可以作为优化方向，但不能只画一棵树就宣称已经完成。复用表示或缓存时，要检查注意力可见性、位置编码与候选隔离是否保持相同语义。官方描述了自己的状态共享与并行处理方式，这与参考脚本重复前缀的实现不能混为一谈。",
+              "refs": [
+                "models"
+              ]
+            },
+            {
+              "type": "transition",
+              "text": "计算图现在闭合了：文本进入底座，候选得到分数，程序拿到分布。然而，归一化可以保证概率加起来为一，却不能保证模型在高概率时真的少犯错。接下来的问题从“算得出来”变成“值不值得相信”。"
             }
           ],
           "source_refs": [
             "nano-forward",
             "nano-output",
-            "launch"
+            "launch",
+            "rlcd",
+            "models"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "confidence",
+          "eyebrow": "04",
+          "kicker": "概率不是行动",
+          "title": "从概率，到值得执行的决定",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "让案例向前走一步。系统补检索到一份写着“温控异常是主要原因”的报告，但页头标的是 B18，不是 B17。这里最关键的检查甚至不需要模型：批次 ID 不一致。不能因为正文看起来高度相关，或模型对其“很有信心”，就覆盖确定的错配规则。"
+            },
+            {
+              "type": "case_update",
+              "title": "案例继续 · 找到了报告，仍然不能直接用",
+              "stage": "02",
+              "evidence": "新报告 D2：标题与故障描述都很相似，但目标批次为 B18。",
+              "change": "代码比对 report.batch_id 与目标 B17，判定不匹配。",
+              "decision": "排除 D2；在预算允许时继续检索，不把模型高分当作豁免。"
+            },
+            {
+              "type": "subheading",
+              "title": "分布集中、经验正确率、行动价值，是三件事"
+            },
+            {
+              "type": "text",
+              "text": "Choice 和 Score 的 confidence 来自返回分布的形状，它不是额外观察到的一次真值验证。Noul 本身表达二元分布，没有单独的 confidence。即使模型给某个选项全部概率，也只说明其输出非常确定；输入错配、证据被污染或语义被误读，仍然能产生确定的错误。",
+              "refs": [
+                "confidence",
+                "noul"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "评分还会丢失信息。下面两组纯教学分布都有平均等级 1，但左边集中在中档，右边在两个极端之间摇摆。若系统只保存 score = 1，后续便再也无法区分它们。保留概率分布不是为了“看起来数学化”，而是为了保留被均值压缩掉的诊断信息。",
+              "refs": [
+                "score"
+              ]
+            },
+            {
+              "type": "distribution",
+              "title": "图 3 · 相同平均分，不同的分布",
+              "series": [
+                {
+                  "name": "集中在中档",
+                  "probabilities": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "name": "两端各占一半",
+                  "probabilities": [
+                    0.5,
+                    0,
+                    0.5
+                  ]
+                }
+              ],
+              "caption": "人为构造的数学示例，非 Jev 实测。两者期望均为 1；按索引计算的方差分别为 0 与 1。"
+            },
+            {
+              "type": "subheading",
+              "title": "“需要校准”具体意味着什么？"
+            },
+            {
+              "type": "text",
+              "text": "校准讨论的是一组预测与结果的对应关系。假如大量相似样本被预测为大约 0.8，其中对应事件应当约有八成发生；这不保证某一个样本正确。实际检验要先固定命题与标签规则，再按预测区间统计经验发生率及不确定范围。数据很少的高分区间，不能仅因为暂时零错误就宣称可靠。"
+            },
+            {
+              "type": "text",
+              "text": "后处理可以是候选方案。Guo 等人的研究展示了温度缩放这类校准方法：在有标签的校准集上拟合缩放参数，而不是任意把概率“调保守”。它能改变分布尖锐程度，但不能补充缺失证据或把错误候选变成正确候选。若手中只有裁剪、舍入后的 API 概率，而非 logits，拟合方法、零值处理与信息损失都应另行说明。",
+              "refs": [
+                "calibration"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "对 B17，我们尤其要把中文、行业缩写、错批次、旧版本和证据不足样本分开查看。总体指标良好，可能掩盖少量高风险子集上的失败；后续规则改变或数据分布变化，也会使原有阈值失效。校准集用来定参数，冻结测试集用来报告效果，不能边看测试集边调整阈值。"
+            },
+            {
+              "type": "subheading",
+              "title": "同一个概率，为什么不能配同一个阈值？"
+            },
+            {
+              "type": "text",
+              "text": "先建立一个明确简化的决策模型。设 p 是针对当前操作、经过目标任务验证的“自动处理正确”的概率；错误自动处理造成损失 C，而人工复核成本为 H。暂且假定正确自动处理的损失为零，人工可消除这类错误且没有其他损失，那么自动处理的期望损失为 (1−p)C，复核损失为 H。"
+            },
+            {
+              "type": "math",
+              "title": "一个代价阈值的推导",
+              "lines": [
+                "自动处理损失：(1 − p) × C",
+                "人工复核损失：H",
+                "选择自动处理的条件：p > 1 − H/C"
+              ],
+              "caption": "仅在 C > 0 且上述假设成立时成立；等号可保守交给复核。p 不是直接复制 API confidence。"
+            },
+            {
+              "type": "text",
+              "text": "纯算术示意：若 C = 100、H = 5，阈值是 0.95；若 C = 10000 而 H 仍为 5，阈值变为 0.9995。这不是推荐的生产阈值，只说明“文章分错栏目”和“错误合并企业实体”不应使用同一种容错规则。真实业务还需要考虑人工错误、时间延迟、可逆性，以及没有权限时必须禁止的动作。"
+            },
+            {
+              "type": "text",
+              "text": "这里也暴露出一个常见偷换：supported 问的是材料是否支持断言，不是自动行动会不会成功。即使这个命题的概率经过校准，也不能拿来当作整条执行链的成功概率。要么为明确的行动结果另建标签与估计，要么把多个判断当作可观测信号，由经验证的策略组合；不能跨越语义边界复用一个好看的数值。"
+            },
+            {
+              "type": "transition",
+              "text": "因此，可靠自动化不只是“高分就执行，低分就交给人”。系统先要确认信号回答的是什么，再把信号、硬约束与错误代价组合起来。下一节把这些条件放回同一个知识 Agent，看看真正需要哪些组件。"
+            }
+          ],
+          "source_refs": [
+            "confidence",
+            "score",
+            "calibration"
           ],
           "analysis": true
         },
         {
           "key": "stack",
-          "eyebrow": "04",
-          "kicker": "如何接入 Agent",
-          "title": "不要把 Jev 和 LLM 串成每次都要经过的流水线",
+          "eyebrow": "05",
+          "kicker": "回到整个系统",
+          "title": "组装一个会补证据、识别冲突的知识 Agent",
           "blocks": [
             {
-              "type": "router",
-              "title": "Agent Runtime：代码负责按需路由",
-              "caption": "AI 坐标提出的集成方案，非 TypeSafe 指定架构。四类职责是条件分支，不是四次必经调用。"
+              "type": "text",
+              "text": "继续检索之后，系统终于找到 B17 的两份报告。D3-v1 把原因写成温控异常；D3-v2 认为原结论仍需验证。问题已经不只是“哪句话更像原因”，而是两份材料的时间、有效状态与适用范围如何相互约束。"
+            },
+            {
+              "type": "case_update",
+              "title": "案例继续 · 证据冲突，不做多数表决",
+              "stage": "03",
+              "evidence": "D3-v1 与 D3-v2 都涉及 B17，但对根因的表述相互冲突。",
+              "change": "检索器返回正文；文档系统提供签署状态、修订关系及有效范围。",
+              "decision": "无法确认哪个结论有效时，保留冲突并升级复核；不能仅凭更新日期或模型分数覆盖旧记录。"
             },
             {
               "type": "text",
-              "text": "本例里，Jev 可以帮助判断证据是否充分；新的检索由检索器完成，回答改写由生成模型完成。一次追加检索后重新判断，但必须有最大轮次、预算和人工出口，不能无限循环。"
+              "text": "在这个设计里，代码先检查结构化 ID、时间范围和文档状态。只有来自可信文档系统的 supersedes 关系和已生效状态，才可以帮助排除确已被替代的版本；“文件名带 v2”不是充分依据。模型可以帮助识别正文之间是否存在实质矛盾，但不能代替来源认证或审批。"
+            },
+            {
+              "type": "subheading",
+              "title": "模型给证据信号，代码管理状态转移"
+            },
+            {
+              "type": "text",
+              "text": "主循环需要一份明确的状态：原始问题、候选断言、证据集合、已排除文档、剩余检索次数和操作类别。检索器负责获得材料，Jev 负责约束明确的语义判断，生成模型只在被允许时组织有依据的解释，策略层决定是否继续以及何时终止。下图的分支不是每次都调用一遍的模型套餐。"
+            },
+            {
+              "type": "knowledge_flow",
+              "title": "图 4 · B17 知识 Agent 的状态流",
+              "caption": "本文设计的架构，不是官方固定架构。硬约束来自系统记录，语义判断可替换后端。"
+            },
+            {
+              "type": "text",
+              "text": "这里故意把写操作分出一条边界。假设工程师接着说：“那就把设备参数调回去。”即使根因报告有效，也不能据此自动推断参数改动被授权、范围安全或能改善结果。知识助手可以整理建议和依据，执行器需要独立权限、批准与结果验证；解释成功不等于行动成功。"
+            },
+            {
+              "type": "case_update",
+              "title": "案例继续 · 从读知识到改系统",
+              "stage": "04",
+              "evidence": "用户从“解释原因”转为“调整设备参数”。",
+              "change": "操作从只读变成写入，错误代价和权限要求改变。",
+              "decision": "进入审批与受控执行流程；没有批准就不执行，不让证据分数覆盖权限。"
             },
             {
               "type": "code",
-              "title": "策略层示意：先有权限和校准，再谈自动化",
-              "code": "def choose_path(answers, policy, context):\n    if not context.permission_ok:\n        return \"stop\"\n    if not policy.validated_for_current_version:\n        return \"human_review\"\n    if context.high_risk or context.budget_exhausted:\n        return \"human_review\"\n    if answers[\"supported\"][\"noul\"] < policy.support_floor:\n        return \"retrieve_more\"\n    return \"verify_before_answer\"",
-              "caption": "伪代码：阈值来自独立校准集，不内置万能 0.8。返回的是路径名，不是动作授权；错误响应和冲突结果应停止自动处理。",
-              "language": "python"
+              "title": "策略核心 · 仓库示例中的同一份可测试逻辑",
+              "language": "python",
+              "code": "def decide(signals, policy):\n    if not signals.read_allowed:\n        return 'deny'\n    if signals.operation != 'read':\n        return 'approval_required'\n    if not policy.is_current(signals):\n        return 'review'\n    if not signals.response_valid or signals.conflict:\n        return 'review'\n    if not signals.entity_match or not signals.evidence_current:\n        return 'retrieve' if signals.remaining_rounds > 0 else 'review'\n    if signals.p_support >= policy.support_floor:\n        return 'draft_with_citations'\n    return 'retrieve' if signals.remaining_rounds > 0 else 'review'",
+              "caption": "只返回建议状态，不执行真实工具。实例化的阈值用于教学分支测试，不是经过业务校准的推荐值。完整类型、校验和虚构场景在 examples/jev/decision_policy.py。",
+              "refs": []
             },
             {
-              "type": "note",
-              "title": "反馈回流 ≠ 在线自动训练 Jev",
-              "text": "回流的是失败样本、问题定义、候选与阈值版本。先复测，再发布策略变更。官方当前不提供基于客户数据的专属微调；硬权限、知识库写入审核与回滚仍由系统负责。"
-            }
-          ],
-          "source_refs": [
-            "confidence",
-            "models",
-            "jaggedness"
-          ],
-          "analysis": true
-        },
-        {
-          "key": "applications",
-          "eyebrow": "05",
-          "kicker": "四类可实施产品",
-          "title": "四个产品方向：从输入到验收",
-          "blocks": [
+              "type": "text",
+              "text": "这个控制器不是“可靠性的证明”，它只是把责任划清。policy.is_current 同时核对模型与问题定义版本；缺少字段、异常概率和冲突结果不能悄悄按通过处理；剩余轮次用尽后不会无限补检索。生成后的新断言还应重新与证据核对，并由输出层保留文档 ID、位置和范围，而不只是输出一句“已验证”。"
+            },
+            {
+              "type": "subheading",
+              "title": "缓存、观测与反馈，也需要保持同一个问题边界"
+            },
             {
               "type": "text",
-              "text": "以下是建议的 MVP 与实验设计，不是已经完成的产品或收益。选择一个方向查看具体输入输出、部署位置、数据起点与验收指标。"
+              "text": "缓存键至少要包含证据内容或版本、问题与候选定义、模型版本；只缓存“同一用户问过这个问题”会在报告修订后复用过时答案。日志保存每次判断对应的证据 ID、概率、策略版本与最终处理结果。模型声称的依据不能当作真实执行轨迹，轨迹应由检索器和执行器记录。"
+            },
+            {
+              "type": "text",
+              "text": "失败样本首先进入人工标注与回归集。修订问题定义、调整候选、修改策略阈值都应重新验证，而不是把系统自己的输出当真值持续喂回。官方目前不对每个客户单独微调权重；“反馈闭环”在此指我们维护问题、证据与策略，并不暗示 Jev 自动从业务日志在线学习。",
+              "refs": [
+                "models"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "这个架构也能迁移，但标签不能照搬",
+              "anchor": "applications"
+            },
+            {
+              "type": "text",
+              "text": "上述组件可以复用到主题审核、回答评测、Agent 动作监控与知识审校。不过，可复用的是“证据→判断→代码策略→结果记录”的接口和基础设施，不是一个万能评分。主题更新的有效性、回答的证据支持、动作是否越权、实体是否同一，都需要独立定义标签、采样与错误代价。"
             },
             {
               "type": "applications"
+            },
+            {
+              "type": "text",
+              "text": "企业部署还要考虑数据边界：把内网报告发送给云端 API，与本地运行参考模型，是两种不同方案。前者应先满足组织的数据出域要求；后者必须重新验证权重、语言表现、校准和运行成本，不能继承官方产品的性能主张。选择部署方式，应在实验开始前而不是上线前最后一天决定。"
+            },
+            {
+              "type": "transition",
+              "text": "现在我们已经有一个可以实现的系统，但它的组件更多了。拆分带来的收益、换模型带来的收益，以及新增检查带来的代价，必须被分开计算。否则，一个设计更精细的工作流，很容易被误写成某个模型的全面胜利。"
             }
           ],
           "source_refs": [
+            "models",
+            "alignment",
             "ragtruth",
             "atbench",
-            "alignment",
             "oaei"
           ],
           "analysis": true
@@ -250,88 +596,136 @@
         {
           "key": "evaluation",
           "eyebrow": "06",
-          "kicker": "怎样证明有效",
-          "title": "把“工作流变好”与“Jev 更好”分开测",
+          "kicker": "如何证实价值",
+          "title": "先分离变量，再讨论它是否值得采用",
           "blocks": [
             {
-              "type": "experiment",
-              "title": "公平对照：冻结数据，拆开两个变量",
-              "caption": "这是待执行实验设计，不是性能排行榜。所有方案使用同一测试集与金标；不填造出来的准确率、成本或延迟。"
+              "type": "text",
+              "text": "对 B17 这类任务，最公平的起点是固定用户问题、可访问证据和真实标签，再比较系统如何处理。我们不仅要看最后一句话是否好听，还要看它有没有把不存在的因果说成事实、有没有错用别的批次报告，以及面对冲突是否选择了合理的停止路径。"
             },
             {
-              "type": "cards",
-              "title": "验收要回答四个问题",
-              "items": [
-                {
-                  "title": "质量有没有丢？",
-                  "detail": "先定义坏答案 / 危险动作 / 错误合并，再测漏放与误拦。Agent 还要用实际环境状态验收任务成功。"
-                },
-                {
-                  "title": "概率值可信么？",
-                  "detail": "使用人工标签或可验证环境结果；报告可靠性图、Brier 分数和风险—覆盖率。只在校准集调阈值。"
-                },
-                {
-                  "title": "系统真的省么？",
-                  "detail": "计算端到端 p50 / p95、重试、检索、额外模型与人工升级成本。失败调用也进入成本分母。"
-                },
-                {
-                  "title": "换场景还行么？",
-                  "detail": "按时间、主题或实体切分；加入中文、长上下文、行业缩写、候选重排与“无合适答案”测试。"
-                }
+              "type": "experiment",
+              "title": "图 5 · 同一个测试集，分离两种收益",
+              "caption": "实验设计，尚未得到本站 Jev 实测结果。A→B 检查工作流改造；B→C 检查模型替换；D 防止忽略更简单方案。"
+            },
+            {
+              "type": "text",
+              "text": "A 与 B 的差异在于工作流，B 与 C 的差异才主要是判断后端。控制后者时，候选集合、提示语义、证据截取、阈值选择流程和调用预算都应一致。若为了发挥模型能力而采用不同提示或不同粒度，应明确另列“各自优化系统”实验，不把它与严格受控对照混写。"
+            },
+            {
+              "type": "subheading",
+              "title": "官方评测已经说明了什么，又没有说明什么？"
+            },
+            {
+              "type": "text",
+              "text": "TypeSafe 的 workflow eval 让模型运行结构化工作流，并与将相同策略写入整段 Prompt 的方式比较。站点报告，在其四个示例任务的平均结果中，其他模型也受益于工作流拆分。这支持我们必须区分工程组织与模型替换，而不是把所有变化归因于 Jev。",
+              "refs": [
+                "evals"
               ]
             },
             {
               "type": "text",
-              "text": "TypeSafe 的 workflow eval 已区分整段 Prompt 与结构化工作流，并让其他模型也使用拆分后的工作流。它的参考标签方法与官方自测身份需要一起报告；不能把厂商倍率直接写成自己的业务收益。"
+              "text": "同一评测假设工作流代码正确，并用强模型回答的共识作为参考标签。它衡量的是相对这一参考的表现，而不是人工核验的所有业务真值。厂商自测还受任务选择、推理配置、服务位置和概率输出要求影响。因此，这些资料适合作为可复现评测的起点，不能直接代替我们自己的中文企业测试。",
+              "refs": [
+                "evals"
+              ]
             },
             {
-              "type": "note",
-              "title": "首个实验交付物",
-              "text": "冻结数据清单 + 问题/候选版本 + 原始响应 + 延迟/成本日志 + 错误样本 + 同口径结果表。页面目前没有真实 Jev 实测，不展示伪造曲线。"
+              "type": "subheading",
+              "title": "把案例变成一组有针对性的反例"
+            },
+            {
+              "type": "text",
+              "text": "随机抽一些问答只能给总体平均，更有诊断力的办法是围绕本例构造受控扰动。下面不是预设 Jev 必须通过的结果，而是可检验的要求。其中 ID、审批状态等由代码验证；语义部分需要明确标签并由人工或可验证环境确认。"
+            },
+            {
+              "type": "table",
+              "title": "针对 B17 的压力测试",
+              "headers": [
+                "只改变一件事",
+                "应检查什么"
+              ],
+              "rows": [
+                [
+                  "把报告批次从 B17 改为 B18",
+                  "代码排除错配；模型高相关性不得覆盖 ID 规则。"
+                ],
+                [
+                  "删除因果分析，只留下同期报警",
+                  "仍可相关，但“证据充分支持原因”的标签应改变。"
+                ],
+                [
+                  "保留文字，标记文档已被正式撤回",
+                  "先按可信状态排除，不把较高评分当作有效凭据。"
+                ],
+                [
+                  "调换候选顺序、添加同义或无关选项",
+                  "比较选项映射与分布变化；标签不变不代表概率必然不变。"
+                ],
+                [
+                  "加入相互矛盾且均有效的报告",
+                  "检验冲突检测与复核路径，而不是用票数决定真相。"
+                ],
+                [
+                  "把“解释原因”改成“修改参数”",
+                  "转入独立审批路径；仅有文字授权不能替代系统权限。"
+                ]
+              ],
+              "caption": "合成扰动能覆盖明确边界，但真实业务分布仍要独立采样；同一原文的改写版本不得跨训练、校准与测试集。"
+            },
+            {
+              "type": "text",
+              "text": "数据应按事件、文档家族或时间分组，避免同一份根因报告的不同版本同时出现在校准集与测试集。RAGTruth 等现有数据能帮助启动证据核验，但它的幻觉跨度标注不天然等于本例所需的原子断言、版本有效性和行为授权标签。Agent 轨迹安全数据与本体匹配数据也各有任务边界，不能换个字段名就当成同一套金标。",
+              "refs": [
+                "ragtruth",
+                "atbench",
+                "oaei"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "最终看什么指标，才不会优化出一个“永远拒绝”的系统？"
+            },
+            {
+              "type": "text",
+              "text": "最重要的是成对报告漏放与误拦，并给出自动处理覆盖率。把所有样本送人工，错误自动放行可以很低，但产品没有完成自动化。反过来，仅提高覆盖率也可能掩盖高代价错误。以自动放行子集为分母报告风险，同时以全部样本为分母报告覆盖率；按批次或事件做成组统计，保留置信区间，特别留意少数高风险错误。"
+            },
+            {
+              "type": "text",
+              "text": "概率层可报告 Brier 分数、对数损失与可靠性分组，但单个总分不是所有子任务都校准的保证。系统层记录最终回答是否有据、需要多少次追加检索、复核量和任务是否完成。行动任务必须检查执行后的真实环境状态，不能用模型自己说“成功了”充当成功标签。"
+            },
+            {
+              "type": "text",
+              "text": "性能也要从用户请求开始算到结果交付。p50 与 p95 延迟、并发条件、网络位置、失败重试、检索和生成都进入记录；成本包含失败请求和被升级的样本。除每次模型调用成本外，再报告每个正确处理任务的总成本。理论上减少解码等待，并不保证整个系统的尾延迟或人工成本也下降。"
+            },
+            {
+              "type": "subheading",
+              "title": "工程采用的结论，应该长什么样？",
+              "anchor": "boundary"
+            },
+            {
+              "type": "text",
+              "text": "有价值的结论不是“Jev 全面替代 LLM”，而可以是：“在冻结的中文证据核验集上，达到约定风险上限时，这个判断后端允许多少自动覆盖，并把多少任务送回复核；相对于相同工作流的其他后端，它在总成本和尾延迟上怎样变化。”这才是可以被业务接受、被后续实验推翻或改进的陈述。"
+            },
+            {
+              "type": "text",
+              "text": "本文已经核对官方接口与指定提交的参考代码，完成了可离线检查的接口样例、状态策略和数学示意；没有真实 Jev 推理或业务性能实测。所有案例概率都明确标为人为示意。下一步应先以旁路模式采样和标注，不急于替换线上决策，更不急于将模型分数变成写库权限。"
+            },
+            {
+              "type": "text",
+              "text": "回头看最初那句“温控异常导致良率下降”，我们并没有只给它再加一个评分器。我们把“找到了什么、这些材料说明什么、允许说到哪一步、是否有权行动”拆成了不同的责任。Jev 的潜在价值，是让其中一部分语义判断更容易被软件调用、观察和替换；它是否值得采用，最终仍由证据、代价与系统结果决定。"
+            },
+            {
+              "type": "resources",
+              "title": "继续阅读与离线复现"
             }
           ],
           "source_refs": [
             "evals",
-            "jaggedness"
-          ],
-          "analysis": true
-        },
-        {
-          "key": "boundary",
-          "eyebrow": "07",
-          "kicker": "带走什么",
-          "title": "先做一个可检验的判断组件，而不是万能智能层",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "建议从“答案与证据一致性”开始做旁路评测，再复用到主题审核、Agent 检查和知识审校。公共接口统一记录输入版本、证据来源、候选概率、代码策略与人工结果；每个方向独立定义标签和错误成本。"
-            },
-            {
-              "type": "cards",
-              "title": "三条边界始终留在页面上",
-              "items": [
-                {
-                  "title": "已核对",
-                  "detail": "官方 HTTP 字段、三类原语及其语义；第三方参考实现的计算与后处理路径。"
-                },
-                {
-                  "title": "本文设计",
-                  "detail": "集成架构、四类产品方案、代码策略示例和实验对照；不冒充官方标准方案。"
-                },
-                {
-                  "title": "仍待验证",
-                  "detail": "中文和私有领域质量、独立概率校准、真实端到端成本、任务成功率与安全性收益。"
-                }
-              ]
-            },
-            {
-              "type": "note",
-              "title": "企业与主权 AI 的部署边界",
-              "text": "调用官方云 API 不等于私有化。敏感材料要先满足组织的数据出域要求；使用本地参考模型也必须独立训练、评测与审计，不能继承官方 Jev 的效果主张。"
-            }
-          ],
-          "source_refs": [
-            "models"
+            "calibration",
+            "ragtruth",
+            "atbench",
+            "oaei"
           ],
           "analysis": true
         }
@@ -342,48 +736,54 @@
           "publisher": "TypeSafe",
           "title": "HTTP API：请求、响应与错误处理",
           "kind": "官方接口",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/api"
+          "date": null,
+          "url": "https://docs.typesafe.ai/api",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "noul",
           "publisher": "TypeSafe",
           "title": "Noul：命题成立概率",
           "kind": "官方文档",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/primitives/noul"
+          "date": null,
+          "url": "https://docs.typesafe.ai/primitives/noul",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "choice",
           "publisher": "TypeSafe",
           "title": "Choice：候选、概率与独立问题",
           "kind": "官方文档",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/primitives/choice"
+          "date": null,
+          "url": "https://docs.typesafe.ai/primitives/choice",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "score",
           "publisher": "TypeSafe",
           "title": "Score：有序等级与加权期望",
           "kind": "官方文档",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/primitives/score"
+          "date": null,
+          "url": "https://docs.typesafe.ai/primitives/score",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "confidence",
           "publisher": "TypeSafe",
           "title": "Confidence：统计量不等于业务正确率",
           "kind": "官方文档",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/confidence"
+          "date": null,
+          "url": "https://docs.typesafe.ai/confidence",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "models",
           "publisher": "TypeSafe",
           "title": "模型版本、文本输入与语言支持",
           "kind": "官方文档",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/models"
+          "date": null,
+          "url": "https://docs.typesafe.ai/models",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "launch",
@@ -391,79 +791,117 @@
           "title": "Introducing System One Models & Jev",
           "kind": "官方发布 / 厂商主张",
           "date": "2026-09-15",
-          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "nano-forward",
           "publisher": "NanoJev",
-          "title": "train_toy_decisions.py · DecisionModel.forward / loss_for",
+          "title": "train_toy_decisions.py · DecisionModel.forward / loss_for · 固定提交 76fdfc9",
           "kind": "第三方参考源码，不是官方 Jev",
-          "date": "2026-09-25",
-          "url": "https://github.com/TianyuCodings/NanoJev/blob/main/scripts/train_toy_decisions.py"
+          "date": null,
+          "url": "https://github.com/TianyuCodings/NanoJev/blob/76fdfc9ecdca45a9bcef17991a07d3041a87685a/scripts/train_toy_decisions.py",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "nano-output",
           "publisher": "NanoJev",
-          "title": "predict_toy_decisions.py · prepare_examples / answer_from_probabilities",
+          "title": "predict_toy_decisions.py · prepare_examples / answer_from_probabilities · 固定提交 76fdfc9",
           "kind": "第三方参考源码，不是官方 Jev",
-          "date": "2026-09-25",
-          "url": "https://github.com/TianyuCodings/NanoJev/blob/main/scripts/predict_toy_decisions.py"
+          "date": null,
+          "url": "https://github.com/TianyuCodings/NanoJev/blob/76fdfc9ecdca45a9bcef17991a07d3041a87685a/scripts/predict_toy_decisions.py",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "evals",
           "publisher": "TypeSafe",
           "title": "Workflow evals：结构化工作流对照",
           "kind": "厂商评测，非本站复测",
-          "date": "2026-09-25",
-          "url": "https://evals.typesafe.ai/"
+          "date": null,
+          "url": "https://evals.typesafe.ai/",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "jaggedness",
           "publisher": "TypeSafe",
           "title": "Jev 1.13：长上下文与对抗性输入局限",
           "kind": "官方已知局限",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
+          "date": null,
+          "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "ragtruth",
           "publisher": "RAGTruth 作者",
           "title": "RAGTruth：回答及幻觉跨度标注",
           "kind": "研究数据 / 原始仓库",
-          "date": "2026-09-25",
-          "url": "https://github.com/ParticleMedia/RAGTruth"
+          "date": null,
+          "url": "https://github.com/ParticleMedia/RAGTruth",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "atbench",
           "publisher": "ATBench 作者",
           "title": "ATBench：Agent 轨迹安全评测",
           "kind": "研究论文 / 数据入口",
-          "date": "2026-09-25",
-          "url": "https://arxiv.org/abs/2604.02022"
+          "date": null,
+          "url": "https://arxiv.org/abs/2604.02022",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "alignment",
           "publisher": "TypeSafe",
           "title": "Knowledge graph entity alignment cookbook",
           "kind": "官方可实现案例",
-          "date": "2026-09-25",
-          "url": "https://docs.typesafe.ai/cookbooks/entity_alignment"
+          "date": null,
+          "url": "https://docs.typesafe.ai/cookbooks/entity_alignment",
+          "verified_at": "2026-09-27"
         },
         {
           "id": "oaei",
           "publisher": "OAEI",
           "title": "Ontology Alignment Evaluation Initiative 2026",
           "kind": "本体匹配评测入口",
-          "date": "2026-09-25",
-          "url": "https://oaei.ontologymatching.org/2026/"
+          "date": null,
+          "url": "https://oaei.ontologymatching.org/2026/",
+          "verified_at": "2026-09-27"
+        },
+        {
+          "id": "adapter",
+          "publisher": "TypeSafe",
+          "title": "System One adapter：由 LLM API 支撑的同接口后端",
+          "url": "https://github.com/typesafe-ai/system-one-adapter-python",
+          "kind": "官方开源适配器",
+          "date": null,
+          "verified_at": "2026-09-27"
+        },
+        {
+          "id": "rlcd",
+          "publisher": "TypeSafe",
+          "title": "AI primer：RLCD 的公开目标与说明",
+          "url": "https://docs.typesafe.ai/introduction/machine-learning-primer",
+          "kind": "官方训练目标说明，非完整算法",
+          "date": null,
+          "verified_at": "2026-09-27"
+        },
+        {
+          "id": "calibration",
+          "publisher": "Guo 等 / ICML 2017",
+          "title": "On Calibration of Modern Neural Networks",
+          "url": "https://proceedings.mlr.press/v70/guo17a.html",
+          "kind": "原始研究论文",
+          "date": null,
+          "verified_at": "2026-09-27"
         }
       ],
       "opening": [
-        "从一个具体问题开始：一份材料提到设备报警，能否证明它造成了良率下降？下面用同一条虚构工业记录贯穿全文。所有概率均为教学示意，不是本站运行 Jev 得到的结果。"
+        "假设你正在给一家制造企业做知识助手。工程师问：“最近这批产品的合格比例为什么下降了？”系统找到两条记录：一条显示合格比例从 97% 降到了 92%，另一条显示同期某台设备出现过温控报警。大模型把它们整理成一句流畅的回答：“温控异常导致了这次质量下降。”",
+        "问题不是这句话一定错误，而是现有材料没有完成它所需要的证明。两件事同时出现，与一件事导致另一件事，是不同的判断。生成了一句像答案的话，系统也可能尚未拥有足以回答问题的证据。",
+        "我们把这批产品叫作 B17，把设备叫作 ETCH-03，后面始终沿着这个案例推进：先检查证据，再处理错配报告与版本冲突，最后面对一次写操作请求。本文的工业记录与数值都是教学设定，不是生产记录，也不是本站运行 Jev 得到的结果。"
       ],
-      "updated": "2026-09-25",
+      "updated": "2026-09-27",
       "demo": {
-        "label": "虚构案例 · 预设输出 · 不调用 API",
+        "label": "协议示例 · 人为预设概率 · 不调用 API",
         "request": {
           "model": "jev-1.13.0",
           "state": {
@@ -476,13 +914,13 @@
               "type": "noul",
               "instructions": "仅依据 state.evidence，是否有充分证据支持 state.claim？同时出现不等于因果证明。"
             },
-            "next_step": {
+            "document_kind": {
               "type": "choice",
-              "instructions": "依据 state.question 和现有 state.evidence，选择下一步的信息处理路径。不要执行动作。",
+              "instructions": "依据 state.evidence 的内容，判断它主要属于哪种证据形态。不要决定或执行系统动作。",
               "criteria": {
-                "retrieve_more": "现有证据不足，应继续检索根因报告或相关记录。",
-                "answer_now": "现有证据已充分，可以回答原因。",
-                "human_review": "问题需要专家裁决，不能仅通过继续检索解决。"
+                "observation": "只记录变化、报警或共现，没有给出已验证的因果分析。",
+                "causal_report": "提供针对所问事件的因果分析及其依据，而不只是时间上的同时出现。",
+                "other": "不属于前两类，或材料不足以判定证据形态。"
               }
             },
             "relevance": {
@@ -501,13 +939,13 @@
             "type": "noul",
             "noul": 0.08
           },
-          "next_step": {
+          "document_kind": {
             "type": "choice",
-            "choice": "retrieve_more",
+            "choice": "observation",
             "probabilities": {
-              "retrieve_more": 0.9,
-              "answer_now": 0.02,
-              "human_review": 0.08
+              "observation": 0.9,
+              "causal_report": 0.02,
+              "other": 0.08
             }
           },
           "relevance": {
@@ -530,12 +968,12 @@
             "trap": "Noul 回答的是你写出的命题；没有额外的 confidence 字段。"
           },
           {
-            "key": "next_step",
+            "key": "document_kind",
             "name": "Choice",
-            "question": "下一步走哪条路径？",
-            "meaning": "retrieve_more 是三个候选里概率最高的一项。它是路径建议，不是已经完成了一次检索。",
-            "action": "代码还要检查预算、权限与停止条件，才决定是否补检索。",
-            "trap": "Choice 是单选。多主题标签应拆成多个 Noul；候选不完备时增加“其他 / 不适用”。"
+            "question": "这段材料属于哪一种证据形态？",
+            "meaning": "observation 是三个候选中的最高概率项。这是在分类材料，不是在授权继续检索或执行操作。",
+            "action": "代码结合批次、文档有效性、证据支持与预算决定后续路径。",
+            "trap": "候选名称与描述都参与推理；增加 other 出口仍需要评测，不能保证未知输入都会被正确拒绝。"
           },
           {
             "key": "relevance",
@@ -668,7 +1106,9 @@
             "oaei"
           ]
         }
-      ]
+      ],
+      "layout": "narrative",
+      "revision_note": "主文重写 · 6 章连续推导 · 2026.09.27"
     }
   ]
 }
