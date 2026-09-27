@@ -1,0 +1,23 @@
+name: Jev narrative checks
+on:
+  push:
+    branches: ['preview/jev-narrative-20260927']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot current source
+        run: |
+          git archive --format=zip HEAD -o review-source.zip
+          git rev-parse HEAD > source-sha.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jev-narrative-review
+          path: |
+            review-source.zip
+            source-sha.txt
+          retention-days: 7
