@@ -2,22 +2,146 @@ name: Jev narrative checks
 on:
   push:
     branches: ['preview/jev-narrative-20260927']
+    paths: ['.github/workflows/jev-narrative.yml']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: jev-narrative-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  review:
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
-      - name: Snapshot current source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply digest-checked source edits on isolated preview
         run: |
-          git archive --format=zip HEAD -o review-source.zip
+          python - <<'PY'
+          import base64, gzip, hashlib, json, os
+          from pathlib import Path
+          assert os.environ['GITHUB_REF'] == 'refs/heads/preview/jev-narrative-20260927'
+          parts = {
+              '00':'4f26596f467ae9c1a5431ff801c87b661117ec3c96cfbee880196c1b63e202e5',
+              '01':'21a546af27541025c475c0b16f78d73f92c1e8006bebc316e57c3ff56d162127',
+              '02':'2fb0d66b00f0a32d6f1cbabfbcfe8640ff3cd7be9e4cedb85cfba1235048e38b',
+              '03a':'4f16e159c01204a6534fff2d279142f5caf6979e2434eebf91be35816c5bc37f',
+              '03b':'075fdf43629e96519772f8b0ae63773ff24064d799bcc74e5e3a7dac1ff43ed2',
+              '03c':'ba4f2d3fa34d03d4a8f0dba912226f6f49dba5e26c08857fd4a32f8dd4541ef8',
+              '04':'6526aaa2a852de7e882b0d3a2a6dcaf7df0a3e8537798c42d5d2db8d603ec1ae',
+              '05':'40ad270fc2b7b6960653e1c871552faaac8ab9a28ff74a7baa2e4e95529d6eae'
+          }
+          chunks=[]; errors=[]
+          for key, expected in parts.items():
+              raw=Path('.github/jev-transfer/part-'+key+'.b64').read_bytes().strip()
+              actual=hashlib.sha256(raw).hexdigest()
+              print(key, 'OK' if actual==expected else 'MISMATCH', actual, flush=True)
+              if actual!=expected: errors.append(key)
+              chunks.append(raw)
+          assert not errors, 'Transfer mismatch: '+','.join(errors)
+          raw=gzip.decompress(base64.b64decode(b''.join(chunks),validate=True))
+          assert hashlib.sha256(raw).hexdigest()=='27fff106028fde754ab76e4e6ee1a830e690794df0960612a46dc44f7db066d0'
+          manifest=json.loads(raw)
+          allowed={'data/deep-dives.json','src/deep-dives.js','src/deep-dives.css','examples/jev/jev_knowledge_demo.py','examples/jev/decision_policy.py','tests/test_deep_visual.py','tests/test_jev_narrative.py','tests/browser_deep_visual.py'}
+          assert manifest['version']==1 and manifest['base_commit']=='c175d973853ece2690ec4949059ed82ef8f5a471'
+          assert len(manifest['files'])==len(allowed) and {f['path'] for f in manifest['files']}==allowed
+          pending=[]
+          for f in manifest['files']:
+              path=Path(f['path']); old=path.read_bytes() if path.exists() else b''
+              assert hashlib.sha256(old).hexdigest()==f['old_sha256'], 'Source changed: '+str(path)
+              lines=old.decode('utf-8').splitlines(keepends=True)
+              last=0
+              for start,end,text in f['edits']:
+                  assert isinstance(text,str) and 0<=last<=start<=end<=len(lines)
+                  last=end
+              for start,end,text in reversed(f['edits']): lines[start:end]=text.splitlines(keepends=True)
+              updated=''.join(lines).encode('utf-8')
+              assert hashlib.sha256(updated).hexdigest()==f['new_sha256'], 'Patch mismatch: '+str(path)
+              pending.append((path,updated))
+          for path,updated in pending:
+              path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(updated)
+              copy=Path('review-files')/path;copy.parent.mkdir(parents=True,exist_ok=True);copy.write_bytes(updated)
+          print('Verified and applied',len(pending),'source files; no payload code executed.')
+          PY
+      - name: Unit tests, syntax, offline examples and static build
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          node --check src/deep-dives.js
+          python examples/jev/jev_knowledge_demo.py
+          python examples/jev/decision_policy.py
+          python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Install Chromium and Chinese fonts
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk
+      - name: HTTP browser checks and activity regression
+        run: |
+          python tests/browser_deep_visual.py
+          python tests/browser_activity_hero.py
+      - name: Preserve exact tested source
+        run: |
           git rev-parse HEAD > source-sha.txt
+          python - <<'PY'
+          import subprocess,zipfile
+          from pathlib import Path
+          paths=set(subprocess.check_output(['git','ls-files','-z']).decode().split('\0'))
+          paths.update(str(p.relative_to('review-files')) for p in Path('review-files').rglob('*') if p.is_file())
+          with zipfile.ZipFile('review-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for name in sorted(paths):
+                  p=Path(name)
+                  if name and not name.startswith('.github/jev-transfer/') and p.is_file(): z.write(p,name)
+          PY
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: jev-narrative-review
           path: |
+            review-files
             review-source.zip
             source-sha.txt
+            dist
+            test-results/jev
+            test-results/activity-hero
           retention-days: 7
+  preview-snapshot:
+    needs: verify
+    if: github.ref == 'refs/heads/preview/jev-narrative-20260927'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: jev-narrative-review
+          path: .jev-review
+      - name: Commit tested source, snapshots and remove temporary transfer
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(cat .jev-review/source-sha.txt)" = "$GITHUB_SHA"
+          for file in data/deep-dives.json src/deep-dives.js src/deep-dives.css examples/jev/jev_knowledge_demo.py examples/jev/decision_policy.py tests/test_deep_visual.py tests/test_jev_narrative.py tests/browser_deep_visual.py; do
+            mkdir -p "$(dirname "$file")"
+            cp ".jev-review/review-files/$file" "$file"
+            git add "$file"
+          done
+          for file in index.html 404.html api/v1/index.json api/v1/deep-dives.json; do
+            cp ".jev-review/dist/$file" "$file"
+            git add "$file"
+          done
+          git rm -r .github/jev-transfer
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: rewrite Jev as a tested narrative technical deep dive'
+          git push origin "HEAD:$GITHUB_REF_NAME"
