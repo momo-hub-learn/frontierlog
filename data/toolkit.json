@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "documents",
+      "label": "文档与知识"
+    },
+    {
+      "id": "audio",
+      "label": "语音处理"
+    },
+    {
+      "id": "office",
+      "label": "办公自动化"
+    },
+    {
+      "id": "agents",
+      "label": "开发与浏览器"
+    },
+    {
+      "id": "research",
+      "label": "科研验证"
+    }
+  ],
+  "access_modes": [
+    {
+      "id": "local",
+      "label": "本地工具"
+    },
+    {
+      "id": "model",
+      "label": "模型服务 · 需配置"
+    },
+    {
+      "id": "web",
+      "label": "网页 · 需权限"
+    },
+    {
+      "id": "research",
+      "label": "科研环境"
+    }
+  ],
+  "items": [
+    {
+      "id": "docling",
+      "publisher": "Docling Project",
+      "group": "documents",
+      "access": "local",
+      "headline": "把 PDF 变成可用文本与表格",
+      "input": "一份获授权的 PDF",
+      "output": "结构化文档 / Markdown",
+      "requirements": "独立 Python 环境；初次运行需下载模型。",
+      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。",
+      "cost": "本地计算；预留模型下载与存储空间。",
+      "steps": [
+        {
+          "title": "准备一份小样本",
+          "body": "先按官方安装页选择兼容当前平台的 Python / PyTorch；在已激活的虚拟环境中，把待处理文件保存为 sample.pdf。"
+        },
+        {
+          "title": "安装并转换",
+          "body": "下方命令会安装依赖并读取当前目录的 PDF；模型可能首次联网下载。平台兼容细节以安装页为准。",
+          "command": "python -m pip install docling\ndocling --help\ndocling ./sample.pdf"
+        },
+        {
+          "title": "对照原文验收",
+          "body": "检查导出的文本和表格，优先核对表头、单位和关键数字；把失败页留作下一次回归样本。"
+        }
+      ],
+      "troubleshooting": "安装失败先查 Python / PyTorch 平台兼容性；首次运行卡住先检查模型下载；表格错位则保留错误页，不要直接进入业务计算。",
+      "sources": [
+        {
+          "title": "官方快速开始",
+          "url": "https://docling-project.github.io/docling/getting_started/quickstart/",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        },
+        {
+          "title": "官方安装与平台要求",
+          "url": "https://docling-project.github.io/docling/getting_started/installation/",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "whisper",
+      "publisher": "OpenAI",
+      "group": "audio",
+      "access": "local",
+      "headline": "把一段录音转成文字",
+      "input": "获授权的短音频 sample.wav",
+      "output": "转写文本与字幕文件",
+      "requirements": "兼容的 Python 环境 + ffmpeg；首次下载模型。",
+      "limitation": "噪声、专有名词与静音段可能出错；不能直接当作定稿。",
+      "cost": "本地计算；模型大小会影响内存、速度与存储。",
+      "steps": [
+        {
+          "title": "检查音频和环境",
+          "body": "按官方 README 安装 ffmpeg，并激活兼容的 Python 虚拟环境。先用一段自己有权处理的短录音。"
+        },
+        {
+          "title": "执行中文转写",
+          "body": "示例选 base 多语言模型；请确认当前目录存在 sample.wav。安装与运行会下载依赖和模型，不会在本站执行。",
+          "command": "python -m pip install -U openai-whisper\nwhisper sample.wav --model base --language Chinese"
+        },
+        {
+          "title": "回听并纠错",
+          "body": "逐句核对人名、数字和静音片段；记录实际模型、软件版本和机器信息，便于复测。"
+        }
+      ],
+      "troubleshooting": "提示找不到 ffmpeg 时先安装并检查 PATH；识别不准先回听音频，再比较合适的模型；不要把静音段生成的文字当原话。",
+      "sources": [
+        {
+          "title": "官方安装与命令行说明",
+          "url": "https://github.com/openai/whisper/blob/main/README.md",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "graphrag",
+      "publisher": "Microsoft",
+      "group": "documents",
+      "access": "model",
+      "headline": "让多份文档回答同一个问题",
+      "input": "少量获授权的文本文件 + 问题",
+      "output": "基于索引的答案与可核对依据",
+      "requirements": "Python 3.10–3.12；聊天 / 嵌入模型与调用凭证。",
+      "limitation": "索引可能消耗较多模型资源；先小样本，不直接全库导入。",
+      "cost": "索引、嵌入与查询均可能产生模型费用。",
+      "steps": [
+        {
+          "title": "安装与检查",
+          "body": "先进入独立项目目录并激活兼容的 Python 虚拟环境。这里只安装和显示帮助，不建立索引。",
+          "command": "python -m pip install graphrag\ngraphrag --help"
+        },
+        {
+          "title": "初始化后配置模型",
+          "body": "按官方教程运行 graphrag init，在生成的 settings.yaml 和 .env 中配置模型与凭证；把少量授权文本放入 input。密钥只保存在自己的环境，不填入本站。"
+        },
+        {
+          "title": "确认预算后索引与查询",
+          "body": "确认凭证、数据授权与费用后再运行 graphrag index；索引完成后用 graphrag query \"这些文档有哪些共同主题？\" 提问，并回到原文验证答案。"
+        }
+      ],
+      "troubleshooting": "索引失败先核查模型配置、额度与输入路径；费用过高先缩小文本规模；找不到依据的回答不能当作已证实结论。",
+      "sources": [
+        {
+          "title": "官方入门与费用提醒",
+          "url": "https://microsoft.github.io/graphrag/get_started/",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "gemini-38-flash-tts",
+      "publisher": "Google",
+      "group": "audio",
+      "access": "web",
+      "headline": "用文字控制配音的语气",
+      "input": "一段自有文稿 + 语气指令",
+      "output": "可试听的生成语音",
+      "requirements": "AI Studio / Gemini API 对应权限；先用预设声线。",
+      "limitation": "账号与地区影响可用性；声音复制需明确授权，且有地区限制。",
+      "cost": "用量、配额与计费以账号内官方信息为准。",
+      "steps": [
+        {
+          "title": "确认入口",
+          "body": "打开官方发布页进入 AI Studio，确认账号确有对应语音模型；产品逐步开放，不代表所有账号已可用。"
+        },
+        {
+          "title": "先做预设声线样本",
+          "body": "输入两三句自有文稿，选择预设声线，再添加停顿、语气或情绪指令；第一轮不需要上传他人声音。"
+        },
+        {
+          "title": "试听两版差异",
+          "body": "保留文稿、模型名和指令，比较不加指令与加指令的输出；确需声音复制时，先核查同意、地域限制及官方要求。"
+        }
+      ],
+      "troubleshooting": "看不到模型先查账号和地区开放范围；语气指令效果弱时逐句缩短并对比；不要以更换账号方式绕过授权或地域限制。",
+      "sources": [
+        {
+          "title": "Gemini 3.8 TTS 官方发布",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+          "published_at": "2026-09-23",
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": "https://aistudio.google.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "chatgpt-voice-work",
+      "publisher": "OpenAI",
+      "group": "office",
+      "access": "web",
+      "headline": "用语音交代一项办公任务",
+      "input": "语音指令 + 授权的工作材料",
+      "output": "任务结果，可接续文字对话",
+      "requirements": "账号支持 Work / Voice；麦克风与所需工具权限。",
+      "limitation": "取决于套餐及工作区权限；需审批的操作不能只用口头同意。",
+      "cost": "套餐、限额与工作区设置以账号内显示为准。",
+      "steps": [
+        {
+          "title": "找到可用模式",
+          "body": "在支持的网页或移动端打开 Work，再进入 Voice 并允许麦克风。看不到入口时先检查账号资格和工作区设置。"
+        },
+        {
+          "title": "从低风险任务开始",
+          "body": "只使用自有测试材料，交代一个明确产物，例如整理文档要点；连接插件或工具时核对实际请求的权限。"
+        },
+        {
+          "title": "核对产物与审批",
+          "body": "查看是否真的生成了需要的文件或完成操作；需要确认时使用屏幕上的审批控件。中断后可继续在文字对话核对，不把语音回复当作完成证明。"
+        }
+      ],
+      "troubleshooting": "麦克风不可用先检查浏览器权限；工具不可见先查账号资格；审批未完成时不要重复下单或反复提交同一任务。",
+      "sources": [
+        {
+          "title": "ChatGPT Work 与 Voice 官方帮助",
+          "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": "https://chatgpt.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "gemini-connected-apps",
+      "publisher": "Google",
+      "group": "office",
+      "access": "web",
+      "headline": "让 Gemini 连接你的工作应用",
+      "input": "指令 + 已授权应用的测试数据",
+      "output": "跨应用查询或操作结果",
+      "requirements": "Gemini 账号已开放目标应用；明确项目与访问权限。",
+      "limitation": "正在逐步开放；回复“完成”不代表目标应用状态已改变。",
+      "cost": "账号、接入应用的套餐和额度分别适用。",
+      "steps": [
+        {
+          "title": "核对可连接应用",
+          "body": "从 Gemini 设置或对话中的应用入口查看当前账号真正可连接的应用；按官方流程授权，不假定所有发布中的应用都已开放。"
+        },
+        {
+          "title": "先做只读任务",
+          "body": "选择自己有权限的测试项目，指定应用和范围，例如只读取一条测试事项的状态。先确认读对，再考虑写入。"
+        },
+        {
+          "title": "到目标应用验收",
+          "body": "在应用原生界面核对内容和权限；测试创建或修改时只操作测试记录，并检查重复提交与撤销路径。"
+        }
+      ],
+      "troubleshooting": "应用未出现先看开放范围；查到错误项目时立即收窄权限；结果不确定时先去原应用查状态，不直接重试写操作。",
+      "sources": [
+        {
+          "title": "Connected Apps 官方发布",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/",
+          "published_at": "2026-09-23",
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": "https://gemini.google.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "openhands",
+      "publisher": "OpenHands",
+      "group": "agents",
+      "access": "model",
+      "headline": "让 Coding Agent 修一个小问题",
+      "input": "隔离仓库 + 问题描述 + 测试",
+      "output": "代码变更与可检查的执行记录",
+      "requirements": "Agent Canvas、可用后端 / 模型；隔离测试仓库。",
+      "limitation": "非沙箱后端可能直接访问本机文件；补丁通过测试也需人工审阅。",
+      "cost": "模型调用与后端运行可能分别产生费用。",
+      "steps": [
+        {
+          "title": "选择隔离运行路径",
+          "body": "当前官方仓库是 Agent Canvas，支持不同后端。先阅读官方 Quickstart 的 Docker 沙箱或自托管方案；不要把旧版 Local GUI 当作当前入口。"
+        },
+        {
+          "title": "只提供测试仓库",
+          "body": "仅让后端访问需要的项目副本，配置模型和预算；不要挂载主目录、生产凭证或无关资料。先选一个有失败测试的小问题。"
+        },
+        {
+          "title": "检查代码与日志",
+          "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；未经检查不要自动合入主分支。"
+        }
+      ],
+      "troubleshooting": "界面启动但任务不运行时检查后端与模型配置；沙箱找不到文件时核对允许访问的目录；不要用扩大全盘权限解决路径问题。",
+      "sources": [
+        {
+          "title": "Agent Canvas 官方 Quickstart",
+          "url": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        },
+        {
+          "title": "官方组件与旧版边界",
+          "url": "https://docs.openhands.dev/overview/introduction",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "browser-use",
+      "publisher": "Browser Use",
+      "group": "agents",
+      "access": "model",
+      "headline": "让 Agent 完成一项网页任务",
+      "input": "授权测试网站 + 清晰任务",
+      "output": "浏览器操作与可核对结果",
+      "requirements": "Python 3.12 / uv、浏览器组件和模型配置。",
+      "limitation": "网页变化与重复提交可能导致失败；先只读，不连接生产账号。",
+      "cost": "模型调用、可选云端浏览器可能另行计费。",
+      "steps": [
+        {
+          "title": "准备隔离环境",
+          "body": "按官方开源 Quickstart 创建 Python 3.12 环境、安装 browser-use 与浏览器组件；配置选用模型所需的凭证。"
+        },
+        {
+          "title": "把任务收窄",
+          "body": "在你有权访问的测试站点完成只读操作，例如查找一段文字并记录所在页面；明确禁止支付、删除和其他未授权操作。"
+        },
+        {
+          "title": "核对实际页面",
+          "body": "查看最终页面、工具记录和输出是否一致；记录失败原因。涉及写入时先确认审批和防重复提交措施。"
+        }
+      ],
+      "troubleshooting": "浏览器未启动先检查官方浏览器安装步骤；认证失败核对所选模型的凭证；操作结果不明先查页面状态，不盲目重试。",
+      "sources": [
+        {
+          "title": "官方开源 Quickstart",
+          "url": "https://docs.browser-use.com/open-source/quickstart",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "mathlib",
+      "publisher": "Lean Community",
+      "group": "research",
+      "access": "research",
+      "headline": "用 Lean 检查一个数学命题",
+      "input": "形式化命题 + 证明代码",
+      "output": "Lean 检查结果或错误信息",
+      "requirements": "Lean + 匹配版本的 mathlib；也可从官方在线编辑器开始。",
+      "limitation": "这是证明库，不是自动解决任意数学问题的 AI；命题建模仍需核对。",
+      "cost": "本地环境与依赖下载；运行条件按选用入口确认。",
+      "steps": [
+        {
+          "title": "选入门路径",
+          "body": "通过社区 Getting Started 进入官方在线编辑器或安装指南，使用带 mathlib 的示例项目；不要混用不兼容版本。"
+        },
+        {
+          "title": "先验证已有例子",
+          "body": "从入门材料中选一个简短命题，确认原证明通过，再只改一个前提或结论，观察检查器如何反馈。"
+        },
+        {
+          "title": "核对形式化含义",
+          "body": "检查代码里的命题是否准确表达原题、是否残留 sorry，以及是否引入了未预期假设；检查通过不等于自然语言原题已被忠实建模。"
+        }
+      ],
+      "troubleshooting": "导入 mathlib 失败先检查项目和依赖版本；证明通过但含义不符时回到命题与假设，而不是只调整战术。",
+      "sources": [
+        {
+          "title": "Lean 社区官方入门",
+          "url": "https://leanprover-community.github.io/get_started.html",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": "https://live.lean-lang.org/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
+      "id": "ai-scientist",
+      "publisher": "Sakana AI",
+      "group": "research",
+      "access": "research",
+      "headline": "试跑一段自动化实验流程",
+      "input": "官方实验模板 + 数据 + 模型配置",
+      "output": "实验日志、图表和报告草稿",
+      "requirements": "Linux / NVIDIA GPU / CUDA 与依赖；隔离环境。",
+      "limitation": "会执行模型生成的代码，必须隔离并限制资源；报告不等于新发现。",
+      "cost": "GPU、模型调用及依赖安装成本；先限制实验规模。",
+      "steps": [
+        {
+          "title": "先看维护范围与风险",
+          "body": "阅读官方 README 的 Requirements 与隔离说明，从官方维护的模板开始；先确定计算资源、模型预算与网络权限。"
+        },
+        {
+          "title": "准备可复核基线",
+          "body": "在隔离环境按模板完成数据与依赖准备，先运行原始基线并留存日志，再开展有限规模的自动化试验。"
+        },
+        {
+          "title": "独立重跑关键结果",
+          "body": "把报告里的数字与原始日志逐项核对；用固定环境独立重跑关键结果，单独评估结论是否成立及是否新颖。"
+        }
+      ],
+      "troubleshooting": "依赖或 GPU 不兼容时先解决模板基线；运行失控应终止隔离任务并检查日志；不要在有生产数据和密钥的主机直接试跑。",
+      "sources": [
+        {
+          "title": "官方环境、模板与隔离警告",
+          "url": "https://github.com/SakanaAI/AI-Scientist/blob/main/README.md",
+          "published_at": null,
+          "verified_at": "2026-09-26"
+        }
+      ],
+      "entry_url": null,
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    }
+  ]
+}
