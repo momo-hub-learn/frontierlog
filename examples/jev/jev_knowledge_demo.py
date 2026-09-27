@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Jev 三类接口的知识核验示例。默认离线；--live 才调用付费 API。
 
-核对日期：2026-09-25。
+核对日期：2026-09-27。
 接口文档：https://docs.typesafe.ai/api
 模型文档：https://docs.typesafe.ai/models
 
@@ -24,21 +24,21 @@ REQUEST_BODY = {
     "state": {
         "question": "B17 批次良率下降的原因是什么？",
         "evidence": "B17 良率由97%降至92%。同期 ETCH-03 出现温控报警。尚无根因分析报告。",
-        "claim": "ETCH-03 的温控异常造成了 B17 良率下降。",
+        "claim": "ETCH-03 的温控异常造成了 B17 良率下降。"
     },
     "questions": {
         "supported": {
             "type": "noul",
-            "instructions": "仅依据 state.evidence，是否有充分证据支持 state.claim？同时出现不等于因果证明。",
+            "instructions": "仅依据 state.evidence，是否有充分证据支持 state.claim？同时出现不等于因果证明。"
         },
-        "next_step": {
+        "document_kind": {
             "type": "choice",
-            "instructions": "依据 state.question 和现有 state.evidence，选择下一步的信息处理路径。不要执行动作。",
+            "instructions": "依据 state.evidence 的内容，判断它主要属于哪种证据形态。不要决定或执行系统动作。",
             "criteria": {
-                "retrieve_more": "现有证据不足，应继续检索根因报告或相关记录。",
-                "answer_now": "现有证据已充分，可以回答原因。",
-                "human_review": "问题需要专家裁决，不能仅通过继续检索解决。",
-            },
+                "observation": "只记录变化、报警或共现，没有给出已验证的因果分析。",
+                "causal_report": "提供针对所问事件的因果分析及其依据，而不只是时间上的同时出现。",
+                "other": "不属于前两类，或材料不足以判定证据形态。"
+            }
         },
         "relevance": {
             "type": "score",
@@ -46,23 +46,36 @@ REQUEST_BODY = {
             "criteria": [
                 "材料与所问批次或良率问题无关。",
                 "材料涉及相关工艺或设备，但未提供所问批次的直接记录。",
-                "材料直接涉及所问批次的良率变化或同期设备记录。",
-            ],
-        },
-    },
+                "材料直接涉及所问批次的良率变化或同期设备记录。"
+            ]
+        }
+    }
 }
 
 # 故意只展示 answer 摘要；没有伪造 confidence、usage、延迟或真实调用标识。
 ILLUSTRATIVE_ANSWERS = {
-    "supported": {"type": "noul", "noul": 0.08},
-    "next_step": {
-        "type": "choice", "choice": "retrieve_more",
-        "probabilities": {"retrieve_more": 0.90, "answer_now": 0.02, "human_review": 0.08},
+    "supported": {
+        "type": "noul",
+        "noul": 0.08
+    },
+    "document_kind": {
+        "type": "choice",
+        "choice": "observation",
+        "probabilities": {
+            "observation": 0.9,
+            "causal_report": 0.02,
+            "other": 0.08
+        }
     },
     "relevance": {
-        "type": "score", "score": 1.8,
-        "probabilities": {"0": 0.0, "1": 0.2, "2": 0.8},
-    },
+        "type": "score",
+        "score": 1.8,
+        "probabilities": {
+            "0": 0.0,
+            "1": 0.2,
+            "2": 0.8
+        }
+    }
 }
 
 
@@ -88,13 +101,13 @@ def inspect_answers(answers: Any) -> dict[str, Any]:
     """仅做接口一致性检查及可解释摘要；不证明语义正确，不授权动作。"""
     if not isinstance(answers, dict):
         raise ValueError("缺少 answers 对象。")
-    if not {"supported", "next_step", "relevance"} <= set(answers):
+    if not {"supported", "document_kind", "relevance"} <= set(answers):
         raise ValueError("返回结果缺少问题。")
-    n, c, s = (answers[k] for k in ("supported", "next_step", "relevance"))
+    n, c, s = (answers[k] for k in ("supported", "document_kind", "relevance"))
     if (n.get("type"), c.get("type"), s.get("type")) != ("noul", "choice", "score"):
         raise ValueError("响应类型与问题不一致。")
     p_support = probability(n["noul"])
-    cp = distribution(c["probabilities"], set(REQUEST_BODY["questions"]["next_step"]["criteria"]))
+    cp = distribution(c["probabilities"], set(REQUEST_BODY["questions"]["document_kind"]["criteria"]))
     chosen = c["choice"]
     if chosen not in cp or not math.isclose(cp[chosen], max(cp.values()), abs_tol=1e-3):
         raise ValueError("Choice 不是最高概率候选。")
@@ -107,8 +120,8 @@ def inspect_answers(answers: Any) -> dict[str, Any]:
         raise ValueError("Score 与分布的加权期望不一致。")
     return {
         "support_probability": p_support,
-        "suggested_path": chosen,
-        "path_probability": cp[chosen],
+        "document_kind": chosen,
+        "document_kind_probability": cp[chosen],
         "relevance_expected_level": expected_score,
         "decision_status": "review_required_no_execution",
         "note": "相关性不等于证据支持。未设置经验证的自动化阈值，本脚本不自动回答、不执行工具。",

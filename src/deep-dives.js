@@ -106,15 +106,72 @@ function dExperiment(b){
  ['A','大 Prompt + LLM','原始端到端基线'],['B','结构化工作流 + 同一个 LLM','B 对 A：看工作流拆分收益'],['C','相同结构化工作流 + Jev','C 对 B：看模型替换收益'],['D','轻量判别器 / 规则基线','检验是否有更简单的可用方案']
  ].map(s=>'<div><b>'+s[0]+'</b><strong>'+s[1]+'</strong><span>'+s[2]+'</span></div>').join('')+'</div><div class="dv-eval-gate"><strong>同一套真实金标 + 冻结阈值</strong><span>错误代价 · 覆盖率 · 校准 · 端到端延迟 · 完整成本</span><em>本页未进行 Jev 真实推理或性能实测</em></div><p class="dv-caption">'+esc(b.caption)+'</p></figure>'
 }
+// Narrative figures carry selectable text and reflow instead of shrinking a bitmap.
+function dInlineRefs(a,ids=[]){
+ const sources=dSourceMap(a);
+ return ids.map(id=>sources.get(id)).filter(Boolean).map(s=>'<a class="je-inline-ref" href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer" aria-label="来源 '+s.index+'：'+esc(s.title)+'">['+s.index+']</a>').join(' ')
+}
+function dEssayFigure(b,body,cls=''){
+ return '<figure class="je-figure '+cls+'"><figcaption><strong>'+esc(b.title)+'</strong></figcaption>'+body+(b.caption?'<p class="je-caption">'+esc(b.caption)+'</p>':'')+'</figure>'
+}
+function dTaskAnatomy(b){
+ return dEssayFigure(b,'<div class="je-task-origin">工程师的问题：B17 为什么下降？</div><div class="je-fan">'+[
+ ['确定规则','核对 B17 / B18','ID、文档状态、权限','代码与系统记录'],
+ ['语义判断','材料能支持断言吗？','Noul / Choice / Score','可替换的判断后端'],
+ ['开放生成','怎样把证据讲清楚？','有引用的解释','生成模型'],
+ ['行动决策','继续、停止还是复核？','代价、预算与批准','代码策略层']
+ ].map((x,i)=>'<div class="je-task-item"><span>0'+(i+1)+' · '+x[0]+'</span><strong>'+x[1]+'</strong><p>'+x[2]+'</p><small>'+x[3]+'</small></div>').join('')+'</div><div class="je-flow-footer">同一个目标，不是同一种计算；这些职责不意味着每次都要调用四个组件。</div>','je-anatomy')
+}
+function dSignal(a,b){
+ const q=a.demo.request.questions[b.key],out=a.demo.answers[b.key],ex=a.demo.explanations.find(x=>x.key===b.key);
+ const label=q.type==='noul'?'0.08':q.type==='choice'?'observation':'1.8';
+ const detail=q.type==='noul'?'P(材料支持断言)':q.type==='choice'?'观测记录 · 最高概率 0.90':'等级期望 · 非正确率';
+ const criteria=q.criteria?(Array.isArray(q.criteria)?q.criteria.map((x,i)=>i+'：'+x):Object.entries(q.criteria).map(([k,v])=>k+'：'+v)):[];
+ return dEssayFigure({title:ex.name+' · '+b.title,caption:'同一份 B17 state；仅保留关键输出。全部数值为人为示意，不是模型实测。'},'<div class="je-signal-main"><div><span class="je-kicker">输入的问题</span><p>'+esc(q.instructions)+'</p></div><div class="je-signal-value"><strong>'+esc(label)+'</strong><span>'+detail+'</span></div></div>'+(criteria.length?'<div class="je-criteria">'+criteria.map(x=>'<p>'+esc(x)+'</p>').join('')+'</div>':'')+'<pre class="je-output"><code>'+esc(JSON.stringify({[b.key]:out},null,2))+'</code></pre>','je-signal')
+}
+function dTensor(b){
+ const node=(name,shape,detail)=>'<div class="je-tensor-stage"><span>'+name+'</span><code>'+shape+'</code><p>'+detail+'</p></div>';
+ return dEssayFigure(b,'<div class="je-paths"><div><strong>Boolean × 1</strong><span>一条命题语义路径</span></div><div><strong>Choice × 3</strong><span>三种材料类别，各一条</span></div><div><strong>Score × 3</strong><span>三个等级，各一条</span></div></div><div class="je-connector" aria-hidden="true">↓ 合并为 7 条路径，补齐到 Lmax</div>'+node('token IDs','[7, Lmax]','每条含状态、问题、候选与决策位置。')+'<div class="je-connector" aria-hidden="true">↓ 共享参数的 Backbone</div>'+node('hidden states','[7, Lmax, D]','每个有效输入位置都有一个 D 维表示。')+'<div class="je-connector" aria-hidden="true">↓ 按每条真实长度取末端</div>'+node('candidate vectors','[7, D]','取 lengths − 1，而不是补齐位置。')+'<div class="je-connector" aria-hidden="true">↓ 按问题分组 → 评分头 → 有效候选掩码</div><div class="je-paths"><div><strong>[0, z]</strong><span>Boolean → 二元概率</span></div><div><strong>[z₀, z₁, z₂]</strong><span>Choice → 类别分布</span></div><div><strong>[z₀, z₁, z₂]</strong><span>Score → 等级分布与期望</span></div></div>','je-tensor')
+}
+function dDistribution(b){
+ return dEssayFigure(b,'<div class="je-distributions">'+b.series.map((s,index)=>'<div><h4>'+esc(s.name)+'</h4><div class="je-distribution-bars">'+s.probabilities.map((v,i)=>'<div><strong>'+Number(v).toFixed(1)+'</strong><div class="je-column-track"><i style="height:'+Number(v)*100+'%"></i></div><span>等级 '+i+'</span></div>').join('')+'</div><p>期望 <b>1.0</b> · 方差 <b>'+index.toFixed(1)+'</b></p></div>').join('')+'</div>','je-distribution')
+}
+function dCaseUpdate(b){
+ return '<aside class="je-case-update"><div><span>案例 '+esc(b.stage)+'</span><strong>'+esc(b.title)+'</strong></div><dl><dt>新材料 / 请求</dt><dd>'+esc(b.evidence)+'</dd><dt>改变了什么</dt><dd>'+esc(b.change)+'</dd><dt>处理边界</dt><dd>'+esc(b.decision)+'</dd></dl><small>虚构情境 · 用于推导，不是实测轨迹</small></aside>'
+}
+function dKnowledgeFlow(b){
+ return dEssayFigure(b,'<ol class="je-swimlane"><li><span class="je-owner">输入</span><div><strong>问题 + 候选断言 + 当前状态</strong><p>B17 / ETCH-03；请求是只读，还是写操作？</p></div></li><li><span class="je-owner">检索器</span><div><strong>取回候选证据及系统元数据</strong><p>正文、批次、有效版本、来源 ID；不让模型编造出处。</p></div></li><li><span class="je-owner">代码</span><div><strong>硬约束先行</strong><p>匹配实体与有效范围；D2 的 B18 ≠ B17，排除。</p></div></li><li><span class="je-owner semantic">判断后端</span><div><strong>Jev / 其他判别模型</strong><p>证据支持、材料形态、语义冲突；只返回信号。</p></div></li><li><span class="je-owner">策略层</span><div><strong>决定状态转移</strong><div class="je-outcomes"><span>证据不足 → 有界补检索 ↺</span><span>有效材料冲突 → 人工复核</span><span>满足只读规则 → 引用式草稿</span><span>写入请求 → 独立审批通道</span></div></div></li><li><span class="je-owner">输出层</span><div><strong>生成解释 → 逐断言检查 → 返回出处</strong><p>超预算或异常就停止；写操作另走授权执行器与结果验收。</p></div></li></ol><div class="je-feedback">日志保留证据版本、判断值、策略版本与真实结果；反馈先进入回归测试，不自动训练模型。</div>','je-knowledge')
+}
+function dEssayTable(b){
+ return dEssayFigure(b,'<table class="je-table"><thead><tr>'+b.headers.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+b.rows.map(row=>'<tr>'+row.map((x,i)=>i===0?'<th scope="row">'+esc(x)+'</th>':'<td data-label="'+esc(b.headers[i])+'">'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>')
+}
+function dEssayResources(b){
+ return '<div class="je-resources"><h3>'+esc(b.title)+'</h3><p>正文说明输入、计算与策略。完整协议和四类产品方案可在前文按需展开；下面的脚本均可离线运行，不代表完成真实模型评测。</p>'+[
+ ['jev_knowledge_demo.py','接口样例 · 默认离线，显式 --live 才调用付费 API'],
+ ['decision_policy.py','策略示例 · 四个虚构阶段与拒绝分支，不执行工具']
+ ].map(([file,label])=>'<a href="https://github.com/momo-hub-learn/frontierlog/blob/main/examples/jev/'+file+'" target="_blank" rel="noopener noreferrer"><code>'+file+'</code><span>'+label+'</span><b aria-hidden="true">↗</b></a>').join('')+'</div>'
+}
+
 function dRichBlock(a,b){
  switch(b.type){
- case 'text':return '<p class="dv-text">'+esc(b.text)+'</p>';
+ case 'text':return '<p class="dv-text">'+esc(b.text)+' '+dInlineRefs(a,b.refs)+'</p>';
+ case 'subheading':return '<h3 class="je-subheading"'+(b.anchor?' id="deep-'+esc(b.anchor)+'"':'')+'>'+esc(b.title)+'</h3>';
+ case 'transition':return '<p class="je-transition">'+esc(b.text)+'</p>';
+ case 'task_anatomy':return dTaskAnatomy(b);
+ case 'signal':return dSignal(a,b);
+ case 'tensor':return dTensor(b);
+ case 'math':return dEssayFigure(b,'<div class="je-equations">'+b.lines.map(x=>'<code>'+esc(x)+'</code>').join('')+'</div>','je-math');
+ case 'distribution':return dDistribution(b);
+ case 'case_update':return dCaseUpdate(b);
+ case 'knowledge_flow':return dKnowledgeFlow(b);
+ case 'table':return dEssayTable(b);
+ case 'resources':return dEssayResources(b);
  case 'note':return '<aside class="dv-note"><strong>'+esc(b.title)+'</strong><p>'+esc(b.text)+'</p></aside>';
  case 'scene':return dScene(b);
  case 'flow':return dFlow(b);
  case 'cards':return dRichCards(b);
  case 'code':return dRichCode(b);
- case 'demo':return dDemo(a);
+ case 'demo':return a.layout==='narrative'?'<details class="je-protocol"><summary>按需查看：完整请求、响应摘录与 JSON 下载</summary>'+dDemo(a)+'</details>':dDemo(a);
  case 'implementation':return dImplementation(b);
  case 'router':return dRouter(b);
  case 'applications':return dApplications(a);
@@ -124,12 +181,12 @@ function dRichBlock(a,b){
 }
 
 function dSection(a,s){
- const evidence=s.analysis?'<span class="d-analysis">含 AI坐标分析</span>':'';
+ const evidence=s.analysis?(a.layout==='narrative'?'':'<span class="d-analysis">含 AI坐标分析</span>'):'';
  const paragraphs=(s.paragraphs||[]).map((p,i)=>'<p'+(i===0?' class="d-section-lead"':'')+'>'+esc(p)+'</p>').join('');
  return '<section class="d-section '+(s.key==='boundary'?'is-ending':'')+'" id="deep-'+esc(s.key)+'">'+
   '<header class="d-section-head"><div><span class="d-section-no">'+esc(s.eyebrow)+'</span>'+(s.kicker?'<span class="d-section-kicker">'+esc(s.kicker)+'</span>':'')+'</div>'+evidence+'</header>'+
   '<h2>'+esc(s.title)+'</h2>'+
-  (s.blocks?s.blocks.map(b=>dRichBlock(a,b)).join(''):paragraphs)+
+  (s.blocks?s.blocks.map(b=>dRichBlock(a,b)+(b.type!=='text'?dRefLinks(a,b.refs):'')).join(''):paragraphs)+
   dPrimitives(s.primitives||[])+
   dCaseStudy(s.case_study)+
   dEquation(s.equation)+
@@ -149,12 +206,12 @@ function dToc(a){
 }
 function dSources(a){
  return '<section class="d-sources" id="deep-sources"><div class="d-sources-head"><div><p class="eyebrow">SOURCES / EVIDENCE</p><h2>原始资料与参考代码</h2></div><span>核对 '+esc(a.updated||DEEP.checked||a.published)+'</span></div><div class="d-source-grid">'+
- (a.sources||[]).map((s,i)=>'<a href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer"><b>['+(i+1)+']</b><span><strong>'+esc(s.publisher)+'</strong><em>'+esc(s.kind)+' · '+esc(s.date||'持续更新')+'</em><small>'+esc(s.title)+'</small></span>'+icon('external')+'</a>').join('')+
+ (a.sources||[]).map((s,i)=>'<a href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer"><b>['+(i+1)+']</b><span><strong>'+esc(s.publisher)+'</strong><em>'+esc(s.kind)+' · '+esc((s.date?'发布 '+s.date+' · ':'')+'核对 '+(s.verified_at||a.updated||DEEP.checked))+'</em><small>'+esc(s.title)+'</small></span>'+icon('external')+'</a>').join('')+
  '</div></section>'
 }
 function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
- return '<article class="d-page'+(a.demo?' d-visual':'')+'">'+
+ return '<article class="d-page'+(a.demo?' d-visual':'')+(a.layout==='narrative'?' d-narrative':'')+'">'+
   '<header class="d-hero">'+
    '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span></div>'+
    '<div class="d-hero-grid"><div class="d-hero-copy">'+
@@ -162,7 +219,7 @@ function dPage(a){
     '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
    '</div><blockquote class="d-thesis"><span>核心判断</span><strong>'+esc(a.thesis)+'</strong></blockquote></div>'+
   '</header>'+
-  '<div class="d-reading-shell">'+dToc(a)+'<div class="d-article">'+dOpening(a)+a.sections.map(s=>dSection(a,s)).join('')+dSources(a)+'</div></div>'+
+  (a.layout==='narrative'?'<div class="je-reading-path" aria-label="本文推导路线">问题 <span>→</span> 接口 <span>→</span> 计算 <span>→</span> 概率 <span>→</span> 系统 <span>→</span> 验证</div>':'')+'<div class="d-reading-shell">'+dToc(a)+'<div class="d-article">'+dOpening(a)+a.sections.map(s=>dSection(a,s)).join('')+dSources(a)+'</div></div>'+
  '</article>'
 }
 function renderDeep(){
@@ -224,6 +281,9 @@ document.addEventListener('keydown',e=>{
  e.preventDefault();tabs[i].focus();tabs[i].click();
 });
 
+let dPrintDetails=[];
+window.addEventListener('beforeprint',()=>{dPrintDetails=[...document.querySelectorAll('.d-narrative details:not([open])')];dPrintDetails.forEach(x=>x.open=true)});
+window.addEventListener('afterprint',()=>{dPrintDetails.forEach(x=>{if(x.isConnected)x.open=false});dPrintDetails=[]});
 if(location.hash.startsWith('#/deep'))parseRoute();
 else if(state.view==='feed'){lastMain='';renderMain()}
 })();
