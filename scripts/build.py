@@ -249,7 +249,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
         datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or len(history)<3 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or len(history)<1 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')

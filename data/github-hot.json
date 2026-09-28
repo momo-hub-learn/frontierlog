@@ -1,45 +1,32 @@
 {
   "version": 1,
-  "checked_at": "2026-09-25T23:16:36Z",
+  "checked_at": "2026-09-28T05:22:08Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
-  "note": "完整榜位与“今日 Star”来自 GitHub 官方 Trending Today 页面；总 Star / Fork、语言、仓库创建时间与最近推送时间来自 GitHub Repository API。首页“GitHub AI 热仓”只从该官方榜筛选 AI / Agent 相关项目，并按 GitHub 页面给出的 stars today 排序。Star 只反映开发者关注与采用信号，不代表模型能力或本站实测。",
+  "note": "完整榜位与“今日 Star”来自 GitHub 官方 Trending Today 页面同一快照；总 Star / Fork 与语言保留该官方页面快照，仓库创建时间与最近推送时间来自 GitHub Repository API。首页“GitHub AI 热仓”只从该官方榜筛选 AI / Agent 相关项目，并按 GitHub 页面给出的 stars today 排序。Star 只反映开发者关注与采用信号，不代表模型能力或本站实测。新上榜仓库可能只有 1 个历史快照，历史不足时不计算 Star 斜率。",
   "items": [
     {
       "rank": 1,
-      "repo": "rohitg00/ai-engineering-from-scratch",
-      "description": "从零搭建 AI Engineering 的学习与实践仓库。",
-      "language": "Python",
-      "stars": 57446,
-      "forks": 10017,
-      "stars_today": 347,
-      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "repo": "paperclipai/paperclip",
+      "description": "用于在工作中统一管理 AI Agents 的开源应用。",
+      "language": "TypeScript",
+      "stars": 90538,
+      "forks": 15715,
+      "stars_today": 2401,
+      "url": "https://github.com/paperclipai/paperclip",
       "ai_related": true,
-      "category": "ai-learning",
+      "category": "agent-management",
       "tags": [
-        "AI Engineering",
-        "Agents",
-        "MCP",
-        "Tutorial"
+        "Agent Management",
+        "Multi-Agent",
+        "Work OS"
       ],
-      "repo_created_at": "2026-03-18T18:38:02Z",
-      "repo_pushed_at": "2026-09-25T15:46:33Z",
+      "repo_created_at": "2026-03-02T15:01:51Z",
+      "repo_pushed_at": "2026-09-28T04:25:09Z",
       "star_history": [
         {
-          "at": "2026-09-24T15:49:26Z",
-          "stars": 56152
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 56163
-        },
-        {
-          "at": "2026-09-24T15:56:52Z",
-          "stars": 56164
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 57446
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 90538
         }
       ]
     },
@@ -48,9 +35,9 @@
       "repo": "vectorize-io/hindsight",
       "description": "会学习的 Agent Memory 系统。",
       "language": "Python",
-      "stars": 29761,
-      "forks": 3144,
-      "stars_today": 1668,
+      "stars": 38032,
+      "forks": 4937,
+      "stars_today": 4520,
       "url": "https://github.com/vectorize-io/hindsight",
       "ai_related": true,
       "category": "agent-memory",
@@ -61,7 +48,7 @@
         "Long-term Context"
       ],
       "repo_created_at": "2025-10-30T11:49:48Z",
-      "repo_pushed_at": "2026-09-25T20:14:12Z",
+      "repo_pushed_at": "2026-09-26T14:14:46Z",
       "star_history": [
         {
           "at": "2026-09-24T15:49:26Z",
@@ -78,28 +65,176 @@
         {
           "at": "2026-09-25T23:16:36Z",
           "stars": 29761
+        },
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 38032
         }
       ]
     },
     {
       "rank": 3,
-      "repo": "dream-num/univer",
-      "description": "面向 AI Agent 的 Office Harness，覆盖表格、文档、幻灯片、Canvas、关系表和 PDF。",
+      "repo": "debpalash/VoiceStudio",
+      "description": "全本地开源语音工作台，覆盖语音克隆、配音、转写与有声书等。",
+      "language": "Python",
+      "stars": 40692,
+      "forks": 4831,
+      "stars_today": 3086,
+      "url": "https://github.com/debpalash/VoiceStudio",
+      "ai_related": true,
+      "category": "voice-ai",
+      "tags": [
+        "Voice AI",
+        "Voice Cloning",
+        "Local-first",
+        "646 Languages"
+      ],
+      "repo_created_at": "2026-04-09T21:40:26Z",
+      "repo_pushed_at": "2026-09-27T13:29:55Z",
+      "star_history": [
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 40692
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "repo": "rohitg00/ai-engineering-from-scratch",
+      "description": "从零学习、构建并交付 AI Engineering 的实践仓库。",
+      "language": "Python",
+      "stars": 59601,
+      "forks": 10269,
+      "stars_today": 790,
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "ai_related": true,
+      "category": "ai-learning",
+      "tags": [
+        "AI Engineering",
+        "Agents",
+        "MCP",
+        "Tutorial"
+      ],
+      "repo_created_at": "2026-03-18T18:38:02Z",
+      "repo_pushed_at": "2026-09-27T11:54:19Z",
+      "star_history": [
+        {
+          "at": "2026-09-24T15:49:26Z",
+          "stars": 56152
+        },
+        {
+          "at": "2026-09-24T15:56:31Z",
+          "stars": 56163
+        },
+        {
+          "at": "2026-09-24T15:56:52Z",
+          "stars": 56164
+        },
+        {
+          "at": "2026-09-25T23:16:36Z",
+          "stars": 57446
+        },
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 59601
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "repo": "InfinityLoop1308/PipePipe",
+      "description": "开源 Android 客户端，用于浏览 YouTube 等服务。",
+      "language": "Shell",
+      "stars": 6662,
+      "forks": 225,
+      "stars_today": 242,
+      "url": "https://github.com/InfinityLoop1308/PipePipe",
+      "ai_related": false,
+      "category": "media-client",
+      "tags": [
+        "Android",
+        "Media Client",
+        "YouTube"
+      ],
+      "repo_created_at": "2022-05-11T06:30:25Z",
+      "repo_pushed_at": "2026-09-26T08:12:59Z",
+      "star_history": [
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 6662
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "repo": "vercel-labs/scriptc",
+      "description": "Vercel Labs 的 TypeScript-to-Native 编译器。",
       "language": "TypeScript",
-      "stars": 18399,
-      "forks": 1562,
-      "stars_today": 1082,
+      "stars": 5475,
+      "forks": 142,
+      "stars_today": 102,
+      "url": "https://github.com/vercel-labs/scriptc",
+      "ai_related": false,
+      "category": "compiler",
+      "tags": [
+        "Compiler",
+        "TypeScript",
+        "Native"
+      ],
+      "repo_created_at": "2026-07-22T23:04:54Z",
+      "repo_pushed_at": "2026-09-28T04:33:45Z",
+      "star_history": [
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 5475
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "repo": "mvschwarz/openrig",
+      "description": "把 Claude Code 与 Codex 组合成一个系统的多 Agent Harness。",
+      "language": "TypeScript",
+      "stars": 1134,
+      "forks": 110,
+      "stars_today": 114,
+      "url": "https://github.com/mvschwarz/openrig",
+      "ai_related": true,
+      "category": "agent-harness",
+      "tags": [
+        "Agent Harness",
+        "Claude Code",
+        "Codex",
+        "Multi-Agent"
+      ],
+      "repo_created_at": "2026-04-01T06:22:40Z",
+      "repo_pushed_at": "2026-09-28T01:40:59Z",
+      "star_history": [
+        {
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 1134
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "repo": "dream-num/univer",
+      "description": "面向 AI Agent 的 Office Harness，统一表格、文档、幻灯片、Canvas、关系表和 PDF。",
+      "language": "TypeScript",
+      "stars": 20735,
+      "forks": 1754,
+      "stars_today": 895,
       "url": "https://github.com/dream-num/univer",
       "ai_related": true,
       "category": "agent-harness",
       "tags": [
         "Office Harness",
-        "文档 / 表格",
-        "幻灯片 / PDF",
-        "Canvas"
+        "Docs / Sheets",
+        "Slides / PDF",
+        "Agent Tools"
       ],
       "repo_created_at": "2022-09-29T12:09:14Z",
-      "repo_pushed_at": "2026-09-24T14:02:42Z",
+      "repo_pushed_at": "2026-09-28T04:46:09Z",
       "star_history": [
         {
           "at": "2026-09-24T09:13:14Z",
@@ -116,418 +251,35 @@
         {
           "at": "2026-09-25T23:16:36Z",
           "stars": 18399
-        }
-      ]
-    },
-    {
-      "rank": 4,
-      "repo": "google/ax",
-      "description": "Google 的开放式 Agent 编排运行时。",
-      "language": "Go",
-      "stars": 11463,
-      "forks": 551,
-      "stars_today": 1373,
-      "url": "https://github.com/google/ax",
-      "ai_related": true,
-      "category": "agent-runtime",
-      "tags": [
-        "Runtime",
-        "Orchestration",
-        "编排",
-        "Go"
-      ],
-      "repo_created_at": "2026-03-30T17:55:01Z",
-      "repo_pushed_at": "2026-09-25T22:20:58Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 9511
         },
         {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 9557
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 9915
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 11463
-        }
-      ]
-    },
-    {
-      "rank": 5,
-      "repo": "NVIDIA/Model-Optimizer",
-      "description": "NVIDIA 模型优化库，覆盖量化、蒸馏、剪枝和推测解码等部署优化。",
-      "language": "Python",
-      "stars": 4450,
-      "forks": 649,
-      "stars_today": 44,
-      "url": "https://github.com/NVIDIA/Model-Optimizer",
-      "ai_related": true,
-      "category": "model-optimization",
-      "tags": [
-        "Quantization",
-        "Distillation",
-        "Inference",
-        "TensorRT"
-      ],
-      "repo_created_at": "2024-04-23T19:00:54Z",
-      "repo_pushed_at": "2026-09-25T23:03:36Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T15:49:26Z",
-          "stars": 3941
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 3942
-        },
-        {
-          "at": "2026-09-24T15:56:52Z",
-          "stars": 3943
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 4450
-        }
-      ]
-    },
-    {
-      "rank": 6,
-      "repo": "FxEmbed/FxEmbed",
-      "description": "修复并增强 X / Bluesky 在 Discord、Telegram 等平台的嵌入展示。",
-      "language": "TypeScript",
-      "stars": 5452,
-      "forks": 257,
-      "stars_today": 182,
-      "url": "https://github.com/FxEmbed/FxEmbed",
-      "ai_related": false,
-      "category": "social-embed",
-      "tags": [
-        "Social Embed",
-        "X / Bluesky",
-        "Media"
-      ],
-      "repo_created_at": "2022-07-13T23:59:04Z",
-      "repo_pushed_at": "2026-09-25T21:40:02Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T15:49:26Z",
-          "stars": 5304
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 5306
-        },
-        {
-          "at": "2026-09-24T15:56:52Z",
-          "stars": 5306
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 5452
-        }
-      ]
-    },
-    {
-      "rank": 7,
-      "repo": "anthropics/financial-services",
-      "description": "Claude 金融服务参考 Agent、技能与数据连接器。",
-      "language": "Python",
-      "stars": 37545,
-      "forks": 5432,
-      "stars_today": 509,
-      "url": "https://github.com/anthropics/financial-services",
-      "ai_related": true,
-      "category": "vertical-agent",
-      "tags": [
-        "金融 Agent",
-        "Claude",
-        "Skills",
-        "Connectors"
-      ],
-      "repo_created_at": "2026-02-23T19:24:50Z",
-      "repo_pushed_at": "2026-09-21T21:10:41Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 37119
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 37143
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 37257
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 37545
-        }
-      ]
-    },
-    {
-      "rank": 8,
-      "repo": "HKUDS/CLI-Anything",
-      "description": "把通用软件改造成 Agent-Native CLI 的工具集。",
-      "language": "Python",
-      "stars": 50540,
-      "forks": 4627,
-      "stars_today": 413,
-      "url": "https://github.com/HKUDS/CLI-Anything",
-      "ai_related": true,
-      "category": "agent-interface",
-      "tags": [
-        "Agent-Native CLI",
-        "软件操作",
-        "Tool Use"
-      ],
-      "repo_created_at": "2026-03-08T13:52:57Z",
-      "repo_pushed_at": "2026-09-22T02:01:29Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 50085
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 50099
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 50205
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 50540
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 20735
         }
       ]
     },
     {
       "rank": 9,
-      "repo": "mvt-project/mvt",
-      "description": "移动设备取证与潜在入侵迹象核查工具。",
-      "language": "Python",
-      "stars": 14813,
-      "forks": 1395,
-      "stars_today": 272,
-      "url": "https://github.com/mvt-project/mvt",
+      "repo": "willfaust/Madeira",
+      "description": "在受限 iOS 环境通过 FEX-Emu、Wine 与 DXMT 运行 x86-64 Windows PC 游戏。",
+      "language": "C",
+      "stars": 866,
+      "forks": 153,
+      "stars_today": 83,
+      "url": "https://github.com/willfaust/Madeira",
       "ai_related": false,
-      "category": "security-forensics",
+      "category": "emulation",
       "tags": [
-        "Mobile Forensics",
-        "入侵迹象",
-        "取证"
+        "iOS",
+        "Windows Games",
+        "Emulation"
       ],
-      "repo_created_at": "2021-07-16T05:50:44Z",
-      "repo_pushed_at": "2026-09-25T18:15:41Z",
+      "repo_created_at": "2026-03-07T17:25:50Z",
+      "repo_pushed_at": "2026-09-25T07:23:42Z",
       "star_history": [
         {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 14553
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 14566
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 14638
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 14813
-        }
-      ]
-    },
-    {
-      "rank": 10,
-      "repo": "obra/superpowers",
-      "description": "Agent 技能框架与软件开发方法论。",
-      "language": "Shell",
-      "stars": 291645,
-      "forks": 26108,
-      "stars_today": 611,
-      "url": "https://github.com/obra/superpowers",
-      "ai_related": true,
-      "category": "agent-skills",
-      "tags": [
-        "Agent Skills",
-        "Coding Workflow",
-        "Shell"
-      ],
-      "repo_created_at": "2025-10-09T19:45:18Z",
-      "repo_pushed_at": "2026-09-25T18:08:16Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 290896
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 290920
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 291074
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 291645
-        }
-      ]
-    },
-    {
-      "rank": 11,
-      "repo": "strands-agents/harness-sdk",
-      "description": "端到端可控的生产级 Agent Harness SDK，支持 Python / TypeScript、任意模型与云。",
-      "language": "Python",
-      "stars": 8416,
-      "forks": 1254,
-      "stars_today": 455,
-      "url": "https://github.com/strands-agents/harness-sdk",
-      "ai_related": true,
-      "category": "agent-harness",
-      "tags": [
-        "Harness SDK",
-        "Multi-Model",
-        "Production",
-        "Python / TS"
-      ],
-      "repo_created_at": "2025-05-14T19:59:51Z",
-      "repo_pushed_at": "2026-09-25T21:40:52Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 7998
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 8015
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 8141
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 8416
-        }
-      ]
-    },
-    {
-      "rank": 12,
-      "repo": "julyx10/lap",
-      "description": "面向大型本地图库的离线优先照片管理器。",
-      "language": "Vue",
-      "stars": 3076,
-      "forks": 179,
-      "stars_today": 122,
-      "url": "https://github.com/julyx10/lap",
-      "ai_related": false,
-      "category": "photo-management",
-      "tags": [
-        "Photo Manager",
-        "Offline-first",
-        "Local Library"
-      ],
-      "repo_created_at": "2024-08-11T16:24:28Z",
-      "repo_pushed_at": "2026-09-25T14:41:57Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T15:49:26Z",
-          "stars": 2744
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 2747
-        },
-        {
-          "at": "2026-09-24T15:56:52Z",
-          "stars": 2748
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 3076
-        }
-      ]
-    },
-    {
-      "rank": 13,
-      "repo": "superdesigndev/treg",
-      "description": "面向 Agent 工具的 OpenRouter 式路由层。",
-      "language": "Python",
-      "stars": 3384,
-      "forks": 278,
-      "stars_today": 468,
-      "url": "https://github.com/superdesigndev/treg",
-      "ai_related": true,
-      "category": "agent-router",
-      "tags": [
-        "Tool Routing",
-        "OpenRouter-like",
-        "Router"
-      ],
-      "repo_created_at": "2026-07-15T13:38:07Z",
-      "repo_pushed_at": "2026-09-25T17:30:40Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T09:13:14Z",
-          "stars": 2873
-        },
-        {
-          "at": "2026-09-24T11:15:14Z",
-          "stars": 2890
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 3028
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 3384
-        }
-      ]
-    },
-    {
-      "rank": 14,
-      "repo": "leejet/stable-diffusion.cpp",
-      "description": "用纯 C/C++ 运行 Stable Diffusion、Flux、Wan、Qwen Image 等扩散模型。",
-      "language": "C++",
-      "stars": 7380,
-      "forks": 826,
-      "stars_today": 36,
-      "url": "https://github.com/leejet/stable-diffusion.cpp",
-      "ai_related": true,
-      "category": "image-inference",
-      "tags": [
-        "Diffusion",
-        "Image Generation",
-        "C++",
-        "Local Inference"
-      ],
-      "repo_created_at": "2023-08-13T07:36:51Z",
-      "repo_pushed_at": "2026-09-25T20:18:26Z",
-      "star_history": [
-        {
-          "at": "2026-09-24T15:49:26Z",
-          "stars": 7182
-        },
-        {
-          "at": "2026-09-24T15:56:31Z",
-          "stars": 7183
-        },
-        {
-          "at": "2026-09-24T15:56:52Z",
-          "stars": 7183
-        },
-        {
-          "at": "2026-09-25T23:16:36Z",
-          "stars": 7380
+          "at": "2026-09-28T05:22:08Z",
+          "stars": 866
         }
       ]
     }
@@ -584,12 +336,32 @@
     {
       "id": "photo-management",
       "title": "照片管理"
+    },
+    {
+      "id": "agent-management",
+      "title": "Agent 管理 / Work OS"
+    },
+    {
+      "id": "voice-ai",
+      "title": "语音 / Voice AI"
+    },
+    {
+      "id": "media-client",
+      "title": "媒体客户端"
+    },
+    {
+      "id": "compiler",
+      "title": "编译器"
+    },
+    {
+      "id": "emulation",
+      "title": "兼容 / 模拟"
     }
   ],
   "trend_window": {
     "start_at": "2026-09-24T09:13:14Z",
-    "end_at": "2026-09-25T23:16:36Z",
-    "source": "本站连续保存的 GitHub Trending 官方快照",
-    "snapshots": 4
+    "end_at": "2026-09-28T05:22:08Z",
+    "source": "本站连续保存的 GitHub Trending 官方快照；新上榜仓从首次出现开始记录",
+    "snapshots": 5
   }
 }
