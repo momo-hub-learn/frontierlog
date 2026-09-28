@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "checked": "2026-09-24",
+  "checked": "2026-09-28",
   "title": "AI 产品雷达",
-  "note": "产品雷达用于长期跟踪 AI-native 应用，不参与热点热度排名。Sequoia / YC 标签只表示已由对应机构公开 Portfolio / Company Directory 验证，不代表产品质量背书。",
+  "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
     {
       "id": "legal",
@@ -346,6 +346,174 @@
           "kind": "Product",
           "title": "Inkeep Agents 进入 Slack，支持线程上下文与工具动作审批",
           "url": "https://inkeep.com/blog/agent-in-slack"
+        }
+      ]
+    },
+    {
+      "id": "palantir-aip",
+      "name": "Palantir AIP",
+      "company": "Palantir",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise AI",
+        "Ontology",
+        "Operational AI"
+      ],
+      "summary": "把企业数据与权限沉到 Foundry / Ontology，再用 AIP 构建 Agent、自动化与评测，并由 Apollo 支撑跨环境部署；重点不是绑定某一个大模型，而是让模型进入受治理的业务操作闭环。",
+      "product_url": "https://www.palantir.com/docs/foundry/aip",
+      "source_url": "https://www.palantir.com/docs/foundry/architecture-center/aip-architecture",
+      "source_label": "Palantir 官方架构文档",
+      "evidence_label": "架构依据",
+      "evidence": "Palantir 官方文档明确把 AIP、Foundry 与 Apollo 组合为企业 AI 的完整运行栈，并说明 Ontology、Agent、Evals、模型接入、权限与部署如何协同。",
+      "boundary": "官方文档与客户发布可以证明产品能力、开放路径和公司披露的采用案例，但不能替代独立 ROI、跨客户任务成功率或迁移成本评估；不同 Foundry enrollment、权限和地区的功能开放范围也可能不同。",
+      "filter_ids": [
+        "enterprise-agent"
+      ],
+      "research": {
+        "thesis": "Palantir 最值得研究的不是“它用了哪个模型”，而是它把 Ontology 作为 AI 与真实业务之间的可执行中间层：模型可以换，但对象、权限、动作、评测和部署闭环留在企业系统里。",
+        "stack": [
+          "Foundry：接入、治理并持续更新企业数据与计算。",
+          "Ontology：把数据映射成业务对象、关系、动作和权限，成为 Agent 可操作的语义层。",
+          "AIP：接模型、构建 Agent / Logic / Analyst，并用 Evals 与 Evolve 做测试和迭代。",
+          "Apollo：把软件和 AI 工作负载持续部署到云、主权环境与边缘环境。"
+        ],
+        "watch": [
+          "Ontology MCP / Palantir MCP 能否成为外部 Agent 进入企业业务系统的标准受控接口。",
+          "AIP Evolve 这类“Agent 优化 Agent”的闭环，是否能稳定改善成本、延迟和评测结果。",
+          "客户案例是否逐步出现可独立比较的任务成功率、上线周期、ROI 与迁移成本。"
+        ]
+      },
+      "timeline": [
+        {
+          "date": "2026-09-10",
+          "kind": "Adoption",
+          "title": "AIPCon 11 集中展示企业 AI 客户落地",
+          "url": "https://www.palantir.com/newsroom/press-releases/",
+          "summary": "Palantir 官方新闻索引在 9 月 10 日发布 AIPCon 11 客户案例合集，并同步披露 Fujitsu、NVIDIA 等企业 AI / 主权 AI 合作。",
+          "facts": [
+            {
+              "label": "信号类型",
+              "value": "客户采用 / 产业合作"
+            },
+            {
+              "label": "来源",
+              "value": "Palantir 官方 Newsroom"
+            }
+          ],
+          "interpretation": "AIP 的价值主张正在从“接入 LLM”转向把模型嵌进供应链、运营和行业流程；但真正值得长期观察的是能否形成可比较的业务结果，而不是案例数量。",
+          "scope": "只记录 Palantir 官方 2026-09-10 新闻索引所列发布；本站未把所有 AIPCon 客户案例逐一做独立效果复核。",
+          "limitations": "公司新闻稿中的采用与合作不能自动推出 ROI、节省比例、任务成功率或相对其他平台的优势。",
+          "published_at": "2026-09-10",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-09-08",
+          "kind": "Product",
+          "title": "AIP Evolve GA：用 AI FDE Agent 迭代和优化 AI 系统",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-09",
+          "summary": "AIP Evolve 已 GA，可协调多组 AI FDE agents 围绕模型迁移、成本、延迟、eval 分数或自定义目标提出和迭代改动，并在合并前保留验证策略与约束。",
+          "facts": [
+            {
+              "label": "目标",
+              "value": "成本 / 延迟 / Evals / 模型迁移"
+            },
+            {
+              "label": "验证",
+              "value": "测试用例或既有 evaluation suites"
+            },
+            {
+              "label": "状态",
+              "value": "GA"
+            }
+          ],
+          "interpretation": "这是 Palantir 从“帮企业建 Agent”继续向“让 Agent 自动改进 Agent 系统”推进的信号；关键不在自动改代码，而在优化目标、约束和验收都被放进同一治理闭环。",
+          "scope": "适用于已启用 AIP 且具备 AI FDE 访问的 enrollment；具体可用能力以组织配置为准。",
+          "limitations": "GA 不代表自动优化一定优于人工工程；官方提到的 early adopter 改善仍是厂商披露，需看独立复现和长期回归稳定性。",
+          "published_at": "2026-09-08",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-07-09",
+          "kind": "Product",
+          "title": "Foundry 开始原生构建、配置和发布 pro-code Agent",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-07",
+          "summary": "Foundry 为 pro-code agents 提供模板、scoped permissions、Ontology binding 和 agent API，并支持 Claude Agent SDK、OpenAI Agents SDK 与 Google ADK。",
+          "facts": [
+            {
+              "label": "SDK",
+              "value": "Claude / OpenAI / Google ADK"
+            },
+            {
+              "label": "权限",
+              "value": "OSDK / Ontology MCP / Palantir MCP scoped permissions"
+            },
+            {
+              "label": "发布",
+              "value": "绑定 Ontology + Agent API"
+            }
+          ],
+          "interpretation": "Palantir 正把自己从“企业 AI 应用套件”变成 Agent runtime：外部 Agent 框架可以换，但业务对象、权限和动作仍落在 Ontology 上。",
+          "scope": "官方 2026-07-09 Foundry 公告所述 pro-code Agent 工作流。",
+          "limitations": "提供模板和权限集成不等于任意 Agent 能安全自治；每个工具、动作和数据范围仍取决于具体应用配置。",
+          "published_at": "2026-07-09",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-06-25",
+          "kind": "Governance",
+          "title": "Ontology MCP 与 Palantir MCP GA：把 Agent 接到受权限控制的业务对象和开发工具",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-06",
+          "summary": "Ontology MCP 已 GA，可让外部 MCP Agent 读取对象、查询数据和执行预定义 Actions；Palantir MCP 面向开发者，提供 70+ 工具用于数据集成、Ontology 配置和应用开发。",
+          "facts": [
+            {
+              "label": "Ontology MCP",
+              "value": "读对象 / 查询 / 执行动作"
+            },
+            {
+              "label": "Palantir MCP",
+              "value": "70+ 开发工具"
+            },
+            {
+              "label": "认证",
+              "value": "沿用 Foundry OAuth / 权限"
+            }
+          ],
+          "interpretation": "这是 Palantir 架构里很关键的一步：Ontology 不只是内部数据模型，而开始成为外部 Agent 与生产业务之间的受控工具边界。",
+          "scope": "Ontology MCP 与 Palantir MCP 在 2026-06-25 官方公告中标记为 GA；具体资源仍需在应用和 enrollment 中显式开放。",
+          "limitations": "MCP 标准化工具调用不能消除数据泄露、错误动作或权限配置风险；外部模型接入还需满足组织的数据治理政策。",
+          "published_at": "2026-06-25",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-03-31",
+          "kind": "Product",
+          "title": "AIP Analyst GA：自然语言分析直接落到 Ontology 上",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-03",
+          "summary": "AIP Analyst 进入 GA，可搜索 Ontology、构建对象集、运行聚合与 SQL、分析文件并生成图表和地图。",
+          "facts": [
+            {
+              "label": "交互",
+              "value": "自然语言分析"
+            },
+            {
+              "label": "底座",
+              "value": "Ontology / Foundry tools"
+            },
+            {
+              "label": "输出",
+              "value": "对象集 / SQL / 图表 / 地图"
+            }
+          ],
+          "interpretation": "这说明 Palantir 的 Agent 路线并非独立聊天机器人，而是让自然语言入口直接调用企业已有的数据对象和分析工具。",
+          "scope": "官方公告称 2026-03-31 宣布，并从 4 月 13 日当周对启用 AIP 的用户 GA。",
+          "limitations": "GA 与工具覆盖范围不代表所有企业数据都已建好 Ontology，也不能推出分析结果无需人工核查。",
+          "published_at": "2026-03-31",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
         }
       ]
     }
