@@ -1,11 +1,13 @@
 from __future__ import annotations
 import copy,json,sys,tempfile,unittest
 from pathlib import Path
+from datetime import datetime
 from xml.etree import ElementTree as ET
 from email.utils import parsedate_to_datetime
 R=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(R/'scripts'))
-from hot_data import validate_hot, hot_rss
+from hot_data import validate_hot, validate_hot_inbox, hot_rss
+from hot_sync import collect_candidates, evaluate
 from build import build
 
 class HotDataTests(unittest.TestCase):
@@ -19,6 +21,18 @@ class HotDataTests(unittest.TestCase):
   validate_hot(self.data);self.assertEqual(len(self.data['items']),10);self.assertEqual(len(self.data['categories']),6)
  def test_not_fake_live(self):self.reject(lambda d:d['method'].update(automatic=True))
  def test_no_claimed_success(self):self.reject(lambda d:d['method'].update(last_success='2026-09-21T00:00:00Z'))
+ def test_sync_status_is_precise_and_shadow(self):
+  validate_hot(self.data);self.assertEqual(self.data['sync']['mode'],'shadow')
+  self.assertIn('T',self.data['sync']['last_checked_at'])
+ def test_hot_inbox_and_shadow_collector(self):
+  inbox=json.loads((R/'data/hot-inbox.json').read_text());validate_hot_inbox(inbox)
+  rows=collect_candidates(datetime.fromisoformat('2026-09-28T09:55:00+00:00'))
+  self.assertTrue(rows);self.assertTrue(all(x['action'] in {'publish','merge','hold'} for x in rows))
+  self.assertTrue(all(x['url'].startswith('https://') for x in rows))
+  self.assertTrue(all(0<=x['priority_score']<=1 for x in rows))
+  result,decision=evaluate(datetime.fromisoformat('2026-09-28T09:55:00+00:00'),inbox)
+  validate_hot_inbox(result);self.assertEqual(decision['candidate_count'],len(rows))
+
  def test_heat_range(self):self.reject(lambda d:d['items'][0].update(heat=145))
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
@@ -36,5 +50,5 @@ class HotDataTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td);app=build(out);html=(out/'index.html').read_text()
    self.assertIn('const HOT=APP.hot',html);self.assertEqual(len(app['hot']['items']),10)
-   self.assertTrue((out/'api/v1/hot.json').exists());self.assertTrue((out/'feeds/hot.xml').exists())
+   self.assertTrue((out/'api/v1/hot.json').exists());self.assertTrue((out/'api/v1/hot-inbox.json').exists());self.assertTrue((out/'feeds/hot.xml').exists())
    self.assertIn("modelHubTabs('benchmarks')",html);self.assertIn('热点榜',html)
