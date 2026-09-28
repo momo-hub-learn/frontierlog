@@ -2,9 +2,9 @@
 (()=>{
 /* 精选头部：全宽热点 + 三张工具卡；关注卡固定在左侧并自适应为方块。 */
 function fcHotPanel(){
- const rows=v10HotByHeat(HOT.items).slice(0,5);
+ const rows=v10Top5Rows();
  return '<section class="fc-panel fc-hot-panel">'+
-  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / NOW</span><span class="fc-hot-sync">'+esc(v10HotStatusShort())+'</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span><span class="fc-hot-sync">'+esc(v10HotStatusShort())+'</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
   '<div class="fc-hot-list">'+rows.map((x,i)=>
    '<a class="fc-hot-row" href="#/hot?item='+encodeURIComponent(x.id)+'">'+
     '<span class="fc-hot-rank">'+String(i+1).padStart(2,'0')+'</span>'+
@@ -78,7 +78,6 @@ function fcStripLegacy(html){
 const fcBaseFeedPage=feedPage;
 feedPage=function(){
  let html=fcStripLegacy(fcBaseFeedPage());
- html=html.replace('先看全站 Top 5，再看你的关注，最后按时间浏览通用 AI 变化。','先扫热点，再看你的关注、「拆一下」和 GitHub 热仓，最后进入分时热点。');
  const block=fcCockpit();
  const marker='<section class="v10-general',at=html.indexOf(marker);
  return at>=0?html.slice(0,at)+block+html.slice(at):html+block

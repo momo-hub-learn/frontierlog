@@ -270,15 +270,17 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
-            self.assertIn('class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / NOW</span>',html)
-            self.assertNotIn('<p class="eyebrow">HOT / NOW</p><h2>热点</h2>',html)
+            self.assertIn('class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span>',html)
+            self.assertNotIn('<p class="eyebrow">HOT / RECENT</p><h2>热点</h2>',html)
 
     def test_feed_header_has_no_redundant_big_title(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertNotIn('<h1>今天，AI 走到哪了？</h1>',html)
-            self.assertIn('每日精选 /',html)
+            self.assertIn('今日 AI 精选',html)
+            self.assertNotIn('每日精选 / 内容最新',html)
+            self.assertNotIn('热点最近检查',html)
             self.assertIn('全部热点',html)
 
     def test_feed_escapes_text(self):

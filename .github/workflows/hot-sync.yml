@@ -15,6 +15,10 @@ on:
       - 'data/models.json'
       - 'data/industry.json'
       - 'data/benchmarks.json'
+      - 'src/v10.js'
+      - 'src/feed-cockpit.js'
+      - 'src/top5-editorial.js'
+      - 'tests/test_build.py'
 
 permissions:
   contents: write
@@ -54,8 +58,10 @@ jobs:
           node --check src/feed-cockpit.js
           python scripts/build.py --out /tmp/frontierlog-hot --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
           test -f /tmp/frontierlog-hot/api/v1/hot-inbox.json
-          grep -q "最近检查" /tmp/frontierlog-hot/index.html
-          grep -q "内容最新" /tmp/frontierlog-hot/index.html
+          grep -q "今日 AI 精选" /tmp/frontierlog-hot/index.html
+          grep -q "HOT / RECENT" /tmp/frontierlog-hot/index.html
+          ! grep -q "每日精选 / 内容最新" /tmp/frontierlog-hot/index.html
+          ! grep -q "热点最近检查" /tmp/frontierlog-hot/index.html
       - name: Publish evaluated state and verified site
         run: |
           cp /tmp/frontierlog-hot/index.html index.html
