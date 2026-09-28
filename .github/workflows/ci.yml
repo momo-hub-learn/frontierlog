@@ -41,6 +41,7 @@ jobs:
         run: |
           test -f dist-ci/index.html
           test -f dist-ci/api/v1/hot-policy.json
+          test -f dist-ci/api/v1/hot-inbox.json
           test -f dist-ci/api/v1/product-radar.json
           test -f dist-ci/api/v1/research-radar.json
           test -f dist-ci/api/v1/activity-radar.json
@@ -48,6 +49,9 @@ jobs:
           test -f dist-ci/api/v1/huggingface-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
+          grep -q "最近检查" dist-ci/index.html
+          grep -q "内容最新" dist-ci/index.html
+          grep -q "fc-hot-sync" dist-ci/index.html
           grep -q "AI 前沿现场" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
           grep -q "Dwarkesh Podcast" dist-ci/index.html
