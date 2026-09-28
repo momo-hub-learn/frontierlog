@@ -93,7 +93,7 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')
             html=(d/'index.html').read_text()
-            self.assertEqual(len(app['product_radar']['items']),8)
+            self.assertEqual(len(app['product_radar']['items']),9)
             self.assertTrue((d/'api/v1/product-radar.json').exists())
             self.assertIn('AI 产品雷达',html)
             self.assertIn('Harvey',html)
