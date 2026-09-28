@@ -14,7 +14,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from topics import validate_topics, topic_rss
 from model_data import validate_models, validate_resets, model_rss, reset_rss
 from benchmark_data import validate_benchmarks, benchmark_rss
-from hot_data import validate_hot, hot_rss
+from hot_data import validate_hot, validate_hot_inbox, hot_rss
 ROOT = Path(__file__).resolve().parents[1]
 REPO_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*$')
 
@@ -181,6 +181,8 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     validate_benchmarks(benchmarks)
     hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
     validate_hot(hot)
+    hot_inbox=json.loads((ROOT/'data/hot-inbox.json').read_text(encoding='utf-8'))
+    validate_hot_inbox(hot_inbox)
     product_radar=json.loads((ROOT/'data/product-radar.json').read_text(encoding='utf-8'))
     validate_product_radar(product_radar)
     research_radar=json.loads((ROOT/'data/research-radar.json').read_text(encoding='utf-8'))
@@ -276,7 +278,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         tags=row.get('tags')
         if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
     if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
-    app={'hot':hot,'product_radar':product_radar,'research_radar':research_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    app={'hot':hot,'hot_inbox':hot_inbox,'product_radar':product_radar,'research_radar':research_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     from activity_feature import load_feature
     app['activity_feature']=load_feature(ROOT, activity_radar)
     from toolkit_data import load_toolkit
@@ -314,6 +316,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/resets.json',resets)
     write_json(output/'api/v1/benchmarks.json',benchmarks)
     write_json(output/'api/v1/hot.json',hot)
+    write_json(output/'api/v1/hot-inbox.json',hot_inbox)
     write_json(output/'api/v1/product-radar.json',product_radar)
     write_json(output/'api/v1/research-radar.json',research_radar)
     write_json(output/'api/v1/activity-radar.json',activity_radar)

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-24",
+  "checked": "2026-09-28",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -501,5 +501,13 @@
         }
       ]
     }
-  ]
+  ],
+  "sync": {
+    "last_checked_at": "2026-09-28T09:55:00Z",
+    "status": "success",
+    "mode": "shadow",
+    "candidate_count": 0,
+    "publish_ready_count": 0,
+    "note": "2 小时热点候选流水线已接入；本次为部署核对，后续定时任务会生成候选 inbox。热点正文仍需经过高门槛核验，不自动改写热度分数。"
+  }
 }

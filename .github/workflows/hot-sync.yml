@@ -1,0 +1,76 @@
+name: Hot candidate sync
+
+on:
+  schedule:
+    - cron: '55 */2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hot-sync.yml'
+      - 'scripts/hot_sync.py'
+      - 'data/product-radar.json'
+      - 'data/activity-radar.json'
+      - 'data/catalog.json'
+      - 'data/models.json'
+      - 'data/industry.json'
+      - 'data/benchmarks.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hot-candidate-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Evaluate verified hot candidates
+        run: python scripts/hot_sync.py
+      - name: Rebase sync state on latest main
+        run: |
+          cp data/hot.json /tmp/hot.json
+          cp data/hot-policy.json /tmp/hot-policy.json
+          cp data/hot-inbox.json /tmp/hot-inbox.json
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/hot.json data/hot.json
+          cp /tmp/hot-policy.json data/hot-policy.json
+          cp /tmp/hot-inbox.json data/hot-inbox.json
+      - name: Validate hot sync and build
+        run: |
+          python -m unittest tests.test_hot tests.test_build
+          node --check src/v10.js
+          node --check src/feed-cockpit.js
+          python scripts/build.py --out /tmp/frontierlog-hot --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+          test -f /tmp/frontierlog-hot/api/v1/hot-inbox.json
+          grep -q "最近检查" /tmp/frontierlog-hot/index.html
+          grep -q "内容最新" /tmp/frontierlog-hot/index.html
+      - name: Publish evaluated state and verified site
+        run: |
+          cp /tmp/frontierlog-hot/index.html index.html
+          cp /tmp/frontierlog-hot/404.html 404.html
+          cp -R /tmp/frontierlog-hot/api/v1/. api/v1/
+          cp -R /tmp/frontierlog-hot/feeds/. feeds/
+          cp /tmp/frontierlog-hot/feed.xml feed.xml
+          cp /tmp/frontierlog-hot/sitemap.xml sitemap.xml
+          cp /tmp/frontierlog-hot/robots.txt robots.txt
+          if git diff --quiet -- data/hot.json data/hot-policy.json data/hot-inbox.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt; then
+            echo "No hot sync state changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hot.json data/hot-policy.json data/hot-inbox.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
+          git commit -m "Evaluate hot candidates"
+          git push

@@ -12,6 +12,15 @@ def validate_hot(data:dict)->None:
     if checked>date.today(): raise ValueError('Future hot check date')
     if data.get('method',{}).get('automatic') is not False: raise ValueError('Hot score must not pretend to be live')
     if data['method'].get('last_success') is not None: raise ValueError('No verified automated hot collection')
+    sync=data.get('sync')
+    if sync is not None:
+        if not isinstance(sync,dict) or sync.get('status') not in {'success','error'} or sync.get('mode')!='shadow': raise ValueError('Invalid hot sync status')
+        raw=sync.get('last_checked_at')
+        if not raw: raise ValueError('Missing hot sync timestamp')
+        checked_at=datetime.fromisoformat(str(raw).replace('Z','+00:00'))
+        if checked_at.tzinfo is None: raise ValueError('Hot sync timestamp must include timezone')
+        if any(type(sync.get(k)) is not int or sync[k]<0 for k in ('candidate_count','publish_ready_count')): raise ValueError('Invalid hot sync counts')
+
     cats=data.get('categories'); items=data.get('items')
     if not isinstance(cats,list) or not isinstance(items,list): raise ValueError('Missing lists')
     cids=[c.get('id') for c in cats]
@@ -48,6 +57,27 @@ def validate_hot(data:dict)->None:
                 if row.get('date') and date.fromisoformat(row['date'])>checked: raise ValueError('Future hot related date')
         for key in ['title','summary','why','boundary','source','source_kind']:
             if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing '+key)
+
+def validate_hot_inbox(data:dict)->None:
+    if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported hot inbox schema')
+    if data.get('mode')!='shadow' or data.get('automatic_publish') is not False: raise ValueError('Hot inbox must remain shadow-only')
+    if data.get('generated_at'):
+        t=datetime.fromisoformat(str(data['generated_at']).replace('Z','+00:00'))
+        if t.tzinfo is None: raise ValueError('Hot inbox timestamp must include timezone')
+    rows=data.get('candidates')
+    if not isinstance(rows,list) or len(rows)>40: raise ValueError('Invalid hot inbox candidates')
+    ids=set()
+    for x in rows:
+        if not isinstance(x,dict) or not re.fullmatch(r'candidate-[0-9a-f]{16}',x.get('id','')) or x['id'] in ids: raise ValueError('Invalid hot candidate ID')
+        ids.add(x['id'])
+        if x.get('category') not in {'model','product','industry','research','benchmark'}: raise ValueError('Invalid hot candidate category')
+        if x.get('action') not in {'publish','merge','hold'}: raise ValueError('Invalid hot candidate action')
+        if not isinstance(x.get('priority_score'),(int,float)) or not 0<=x['priority_score']<=1: raise ValueError('Invalid hot candidate score')
+        date.fromisoformat(x['published'])
+        u=urlparse(x.get('url',''))
+        if u.scheme!='https' or not u.hostname or u.username or u.password: raise ValueError('Unsafe hot candidate URL')
+        for key in ('title','summary','why','boundary','source','source_kind','reason'):
+            if not isinstance(x.get(key),str) or not x[key].strip(): raise ValueError('Missing hot candidate '+key)
 
 def hot_rss(data:dict,site:dict)->bytes:
     base=site['base_url'].rstrip('/')+'/'
