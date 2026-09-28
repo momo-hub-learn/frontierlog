@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "checked_at": "2026-09-25T23:16:36Z",
+  "checked_at": "2026-09-28T05:22:08Z",
   "source_url": "https://huggingface.co/models?sort=trending",
   "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
   "source_scope": "Hugging Face Models · Trending · Top 20",
-  "note": "完整顺序按 Hugging Face 官方 API 的 trendingScore 降序保存；trendingScore、likes、downloads、task、library、createdAt 均保留官方字段语义。API 未提供 task / library 时明确标“未标注”。这些字段只代表 Hugging Face 平台热度与使用信号，不代表模型能力、Benchmark 成绩或本站实测。",
+  "note": "完整顺序按 Hugging Face 官方 API 的 trendingScore 降序保存，并与官方 Models Trending 页面核对；trendingScore、likes、downloads、task、library、createdAt 均保留官方字段语义。API 未提供 task / library 时明确标“未标注”。这些字段只代表 Hugging Face 平台热度与使用信号，不代表模型能力、Benchmark 成绩或本站实测。",
   "items": [
     {
       "rank": 1,
       "id": "convaiinnovations/laya",
       "url": "https://huggingface.co/convaiinnovations/laya",
-      "trending_score": 3254,
-      "likes": 3410,
+      "trending_score": 2705,
+      "likes": 4134,
       "downloads": 0,
       "task": "text-classification",
       "library": "transformers",
@@ -25,45 +25,11 @@
     },
     {
       "rank": 2,
-      "id": "Qwen/Qwen-Image-2.1",
-      "url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
-      "trending_score": 2058,
-      "likes": 2203,
-      "downloads": 37618,
-      "task": "text-to-image",
-      "library": "diffusers",
-      "created_at": "2026-09-14T03:47:26.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "qwen",
-        "image-generation"
-      ]
-    },
-    {
-      "rank": 3,
-      "id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
-      "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
-      "trending_score": 1684,
-      "likes": 2040,
-      "downloads": 2991233,
-      "task": "text-generation",
-      "library": "llama.cpp",
-      "created_at": "2026-09-16T23:40:56.000Z",
-      "tags": [
-        "llama.cpp",
-        "gguf",
-        "ternary",
-        "2-bit"
-      ]
-    },
-    {
-      "rank": 4,
       "id": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
       "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
-      "trending_score": 1438,
-      "likes": 1634,
-      "downloads": 575697,
+      "trending_score": 1690,
+      "likes": 2112,
+      "downloads": 964220,
       "task": "text-to-image",
       "library": "gguf",
       "created_at": "2026-09-20T15:51:13.000Z",
@@ -75,12 +41,46 @@
       ]
     },
     {
+      "rank": 3,
+      "id": "Qwen/Qwen-Image-2.1",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+      "trending_score": 1401,
+      "likes": 2509,
+      "downloads": 52804,
+      "task": "text-to-image",
+      "library": "diffusers",
+      "created_at": "2026-09-14T03:47:26.000Z",
+      "tags": [
+        "diffusers",
+        "safetensors",
+        "qwen",
+        "image-generation"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "Edge0/Audio8-ASR-Infinite",
+      "url": "https://huggingface.co/Edge0/Audio8-ASR-Infinite",
+      "trending_score": 1050,
+      "likes": 1182,
+      "downloads": 19434,
+      "task": "automatic-speech-recognition",
+      "library": "transformers",
+      "created_at": "2026-09-21T15:03:21.000Z",
+      "tags": [
+        "transformers",
+        "safetensors",
+        "audio8_asr_infinite",
+        "streaming"
+      ]
+    },
+    {
       "rank": 5,
       "id": "XingChen-AGI/Xing4.0-29B-A4B",
       "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B",
-      "trending_score": 1406,
-      "likes": 1647,
-      "downloads": 41923,
+      "trending_score": 841,
+      "likes": 1786,
+      "downloads": 45028,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-09-16T06:44:40.000Z",
@@ -93,28 +93,11 @@
     },
     {
       "rank": 6,
-      "id": "Comfy-Org/Qwen-Image-2.1",
-      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
-      "trending_score": 652,
-      "likes": 684,
-      "downloads": 2858923,
-      "task": "未标注",
-      "library": "diffusion-single-file",
-      "created_at": "2026-09-15T19:41:09.000Z",
-      "tags": [
-        "diffusion-single-file",
-        "comfyui",
-        "base_model:Qwen/Qwen-Image-2.1",
-        "base_model:finetune:Qwen/Qwen-Image-2.1"
-      ]
-    },
-    {
-      "rank": 7,
       "id": "Altworld/Hemmingway-1",
       "url": "https://huggingface.co/Altworld/Hemmingway-1",
-      "trending_score": 620,
-      "likes": 635,
-      "downloads": 4541,
+      "trending_score": 596,
+      "likes": 744,
+      "downloads": 5904,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-09-20T12:10:31.000Z",
@@ -126,63 +109,29 @@
       ]
     },
     {
+      "rank": 7,
+      "id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "trending_score": 588,
+      "likes": 2201,
+      "downloads": 3343748,
+      "task": "text-generation",
+      "library": "llama.cpp",
+      "created_at": "2026-09-16T23:40:56.000Z",
+      "tags": [
+        "llama.cpp",
+        "gguf",
+        "ternary",
+        "2-bit"
+      ]
+    },
+    {
       "rank": 8,
-      "id": "deepseek-ai/DeepSeek-V4.1-Flash",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
-      "trending_score": 504,
-      "likes": 3714,
-      "downloads": 606028,
-      "task": "image-text-to-text",
-      "library": "transformers",
-      "created_at": "2026-09-10T02:17:58.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "deepseek_v41",
-        "text-generation"
-      ]
-    },
-    {
-      "rank": 9,
-      "id": "Qwen/Qwen3.8-27B",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "trending_score": 497,
-      "likes": 16222,
-      "downloads": 6765008,
-      "task": "image-text-to-text",
-      "library": "transformers",
-      "created_at": "2026-08-05T08:22:59.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "qwen3_5",
-        "image-text-to-text"
-      ]
-    },
-    {
-      "rank": 10,
-      "id": "TaichuAI/ZDTaichu5.0-9B",
-      "url": "https://huggingface.co/TaichuAI/ZDTaichu5.0-9B",
-      "trending_score": 482,
-      "likes": 1041,
-      "downloads": 8313,
-      "task": "image-text-to-text",
-      "library": "未标注",
-      "created_at": "2026-09-04T02:55:48.000Z",
-      "tags": [
-        "safetensors",
-        "zdtaichu5_0",
-        "multimodal",
-        "vision-language-model"
-      ]
-    },
-    {
-      "rank": 11,
       "id": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
       "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
-      "trending_score": 469,
-      "likes": 479,
-      "downloads": 9841,
+      "trending_score": 549,
+      "likes": 562,
+      "downloads": 75079,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-09-21T15:39:33.000Z",
@@ -194,29 +143,46 @@
       ]
     },
     {
-      "rank": 12,
-      "id": "AlexWortega/openjev",
-      "url": "https://huggingface.co/AlexWortega/openjev",
-      "trending_score": 457,
-      "likes": 557,
-      "downloads": 0,
-      "task": "text-classification",
+      "rank": 9,
+      "id": "XingChen-AGI/TeleOCR",
+      "url": "https://huggingface.co/XingChen-AGI/TeleOCR",
+      "trending_score": 517,
+      "likes": 618,
+      "downloads": 27837,
+      "task": "image-text-to-text",
       "library": "transformers",
-      "created_at": "2026-09-16T18:25:10.000Z",
+      "created_at": "2026-08-14T06:15:03.000Z",
       "tags": [
         "transformers",
         "safetensors",
-        "nli",
-        "cross-encoder"
+        "qwen2_5_vl",
+        "ocr"
       ]
     },
     {
-      "rank": 13,
+      "rank": 10,
+      "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+      "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+      "trending_score": 514,
+      "likes": 525,
+      "downloads": 8839,
+      "task": "image-text-to-text",
+      "library": "transformers",
+      "created_at": "2026-09-21T18:18:40.000Z",
+      "tags": [
+        "transformers",
+        "safetensors",
+        "qwen3_5",
+        "mimo_v2"
+      ]
+    },
+    {
+      "rank": 11,
       "id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
       "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
-      "trending_score": 441,
-      "likes": 446,
-      "downloads": 18821,
+      "trending_score": 488,
+      "likes": 493,
+      "downloads": 25661,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-09-21T15:39:51.000Z",
@@ -228,15 +194,66 @@
       ]
     },
     {
+      "rank": 12,
+      "id": "TaichuAI/ZDTaichu5.0-9B",
+      "url": "https://huggingface.co/TaichuAI/ZDTaichu5.0-9B",
+      "trending_score": 476,
+      "likes": 1700,
+      "downloads": 11612,
+      "task": "image-text-to-text",
+      "library": "未标注",
+      "created_at": "2026-09-04T02:55:48.000Z",
+      "tags": [
+        "safetensors",
+        "zdtaichu5_0",
+        "multimodal",
+        "vision-language-model"
+      ]
+    },
+    {
+      "rank": 13,
+      "id": "Comfy-Org/Qwen-Image-2.1",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+      "trending_score": 450,
+      "likes": 812,
+      "downloads": 3987373,
+      "task": "未标注",
+      "library": "diffusion-single-file",
+      "created_at": "2026-09-15T19:41:09.000Z",
+      "tags": [
+        "diffusion-single-file",
+        "comfyui",
+        "base_model:Qwen/Qwen-Image-2.1",
+        "base_model:finetune:Qwen/Qwen-Image-2.1"
+      ]
+    },
+    {
       "rank": 14,
-      "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
-      "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
-      "trending_score": 424,
-      "likes": 432,
-      "downloads": 5705,
+      "id": "Contrastive-LM/CLM-v0.1-8B",
+      "url": "https://huggingface.co/Contrastive-LM/CLM-v0.1-8B",
+      "trending_score": 413,
+      "likes": 418,
+      "downloads": 766,
+      "task": "text-ranking",
+      "library": "contrastive-lm",
+      "created_at": "2026-09-21T20:09:04.000Z",
+      "tags": [
+        "contrastive-lm",
+        "clm",
+        "contrastive-learning",
+        "verifier"
+      ]
+    },
+    {
+      "rank": 15,
+      "id": "Qwen/Qwen3.8-27B",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "trending_score": 408,
+      "likes": 16436,
+      "downloads": 6727629,
       "task": "image-text-to-text",
       "library": "transformers",
-      "created_at": "2026-09-21T18:18:40.000Z",
+      "created_at": "2026-08-05T08:22:59.000Z",
       "tags": [
         "transformers",
         "safetensors",
@@ -245,12 +262,29 @@
       ]
     },
     {
-      "rank": 15,
+      "rank": 16,
+      "id": "nvidia/Nemotron-3-Diarization",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+      "trending_score": 400,
+      "likes": 412,
+      "downloads": 22514,
+      "task": "voice-activity-detection",
+      "library": "nemo",
+      "created_at": "2026-09-01T13:16:57.000Z",
+      "tags": [
+        "nemo",
+        "safetensors",
+        "gguf",
+        "speaker-diarization"
+      ]
+    },
+    {
+      "rank": 17,
       "id": "Lightricks/LTX-2.5",
       "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "trending_score": 374,
-      "likes": 5011,
-      "downloads": 1637601,
+      "trending_score": 353,
+      "likes": 5348,
+      "downloads": 1601089,
       "task": "image-to-video",
       "library": "diffusion-single-file",
       "created_at": "2026-07-23T07:55:24.000Z",
@@ -262,88 +296,54 @@
       ]
     },
     {
-      "rank": 16,
-      "id": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-      "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-      "trending_score": 364,
-      "likes": 1654,
-      "downloads": 1465429,
-      "task": "image-text-to-text",
-      "library": "gguf",
-      "created_at": "2026-08-28T18:38:03.000Z",
-      "tags": [
-        "gguf",
-        "gsq",
-        "rco",
-        "quantization"
-      ]
-    },
-    {
-      "rank": 17,
-      "id": "Edge0/Audio8-ASR-Infinite",
-      "url": "https://huggingface.co/Edge0/Audio8-ASR-Infinite",
-      "trending_score": 322,
-      "likes": 350,
-      "downloads": 347,
-      "task": "automatic-speech-recognition",
-      "library": "transformers",
-      "created_at": "2026-09-21T15:03:21.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "audio8_asr_infinite",
-        "text-generation"
-      ]
-    },
-    {
       "rank": 18,
-      "id": "netease-youdao/Confucius4-R2T2",
-      "url": "https://huggingface.co/netease-youdao/Confucius4-R2T2",
-      "trending_score": 311,
-      "likes": 391,
-      "downloads": 4930,
-      "task": "automatic-speech-recognition",
-      "library": "未标注",
-      "created_at": "2026-09-10T12:16:21.000Z",
+      "id": "Viggle/Qwen-Image-2.1-viggle-turbo",
+      "url": "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo",
+      "trending_score": 337,
+      "likes": 347,
+      "downloads": 133151,
+      "task": "text-to-image",
+      "library": "diffusers",
+      "created_at": "2026-09-22T04:14:56.000Z",
       "tags": [
+        "diffusers",
         "safetensors",
-        "qwen3_asr",
-        "confucius4",
-        "r2t2"
+        "lora",
+        "text-to-image"
       ]
     },
     {
       "rank": 19,
-      "id": "prism-ml/Ternary-Bonsai-2-27B-mlx-2bit",
-      "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit",
-      "trending_score": 311,
-      "likes": 368,
-      "downloads": 51644,
-      "task": "text-generation",
-      "library": "mlx",
-      "created_at": "2026-09-16T23:41:18.000Z",
+      "id": "inclusionAI/Ming-Image-0.1-Design",
+      "url": "https://huggingface.co/inclusionAI/Ming-Image-0.1-Design",
+      "trending_score": 300,
+      "likes": 305,
+      "downloads": 0,
+      "task": "text-to-image",
+      "library": "custom",
+      "created_at": "2026-09-17T07:17:31.000Z",
       "tags": [
-        "mlx",
+        "custom",
+        "diffusers",
         "safetensors",
-        "prism_hadamard_qwen35",
-        "ternary"
+        "text-to-image"
       ]
     },
     {
       "rank": 20,
-      "id": "yandex/AliceAI-Foundation-80B-A3B-Base",
-      "url": "https://huggingface.co/yandex/AliceAI-Foundation-80B-A3B-Base",
-      "trending_score": 302,
-      "likes": 321,
-      "downloads": 2678,
-      "task": "text-generation",
-      "library": "transformers",
-      "created_at": "2026-09-12T10:32:07.000Z",
+      "id": "pottokao/Qwen-Image-2.1-Text-Encoder-Heretic-GGUF",
+      "url": "https://huggingface.co/pottokao/Qwen-Image-2.1-Text-Encoder-Heretic-GGUF",
+      "trending_score": 279,
+      "likes": 302,
+      "downloads": 145246,
+      "task": "未标注",
+      "library": "未标注",
+      "created_at": "2026-09-20T17:08:40.000Z",
       "tags": [
-        "transformers",
-        "safetensors",
-        "alice_ai",
-        "text-generation"
+        "gguf",
+        "quantized",
+        "fp8",
+        "comfyui"
       ]
     }
   ]
