@@ -1,0 +1,32 @@
+name: HF snapshot probe
+
+on:
+  push:
+    branches:
+      - preview/hf-api-snapshot-20260928-0514
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch official Hugging Face Trending API
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          url='https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20'
+          req=urllib.request.Request(url, headers={'User-Agent':'frontierlog-verifier/1.0'})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              data=json.load(r)
+          with open('hf-api.json','w',encoding='utf-8') as f:
+              json.dump(data,f,ensure_ascii=False,indent=2)
+              f.write('\n')
+          print('models', len(data))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hf-api-snapshot
+          path: hf-api.json
+          retention-days: 1
