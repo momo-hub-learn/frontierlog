@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "checked": "2026-09-28",
+  "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
+  "lanes": [
+    {
+      "id": "paradigm",
+      "title": "前沿范式",
+      "description": "World Model、VLA、JEPA 等新的模型与系统范式。"
+    },
+    {
+      "id": "science",
+      "title": "跨学科 AI",
+      "description": "AI 与生物、数学、心理健康、机器人系统和算法研究的交叉。"
+    },
+    {
+      "id": "neo",
+      "title": "新实验室",
+      "description": "跟踪新实验室公开押注的技术假设与可核验证据。"
+    }
+  ],
+  "items": [
+    {
+      "id": "figure-helix-25",
+      "lane": "paradigm",
+      "title": "Helix 2.5",
+      "maker": "Figure",
+      "date": "2026-09-17",
+      "tags": [
+        "VLA",
+        "Humanoid",
+        "Zero-shot"
+      ],
+      "fact": "Figure 将 Helix 2.5 重点放在未见过家庭环境的 zero-shot 泛化：用 Index 人类行为数据预训练，展示全身自主完成家庭任务。",
+      "insight": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "Figure",
+          "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+          "kind": "公司官方发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "gemini-robotics-2",
+      "lane": "paradigm",
+      "title": "Gemini Robotics 2",
+      "maker": "Google DeepMind",
+      "date": "2026-07-30",
+      "tags": [
+        "VLA",
+        "Whole-body",
+        "On-device"
+      ],
+      "fact": "Google DeepMind 将 VLA 能力扩展到全身智能、精细操作与协作；同日还发布 On-Device 2，面向本地设备上的通用机器人操控。",
+      "insight": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "Google DeepMind",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "kind": "公司官方发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi-robotics-1",
+      "lane": "paradigm",
+      "title": "Xiaomi-Robotics-1",
+      "maker": "Xiaomi",
+      "date": "2026-07-16",
+      "tags": [
+        "VLA",
+        "100K+ hours",
+        "Open"
+      ],
+      "fact": "以超过 10 万小时真实世界操作轨迹做大规模预训练，再用少量真实机器人数据后训练，重点验证具身策略模型的规模化路线。",
+      "insight": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "Xiaomi Robotics",
+          "url": "https://robotics.xiaomi.com/xiaomi-robotics-1.html",
+          "kind": "公司官方研究页",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "groot-n17",
+      "lane": "paradigm",
+      "title": "Isaac GR00T N1.7",
+      "maker": "NVIDIA",
+      "date": "2026-07-07",
+      "tags": [
+        "VLA",
+        "Humanoid",
+        "Apache-2.0"
+      ],
+      "fact": "3B 级开放 VLA，面向通用人形机器人技能；NVIDIA 给出从数据、微调、仿真评测到部署的完整开发链路。",
+      "insight": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "NVIDIA",
+          "url": "https://developer.nvidia.com/blog/develop-humanoid-robot-policies-end-to-end-with-nvidia-isaac-gr00t/",
+          "kind": "公司官方技术博客",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "worldlabs-atlas",
+      "lane": "paradigm",
+      "title": "Atlas",
+      "maker": "World Labs",
+      "date": "2026-09-01",
+      "tags": [
+        "World Model",
+        "3D",
+        "Simulation"
+      ],
+      "fact": "World Labs 的新一代 omni world model，原生处理文本、图像、视频与 3D；覆盖世界生成、重建、时空模拟和机器人 Real-to-Sim。",
+      "insight": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "World Labs",
+          "url": "https://www.worldlabs.ai/blog/atlas",
+          "kind": "公司官方发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi-robotics-u0",
+      "lane": "paradigm",
+      "title": "Xiaomi-Robotics-U0",
+      "maker": "Xiaomi",
+      "date": "2026-07-15",
+      "tags": [
+        "World Model",
+        "Embodied",
+        "Synthesis"
+      ],
+      "fact": "统一具身生成与世界基础模型路线，把基础图像生成和 embodied world modeling 放进同一研究框架。",
+      "insight": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "Xiaomi Robotics",
+          "url": "https://robotics.xiaomi.com/",
+          "kind": "公司官方研究索引",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "vjepa-21",
+      "lane": "paradigm",
+      "title": "V-JEPA 2.1",
+      "maker": "Meta FAIR",
+      "date": "2026-03-16",
+      "tags": [
+        "JEPA",
+        "Video SSL",
+        "World Model"
+      ],
+      "fact": "V-JEPA 2.1 更新视频自监督训练配方，强化密集且时间一致的表征；官方仓库同时覆盖 V-JEPA 2-AC 的 action-conditioned world model 路线。",
+      "insight": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同机器人、数据集和任务之间不能用单一总分硬排；研究演示或早期访问不能外推为通用生产可靠性。",
+      "next_watch": "继续跟踪新版本、独立复现和真实任务评测，确认能力是否从演示走向稳定可用。",
+      "sources": [
+        {
+          "label": "Meta FAIR",
+          "url": "https://github.com/facebookresearch/vjepa2",
+          "kind": "官方开源仓库",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "subconscious-long-agents",
+      "lane": "neo",
+      "title": "Long-Running Agent Inference",
+      "maker": "Subconscious",
+      "date": "2026-09-22",
+      "tags": [
+        "Neo Lab",
+        "Agents",
+        "Inference"
+      ],
+      "fact": "把动态上下文压缩做成长任务 agent 的推理平台，目标是在不更换底层模型的情况下延长任务持续时间并降低上下文成本。",
+      "insight": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+      "boundary": "新实验室的融资、团队和愿景不等于模型能力；这里只记录已公开技术路线与可核验进展。",
+      "next_watch": "继续跟踪公开模型、论文、API 或独立复现，而不是融资与人员消息。",
+      "sources": [
+        {
+          "label": "Subconscious",
+          "url": "https://www.subconscious.dev/blog/subconscious-raises-5-1-million-to-build-the-inference-platform-for-long-running-agents",
+          "kind": "公司官方发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "typesafe-jev",
+      "lane": "neo",
+      "title": "Jev / System One Models",
+      "maker": "TypeSafe AI",
+      "date": "2026-09-15",
+      "tags": [
+        "Neo Lab",
+        "Decision Model",
+        "RLCD"
+      ],
+      "fact": "TypeSafe 从聊天式字符串生成转向可被软件直接消费的结构化概率决策；Jev 是其首个公开 System One Model。",
+      "insight": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+      "boundary": "新实验室的融资、团队和愿景不等于模型能力；这里只记录已公开技术路线与可核验进展。",
+      "next_watch": "继续跟踪公开模型、论文、API 或独立复现，而不是融资与人员消息。",
+      "sources": [
+        {
+          "label": "TypeSafe AI",
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+          "kind": "公司官方发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ami-world-model-progress",
+      "lane": "neo",
+      "title": "Action-Conditioned World Models",
+      "maker": "AMI Labs",
+      "date": "2026-09-20",
+      "tags": [
+        "Neo Lab",
+        "JEPA",
+        "Planning"
+      ],
+      "fact": "AMI 继续押注表征空间里的 action-conditioned world models。9 月公开演讲增加了数学与医疗方向证据，但当前仍不应描述成已发布的通用产品模型。",
+      "insight": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+      "boundary": "新实验室的融资、团队和愿景不等于模型能力；这里只记录已公开技术路线与可核验进展。",
+      "next_watch": "等待 AMI 官方论文、模型或可复现实验，把第三方跟踪线索升级为一手证据。",
+      "sources": [
+        {
+          "label": "AMI Labs",
+          "url": "https://amilabs.xyz/",
+          "kind": "公司官网",
+          "strength": "primary"
+        },
+        {
+          "label": "AMI Labs Intelligence Hub",
+          "url": "https://ami.frenchtechjournal.com/news/lecun-adds-mathematical-and-medical-evidence-to-ami-s-world-model-ambitions",
+          "kind": "独立跟踪报道",
+          "strength": "lead"
+        }
+      ]
+    },
+    {
+      "id": "mentalhealthbench-20260923",
+      "lane": "science",
+      "title": "AI × Mental Health：敏感对话专门 Benchmark",
+      "maker": "OpenAI",
+      "date": "2026-09-23",
+      "tags": [
+        "AI × Mental Health",
+        "Benchmark"
+      ],
+      "fact": "OpenAI 9 月 23 日发布开放基准 MentalHealthBench：1,215 段合成但贴近真实使用的心理健康对话，由来自 22 个国家的 80+ 名持证心理学家和精神科医生参与制定细则，覆盖非急性、高危、紧急情境及成人、青少年、照护者和临床人员。官方论文的整体 task-clipped score 为 GPT-6 Astra 57.3、GPT-6 Sol 53.9、Claude Opus 5.5 52.4。",
+      "insight": "敏感场景评测正在从简单安全拒答，走向上下文追问、用户自主性和紧急程度校准。",
+      "boundary": "发布日期来自 OpenAI，但官方页面未提供精确发布时间，本站只记录日期与首次收录时间。57.3/53.9/52.4 是 OpenAI 自己发布的 Benchmark 结果，不是本站实测或独立榜单；评估使用 GPT-5.6 Sol 自动评分器，场景为合成对话，产品级安全措施也未必被完整复现，不能把分数解读为临床疗效或诊疗能力。",
+      "next_watch": "继续看独立复现、产品安全层影响，以及是否出现真实临床工作流之外的更广泛评测。",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/introducing-mentalhealthbench/",
+          "kind": "官方开放 Benchmark + 论文",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-physical-ai-offload-20260923",
+      "lane": "science",
+      "title": "AI × Robotics Systems：推理位置成为机器人能力边界",
+      "maker": "Microsoft Research / Microsoft GitHub",
+      "date": "2026-09-23",
+      "tags": [
+        "AI × Robotics",
+        "Systems"
+      ],
+      "fact": "Microsoft Research 9 月 23 日公布机器人推理卸载研究，并把能力加入开源 Physical AI Toolchain。在其代表性移动操作测试中，较轻 GPU 让地图与规划最高慢 383%，导航及时障碍检测下降 30%，VLA 准确率最高下降 50%；Stretch-3 将 GPU 推理卸载后，官方测试显示电池续航可提升 100% 以上。",
+      "insight": "Physical AI 的能力边界开始由模型、机器人本体和推理基础设施共同决定。",
+      "boundary": "383%、30%、50% 与续航结果均来自 Microsoft 自己的研究环境，不是本站或独立产线实测，不能外推到所有机器人。卸载还受网络时延、带宽与可用 GPU 约束；官方仓库明确 T5 fleet intelligence 仍在 roadmap，当前交付范围是 T0–T4。",
+      "next_watch": "继续看不同机器人平台上的独立延迟、续航与任务成功率复现。",
+      "sources": [
+        {
+          "label": "Microsoft Research / Microsoft GitHub",
+          "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
+          "kind": "官方研究 + 官方开源仓库",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "openai-math-advisory-20260921",
+      "lane": "science",
+      "title": "AI × Mathematics：开放数学问题与独立审查",
+      "maker": "OpenAI",
+      "date": "2026-09-21",
+      "tags": [
+        "AI × Mathematics",
+        "Research reasoning"
+      ],
+      "fact": "OpenAI 9 月 21 日称，自 8 月 28 日开始训练的一款内部模型已解决 Navier–Stokes 千禧年难题和 100+ 个长期开放数学问题，并为结果评审与发布成立独立数学顾问组。",
+      "insight": "前沿模型正在尝试从竞赛题与已知证明辅助，进入原创研究级数学问题。",
+      "boundary": "这是 OpenAI 的官方声明，不是数学界已完成独立验证。公告本身未公开完整问题清单、证明文本或审稿结果，因此本站只记录为重大前沿信号，不写成“这些问题已被公认解决”。",
+      "next_watch": "继续看完整证明公开、形式化验证和数学界独立审查结果。",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+          "kind": "官方声明",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-art",
+      "lane": "science",
+      "title": "AI × Biology：Agent 大规模筛选可实验候选",
+      "maker": "Anthropic",
+      "date": "2026-09-23",
+      "tags": [
+        "AI × Biology",
+        "Agentic Science"
+      ],
+      "fact": "Anthropic 披露约 950 个 Claude agent 用 21 小时分析 20 万+ 逆转录酶，筛到 20 个重点候选，并识别出 ART 的重复序列特征；湿实验由人类科学家完成。",
+      "insight": "早期信号不在“AI 写科研摘要”，而在 Agent 大规模搜索、提出可实验假说，再交给人类实验验证。",
+      "boundary": "ART 的主要功能仍未知；尚不能推出它可编程、可用于基因编辑或具有治疗价值。结果来自 Anthropic 自有团队，仍需独立复现。",
+      "next_watch": "继续跟踪 ART 功能解析、独立实验室复现，以及 Agent 提出候选到湿实验验证的命中率和成本。",
+      "sources": [
+        {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+          "kind": "官方研究",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "alphaevolve",
+      "lane": "science",
+      "title": "AI × Algorithms：算法发现与优化",
+      "maker": "Google DeepMind",
+      "date": "2025-06-16",
+      "tags": [
+        "AI × Algorithms",
+        "Agentic Science"
+      ],
+      "fact": "结合代码生成、自动评价与演化搜索探索算法改进。",
+      "insight": "把代码生成、自动评价与演化搜索组合成研究闭环，是 AI 参与算法发现的一条清晰路线。",
+      "boundary": "当前访问资格与完整复现条件未核验；研究结果不等于通用能力。",
+      "next_watch": "继续看开放访问、独立复现和超出原论文任务分布的新结果。",
+      "sources": [
+        {
+          "label": "Google DeepMind",
+          "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+          "kind": "作者研究",
+          "strength": "primary"
+        },
+        {
+          "label": "AlphaEvolve authors / Google DeepMind",
+          "url": "https://arxiv.org/abs/2506.13131",
+          "kind": "作者预印本",
+          "strength": "primary"
+        }
+      ]
+    }
+  ]
+}
