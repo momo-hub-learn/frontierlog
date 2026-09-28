@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'test-results/product-timeline'
 OUT.mkdir(parents=True, exist_ok=True)
 HTML = (ROOT / 'dist/index.html').read_text(encoding='utf-8')
+PRODUCT_COUNT = len(json.loads((ROOT / 'data/product-radar.json').read_text(encoding='utf-8'))['items'])
 checks, errors = [], []
 
 def ok(message):
@@ -100,7 +101,7 @@ with sync_playwright() as pw:
     harvey.locator('.pb-card-history > summary').click()
     page.wait_for_timeout(150)
     assert harvey.bounding_box()['width'] >= page.locator('.pb-grid').bounding_box()['width']-2
-    expect(page.locator('.pb-card')).to_have_count(8)
+    expect(page.locator('.pb-card')).to_have_count(PRODUCT_COUNT)
     lightfield=page.locator('[data-product-id="lightfield"]')
     lightfield.locator('.pb-card-history > summary').click()
     expect(lightfield).to_contain_text('尚无可展示的日期节点')
