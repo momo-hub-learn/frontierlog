@@ -48,6 +48,12 @@ check('single event stream / no duplicate legacy news section',()=>{
  const html=pb.page(read(''));assert(html.includes('pb-timeline'));assert(!html.includes('class="pb-grid"'));assert(!html.includes('h-product-moves'));assert(!html.includes('intraday-timeline'));
  assert(source.includes("if(s.cat==='product')return PB.page()"));assert(!source.includes('${hProductRadar(s)}'));
 });
+check('Palantir renders as a research-backed enterprise platform',()=>{
+ const p=data.items.find(x=>x.id==='palantir-aip');assert(p);assert.equal(pb.scene(p),'enterprise');assert.equal(p.timeline.length,5);
+ const html=pb.page(read('pview=map&product=palantir-aip'));
+ assert(html.includes('Palantir AIP'));assert(html.includes('研究结论'));assert(html.includes('Ontology'));assert(html.includes('AIP Evolve'));
+ assert(html.includes('架构依据'));assert(!html.includes('<dt>投资背景</dt><dd><a href="https://www.palantir.com'));
+});
 check('map is separate and contains every product',()=>{
  const html=pb.page(read('pview=map'));assert.equal((html.match(/data-product-id=/g)||[]).length,data.items.length);assert(!html.includes('data-product-event'));
  assert(html.includes('产品说明'));assert(html.includes('客户采用'));assert(html.includes('投资背景'));assert(html.includes('完整时间线'));

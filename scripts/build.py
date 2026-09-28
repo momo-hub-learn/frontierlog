@@ -94,6 +94,11 @@ def validate_product_radar(data:dict)->None:
             if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing product radar '+key)
         for key in ('product_url','source_url'):
             if not https_url(item.get(key,'')): raise ValueError('Invalid product radar URL: '+key)
+        research=item.get('research')
+        if research is not None:
+            if not isinstance(research,dict) or not isinstance(research.get('thesis'),str) or not research['thesis'].strip(): raise ValueError('Invalid product radar research thesis')
+            for key in ('stack','watch'):
+                if not isinstance(research.get(key),list) or not research[key] or any(not isinstance(v,str) or not v.strip() for v in research[key]): raise ValueError('Invalid product radar research '+key)
         timeline=item.get('timeline')
         if not isinstance(timeline,list): raise ValueError('Invalid product radar timeline')
         last=None

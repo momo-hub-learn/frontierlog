@@ -118,6 +118,10 @@ jobs:
           grep -q "AI 产品雷达" dist-ci/index.html
           grep -q "Harvey" dist-ci/index.html
           grep -q "Lightfield" dist-ci/index.html
+          grep -q "Palantir AIP" dist-ci/index.html
+          grep -q "AIP Evolve" dist-ci/index.html
+          grep -q "Ontology MCP" dist-ci/index.html
+          grep -q "研究结论" dist-ci/index.html
           grep -q "RECENT MOVES / VERIFIED" dist-ci/index.html
           grep -q "近期进展" dist-ci/index.html
           grep -q "product-tag" dist-ci/index.html

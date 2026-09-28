@@ -25,7 +25,7 @@ const PB=(()=>{
  const scene=x=>x.group==='legal'?'legal':ids(x).some(t=>['customer-experience','support-automation'].includes(t))?'support':ids(x).includes('knowledge-work')?'knowledge':ids(x).includes('gtm')?'sales':'enterprise';
  const sceneName=x=>SCENES.find(([id])=>id===scene(x))?.[1]||'企业运营';
  const plain=x=>String(x??'');
- const text=x=>[x.name,x.company,x.summary,...(x.tags||[])].map(plain).join(' ').toLowerCase();
+ const text=x=>[x.name,x.company,x.summary,...(x.tags||[]),x.research?.thesis,...(x.research?.stack||[]),...(x.research?.watch||[])].map(plain).join(' ').toLowerCase();
  const dateOK=d=>/^\d{4}-\d{2}-\d{2}$/.test(plain(d))&&!Number.isNaN(Date.parse(d+'T00:00:00Z'))&&new Date(d+'T00:00:00Z').toISOString().slice(0,10)===d;
  const chronology=x=>[...(x.timeline||[])].filter(e=>dateOK(e.date)).sort((a,b)=>b.date.localeCompare(a.date)||plain(a.title).localeCompare(plain(b.title)));
  function read(hash=location.hash){
@@ -147,8 +147,9 @@ const PB=(()=>{
    '<div class="pb-capability"><span class="pb-label">现在能做</span><p>'+esc(x.summary)+'</p></div>'+
    '<div class="pb-latest"><span class="pb-label">最新记录</span>'+latestHTML+'</div>'+
    '<dl class="pb-facts"><div><dt>采用信号</dt><dd>'+(adoption?esc(adoption.title)+'<small>公司公告 · 非独立效果评测</small>':'<span class="pb-muted">暂无已收录的客户采用公告</span>')+'</dd></div><div><dt>最大限制</dt><dd>'+esc(x.boundary)+'</dd></div></dl>'+
+   (x.research?'<details class="pb-research"'+(s.product===x.id?' open':'')+'><summary>研究结论 <span>架构 / 判断 / 持续跟踪</span></summary><div class="pb-research-body"><div><b>核心判断</b><p>'+esc(x.research.thesis||'')+'</p></div>'+(Array.isArray(x.research.stack)?'<div><b>技术栈</b><ul>'+x.research.stack.map(v=>'<li>'+esc(v)+'</li>').join('')+'</ul></div>':'')+(Array.isArray(x.research.watch)?'<div><b>持续跟踪</b><ul>'+x.research.watch.map(v=>'<li>'+esc(v)+'</li>').join('')+'</ul></div>':'')+'</div></details>':'')+
    '<details class="pb-card-history"'+(s.product===x.id?' open':'')+'><summary>完整时间线 <span>'+history.length+' 个节点</span></summary>'+(history.length?historyHTML(x,history):'<p class="pb-muted">尚无可展示的日期节点，不用首次收录时间冒充发布时间。</p>')+'</details>'+
-   '<details class="pb-evidence"><summary>来源与证据</summary><dl><div><dt>产品说明</dt><dd>'+external(x.product_url,'产品官网')+'<small>简介沿用已收录资料，未标记为本站实测。</small></dd></div><div><dt>客户采用</dt><dd>'+(adoption?external(adoption.url,'采用公告'):'<span class="pb-muted">待补客户公告或独立案例</span>')+'</dd></div><div><dt>投资背景</dt><dd>'+external(x.source_url,x.source_label)+'<small>'+esc(x.evidence)+'</small></dd></div></dl></details>'+
+   '<details class="pb-evidence"><summary>来源与证据</summary><dl><div><dt>产品说明</dt><dd>'+external(x.product_url,'产品官网')+'<small>简介沿用已收录资料，未标记为本站实测。</small></dd></div><div><dt>客户采用</dt><dd>'+(adoption?external(adoption.url,'采用公告'):'<span class="pb-muted">待补客户公告或独立案例</span>')+'</dd></div><div><dt>'+esc(x.evidence_label||'投资背景')+'</dt><dd>'+external(x.source_url,x.source_label)+'<small>'+esc(x.evidence)+'</small></dd></div></dl></details>'+
    '<footer>'+external(x.product_url,'产品官网')+link(s,{pview:'updates',product:x.id,kind:'all'},'查看动态 '+icon('arrow'))+'</footer></article>';
  }
  function page(s=read()){

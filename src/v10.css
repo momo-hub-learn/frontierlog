@@ -76,6 +76,13 @@
 .pb-card dd{margin:0;font-size:.9375rem;line-height:1.65;color:var(--sub);min-width:0}
 .pb-card dd small{display:block;font-size:.8125rem;margin-top:5px;color:var(--muted)}
 .pb-card-history,.pb-evidence{border-top:1px solid var(--line);padding:12px 0}
+.pb-research{border-top:1px solid var(--line);padding:12px 0}
+.pb-research-body{display:grid;gap:12px;margin-top:12px;padding:14px;border-radius:10px;background:var(--raised)}
+.pb-research-body>div{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;align-items:start}
+.pb-research-body b{font-size:.8125rem;color:var(--accent)}
+.pb-research-body p,.pb-research-body li{font-size:.9375rem;line-height:1.7;color:var(--sub)}
+.pb-research-body ul{margin:0;padding-left:18px;display:grid;gap:5px}
+
 .pb-card:has(>.pb-card-history[open]),.pb-card:only-child{grid-column:1 / -1}
 .pb-card-history>p{margin:12px 0 0;font-size:.9375rem}
 .pb-history-shell{min-width:0;margin-top:16px}
@@ -134,3 +141,5 @@
 .pb-notes p{margin-top:10px;font-size:.875rem;line-height:1.8;color:var(--sub)}
 @media(max-width:1000px){.pb-grid{grid-template-columns:1fr}.pb-page-head{align-items:flex-start}.pb-page-head>span{font-size:.8125rem}.pb-page .h-filterbar .h-search{margin-left:0}}
 @media(max-width:620px){.pb-page-head{display:block}.pb-page-head h1{font-size:1.75rem}.pb-page-head>span{display:block;margin-top:10px}.pb-page .h-filterbar .h-search{width:100%;flex-basis:100%}.pb-views{gap:22px}.pb-view{font-size:1rem}.pb-filter-row{display:block}.pb-filter-row>span{display:block;width:auto;padding:0 0 5px}.pb-selection{padding-left:0}.pb-toolbar{gap:10px}.pb-toolbar p{flex-basis:100%}.pb-day{display:block}.pb-day>h3{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}.pb-day>h3 small{margin-top:0}.pb-day-events{margin-left:5px;padding-left:18px}.pb-event:before{left:-24px}.pb-card{padding:18px}.pb-card>header{flex-wrap:wrap}.pb-facts>div,.pb-evidence dl>div{grid-template-columns:65px minmax(0,1fr);gap:8px}.pb-page summary>span{display:inline}.pb-event h3{font-size:1rem}.pb-card dd,.pb-latest p{font-size:.9375rem}}
+
+@media(max-width:620px){.pb-research-body>div{grid-template-columns:1fr}.pb-research-body b{margin-bottom:-4px}}
