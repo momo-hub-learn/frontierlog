@@ -1,0 +1,37 @@
+name: Ranking build probe
+
+on:
+  push:
+    branches:
+      - preview/trending-refresh-20260928
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python -m unittest tests.test_build tests.test_hot tests.test_models tests.test_topics tests.test_benchmarks tests.test_collect
+      - name: JavaScript syntax
+        run: |
+          node --check src/github-hot.js
+          node --check src/huggingface-hot.js
+      - name: Build deployable snapshot
+        run: python scripts/build.py --out dist-ranking --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+      - name: Verify fresh ranking snapshot
+        run: |
+          grep -q "paperclipai/paperclip" dist-ranking/index.html
+          grep -q "convaiinnovations/laya" dist-ranking/index.html
+          grep -q "2026-09-28T05:22:08Z" dist-ranking/api/v1/github-hot.json
+          grep -q "2026-09-28T05:22:08Z" dist-ranking/api/v1/huggingface-hot.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ranking-build
+          path: dist-ranking
+          retention-days: 1
