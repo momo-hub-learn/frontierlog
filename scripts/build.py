@@ -115,6 +115,26 @@ def validate_product_radar(data:dict)->None:
     for item in items:
         if not set(item['filter_ids']).issubset(known): raise ValueError('Unknown product radar filter')
 
+def validate_research_radar(data:dict)->None:
+    if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported research radar schema')
+    date.fromisoformat(data['checked'])
+    lanes=data.get('lanes'); items=data.get('items')
+    if not isinstance(lanes,list) or len(lanes)<3 or not isinstance(items,list) or len(items)<10: raise ValueError('Invalid research radar lists')
+    lane_ids=[x.get('id') for x in lanes]
+    if len(lane_ids)!=len(set(lane_ids)): raise ValueError('Duplicate research radar lane')
+    ids=[x.get('id') for x in items]
+    if len(ids)!=len(set(ids)): raise ValueError('Duplicate research radar item')
+    for x in items:
+        if x.get('lane') not in set(lane_ids): raise ValueError('Unknown research radar lane')
+        date.fromisoformat(x['date'])
+        for key in ('title','maker','fact','insight','boundary','next_watch'):
+            if not isinstance(x.get(key),str) or not x[key].strip(): raise ValueError('Incomplete research radar item')
+        if not isinstance(x.get('tags'),list) or not x['tags']: raise ValueError('Missing research radar tags')
+        if not isinstance(x.get('sources'),list) or not x['sources']: raise ValueError('Missing research radar sources')
+        for s in x['sources']:
+            if not https_url(s.get('url','')): raise ValueError('Invalid research radar source URL')
+            if s.get('strength') not in {'primary','lead'}: raise ValueError('Invalid research radar source strength')
+
 def write_json(path: Path, obj: object) -> None:
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -158,6 +178,8 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     validate_hot(hot)
     product_radar=json.loads((ROOT/'data/product-radar.json').read_text(encoding='utf-8'))
     validate_product_radar(product_radar)
+    research_radar=json.loads((ROOT/'data/research-radar.json').read_text(encoding='utf-8'))
+    validate_research_radar(research_radar)
     hot_policy=json.loads((ROOT/'data/hot-policy.json').read_text(encoding='utf-8'))
     activity_radar=json.loads((ROOT/'data/activity-radar.json').read_text(encoding='utf-8'))
     if activity_radar.get('version') != 1: raise ValueError('Unsupported activity radar schema')
@@ -249,7 +271,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         tags=row.get('tags')
         if not isinstance(tags,list) or not 1<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>48 for t in tags): raise ValueError('Invalid Hugging Face tags')
     if [x['rank'] for x in hf_items] != list(range(1,len(hf_items)+1)): raise ValueError('Hugging Face ranks must be sequential')
-    app={'hot':hot,'product_radar':product_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
+    app={'hot':hot,'product_radar':product_radar,'research_radar':research_radar,'activity_radar':activity_radar,'hot_policy':hot_policy,'github_hot':github_hot,'huggingface_hot':huggingface_hot,'deep_dives':deep_dives,'capabilities':capabilities,'benchmarks':benchmarks,'models':models,'resets':resets,'catalog':catalog,'upstream':upstream,'site':site,'industry':industry,'intake':intake}
     from activity_feature import load_feature
     app['activity_feature']=load_feature(ROOT, activity_radar)
     from toolkit_data import load_toolkit
@@ -288,6 +310,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     write_json(output/'api/v1/benchmarks.json',benchmarks)
     write_json(output/'api/v1/hot.json',hot)
     write_json(output/'api/v1/product-radar.json',product_radar)
+    write_json(output/'api/v1/research-radar.json',research_radar)
     write_json(output/'api/v1/activity-radar.json',activity_radar)
     write_json(output/'api/v1/hot-policy.json',hot_policy)
     write_json(output/'api/v1/github-hot.json',github_hot)

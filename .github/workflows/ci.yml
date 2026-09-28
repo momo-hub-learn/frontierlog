@@ -42,6 +42,7 @@ jobs:
           test -f dist-ci/index.html
           test -f dist-ci/api/v1/hot-policy.json
           test -f dist-ci/api/v1/product-radar.json
+          test -f dist-ci/api/v1/research-radar.json
           test -f dist-ci/api/v1/activity-radar.json
           test -f dist-ci/api/v1/github-hot.json
           test -f dist-ci/api/v1/huggingface-hot.json
@@ -108,7 +109,14 @@ jobs:
           ! grep -q "<p class=\\\"eyebrow\\\">HOT / NOW</p><h2>热点</h2>" dist-ci/index.html
           grep -q "本周新解锁 / 明显更新" dist-ci/index.html
           grep -q "AVAILABLE NOW" dist-ci/index.html
-          grep -q "p4-progress" dist-ci/index.html
+          grep -q "p5-progress" dist-ci/index.html
+          grep -q "能力进展" dist-ci/index.html
+          grep -q "能力地图" dist-ci/index.html
+          grep -q "研究雷达" dist-ci/index.html
+          grep -q "资料核对日" dist-ci/index.html
+          grep -q "怎么验证" dist-ci/index.html
+          grep -q "下一步看什么" dist-ci/index.html
+          grep -q "待核验线索" dist-ci/index.html
           grep -q "AI 产品雷达" dist-ci/index.html
           grep -q "Harvey" dist-ci/index.html
           grep -q "Lightfield" dist-ci/index.html

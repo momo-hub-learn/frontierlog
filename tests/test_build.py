@@ -168,6 +168,25 @@ class BuildTests(unittest.TestCase):
             self.assertIn("type==='conversation'",html)
             self.assertIn("visibleTypes=V2_ACTIVITY_TYPES.filter",html)
 
+    def test_progress_v5_views_and_research_archive(self):
+        radar=json.loads((ROOT/'data/research-radar.json').read_text())
+        build.validate_research_radar(radar)
+        self.assertEqual(len(radar['items']),15)
+        self.assertEqual({x['id'] for x in radar['lanes']},{'paradigm','science','neo'})
+        self.assertTrue(any(any(s.get('strength')=='lead' for s in x['sources']) for x in radar['items']))
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);app=build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertTrue((d/'api/v1/research-radar.json').exists())
+            self.assertIn('能力进展',html)
+            self.assertIn('能力地图',html)
+            self.assertIn('研究雷达',html)
+            self.assertIn('资料核对日',html)
+            self.assertIn('怎么验证',html)
+            self.assertIn('下一步看什么',html)
+            self.assertIn('待核验线索',html)
+            self.assertNotIn("date:s?.published||t.reviewed||DATA.snapshot",html)
+
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
