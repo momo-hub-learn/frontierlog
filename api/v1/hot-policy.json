@@ -9,8 +9,8 @@
     "hold",
     "merge"
   ],
-  "status": "bootstrap",
-  "note": "每 2 小时评估是否值得更新，但当前只做影子决策，不自动改写人工精选。积累足够反馈后再启用延迟奖励 contextual bandit。",
+  "status": "shadow-running",
+  "note": "每 2 小时实际运行一次候选采集与 shadow 决策；只从站内已经核验的一手/官方数据生成候选，不自动把候选写成热点事实或热度分数。",
   "features": [
     {
       "id": "heat_now",
@@ -74,6 +74,13 @@
     "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
     "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
   },
-  "last_evaluated": null,
-  "last_decision": null
+  "last_evaluated": "2026-09-28T10:10:16Z",
+  "last_decision": {
+    "action": "publish",
+    "candidate_count": 19,
+    "publish_ready_count": 4,
+    "merge_count": 2,
+    "best_candidate": "candidate-302c28e2e59051e3",
+    "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-09-24",
+    "checked": "2026-09-28",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -501,6 +501,482 @@
             "url": "https://www.meta.com/ai-glasses/"
           }
         ]
+      }
+    ],
+    "sync": {
+      "last_checked_at": "2026-09-28T10:10:16Z",
+      "status": "success",
+      "mode": "shadow",
+      "candidate_count": 19,
+      "publish_ready_count": 4,
+      "note": "自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。"
+    }
+  },
+  "hot_inbox": {
+    "version": 1,
+    "generated_at": "2026-09-28T10:10:16Z",
+    "mode": "shadow",
+    "automatic_publish": false,
+    "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
+    "counts": {
+      "publish": 4,
+      "merge": 2,
+      "hold": 13
+    },
+    "candidates": [
+      {
+        "id": "candidate-302c28e2e59051e3",
+        "category": "industry",
+        "published": "2026-09-23",
+        "title": "Claude Agent：从 20 万+ RT 中筛出 ART 候选系统",
+        "summary": "Anthropic 披露约 950 个 Claude agent 用 21 小时分析 20 万+ 逆转录酶，筛到 20 个重点候选，并识别出 ART 的重复序列特征；湿实验由人类科学家完成。",
+        "why": "早期信号不在“AI 写科研摘要”，而在 Agent 大规模搜索、提出可实验假说，再交给人类实验验证。",
+        "boundary": "ART 的主要功能仍未知；尚不能推出它可编程、可用于基因编辑或具有治疗价值。结果来自 Anthropic 自有团队，仍需独立复现。",
+        "source": "Anthropic",
+        "source_kind": "官方研究",
+        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+        "publishable": true,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 1.0
+        },
+        "priority_score": 0.866,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-6d06896ece6dad3f",
+        "category": "product",
+        "published": "2026-09-23",
+        "title": "Custom Harvey Agents 可直接在 Microsoft Word 中运行",
+        "summary": "在已打开的 Word 文档中运行团队自建 Agent，输出修改建议；应用后以修订模式写回文档。",
+        "why": "值得关注的是审阅入口与人工确认环节的衔接，而不只是多了一个聊天窗口。",
+        "boundary": "此次发布暂不支持 Custom Workflows；不能由功能上线推出准确率、节时幅度或无需律师复核。",
+        "source": "Harvey",
+        "source_kind": "官方产品节点",
+        "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
+        "publishable": true,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.855,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "product_id": "harvey",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-bb0d493eaef9e70a",
+        "category": "product",
+        "published": "2026-09-23",
+        "title": "Gemini 新一批 Connected Apps 开始 rollout",
+        "summary": "Google 宣布 Airtable、Linear、monday.com、Adobe、Webflow、Peloton、SeatGeek 等新连接开始进入 Gemini。",
+        "why": "Gemini 的可执行边界继续从 Google 自家服务扩到第三方生产力、创作与生活工具；官方只确认开始 rollout，不等于所有账号已可用。",
+        "boundary": "官方措辞是“beginning to roll out today”，不等于所有账号立即可见；能连接应用也不等于复杂跨应用任务一定一次完成，仍要核对权限、写入结果和最终状态。",
+        "source": "Google",
+        "source_kind": "官方发布",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini",
+        "publishable": true,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.855,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "task_id": "gemini-connected-apps",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-ca780e2bfbfb9fd0",
+        "category": "product",
+        "published": "2026-09-23",
+        "title": "ChatGPT Voice 开始调用插件并进入 Work",
+        "summary": "OpenAI 宣布 Live 在 web、iOS、Android 支持插件；Voice 同时进入 Work，可用语音启动文档、表格、演示文稿、连接应用和浏览器任务。",
+        "why": "语音入口从对话继续向调用工具并执行工作移动；但可用插件、写入权限、审批和任务成功率仍取决于账号与 Workspace 配置。",
+        "boundary": "可见插件、Connected Apps、Work 与 Voice 均受套餐、地区、Workspace 设置和既有权限限制；能用语音启动不等于跨应用任务一定成功，涉及写入或外部动作仍要核对审批和最终状态。",
+        "source": "OpenAI",
+        "source_kind": "官方发布",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.855,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "task_id": "chatgpt-voice-work",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-ee90a4ee12c3bb7a",
+        "category": "research",
+        "published": "2026-09-24",
+        "title": "Automating coherent long-form video generation",
+        "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "Google Research",
+        "source_kind": "官方技术博客",
+        "url": "https://research.google/blog/coherent-long-form-video-generation",
+        "publishable": false,
+        "features": {
+          "freshness": 0.714,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.866,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-219ba6bd9e197f19",
+        "category": "research",
+        "published": "2026-09-23",
+        "title": "How SWE-Serve Exposes the Gap Between Local Tests and Live Serving",
+        "summary": "NVIDIA 用 53 个推理服务工程任务评估 Coding Agent，揭示“本地测试通过”与真实模型服务可用之间仍有显著差距。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "NVIDIA",
+        "source_kind": "官方技术博客",
+        "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving",
+        "publishable": false,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.844,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-a8b7abd865f45737",
+        "category": "research",
+        "published": "2026-09-23",
+        "title": "Bringing Your Muse to Life",
+        "summary": "Meta 公开 Muse Realtime Avatar 的实时视频生成架构、蒸馏、KV cache 与服务优化，给出了约 870ms 首字节延迟等系统指标。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "Meta AI Research",
+        "source_kind": "官方技术博客",
+        "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
+        "publishable": false,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.844,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-42408ab773cb704f",
+        "category": "research",
+        "published": "2026-09-22",
+        "title": "Long-Running Agent Inference",
+        "summary": "把动态上下文压缩做成长任务 agent 的推理平台，目标是在不更换底层模型的情况下延长任务持续时间并降低上下文成本。",
+        "why": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+        "source": "Subconscious",
+        "source_kind": "公司官方发布",
+        "url": "https://www.subconscious.dev/blog/subconscious-raises-5-1-million-to-build-the-inference-platform-for-long-running-agents",
+        "publishable": false,
+        "features": {
+          "freshness": 0.571,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.823,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "track_id": "neo-labs",
+        "maker": "Subconscious",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-4342c2f29f972dae",
+        "category": "product",
+        "published": "2026-09-24",
+        "title": "Veolia 选择 Legora 支撑全球法务团队的 AI 工作",
+        "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
+        "why": "产品出现新的公开变化。",
+        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
+        "source": "Legora",
+        "source_kind": "已收录产品节点",
+        "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
+        "publishable": false,
+        "features": {
+          "freshness": 0.714,
+          "authority": 0.72,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.801,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "product_id": "legora",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-100a1e7314458c94",
+        "category": "product",
+        "published": "2026-09-23",
+        "title": "Agent Plugin 已面向客户 GA，可从 Claude Code / Codex 构建 GTM 工具和工作流",
+        "summary": "面向 RevOps 与增长团队的数据与工作流平台，AI Agent 用于客户研究、个性化触达和 GTM 自动化。",
+        "why": "产品出现新的公开变化。",
+        "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。",
+        "source": "Clay",
+        "source_kind": "已收录产品节点",
+        "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases",
+        "publishable": false,
+        "features": {
+          "freshness": 0.643,
+          "authority": 0.72,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.779,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "product_id": "clay",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-9237cf3689338400",
+        "category": "product",
+        "published": "2026-09-23",
+        "title": "与 American Law Institute 合作，把 Restatements 接入法律研究平台",
+        "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
+        "why": "产品出现新的公开变化。",
+        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
+        "source": "Legora",
+        "source_kind": "已收录产品节点",
+        "url": "https://legora.com/newsroom",
+        "publishable": false,
+        "features": {
+          "freshness": 0.643,
+          "authority": 0.72,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.779,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "product_id": "legora",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-8e90582e32540808",
+        "category": "model",
+        "published": "2026-09-17",
+        "title": "Helix 2.5",
+        "summary": "Figure 将 Helix 2.5 重点放在未见过家庭环境的 zero-shot 泛化：用 Index 人类行为数据预训练，展示全身自主完成家庭任务。",
+        "why": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
+        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+        "source": "Figure",
+        "source_kind": "公司官方发布",
+        "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+        "publishable": false,
+        "features": {
+          "freshness": 0.214,
+          "authority": 1.0,
+          "impact": 0.94,
+          "novelty": 1.0
+        },
+        "priority_score": 0.748,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "track_id": "vla",
+        "maker": "Figure",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-f8ebb334ec90a751",
+        "category": "product",
+        "published": "2026-09-18",
+        "title": "图表抽取支持通用引擎选项",
+        "summary": "v2.129.0 调整图表抽取引擎选项，并包含表格与文档处理修复。",
+        "why": "更灵活的图表处理配置；具体质量变化仍需实测。",
+        "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查。",
+        "source": "Docling project",
+        "source_kind": "官方发布",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.129.0",
+        "publishable": true,
+        "features": {
+          "freshness": 0.286,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.748,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "task_id": "docling",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-48a5776851115e0e",
+        "category": "research",
+        "published": "2026-09-23",
+        "title": "Offloaded inference for real-world physical AI robotics",
+        "summary": "Microsoft Research 讨论把机器人推理卸载到外部 GPU 的系统设计，并量化轻量硬件下规划、感知和 VLA 的性能代价。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "Microsoft Research",
+        "source_kind": "官方技术博客",
+        "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
+        "publishable": false,
+        "features": {
+          "freshness": 0.643,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.708,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-350b65ea2adda7d8",
+        "category": "research",
+        "published": "2026-09-20",
+        "title": "Action-Conditioned World Models",
+        "summary": "AMI 继续押注表征空间里的 action-conditioned world models。9 月公开演讲增加了数学与医疗方向证据，但当前仍不应描述成已发布的通用产品模型。",
+        "why": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+        "source": "AMI Labs",
+        "source_kind": "公司官网",
+        "url": "https://amilabs.xyz",
+        "publishable": false,
+        "features": {
+          "freshness": 0.429,
+          "authority": 0.72,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.704,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "track_id": "neo-labs",
+        "maker": "AMI Labs",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-7c8a4623e73b1211",
+        "category": "research",
+        "published": "2026-09-15",
+        "title": "Bypassing inference bottlenecks with Retrieve-for-Train",
+        "summary": "Google Research 探索用 Retrieve-for-Train 把复杂搜索中的部分推理成本前移到训练阶段，关注 test-time search 的效率边界。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "Google Research",
+        "source_kind": "官方技术博客",
+        "url": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train",
+        "publishable": false,
+        "features": {
+          "freshness": 0.071,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.673,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-31d4c189fb62978a",
+        "category": "product",
+        "published": "2026-09-17",
+        "title": "Sierra 宣布通过 AIUC-1 Agent 安全与治理认证",
+        "summary": "面向企业客户体验的对话式 AI Agent，可按品牌与业务规则定制面向客户的执行代理。",
+        "why": "产品出现新的公开变化。",
+        "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。",
+        "source": "Sierra",
+        "source_kind": "已收录产品节点",
+        "url": "https://sierra.ai/uk/blog/sierra-achieves-aiuc-1-certification",
+        "publishable": false,
+        "features": {
+          "freshness": 0.214,
+          "authority": 0.72,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.651,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "product_id": "sierra",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-99359256a8db42bf",
+        "category": "product",
+        "published": "2026-09-14",
+        "title": "发布 2026 YC AI-native 律所对比，继续明确 AI-native law firm 类别",
+        "summary": "面向高增长公司的 AI-native 律所，覆盖商业、公司与雇佣法律工作。",
+        "why": "产品出现新的公开变化。",
+        "boundary": "服务质量、案件结果与价格优势没有在本站独立核验；法律结论仍由执业体系负责。",
+        "source": "General Legal",
+        "source_kind": "已收录产品节点",
+        "url": "https://general.legal/blog/yc-ai-native-law-firms",
+        "publishable": false,
+        "features": {
+          "freshness": 0.0,
+          "authority": 0.72,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.587,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "product_id": "general-legal",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-e53128947b11f0c6",
+        "category": "research",
+        "published": "2026-09-15",
+        "title": "Jev / System One Models",
+        "summary": "TypeSafe 从聊天式字符串生成转向可被软件直接消费的结构化概率决策；Jev 是其首个公开 System One Model。",
+        "why": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
+        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+        "source": "TypeSafe AI",
+        "source_kind": "公司官方发布",
+        "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+        "publishable": false,
+        "features": {
+          "freshness": 0.071,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.537,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "track_id": "neo-labs",
+        "maker": "TypeSafe AI",
+        "first_seen_at": "2026-09-28T10:10:16Z"
       }
     ]
   },
@@ -2268,8 +2744,8 @@
       "hold",
       "merge"
     ],
-    "status": "bootstrap",
-    "note": "每 2 小时评估是否值得更新，但当前只做影子决策，不自动改写人工精选。积累足够反馈后再启用延迟奖励 contextual bandit。",
+    "status": "shadow-running",
+    "note": "每 2 小时实际运行一次候选采集与 shadow 决策；只从站内已经核验的一手/官方数据生成候选，不自动把候选写成热点事实或热度分数。",
     "features": [
       {
         "id": "heat_now",
@@ -2333,8 +2809,15 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": null,
-    "last_decision": null
+    "last_evaluated": "2026-09-28T10:10:16Z",
+    "last_decision": {
+      "action": "publish",
+      "candidate_count": 19,
+      "publish_ready_count": 4,
+      "merge_count": 2,
+      "best_candidate": "candidate-302c28e2e59051e3",
+      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
+    }
   },
   "github_hot": {
     "version": 1,
