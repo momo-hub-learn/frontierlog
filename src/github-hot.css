@@ -74,3 +74,7 @@
 .h-open-tabs a{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border-radius:6px;font-size:.875rem;color:var(--sub)}
 .h-open-tabs a:hover{background:var(--panel);color:var(--text)}.h-open-tabs a.active{background:var(--panel);color:var(--accent);font-weight:750;box-shadow:0 0 0 1px var(--line) inset}
 .h-open-tabs .ico{width:14px;height:14px}.h-open-tabs small{font:600 .75rem var(--mono);color:var(--muted)}
+
+.ranking-stale{display:grid;gap:4px;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--orange,#d97706) 35%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--orange,#d97706) 7%,var(--panel));line-height:1.55}
+.ranking-stale strong{font-size:.9rem;color:var(--text)}
+.ranking-stale span{font-size:.8125rem;color:var(--sub)}

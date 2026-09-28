@@ -254,6 +254,18 @@ class BuildTests(unittest.TestCase):
             self.assertIn('repo_created_at',html)
             self.assertIn('repo_pushed_at',html)
 
+    def test_trending_rankings_fail_closed_when_snapshot_is_stale(self):
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('function ghFreshness()',html)
+            self.assertIn('function hfFreshness()',html)
+            self.assertIn('数据已过期，暂不作为当前榜',html)
+            self.assertIn("ageHours>6",html)
+            self.assertIn('GitHub 历史快照',html)
+            self.assertIn('HuggingFace 历史快照',html)
+            self.assertIn("const delta=t.gain>0?",html)
+
     def test_hot_panel_title_is_inline_bilingual(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

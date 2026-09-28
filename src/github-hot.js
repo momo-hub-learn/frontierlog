@@ -48,8 +48,10 @@ function ghSpark(x){
 function ghTrendLabel(x){
   const t=ghTrend(x);if(!t)return '';
   const hours=t.hours<10?t.hours.toFixed(1):Math.round(t.hours);
-  const rate=t.rate>=10?Math.round(t.rate):t.rate.toFixed(1);
-  return '近 '+hours+'h +'+ghFmt(t.gain)+' Star · ≈ '+rate+'/h'
+  const absRate=Math.abs(t.rate)>=10?Math.round(Math.abs(t.rate)):Math.abs(t.rate).toFixed(1);
+  const delta=t.gain>0?('+'+ghFmt(t.gain)):t.gain<0?('−'+ghFmt(Math.abs(t.gain))):'0';
+  const rate=t.rate>0?('+'+absRate):t.rate<0?('−'+absRate):'0';
+  return '近 '+hours+'h '+delta+' Star · ≈ '+rate+'/h'
 }
 function ghFmt(n){
   const v=Number(n)||0;
@@ -62,6 +64,18 @@ function ghWhen(){
   if(!raw)return '待核验';
   try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}
   catch{return raw}
+}
+function ghFreshness(){
+  const t=Date.parse(String(GH.checked_at||''));
+  if(!Number.isFinite(t))return {stale:true,ageHours:null};
+  const ageHours=Math.max(0,(Date.now()-t)/36e5);
+  return {stale:ageHours>6,ageHours}
+}
+function ghStaleNotice(){
+  const f=ghFreshness();
+  if(!f.stale)return '';
+  const age=f.ageHours==null?'更新时间不可核验':('已超过 '+Math.floor(f.ageHours)+' 小时未核验');
+  return '<div class="ranking-stale"><strong>数据已过期，暂不作为当前榜</strong><span>'+esc(age)+' · 下方仅保留 '+esc(ghWhen())+' 的历史快照，请以 GitHub 官方 Trending 为准。</span></div>'
 }
 function ghActive(){
   if(state.view==='github')return true;
@@ -83,6 +97,7 @@ function ghBarWidth(value,max){
   return Math.max(4,Math.round((Number(value)||0)/max*100));
 }
 function ghPreview(){
+  if(ghFreshness().stale)return '<section class="gh-preview"><div class="v10-section-head"><div><p class="eyebrow">GITHUB / DEVELOPER SIGNAL</p><h2>GitHub AI 热仓</h2><p>榜单快照已过期，因此首页不继续展示旧的 Top 项目。</p></div><a href="#/hot?tab=github">查看历史快照 '+icon('arrow')+'</a></div>'+ghStaleNotice()+'</section>';
   const rows=ghPreviewRows();
   if(!rows.length)return '';
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
@@ -104,7 +119,8 @@ function ghInline(){
   const max=Math.max(...rows.map(x=>Number(x.stars_today)||0),1);
   return '<section class="gh-inline">'+
     hOpenTabs('github')+
-    '<div class="gh-inline-head"><div><strong>GitHub Trending · Today</strong><span>官方榜位 + 今日新增 Star，作为开发者采用信号。</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
+    '<div class="gh-inline-head"><div><strong>'+(ghFreshness().stale?'GitHub Trending · 历史快照':'GitHub Trending · Today')+'</strong><span>'+(ghFreshness().stale?'该快照已过期，不代表当前榜位。':'官方榜位 + 今日新增 Star，作为开发者采用信号。')+'</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
+    ghStaleNotice()+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
     (rows.length?'<div class="gh-list">'+rows.map(x=>
@@ -121,9 +137,9 @@ function ghInline(){
 const ghBaseHotPage=hotPage;
 hotPage=function(){
   if(!ghActive())return ghBaseHotPage();
-  const s=hState(),q=ghQuery();
+  const s=hState(),q=ghQuery(),stale=ghFreshness().stale;
   return '<section class="h-wrap v10-hot gh-embedded">'+
-    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> HOT SIGNALS / NEWEST FIRST</p><h1>热点时间线<span class="accent">.</span></h1><p>新闻热点看时间，GitHub 热榜看开发者采用信号；两种口径不混排行。</p></div><div class="h-meta"><span><i class="state-dot"></i> GitHub Trending</span><span>'+esc(ghWhen())+'</span></div></header>'+
+    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'HOT SIGNALS / NEWEST FIRST')+'</p><h1>'+(stale?'GitHub 历史快照':'热点时间线')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再占据“当前”位置；先保留可追溯快照，并引导回官方原榜。':'新闻热点看时间，GitHub 热榜看开发者采用信号；两种口径不混排行。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'GitHub Trending')+'</span><span>'+esc(ghWhen())+'</span></div></header>'+
     '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="gh-search" type="search" value="'+esc(q)+'" placeholder="搜索仓库、类型、标签…" aria-label="搜索 GitHub 热榜"><kbd>/</kbd></label></div>'+
     ghInline()+
   '</section>'
