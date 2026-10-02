@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-01",
+    "checked": "2026-10-02",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -504,24 +504,24 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-01T19:54:53Z",
+      "last_checked_at": "2026-10-02T00:16:41Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 16,
-      "publish_ready_count": 4,
+      "candidate_count": 14,
+      "publish_ready_count": 1,
       "note": "自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-01T19:54:53Z",
+    "generated_at": "2026-10-02T00:16:41Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 4,
+      "publish": 1,
       "merge": 1,
-      "hold": 11
+      "hold": 12
     },
     "candidates": [
       {
@@ -537,14 +537,37 @@
         "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
         "publishable": true,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 1.0
         },
-        "priority_score": 0.802,
+        "priority_score": 0.78,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "first_seen_at": "2026-09-28T10:10:16Z"
+      },
+      {
+        "id": "candidate-ee90a4ee12c3bb7a",
+        "category": "research",
+        "published": "2026-09-24",
+        "title": "Automating coherent long-form video generation",
+        "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
+        "why": "官方技术文章出现新的能力或系统信号。",
+        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
+        "source": "Google Research",
+        "source_kind": "官方技术博客",
+        "url": "https://research.google/blog/coherent-long-form-video-generation",
+        "publishable": false,
+        "features": {
+          "freshness": 0.429,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.78,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
         "first_seen_at": "2026-09-28T10:10:16Z"
       },
       {
@@ -560,14 +583,14 @@
         "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
         "publishable": true,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.791,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "priority_score": 0.769,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "harvey",
         "first_seen_at": "2026-09-28T10:10:16Z"
       },
@@ -584,14 +607,14 @@
         "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini",
         "publishable": true,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.791,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "priority_score": 0.769,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "gemini-connected-apps",
         "first_seen_at": "2026-09-28T10:10:16Z"
       },
@@ -608,38 +631,15 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.791,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-        "task_id": "chatgpt-voice-work",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-ee90a4ee12c3bb7a",
-        "category": "research",
-        "published": "2026-09-24",
-        "title": "Automating coherent long-form video generation",
-        "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
-        "why": "官方技术文章出现新的能力或系统信号。",
-        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
-        "source": "Google Research",
-        "source_kind": "官方技术博客",
-        "url": "https://research.google/blog/coherent-long-form-video-generation",
-        "publishable": false,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.801,
+        "priority_score": 0.769,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
+        "task_id": "chatgpt-voice-work",
         "first_seen_at": "2026-09-28T10:10:16Z"
       },
       {
@@ -655,12 +655,12 @@
         "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving",
         "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.78,
+        "priority_score": 0.759,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "first_seen_at": "2026-09-28T10:10:16Z"
@@ -678,12 +678,12 @@
         "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
         "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.78,
+        "priority_score": 0.759,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "first_seen_at": "2026-09-28T10:10:16Z"
@@ -701,12 +701,12 @@
         "url": "https://www.subconscious.dev/blog/subconscious-raises-5-1-million-to-build-the-inference-platform-for-long-running-agents",
         "publishable": false,
         "features": {
-          "freshness": 0.357,
+          "freshness": 0.286,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.759,
+        "priority_score": 0.737,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "track_id": "neo-labs",
@@ -726,12 +726,12 @@
         "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
         "publishable": false,
         "features": {
-          "freshness": 0.5,
+          "freshness": 0.429,
           "authority": 0.72,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.737,
+        "priority_score": 0.715,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "legora",
@@ -750,12 +750,12 @@
         "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases",
         "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 0.72,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.715,
+        "priority_score": 0.694,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "clay",
@@ -774,40 +774,15 @@
         "url": "https://legora.com/newsroom",
         "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 0.72,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.715,
+        "priority_score": 0.694,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "legora",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-8e90582e32540808",
-        "category": "model",
-        "published": "2026-09-17",
-        "title": "Helix 2.5",
-        "summary": "Figure 将 Helix 2.5 重点放在未见过家庭环境的 zero-shot 泛化：用 Index 人类行为数据预训练，展示全身自主完成家庭任务。",
-        "why": "机器人策略、全身控制与现实环境泛化。不同机器人、数据集和任务不可用一个总分硬排；只展示可追溯的公开来源。",
-        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
-        "source": "Figure",
-        "source_kind": "公司官方发布",
-        "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.94,
-          "novelty": 1.0
-        },
-        "priority_score": 0.684,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "track_id": "vla",
-        "maker": "Figure",
         "first_seen_at": "2026-09-28T10:10:16Z"
       },
       {
@@ -823,12 +798,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.129.0",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.684,
+        "priority_score": 0.662,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "docling",
@@ -847,12 +822,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
         "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 0.357,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.644,
+        "priority_score": 0.623,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-09-28T10:10:16Z"
@@ -870,40 +845,16 @@
         "url": "https://amilabs.xyz",
         "publishable": false,
         "features": {
-          "freshness": 0.214,
+          "freshness": 0.143,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.64,
+        "priority_score": 0.619,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "track_id": "neo-labs",
         "maker": "AMI Labs",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-31d4c189fb62978a",
-        "category": "product",
-        "published": "2026-09-17",
-        "title": "Sierra 宣布通过 AIUC-1 Agent 安全与治理认证",
-        "summary": "面向企业客户体验的对话式 AI Agent，可按品牌与业务规则定制面向客户的执行代理。",
-        "why": "产品出现新的公开变化。",
-        "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。",
-        "source": "Sierra",
-        "source_kind": "已收录产品节点",
-        "url": "https://sierra.ai/uk/blog/sierra-achieves-aiuc-1-certification",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.72,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.587,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "product_id": "sierra",
         "first_seen_at": "2026-09-28T10:10:16Z"
       }
     ]
@@ -2733,11 +2684,11 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-01T19:54:53Z",
+    "last_evaluated": "2026-10-02T00:16:41Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 16,
-      "publish_ready_count": 4,
+      "candidate_count": 14,
+      "publish_ready_count": 1,
       "merge_count": 1,
       "best_candidate": "candidate-302c28e2e59051e3",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
