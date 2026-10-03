@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T19:34:45Z",
+  "generated_at": "2026-10-03T00:01:47Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 1,
+    "publish": 0,
     "merge": 1,
     "hold": 12
   },
@@ -23,14 +23,14 @@
       "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
       "publishable": true,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 1.0
       },
-      "priority_score": 0.78,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "priority_score": 0.759,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
     },
     {
@@ -46,12 +46,12 @@
       "url": "https://research.google/blog/coherent-long-form-video-generation",
       "publishable": false,
       "features": {
-        "freshness": 0.429,
+        "freshness": 0.357,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.78,
+      "priority_score": 0.759,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -69,12 +69,12 @@
       "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
       "publishable": true,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.769,
+      "priority_score": 0.748,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "harvey",
@@ -93,12 +93,12 @@
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini",
       "publishable": true,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.769,
+      "priority_score": 0.748,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "task_id": "gemini-connected-apps",
@@ -117,12 +117,12 @@
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "publishable": true,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.769,
+      "priority_score": 0.748,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "task_id": "chatgpt-voice-work",
@@ -141,12 +141,12 @@
       "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving",
       "publishable": false,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.759,
+      "priority_score": 0.737,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -164,12 +164,12 @@
       "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
       "publishable": false,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.759,
+      "priority_score": 0.737,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -187,12 +187,12 @@
       "url": "https://www.subconscious.dev/blog/subconscious-raises-5-1-million-to-build-the-inference-platform-for-long-running-agents",
       "publishable": false,
       "features": {
-        "freshness": 0.286,
+        "freshness": 0.214,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.737,
+      "priority_score": 0.716,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "track_id": "neo-labs",
@@ -212,12 +212,12 @@
       "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
       "publishable": false,
       "features": {
-        "freshness": 0.429,
+        "freshness": 0.357,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.715,
+      "priority_score": 0.694,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "legora",
@@ -236,12 +236,12 @@
       "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases",
       "publishable": false,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.694,
+      "priority_score": 0.672,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "clay",
@@ -260,39 +260,15 @@
       "url": "https://legora.com/newsroom",
       "publishable": false,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.694,
+      "priority_score": 0.672,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "legora",
-      "first_seen_at": "2026-09-28T10:10:16Z"
-    },
-    {
-      "id": "candidate-f8ebb334ec90a751",
-      "category": "product",
-      "published": "2026-09-18",
-      "title": "图表抽取支持通用引擎选项",
-      "summary": "v2.129.0 调整图表抽取引擎选项，并包含表格与文档处理修复。",
-      "why": "更灵活的图表处理配置；具体质量变化仍需实测。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查。",
-      "source": "Docling project",
-      "source_kind": "官方发布",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.129.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.662,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "task_id": "docling",
       "first_seen_at": "2026-09-28T10:10:16Z"
     },
     {
@@ -308,12 +284,12 @@
       "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
       "publishable": false,
       "features": {
-        "freshness": 0.357,
+        "freshness": 0.286,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.623,
+      "priority_score": 0.601,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -331,12 +307,12 @@
       "url": "https://amilabs.xyz",
       "publishable": false,
       "features": {
-        "freshness": 0.143,
+        "freshness": 0.071,
         "authority": 0.72,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.619,
+      "priority_score": 0.597,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "track_id": "neo-labs",
