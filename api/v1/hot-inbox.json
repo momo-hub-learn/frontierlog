@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-06T22:49:09Z",
+  "generated_at": "2026-10-07T01:51:22Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
     "merge": 1,
-    "hold": 11
+    "hold": 10
   },
   "candidates": [
     {
@@ -23,12 +23,12 @@
       "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 1.0
       },
-      "priority_score": 0.694,
+      "priority_score": 0.673,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -46,12 +46,12 @@
       "url": "https://research.google/blog/coherent-long-form-video-generation",
       "publishable": false,
       "features": {
-        "freshness": 0.143,
+        "freshness": 0.071,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.694,
+      "priority_score": 0.673,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -69,12 +69,12 @@
       "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.684,
+      "priority_score": 0.662,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "harvey",
@@ -93,12 +93,12 @@
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.684,
+      "priority_score": 0.662,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "task_id": "gemini-connected-apps",
@@ -117,12 +117,12 @@
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.684,
+      "priority_score": 0.662,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "task_id": "chatgpt-voice-work",
@@ -141,12 +141,12 @@
       "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.673,
+      "priority_score": 0.651,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
@@ -164,29 +164,6 @@
       "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.673,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "first_seen_at": "2026-09-28T10:10:16Z"
-    },
-    {
-      "id": "candidate-42408ab773cb704f",
-      "category": "research",
-      "published": "2026-09-22",
-      "title": "Long-Running Agent Inference",
-      "summary": "把动态上下文压缩做成长任务 agent 的推理平台，目标是在不更换底层模型的情况下延长任务持续时间并降低上下文成本。",
-      "why": "跟踪新一代 AI 实验室真正公开的技术进展；融资和传闻不等同于模型能力，来源强弱会明确标记。",
-      "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
-      "source": "Subconscious",
-      "source_kind": "公司官方发布",
-      "url": "https://www.subconscious.dev/blog/subconscious-raises-5-1-million-to-build-the-inference-platform-for-long-running-agents",
-      "publishable": false,
-      "features": {
         "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.82,
@@ -195,8 +172,6 @@
       "priority_score": 0.651,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
-      "track_id": "neo-labs",
-      "maker": "Subconscious",
       "first_seen_at": "2026-09-28T10:10:16Z"
     },
     {
@@ -212,12 +187,12 @@
       "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
       "publishable": false,
       "features": {
-        "freshness": 0.143,
+        "freshness": 0.071,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.629,
+      "priority_score": 0.608,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "legora",
@@ -236,12 +211,12 @@
       "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.608,
+      "priority_score": 0.587,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "clay",
@@ -260,12 +235,12 @@
       "url": "https://legora.com/newsroom",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 0.72,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.608,
+      "priority_score": 0.587,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "legora",
@@ -284,12 +259,12 @@
       "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.537,
+      "priority_score": 0.515,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-09-28T10:10:16Z"
