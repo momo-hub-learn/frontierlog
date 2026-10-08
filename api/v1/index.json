@@ -37,49 +37,49 @@
     ],
     "items": [
       {
-        "id": "gpt-6-sol-luna-20260922",
-        "category": "model",
+        "id": "gpt-6-intelligent-ui-20261007",
+        "category": "product",
         "heat": 99,
         "trend": "up",
-        "published": "2026-09-22",
-        "checked": "2026-09-23",
-        "title": "OpenAI 发布 GPT-6 Sol / Luna：更便宜的 GPT-6 已进 Work、Codex 与 API",
-        "summary": "OpenAI 9 月 22 日发布 GPT-6 Sol 与 GPT-6 Luna，API 价分别为每百万输入 / 输出 Token $2/$10 与 $0.10/$0.50。Artificial Analysis 独立评测仍给出 Sol (max) Intelligence Index 48、$1.06/task、Coding Agent Index 57；Luna (max) 37、$0.07/task、Coding Agent Index 41。",
-        "why": "这次变化不只是“又发两个模型”：GPT-6 的能力开始下沉到更高频、成本敏感的 Agent 工作。Sol / Luna 当天进入 ChatGPT Work、Codex 与 API，意味着前沿能力的竞争进一步转向单位任务成本、缓存效率和可持续长任务。",
-        "boundary": "发布、价格与可用性来自 OpenAI；48/37、$1.06/$0.07 单任务成本与 57/41 Coding Agent Index 来自 Artificial Analysis 公开评测。Coding Agent Index 使用 Codex harness，与基础模型 Intelligence Index 是不同维度；速度与成本快照后续仍可能变化。",
-        "source": "OpenAI / Artificial Analysis",
-        "source_kind": "官方发布 + 独立公开榜",
-        "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
-        "link": "#/progress",
-        "secondary_url": "https://artificialanalysis.ai/leaderboards/models",
+        "published": "2026-10-07",
+        "checked": "2026-10-08",
+        "title": "GPT-6 进入 ChatGPT：回答开始直接生成可交互界面",
+        "summary": "OpenAI 10 月 7 日开始把 GPT-6 与 Intelligent UI 推向 ChatGPT：模型可按问题组合文本、图形、按钮、表单、图表和可交互工具。Plus、Pro、Business、Enterprise 当天开始全球 rollout，Free / Go 从 10 月 8 日开始扩展。",
+        "why": "这次值得跟踪的不是单纯换模型，而是回答形态从“生成文字”继续转向“即时生成任务界面”。如果交互组件能稳定承载计算、比较和学习任务，模型与应用前端之间的边界会进一步变薄。",
+        "boundary": "功能与开放范围来自 OpenAI 官方发布。Rollout 不等于所有账号同时可见；Enterprise 受管理员设置影响。付费/企业 Chat 使用 GPT-6 Sol，Free / Go 使用 GPT-6 Luna；Pro reasoning 仍使用 GPT-6 Astra 且不支持 Intelligent UI。本次更新不改变 Work 与 Codex 当前使用的模型版本。本站未把交互质量或任务成功率写成独立实测。",
+        "source": "OpenAI",
+        "source_kind": "官方产品发布",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "link": "#/progress?view=updates",
+        "secondary_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "evidence_level": "high",
-        "first_seen_at": "2026-09-23T02:26:01+08:00",
+        "first_seen_at": "2026-10-08T02:57:20Z",
         "access": [
           {
-            "label": "OpenAI Platform",
-            "note": "API 调用入口 · 需账号 / API 权限",
-            "url": "https://platform.openai.com/",
+            "label": "ChatGPT",
+            "note": "GPT-6 Intelligent UI rollout 入口 · 以账号实际开放为准",
+            "url": "https://chatgpt.com/",
             "kind": "try"
           },
           {
-            "label": "API Changelog",
-            "note": "GPT-6 Sol / Luna 模型 ID、价格与接口说明",
-            "url": "https://developers.openai.com/api/docs/changelog",
+            "label": "OpenAI 官方发布",
+            "note": "Intelligent UI、套餐范围与产品边界",
+            "url": "https://openai.com/index/gpt-6-for-everyone/",
             "kind": "docs"
           }
         ],
         "related": [
           {
-            "source": "The Indian Express / Reuters",
-            "date": "2026-09-23",
-            "title": "OpenAI expands GPT-6 lineup with cheaper Sol and Luna models",
-            "url": "https://indianexpress.com/article/technology/artificial-intelligence/openai-expands-gpt-6-lineup-with-cheaper-sol-and-luna-models-10890033/"
+            "source": "OpenAI Help Center",
+            "date": "2026-10-07",
+            "title": "GPT-6 and Intelligent UI in ChatGPT",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
           },
           {
-            "source": "Techmeme",
-            "date": "2026-09-22",
-            "title": "GPT-6 Sol / Luna 发布后的媒体与开发者讨论汇总",
-            "url": "https://www.techmeme.com/260922/p43"
+            "source": "OpenAI Deployment Safety Hub",
+            "date": "2026-10-07",
+            "title": "GPT-6 Sol and GPT-6 Luna: October 2026 update",
+            "url": "https://deploymentsafety.openai.com/gpt-6-october/broken-search-tool"
           }
         ]
       },
