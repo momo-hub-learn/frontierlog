@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T02:57:27Z",
+  "generated_at": "2026-10-08T03:22:16Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 1,
-    "merge": 0,
+    "publish": 0,
+    "merge": 1,
     "hold": 2
   },
   "candidates": [
@@ -26,11 +26,11 @@
         "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
-        "novelty": 1.0
+        "novelty": 0.15
       },
-      "priority_score": 0.941,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
       "task_id": "chatgpt-gpt6-intelligent-ui",
       "first_seen_at": "2026-10-08T02:57:27Z"
     },
