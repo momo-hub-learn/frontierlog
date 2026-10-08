@@ -3,7 +3,8 @@
 const HOT_POLICY=APP.hot_policy||null;
 function v10HotContentDate(){return (HOT.items||[]).map(x=>x.published).filter(Boolean).sort().at(-1)||HOT.checked||''}
 function v10HotCheckedText(){const raw=HOT.sync?.last_checked_at;if(!raw)return (HOT.checked||'').replaceAll('-','.');const d=new Date(raw);if(Number.isNaN(d.getTime()))return (HOT.checked||'').replaceAll('-','.');try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replaceAll('/','.')}catch{return (HOT.checked||'').replaceAll('-','.')}}
-function v10LocalToday(){const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}
+const AIC_EDITORIAL_TZ='Asia/Shanghai';
+function v10LocalToday(now=new Date()){try{return new Intl.DateTimeFormat('en-CA',{timeZone:AIC_EDITORIAL_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(now)}catch{const d=new Date(now.getTime()+8*60*60*1000);return d.toISOString().slice(0,10)}}
 function v10DayOrdinal(raw){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(raw||''));return m?Date.UTC(+m[1],+m[2]-1,+m[3]):NaN}
 function v10HotAgeDays(raw){const a=v10DayOrdinal(v10LocalToday()),b=v10DayOrdinal(raw);return Number.isFinite(a)&&Number.isFinite(b)?Math.max(0,Math.floor((a-b)/864e5)):999}
 function v10Top5Window(){const all=HOT.items||[],within=days=>all.filter(x=>v10HotAgeDays(x.published)<days),recent3=within(3),days=recent3.length>=5?3:7;return {days,rows:days===3?recent3:within(7),label:days===3?'近 3 日':'近 7 日'}}
