@@ -40,6 +40,7 @@ jobs:
           node tests/v10-timezone.test.cjs
           node tests/v10-next-coordinate.test.cjs
           node tests/v10-top5-backfill.test.cjs
+          node tests/palantir-evergreen.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
