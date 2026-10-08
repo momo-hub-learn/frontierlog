@@ -29,4 +29,5 @@ const ctx = {
 vm.runInNewContext(prefix, ctx, {filename:'src/v10.js'});
 const {v10NextOfficialEvent}=ctx.__nextTest;
 assert.equal(v10NextOfficialEvent().id,'official-soon');
+assert.ok(source.includes('<h2>下一坐标</h2>'));
 console.log('PASS next coordinate selects the nearest future official event');
