@@ -86,6 +86,7 @@ def validate_product_radar(data:dict)->None:
     for item in items:
         if not re.fullmatch(r'[a-z0-9][a-z0-9-]*',item.get('id','')): raise ValueError('Unsafe product radar ID')
         if item.get('group') not in set(gids): raise ValueError('Unknown product radar group')
+        if 'long_term_watch' in item and not isinstance(item['long_term_watch'],bool): raise ValueError('Invalid long-term watch flag')
         tags=item.get('tags')
         if not isinstance(tags,list) or not 2<=len(tags)<=4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() for t in tags): raise ValueError('Invalid product radar tags')
         filter_ids=item.get('filter_ids')
