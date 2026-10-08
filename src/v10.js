@@ -186,6 +186,14 @@ const PB=(()=>{
    '<details class="pb-evidence"><summary>来源与证据</summary><dl><div><dt>产品说明</dt><dd>'+external(x.product_url,'产品官网')+'<small>简介沿用已收录资料，未标记为本站实测。</small></dd></div><div><dt>客户采用</dt><dd>'+(adoption?external(adoption.url,'采用公告'):'<span class="pb-muted">待补客户公告或独立案例</span>')+'</dd></div><div><dt>'+esc(x.evidence_label||'投资背景')+'</dt><dd>'+external(x.source_url,x.source_label)+'<small>'+esc(x.evidence)+'</small></dd></div></dl></details>'+
    '<footer>'+external(x.product_url,'产品官网')+link(s,{pview:'updates',product:x.id,kind:'all'},'查看动态 '+icon('arrow'))+'</footer></article>';
  }
+ function evergreenHTML(s){
+  const watched=catalog().filter(x=>x.long_term_watch===true);
+  if(!watched.length)return '';
+  return '<section class="pb-evergreen" aria-label="长期关注产品"><div class="pb-evergreen-head"><div><p class="eyebrow">LONG-TERM WATCH / EVERGREEN</p><h2>长期关注</h2><p>持续保留产品档案与历史时间线，不因近期没有更新而隐藏。</p></div><span>'+watched.length+' 个长期跟踪对象</span></div><div class="pb-evergreen-list">'+watched.map(x=>{
+   const latest=chronology(x)[0],url=href(s,{pview:'map',scene:'all',investor:'all',kind:'all',legacy:'',product:x.id,q:''});
+   return '<a data-pb-link class="pb-evergreen-item" href="'+esc(url)+'"><div><strong>'+esc(x.name)+'</strong><small>'+esc(x.company)+' · 最近记录 '+esc(latest?.date||'暂无')+'</small><p>'+esc(x.research?.thesis||x.summary)+'</p></div><span>完整档案与时间线 '+icon('arrow')+'</span></a>';
+  }).join('')+'</div></section>'
+ }
  function page(s=read()){
   const matches=products(s),stream=events(s),totalEvents=events({...s,kind:'all'});
   const tabs=[['updates','产品动态',totalEvents.length,'条'],['map','产品地图',matches.length,'个']].map(([id,title,n,unit])=>'<a data-pb-link class="pb-view '+(s.pview===id?'active':'')+'" href="'+esc(href(s,{pview:id}))+'" '+(s.pview===id?'aria-current="page"':'')+'>'+title+'<small>'+n+' '+unit+'</small></a>').join('');
@@ -193,7 +201,7 @@ const PB=(()=>{
   const count=s.pview==='map'?matches.length+' 个产品 · 最近有进展的优先':stream.length+' 条记录 · 含历史进展';
   return '<section class="h-wrap pb-page"><header class="pb-page-head"><div><p class="eyebrow">PRODUCT SIGNALS / TRACK & EXPLORE</p><h1>AI 产品雷达</h1><p>动态看最近变化，地图看产品能力与长期进展。</p></div><span>名录核对 '+esc(PRODUCT_RADAR.checked||'待核验')+'</span></header>'+
    '<div class="h-filterbar">'+hTabs({...hState(),cat:'product'})+'<label class="h-search">'+icon('search')+'<input id="h-search" type="search" value="'+esc(s.q)+'" placeholder="搜索产品、能力或进展" aria-label="搜索产品、能力或进展"></label></div>'+
-   '<nav class="pb-views" aria-label="产品视图">'+tabs+'</nav>'+filters(s)+'<div class="pb-toolbar"><p aria-live="polite">'+count+'</p>'+(s.pview==='updates'?kindSelect:'')+link(s,{scene:'all',investor:'all',kind:'all',product:'',q:'',legacy:''},'重置筛选','pb-reset')+'</div>'+
+   evergreenHTML(s)+'<nav class="pb-views" aria-label="产品视图">'+tabs+'</nav>'+filters(s)+'<div class="pb-toolbar"><p aria-live="polite">'+count+'</p>'+(s.pview==='updates'?kindSelect:'')+link(s,{scene:'all',investor:'all',kind:'all',product:'',q:'',legacy:''},'重置筛选','pb-reset')+'</div>'+
    (s.pview==='updates'?updates(stream,s):matches.length?'<div class="pb-grid">'+matches.map(x=>card(x,s)).join('')+'</div>':empty(s,'当前筛选下暂无已建档产品'))+
    '<details class="pb-notes"><summary>收录与证据口径</summary><p>本页沿用已收录资料，不因页面改版刷新发布日期或核对时间。投资 / 孵化关系不代表能力排名；产品说明、客户采用和投资背景分别展示来源。未定位到具体文章的记录标注“精确原文待补”。行业文章不等于产品发布。</p><p>产品动态合并名录时间线与产品热点；未入库产品只在无场景 / 投资筛选时展示。产品地图首批覆盖法律与企业应用，不代表全行业。</p></details></section>';
  }
