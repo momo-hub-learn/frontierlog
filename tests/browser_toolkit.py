@@ -40,7 +40,7 @@ try:
             page.wait_for_timeout(200)
         go('#/toolkit')
         expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
-        expect(page.locator('.tk-card h2')).to_have_count(10)
+        expect(page.locator('.tk-card h2')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('.tk-conditions dd')).to_have_count(TOOLKIT_COUNT*2)
         expect(page.locator('[data-tk-id=chatgpt-voice-work] .tk-identity')).to_contain_text('OpenAI')
         assert 'Google DeepMind' not in page.locator('.tk-wrap').inner_text()
@@ -49,7 +49,7 @@ try:
         page.locator('[data-tk-group=documents]').click();expect(page.locator('.tk-card')).to_have_count(2)
         page.locator('#tk-access').select_option('local');expect(page.locator('.tk-card')).to_have_count(1)
         expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','docling')
-        page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(10)
+        page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
         page.locator('#tk-search').fill('OPENAI');expect(page.locator('.tk-card')).to_have_count(OPENAI_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
@@ -59,7 +59,7 @@ try:
         passed('Task, access and publisher filters, empty/reset states, escaped input and retained search focus')
         # Composition must not replace the search node or filter a partially committed IME string.
         page.locator('#tk-search').dispatch_event('compositionstart')
-        page.locator('#tk-search').fill('字幕');expect(page.locator('.tk-card')).to_have_count(10)
+        page.locator('#tk-search').fill('字幕');expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
         page.locator('#tk-search').dispatch_event('compositionend');expect(page.locator('.tk-card')).to_have_count(1)
         expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','whisper')
         page.locator('#tk-clear').click()
@@ -149,7 +149,7 @@ try:
             go(route)
             # These routes evolve separately; require nonempty content and an intact toolkit on return.
             assert len(page.locator('#content').inner_text())+len(page.locator('#vertical-root').inner_text())>80,route
-            if route.endswith('toolkit'):expect(page.locator('.tk-card')).to_have_count(10)
+            if route.endswith('toolkit'):expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
         assert not errors,errors
         passed('Navigation to Arena, products, capabilities and activity remains error-free')
         browser.close()
