@@ -38,6 +38,7 @@ jobs:
         run: |
           node tests/intraday-timezone.test.cjs
           node tests/v10-timezone.test.cjs
+          node tests/v10-next-coordinate.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
