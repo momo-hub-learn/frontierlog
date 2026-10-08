@@ -49,8 +49,12 @@ jobs:
           test -f dist-ci/api/v1/huggingface-hot.json
           test -f dist-ci/api/v1/deep-dives.json
           grep -q "AI 能力进度" dist-ci/index.html
+          grep -q "回答直接变成交互界面" dist-ci/index.html
+          grep -q "GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout" dist-ci/index.html
+          grep -q "the reset has been processed" dist-ci/index.html
+          grep -q "banked reset 正在加载到所有付费账户" dist-ci/index.html
           grep -q "最近检查" dist-ci/index.html
-          grep -q "内容最新" dist-ci/index.html
+          grep -q "HOT / RECENT" dist-ci/index.html
           grep -q "fc-hot-sync" dist-ci/index.html
           grep -q "AI 前沿现场" dist-ci/index.html
           grep -q "NVIDIA GTC Washington, D.C. 2026 Keynote" dist-ci/index.html
@@ -109,7 +113,7 @@ jobs:
           grep -q "本周深读 / 拆一下" dist-ci/index.html
           grep -q "GITHUB / TODAY" dist-ci/index.html
           grep -q "fc-cockpit" dist-ci/index.html
-          grep -q "fc-panel-titleline.*热点.*HOT / NOW" dist-ci/index.html
+          grep -q "fc-panel-titleline.*热点.*HOT / RECENT" dist-ci/index.html
           ! grep -q "<p class=\\\"eyebrow\\\">HOT / NOW</p><h2>热点</h2>" dist-ci/index.html
           grep -q "p5-progress" dist-ci/index.html
           grep -q "能力进展" dist-ci/index.html

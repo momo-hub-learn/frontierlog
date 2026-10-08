@@ -194,6 +194,21 @@ class BuildTests(unittest.TestCase):
             self.assertIn('待核验线索',html)
             self.assertNotIn("date:s?.published||t.reviewed||DATA.snapshot",html)
 
+    def test_gpt6_intelligent_ui_is_actionable_capability(self):
+        catalog=json.loads((ROOT/'data/catalog.json').read_text())
+        item=next(x for x in catalog['items'] if x['id']=='chatgpt-gpt6-intelligent-ui')
+        self.assertEqual(item['status'],'code')
+        self.assertFalse(item['tested'])
+        self.assertIn('怎么', '怎么验证')
+        event=next(x for x in catalog['events'] if x['id']=='chatgpt-gpt6-intelligent-ui-oct7')
+        self.assertEqual(event['date'],'2026-10-07')
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('回答直接变成交互界面',html)
+            self.assertIn('GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout',html)
+            self.assertIn('Work / Codex',html)
+
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

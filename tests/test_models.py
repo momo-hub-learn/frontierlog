@@ -62,6 +62,15 @@ class ValidationTests(unittest.TestCase):
   precise=sum(1 for e in E['events'] if e['precision']=='instant')
   self.assertEqual(sum(i.find('pubDate') is not None for i in items),precise)
   self.assertTrue(any('待核验' in i.findtext('title') for i in items));self.assertIn('help.openai.com',ET.tostring(xml,encoding='unicode'))
+ def test_oct7_reset_signals_stay_pending_without_direct_primary_review(self):
+  rows={x['id']:x for x in E['events']}
+  self.assertIn('tibo-global-processed-2026-10-07',rows)
+  self.assertIn('tibo-banked-loading-2026-10-07',rows)
+  self.assertEqual(rows['tibo-global-processed-2026-10-07']['status'],'pending')
+  self.assertEqual(rows['tibo-banked-loading-2026-10-07']['status'],'pending')
+  self.assertEqual(rows['tibo-global-processed-2026-10-07']['review_basis'],'secondary_lead')
+  self.assertIn('processed',rows['tibo-global-processed-2026-10-07']['original_text'])
+  validate_resets(E)
  def test_model_feed_boards_separate_stable_guids(self):
   a=ET.fromstring(model_rss(M,SITE));b=ET.fromstring(model_rss(M,SITE))
   self.assertEqual(len(a.findall('./channel/item')),2)

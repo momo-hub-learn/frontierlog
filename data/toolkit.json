@@ -203,6 +203,44 @@
       "runtime_tested": false
     },
     {
+      "id": "chatgpt-gpt6-intelligent-ui",
+      "publisher": "OpenAI",
+      "group": "office",
+      "access": "web",
+      "headline": "让 ChatGPT 直接生成可交互界面",
+      "input": "一个适合比较、计算或交互探索的任务",
+      "output": "可点击 / 可输入的原生交互组件与答案",
+      "requirements": "账号已获得 GPT-6 Intelligent UI rollout；Enterprise 还需 Workspace 管理员允许。",
+      "limitation": "rollout 不代表所有账号同时可见；当前发布针对 Chat，不改变 Work / Codex 模型，也不等于任意网页应用或无限制外部动作。",
+      "cost": "套餐、使用限额与可用模型以账号内显示为准。",
+      "steps": [
+        {
+          "title": "确认 rollout",
+          "body": "在 ChatGPT 的 Chat 中确认账号已获得 GPT-6；Plus、Pro、Business、Enterprise 从 10 月 7 日开始 rollout，Free / Go 从 10 月 8 日开始扩展。"
+        },
+        {
+          "title": "做一个可操作的小工具",
+          "body": "要求它创建一个参数可调的计算器或费用比较器；实际点击、输入和改变参数，确认结果会随状态更新，而不是只显示静态文本。"
+        },
+        {
+          "title": "再测试解释与退化",
+          "body": "让它用交互方式解释一个复杂概念，再问一个只需要一句话的问题；检查该用交互时能用、不需要时不会为了炫技堆界面。"
+        }
+      ],
+      "troubleshooting": "看不到 Intelligent UI 先确认 rollout、客户端版本和 Workspace 设置；组件不响应时重开一个低风险测试会话，不把静态截图误判为原生交互。",
+      "sources": [
+        {
+          "title": "OpenAI · GPT-6 and Intelligent UI for everyone",
+          "url": "https://openai.com/index/gpt-6-for-everyone/",
+          "published_at": "2026-10-07",
+          "verified_at": "2026-10-08"
+        }
+      ],
+      "entry_url": "https://chatgpt.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
       "id": "chatgpt-voice-work",
       "publisher": "OpenAI",
       "group": "office",

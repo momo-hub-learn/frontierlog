@@ -10,7 +10,7 @@ function v10Top5Window(){const all=HOT.items||[],within=days=>all.filter(x=>v10H
 function v10Top5Score(x){return (Number(x.heat)||0)-2*v10HotAgeDays(x.published)}
 function v10Top5Rows(){const w=v10Top5Window();return [...w.rows].sort((a,b)=>v10Top5Score(b)-v10Top5Score(a)||b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id)).slice(0,5)}
 function v10FeedFreshnessCopy(){const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,w=v10Top5Window(),n=v10Top5Rows().length;if(today)return '今天已核验 '+today+' 个高信号变化；先看近期重点，再按原始发布日期浏览时间线。';if(n)return '当前没有今日发布的已核验高信号变化；以下展示'+w.label+'仍值得跟踪的 '+n+' 个进展。';return '当前'+w.label+'暂无已核验高信号变化；可从时间线查看历史记录。'}
-function v10HotStatusShort(){return v10Top5Window().label+' · 热度兼顾时效'}
+function v10HotStatusShort(){return '最近检查 '+v10HotCheckedText()+' · '+v10Top5Window().label}
 function v10HotByTime(rows){return [...rows].sort((a,b)=>b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id))}
 function v10HotByHeat(rows){return [...rows].sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published)||a.id.localeCompare(b.id))}
 hRows=function(){const s=hState(),q=s.q.toLowerCase();return v10HotByTime(HOT.items.filter(x=>hCatMatches(s.cat,x.category)&&(!q||[x.title,x.summary,x.why,x.source,HOT_CATS.get(x.category)?.title].join(' ').toLowerCase().includes(q))))}

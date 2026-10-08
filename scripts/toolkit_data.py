@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 # Explicit primary-source hosts, reviewed alongside each guide. No arbitrary redirects.
 HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com',
     'blog.google','aistudio.google.com','gemini.google.com','help.openai.com',
-    'chatgpt.com','docs.openhands.dev','docs.browser-use.com',
+    'chatgpt.com','openai.com','docs.openhands.dev','docs.browser-use.com',
     'leanprover-community.github.io','live.lean-lang.org'})
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 
