@@ -8,6 +8,7 @@ on:
       - 'src/v10.css'
       - 'data/product-radar.json'
       - 'tests/product-browser.test.cjs'
+      - 'tests/test_*.py'
       - 'tests/browser_product_timeline.py'
       - '.github/workflows/product-timeline.yml'
   workflow_dispatch:

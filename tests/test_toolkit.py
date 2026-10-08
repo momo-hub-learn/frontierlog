@@ -16,8 +16,13 @@ class ToolkitTests(unittest.TestCase):
         self.catalog=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
     def test_eligible_tasks_once(self):
         validate_toolkit(self.data,self.catalog)
-        self.assertEqual(len(self.data['items']),10)
+        self.assertEqual(len(self.data['items']),sum(x['status']=='code' for x in self.catalog['items']))
         self.assertNotIn('alphaevolve',{x['id'] for x in self.data['items']})
+    def test_intelligent_ui_guide(self):
+        row=next(x for x in self.data['items'] if x['id']=='chatgpt-gpt6-intelligent-ui')
+        self.assertEqual(row['publisher'],'OpenAI')
+        self.assertEqual(row['access'],'web')
+        self.assertIn('交互',row['headline'])
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
         self.assertEqual(row['publisher'],'OpenAI')
