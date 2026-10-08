@@ -8,6 +8,9 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from playwright.sync_api import sync_playwright, expect
 
 ROOT=Path(__file__).resolve().parents[1]
+TOOLKIT_DATA=json.loads((ROOT/'data/toolkit.json').read_text(encoding='utf-8'))
+TOOLKIT_COUNT=len(TOOLKIT_DATA['items'])
+OPENAI_COUNT=sum(x.get('publisher')=='OpenAI' for x in TOOLKIT_DATA['items'])
 OUT=ROOT/'test-results/toolkit';OUT.mkdir(parents=True,exist_ok=True)
 MEMORY=os.environ.get('BROWSER_TEST_MODE')=='memory'
 server=None
@@ -36,19 +39,19 @@ try:
             else:page.goto(base+route,wait_until='domcontentloaded')
             page.wait_for_timeout(200)
         go('#/toolkit')
-        expect(page.locator('.tk-card')).to_have_count(10)
+        expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('.tk-card h2')).to_have_count(10)
-        expect(page.locator('.tk-conditions dd')).to_have_count(20)
+        expect(page.locator('.tk-conditions dd')).to_have_count(TOOLKIT_COUNT*2)
         expect(page.locator('[data-tk-id=chatgpt-voice-work] .tk-identity')).to_contain_text('OpenAI')
         assert 'Google DeepMind' not in page.locator('.tk-wrap').inner_text()
         expect(page.locator('.v2-tool')).to_have_count(0)
-        passed('Ten eligible guides, accurate publishers, input/output/limits and no duplicate old toolkit')
+        passed('Eligible guides match the catalog, with accurate publishers and no duplicate old toolkit')
         page.locator('[data-tk-group=documents]').click();expect(page.locator('.tk-card')).to_have_count(2)
         page.locator('#tk-access').select_option('local');expect(page.locator('.tk-card')).to_have_count(1)
         expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','docling')
         page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(10)
         expect(page.locator('#tk-search')).to_be_focused()
-        page.locator('#tk-search').fill('OPENAI');expect(page.locator('.tk-card')).to_have_count(2)
+        page.locator('#tk-search').fill('OPENAI');expect(page.locator('.tk-card')).to_have_count(OPENAI_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
         page.locator('#tk-search').fill('<img src=x onerror=alert(1)>');expect(page.locator('.tk-empty')).to_be_visible()
         expect(page.locator('.tk-wrap img[src=x]')).to_have_count(0)
@@ -142,7 +145,7 @@ try:
         page.screenshot(path=str(OUT/'toolkit-dark.png'))
         page.evaluate("applyTheme('light')")
         passed('200 percent text size and dark mode preserve content and controls')
-        for route,selector in [('#/models?board=arena','.ar-table'),('#/hot?cat=product','.pb-wrap'),('#/progress','.p4-progress'),('#/activity','.v2-activity'),('#/toolkit','.tk-wrap')]:
+        for route,selector in [('#/models?board=arena','.ar-table'),('#/hot?cat=product','.pb-wrap'),('#/progress','.p5-progress'),('#/activity','.v2-activity'),('#/toolkit','.tk-wrap')]:
             go(route)
             # These routes evolve separately; require nonempty content and an intact toolkit on return.
             assert len(page.locator('#content').inner_text())+len(page.locator('#vertical-root').inner_text())>80,route
