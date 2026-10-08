@@ -7,11 +7,23 @@ const AIC_EDITORIAL_TZ='Asia/Shanghai';
 function v10LocalToday(now=new Date()){try{return new Intl.DateTimeFormat('en-CA',{timeZone:AIC_EDITORIAL_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(now)}catch{const d=new Date(now.getTime()+8*60*60*1000);return d.toISOString().slice(0,10)}}
 function v10DayOrdinal(raw){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(raw||''));return m?Date.UTC(+m[1],+m[2]-1,+m[3]):NaN}
 function v10HotAgeDays(raw){const a=v10DayOrdinal(v10LocalToday()),b=v10DayOrdinal(raw);return Number.isFinite(a)&&Number.isFinite(b)?Math.max(0,Math.floor((a-b)/864e5)):999}
-function v10Top5Window(){const all=HOT.items||[],within=days=>all.filter(x=>v10HotAgeDays(x.published)<days),recent3=within(3),days=recent3.length>=5?3:7;return {days,rows:days===3?recent3:within(7),label:days===3?'近 3 日':'近 7 日'}}
 function v10Top5Score(x){return (Number(x.heat)||0)-2*v10HotAgeDays(x.published)}
-function v10Top5Rows(){const w=v10Top5Window();return [...w.rows].sort((a,b)=>v10Top5Score(b)-v10Top5Score(a)||b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id)).slice(0,5)}
-function v10FeedFreshnessCopy(){const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,w=v10Top5Window(),n=v10Top5Rows().length;if(today)return '今天已核验 '+today+' 个高信号变化；先看近期重点，再按原始发布日期浏览时间线。';if(n)return '当前没有今日发布的已核验高信号变化；以下展示'+w.label+'仍值得跟踪的 '+n+' 个进展。';return '当前'+w.label+'暂无已核验高信号变化；可从时间线查看历史记录。'}
-function v10HotStatusShort(){return '最近检查 '+v10HotCheckedText()+' · '+v10Top5Window().label}
+function v10Top5Sort(rows){return [...rows].sort((a,b)=>v10Top5Score(b)-v10Top5Score(a)||b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id))}
+function v10Top5Window(){
+ const all=HOT.items||[],within=days=>all.filter(x=>v10HotAgeDays(x.published)<days),recent3=within(3),days=recent3.length>=5?3:7;
+ const fresh=v10Top5Sort(days===3?recent3:within(7)).slice(0,5);
+ const known=new Set(fresh.map(x=>x.id));
+ const archive=v10Top5Sort(all.filter(x=>!known.has(x.id)&&v10HotAgeDays(x.published)>=days)).slice(0,Math.max(0,5-fresh.length));
+ return {days,rows:[...fresh,...archive],recentCount:fresh.length,archiveCount:archive.length,label:days===3?'近 3 日':'近 7 日'}
+}
+function v10Top5Rows(){return v10Top5Window().rows}
+function v10FeedFreshnessCopy(){
+ const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,w=v10Top5Window();
+ if(!w.rows.length)return '目前暂无已核验的高信号热点；可从时间线查看历史记录。';
+ const archive=w.archiveCount?'，另补充 '+w.archiveCount+' 条较早的已核验热点（保留原始日期）':'';
+ return (today?'今天已核验 '+today+' 个高信号变化':'当前没有今日发布的已核验高信号变化')+'；'+w.label+'内 '+w.recentCount+' 条'+archive+'。';
+}
+function v10HotStatusShort(){const w=v10Top5Window();return '最近检查 '+v10HotCheckedText()+' · '+w.label+(w.archiveCount?' + 历史精选':'')}
 function v10HotByTime(rows){return [...rows].sort((a,b)=>b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id))}
 function v10HotByHeat(rows){return [...rows].sort((a,b)=>b.heat-a.heat||b.published.localeCompare(a.published)||a.id.localeCompare(b.id))}
 function v10NextOfficialEvent(){
