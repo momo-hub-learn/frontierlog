@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-07",
+    "checked": "2026-10-08",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -504,48 +504,49 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-07T23:21:26Z",
+      "last_checked_at": "2026-10-08T02:57:27Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 11,
-      "publish_ready_count": 0,
+      "candidate_count": 3,
+      "publish_ready_count": 1,
       "note": "自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-07T23:21:26Z",
+    "generated_at": "2026-10-08T02:57:27Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 0,
-      "merge": 1,
-      "hold": 10
+      "publish": 1,
+      "merge": 0,
+      "hold": 2
     },
     "candidates": [
       {
-        "id": "candidate-302c28e2e59051e3",
-        "category": "industry",
-        "published": "2026-09-23",
-        "title": "Claude Agent：从 20 万+ RT 中筛出 ART 候选系统",
-        "summary": "Anthropic 披露约 950 个 Claude agent 用 21 小时分析 20 万+ 逆转录酶，筛到 20 个重点候选，并识别出 ART 的重复序列特征；湿实验由人类科学家完成。",
-        "why": "早期信号不在“AI 写科研摘要”，而在 Agent 大规模搜索、提出可实验假说，再交给人类实验验证。",
-        "boundary": "ART 的主要功能仍未知；尚不能推出它可编程、可用于基因编辑或具有治疗价值。结果来自 Anthropic 自有团队，仍需独立复现。",
-        "source": "Anthropic",
-        "source_kind": "官方研究",
-        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+        "id": "candidate-6982206f194b1f18",
+        "category": "product",
+        "published": "2026-10-07",
+        "title": "GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout",
+        "summary": "OpenAI 把 GPT-6 带到 ChatGPT Chat，并让模型按问题生成图形、按钮、表单、图表和可交互体验；付费与企业层 10 月 7 日开始，Free / Go 从 10 月 8 日开始扩展。",
+        "why": "ChatGPT 的能力边界从“生成答案”继续走向“即时生成任务界面”；但这次只改变 Chat 体验，Work / Codex 模型不在本次更新范围，且 rollout 不代表所有账户瞬时可见。",
+        "boundary": "官方措辞是 rollout，不等于所有账号同时可见；Intelligent UI 的布局与交互质量仍会随问题而变化，也不等于任意网页应用、无限制代码执行或外部动作权限。此次更新只针对 Chat，Work 与 Codex 的模型不随本次发布改变。",
+        "source": "OpenAI",
+        "source_kind": "官方产品发布",
+        "url": "https://openai.com/index/gpt-6-for-everyone",
         "publishable": true,
         "features": {
-          "freshness": 0.0,
+          "freshness": 0.929,
           "authority": 1.0,
-          "impact": 0.9,
+          "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.673,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "first_seen_at": "2026-09-28T10:10:16Z"
+        "priority_score": 0.941,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "task_id": "chatgpt-gpt6-intelligent-ui",
+        "first_seen_at": "2026-10-08T02:57:27Z"
       },
       {
         "id": "candidate-ee90a4ee12c3bb7a",
@@ -558,124 +559,6 @@
         "source": "Google Research",
         "source_kind": "官方技术博客",
         "url": "https://research.google/blog/coherent-long-form-video-generation",
-        "publishable": false,
-        "features": {
-          "freshness": 0.071,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.673,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-6d06896ece6dad3f",
-        "category": "product",
-        "published": "2026-09-23",
-        "title": "Custom Harvey Agents 可直接在 Microsoft Word 中运行",
-        "summary": "在已打开的 Word 文档中运行团队自建 Agent，输出修改建议；应用后以修订模式写回文档。",
-        "why": "值得关注的是审阅入口与人工确认环节的衔接，而不只是多了一个聊天窗口。",
-        "boundary": "此次发布暂不支持 Custom Workflows；不能由功能上线推出准确率、节时幅度或无需律师复核。",
-        "source": "Harvey",
-        "source_kind": "官方产品节点",
-        "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.662,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "product_id": "harvey",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-bb0d493eaef9e70a",
-        "category": "product",
-        "published": "2026-09-23",
-        "title": "Gemini 新一批 Connected Apps 开始 rollout",
-        "summary": "Google 宣布 Airtable、Linear、monday.com、Adobe、Webflow、Peloton、SeatGeek 等新连接开始进入 Gemini。",
-        "why": "Gemini 的可执行边界继续从 Google 自家服务扩到第三方生产力、创作与生活工具；官方只确认开始 rollout，不等于所有账号已可用。",
-        "boundary": "官方措辞是“beginning to roll out today”，不等于所有账号立即可见；能连接应用也不等于复杂跨应用任务一定一次完成，仍要核对权限、写入结果和最终状态。",
-        "source": "Google",
-        "source_kind": "官方发布",
-        "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.662,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "task_id": "gemini-connected-apps",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-ca780e2bfbfb9fd0",
-        "category": "product",
-        "published": "2026-09-23",
-        "title": "ChatGPT Voice 开始调用插件并进入 Work",
-        "summary": "OpenAI 宣布 Live 在 web、iOS、Android 支持插件；Voice 同时进入 Work，可用语音启动文档、表格、演示文稿、连接应用和浏览器任务。",
-        "why": "语音入口从对话继续向调用工具并执行工作移动；但可用插件、写入权限、审批和任务成功率仍取决于账号与 Workspace 配置。",
-        "boundary": "可见插件、Connected Apps、Work 与 Voice 均受套餐、地区、Workspace 设置和既有权限限制；能用语音启动不等于跨应用任务一定成功，涉及写入或外部动作仍要核对审批和最终状态。",
-        "source": "OpenAI",
-        "source_kind": "官方发布",
-        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.662,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "task_id": "chatgpt-voice-work",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-219ba6bd9e197f19",
-        "category": "research",
-        "published": "2026-09-23",
-        "title": "How SWE-Serve Exposes the Gap Between Local Tests and Live Serving",
-        "summary": "NVIDIA 用 53 个推理服务工程任务评估 Coding Agent，揭示“本地测试通过”与真实模型服务可用之间仍有显著差距。",
-        "why": "官方技术文章出现新的能力或系统信号。",
-        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
-        "source": "NVIDIA",
-        "source_kind": "官方技术博客",
-        "url": "https://developer.nvidia.com/blog/how-swe-serve-exposes-the-gap-between-local-tests-and-live-serving",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.651,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-a8b7abd865f45737",
-        "category": "research",
-        "published": "2026-09-23",
-        "title": "Bringing Your Muse to Life",
-        "summary": "Meta 公开 Muse Realtime Avatar 的实时视频生成架构、蒸馏、KV cache 与服务优化，给出了约 870ms 首字节延迟等系统指标。",
-        "why": "官方技术文章出现新的能力或系统信号。",
-        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
-        "source": "Meta AI Research",
-        "source_kind": "官方技术博客",
-        "url": "https://research.meta.ai/blog/bringing-your-muse-to-life",
         "publishable": false,
         "features": {
           "freshness": 0.0,
@@ -701,54 +584,6 @@
         "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
-          "authority": 0.72,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.608,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "product_id": "legora",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-100a1e7314458c94",
-        "category": "product",
-        "published": "2026-09-23",
-        "title": "Agent Plugin 已面向客户 GA，可从 Claude Code / Codex 构建 GTM 工具和工作流",
-        "summary": "面向 RevOps 与增长团队的数据与工作流平台，AI Agent 用于客户研究、个性化触达和 GTM 自动化。",
-        "why": "产品出现新的公开变化。",
-        "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。",
-        "source": "Clay",
-        "source_kind": "已收录产品节点",
-        "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.72,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.587,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "product_id": "clay",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-9237cf3689338400",
-        "category": "product",
-        "published": "2026-09-23",
-        "title": "与 American Law Institute 合作，把 Restatements 接入法律研究平台",
-        "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
-        "why": "产品出现新的公开变化。",
-        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
-        "source": "Legora",
-        "source_kind": "已收录产品节点",
-        "url": "https://legora.com/newsroom",
-        "publishable": false,
-        "features": {
           "freshness": 0.0,
           "authority": 0.72,
           "impact": 0.86,
@@ -758,29 +593,6 @@
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "legora",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-48a5776851115e0e",
-        "category": "research",
-        "published": "2026-09-23",
-        "title": "Offloaded inference for real-world physical AI robotics",
-        "summary": "Microsoft Research 讨论把机器人推理卸载到外部 GPU 的系统设计，并量化轻量硬件下规划、感知和 VLA 的性能代价。",
-        "why": "官方技术文章出现新的能力或系统信号。",
-        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
-        "source": "Microsoft Research",
-        "source_kind": "官方技术博客",
-        "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.515,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-09-28T10:10:16Z"
       }
     ]
@@ -2612,14 +2424,14 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-07T23:21:26Z",
+    "last_evaluated": "2026-10-08T02:57:27Z",
     "last_decision": {
-      "action": "merge",
-      "candidate_count": 11,
-      "publish_ready_count": 0,
-      "merge_count": 1,
-      "best_candidate": "candidate-302c28e2e59051e3",
-      "reason": "发现与现有热点同源的新节点，建议合并。"
+      "action": "publish",
+      "candidate_count": 3,
+      "publish_ready_count": 1,
+      "merge_count": 0,
+      "best_candidate": "candidate-6982206f194b1f18",
+      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     }
   },
   "github_hot": {
@@ -7493,7 +7305,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-09-23",
+    "checked": "2026-10-08",
     "account": "thsottiaux",
     "events": [
       {
@@ -7807,6 +7619,66 @@
         "not_proves": "未证明每个 Plus / Pro / Business 账号已经收到重置卡、发放已经完成、发生 global reset，也未说明重置卡的有效期或使用截止时间。",
         "post_id": "2102463847714247142",
         "relation": "original"
+      },
+      {
+        "id": "tibo-global-processed-2026-10-07",
+        "kind": "global",
+        "status": "pending",
+        "date": "2026-10-07",
+        "published_at": "2026-10-07T03:35:00Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "第三方定位到 Tibo：“the reset has been processed”——完成措辞强，但原帖直读仍待核验",
+        "summary": "多个公开追踪页一致定位到 Tibo 10 月 7 日 03:35 UTC 的 X 原帖，并保留“the reset has been processed. Enjoy!”这一完成式措辞；已定位原帖状态 ID 2107676072871600470。",
+        "scope": "Codex / ChatGPT Work 社区 reset 语境；第三方追踪页将其归为 shared/global reset",
+        "boundary": "若能直接核验 Tibo 原帖，这类“processed”措辞足以视为执行完成信号；但本站本轮 X 官方 API 仍未配置、服务端直读 X 失败，因此严格保持 pending，不能写成本站已确认的 global reset，更不能推出 propagation 已完成或每个账户都已刷新。",
+        "sources": [
+          "tibo-post-2107676072871600470",
+          "codex-reset-watch-oct7",
+          "limitbell-oct7"
+        ],
+        "reviewed": "2026-10-08",
+        "review_basis": "secondary_lead",
+        "related_ids": [],
+        "original_text": "We shipped four things that were deemed good to great and some math proofs, but the vote is clear and the community demands a reset. I did calibrate it and it seems that the game is rigged in reset's favor, but such are the rules at the moment. Therefore ... the reset has been processed. Enjoy!",
+        "conversation_context": "公开追踪页显示这是 Tibo 的独立原帖，内容把前两天的更新 / 投票与一次 reset 处理结果放在同一语境。",
+        "interpretation": "这是迄今比 9 月 22 日“正在加载”更强的执行完成信号；但因为第一方正文尚未被本站直接读取，证据等级只能停在待核验。",
+        "evidence_strength": "medium",
+        "semantic_type": "global_reset_completion_claim",
+        "not_proves": "未证明 reset 已在每个账户完成传播；未证明 banked reset 数量、有效期或个人账户余额；也未证明随后不会有单独 banked grant。",
+        "post_id": "2107676072871600470",
+        "relation": "original"
+      },
+      {
+        "id": "tibo-banked-loading-2026-10-07",
+        "kind": "banked",
+        "status": "pending",
+        "date": "2026-10-07",
+        "published_at": "2026-10-07T19:19:00Z",
+        "effective_at": null,
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 公共信号：banked reset 正在加载到所有付费账户；原帖直读待核验",
+        "summary": "第三方追踪页一致记录 Tibo 10 月 7 日 19:19 UTC 的公开帖：Codex 与 ChatGPT Work 达到公司披露的 4,000 万 active users，同时称正在向“everyone's paid accounts”加载一张 banked reset。",
+        "scope": "所有付费账户（原帖镜像措辞）· banked reset 加载中",
+        "boundary": "这仍是 loading / distribution 语义，不等于每个账户已到账；4,000 万 active users 是 Tibo 的公司披露，不是本站独立统计。本站尚未直接读取该 X 原帖，因此状态保持 pending，也不据此补写 banked reset 的有效期、数量或兑现完成时刻。",
+        "sources": [
+          "codex-reset-watch-oct7",
+          "limitbell-oct7"
+        ],
+        "reviewed": "2026-10-08",
+        "review_basis": "secondary_lead",
+        "related_ids": [
+          "tibo-global-processed-2026-10-07"
+        ],
+        "original_text": "Day 3/ The big one is GPT-6 in Chat, but today is also a little celebration day with a new high of 40M active users across Codex and ChatGPT Work. Loading a banked reset in everyone's paid accounts. See you again tomorrow!",
+        "conversation_context": "公开追踪页把它定位为 Tibo 的独立公开帖，时间在同日 global reset 完成信号之后；同帖还提到 GPT-6 in Chat 与 40M active users。",
+        "interpretation": "这是 banked reset 的新一轮进行中发放信号，范围表述比 9 月 22 日更宽到“everyone's paid accounts”；当前不能升级为到账完成。",
+        "evidence_strength": "medium",
+        "semantic_type": "banked_announcement",
+        "not_proves": "未证明所有付费账户已经收到 banked reset、传播完成、有效期或兑换规则；也不能把它与同日 global reset 合并计为一次事件。",
+        "relation": "original"
       }
     ],
     "sources": [
@@ -7971,6 +7843,33 @@
         "checked": "2026-09-23",
         "kind": "OpenAI 官方社区公告线程",
         "note": "OpenAI 官方社区线程在 2026-09-22 18:28 的跟帖中嵌入 Tibo 的 X 原帖，并逐字保留“loading a banked reset into all accounts of our Plus, Pro and Business users”这一关键信息；用于交叉佐证公告文本，不把进行时措辞升级为完成状态。"
+      },
+      {
+        "id": "tibo-post-2107676072871600470",
+        "publisher": "Tibo / X",
+        "title": "“the reset has been processed. Enjoy!” post",
+        "url": "https://x.com/thsottiaux/status/2107676072871600470",
+        "checked": "2026-10-08",
+        "kind": "原帖待直接核验",
+        "note": "第三方追踪页定位到该 Tibo 原帖、状态 ID 与 2026-10-07 03:35 UTC 时间；本站本轮服务端直读 X 仍失败，因此不能把镜像文本升级为第一方已确认。"
+      },
+      {
+        "id": "codex-reset-watch-oct7",
+        "publisher": "Codex Reset Watch",
+        "title": "Oct 7 reset history and original-source locator",
+        "url": "https://crw.warpnav.com/history/",
+        "checked": "2026-10-08",
+        "kind": "第三方定位线索",
+        "note": "用于定位 Oct 7 的 Tibo 原帖、UTC 时间和 reset/banked 语境；分类与完成结论不作为本站确认依据。"
+      },
+      {
+        "id": "limitbell-oct7",
+        "publisher": "LimitBell",
+        "title": "Tibo Oct 7 public reset signals",
+        "url": "https://limitbell.com/en",
+        "checked": "2026-10-08",
+        "kind": "第三方定位线索",
+        "note": "用于交叉定位 2026-10-07 的公开 Tibo 文本与时间；不替代 Tibo 原帖直读或 OpenAI 官方说明。"
       }
     ],
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
@@ -7987,8 +7886,36 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-09-24",
+    "snapshot": "2026-10-08",
     "items": [
+      {
+        "id": "chatgpt-gpt6-intelligent-ui",
+        "name": "ChatGPT · GPT-6 Intelligent UI",
+        "title": "回答直接变成交互界面",
+        "category": "交互 / Agent",
+        "mark": "g6",
+        "accent": "violet",
+        "summary": "GPT-6 在 ChatGPT 的 Chat 中可根据任务组合文本、图形、按钮、表单、图表和可交互工具；复杂问题不再只能落成固定的纯文本回复。",
+        "scope": "OpenAI 10 月 7 日开始向 Plus、Pro、Business、Enterprise 的 Chat tab 全球 rollout，10 月 8 日开始扩到 Free 和 Go；付费/企业 Chat 由 GPT-6 Sol 驱动，Free/Go 为 GPT-6 Luna。Enterprise 仍受管理员设置影响。",
+        "boundary": "官方措辞是 rollout，不等于所有账号同时可见；Intelligent UI 的布局与交互质量仍会随问题而变化，也不等于任意网页应用、无限制代码执行或外部动作权限。此次更新只针对 Chat，Work 与 Codex 的模型不随本次发布改变。",
+        "repo": null,
+        "sources": [
+          "openai-gpt6-intelligent-ui-oct7"
+        ],
+        "requirements": "使用支持该 rollout 的最新版 ChatGPT web / mobile，并确认账号已获得 GPT-6 Intelligent UI；Enterprise 还需 Workspace 管理员允许。",
+        "test": "分别让 ChatGPT 做一个可调参数的计算器、一个并排比较和一个可交互教学解释；检查是否真的出现可点击/可输入组件、输入改变后状态是否更新，以及不需要交互时是否能退回简洁文本。",
+        "checks": [
+          "同一会话中至少一种原生交互组件可以真实操作，而不是只显示静态截图",
+          "改变输入后结果或视图会随之更新，且关键结论仍能读懂",
+          "确认当前账号 / 套餐 / Workspace 已获得 rollout，并记录 Chat 与 Work/Codex 的产品边界"
+        ],
+        "command": "",
+        "effort": "网页 / 移动端",
+        "evidence": "OpenAI 官方产品发布",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-08"
+      },
       {
         "id": "gemini-38-flash-tts",
         "name": "Gemini 3.8 Flash TTS",
@@ -8477,9 +8404,31 @@
         "published": "2024-08-12",
         "checked": "2026-09-24",
         "kind": "作者预印本"
+      },
+      {
+        "id": "openai-gpt6-intelligent-ui-oct7",
+        "title": "GPT-6 and Intelligent UI for everyone",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "published": "2026-10-07",
+        "checked": "2026-10-08",
+        "kind": "官方产品发布"
       }
     ],
     "events": [
+      {
+        "id": "chatgpt-gpt6-intelligent-ui-oct7",
+        "task": "chatgpt-gpt6-intelligent-ui",
+        "date": "2026-10-07",
+        "kind": "release",
+        "title": "GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout",
+        "summary": "OpenAI 把 GPT-6 带到 ChatGPT Chat，并让模型按问题生成图形、按钮、表单、图表和可交互体验；付费与企业层 10 月 7 日开始，Free / Go 从 10 月 8 日开始扩展。",
+        "delta": "ChatGPT 的能力边界从“生成答案”继续走向“即时生成任务界面”；但这次只改变 Chat 体验，Work / Codex 模型不在本次更新范围，且 rollout 不代表所有账户瞬时可见。",
+        "sources": [
+          "openai-gpt6-intelligent-ui-oct7"
+        ],
+        "reviewed": "2026-10-08"
+      },
       {
         "id": "chatgpt-voice-plugins-work-sep23",
         "task": "chatgpt-voice-work",
@@ -9766,6 +9715,44 @@
           }
         ],
         "entry_url": "https://aistudio.google.com/",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false
+      },
+      {
+        "id": "chatgpt-gpt6-intelligent-ui",
+        "publisher": "OpenAI",
+        "group": "office",
+        "access": "web",
+        "headline": "让 ChatGPT 直接生成可交互界面",
+        "input": "一个适合比较、计算或交互探索的任务",
+        "output": "可点击 / 可输入的原生交互组件与答案",
+        "requirements": "账号已获得 GPT-6 Intelligent UI rollout；Enterprise 还需 Workspace 管理员允许。",
+        "limitation": "rollout 不代表所有账号同时可见；当前发布针对 Chat，不改变 Work / Codex 模型，也不等于任意网页应用或无限制外部动作。",
+        "cost": "套餐、使用限额与可用模型以账号内显示为准。",
+        "steps": [
+          {
+            "title": "确认 rollout",
+            "body": "在 ChatGPT 的 Chat 中确认账号已获得 GPT-6；Plus、Pro、Business、Enterprise 从 10 月 7 日开始 rollout，Free / Go 从 10 月 8 日开始扩展。"
+          },
+          {
+            "title": "做一个可操作的小工具",
+            "body": "要求它创建一个参数可调的计算器或费用比较器；实际点击、输入和改变参数，确认结果会随状态更新，而不是只显示静态文本。"
+          },
+          {
+            "title": "再测试解释与退化",
+            "body": "让它用交互方式解释一个复杂概念，再问一个只需要一句话的问题；检查该用交互时能用、不需要时不会为了炫技堆界面。"
+          }
+        ],
+        "troubleshooting": "看不到 Intelligent UI 先确认 rollout、客户端版本和 Workspace 设置；组件不响应时重开一个低风险测试会话，不把静态截图误判为原生交互。",
+        "sources": [
+          {
+            "title": "OpenAI · GPT-6 and Intelligent UI for everyone",
+            "url": "https://openai.com/index/gpt-6-for-everyone/",
+            "published_at": "2026-10-07",
+            "verified_at": "2026-10-08"
+          }
+        ],
+        "entry_url": "https://chatgpt.com/",
         "evidence_level": "primary-docs",
         "runtime_tested": false
       },
