@@ -504,7 +504,7 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-08T05:00:57Z",
+      "last_checked_at": "2026-10-08T05:36:15Z",
       "status": "success",
       "mode": "shadow",
       "candidate_count": 3,
@@ -514,7 +514,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-08T05:00:57Z",
+    "generated_at": "2026-10-08T05:36:15Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -1114,7 +1114,8 @@
             "verified_at": "2026-09-28",
             "evidence_level": "primary_source"
           }
-        ]
+        ],
+        "long_term_watch": true
       }
     ],
     "filters": [
@@ -2424,7 +2425,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-08T05:00:57Z",
+    "last_evaluated": "2026-10-08T05:36:15Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 3,
