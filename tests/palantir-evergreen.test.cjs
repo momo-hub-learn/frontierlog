@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const source=fs.readFileSync(path.join(__dirname,'../src/v10.js'),'utf8');
+const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/product-radar.json'),'utf8'));
+const watched=data.items.filter(x=>x.long_term_watch===true);
+assert.ok(watched.some(x=>x.id==='palantir-aip'));
+assert.ok(watched.find(x=>x.id==='palantir-aip').timeline.length>=5);
+assert.ok(source.includes('function evergreenHTML(s)'));
+assert.ok(source.includes("evergreenHTML(s)+'<nav class="));
+assert.ok(source.includes("pview:'map',scene:'all',investor:'all'"));
+assert.ok(source.includes("long_term_watch===true"));
+console.log('PASS permanent Palantir watchlist and unfiltered archive link');
