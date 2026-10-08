@@ -2,24 +2,34 @@
 /* Chronological timeline: keep the verified release date group, but always show a concrete clock when one is known. */
 (()=>{
 const WEEK=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+// Render offset-aware timestamps in Beijing time (+08:00), independent of browser locale.
+// Unzoned timestamps remain as written and are explicitly marked as ambiguous.
 function stampParts(raw){
-  const m=String(raw||'').match(/^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2})/);
-  return m?{date:m[1],time:m[2]+':'+m[3]}:null
+  const value=String(raw||'').trim();
+  const m=value.match(/^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?(Z|[+-]\d{2}:\d{2})?$/i);
+  if(!m||Number(m[2])>23||Number(m[3])>59)return null;
+  if(m[4]){
+    const n=Date.parse(value.replace(' ','T'));
+    if(!Number.isFinite(n))return null;
+    const local=new Date(n+8*60*60*1000);
+    return {date:local.toISOString().slice(0,10),time:local.toISOString().slice(11,16),zone:'北京时间'};
+  }
+  return {date:m[1],time:m[2]+':'+m[3],zone:'时区未注明'};
 }
 function shortDate(date){return Number(date.slice(5,7))+'/'+Number(date.slice(8,10))}
 function dtInfo(x){
   const date=x.published;
   const source=stampParts(x.published_at);
-  if(source)return {date:date||source.date,time:source.time,kind:'source',label:source.date===date?'原始时间':'原始时间 · '+shortDate(source.date)};
-  if(x.published_time&&/^\d{2}:\d{2}$/.test(x.published_time))return {date,time:x.published_time,kind:'source',label:'原始时间'};
+  if(source)return {date:date||source.date,time:source.time,kind:'source',label:'原始时间 · '+source.zone+(source.date!==date?' · '+shortDate(source.date):'')};
+  if(x.published_time&&/^\d{2}:\d{2}$/.test(x.published_time))return {date,time:x.published_time,kind:'source',label:'原始时间 · 时区未注明'};
   const seen=stampParts(x.first_seen_at||x.captured_at);
-  if(seen)return {date:date||seen.date,time:seen.time,kind:'seen',label:seen.date===date?'首次收录':'首次收录 · '+shortDate(seen.date)};
+  if(seen)return {date:date||seen.date,time:seen.time,kind:'seen',label:'首次收录 · '+seen.zone+(seen.date!==date?' · '+shortDate(seen.date):'')};
   return {date,time:null,kind:'date',label:'时间待核验'};
 }
 function weekday(date){const d=new Date(date+'T12:00:00Z');return WEEK[d.getUTCDay()]||''}
 function sortMoment(x){
   const raw=x.published_at||x.first_seen_at||x.captured_at;
-  if(raw){const n=Date.parse(raw);if(Number.isFinite(n))return n}
+  if(raw&&stampParts(raw)?.zone==='北京时间'){const n=Date.parse(raw.replace(' ','T'));if(Number.isFinite(n))return n}
   if(x.published_time&&/^\d{2}:\d{2}$/.test(x.published_time)){
     const n=Date.parse(x.published+'T'+x.published_time+':00+08:00');
     if(Number.isFinite(n))return n
@@ -69,7 +79,7 @@ v10Chronology=function(rows){return chronology(rows)};
 v10GeneralTimeline=function(){
   const rows=HOT.items;
   return `<section class="v10-general intraday-general">
-    <div class="v10-section-head"><div><p class="eyebrow">DAILY / VERIFIED TIME</p><h2>分时热点</h2><p>每条都显示具体时刻；能核到原始发布时间就用原始时间，否则显示本站首次收录时间。</p></div>
+    <div class="v10-section-head"><div><p class="eyebrow">DAILY / VERIFIED TIME</p><h2>分时热点</h2><p>优先显示来源发布时间，否则显示首次收录；带时区的时间统一换算为北京时间，未注明时区的原样保留。</p></div>
     <div class="intraday-legend"><span><i class="source"></i>原始时间</span><span><i class="seen"></i>首次收录</span><span><i class="date"></i>待核验</span></div></div>
     ${chronology(v10HotByTime(rows))}
   </section>`;
