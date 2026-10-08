@@ -23,6 +23,7 @@ jobs:
           node --check src/tibo-intel.js
           node --check src/hot.js
           node --check src/v10.js
+          node --check src/intraday.js
           node --check src/v2.js
           node --check src/top5-editorial.js
           node --check src/github-hot.js
@@ -33,6 +34,10 @@ jobs:
           node --check src/progress-v4.js
           node --check assets/tibo-intel.js
           node --check assets/v2.js
+      - name: Time provenance regressions
+        run: |
+          node tests/intraday-timezone.test.cjs
+          node tests/v10-timezone.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
