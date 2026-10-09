@@ -91,8 +91,21 @@ with sync_playwright() as pw:
         page.evaluate("pbHistoryMove(document.querySelector('.pb-history-track'),'latest',true)")
         for selector, label in [('.pb-card-history','timeline'),('.pb-card','product')]:
             rect=page.locator(selector).bounding_box()
-            assert rect['y']>80 and rect['y']+rect['height']<2750, rect
+            assert rect is not None and rect['width']>0 and rect['height']>0, rect
+            # An expanding evergreen watchlist can move the card further down.
+            # Grow the capture viewport to fit the actual document rectangle
+            # instead of assuming the first card always ends before y=2750.
+            capture_height=int(rect['y']+rect['height']+60)
+            if capture_height>page.viewport_size['height']:
+                page.set_viewport_size({'width':width,'height':capture_height})
+                page.evaluate('window.scrollTo(0,0)')
+                rect=page.locator(selector).bounding_box()
+            assert rect is not None and rect['y']>=0 and rect['y']+rect['height']<=page.viewport_size['height'], rect
             page.screenshot(path=str(OUT / f'{label}-{name}.png'),clip=rect)
+
+    expect(page.locator('.pb-evergreen-list')).to_contain_text('Arena')
+    expect(page.locator('.pb-evergreen-list')).to_contain_text('Palantir AIP')
+    ok('Evergreen Arena and Palantir remain discoverable on product map')
 
     # Map view: opening a timeline expands only that product, filters continue to work.
     page.evaluate("location.hash='#/hot?cat=product&pview=map';lastMain='';parseRoute()")
