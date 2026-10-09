@@ -41,6 +41,29 @@ def validate_benchmarks(data:dict)->None:
         refs(b['sources']);strings(b['checks'])
         if b.get('result_url'):url(b['result_url'])
         if date.fromisoformat(b['checked'])>today:raise ValueError('Future checked date')
+    datasets=data.get('evaluation_datasets',[])
+    evaluators=data.get('evaluators',[])
+    if not isinstance(datasets,list) or not isinstance(evaluators,list):raise ValueError('Invalid evaluation registry')
+    dataset_ids=set();evaluator_ids=set()
+    for d in datasets:
+        if not isinstance(d,dict) or not isinstance(d.get('id'),str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*',d['id']) or d['id'] in dataset_ids:raise ValueError('Invalid evaluation dataset ID')
+        dataset_ids.add(d['id'])
+        for key in ('name','version','domain','size','gold_label','split','license'):
+            if not isinstance(d.get(key),str) or not d[key].strip():raise ValueError('Incomplete evaluation dataset '+key)
+        if d.get('access') not in ('public','restricted','hidden'):raise ValueError('Invalid dataset access')
+        url(d.get('url',''))
+        if d.get('source_id') not in sources:raise ValueError('Unknown dataset source')
+    for e in evaluators:
+        if not isinstance(e,dict) or not isinstance(e.get('id'),str) or e['id'] in evaluator_ids:raise ValueError('Invalid evaluator ID')
+        evaluator_ids.add(e['id'])
+        if not isinstance(e.get('protocol'),str) or not e['protocol'].strip():raise ValueError('Incomplete evaluator protocol')
+        strings(e.get('metrics'))
+        if e.get('status') not in ('protocol_only','verified'):raise ValueError('Invalid evaluator status')
+    for b in data['items']:
+        if not set(b.get('dataset_ids',[]))<=dataset_ids:raise ValueError('Unknown evaluation dataset reference')
+        if not set(b.get('evaluator_ids',[]))<=evaluator_ids:raise ValueError('Unknown evaluator reference')
+        if b.get('result_status','not_run') not in ('not_run','verified'):raise ValueError('Invalid evaluation result status')
+        if b.get('result_status')=='verified' and not b.get('verified_results'):raise ValueError('Missing verified result evidence')
     for e in data['changes']:
         if date.fromisoformat(e['date'])>today:raise ValueError('Future change')
         if not e['benchmarks'] or not set(e['benchmarks'])<=ids:raise ValueError('Invalid change reference')

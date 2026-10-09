@@ -22,6 +22,7 @@ jobs:
         run: |
           node --check src/tibo-intel.js
           node --check src/hot.js
+          node --check src/benchmarks.js
           node --check src/v10.js
           node --check src/intraday.js
           node --check src/v2.js
@@ -41,6 +42,8 @@ jobs:
           node tests/v10-next-coordinate.test.cjs
           node tests/v10-top5-backfill.test.cjs
           node tests/palantir-evergreen.test.cjs
+      - name: Dataset and Judge regression
+        run: node tests/benchmark-dataset.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
