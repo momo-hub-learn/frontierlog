@@ -504,26 +504,74 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-09T03:05:11Z",
+      "last_checked_at": "2026-10-09T05:17:35Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 1,
-      "publish_ready_count": 0,
+      "candidate_count": 3,
+      "publish_ready_count": 2,
       "note": "自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-09T03:05:11Z",
+    "generated_at": "2026-10-09T05:17:35Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 0,
+      "publish": 2,
       "merge": 1,
       "hold": 0
     },
     "candidates": [
+      {
+        "id": "candidate-019270e4cda473b1",
+        "category": "product",
+        "published": "2026-10-08",
+        "title": "发布 Alignment Index：跟踪三类可验证的 Agent 对齐问题",
+        "summary": "Arena 发布初版 Alignment Index，以真实 Agent Arena 会话衡量 Unauthorized Action、False Attribution、Deceptive Completion，作为 Agent 能力榜的补充。",
+        "why": "Arena 正从“哪一个回答更讨喜”转向“Agent 是否按授权执行、是否如实汇报结果”；值得持续追踪可观测证据与标签质量。",
+        "boundary": "不能据此宣称模型全面安全，也不能保证对所有企业工作流的泛化性。榜单和协议可能继续迭代。",
+        "source": "Arena Intelligence",
+        "source_kind": "官方产品节点",
+        "url": "https://arena.ai/blog/ai-alignment-index",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.941,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "product_id": "arena",
+        "first_seen_at": "2026-10-09T05:17:35Z"
+      },
+      {
+        "id": "candidate-c95f97cd68f31bb5",
+        "category": "product",
+        "published": "2026-10-08",
+        "title": "Arena 宣布 2 亿美元 B 轮融资，估值 31 亿美元",
+        "summary": "Arena 官方宣布完成 2 亿美元 B 轮融资、估值 31 亿美元，并称年化营收已超过 1 亿美元；此项为公司披露而非第三方审计。",
+        "why": "融资与营收是商业需求信号，不等于评测方法已获得独立验证；更需要观察企业可复现的真实效果。",
+        "boundary": "不把融资估值、年化营收作为模型能力或企业客户 ROI 证据；年化营收不等于年度审计收入。",
+        "source": "Arena Intelligence",
+        "source_kind": "官方产品节点",
+        "url": "https://arena.ai/blog/series-b",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.941,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "product_id": "arena",
+        "first_seen_at": "2026-10-09T05:17:35Z"
+      },
       {
         "id": "candidate-6982206f194b1f18",
         "category": "product",
@@ -552,7 +600,7 @@
   },
   "product_radar": {
     "version": 1,
-    "checked": "2026-09-28",
+    "checked": "2026-10-09",
     "title": "AI 产品雷达",
     "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
     "groups": [
@@ -1069,6 +1117,147 @@
           }
         ],
         "long_term_watch": true
+      },
+      {
+        "id": "arena",
+        "name": "Arena",
+        "company": "Arena Intelligence",
+        "group": "enterprise-agent",
+        "tags": [
+          "AI Evaluation",
+          "Human Preference",
+          "Agent Alignment",
+          "Enterprise AI"
+        ],
+        "summary": "从公开的模型对战与人类偏好排行榜，扩展到企业级 AI Evaluations、Agent Arena 和 Alignment Index；重点用真实交互、任务证据和可审核反馈评价模型与 Agent，而不只看静态题集得分。",
+        "product_url": "https://arena.ai/",
+        "source_url": "https://arena.ai/blog/ai-evaluations",
+        "source_label": "Arena AI Evaluations 官方发布",
+        "evidence_label": "产品与评测方法",
+        "evidence": "Arena 于 2025-09-16 官方推出面向企业与模型实验室的 AI Evaluations，提供基于社区反馈的深度分析、可审核反馈样本与交付 SLA。2026-10-08 又推出 Alignment Index，覆盖未授权操作、错误归因与虚假完成三类可观察风险。",
+        "boundary": "公开 Arena 榜单衡量社区偏好与特定任务/评测协议，不等于所有企业内部任务的真实成功率。Alignment Index 目前为初步口径，只覆盖三类有证据的可观察错误，不代表总体安全性认证。融资、估值、年化收入是公司披露的商业指标，不能代替独立产品性能与客户 ROI 评测。",
+        "filter_ids": [
+          "enterprise-agent",
+          "ai-evaluation"
+        ],
+        "long_term_watch": true,
+        "research": {
+          "thesis": "Arena 的长期价值可能不在又一张模型总榜，而在把人类偏好、Agent 真实执行轨迹及失败行为转为持续更新、可审核的评测基础设施；企业应用还需验证其数据对自身业务的代表性。",
+          "stack": [
+            "公开 Arena：用户提交 Prompt，比较模型输出并投票，汇总为公开偏好榜。",
+            "AI Evaluations：把社区人类反馈组织成面向模型实验室与企业的性能分析，并提供可审核样本与 SLA。",
+            "Agent Arena：针对 Agent 真实任务与多轮交互开展能力评估。",
+            "Alignment Index：基于真实 Agent 会话的证据，追踪未授权操作、错误归因、虚假完成。"
+          ],
+          "watch": [
+            "Alignment Index 三类信号的样本选择、审计方法与置信区间是否足够稳健，能否扩展到更多行为风险。",
+            "商业 AI Evaluations 能否支持企业私有任务分布、权限、专家标准与数据合规要求。",
+            "公开社区偏好与企业 Agent 真实成功率之间的迁移程度，以及是否存在榜单过拟合或样本选择偏差。",
+            "产品营收规模增长与独立客户效果证据能否相互印证。"
+          ]
+        },
+        "timeline": [
+          {
+            "date": "2026-10-08",
+            "kind": "Benchmark",
+            "title": "发布 Alignment Index：跟踪三类可验证的 Agent 对齐问题",
+            "url": "https://arena.ai/blog/ai-alignment-index",
+            "summary": "Arena 发布初版 Alignment Index，以真实 Agent Arena 会话衡量 Unauthorized Action、False Attribution、Deceptive Completion，作为 Agent 能力榜的补充。",
+            "facts": [
+              {
+                "label": "观察对象",
+                "value": "真实 Agent 会话及执行证据"
+              },
+              {
+                "label": "风险维度",
+                "value": "未授权操作 / 错误归因 / 虚假完成"
+              },
+              {
+                "label": "状态",
+                "value": "Preliminary / 初版"
+              }
+            ],
+            "interpretation": "Arena 正从“哪一个回答更讨喜”转向“Agent 是否按授权执行、是否如实汇报结果”；值得持续追踪可观测证据与标签质量。",
+            "scope": "仅限 Arena 官方目前定义并能在会话轨迹中核验的三类对齐风险；与通用任务能力榜不同。",
+            "limitations": "不能据此宣称模型全面安全，也不能保证对所有企业工作流的泛化性。榜单和协议可能继续迭代。",
+            "published_at": "2026-10-08",
+            "verified_at": "2026-10-09",
+            "evidence_level": "primary_source"
+          },
+          {
+            "date": "2026-10-08",
+            "kind": "Company",
+            "title": "Arena 宣布 2 亿美元 B 轮融资，估值 31 亿美元",
+            "url": "https://arena.ai/blog/series-b",
+            "summary": "Arena 官方宣布完成 2 亿美元 B 轮融资、估值 31 亿美元，并称年化营收已超过 1 亿美元；此项为公司披露而非第三方审计。",
+            "facts": [
+              {
+                "label": "融资",
+                "value": "Series B · $200M"
+              },
+              {
+                "label": "估值",
+                "value": "$3.1B（公司披露）"
+              },
+              {
+                "label": "收入",
+                "value": "年化超过 $100M（公司披露）"
+              }
+            ],
+            "interpretation": "融资与营收是商业需求信号，不等于评测方法已获得独立验证；更需要观察企业可复现的真实效果。",
+            "scope": "Arena 于 2026-10-08 发布的融资与业务规模公告。",
+            "limitations": "不把融资估值、年化营收作为模型能力或企业客户 ROI 证据；年化营收不等于年度审计收入。",
+            "published_at": "2026-10-08",
+            "verified_at": "2026-10-09",
+            "evidence_level": "primary_source"
+          },
+          {
+            "date": "2026-06-29",
+            "kind": "Company",
+            "title": "Arena 称商业化评测服务八个月达到 1 亿美元年化营收",
+            "url": "https://arena.ai/blog/arena-100m-revenue",
+            "summary": "Arena 官方披露，商业产品推出约八个月后年化收入运行率达到 1 亿美元，同时其 Agent Arena 扩展到真实任务完成评测。",
+            "facts": [
+              {
+                "label": "商业指标",
+                "value": "$100M annualized revenue run rate"
+              },
+              {
+                "label": "口径",
+                "value": "公司公告，非经审计全年收入"
+              }
+            ],
+            "interpretation": "将人类偏好数据转化为企业评测服务已成为可观察的商业化方向，但仍需比较其实际评估效用。",
+            "scope": "2026-06-29 Arena 官方业务规模公告。",
+            "limitations": "公司自报的年化收入运行率不能当作经审计的收入，也不证明客户任务成功率。",
+            "published_at": "2026-06-29",
+            "verified_at": "2026-10-09",
+            "evidence_level": "primary_source"
+          },
+          {
+            "date": "2025-09-16",
+            "kind": "Product",
+            "title": "推出商业产品 AI Evaluations：社区反馈进入企业模型评测",
+            "url": "https://arena.ai/blog/ai-evaluations",
+            "summary": "Arena 宣布面向企业、模型实验室和开发者提供 AI Evaluations，包括基于真实人类反馈的深度评价、可审核样本与结果交付 SLA。",
+            "facts": [
+              {
+                "label": "客户",
+                "value": "企业 / 模型实验室 / 开发者"
+              },
+              {
+                "label": "产品特征",
+                "value": "社区反馈、可审核样本、SLA"
+              }
+            ],
+            "interpretation": "Arena 从公共众包榜单延伸为可交付的商业评测服务，构成长期产品跟踪的起点。",
+            "scope": "2025-09-16 Arena 官方 AI Evaluations 产品发布说明。",
+            "limitations": "官方服务能力与可用范围不构成特定企业的独立效果评估；数据覆盖与代表性需要按业务核验。",
+            "published_at": "2025-09-16",
+            "verified_at": "2026-10-09",
+            "evidence_level": "primary_source"
+          }
+        ]
       }
     ],
     "filters": [
@@ -1107,6 +1296,10 @@
       {
         "id": "support-automation",
         "title": "Support / Automation"
+      },
+      {
+        "id": "ai-evaluation",
+        "title": "AI Evaluation"
       }
     ]
   },
@@ -2386,14 +2579,14 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-09T03:05:11Z",
+    "last_evaluated": "2026-10-09T05:17:35Z",
     "last_decision": {
-      "action": "merge",
-      "candidate_count": 1,
-      "publish_ready_count": 0,
+      "action": "publish",
+      "candidate_count": 3,
+      "publish_ready_count": 2,
       "merge_count": 1,
-      "best_candidate": "candidate-6982206f194b1f18",
-      "reason": "发现与现有热点同源的新节点，建议合并。"
+      "best_candidate": "candidate-019270e4cda473b1",
+      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     }
   },
   "github_hot": {
