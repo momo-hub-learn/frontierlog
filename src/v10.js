@@ -65,10 +65,10 @@ const PB=(()=>{
  function read(hash=location.hash){
   const p=new URLSearchParams(hash.split('?')[1]||''),old=p.get('ptag');
   const s={pview:p.get('pview')==='map'?'map':'updates',scene:p.get('scene')||'all',investor:p.get('investor')||'all',kind:p.get('kind')||'all',product:p.get('product')||'',q:(p.get('q')||'').trim().slice(0,300),legacy:''};
-  const oldScene={legal:'legal','customer-experience':'support','support-automation':'support','knowledge-work':'knowledge',gtm:'sales'};
+  const oldScene={legal:'legal','ai-evaluation':'evaluation','customer-experience':'support','support-automation':'support','knowledge-work':'knowledge',gtm:'sales'};
   if(!p.has('scene')&&oldScene[old])s.scene=oldScene[old];
   if(!p.has('investor')&&['sequoia','yc'].includes(old))s.investor=old;
-  if(['enterprise-agent','in-house','customer-experience','support-automation'].includes(old))s.legacy=old;
+  if(['enterprise-agent','in-house','customer-experience','support-automation','ai-evaluation'].includes(old))s.legacy=old;
   if(!SCENES.some(([id])=>id===s.scene))s.scene='all';
   if(!INVESTORS.some(([id])=>id===s.investor))s.investor='all';
   if(!Object.hasOwn(KINDS,s.kind))s.kind='all';
