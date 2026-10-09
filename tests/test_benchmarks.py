@@ -19,8 +19,11 @@ class BenchmarkTests(unittest.TestCase):
   with self.assertRaises((ValueError,KeyError,TypeError)):validate_benchmarks(self.data)
  def test_seed_counts_and_kinds(self):
   validate_benchmarks(self.data)
-  self.assertEqual(len(self.data['items']),20)
-  self.assertEqual(len(self.data['sources']),29)
+  self.assertEqual(len(self.data['items']),23)
+  self.assertEqual(sum(b['group']=='judge' for b in self.data['items']),3)
+  self.assertEqual(len(self.data['evaluation_datasets']),3)
+  self.assertEqual(len(self.data['evaluators']),2)
+  self.assertEqual(len(self.data['sources']),32)
   self.assertEqual(len(self.data['suites']),5)
   self.assertEqual(sum(b['kind']=='dataset' for b in self.data['items']),2)
  def test_duplicate_item(self):self.reject(lambda d:d['items'].append(copy.deepcopy(d['items'][0])))
