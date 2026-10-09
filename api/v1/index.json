@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-08",
+    "checked": "2026-10-09",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -504,24 +504,24 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-08T20:15:31Z",
+      "last_checked_at": "2026-10-09T00:42:20Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 3,
+      "candidate_count": 1,
       "publish_ready_count": 0,
       "note": "自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-08T20:15:31Z",
+    "generated_at": "2026-10-09T00:42:20Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
       "merge": 1,
-      "hold": 2
+      "hold": 0
     },
     "candidates": [
       {
@@ -537,63 +537,16 @@
         "url": "https://openai.com/index/gpt-6-for-everyone",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "chatgpt-gpt6-intelligent-ui",
         "first_seen_at": "2026-10-08T02:57:27Z"
-      },
-      {
-        "id": "candidate-ee90a4ee12c3bb7a",
-        "category": "research",
-        "published": "2026-09-24",
-        "title": "Automating coherent long-form video generation",
-        "summary": "Google Research 用多智能体编排、视觉记忆与闭环评估解决长视频中的身份漂移和级联错误，强调从“单段生成”走向长时程一致性。",
-        "why": "官方技术文章出现新的能力或系统信号。",
-        "boundary": "技术文章本身不等于产品已经普遍上线，也不构成本站独立复现。",
-        "source": "Google Research",
-        "source_kind": "官方技术博客",
-        "url": "https://research.google/blog/coherent-long-form-video-generation",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.651,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "first_seen_at": "2026-09-28T10:10:16Z"
-      },
-      {
-        "id": "candidate-4342c2f29f972dae",
-        "category": "product",
-        "published": "2026-09-24",
-        "title": "Veolia 选择 Legora 支撑全球法务团队的 AI 工作",
-        "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
-        "why": "产品出现新的公开变化。",
-        "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
-        "source": "Legora",
-        "source_kind": "已收录产品节点",
-        "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.72,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.587,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "product_id": "legora",
-        "first_seen_at": "2026-09-28T10:10:16Z"
       }
     ]
   },
@@ -2433,10 +2386,10 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-08T20:15:31Z",
+    "last_evaluated": "2026-10-09T00:42:20Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 3,
+      "candidate_count": 1,
       "publish_ready_count": 0,
       "merge_count": 1,
       "best_candidate": "candidate-6982206f194b1f18",
