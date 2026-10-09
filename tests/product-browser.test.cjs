@@ -54,6 +54,18 @@ check('Palantir renders as a research-backed enterprise platform',()=>{
  assert(html.includes('Palantir AIP'));assert(html.includes('研究结论'));assert(html.includes('Ontology'));assert(html.includes('AIP Evolve'));
  assert(html.includes('架构依据'));assert(!html.includes('<dt>投资背景</dt><dd><a href="https://www.palantir.com'));
 });
+check('Arena is an evergreen AI evaluation platform with evidence-backed history',()=>{
+ const arena=data.items.find(x=>x.id==='arena');assert(arena);assert.equal(arena.long_term_watch,true);
+ assert.equal(pb.scene(arena),'evaluation');assert.equal(arena.timeline.length,4);
+ assert.deepEqual(ids(pb.products(read('scene=evaluation'))),['arena']);
+ const profile=pb.page(read('pview=map&product=arena'));
+ assert(profile.includes('Arena'));assert(profile.includes('Alignment Index'));
+ assert(profile.includes('AI Evaluations'));assert(profile.includes('研究结论'));
+ assert(profile.includes('2026-10-08'));assert(profile.includes('2025-09-16'));
+ assert(profile.includes('完整时间线'));assert(profile.includes('长期关注'));
+ const defaultPage=pb.page(read(''));
+ assert(defaultPage.includes('Arena'));assert(defaultPage.includes('长期关注'));
+});
 check('map is separate and contains every product',()=>{
  const html=pb.page(read('pview=map'));assert.equal((html.match(/data-product-id=/g)||[]).length,data.items.length);assert(!html.includes('data-product-event'));
  assert(html.includes('产品说明'));assert(html.includes('客户采用'));assert(html.includes('投资背景'));assert(html.includes('完整时间线'));
@@ -67,7 +79,7 @@ check('complete chronological history, not a last-event-only card',()=>{
 });
 check('search narrows both cards and event text, not unrelated history',()=>{
  assert.deepEqual(ids(pb.products(read('q=Word'))),['harvey']);assert.equal(pb.events(read('q=Word')).length,1);
- assert(pb.events(read('q=Harvey')).length>=3);assert.equal(pb.events(read('kind=Company')).length,2);
+ assert(pb.events(read('q=Harvey')).length>=3);assert.equal(pb.events(read('kind=Company')).length,4);
 });
 check('deduplicate news against recorded product event by date + permalink',()=>{
  const e=data.items.find(x=>x.id==='harvey').timeline[0],before=pb.events(read('')).length;
