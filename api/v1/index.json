@@ -504,7 +504,7 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-09T00:42:20Z",
+      "last_checked_at": "2026-10-09T03:05:11Z",
       "status": "success",
       "mode": "shadow",
       "candidate_count": 1,
@@ -514,7 +514,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-09T00:42:20Z",
+    "generated_at": "2026-10-09T03:05:11Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -2386,7 +2386,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-09T00:42:20Z",
+    "last_evaluated": "2026-10-09T03:05:11Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 1,
@@ -5259,7 +5259,7 @@
   },
   "benchmarks": {
     "version": 1,
-    "checked": "2026-09-24",
+    "checked": "2026-10-09",
     "title": "Benchmark 观察站",
     "sync": {
       "status": "manual",
@@ -5302,6 +5302,11 @@
         "id": "manufacturing",
         "title": "制造业",
         "color": "orange"
+      },
+      {
+        "id": "judge",
+        "title": "Judge 评测",
+        "color": "violet"
       }
     ],
     "items": [
@@ -5927,6 +5932,114 @@
           "保留失败样本、完整轨迹与人工介入记录",
           "增加授权业务样本，独立核对泛化表现"
         ]
+      },
+      {
+        "id": "llmbar",
+        "name": "LLMBar",
+        "group": "judge",
+        "edition": "ICLR 2024 / Natural 与 Adversarial 分开",
+        "subtitle": "裁判能否识别真正遵循指令的回答？",
+        "summary": "419 个指令与成对回答样本，包含正确偏好标签；以 Natural 与对抗子集检验 LLM Judge 是否被表面流畅性误导。",
+        "metric": "Pairwise accuracy ↑",
+        "metric_note": "Judge 的选择与 gold preference 的一致率，按 Natural / Adversarial 子集分别报告。",
+        "protocol": "固定数据配置和 Prompt；在 A/B、B/A 两种顺序评测，记录 tie 处理与位置偏差；不得跨子集直接混排。",
+        "boundary": "偏好标签以指令遵循为目标，不等于全面的真实性、安全性或医学专业判断；419 是官方 LLMBar 主集口径。",
+        "business": "适合校准企业 Agent 的指令遵循 Judge，额外加入真实业务失败案例。",
+        "setup": "公开数据与代码；Judge 模型调用权限；固定数据版本、评测提示词和输出解析器。",
+        "topics": [],
+        "sources": [
+          "b-llmbar"
+        ],
+        "result_url": "https://github.com/princeton-nlp/LLMBar",
+        "kind": "benchmark",
+        "flag": "Judge 元评测",
+        "checked": "2026-10-09",
+        "tested": false,
+        "checks": [
+          "固定 LLMBar 主集及子集划分",
+          "固定 Judge Prompt、采样温度和输出解析器",
+          "交换候选顺序，统计位置偏差与 tie",
+          "按自然和对抗子集汇报准确率"
+        ],
+        "dataset_ids": [
+          "ds-llmbar"
+        ],
+        "evaluator_ids": [
+          "ev-pairwise-judge"
+        ],
+        "result_status": "not_run"
+      },
+      {
+        "id": "rewardbench",
+        "name": "RewardBench",
+        "group": "judge",
+        "edition": "V1 filtered / 与 V2 分开",
+        "subtitle": "奖励模型和 Judge 会不会选错更优回答？",
+        "summary": "评估成对回答偏好判断，涵盖指令遵循、安全、推理等子集；V1 filtered split 有 2,985 条样本。",
+        "metric": "Preference accuracy ↑",
+        "metric_note": "计算 chosen 相对 rejected 的胜出率，并分子类别记录；不同 RewardBench 版本不得混合排名。",
+        "protocol": "固定 V1 filtered split 和 subset，比较 chosen / rejected 评分；Judge 需先定义成对偏好解析，Reward Model 使用各自打分接口。",
+        "boundary": "主要为偏好/奖励模型评测；LLM-as-a-Judge 需要单独适配评估接口；聚合数据集有多种上游许可。",
+        "business": "用于检测企业评审模型是否偏好错误但看似可信的答案。",
+        "setup": "Hugging Face filtered 数据集、官方脚本或等价受审计评分器；保存模型版本和子集。",
+        "topics": [],
+        "sources": [
+          "b-rewardbench"
+        ],
+        "result_url": "https://huggingface.co/spaces/allenai/reward-bench",
+        "kind": "benchmark",
+        "flag": "版本与许可需核对",
+        "checked": "2026-10-09",
+        "tested": false,
+        "checks": [
+          "分开使用 RewardBench V1/V2",
+          "记录 filtered split、subset 和来源许可",
+          "记录 chosen/rejected 的评分或 Judge 选择逻辑",
+          "逐子集输出准确率而非单一总分"
+        ],
+        "dataset_ids": [
+          "ds-rewardbench-v1"
+        ],
+        "evaluator_ids": [
+          "ev-pairwise-judge"
+        ],
+        "result_status": "not_run"
+      },
+      {
+        "id": "mtbench-human",
+        "name": "MT-Bench Human Judgments",
+        "group": "judge",
+        "edition": "human / gpt4_pair 分开",
+        "subtitle": "大模型裁判与人类专家到底有多一致？",
+        "summary": "来自 MT-Bench 回答对的人工偏好标注，human split 包含 3,355 条判断，另有 2,400 条 GPT-4 成对判断供比较。",
+        "metric": "Human agreement ↑ / Position bias ↓",
+        "metric_note": "衡量 Judge 与人类多数意见的一致性，单独报告 tie 与顺序翻转；不能把人类分歧强行当成唯一真值。",
+        "protocol": "固定人类标注集、回答对和 tie 聚合规则；将 Judge 输出与同一回答对的人类偏好比较，并交换 A/B 顺序。",
+        "boundary": "人类标签存在评审分歧，英语多轮对话样本不能代表所有垂直业务；人机一致不等于客观正确。",
+        "business": "用于验证 AI坐标或企业内部 Judge 的人类偏好一致性及偏差。",
+        "setup": "公开 human judgments 数据集；正确匹配 question/turn/response pair；固定 Judge 与提示词。",
+        "topics": [],
+        "sources": [
+          "b-mtbench-human"
+        ],
+        "result_url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments",
+        "kind": "benchmark",
+        "flag": "需定义 tie 规则",
+        "checked": "2026-10-09",
+        "tested": false,
+        "checks": [
+          "固定 human 与 gpt4_pair 划分",
+          "明确多数投票、tie 和缺失标签的处理",
+          "报告人机一致率和人类之间的一致性",
+          "重复 A/B 顺序检查位置偏差"
+        ],
+        "dataset_ids": [
+          "ds-mtbench-human"
+        ],
+        "evaluator_ids": [
+          "ev-human-agreement"
+        ],
+        "result_status": "not_run"
       }
     ],
     "sources": [
@@ -6190,6 +6303,33 @@
         "published": null,
         "checked": "2026-09-21",
         "kind": "原始资料"
+      },
+      {
+        "id": "b-llmbar",
+        "title": "LLMBar: official benchmark, dataset and evaluation code",
+        "publisher": "Princeton NLP",
+        "url": "https://github.com/princeton-nlp/LLMBar",
+        "published": null,
+        "checked": "2026-10-09",
+        "kind": "官方代码与数据"
+      },
+      {
+        "id": "b-rewardbench",
+        "title": "RewardBench V1 data card and split schema",
+        "publisher": "Allen Institute for AI",
+        "url": "https://huggingface.co/datasets/allenai/reward-bench",
+        "published": null,
+        "checked": "2026-10-09",
+        "kind": "官方数据集"
+      },
+      {
+        "id": "b-mtbench-human",
+        "title": "MT-Bench human judgments dataset card",
+        "publisher": "LMSYS",
+        "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments",
+        "published": null,
+        "checked": "2026-10-09",
+        "kind": "官方数据集"
       }
     ],
     "changes": [
@@ -6384,6 +6524,73 @@
           "它减少了哪个具体工作环节的成本或失误？",
           "跨设备、跨工况的稳定性有多少证据？"
         ]
+      }
+    ],
+    "evaluation_datasets": [
+      {
+        "id": "ds-llmbar",
+        "name": "LLMBar",
+        "version": "ICLR 2024 · Natural / Adversarial",
+        "domain": "Judge / 指令遵循",
+        "size": "419 对（主集）",
+        "access": "public",
+        "gold_label": "两个回答中正确遵循指令的 preference label（1 / 2）",
+        "split": "Natural 与 Adversarial 的 Neighbor / GPTInst / GPTOut / Manual",
+        "url": "https://huggingface.co/datasets/princeton-nlp/LLMBar",
+        "license": "以仓库与数据子集许可为准",
+        "source_id": "b-llmbar"
+      },
+      {
+        "id": "ds-rewardbench-v1",
+        "name": "RewardBench V1 · filtered",
+        "version": "V1 · filtered split",
+        "domain": "Judge / 偏好与奖励模型",
+        "size": "2,985 对",
+        "access": "public",
+        "gold_label": "chosen / rejected 偏好标签",
+        "split": "filtered / 不同任务 subset",
+        "url": "https://huggingface.co/datasets/allenai/reward-bench",
+        "license": "ODC-BY；上游子集许可需另核对",
+        "source_id": "b-rewardbench"
+      },
+      {
+        "id": "ds-mtbench-human",
+        "name": "MT-Bench Human Judgments",
+        "version": "human / gpt4_pair",
+        "domain": "Judge / 人机一致性",
+        "size": "human 3,355；gpt4_pair 2,400",
+        "access": "public",
+        "gold_label": "人工成对偏好及 tie，需要自定义聚合规则",
+        "split": "human、gpt4_pair",
+        "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments",
+        "license": "CC-BY-4.0（以数据集卡为准）",
+        "source_id": "b-mtbench-human"
+      }
+    ],
+    "evaluators": [
+      {
+        "id": "ev-pairwise-judge",
+        "name": "Pairwise preference evaluator",
+        "type": "llm_or_reward_model",
+        "protocol": "比较 A/B 的偏好输出与 Gold Label，交换顺序检查位置偏差。",
+        "metrics": [
+          "Pairwise accuracy",
+          "Subset accuracy",
+          "Position bias"
+        ],
+        "status": "protocol_only"
+      },
+      {
+        "id": "ev-human-agreement",
+        "name": "Human agreement evaluator",
+        "type": "llm_judge",
+        "protocol": "匹配同一回答对的人类标注与 Judge 偏好，披露多数票与 tie 规则。",
+        "metrics": [
+          "Human agreement",
+          "Position bias",
+          "Inter-annotator agreement"
+        ],
+        "status": "protocol_only"
       }
     ]
   },
