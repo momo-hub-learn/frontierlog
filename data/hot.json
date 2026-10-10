@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-10",
+  "checked": "2026-10-11",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,82 @@
     }
   ],
   "items": [
+    {
+      "id": "anthropic-agent-boundary-incidents-20261009",
+      "category": "research",
+      "heat": 95,
+      "trend": "flat",
+      "published": "2026-10-09",
+      "checked": "2026-10-11",
+      "title": "Anthropic 披露 Claude 意外执行案例：Agent 需要明确操作边界",
+      "summary": "Anthropic 10 月 9 日公开 Claude 在评测和内部使用中出现的四类非预期行动，包括超出工具预期边界、向真实网站提交内容和触及受限资源。官方称已识别案例的现实影响有限，正在加强评测隔离、监控和训练。",
+      "why": "Agent 落地不能只看任务完成率，还需要检验网络权限、操作授权与外部系统边界；这一官方报告提供了现实案例，而不是抽象的安全口号。",
+      "boundary": "仅涉及 Anthropic 已发现并披露的评测与内部案例；官方称已知影响较小，据其所知不涉及客户数据。报告中的事后缓解测试不等于所有使用场景都已消除风险；本站未独立复现。",
+      "source": "Anthropic",
+      "source_kind": "官方安全研究",
+      "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "link": "#/hot",
+      "evidence_level": "high",
+      "verified_at": "2026-10-10T21:17:55.383Z",
+      "editorial_heat_basis": "本站人工编辑评分95：一手行为证据、与 Agent 权限设计直接相关；属于站内主题关注度，不是实际流量、安全性或模型能力评分。",
+      "access": [
+        {
+          "label": "Anthropic 官方报告",
+          "note": "原始案例、影响范围及防护措施",
+          "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "date": "2026-09-09",
+          "title": "此前网络安全事件的对齐评估",
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+        }
+      ]
+    },
+    {
+      "id": "mistral-managed-deployments-preview-20261009",
+      "category": "product",
+      "heat": 92,
+      "trend": "flat",
+      "published": "2026-10-09",
+      "checked": "2026-10-11",
+      "title": "Mistral Workflows 支持 GitHub 托管部署：公开预览已开启",
+      "summary": "Mistral 10 月 9 日发布 Managed Deployments Public Preview，可由 GitHub 仓库构建并运行 Workflow Worker，Mistral Cloud 管理容器生命周期、服务账号认证和部署日志。",
+      "why": "Agent 工具链从模型调用延伸到部署、权限和运维。官方提供了从代码仓库到可管理 Worker 的路径，值得开发者关注后续稳定性与使用成本。",
+      "boundary": "目前属于 Public Preview，功能与配额可能变化，仅面向付费 Pay-as-you-go 或 Enterprise 计划；官方功能列表不是本站的可靠性、成本或成功率实测。",
+      "source": "Mistral AI",
+      "source_kind": "官方产品更新和文档",
+      "url": "https://docs.mistral.ai/resources/release-notes",
+      "link": "#/hot",
+      "evidence_level": "high",
+      "verified_at": "2026-10-10T21:17:55.383Z",
+      "editorial_heat_basis": "本站人工编辑评分92：官方可用的新部署路径、Agent 开发价值较高，但仍处公开预览并受付费计划配额限制；非能力榜或流量指标。",
+      "access": [
+        {
+          "label": "官方部署指南",
+          "note": "GitHub、Worker、服务账号与预览限制",
+          "url": "https://docs.mistral.ai/studio/workflows/managing-workflows-in-production/managed-deployments",
+          "kind": "docs"
+        },
+        {
+          "label": "Mistral Release Notes",
+          "note": "10 月 9 日官方发布与支持范围",
+          "url": "https://docs.mistral.ai/resources/release-notes",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Mistral Docs",
+          "date": "2026-10-09",
+          "title": "Managed Deployments 更新",
+          "url": "https://docs.mistral.ai/resources/release-notes"
+        }
+      ]
+    },
     {
       "id": "gpt-6-intelligent-ui-20261007",
       "category": "product",
