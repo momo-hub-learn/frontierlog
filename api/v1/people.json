@@ -1,0 +1,1516 @@
+{
+  "version": 1,
+  "checked": "2026-10-11",
+  "mode": "manual",
+  "note": "首批人工整理的一手资料档案，不是人才排名；未接入自动人物动态采集。公开作品共同署名不代表相同贡献，也不自动推出师生关系。任职未逐项建档，不以旧头衔暗示现职。",
+  "roles": [
+    {
+      "id": "researcher",
+      "title": "研究者"
+    },
+    {
+      "id": "builder",
+      "title": "工程与开源"
+    },
+    {
+      "id": "founder",
+      "title": "技术创业"
+    },
+    {
+      "id": "educator",
+      "title": "教育与传播"
+    }
+  ],
+  "areas": [
+    {
+      "id": "multimodal",
+      "title": "视觉与多模态"
+    },
+    {
+      "id": "agents",
+      "title": "Agent"
+    },
+    {
+      "id": "systems",
+      "title": "AI 系统"
+    },
+    {
+      "id": "evaluation",
+      "title": "评测与安全"
+    },
+    {
+      "id": "robotics",
+      "title": "机器人"
+    },
+    {
+      "id": "learning",
+      "title": "学习与推理"
+    },
+    {
+      "id": "product",
+      "title": "产品与交付"
+    },
+    {
+      "id": "education",
+      "title": "开放教育"
+    }
+  ],
+  "people": [
+    {
+      "id": "kaiming-he",
+      "name": "何恺明",
+      "aliases": [
+        "Kaiming He"
+      ],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "multimodal",
+        "learning",
+        "agents"
+      ],
+      "intro": "从 ResNet、MoCo、MAE 到视觉交互研究，持续探索视觉表征与模型系统的设计。",
+      "watch": "视觉记忆与自监督表征，怎样支持长程推理和环境交互？",
+      "sources": [
+        {
+          "label": "MIT 个人主页",
+          "url": "https://people.csail.mit.edu/kaiming/",
+          "kind": "personal"
+        },
+        {
+          "label": "VISTA 论文与作者名单",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "ResNet / MoCo / MAE",
+          "url": "https://people.csail.mit.edu/kaiming/publications.html",
+          "relation": "共同作者"
+        },
+        {
+          "title": "VISTA",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "tri-dao",
+      "name": "Tri Dao",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "systems",
+        "learning"
+      ],
+      "intro": "FlashAttention 与 Mamba 的共同作者，连接序列模型设计与高效硬件实现。",
+      "watch": "模型结构的收益，能否在真实推理吞吐、显存和延迟中兑现？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://tridao.me/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "FlashAttention",
+          "url": "https://tridao.me/",
+          "relation": "共同作者"
+        },
+        {
+          "title": "Mamba",
+          "url": "https://arxiv.org/abs/2312.00752",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "shreya-shankar",
+      "name": "Shreya Shankar",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "evaluation",
+        "systems"
+      ],
+      "intro": "围绕语言模型的数据处理与评测开展研究，参与提出 DocETL。",
+      "watch": "评测是否贴近真实数据任务，能否同时说明错误、成本和人工复核？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://www.sh-reya.com/",
+          "kind": "personal"
+        },
+        {
+          "label": "DocETL 原论文",
+          "url": "https://arxiv.org/abs/2410.12189",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "DocETL",
+          "url": "https://arxiv.org/abs/2410.12189",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "benchmark",
+          "id": "llmbar",
+          "label": "Judge 评测参考 · LLMBar",
+          "href": "#/benchmarks?bench=llmbar"
+        }
+      ],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "shyam-sankar",
+      "name": "Shyam Sankar",
+      "aliases": [],
+      "roles": [
+        "builder"
+      ],
+      "areas": [
+        "product",
+        "agents"
+      ],
+      "intro": "长期参与 Palantir 的软件交付与技术建设；其公开简介强调前线部署工程模式。",
+      "watch": "把 AI 接入实际业务后，权限、验收与交付责任怎样闭环？",
+      "sources": [
+        {
+          "label": "本人公开简介",
+          "url": "https://www.shyamsankar.com/about",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Forward Deployed Engineering",
+          "url": "https://www.shyamsankar.com/about",
+          "relation": "公开简介所述工程实践"
+        }
+      ],
+      "related": [
+        {
+          "kind": "product",
+          "id": "palantir-aip",
+          "label": "Palantir AIP · 产品档案",
+          "href": "#/hot?cat=product&pview=map&product=palantir-aip"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "qiushi-han",
+      "name": "Qiushi Han",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "multimodal",
+        "agents"
+      ],
+      "intro": "VISTA 共同作者；作者项目页标注为共同主导者之一，研究视觉 Harness 与交互推理。",
+      "watch": "视觉观察保留和主动回看机制，能否迁移到未见过的环境？",
+      "sources": [
+        {
+          "label": "VISTA 作者项目页",
+          "url": "https://vista-research.github.io/",
+          "kind": "project"
+        },
+        {
+          "label": "VISTA 论文与作者名单",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "VISTA",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "relation": "共同作者 / 项目页标注共同主导"
+        }
+      ],
+      "related": [],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "keya-hu",
+      "name": "Keya Hu",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "multimodal",
+        "agents"
+      ],
+      "intro": "VISTA 共同作者；作者项目页标注为共同主导者之一，从具体研究成果建立档案。",
+      "watch": "同一底层模型下，哪些视觉记忆与观察接口真正带来提升？",
+      "sources": [
+        {
+          "label": "VISTA 作者项目页",
+          "url": "https://vista-research.github.io/",
+          "kind": "project"
+        },
+        {
+          "label": "VISTA 论文与作者名单",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "VISTA",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "relation": "共同作者 / 项目页标注共同主导"
+        }
+      ],
+      "related": [],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "linlu-qiu",
+      "name": "Linlu Qiu",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "agents",
+        "multimodal"
+      ],
+      "intro": "研究语言、推理与智能体；VISTA 作者项目页标注其为共同主导者之一。",
+      "watch": "智能体如何利用语言和视觉证据进行可靠的多步交互？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://linlu-qiu.github.io/",
+          "kind": "personal"
+        },
+        {
+          "label": "VISTA 作者项目页",
+          "url": "https://vista-research.github.io/",
+          "kind": "project"
+        },
+        {
+          "label": "VISTA 论文与作者名单",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "VISTA",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "relation": "共同作者 / 项目页标注共同主导"
+        }
+      ],
+      "related": [],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "cathy-wu",
+      "name": "Cathy Wu",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "agents",
+        "multimodal"
+      ],
+      "intro": "VISTA 共同作者；本档案从公开论文中可核对的贡献关系出发。",
+      "watch": "视觉交互系统的评测环境和任务定义，能否解释实际能力边界？",
+      "sources": [
+        {
+          "label": "VISTA 论文与作者名单",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "kind": "paper"
+        },
+        {
+          "label": "VISTA 作者项目页",
+          "url": "https://vista-research.github.io/",
+          "kind": "project"
+        }
+      ],
+      "works": [
+        {
+          "title": "VISTA",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "albert-gu",
+      "name": "Albert Gu",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "learning",
+        "systems"
+      ],
+      "intro": "Mamba 共同作者，研究状态空间序列建模与计算效率。",
+      "watch": "选择性状态空间模型在长序列和不同模态上如何泛化？",
+      "sources": [
+        {
+          "label": "CMU 机构简介",
+          "url": "https://www.csd.cs.cmu.edu/people/faculty/albert-gu",
+          "kind": "institution"
+        },
+        {
+          "label": "Mamba 原论文",
+          "url": "https://arxiv.org/abs/2312.00752",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "Mamba",
+          "url": "https://arxiv.org/abs/2312.00752",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "woosuk-kwon",
+      "name": "Woosuk Kwon",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "systems"
+      ],
+      "intro": "vLLM 共同创建者，PagedAttention 论文共同作者，关注模型服务的内存与吞吐。",
+      "watch": "推理服务在模型结构不断变化时，如何保持高效、稳定与可观测？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://woosuk.me/",
+          "kind": "personal"
+        },
+        {
+          "label": "PagedAttention 原论文",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "vLLM",
+          "url": "https://woosuk.me/",
+          "relation": "共同创建者"
+        },
+        {
+          "title": "PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "hao-zhang",
+      "name": "Hao Zhang",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "systems"
+      ],
+      "intro": "PagedAttention 论文共同作者；其研究团队持续建设模型系统和开放实现。",
+      "watch": "研究里的吞吐提升，能否在多租户和真实服务负载下复现？",
+      "sources": [
+        {
+          "label": "Hao AI Lab",
+          "url": "https://haoailab.com/",
+          "kind": "institution"
+        },
+        {
+          "label": "PagedAttention 原论文",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "tianqi-chen",
+      "name": "陈天奇",
+      "aliases": [
+        "Tianqi Chen"
+      ],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "systems"
+      ],
+      "intro": "发起 XGBoost、Apache TVM、MLC 等开放项目，连接机器学习与编译部署。",
+      "watch": "开放编译与部署工具如何降低多种硬件上的模型使用成本？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://tqchen.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Apache TVM",
+          "url": "https://tvm.apache.org/",
+          "relation": "发起者"
+        },
+        {
+          "title": "MLC LLM",
+          "url": "https://llm.mlc.ai/",
+          "relation": "发起者"
+        },
+        {
+          "title": "XGBoost",
+          "url": "https://xgboost.ai/",
+          "relation": "发起者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "fei-fei-li",
+      "name": "李飞飞",
+      "aliases": [
+        "Fei-Fei Li",
+        "Li Fei-Fei"
+      ],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "multimodal",
+        "robotics"
+      ],
+      "intro": "从视觉研究到空间智能，连接学术研究与 World Labs 的产品探索。",
+      "watch": "空间表征和世界生成能力，如何从演示进入可验证任务？",
+      "sources": [
+        {
+          "label": "Stanford 机构主页",
+          "url": "https://profiles.stanford.edu/fei-fei-li",
+          "kind": "institution"
+        },
+        {
+          "label": "Cambrian-S 作者列表",
+          "url": "https://www.sainingxie.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "World Labs",
+          "url": "https://profiles.stanford.edu/fei-fei-li",
+          "relation": "联合创始人"
+        },
+        {
+          "title": "Cambrian-S",
+          "url": "https://cambrian-mllm.github.io/",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "research",
+          "id": "worldlabs-atlas",
+          "label": "World Labs · 研究档案",
+          "href": "#/progress?view=research&q=Atlas"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "saining-xie",
+      "name": "谢赛宁",
+      "aliases": [
+        "Saining Xie"
+      ],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "multimodal",
+        "learning"
+      ],
+      "intro": "DiT 与 Cambrian 系列共同作者，关注视觉生成、空间理解与世界模型。",
+      "watch": "生成与理解能否共享更强的视觉表征，并支持环境中的行动？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://www.sainingxie.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Diffusion Transformers / DiT",
+          "url": "https://www.sainingxie.com/",
+          "relation": "共同作者"
+        },
+        {
+          "title": "Cambrian",
+          "url": "https://cambrian-mllm.github.io/",
+          "relation": "共同作者"
+        },
+        {
+          "title": "AMI Labs",
+          "url": "https://www.sainingxie.com/",
+          "relation": "联合创始人"
+        }
+      ],
+      "related": [
+        {
+          "kind": "research",
+          "id": "ami-world-model-progress",
+          "label": "AMI Labs · 技术路线",
+          "href": "#/progress?view=research&q=Action-Conditioned%20World%20Models"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "yann-lecun",
+      "name": "Yann LeCun",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "learning",
+        "multimodal",
+        "robotics"
+      ],
+      "intro": "围绕机器学习、视觉与自主系统开展研究，也是 Cambrian 系列的共同作者。",
+      "watch": "视觉表征与预测世界模型，如何转化为可测量的规划能力？",
+      "sources": [
+        {
+          "label": "NYU 机构目录",
+          "url": "https://cs.nyu.edu/dynamic/people/faculty/area/Graphics,%20Vision,%20User%20Interfaces,%20and%20Games/",
+          "kind": "institution"
+        },
+        {
+          "label": "Cambrian 作者名单",
+          "url": "https://www.sainingxie.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Cambrian-1 / Cambrian-S",
+          "url": "https://cambrian-mllm.github.io/",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "research",
+          "id": "vjepa-21",
+          "label": "JEPA · 研究方向参考",
+          "href": "#/progress?view=research&q=V-JEPA%202.1"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "yoshua-bengio",
+      "name": "Yoshua Bengio",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "learning",
+        "evaluation"
+      ],
+      "intro": "深度学习与 AI 安全研究者，发起 LawZero 并公开讨论 Scientist AI 路线。",
+      "watch": "安全设计中的技术假设，能否形成可检验的模型约束与实验？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://yoshuabengio.org/en",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "LawZero",
+          "url": "https://yoshuabengio.org/en",
+          "relation": "发起者"
+        },
+        {
+          "title": "International AI Safety Report",
+          "url": "https://internationalaisafetyreport.org/",
+          "relation": "报告主席（本人主页所述）"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "geoffrey-hinton",
+      "name": "Geoffrey Hinton",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "educator"
+      ],
+      "areas": [
+        "learning"
+      ],
+      "intro": "研究神经网络学习算法，参与反向传播、分布式表征等方向的早期发展。",
+      "watch": "学习机制的新解释，如何与可重复的实验证据连接？",
+      "sources": [
+        {
+          "label": "多伦多大学个人主页",
+          "url": "https://www.cs.toronto.edu/~hinton/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "神经网络与表示学习论文",
+          "url": "https://www.cs.toronto.edu/~hinton/",
+          "relation": "论文作者"
+        },
+        {
+          "title": "机器学习课程",
+          "url": "https://www.cs.toronto.edu/~hinton/",
+          "relation": "授课者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "andrej-karpathy",
+      "name": "Andrej Karpathy",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder",
+        "educator"
+      ],
+      "areas": [
+        "learning",
+        "education"
+      ],
+      "intro": "通过公开课程与从零实现，解释神经网络和语言模型的内部工作方式。",
+      "watch": "从零实现能否帮助开发者理解模型能力、训练成本和工程取舍？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://karpathy.ai/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Neural Networks: Zero to Hero",
+          "url": "https://karpathy.ai/zero-to-hero.html",
+          "relation": "课程作者"
+        },
+        {
+          "title": "CS231n",
+          "url": "https://karpathy.ai/",
+          "relation": "共同设计与授课"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "jeremy-howard",
+      "name": "Jeremy Howard",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "educator",
+        "founder"
+      ],
+      "areas": [
+        "learning",
+        "education"
+      ],
+      "intro": "fast.ai 联合创始人，通过课程与 fastai 软件库推动实用深度学习。",
+      "watch": "新的研究技巧怎样成为普通开发者能理解、能验证的工具？",
+      "sources": [
+        {
+          "label": "fast.ai 团队简介",
+          "url": "https://www.fast.ai/about.html",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "fast.ai",
+          "url": "https://www.fast.ai/",
+          "relation": "联合创始人"
+        },
+        {
+          "title": "fastai",
+          "url": "https://docs.fast.ai/",
+          "relation": "创建者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "thomas-wolf",
+      "name": "Thomas Wolf",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "founder"
+      ],
+      "areas": [
+        "systems",
+        "education"
+      ],
+      "intro": "Hugging Face 联合创始人，参与建设开放模型、数据与开发工具生态。",
+      "watch": "开放权重之外，数据、评估和复现工具是否同样可获得？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://thomwolf.io/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Hugging Face",
+          "url": "https://thomwolf.io/",
+          "relation": "联合创始人"
+        },
+        {
+          "title": "Transformers",
+          "url": "https://thomwolf.io/",
+          "relation": "论文共同作者 / 工具生态建设者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "harrison-chase",
+      "name": "Harrison Chase",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "founder"
+      ],
+      "areas": [
+        "agents",
+        "product"
+      ],
+      "intro": "LangChain 发起者与公司联合创始人，关注语言模型应用与 Agent 开发。",
+      "watch": "框架抽象是否帮助真实任务交付，还是增加不必要的复杂度？",
+      "sources": [
+        {
+          "label": "LangChain 官方介绍",
+          "url": "https://www.langchain.com/about",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "LangChain",
+          "url": "https://www.langchain.com/about",
+          "relation": "发起者 / 联合创始人"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "hamel-husain",
+      "name": "Hamel Husain",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "educator"
+      ],
+      "areas": [
+        "evaluation",
+        "product"
+      ],
+      "intro": "以公开工程实践讲解 LLM 评测、错误分析与业务验收。",
+      "watch": "评测标准是否表达真实用户需求，裁判是否经过人工校准？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://hamel.dev/",
+          "kind": "personal"
+        },
+        {
+          "label": "LLM-as-a-Judge 指南",
+          "url": "https://hamel.dev/blog/posts/llm-judge/index.html",
+          "kind": "article"
+        }
+      ],
+      "works": [
+        {
+          "title": "LLM-as-a-Judge 指南",
+          "url": "https://hamel.dev/blog/posts/llm-judge/index.html",
+          "relation": "文章作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "benchmark",
+          "id": "llmbar",
+          "label": "Judge 评测参考 · LLMBar",
+          "href": "#/benchmarks?bench=llmbar"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "educator"
+      ],
+      "areas": [
+        "systems",
+        "evaluation"
+      ],
+      "intro": "Datasette 创建者，持续用公开实验和技术写作记录模型工具的实际行为。",
+      "watch": "新功能能否复现，提示注入等边界在实际工具调用中怎样表现？",
+      "sources": [
+        {
+          "label": "个人简介",
+          "url": "https://simonwillison.net/about/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Datasette",
+          "url": "https://datasette.io/",
+          "relation": "创建者"
+        },
+        {
+          "title": "技术博客",
+          "url": "https://simonwillison.net/",
+          "relation": "作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "chip-huyen",
+      "name": "Chip Huyen",
+      "aliases": [],
+      "roles": [
+        "builder",
+        "educator"
+      ],
+      "areas": [
+        "systems",
+        "product",
+        "education"
+      ],
+      "intro": "围绕生产级机器学习和 AI 工程写作，关注模型到应用之间的系统问题。",
+      "watch": "模型选择、数据与评测怎样共同影响上线质量和运行成本？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://huyenchip.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "AI 工程与机器学习系统写作",
+          "url": "https://huyenchip.com/",
+          "relation": "作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "chelsea-finn",
+      "name": "Chelsea Finn",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "robotics",
+        "learning"
+      ],
+      "intro": "MAML 共同作者与 Physical Intelligence 联合创始人，研究通过交互学习的机器人。",
+      "watch": "跨任务适应与规模化机器人学习，能否带来稳健的现实泛化？",
+      "sources": [
+        {
+          "label": "Stanford 个人主页",
+          "url": "https://ai.stanford.edu/~cbfinn/",
+          "kind": "personal"
+        },
+        {
+          "label": "MAML 原论文",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "MAML",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "relation": "共同作者"
+        },
+        {
+          "title": "Physical Intelligence",
+          "url": "https://ai.stanford.edu/~cbfinn/",
+          "relation": "联合创始人"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "sergey-levine",
+      "name": "Sergey Levine",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "educator"
+      ],
+      "areas": [
+        "robotics",
+        "learning"
+      ],
+      "intro": "研究深度强化学习、决策与机器人控制；MAML 共同作者。",
+      "watch": "离线数据、交互学习与规划怎样共同支持现实任务？",
+      "sources": [
+        {
+          "label": "Berkeley 个人主页",
+          "url": "https://people.eecs.berkeley.edu/~svlevine/",
+          "kind": "personal"
+        },
+        {
+          "label": "MAML 原论文",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "MAML",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "relation": "共同作者"
+        },
+        {
+          "title": "CS285 深度强化学习",
+          "url": "https://people.eecs.berkeley.edu/~svlevine/",
+          "relation": "课程教师"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "pieter-abbeel",
+      "name": "Pieter Abbeel",
+      "aliases": [],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "robotics",
+        "learning"
+      ],
+      "intro": "MAML 共同作者，从模型适应和强化学习的代表研究切入机器人学习。",
+      "watch": "少量新任务数据能否带来可复现的适应，而不牺牲原有能力？",
+      "sources": [
+        {
+          "label": "MAML 原论文",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "MAML",
+          "url": "https://arxiv.org/abs/1703.03400",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "percy-liang",
+      "name": "梁鹏",
+      "aliases": [
+        "Percy Liang"
+      ],
+      "roles": [
+        "researcher",
+        "builder",
+        "educator"
+      ],
+      "areas": [
+        "learning",
+        "systems",
+        "education"
+      ],
+      "intro": "推动开放模型开发与可复现实验，领导 Marin 并建设 CodaLab。",
+      "watch": "从开放权重走向开放实验过程，能否让外部贡献者参与模型改进？",
+      "sources": [
+        {
+          "label": "Stanford 个人主页",
+          "url": "https://cs.stanford.edu/~pliang/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "Marin",
+          "url": "https://marin.community/",
+          "relation": "项目负责人"
+        },
+        {
+          "title": "CodaLab",
+          "url": "https://cs.stanford.edu/~pliang/",
+          "relation": "创建者"
+        },
+        {
+          "title": "CS336",
+          "url": "https://cs336.stanford.edu/",
+          "relation": "课程教师"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "danqi-chen",
+      "name": "陈丹琦",
+      "aliases": [
+        "Danqi Chen"
+      ],
+      "roles": [
+        "researcher"
+      ],
+      "areas": [
+        "learning",
+        "agents"
+      ],
+      "intro": "研究自然语言处理中的知识表示、理解与问答。",
+      "watch": "语言模型怎样利用可追溯知识，而不把流畅回答当作事实？",
+      "sources": [
+        {
+          "label": "Princeton 机构简介",
+          "url": "https://www.cs.princeton.edu/people/profile/danqic",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "知识表示与自然语言处理研究",
+          "url": "https://www.cs.princeton.edu/people/profile/danqic",
+          "relation": "研究者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "shunyu-yao",
+      "name": "姚顺雨",
+      "aliases": [
+        "Shunyu Yao"
+      ],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "agents",
+        "evaluation"
+      ],
+      "intro": "ReAct、Tree of Thoughts、SWE-bench 与 SWE-agent 的共同作者，关注推理与行动的连接。",
+      "watch": "Agent 的提升来自模型、交互接口还是测试预算？",
+      "sources": [
+        {
+          "label": "个人主页与作品列表",
+          "url": "https://ysymyth.github.io/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "ReAct",
+          "url": "https://react-lm.github.io/",
+          "relation": "共同作者"
+        },
+        {
+          "title": "SWE-bench / SWE-agent",
+          "url": "https://ysymyth.github.io/",
+          "relation": "共同作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "benchmark",
+          "id": "swe-verified",
+          "label": "SWE-bench 体系 · Verified 版本",
+          "href": "#/benchmarks?bench=swe-verified"
+        }
+      ],
+      "discovery": "work",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "nathan-lambert",
+      "name": "Nathan Lambert",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "educator"
+      ],
+      "areas": [
+        "learning",
+        "evaluation"
+      ],
+      "intro": "专注后训练与 RLHF，并通过公开教材与研究写作解释模型对齐。",
+      "watch": "偏好数据、训练目标和评测协议怎样影响最终行为？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://natolambert.com/",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "RLHF Book",
+          "url": "https://rlhfbook.com/",
+          "relation": "作者"
+        },
+        {
+          "title": "Interconnects",
+          "url": "https://www.interconnects.ai/",
+          "relation": "作者"
+        }
+      ],
+      "related": [
+        {
+          "kind": "benchmark",
+          "id": "rewardbench",
+          "label": "偏好评测参考 · RewardBench",
+          "href": "#/benchmarks?bench=rewardbench"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "bret-taylor",
+      "name": "Bret Taylor",
+      "aliases": [],
+      "roles": [
+        "founder",
+        "builder"
+      ],
+      "areas": [
+        "product",
+        "agents"
+      ],
+      "intro": "Sierra 联合创始人，把对话式 Agent 推向企业客户体验场景。",
+      "watch": "企业 Agent 的效果怎样用任务结果、可靠性与人工接管来验收？",
+      "sources": [
+        {
+          "label": "Sierra 创始人介绍",
+          "url": "https://sierra.ai/about",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "Sierra",
+          "url": "https://sierra.ai/about",
+          "relation": "联合创始人"
+        }
+      ],
+      "related": [
+        {
+          "kind": "product",
+          "id": "sierra",
+          "label": "Sierra · 产品档案",
+          "href": "#/hot?cat=product&pview=map&product=sierra"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "lianmin-zheng",
+      "name": "Lianmin Zheng",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "builder"
+      ],
+      "areas": [
+        "systems",
+        "evaluation"
+      ],
+      "intro": "PagedAttention 共同作者、LMSYS.org 联合创始人，连接推理系统与开放评测。",
+      "watch": "模型服务效率和评测可复现性，如何共同改善开放生态？",
+      "sources": [
+        {
+          "label": "个人主页",
+          "url": "https://lmzheng.net/",
+          "kind": "personal"
+        },
+        {
+          "label": "PagedAttention 原论文",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "kind": "paper"
+        }
+      ],
+      "works": [
+        {
+          "title": "PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180",
+          "relation": "共同作者"
+        },
+        {
+          "title": "LMSYS.org",
+          "url": "https://lmzheng.net/",
+          "relation": "非营利组织联合创始人"
+        }
+      ],
+      "related": [
+        {
+          "kind": "benchmark",
+          "id": "mtbench-human",
+          "label": "人类偏好参考 · MT-Bench",
+          "href": "#/benchmarks?bench=mtbench-human"
+        }
+      ],
+      "discovery": "editorial",
+      "checked": "2026-10-11"
+    }
+  ],
+  "events": [
+    {
+      "id": "vista-paper",
+      "date": "2026-10-01",
+      "title": "VISTA：为多模态推理保留可回看的视觉证据",
+      "people": [
+        "qiushi-han",
+        "keya-hu",
+        "linlu-qiu",
+        "cathy-wu",
+        "kaiming-he"
+      ],
+      "kind": "paper",
+      "summary": "论文提出视觉 Harness：保留原始观察，并允许模型主动回看和检查细节。",
+      "url": "https://arxiv.org/abs/2610.02200",
+      "source": "arXiv · 首次提交",
+      "boundary": "研究结果依赖具体底层模型与公开环境；不把作者报告写成独立泛化验证。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "eval-product-smell",
+      "date": "2026-06-29",
+      "title": "“难以评测”也可能暴露产品定义问题",
+      "people": [
+        "hamel-husain"
+      ],
+      "kind": "article",
+      "summary": "Hamel 讨论业务目标、用户需求与评测标准之间的关系。",
+      "url": "https://hamel.dev/blog/posts/eval-smell/index.html",
+      "source": "Hamel 本人博客",
+      "boundary": "这是作者的工程观点，不是对所有产品有效的统一结论。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "replayssm",
+      "date": "2026-06-15",
+      "title": "ReplaySSM：缓存输入，而不是完整状态",
+      "people": [
+        "tri-dao"
+      ],
+      "kind": "article",
+      "summary": "技术文章讨论状态空间模型在服务与缓存中的系统设计。",
+      "url": "https://tridao.me/blog/2026/replayssm/",
+      "source": "Tri Dao 本人博客",
+      "boundary": "作者报告或观点，不等于本站独立复现。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "mamba3",
+      "date": "2026-03-16",
+      "title": "Mamba-3 技术解读：面向推理的序列模型设计",
+      "people": [
+        "tri-dao"
+      ],
+      "kind": "article",
+      "summary": "作者通过技术文章解释新一轮状态空间模型设计。",
+      "url": "https://tridao.me/blog/2026/mamba3-part1/",
+      "source": "Tri Dao 本人博客",
+      "boundary": "作者报告或观点，不等于本站独立复现。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "judge-guide",
+      "date": "2024-10-29",
+      "title": "LLM-as-a-Judge：从人工标准到可校准裁判",
+      "people": [
+        "hamel-husain"
+      ],
+      "kind": "article",
+      "summary": "工程指南讨论如何设计、校准和使用语言模型裁判。",
+      "url": "https://hamel.dev/blog/posts/llm-judge/index.html",
+      "source": "Hamel 本人博客",
+      "boundary": "指南不是通用准确率保证，具体业务仍需人工标注与误差分析。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "docetl",
+      "date": "2024-10-16",
+      "title": "DocETL：面向文档处理的语言模型数据流水线",
+      "people": [
+        "shreya-shankar"
+      ],
+      "kind": "paper",
+      "summary": "论文研究声明式文档处理与基于 LLM 的流水线优化。",
+      "url": "https://arxiv.org/abs/2410.12189",
+      "source": "arXiv · 首次提交",
+      "boundary": "只显示本站已建档的共同作者；完整名单见原文。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "mamba-original",
+      "date": "2023-12-01",
+      "title": "Mamba：选择性状态空间序列建模",
+      "people": [
+        "albert-gu",
+        "tri-dao"
+      ],
+      "kind": "paper",
+      "summary": "论文研究选择性状态空间与硬件感知实现。",
+      "url": "https://arxiv.org/abs/2312.00752",
+      "source": "arXiv · 首次提交",
+      "boundary": "作者报告或观点，不等于本站独立复现。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "pagedattention",
+      "date": "2023-09-12",
+      "title": "PagedAttention：改进语言模型服务的显存管理",
+      "people": [
+        "woosuk-kwon",
+        "hao-zhang",
+        "lianmin-zheng"
+      ],
+      "kind": "paper",
+      "summary": "论文提出分页式 KV Cache 管理，并介绍 vLLM 服务系统。",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "source": "arXiv · 首次提交",
+      "boundary": "仅关联本站已建档作者，不代表完整名单，也不分配个人贡献比例。",
+      "checked": "2026-10-11"
+    },
+    {
+      "id": "maml",
+      "date": "2017-03-09",
+      "title": "MAML：用少量梯度更新适应新任务",
+      "people": [
+        "chelsea-finn",
+        "pieter-abbeel",
+        "sergey-levine"
+      ],
+      "kind": "paper",
+      "summary": "论文研究模型无关的元学习，使模型更容易适应新任务。",
+      "url": "https://arxiv.org/abs/1703.03400",
+      "source": "arXiv · 首次提交",
+      "boundary": "作者报告或观点，不等于本站独立复现。",
+      "checked": "2026-10-11"
+    }
+  ]
+}
