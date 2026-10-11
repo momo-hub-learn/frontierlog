@@ -1,0 +1,65 @@
+name: WELCOME 2027 contribution art
+
+on:
+  push:
+    branches: [main, preview/welcome-2027-20261012]
+    paths:
+      - 'contribution-art/2027/**'
+      - '.github/workflows/welcome-2027.yml'
+  workflow_dispatch:
+  schedule:
+    # UTC: 19:17 and 20:47 in Asia/Shanghai. Second run is idempotent recovery.
+    - cron: '17 11 * * *'
+    - cron: '47 12 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: welcome-2027-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  TZ: UTC
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Verify dates, idempotency, identity and isolated git writes
+        run: python -m unittest discover -s contribution-art/2027 -p 'test_*.py' -v
+      - name: Verify checked-in calendar matches the generator
+        run: |
+          python contribution-art/2027/calendar_plan.py generate
+          git diff --exit-code -- contribution-art/2027/plan.json contribution-art/2027/dates.csv
+      - name: Show today's read-only plan
+        run: python contribution-art/2027/calendar_plan.py today
+
+  draw:
+    needs: verify
+    if: >-
+      github.repository == 'momo-hub-learn/frontierlog' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Add only today's planned contribution-art steps
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python contribution-art/2027/runner.py --apply --push
