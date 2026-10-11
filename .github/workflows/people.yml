@@ -28,7 +28,7 @@ jobs:
       - name: Archive exact review sources
         run: |
           git rev-parse HEAD > source-sha.txt
-          tar -czf review-source.tar.gz src data scripts tests assets .github README.md source-sha.txt
+          tar -czf review-source.tar.gz src data scripts tests assets examples .github README.md source-sha.txt
       - uses: actions/upload-artifact@v4
         with:
           name: people-review-source
@@ -60,3 +60,44 @@ jobs:
             source-sha.txt
             test-results/people
           retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: people-verified-site
+          path: |
+            source-sha.txt
+            dist
+          retention-days: 7
+
+  preview-snapshot:
+    needs: verify
+    if: github.ref == 'refs/heads/preview/people-20261011'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: people-verified-site
+          path: .people-verified
+      - name: Commit tested preview snapshot only, with branch lease
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(cat .people-verified/source-sha.txt)" = "$GITHUB_SHA"
+          for file in index.html 404.html api/v1/index.json api/v1/people.json; do
+            test -f ".people-verified/dist/$file"
+            mkdir -p "$(dirname "$file")"
+            cp ".people-verified/dist/$file" "$file"
+          done
+          git add index.html 404.html api/v1/index.json api/v1/people.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Build verified AI People preview snapshot'
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
