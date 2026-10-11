@@ -147,10 +147,10 @@ def main():
     previous=json.loads(old_path.read_text(encoding='utf-8')) if old_path.exists() else {}
     inbox,decision=evaluate(now,previous);ts=stamp(now)
     hot=load('hot.json');policy=load('hot-policy.json')
-    hot['checked']=now.astimezone(timezone.utc).date().isoformat()
+    # Shadow evaluation is NOT a source review. Preserve the last editorial date.
     hot['sync']={'last_checked_at':ts,'status':'success','mode':'shadow',
       'candidate_count':decision['candidate_count'],'publish_ready_count':decision['publish_ready_count'],
-      'note':'自动候选采集已完成；热点正文和热度仍保持人工 / 高门槛精选。'}
+      'note':'站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。'}
     policy['status']='shadow-running';policy['last_evaluated']=ts;policy['last_decision']=decision
     (ROOT/'data/hot.json').write_text(json.dumps(hot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     (ROOT/'data/hot-policy.json').write_text(json.dumps(policy,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

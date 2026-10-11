@@ -18,7 +18,7 @@ class HotDataTests(unittest.TestCase):
   d=copy.deepcopy(self.data);fn(d)
   with self.assertRaises((ValueError,KeyError,TypeError)):validate_hot(d)
  def test_valid_and_counts(self):
-  validate_hot(self.data);self.assertEqual(len(self.data['items']),10);self.assertEqual(len(self.data['categories']),6)
+  validate_hot(self.data);self.assertGreater(len(self.data['items']),0);self.assertEqual(len(self.data['categories']),6)
  def test_not_fake_live(self):self.reject(lambda d:d['method'].update(automatic=True))
  def test_no_claimed_success(self):self.reject(lambda d:d['method'].update(last_success='2026-09-21T00:00:00Z'))
  def test_sync_status_is_precise_and_shadow(self):
@@ -42,13 +42,13 @@ class HotDataTests(unittest.TestCase):
  def test_precise_timestamp_requires_timezone(self):self.reject(lambda d:d['items'][0].update(published_at='2026-09-10T16:10:00'))
  def test_rss_dates_sources_and_stable_guid(self):
   root=ET.fromstring(hot_rss(self.data,self.site));items=root.findall('channel/item')
-  self.assertEqual(len(items),10);self.assertEqual(len({i.findtext('guid') for i in items}),10)
+  self.assertEqual(len(items),len(self.data['items']));self.assertEqual({i.findtext('guid') for i in items},{'frontierlog:hot:'+x['id'] for x in self.data['items']})
   self.assertTrue(all(i.findtext('link').startswith('https://') for i in items))
   self.assertTrue(all('不是全网流量' in i.findtext('description') for i in items))
   self.assertEqual({parsedate_to_datetime(i.findtext('pubDate')).date().isoformat() for i in items},{x['published'] for x in self.data['items']})
  def test_build_embeds_hot_and_model_benchmark_tab(self):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td);app=build(out);html=(out/'index.html').read_text()
-   self.assertIn('const HOT=APP.hot',html);self.assertEqual(len(app['hot']['items']),10)
+   self.assertIn('const HOT=APP.hot',html);self.assertEqual(app['hot']['items'],self.data['items'])
    self.assertTrue((out/'api/v1/hot.json').exists());self.assertTrue((out/'api/v1/hot-inbox.json').exists());self.assertTrue((out/'feeds/hot.xml').exists())
    self.assertIn("modelHubTabs('benchmarks')",html);self.assertIn('热点榜',html)

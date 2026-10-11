@@ -39,18 +39,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Evaluate verified hot candidates
-        run: python scripts/hot_sync.py
-      - name: Rebase sync state on latest main
+      - name: Evaluate candidates from latest main
         run: |
-          cp data/hot.json /tmp/hot.json
-          cp data/hot-policy.json /tmp/hot-policy.json
-          cp data/hot-inbox.json /tmp/hot-inbox.json
           git fetch origin main
           git reset --hard origin/main
-          cp /tmp/hot.json data/hot.json
-          cp /tmp/hot-policy.json data/hot-policy.json
-          cp /tmp/hot-inbox.json data/hot-inbox.json
+          python scripts/hot_sync.py
       - name: Validate hot sync and build
         run: |
           python -m unittest tests.test_hot tests.test_build

@@ -5,11 +5,19 @@ from email.utils import format_datetime
 import re
 from urllib.parse import urlparse
 from xml.etree import ElementTree as ET
+from zoneinfo import ZoneInfo
 
-def validate_hot(data:dict)->None:
+REVIEW_TIMEZONE = ZoneInfo("Asia/Shanghai")
+
+def validate_hot(data:dict, *, now:datetime|None=None)->None:
+    # Editorial date-only checks use Beijing days, never the runner's local date.
+    # An injectable, aware clock makes the UTC/Beijing midnight boundary testable.
+    now = now if now is not None else datetime.now(timezone.utc)
+    if now.tzinfo is None or now.utcoffset() is None:
+        raise ValueError('Validation clock must include timezone')
     if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported hot schema')
     checked=date.fromisoformat(data['checked'])
-    if checked>date.today(): raise ValueError('Future hot check date')
+    if checked>now.astimezone(REVIEW_TIMEZONE).date(): raise ValueError('Future hot check date')
     if data.get('method',{}).get('automatic') is not False: raise ValueError('Hot score must not pretend to be live')
     if data['method'].get('last_success') is not None: raise ValueError('No verified automated hot collection')
     sync=data.get('sync')
@@ -35,12 +43,12 @@ def validate_hot(data:dict)->None:
         published=date.fromisoformat(item['published'])
         if published>checked: raise ValueError('Future hot event')
         # Precise timeline timestamps are optional but, when present, must be timezone-aware ISO 8601.
-        for time_key in ('published_at','first_seen_at','captured_at'):
+        for time_key in ('published_at','first_seen_at','captured_at','verified_at'):
             raw=item.get(time_key)
             if raw:
                 precise=datetime.fromisoformat(str(raw).replace('Z','+00:00'))
                 if precise.tzinfo is None: raise ValueError('Hot timestamp must include timezone: '+time_key)
-                if precise.date()>checked: raise ValueError('Future hot timestamp: '+time_key)
+                if precise>now or precise.astimezone(REVIEW_TIMEZONE).date()>checked: raise ValueError('Future hot timestamp: '+time_key)
         if date.fromisoformat(item['checked'])>checked: raise ValueError('Item checked after snapshot')
         u=urlparse(item['url'])
         if u.scheme!='https' or not u.hostname or u.username or u.password: raise ValueError('Unsafe hot source URL')
