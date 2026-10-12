@@ -48,6 +48,8 @@ jobs:
         run: |
           node tests/deep-editorial.test.cjs
           python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
+      - name: GitHub Trending and REA freshness UI regression
+        run: node tests/github-trending-ui.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
