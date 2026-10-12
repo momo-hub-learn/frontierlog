@@ -16,7 +16,6 @@ on:
       - 'data/product-radar.json'
       - 'data/activity-radar.json'
       - 'data/hot-policy.json'
-      - 'data/github-hot.json'
       - 'data/huggingface-hot.json'
       - 'data/models.json'
       - 'data/capabilities.json'
@@ -33,7 +32,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: frontierlog-static-publish
+  group: tibo-x-sync
   cancel-in-progress: false
 
 jobs:
