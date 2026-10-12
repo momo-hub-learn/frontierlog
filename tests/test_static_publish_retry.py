@@ -27,7 +27,7 @@ class RetryStaticPublishTests(TestCase):
             with mock.patch.object(p.subprocess,'run',return_value=result(0)) as proc:
                 p.publish('tibo',attempts=2)
         self.assertEqual(proc.call_count,1)
-        self.assertFalse(any(x.args[0][:2]==('git','commit') for x in cmd.call_args_list))
+        self.assertFalse(any(x.args[:2]==('git','commit') for x in cmd.call_args_list))
 
     def test_retries_stop_at_bound(self):
         with mock.patch.object(p,'cmd'), mock.patch.object(p,'rebuild'):
