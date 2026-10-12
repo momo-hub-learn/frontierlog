@@ -72,4 +72,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/hot.json data/hot-policy.json data/hot-inbox.json index.html 404.html api/v1 feeds feed.xml sitemap.xml robots.txt
           git commit -m "Evaluate hot candidates"
-          git push
+          if ! git push; then
+            echo "Main advanced during this publication; rebuild against latest main."
+            python scripts/retry_static_publish.py --mode hot
+          fi
