@@ -1,0 +1,60 @@
+name: Deep dive freshness watch
+
+on:
+  schedule:
+    - cron: '00 02 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check newest editorial date against Beijing time
+        run: python scripts/deep_dive_watch.py > deep-dive-watch.json
+      - name: Keep one editor follow-up open only when stale
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs=require('fs');
+            const x=JSON.parse(fs.readFileSync('deep-dive-watch.json','utf8'));
+            const {owner,repo}=context.repo;
+            const title='拆一下｜深读更新提醒';
+            const {data:issues}=await github.rest.issues.listForRepo({owner,repo,state:'open',per_page:100});
+            const existing=issues.find(i=>!i.pull_request&&i.title===title);
+            const candidates=x.uncovered_hot_candidates.map(row =>
+              '- '+row.published+' · '+row.title+' · '+row.source).join('\n') || '- 暂无未覆盖的站内近期候选；请检查一手研究与官方项目动态。';
+            const body=[
+              '这是自动维护的编辑提醒，不是已发布的研究事实。',
+              '',
+              '**最近一期：** '+(x.latest_title||'暂无'),
+              '**原始发布日期：** '+(x.latest_published||'—'),
+              '**距离今天：** '+(x.age_days===null?'—':x.age_days+' 天')+'（北京时间）',
+              '**提醒阈值：** '+x.threshold_days+' 天',
+              '',
+              '### 可供编辑核验的站内候选',
+              candidates,
+              '',
+              '请先核对一手来源、机制、复现实验和失败边界，再创建正式深读；',
+              '不要仅因热度高而自动生成文章。',
+              '',
+              '当前检查日期：'+x.today
+            ].join('\n');
+            if(x.stale) {
+              if(existing) {
+                if(existing.body!==body) await github.rest.issues.update({owner,repo,issue_number:existing.number,body});
+              } else {
+                await github.rest.issues.create({owner,repo,title,body});
+              }
+            } else if(existing) {
+              await github.rest.issues.createComment({owner,repo,issue_number:existing.number,body:'已有新深读，最新文章日期 '+x.latest_published+'；自动关闭内容更新提醒。'});
+              await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
+            }

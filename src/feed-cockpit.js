@@ -36,14 +36,16 @@ function fcPersonalPanel(){
  '</section>'
 }
 function fcDeepPanel(){
- const a=APP.deep_dives?.articles?.[0];
+ const a=[...(APP.deep_dives?.articles||[])].sort((x,y)=>String(y.published||'').localeCompare(String(x.published||'')))[0];
  if(!a)return '';
+ const flow=(a.mini_flow||[]).slice(0,3);
+ const diagram=flow.length===3?'<div class="fc-mini-arch" aria-label="技术链路摘要">'+flow.map((x,i)=>(i?'<i aria-hidden="true">→</i>':'')+'<span class="'+(i===1?'is-accent':'')+'"><b>'+esc(x.label)+'</b><small>'+esc(x.detail)+'</small></span>').join('')+'</div>':'';
  return '<a class="fc-panel fc-deep-panel" href="#/deep?id='+encodeURIComponent(a.id)+'">'+
-  '<div class="fc-side-head"><span class="fc-kicker">拆一下</span><small>'+esc(String(a.read_minutes))+' MIN</small></div>'+
+  '<div class="fc-side-head"><span class="fc-kicker">拆一下</span><small>'+esc(a.published.slice(5).replace('-','.'))+' · '+esc(String(a.read_minutes))+' MIN</small></div>'+
   '<h2>'+esc(a.short_title||a.title)+'</h2>'+
   '<p>'+esc(a.subtitle)+'</p>'+
-  '<div class="fc-mini-arch" aria-label="架构摘要"><span><b>LLM</b><small>生成 / 推理</small></span><i>+</i><span class="is-accent"><b>Jev</b><small>路由 / 评分</small></span><i>→</i><span><b>Code</b><small>阈值 / 分支</small></span></div>'+
-  '<div class="fc-side-foot"><span>读完整架构解析</span>'+icon('arrow')+'</div>'+
+  diagram+
+  '<div class="fc-side-foot"><span>读完整解析</span>'+icon('arrow')+'</div>'+
  '</a>'
 }
 function fcGithubPanel(){

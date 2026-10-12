@@ -44,6 +44,10 @@ jobs:
           node tests/palantir-evergreen.test.cjs
       - name: Dataset and Judge regression
         run: node tests/benchmark-dataset.test.cjs
+      - name: Deep-dive editorial and freshness regression
+        run: |
+          node tests/deep-editorial.test.cjs
+          python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
@@ -121,7 +125,9 @@ jobs:
           grep -q "\"category\": \"agent-memory\"" data/github-hot.json
           ! grep -q "\"category\": \"agent-framework\"" data/github-hot.json
           ! grep -q "<em>AI 相关</em>" src/github-hot.js
-          grep -q "本周深读 / 拆一下" dist-ci/index.html
+          grep -q "最新深读 / 拆一下" dist-ci/index.html
+          grep -q "rea-agent-reverse-engineering" dist-ci/index.html
+          grep -q "反向编程爆火" dist-ci/index.html
           grep -q "GITHUB / TODAY" dist-ci/index.html
           grep -q "fc-cockpit" dist-ci/index.html
           grep -q "fc-panel-titleline.*热点.*HOT / RECENT" dist-ci/index.html

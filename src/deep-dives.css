@@ -434,3 +434,9 @@
  .d-narrative .je-figure,.d-narrative .je-case-update{break-inside:avoid}.d-narrative .d-opening p,.d-narrative .dv-text{font-size:12pt!important;line-height:1.8!important}
 }
 .d-narrative .d-hero h1{text-wrap:balance}
+/* More deep dives: keep old technical analysis discoverable when the feature rotates. */
+.d-other-reads{margin:40px 0 15px;padding:23px;border:1px solid var(--line);border-radius:13px;background:var(--panel)}
+.d-other-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}.d-other-head h2{font-size:1.27rem;letter-spacing:-.03em}.d-other-head span{font-size:.76rem;color:var(--muted)}
+.d-other-list{display:grid;gap:8px}.d-other-list a{display:grid;grid-template-columns:85px minmax(0,1fr) 18px;align-items:center;gap:12px;padding:13px 10px;border-radius:8px;background:var(--raised)}.d-other-list a:hover{outline:1px solid var(--accent)}.d-other-list time{font-size:.75rem;color:var(--muted)}.d-other-list strong{font-size:.9rem;line-height:1.5}
+@media(max-width:620px){.d-other-reads{padding:16px}.d-other-head{display:block}.d-other-head span{display:block;margin-top:5px}.d-other-list a{grid-template-columns:1fr 18px}.d-other-list time{grid-column:1}.d-other-list strong{grid-column:1;grid-row:2}.d-other-list .ico{grid-column:2;grid-row:2}}
+
