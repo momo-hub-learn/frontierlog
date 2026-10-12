@@ -1,8 +1,520 @@
 {
   "version": 1,
-  "checked": "2026-09-27",
+  "checked": "2026-10-13",
   "series": "拆一下",
   "articles": [
+    {
+      "id": "rea-agent-reverse-engineering",
+      "hot_ids": [
+        "rea-ai-reverse-engineering-20261012"
+      ],
+      "title": "拆一下 REA：AI 逆向工程为什么突然出圈？",
+      "short_title": "逆向编程爆火：Agent 真能把软件“拆开重做”吗？",
+      "subtitle": "从反编译器、MCP 工具和证据追踪，拆开 REA 的能力边界，以及“看懂软件”与“合法重做”的距离。",
+      "dek": "REA 真正带来的不是一键还原源代码，而是让 AI Agent 能沿着字符串、调用关系、伪代码和运行证据持续调查程序。爆火背后，最该弄清的是可验证能力与授权边界。",
+      "published": "2026-10-13",
+      "updated": "2026-10-13",
+      "read_minutes": 14,
+      "tags": [
+        "AI 逆向工程",
+        "Agent Harness",
+        "MCP",
+        "可验证工程"
+      ],
+      "thesis": "逆向工程没有因为大模型而消失：分析工具仍提供证据，Agent 负责选择下一步检查。理解行为、构建相似功能和取得复制权是三件不同的事。",
+      "mini_flow": [
+        {
+          "label": "二进制",
+          "detail": "授权样本"
+        },
+        {
+          "label": "REA + MCP",
+          "detail": "分析 / 证据"
+        },
+        {
+          "label": "Agent",
+          "detail": "解释 / 验证"
+        }
+      ],
+      "layout": "standard",
+      "opening": [
+        "想象你正在维护自己团队的一款旧桌面应用：编译产物还在，但部分实现文档已经失散。你想知道本地搜索为什么在离线时仍然工作。过去，你要在反编译器里翻符号、搜索字符串、追调用；现在，你可以让 AI Agent 借助 REA 调用这些工具，提出候选路径，再返回到证据中验证。",
+        "10 月 12 日的行业报道让“逆向一切”引发广泛讨论。但先给这个词降温：REA 不保证还原原始源代码，也不是把任意商业软件一键复制成可发布产品。它将已有的静态和部分运行时分析能力整理成 Agent 可使用的工具与工作流。案例中涉及的搜索应用只是授权测试场景。",
+        "本文分开三层证据：REA 仓库与官方文档可以确认工具接口和使用边界；10 月 12 日的媒体报道只能证明话题受到关注；重建效果与生产成本则必须通过自己设计的实验验证。本站未安装 REA，也没有对任何第三方软件开展逆向实验。"
+      ],
+      "sections": [
+        {
+          "key": "question",
+          "eyebrow": "01",
+          "kicker": "先定义问题",
+          "title": "反向编程，到底反的是什么？",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "传统开发从规格和源代码走向可执行程序；逆向工程反过来，从二进制、运行表现、网络行为或打包文件推断结构与功能。两者目标并不对称：反向得到的是证据和假设，不保证恢复变量命名、注释、设计意图或原始工程。",
+              "refs": [
+                "repo",
+                "native"
+              ]
+            },
+            {
+              "type": "flow",
+              "title": "把“反向编程”拆成三段可验证的工作",
+              "nodes": [
+                {
+                  "title": "观察目标",
+                  "detail": "在取得授权的样本上记录文件、入口、输入输出和行为"
+                },
+                {
+                  "title": "建立解释",
+                  "detail": "检索符号与字符串，追踪引用、调用与控制流；列出证据和未知项"
+                },
+                {
+                  "title": "独立实现",
+                  "detail": "在自己的项目里依据合法需求实现功能，并用测试检查行为而非外观"
+                }
+              ],
+              "caption": "这是 AI坐标归纳的审计式流程，而不是 REA 声称可自动完整克隆软件。"
+            },
+            {
+              "type": "subheading",
+              "title": "它与 Vibe Coding 的分水岭在哪里？"
+            },
+            {
+              "type": "text",
+              "text": "Vibe Coding 通常从需求描述开始生成新软件；逆向工程从已有实现和可观察证据出发。前者最常见的失败是“生成了但不可靠”；后者还会出现“把猜测当事实”和“不该获取、使用或复制的材料被带入开发”。所以 REA 的价值不在减少提示词，而在让调查过程可追溯。",
+              "refs": [
+                "repo",
+                "disclaimer"
+              ]
+            },
+            {
+              "type": "note",
+              "title": "本文使用的术语",
+              "text": "“反向编程”在讨论中有多种用法。本文特指 AI Agent 辅助的合法软件逆向分析（reverse engineering），不是规范驱动开发、逆向提示词工程，也不是反编译后直接复制代码。"
+            }
+          ],
+          "source_refs": [
+            "repo",
+            "native",
+            "disclaimer"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "stack",
+          "eyebrow": "02",
+          "kicker": "技术分层",
+          "title": "REA 做的是连接器，不是万能反编译模型",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "官方仓库将 REA 定位成统一 CLI / MCP 接口。Agent 调用 REA 后，REA 再按目标类型连接原生分析提供者或静态应用分析能力：例如 Hopper / Ghidra / IDA 这类原生反编译工具，以及 JavaScript、Electron 和 .NET 工件的静态检查。REA 本身不取代底层分析引擎。",
+              "refs": [
+                "repo",
+                "setup",
+                "native",
+                "cli"
+              ]
+            },
+            {
+              "type": "flow",
+              "title": "一次任务中谁负责什么？",
+              "nodes": [
+                {
+                  "title": "Agent",
+                  "detail": "解析问题、提出调查假设、选择工具、决定下一步"
+                },
+                {
+                  "title": "REA",
+                  "detail": "通过 MCP / CLI 路由工具调用、维护上下文、整理证据与局限"
+                },
+                {
+                  "title": "分析引擎",
+                  "detail": "Ghidra / Hopper / 静态解析器产生符号、引用、伪代码与其他证据"
+                },
+                {
+                  "title": "复核与实现",
+                  "detail": "工程师确认合法范围、复现行为、编写测试和记录未知项"
+                }
+              ],
+              "caption": "概念性架构图；具体可用工具随宿主系统、提供者和目标格式变化。"
+            },
+            {
+              "type": "subheading",
+              "title": "为什么“让模型多想一会儿”还不够？"
+            },
+            {
+              "type": "text",
+              "text": "仅凭一段二进制摘要，LLM 可能编造函数间关系；有了函数清单、调用者、被调者、交叉引用、反汇编和伪代码，Agent 才能不断收窄假设。例如看到 “search” 字符串不意味着已经找到搜索算法，仍需从引用点走到执行路径。工具决定可获得哪些证据，Agent 决定还缺哪一段。",
+              "refs": [
+                "native",
+                "cli"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "安装并非零成本：REA 需要受支持的 Node.js 版本；原生分析通常依赖另外安装或配置的工具，Hopper 等商业软件还受各自许可约束。官方 setup 会先预览配置变更并申请确认。它不是无需配置就能在任何平台分析任何应用。",
+              "refs": [
+                "setup",
+                "repo"
+              ]
+            }
+          ],
+          "source_refs": [
+            "repo",
+            "native",
+            "cli",
+            "setup"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "method",
+          "eyebrow": "03",
+          "kicker": "打开一次调查",
+          "title": "从线索到证据，不能跳过反例",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "假设目标是一份团队拥有权利的示例桌面程序，问题是“离线搜索是否靠本地索引完成？”第一步只确认范围：可读取的文件、允许执行的沙箱、不能采集的用户数据，以及要回答的唯一问题。不要因为 CLI 能连到进程就自动把运行时抓包视为获准。",
+              "refs": [
+                "disclaimer"
+              ]
+            },
+            {
+              "type": "code",
+              "title": "只读分析命令示例（授权测试程序）",
+              "language": "bash",
+              "code": "# 仅演示 REA 官方 CLI 的调用形式；先自行安装、配置合法工具\nrea providers --json\nrea analyze /path/to/authorized-sample --provider ghidra --json\nrea search /path/to/authorized-sample \"search\" --provider ghidra --json\n# 使用确认过的函数名或地址继续查询；不是自动取回原始源码\nrea function /path/to/authorized-sample main --provider ghidra --json",
+              "caption": "官方 CLI 支持上述命令，但并非任何程序都有 main 或相同函数名；本段未在本站运行，也不用于检查未授权程序。",
+              "refs": [
+                "cli"
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "三份证据应该相互校验"
+            },
+            {
+              "type": "cards",
+              "title": "把推测和事实严格分列",
+              "items": [
+                {
+                  "title": "静态证据",
+                  "detail": "字符串、引用与伪代码显示某个候选路径；但反编译结果并非原源码"
+                },
+                {
+                  "title": "运行证据",
+                  "detail": "在获准的隔离环境中观察输入输出，验证该路径是否真的执行"
+                },
+                {
+                  "title": "反例测试",
+                  "detail": "换空输入、无网络、错误编码等边界条件，看看解释是否仍能成立"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "如果动态观察与伪代码相矛盾，文章结论应记录冲突，而不是让模型选一个更流畅的故事。若函数或工具不支持，标记 unknown，不把“没看到”写成“确定没有”。这是可复核性比一次成功 Demo 更重要的原因。",
+              "refs": [
+                "native",
+                "cli"
+              ]
+            }
+          ],
+          "source_refs": [
+            "cli",
+            "native",
+            "disclaimer"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "reach",
+          "eyebrow": "04",
+          "kicker": "热度与能力",
+          "title": "火的项目和跑通的案例，证据类型不同",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "2026 年 10 月 12 日的行业报道集中讨论了 REA 及游戏逆向实践。报道中的高增长 Star 数说明关注度，不构成项目成功率、反编译准确率或法律合规性的证明；任何 Star 快照都应标注观察日期。",
+              "refs": [
+                "news",
+                "repo"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "同一报道提到 Maurice Heumann 利用多个 Claude Code / Codex Agent 和 Hex-Rays MCP 进行游戏还原。这里必须明确：那是另一条工具链的案例，并不是 REA 的官方性能基准，更不能把其中的函数恢复指标算到 REA 头上。",
+              "refs": [
+                "news"
+              ]
+            },
+            {
+              "type": "table",
+              "title": "四种容易混淆的“成功”",
+              "headers": [
+                "听起来像成功的说法",
+                "实际应验证什么"
+              ],
+              "rows": [
+                [
+                  "找到了目标函数",
+                  "命中目标调用路径的证据、误判数量、可重现定位步骤"
+                ],
+                [
+                  "生成了可读伪代码",
+                  "反编译是否完整、数据类型是否正确、控制流与调用语义是否保留"
+                ],
+                [
+                  "能做出类似功能",
+                  "冻结测试集中的行为一致性、边界输入、性能及维护成本"
+                ],
+                [
+                  "项目 Star 快速增长",
+                  "具体观测日的 GitHub 数据；与真实可用性分开记录"
+                ]
+              ],
+              "caption": "AI坐标提出的验证口径，不是 REA 官方披露的量化成绩。"
+            },
+            {
+              "type": "text",
+              "text": "还有一个经常被忽视的误差来源：Agent 在同一程序中连续运行多轮调查，后续答案可能依赖早先未经验证的假设。保存原始查询、工具响应、被引用函数、失败分支以及最终结论，才能区分“找对了路径”与“模型听起来很自信”。",
+              "refs": [
+                "repo",
+                "cli"
+              ]
+            }
+          ],
+          "source_refs": [
+            "news",
+            "repo",
+            "cli"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "boundary",
+          "eyebrow": "05",
+          "kicker": "法律与工程边界",
+          "title": "“拆开看”和“照着做”不是同一件事",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "REA 官方免责声明明确限制未经授权的访问、绕过 DRM 或许可证、作弊及复制受保护代码和资产等用途。MIT 授权的是 REA 自己的代码，不会给分析者授予目标软件的版权、专有算法使用权或第三方工具许可。合法性受地区法律、目标许可证、服务条款与具体授权范围影响。",
+              "refs": [
+                "disclaimer",
+                "repo"
+              ]
+            },
+            {
+              "type": "note",
+              "title": "重要边界：默认不能克隆",
+              "text": "本文仅讨论有权检查的软件、开源测试样本与经授权的兼容性研究。即便能从程序还原伪代码，也不意味着可以复刻商业产品的受保护表达、素材、代码或绕过访问控制。具体商业项目应由法律与合规团队确认允许的边界。"
+            },
+            {
+              "type": "subheading",
+              "title": "安全模型也没有因为“本地运行”自动成立"
+            },
+            {
+              "type": "text",
+              "text": "REA 的分析发生在本机，但 Agent 连接的模型服务可能收到摘要、工具结果或敏感内容；运行时采集还可能触及凭据、账户和网络流量。要单独评估目标执行权限、隔离、数据留存、外发模型策略和人工审批，而不是把“REA 是本地工具”理解成“全流程不会外传”。",
+              "refs": [
+                "disclaimer",
+                "setup"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "如果目标是独立实现互操作功能，调查者与实现者之间可能需要更严格的成果隔离、需求规范与证据审计。是否满足某种净室开发标准，不能仅凭“生成代码由 Agent 写出”就断言。",
+              "refs": [
+                "disclaimer"
+              ]
+            }
+          ],
+          "source_refs": [
+            "disclaimer",
+            "repo",
+            "setup"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "experiment",
+          "eyebrow": "06",
+          "kicker": "怎样建立实测",
+          "title": "换成自己的合法样本，才能知道它值不值得用",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "选 8—12 个获得授权的开源样本，覆盖简单 CLI、带打包资源的桌面应用、JavaScript 构建产物与两种控制流复杂度。这里的 8—12 是建议的教学实验规模，不是项目官方基准。每个样本先由人工建立目标函数路径、输入输出及不可见因素说明，再冻结工件 SHA、工具版本、模型和任务提示。",
+              "refs": [
+                "repo",
+                "cli"
+              ]
+            },
+            {
+              "type": "flow",
+              "title": "最小对照实验",
+              "nodes": [
+                {
+                  "title": "A / 人工分析",
+                  "detail": "研究者使用同一分析引擎和工件，按固定时间预算记录证据"
+                },
+                {
+                  "title": "B / 原生工具 + Agent",
+                  "detail": "Agent 调用通用终端/工具，自行组织搜索和追踪"
+                },
+                {
+                  "title": "C / REA + 同一 Agent",
+                  "detail": "固定模型、提供者、权限和预算，观察 REA 的接口增益"
+                },
+                {
+                  "title": "人工验收",
+                  "detail": "专家盲审结论并用行为测试检查复现结果"
+                }
+              ],
+              "caption": "比较系统接口的收益，而不是把多出来的工具、更多时间误当成大模型变强。"
+            },
+            {
+              "type": "table",
+              "title": "哪些数字才有解释力？",
+              "headers": [
+                "指标",
+                "为什么要看"
+              ],
+              "rows": [
+                [
+                  "正确定位率 / 假阳性率",
+                  "命中目标实现路径，不让错误的函数链蒙混过关"
+                ],
+                [
+                  "证据链完备率",
+                  "结论能否指向精确工件、符号/地址、分析步骤与反例"
+                ],
+                [
+                  "行为一致性 / 回归失败数",
+                  "相似实现对边界输入是否和规格一致"
+                ],
+                [
+                  "每个成功任务的时间与成本",
+                  "包括工具启动、失败重试、人工复核和模型调用"
+                ],
+                [
+                  "越权动作数 / 敏感信息外发",
+                  "不允许效率收益抵消权限或数据合规错误"
+                ]
+              ],
+              "caption": "指标为本站建议，未把作者 Demo 或新闻热度冒充本站实测。"
+            },
+            {
+              "type": "text",
+              "text": "跑完实验也别只报总平均。应按原生/JavaScript/托管代码、是否有符号、是否允许动态执行、Agent 工具预算分别呈现；一次找到接口不意味着能复刻安全正确的产品。失败案例反而可以成为下一轮更有价值的回归集。",
+              "refs": [
+                "cli"
+              ]
+            }
+          ],
+          "source_refs": [
+            "repo",
+            "cli"
+          ],
+          "analysis": true
+        },
+        {
+          "key": "outlook",
+          "eyebrow": "07",
+          "kicker": "继续观察",
+          "title": "真正变化：让 Agent 从“写代码”走向“查证据”",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "REA 的长期意义更可能是为编程 Agent 增加一层面向真实软件工件的观察与证据接口。这与近年的 Harness、MCP 和 Agent 工具生态是一条连续路线：同一个模型未必更懂机器码，但它能围绕具体问题组织更多有界工具调用。",
+              "refs": [
+                "repo",
+                "native"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "下一步值得跟踪的是各平台支持是否成熟、不同引擎的结果一致性、错误发现成本、真实仓库中的授权审计、以及 Agent 是否学会在证据不足时停止。流量和 Star 可作为发现信号，却不应代替这些验证项。",
+              "refs": [
+                "repo",
+                "cli"
+              ]
+            },
+            {
+              "type": "transition",
+              "text": "把“逆向一切”理解成一键复刻，会高估它；把它理解成让软件分析获得可追溯的 Agent 工作流，才更接近工程上值得验证的变化。"
+            }
+          ],
+          "source_refs": [
+            "repo",
+            "native",
+            "cli"
+          ],
+          "analysis": true
+        }
+      ],
+      "sources": [
+        {
+          "id": "repo",
+          "publisher": "REA / morluto",
+          "title": "Reverse Engineer Anything · 官方仓库与 README",
+          "kind": "官方开源仓库",
+          "date": null,
+          "url": "https://github.com/morluto/rea",
+          "verified_at": "2026-10-13"
+        },
+        {
+          "id": "cli",
+          "publisher": "REA 官方文档",
+          "title": "CLI and Evidence：命令、证据记录与提供者选择",
+          "kind": "原始技术文档",
+          "date": null,
+          "url": "https://github.com/morluto/rea/blob/main/docs/cli.md",
+          "verified_at": "2026-10-13"
+        },
+        {
+          "id": "native",
+          "publisher": "REA 官方文档",
+          "title": "Native investigation：函数、交叉引用与反编译边界",
+          "kind": "原始技术文档",
+          "date": null,
+          "url": "https://github.com/morluto/rea/blob/main/docs/native-investigation.md",
+          "verified_at": "2026-10-13"
+        },
+        {
+          "id": "setup",
+          "publisher": "REA 官方文档",
+          "title": "Installation and setup：支持环境、工具授权与配置预览",
+          "kind": "原始技术文档",
+          "date": null,
+          "url": "https://github.com/morluto/rea/blob/main/docs/installation.md",
+          "verified_at": "2026-10-13"
+        },
+        {
+          "id": "disclaimer",
+          "publisher": "REA / morluto",
+          "title": "Responsible Use · 授权、权限、版权与运行时风险",
+          "kind": "官方责任声明",
+          "date": null,
+          "url": "https://github.com/morluto/rea/blob/main/DISCLAIMER.md",
+          "verified_at": "2026-10-13"
+        },
+        {
+          "id": "news",
+          "publisher": "极客公园 / 36氪",
+          "title": "一周 10 万星，AI「逆向一切」，但大家不要过于兴奋",
+          "kind": "第三方报道 · 热点背景",
+          "date": "2026-10-12",
+          "url": "https://www.36kr.com/p/4022394995069062",
+          "verified_at": "2026-10-13"
+        }
+      ],
+      "revision_note": "新增 · 官方仓库与文档交叉核对 · 2026.10.13"
+    },
     {
       "id": "jev-agent-decision-layer",
       "hot_ids": [
@@ -952,7 +1464,7 @@
             "type": "score",
             "score": 1.8,
             "probabilities": {
-              "0": 0.0,
+              "0": 0,
               "1": 0.2,
               "2": 0.8
             }
