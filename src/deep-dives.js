@@ -2,24 +2,30 @@
 (()=>{
 const DEEP=APP.deep_dives||{articles:[],checked:''};
 const DEEP_MAP=new Map((DEEP.articles||[]).map(x=>[x.id,x]));
+const DEEP_LATEST=[...(DEEP.articles||[])].sort((a,b)=>b.published.localeCompare(a.published)||String(b.updated||'').localeCompare(String(a.updated||''))||a.id.localeCompare(b.id));
 pages.deep=['拆一下','layers'];
 
 function dParams(){return new URLSearchParams(location.hash.split('?')[1]||'')}
-function dCurrent(){return DEEP_MAP.get(dParams().get('id'))||DEEP.articles?.[0]||null}
+function dCurrent(){return DEEP_MAP.get(dParams().get('id'))||DEEP_LATEST[0]||null}
 function dSourceMap(a){return new Map((a.sources||[]).map((s,i)=>[s.id,{...s,index:i+1}]))}
 function dRefLinks(a,ids=[]){
  const m=dSourceMap(a),rows=ids.map(id=>m.get(id)).filter(Boolean);
  if(!rows.length)return '';
  return '<div class="d-section-refs"><span>参考</span>'+rows.map(s=>'<a class="d-ref" href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer" title="'+esc(s.title)+'">['+s.index+'] '+esc(s.publisher)+'</a>').join('')+'</div>'
 }
+function dMiniFlow(a,style='d'){
+ const rows=Array.isArray(a.mini_flow)?a.mini_flow.slice(0,3):[];
+ if(rows.length!==3)return '';
+ return rows.map((x,i)=>(i?'<i aria-hidden="true">→</i>':'')+'<span class="'+(i===1?(style==='d'?'jev':'is-accent'):'')+'"><b>'+esc(x.label)+'</b><small>'+esc(x.detail)+'</small></span>').join('')
+}
 function dFeedCard(){
- const a=DEEP.articles?.[0];if(!a)return '';
+ const a=DEEP_LATEST[0];if(!a)return '';
  return '<section class="d-feed">'+
-  '<div class="d-feed-head"><div><p class="eyebrow">本周深读 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
+  '<div class="d-feed-head"><div><p class="eyebrow">最新深读 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
   '<a class="d-feed-card" href="#/deep?id='+encodeURIComponent(a.id)+'">'+
    '<div class="d-feed-no">01</div>'+
    '<div class="d-feed-copy"><div class="d-feed-tags">'+a.tags.slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><h3>'+esc(a.title)+'</h3><p>'+esc(a.subtitle)+'</p><div class="d-feed-thesis">'+esc(a.thesis)+'</div></div>'+
-   '<div class="d-mini-arch" aria-label="架构摘要"><span><b>Code</b><small>确定规则</small></span><i>+</i><span class="jev"><b>Jev</b><small>结构判断</small></span><i>+</i><span><b>LLM</b><small>开放推理</small></span></div>'+
+   '<div class="d-mini-arch" aria-label="技术链路摘要">'+dMiniFlow(a,'d')+'</div>'+
    '<div class="d-feed-open"><span>读完整解析</span>'+icon('arrow')+'</div>'+
   '</a>'+
  '</section>'
@@ -209,6 +215,13 @@ function dSources(a){
  (a.sources||[]).map((s,i)=>'<a href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer"><b>['+(i+1)+']</b><span><strong>'+esc(s.publisher)+'</strong><em>'+esc(s.kind)+' · '+esc((s.date?'发布 '+s.date+' · ':'')+'核对 '+(s.verified_at||a.updated||DEEP.checked))+'</em><small>'+esc(s.title)+'</small></span>'+icon('external')+'</a>').join('')+
  '</div></section>'
 }
+function dOtherReads(a){
+ const others=DEEP_LATEST.filter(x=>x.id!==a.id);
+ if(!others.length)return '';
+ return '<nav class="d-other-reads" aria-label="更多拆一下"><div class="d-other-head"><h2>继续拆一下</h2><span>按发表日期 · 历史档案保留</span></div><div class="d-other-list">'+others.map(x=>
+  '<a href="#/deep?id='+encodeURIComponent(x.id)+'"><time>'+esc(x.published.replaceAll('-','.'))+'</time><strong>'+esc(x.short_title||x.title)+'</strong>'+icon('arrow')+'</a>'
+ ).join('')+'</div></nav>'
+}
 function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
  return '<article class="d-page'+(a.demo?' d-visual':'')+(a.layout==='narrative'?' d-narrative':'')+'">'+
@@ -219,7 +232,7 @@ function dPage(a){
     '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
    '</div><blockquote class="d-thesis"><span>核心判断</span><strong>'+esc(a.thesis)+'</strong></blockquote></div>'+
   '</header>'+
-  (a.layout==='narrative'?'<div class="je-reading-path" aria-label="本文推导路线">问题 <span>→</span> 接口 <span>→</span> 计算 <span>→</span> 概率 <span>→</span> 系统 <span>→</span> 验证</div>':'')+'<div class="d-reading-shell">'+dToc(a)+'<div class="d-article">'+dOpening(a)+a.sections.map(s=>dSection(a,s)).join('')+dSources(a)+'</div></div>'+
+  (a.layout==='narrative'?'<div class="je-reading-path" aria-label="本文推导路线">问题 <span>→</span> 接口 <span>→</span> 计算 <span>→</span> 概率 <span>→</span> 系统 <span>→</span> 验证</div>':'')+'<div class="d-reading-shell">'+dToc(a)+'<div class="d-article">'+dOpening(a)+a.sections.map(s=>dSection(a,s)).join('')+dSources(a)+dOtherReads(a)+'</div></div>'+
  '</article>'
 }
 function renderDeep(){
