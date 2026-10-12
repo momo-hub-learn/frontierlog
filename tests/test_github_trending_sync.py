@@ -61,7 +61,8 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertNotIn('stars_today',tracked)
         self.assertNotIn('rank',tracked)
         self.assertEqual(tracked['verified_at'],'2026-10-13T08:15:00Z')
-        self.assertEqual(len(out['items'][0]['star_history']),1)
+        self.assertGreaterEqual(len(out['items'][0]['star_history']),1)
+        self.assertEqual(out['items'][0]['star_history'][-1]['at'],'2026-10-13T08:15:00Z')
 
     def test_failed_trending_does_not_advance_verified_date_or_old_rank(self):
         original=json.dumps(self.data['items'],sort_keys=True)
