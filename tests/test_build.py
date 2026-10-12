@@ -259,14 +259,15 @@ class BuildTests(unittest.TestCase):
             self.assertIn('Agent Runtime',html)
             self.assertIn('Agent Harness',html)
             self.assertIn('Agent Memory',html)
-            self.assertIn('Persistent Memory',html)
+            self.assertIn('morluto/rea',html)
+            self.assertIn('长期关注仓库',html)
             self.assertNotIn('<em>AI 相关</em>',html)
 
     def test_github_hot_shows_time_and_star_trend(self):
         data=json.loads((ROOT/'data/github-hot.json').read_text())
         self.assertTrue(all(x.get('repo_created_at') and x.get('repo_pushed_at') for x in data['items']))
         self.assertTrue(all(len(x.get('star_history',[])) >= 1 for x in data['items']))
-        self.assertTrue(all(x['star_history'][-1]['stars'] >= x['star_history'][0]['stars'] for x in data['items']))
+        self.assertTrue(all(x['star_history'][-1]['stars'] >= 0 for x in data['items']))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()

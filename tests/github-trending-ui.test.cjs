@@ -27,13 +27,15 @@ assert.match(app.__watch,/不代表今日上榜/);
 assert.doesNotMatch(app.__watch,/官方 Trending #\d/);
 
 const panel=extract(cockpit,'function fcGithubPanel(){','function fcCockpit(){');
-const view={APP:{github_hot:data},Date,icon:()=>'',safeLink:x=>x,esc:x=>String(x)};
+const historical={...data,checked_at:'2026-09-25T23:16:36Z',sync:{...data.sync,status:'error'}};
+const view={APP:{github_hot:historical},Date,icon:()=>'',safeLink:x=>x,esc:x=>String(x)};
 vm.createContext(view);
 vm.runInContext(panel+'\nthis.__panel=fcGithubPanel();',view);
 assert.match(view.__panel,/当前 Trending 未完成核验/);
 assert.match(view.__panel,/morluto\/rea/);
 assert.doesNotMatch(view.__panel,/>#01</);
-assert.match(view.__panel,/等待首次核验|待核验/);
+assert.match(view.__panel,/独立关注/);
+assert.doesNotMatch(view.__panel,/>\+\d+<\/b><small>Today/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
