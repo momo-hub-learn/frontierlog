@@ -3,7 +3,7 @@
   "checked_at": "2026-09-25T23:16:36Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
-  "note": "完整榜位与“今日 Star”来自 GitHub 官方 Trending Today 页面；总 Star / Fork、语言、仓库创建时间与最近推送时间来自 GitHub Repository API。首页“GitHub AI 热仓”只从该官方榜筛选 AI / Agent 相关项目，并按 GitHub 页面给出的 stars today 排序。Star 只反映开发者关注与采用信号，不代表模型能力或本站实测。",
+  "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
   "items": [
     {
       "rank": 1,
@@ -584,6 +584,18 @@
     {
       "id": "photo-management",
       "title": "照片管理"
+    },
+    {
+      "id": "reverse-engineering",
+      "title": "AI 逆向工程"
+    },
+    {
+      "id": "ai-tools",
+      "title": "AI 工具 / 开源"
+    },
+    {
+      "id": "other",
+      "title": "其他开源"
     }
   ],
   "trend_window": {
@@ -591,5 +603,33 @@
     "end_at": "2026-09-25T23:16:36Z",
     "source": "本站连续保存的 GitHub Trending 官方快照",
     "snapshots": 4
-  }
+  },
+  "sync": {
+    "mode": "official_trending_plus_repository_api",
+    "status": "pending",
+    "last_checked_at": null,
+    "last_success_at": "2026-09-25T23:16:36Z",
+    "note": "等待首次独立采集；旧 Trending 快照不得展示成当前排名。"
+  },
+  "watchlist": [
+    {
+      "repo": "morluto/rea",
+      "description": "Reverse Engineer Anything · 利用 Agent 和 MCP 分析软件行为及二进制工件",
+      "url": "https://github.com/morluto/rea",
+      "category": "reverse-engineering",
+      "ai_related": true,
+      "tags": [
+        "Reverse Engineering",
+        "Agent",
+        "MCP"
+      ],
+      "stars": null,
+      "forks": null,
+      "repo_created_at": null,
+      "repo_pushed_at": null,
+      "language": "",
+      "verified_at": null,
+      "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
+    }
+  ]
 }
