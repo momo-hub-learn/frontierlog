@@ -241,7 +241,16 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
                 if not set(block.get('refs',[])).issubset(known):raise ValueError('Unknown deep-dive block ref')
     github_hot=json.loads((ROOT/'data/github-hot.json').read_text(encoding='utf-8'))
     if github_hot.get('version') != 1: raise ValueError('Unsupported GitHub hot schema version')
-    datetime.fromisoformat(github_hot['checked_at'])
+    gh_snapshot=datetime.fromisoformat(github_hot['checked_at'].replace('Z','+00:00'))
+    if gh_snapshot.tzinfo is None:raise ValueError('GitHub Trending snapshot requires UTC offset')
+    status=github_hot.get('sync') or {}
+    if status.get('status') not in {'pending','success','error'}:raise ValueError('Unspecified GitHub Trending sync status')
+    for stamp_field in ('last_checked_at','last_success_at','watchlist_checked_at'):
+        raw=status.get(stamp_field)
+        if raw and datetime.fromisoformat(raw.replace('Z','+00:00')).tzinfo is None:
+            raise ValueError('Invalid GitHub Trending sync timestamp')
+    if status.get('status')=='success' and status.get('last_success_at') != github_hot['checked_at']:
+        raise ValueError('Trending verified timestamp and success status disagree')
     if not https_url(github_hot.get('source_url','')): raise ValueError('Invalid GitHub hot source URL')
     gh_categories=github_hot.get('categories')
     if not isinstance(gh_categories,list) or not gh_categories: raise ValueError('Missing GitHub hot categories')
@@ -252,12 +261,15 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if not isinstance(c.get('title'),str) or not c['title'].strip(): raise ValueError('Missing GitHub hot category title')
         gh_category_ids.add(cid)
     gh_seen=set()
+    gh_ranks=set()
     for row in github_hot.get('items',[]):
         if not REPO_RE.fullmatch(row.get('repo','')): raise ValueError('Invalid GitHub hot repository')
         if row['repo'] in gh_seen: raise ValueError('Duplicate GitHub hot repository')
         gh_seen.add(row['repo'])
         if not https_url(row.get('url','')): raise ValueError('Invalid GitHub hot repository URL')
         if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','stars','forks','stars_today')): raise ValueError('Invalid GitHub hot metric')
+        if row['rank']<1 or row['rank'] in gh_ranks:raise ValueError('Duplicated or invalid official Trending rank')
+        gh_ranks.add(row['rank'])
         if row.get('category') not in gh_category_ids: raise ValueError('Unknown GitHub hot category')
         if not isinstance(row.get('ai_related'),bool): raise ValueError('Invalid GitHub AI relation flag')
         tags=row.get('tags')
@@ -267,12 +279,35 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
         datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or len(history)<3 or len(history)>12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or not 1<=len(history)<=12: raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')
             hist_times.append(datetime.fromisoformat(point['at'].replace('Z','+00:00')))
         if hist_times!=sorted(hist_times) or len(set(hist_times))!=len(hist_times): raise ValueError('Unordered GitHub hot star history')
+    watched=github_hot.get('watchlist',[])
+    if not isinstance(watched,list):raise ValueError('Missing GitHub watchlist')
+    watched_repos=set()
+    for row in watched:
+        name=row.get('repo')
+        if not isinstance(name,str) or not REPO_RE.fullmatch(name):raise ValueError('Invalid tracked GitHub repository')
+        if name.lower() in watched_repos:raise ValueError('Duplicate tracked GitHub repository')
+        watched_repos.add(name.lower())
+        if not https_url(row.get('url','')):raise ValueError('Invalid tracked GitHub URL')
+        if row['category'] not in gh_category_ids or row.get('ai_related') is not True:raise ValueError('Invalid tracked GitHub category')
+        if not isinstance(row.get('tags'),list) or not 2<=len(row['tags'])<=4:raise ValueError('Invalid tracked GitHub tags')
+        if 'rank' in row or 'stars_today' in row:raise ValueError('Watchlist cannot claim Trending positions or daily stars')
+        observed=row.get('verified_at')
+        if observed:
+            parsed=datetime.fromisoformat(observed.replace('Z','+00:00'))
+            if parsed.tzinfo is None:raise ValueError('Tracked GitHub timestamp must include offset')
+            if any(type(row.get(k)) is not int or row[k]<0 for k in ('stars','forks')):
+                raise ValueError('Missing verified watchlist API metrics')
+            for k in ('repo_created_at','repo_pushed_at'):
+                if datetime.fromisoformat(row[k].replace('Z','+00:00')).tzinfo is None:
+                    raise ValueError('Invalid tracked repo metadata timestamp')
+        elif any(row.get(k) is not None for k in ('stars','forks','repo_created_at','repo_pushed_at')):
+            raise ValueError('Unverified watchlist metrics must be empty')
     huggingface_hot=json.loads((ROOT/'data/huggingface-hot.json').read_text(encoding='utf-8'))
     if huggingface_hot.get('version') != 1: raise ValueError('Unsupported Hugging Face hot schema version')
     datetime.fromisoformat(huggingface_hot['checked_at'])

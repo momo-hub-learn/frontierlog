@@ -1,0 +1,123 @@
+name: GitHub Trending sync
+
+on:
+  schedule:
+    - cron: '25 */2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main, 'preview/github-trending-live-sync-20261013']
+    paths:
+      - '.github/workflows/github-trending-sync.yml'
+      - 'scripts/github_trending_sync.py'
+      - 'tests/test_github_trending_sync.py'
+
+permissions:
+  contents: write
+  issues: write
+
+# Share the static-site commit lane with the hot-candidate publisher.
+concurrency:
+  group: frontierlog-static-publish
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check parsing and failure-safety contracts
+        run: python -m unittest tests.test_github_trending_sync
+      - name: Preview official live collector without publishing
+        if: github.ref != 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/github_trending_sync.py --strict --out /tmp/github-trending-preview.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/github-trending-preview.json'))
+          assert x['sync']['status']=='success'
+          assert len(x['items'])>=5
+          assert any(z['repo'].lower()=='morluto/rea' for z in x['watchlist'])
+          print('Live official Trending rows:',len(x['items']))
+          PY
+      - name: Refresh data and build a verified static snapshot with push retry
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "GitHub Trending publish attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/github_trending_sync.py
+            python -m unittest tests.test_github_trending_sync
+            python scripts/build.py --out /tmp/frontierlog-github --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+            test -f /tmp/frontierlog-github/api/v1/github-hot.json
+            cp /tmp/frontierlog-github/index.html index.html
+            cp /tmp/frontierlog-github/404.html 404.html
+            cp /tmp/frontierlog-github/api/v1/index.json api/v1/index.json
+            cp /tmp/frontierlog-github/api/v1/github-hot.json api/v1/github-hot.json
+            git add data/github-hot.json index.html 404.html api/v1/index.json api/v1/github-hot.json
+            if git diff --cached --quiet; then
+              echo "No GitHub Trending changes."
+              break
+            fi
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Sync GitHub Trending and tracked repository metrics"
+            if git push origin HEAD:main; then
+              echo "Published verified GitHub Trending state."
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Unable to publish after three concurrent-update retries" >&2
+              exit 1
+            fi
+          done
+      - name: Raise or close stale-data issue
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs=require('fs');
+            const path='data/github-hot.json';
+            const {owner,repo}=context.repo;
+            const title='GitHub 热仓｜采集失败或数据过期';
+            if(!fs.existsSync(path))throw new Error('Missing GitHub hot snapshot');
+            const d=JSON.parse(fs.readFileSync(path,'utf8'));
+            const hrs=t=>Number.isFinite(Date.parse(t||''))?Math.max(0,(Date.now()-Date.parse(t))/3600000):Infinity;
+            const age=hrs(d.checked_at);
+            const rea=(d.watchlist||[]).find(x=>x.repo.toLowerCase()==='morluto/rea');
+            const trackedAge=rea?hrs(rea.verified_at):Infinity;
+            const failed=d.sync?.status!=='success'||age>6||trackedAge>24||'${{ job.status }}'!=='success';
+            const {data:issues}=await github.rest.issues.listForRepo({owner,repo,state:'open',per_page:100});
+            const old=issues.find(x=>!x.pull_request&&x.title===title);
+            const body=[
+              '自动采集/新鲜度告警（由 GitHub Actions 生成，不是热点文章）。',
+              '',
+              '采集状态：'+(d.sync?.status||'unknown'),
+              '最近成功 Trending：'+(d.checked_at||'—'),
+              '快照时龄：'+(Number.isFinite(age)?age.toFixed(1)+' 小时':'未知'),
+              'REA 最近 API 核验：'+(rea?.verified_at||'未核验'),
+              '最后尝试时间：'+(d.sync?.last_checked_at||'—'),
+              '错误：'+(d.sync?.error||'无显式错误'),
+              '工作流结果：${{ job.status }}',
+              '',
+              '请检查 GitHub Trending 页面结构、HTTP 限流和 GitHub API 状态；',
+              '恢复后由下次同步自动关闭本提醒，不能用旧排名或推算的今日 Star 补数据。',
+              '',
+              '运行详情：'+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId
+            ].join('\n');
+            if(failed){
+              if(old) {
+                if(old.body!==body)await github.rest.issues.update({owner,repo,issue_number:old.number,body});
+              }else await github.rest.issues.create({owner,repo,title,body});
+            }else if(old)await github.rest.issues.update({owner,repo,issue_number:old.number,state:'closed',state_reason:'completed'});

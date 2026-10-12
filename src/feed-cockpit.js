@@ -49,21 +49,30 @@ function fcDeepPanel(){
  '</a>'
 }
 function fcGithubPanel(){
- const gh=APP.github_hot||{items:[],checked_at:''};
- const rows=(gh.items||[]).filter(x=>x.ai_related).sort((a,b)=>(b.stars_today||0)-(a.stars_today||0)||a.rank-b.rank).slice(0,3);
+ const gh=APP.github_hot||{items:[],watchlist:[],checked_at:''};
+ const verified=Date.parse(gh.checked_at||'');
+ const fresh=Number.isFinite(verified)&&(Date.now()-verified)<=6*36e5&&(Date.now()-verified)>=-36e5;
+ const rows=fresh?(gh.items||[]).filter(x=>x.ai_related).sort((a,b)=>(b.stars_today||0)-(a.stars_today||0)||a.rank-b.rank).slice(0,3):[];
  const fmt=n=>{const v=Number(n)||0;return v>=1000?(v/1000).toFixed(v>=10000?0:1)+'k':String(v)};
+ const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
-  '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / TODAY</p><h2>GitHub 热仓</h2></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
-  '<div class="fc-gh-list">'+rows.map(x=>
+  '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub 热仓</h2></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
+  (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
     '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>'+esc(x.description||x.language||'')+'</small></span>'+
-    '<span class="fc-gh-star"><b>+'+fmt(x.stars_today)+'</b><small>today</small></span>'+
-   '</a>'
-  ).join('')+'</div>'+
-  '<div class="fc-gh-foot">GitHub Trending · Runtime / Harness / Memory / Coding Agent 等细分</div>'+
+    '<span class="fc-gh-star"><b>+'+fmt(x.stars_today)+'</b><small>Today</small></span></a>'
+  ).join('')+'</div>':
+  '<div class="fc-gh-old"><strong>当前 Trending 未完成核验</strong><p>旧榜单已停止作为今日热门展示。可查看独立关注仓库或历史快照。</p></div>')+
+  (followed.length?'<div class="fc-gh-watch">'+followed.map(x=>
+   '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
+    '<span class="fc-gh-rank">追踪</span><span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>独立关注 · 不等于今日上榜 · '+esc(x.verified_at?.slice(0,10)||'待核验')+'</small></span>'+
+    '<span class="fc-gh-star"><b>'+ (x.verified_at&&Number.isInteger(x.stars)?fmt(x.stars):'—') +'</b><small>总 Star</small></span></a>'
+  ).join('')+'</div>':'')+
+  '<div class="fc-gh-foot">'+(fresh?'官方 Trending · 当日新增 Star':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+' · 独立关注不参与排名</div>'+
  '</section>'
 }
+
 function fcCockpit(){
  return '<section class="fc-cockpit">'+
   fcHotPanel()+

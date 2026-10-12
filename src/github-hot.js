@@ -73,9 +73,26 @@ function ghFreshness(){
 }
 function ghStaleNotice(){
   const f=ghFreshness();
+  if(!f.stale&&GH.sync?.status==='error')return '<div class="ranking-stale"><strong>本轮采集失败，正在自动重试</strong><span>当前数据仍为 '+esc(ghWhen())+' 的最近成功快照；暂不使用本轮失败数据替换榜单。</span></div>';
   if(!f.stale)return '';
   const age=f.ageHours==null?'更新时间不可核验':('已超过 '+Math.floor(f.ageHours)+' 小时未核验');
-  return '<div class="ranking-stale"><strong>数据已过期，暂不作为当前榜</strong><span>'+esc(age)+' · 下方仅保留 '+esc(ghWhen())+' 的历史快照，请以 GitHub 官方 Trending 为准。</span></div>'
+  const failed=GH.sync?.status==='error'?' · 最近一次同步失败，已进入维护提醒':'';
+  return '<div class="ranking-stale"><strong>数据已过期，暂不作为当前榜</strong><span>'+esc(age+failed)+' · 下方仅保留 '+esc(ghWhen())+' 的历史快照，请以 GitHub 官方 Trending 为准。</span></div>'
+}
+function ghWatchPanel(){
+ const q=ghQuery().toLowerCase();
+ const cat=ghTopic();
+ const tracked=(GH.watchlist||[]).filter(x=>(cat==='all'||x.category===cat)&&(!q||[x.repo,x.description,...(x.tags||[])].join(' ').toLowerCase().includes(q)));
+ if(!tracked.length)return '';
+ return '<section class="gh-watch"><div class="gh-watch-title"><div><h3>长期关注仓库</h3><p>GitHub Repository API 统计，与 Trending 当日名次分开。</p></div><small>'+tracked.length+' 个</small></div>'+
+ tracked.map(x=>{
+  const rank=(GH.items||[]).find(row=>row.repo.toLowerCase()===x.repo.toLowerCase());
+  const verified=Date.parse(x.verified_at||''),age=Number.isFinite(verified)?Math.max(0,(Date.now()-verified)/36e5):Infinity;
+  const status=rank&&!ghFreshness().stale?'官方 Trending #'+rank.rank:'独立关注 · 不代表今日上榜';
+  const numbers=Number.isInteger(x.stars)&&x.verified_at?'★ '+ghFmt(x.stars)+' 总 Star · ⑂ '+ghFmt(x.forks)+' Forks':'GitHub API 数据待核验';
+  const when=Number.isFinite(verified)?(age>24?'旧快照 · ':'API 核验 · ')+esc(x.verified_at.slice(0,10)):'等待首次核验';
+  return '<a class="gh-watch-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer"><span class="gh-watch-symbol">'+icon('github')+'</span><span class="gh-watch-copy"><strong>'+esc(x.repo)+'</strong><small>'+esc(x.description||'')+'</small><em>'+esc(status)+'</em></span><span class="gh-watch-stats"><b>'+esc(numbers)+'</b><small>'+when+'</small></span></a>';
+ }).join('')+'</section>';
 }
 function ghActive(){
   if(state.view==='github')return true;
@@ -121,6 +138,7 @@ function ghInline(){
     hOpenTabs('github')+
     '<div class="gh-inline-head"><div><strong>'+(ghFreshness().stale?'GitHub Trending · 历史快照':'GitHub Trending · Today')+'</strong><span>'+(ghFreshness().stale?'该快照已过期，不代表当前榜位。':'官方榜位 + 今日新增 Star，作为开发者采用信号。')+'</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
     ghStaleNotice()+
+    ghWatchPanel()+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
     (rows.length?'<div class="gh-list">'+rows.map(x=>

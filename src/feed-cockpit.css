@@ -108,3 +108,8 @@
  .fc-gh-main strong{font-size:.8rem}
  .fc-gh-main small{font-size:.67rem}
 }
+/* The two freshness windows (Trending and watched API totals) are independent. */
+.fc-gh-old{padding:16px 17px;display:grid;gap:7px}.fc-gh-old strong{font-size:.85rem}.fc-gh-old p{color:var(--sub);font-size:.76rem;line-height:1.55}
+.fc-gh-watch{border-top:1px solid var(--line)}.fc-gh-watch .fc-gh-row{border-bottom:0}
+.fc-gh-rank{word-break:keep-all}.fc-gh-watch .fc-gh-rank{font-size:.64rem}.fc-gh-watch .fc-gh-star small{font-size:.62rem}
+

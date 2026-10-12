@@ -48,6 +48,8 @@ jobs:
         run: |
           node tests/deep-editorial.test.cjs
           python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
+      - name: GitHub Trending and REA freshness UI regression
+        run: node tests/github-trending-ui.test.cjs
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
@@ -119,16 +121,18 @@ jobs:
           grep -q "Agent Harness" dist-ci/index.html
           grep -q "Agent Memory" dist-ci/index.html
           grep -q "gh-spark" dist-ci/index.html
+          grep -q "gh-watch-row" dist-ci/index.html
+          grep -q 'morluto/rea' dist-ci/index.html
           grep -q "repo_created_at" data/github-hot.json
           grep -q "star_history" data/github-hot.json
-          grep -q "Persistent Memory" dist-ci/index.html
-          grep -q "\"category\": \"agent-memory\"" data/github-hot.json
+          grep -q "长期关注仓库" dist-ci/index.html
+          grep -q 'morluto/rea' data/github-hot.json
           ! grep -q "\"category\": \"agent-framework\"" data/github-hot.json
           ! grep -q "<em>AI 相关</em>" src/github-hot.js
           grep -q "最新深读 / 拆一下" dist-ci/index.html
           grep -q "rea-agent-reverse-engineering" dist-ci/index.html
           grep -q "反向编程爆火" dist-ci/index.html
-          grep -q "GITHUB / TODAY" dist-ci/index.html
+          grep -q "GITHUB / VERIFIED" dist-ci/index.html
           grep -q "fc-cockpit" dist-ci/index.html
           grep -q "fc-panel-titleline.*热点.*HOT / RECENT" dist-ci/index.html
           ! grep -q "<p class=\\\"eyebrow\\\">HOT / NOW</p><h2>热点</h2>" dist-ci/index.html

@@ -78,3 +78,12 @@
 .ranking-stale{display:grid;gap:4px;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--orange,#d97706) 35%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--orange,#d97706) 7%,var(--panel));line-height:1.55}
 .ranking-stale strong{font-size:.9rem;color:var(--text)}
 .ranking-stale span{font-size:.8125rem;color:var(--sub)}
+/* Curated watchlist: verified GitHub API totals, never a made-up Trending position. */
+.gh-watch{margin:16px 0 21px;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:16px}
+.gh-watch-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 3px 12px}.gh-watch-title h3{font-size:1.09rem}.gh-watch-title p{color:var(--sub);font-size:.8rem;margin-top:5px}.gh-watch-title>small{color:var(--muted)}
+.gh-watch-row{display:flex;align-items:center;gap:14px;padding:13px;border:1px solid var(--line);background:var(--raised);border-radius:9px;color:var(--text)}.gh-watch-row:hover{border-color:var(--accent)}
+.gh-watch-symbol{flex:0 0 38px;display:flex;align-items:center;justify-content:center;color:var(--sub)}.gh-watch-symbol .ico{width:24px}
+.gh-watch-copy{min-width:0;flex:1}.gh-watch-copy strong{display:block;font-size:1rem;overflow-wrap:anywhere}.gh-watch-copy small{display:block;font-size:.78rem;color:var(--sub);line-height:1.5;margin-top:4px}.gh-watch-copy em{display:block;margin-top:5px;font-style:normal;font-size:.74rem;color:var(--accent)}
+.gh-watch-stats{min-width:160px;text-align:right}.gh-watch-stats b{display:block;font-size:.91rem}.gh-watch-stats small{display:block;color:var(--muted);font-size:.7rem;margin-top:5px}
+@media(max-width:680px){.gh-watch{padding:12px}.gh-watch-row{flex-wrap:wrap;gap:8px}.gh-watch-symbol{flex-basis:26px}.gh-watch-stats{flex:1 0 100%;min-width:0;text-align:left;padding-left:34px}}
+
