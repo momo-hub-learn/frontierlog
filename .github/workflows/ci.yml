@@ -44,6 +44,10 @@ jobs:
           node tests/palantir-evergreen.test.cjs
       - name: Dataset and Judge regression
         run: node tests/benchmark-dataset.test.cjs
+      - name: Deep-dive editorial and freshness regression
+        run: |
+          node tests/deep-editorial.test.cjs
+          python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
       - name: Product browser regression
         run: node tests/product-browser.test.cjs
       - name: Build static site
