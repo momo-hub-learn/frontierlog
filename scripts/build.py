@@ -210,20 +210,35 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     deep_dives=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
     if deep_dives.get('version') != 1 or not isinstance(deep_dives.get('articles'),list):
         raise ValueError('Unsupported deep-dives schema')
+    deep_checked=date.fromisoformat(deep_dives['checked'])
     deep_ids=[a.get('id') for a in deep_dives['articles']]
     if len(deep_ids)!=len(set(deep_ids)): raise ValueError('Duplicate deep-dive ID')
+    hot_ids={x['id'] for x in hot.get('items',[])}
     for a in deep_dives['articles']:
         if not re.fullmatch(r'[a-z0-9][a-z0-9-]*',a.get('id','')): raise ValueError('Unsafe deep-dive ID')
-        date.fromisoformat(a['published'])
+        published=date.fromisoformat(a['published'])
+        if published>deep_checked:raise ValueError('Deep-dive publication after snapshot')
+        if a.get('updated') and not published<=date.fromisoformat(a['updated'])<=deep_checked:raise ValueError('Invalid deep-dive update date')
+        if not isinstance(a.get('read_minutes'),int) or a['read_minutes']<1:raise ValueError('Invalid deep-dive reading time')
+        if not isinstance(a.get('tags'),list) or not a['tags']:raise ValueError('Missing deep-dive tags')
+        if any(not isinstance(a.get(k),str) or not a[k].strip() for k in ('title','short_title','subtitle','thesis')):raise ValueError('Missing deep-dive explanation')
+        if not set(a.get('hot_ids',[]))<=hot_ids:raise ValueError('Unknown deep-dive hot signal')
+        mini=a.get('mini_flow')
+        if mini is not None and (not isinstance(mini,list) or len(mini)!=3 or any(not isinstance(m.get('label'),str) or not m['label'] or not isinstance(m.get('detail'),str) or not m['detail'] for m in mini)):raise ValueError('Invalid mini-flow')
         if not isinstance(a.get('sections'),list) or len(a['sections'])<4: raise ValueError('Incomplete deep-dive sections')
+        keys=[section.get('key') for section in a['sections']]
+        if len(keys)!=len(set(keys)) or any(not isinstance(x,str) or not re.fullmatch(r'[a-z0-9-]+',x) for x in keys):raise ValueError('Invalid deep-dive section IDs')
         if not isinstance(a.get('sources'),list) or not a['sources']: raise ValueError('Missing deep-dive sources')
-        source_ids=[s.get('id') for s in a['sources']]
+        source_ids=[src.get('id') for src in a['sources']]
         if len(source_ids)!=len(set(source_ids)): raise ValueError('Duplicate deep-dive source ID')
-        for s in a['sources']:
-            if not https_url(s.get('url','')): raise ValueError('Invalid deep-dive source URL')
+        for src in a['sources']:
+            if not https_url(src.get('url','')): raise ValueError('Invalid deep-dive source URL')
+            if src.get('verified_at') and date.fromisoformat(src['verified_at'])>deep_checked:raise ValueError('Future deep-dive source verification')
         known=set(source_ids)
         for section in a['sections']:
             if not set(section.get('source_refs',[])).issubset(known): raise ValueError('Unknown deep-dive source ref')
+            for block in section.get('blocks',[]):
+                if not set(block.get('refs',[])).issubset(known):raise ValueError('Unknown deep-dive block ref')
     github_hot=json.loads((ROOT/'data/github-hot.json').read_text(encoding='utf-8'))
     if github_hot.get('version') != 1: raise ValueError('Unsupported GitHub hot schema version')
     datetime.fromisoformat(github_hot['checked_at'])
