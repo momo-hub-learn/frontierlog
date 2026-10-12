@@ -194,6 +194,12 @@ def history_for(old: dict, stars: int, stamp: str) -> list[dict]:
 
 
 def api_fields(repo: dict) -> dict:
+    if any(type(repo.get(key)) is not int or repo[key] < 0 for key in ("stargazers_count","forks_count")):
+        raise ValueError("Repository API counts missing or invalid")
+    for key in ("created_at", "pushed_at"):
+        stamp = repo.get(key)
+        if not isinstance(stamp,str) or not stamp or datetime.fromisoformat(stamp.replace("Z","+00:00")).tzinfo is None:
+            raise ValueError("Missing or naive repository timestamp")
     return {
         "stars": repo["stargazers_count"], "forks": repo["forks_count"],
         "repo_created_at": repo["created_at"], "repo_pushed_at": repo["pushed_at"],
