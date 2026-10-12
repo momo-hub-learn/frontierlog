@@ -8,18 +8,18 @@
       "hot_ids": [
         "rea-ai-reverse-engineering-20261012"
       ],
-      "title": "拆一下 REA：AI 逆向工程为什么突然出圈？",
-      "short_title": "逆向编程爆火：Agent 真能把软件“拆开重做”吗？",
+      "title": "拆一下 REA：AI“反向编程”为什么突然出圈？",
+      "short_title": "反向编程爆火：REA 真能把软件拆开重做吗？",
       "subtitle": "从反编译器、MCP 工具和证据追踪，拆开 REA 的能力边界，以及“看懂软件”与“合法重做”的距离。",
       "dek": "REA 真正带来的不是一键还原源代码，而是让 AI Agent 能沿着字符串、调用关系、伪代码和运行证据持续调查程序。爆火背后，最该弄清的是可验证能力与授权边界。",
       "published": "2026-10-13",
       "updated": "2026-10-13",
       "read_minutes": 14,
       "tags": [
+        "反向编程",
         "AI 逆向工程",
         "Agent Harness",
-        "MCP",
-        "可验证工程"
+        "MCP"
       ],
       "thesis": "逆向工程没有因为大模型而消失：分析工具仍提供证据，Agent 负责选择下一步检查。理解行为、构建相似功能和取得复制权是三件不同的事。",
       "mini_flow": [
@@ -1620,7 +1620,21 @@
         }
       ],
       "layout": "narrative",
-      "revision_note": "主文重写 · 6 章连续推导 · 2026.09.27"
+      "revision_note": "主文重写 · 6 章连续推导 · 2026.09.27",
+      "mini_flow": [
+        {
+          "label": "Code",
+          "detail": "确定规则"
+        },
+        {
+          "label": "Jev",
+          "detail": "结构判断"
+        },
+        {
+          "label": "LLM",
+          "detail": "开放推理"
+        }
+      ]
     }
   ]
 }
