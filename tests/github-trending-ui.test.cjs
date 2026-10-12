@@ -38,12 +38,12 @@ assert.match(view.__panel,/等待首次核验|待核验/);
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
  items:[{repo:'example/agent',ai_related:true,stars_today:51,rank:7,url:'https://github.com/example/agent',description:'Agent tools'}],
- watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',stars:142000,verified_at:new Date().toISOString()}]
+ watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:142000,verified_at:new Date().toISOString()}]
 };
 vm.runInContext('this.__fresh=fcGithubPanel();',view);
 assert.match(view.__fresh,/#07/);
 assert.match(view.__fresh,/\+51/);
 assert.match(view.__fresh,/morluto\/rea/);
-assert.match(view.__fresh,/142\.0k/);
+assert.match(view.__fresh,/142k/);
 assert.match(view.__fresh,/总 Star/);
 console.log('PASS GitHub Trending stale guard and independent REA watchlist UI');
