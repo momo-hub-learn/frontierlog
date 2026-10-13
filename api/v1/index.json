@@ -549,7 +549,7 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-12T23:17:24Z",
+      "last_checked_at": "2026-10-13T07:09:30Z",
       "status": "success",
       "mode": "shadow",
       "candidate_count": 3,
@@ -559,7 +559,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-12T23:17:24Z",
+    "generated_at": "2026-10-13T07:09:30Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -582,12 +582,12 @@
         "url": "https://arena.ai/blog/ai-alignment-index",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.876,
+        "priority_score": 0.855,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "product_id": "arena",
@@ -606,12 +606,12 @@
         "url": "https://arena.ai/blog/series-b",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.876,
+        "priority_score": 0.855,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "product_id": "arena",
@@ -630,12 +630,12 @@
         "url": "https://openai.com/index/gpt-6-for-everyone",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "chatgpt-gpt6-intelligent-ui",
@@ -2627,7 +2627,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-12T23:17:24Z",
+    "last_evaluated": "2026-10-13T07:09:30Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 3,
