@@ -1,0 +1,83 @@
+name: World Model research discovery
+
+on:
+  schedule:
+    - cron: '12 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main, 'preview/frontier-world-model-recall-20261013']
+    paths:
+      - 'scripts/frontier_paper_watch.py'
+      - 'data/models.json'
+      - 'data/research-radar.json'
+      - 'tests/test_frontier_paper_watch.py'
+      - '.github/workflows/frontier-research-watch.yml'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: frontier-research-watch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check source parsing and absence tests
+        run: python -m unittest tests.test_frontier_paper_watch
+      - name: Discover new World Model and JEPA papers
+        id: discover
+        continue-on-error: true
+        run: python scripts/frontier_paper_watch.py --output frontier-research-review.json
+      - name: Keep editorial queue and source failures visible
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs=require('fs');
+            const {owner,repo}=context.repo;
+            const run=context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId;
+            const title='World Model / JEPA｜新论文待核验';
+            const errorTitle='World Model 研究发现链路｜采集失败';
+            const {data:issues}=await github.rest.issues.listForRepo({owner,repo,state:'open',per_page:100});
+            const one=name=>issues.find(x=>!x.pull_request&&x.title===name);
+            async function upsert(name,body){
+              const old=one(name);
+              if(old){
+                if(old.body!==body)await github.rest.issues.update({owner,repo,issue_number:old.number,body});
+              }else await github.rest.issues.create({owner,repo,title:name,body});
+            }
+            async function close(name){
+              const old=one(name);
+              if(old)await github.rest.issues.update({owner,repo,issue_number:old.number,state:'closed'});
+            }
+            if('${{ steps.discover.outcome }}'!=='success' || !fs.existsSync('frontier-research-review.json')){
+              await upsert(errorTitle,'arXiv 研究候选采集本轮失败；保留所有现有研究档案，不把旧研究标为今天发布。\n\n请检查 Atom API / 网络访问 / 解析器。\n'+run);
+              return;
+            }
+            await close(errorTitle);
+            const report=JSON.parse(fs.readFileSync('frontier-research-review.json','utf8'));
+            if(report.status!=='review_only'||report.auto_publish!==false){
+              await upsert(errorTitle,'研究发现结果缺少 review-only 保护，需要维护。\n'+run);
+              return;
+            }
+            const rows=report.candidates||[];
+            if(!rows.length){await close(title);return;}
+            const bullets=rows.map(x=>'- '+x.date+' · '+x.title+' · '+x.authors.join(', ')+' · '+x.url);
+            const body=[
+              '这是 **未审查论文候选**，不是已完成的模型收录，也不能作为统一世界模型排名。',
+              '发现来源：'+report.source+' · 核对日：'+report.checked,
+              '',
+              ...bullets,
+              '',
+              '编辑动作：核对原文、源代码、实验条件和任务指标；区分新论文、观点/演讲与可用产品。',
+              '收录后通过 arXiv ID 自动去重。\n运行详情：'+run
+            ].join('\n');
+            await upsert(title,body);
