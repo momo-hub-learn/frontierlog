@@ -60,7 +60,7 @@ class WorldModelCoverageTests(unittest.TestCase):
         x=next(x for x in RESEARCH['items'] if x['id']=='hjepa-hierarchical-planning')
         self.assertEqual(x['date'],'2026-10-05')
         self.assertTrue(all(s['strength']=='primary' for s in x['sources']))
-        self.assertIn('未',x['boundary'])
+        self.assertIn('本站没有复现',x['boundary'])
         self.assertIn('https://arxiv.org/abs/2610.06805',[s['url'] for s in x['sources']])
 
     def test_known_arxiv_ids_are_cross_source_deduplicated(self):
