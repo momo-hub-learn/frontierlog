@@ -45,12 +45,12 @@ def authority(kind='',publisher=''):
     if any(x in q for x in ('independent','独立','论文','paper')):return .88
     return .72
 
-def freshness(published,now):
+def freshness(published,now,max_age=14):
     d=parse_day(published)
     if not d:return 0.0
     age=(now.date()-d).days
     if age<0:return 0.0
-    return max(0.0,1.0-age/14.0)
+    return max(0.0,1.0-age/float(max_age))
 
 def impact(category):
     return {'model':.94,'benchmark':.94,'industry':.9,'product':.86,'research':.82}.get(category,.76)
@@ -59,18 +59,28 @@ def collect_candidates(now=None):
     now=(now or datetime.now(timezone.utc)).astimezone(timezone.utc)
     hot=load('hot.json'); products=load('product-radar.json'); catalog=load('catalog.json')
     models=load('models.json'); industry=load('industry.json'); activity=load('activity-radar.json')
+    research=load('research-radar.json')
+    config=load('hot-policy.json').get('active_shadow_candidate')
+    if not isinstance(config,dict):raise ValueError('Active shadow candidate score must be explicitly configured')
+    weights=config.get('weights',{})
+    if set(weights)!= {'freshness','authority','impact','novelty'} or any(type(x) not in (int,float) or x<0 for x in weights.values()) or abs(sum(weights.values())-1)>1e-9:
+        raise ValueError('Invalid candidate scoring weights')
+    lookback=config.get('max_age_days')
+    threshold=config.get('publish_threshold')
+    if type(lookback)!=int or lookback<1 or type(threshold) not in (float,int) or not 0<=threshold<=1:
+        raise ValueError('Invalid active candidate threshold or lookback')
     existing_urls={canonical(x.get('url')) for x in hot.get('items',[]) if canonical(x.get('url'))}
     existing_titles={norm_title(x.get('title')) for x in hot.get('items',[])}
     rows=[]
     def add(category,published,title,summary,why,boundary,source,source_kind,url,publishable=False,extra=None):
         d=parse_day(published)
-        if not d or d>now.date() or (now.date()-d).days>14:return
+        if not d or d>now.date() or (now.date()-d).days>lookback:return
         u=canonical(url)
         if not u:return
         duplicate=u in existing_urls or norm_title(title) in existing_titles
-        a=authority(source_kind,source); f=freshness(published,now); im=impact(category); nov=.15 if duplicate else 1.0
-        score=round(.30*f+.27*a+.27*im+.16*nov,3)
-        action='merge' if duplicate else ('publish' if publishable and score>=.78 else 'hold')
+        a=authority(source_kind,source); f=freshness(published,now,lookback); im=impact(category); nov=.15 if duplicate else 1.0
+        score=round(sum(weights[k]*v for k,v in {'freshness':f,'authority':a,'impact':im,'novelty':nov}.items()),3)
+        action='merge' if duplicate else ('publish' if publishable and score>=threshold else 'hold')
         reason='已有同源热点，建议合并更新。' if duplicate else ('一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。' if action=='publish' else '保留候选，等待更强证据、影响或更新。')
         rows.append({'id':cid(category,u,str(published),title),'category':category,'published':str(published),
           'title':str(title),'summary':str(summary),'why':str(why),'boundary':str(boundary),
@@ -111,6 +121,14 @@ def collect_candidates(now=None):
                 '不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。',
                 src.get('publisher',x.get('maker')),src.get('kind','公开来源'),src.get('url'),False,
                 extra={'track_id':track.get('id'),'maker':x.get('maker')})
+    # Research radar is a first-class input, not just model/catalog/product feeds.
+    # It creates a review candidate only: a new paper never auto-publishes.
+    for x in research.get('items',[]):
+        src=next((row for row in x.get('sources',[]) if row.get('strength')=='primary'),None)
+        if not src:continue
+        add('research',x.get('date'),x.get('title'),x.get('fact'),x.get('insight'),x.get('boundary'),
+            x.get('maker'),src.get('kind','一手研究资料'),src.get('url'),False,
+            extra={'research_id':x.get('id'),'topic_tags':x.get('tags',[])})
     asrc={x.get('id'):x for x in activity.get('sources',[])}
     for m in activity.get('media_items',[]):
         src=asrc.get(m.get('source_id'))
