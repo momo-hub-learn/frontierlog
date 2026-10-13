@@ -21,5 +21,5 @@ assert(rows.find(x=>x.id==='ami-world-model-progress')._related_from==='Neo Labs
 assert(!ctx.rows(world,all,false).some(x=>x.id==='ami-world-model-progress'));
 assert.equal(all.flatMap(x=>x.items).filter(x=>x.id==='ami-world-model-progress').length,1);
 assert.deepEqual([...rows.map(x=>x.date)].sort().reverse(),[...rows.map(x=>x.date)]);
-assert(script.includes('selected!==\\'all\\''));
+assert(script.includes("selected!==\'all\'"));
 console.log('PASS World Model topic includes linked AMI and new primary research without global duplicates');
