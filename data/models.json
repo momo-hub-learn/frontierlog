@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-23",
+  "checked": "2026-10-13",
   "sources": [
     {
       "id": "aa-live",
@@ -191,6 +191,56 @@
       "published": "2026-09-22",
       "kind": "公司官方发布",
       "note": "Subconscious 公布面向长时间运行 agent 的推理平台，核心方向包括动态上下文压缩与长任务效率。"
+    },
+    {
+      "id": "hjepa-paper",
+      "title": "H-JEPA: End-to-End Learning of Hierarchical World Models for Visual Planning",
+      "publisher": "Zhang、Terver、Rabbat、LeCun、Balestriero",
+      "url": "https://arxiv.org/abs/2610.06805",
+      "published": "2026-10-05",
+      "checked": "2026-10-13",
+      "kind": "一手研究论文",
+      "note": "论文给出层级 JEPA、四个模拟环境与 DROID 离线规划实验。Visual AntMaze 73.3% vs 18.0% 是作者报告的同任务对照，不是跨模型的通用总分。"
+    },
+    {
+      "id": "hjepa-code",
+      "title": "H-JEPA 训练、规划与复现实验代码",
+      "publisher": "H-JEPA 论文作者",
+      "url": "https://github.com/kevinghst/H-JEPA",
+      "published": null,
+      "checked": "2026-10-13",
+      "kind": "论文作者公开代码",
+      "note": "提供 Visual AntMaze、FourRoom Distractors、OGBench Cube、Push-T 及 DROID 离线实验脚本、复现说明。"
+    },
+    {
+      "id": "hjepa-project",
+      "title": "H-JEPA 官方研究项目页",
+      "publisher": "H-JEPA 论文作者",
+      "url": "https://h-jepa.com/",
+      "published": null,
+      "checked": "2026-10-13",
+      "kind": "论文作者项目页",
+      "note": "层级世界模型和结果图表；不等同于真实机器人闭环部署。"
+    },
+    {
+      "id": "jepa-control-paper",
+      "title": "Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models",
+      "publisher": "Toso、LeCun、Anderson、Bounou",
+      "url": "https://arxiv.org/abs/2610.07540",
+      "published": "2026-10-06",
+      "checked": "2026-10-13",
+      "kind": "一手研究论文",
+      "note": "通过动作重建帮助世界模型保留控制所需的不稳定状态方向；线性系统理论结论与模拟控制实验需分开解读。"
+    },
+    {
+      "id": "jepa-control-code",
+      "title": "JEPA Control：论文配套模拟控制实验",
+      "publisher": "JEPA Control 论文作者",
+      "url": "https://github.com/LeoToso/JEPA_control",
+      "published": null,
+      "checked": "2026-10-13",
+      "kind": "论文作者公开代码",
+      "note": "包含 CartPole、PointMaze、Walker2D 的评测与对比实现；无本站独立复现结论。"
     }
   ],
   "boards": [
@@ -363,7 +413,7 @@
           "name": "Grok 4.7 (xhigh)",
           "maker": "SpaceXAI",
           "intelligence": 46,
-          "speed": 39.0,
+          "speed": 39,
           "cost_task": 3.74,
           "input_price": 2,
           "output_price": 6,
@@ -439,7 +489,7 @@
           "name": "GLM 5.3 Flash",
           "maker": "Z AI",
           "intelligence": 42,
-          "speed": 64.0,
+          "speed": 64,
           "cost_task": 0.25,
           "input_price": 0.15,
           "output_price": 0.5,
@@ -763,6 +813,47 @@
       "description": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
       "items": [
         {
+          "id": "jepa-control-unstable-modes",
+          "name": "JEPA Control-Aware World Models",
+          "maker": "AMI Labs / 合作研究团队",
+          "date": "2026-10-06",
+          "status": "research",
+          "status_label": "论文 / 代码",
+          "summary": "Toso、LeCun 等提出逆动力学动作重建目标，帮助 JEPA 表征保留控制中关键的不稳定模态；给出线性系统条件下的理论结果，并在 CartPole、Walker2D、PointMaze 等控制环境实验。它是方法研究，不是可直接商用的统一世界模型。",
+          "tags": [
+            "JEPA",
+            "Control",
+            "Inverse Dynamics"
+          ],
+          "sources": [
+            "jepa-control-paper",
+            "jepa-control-code"
+          ],
+          "evidence_type": "research",
+          "result_scope": "作者论文理论与模拟控制任务；本站未复现，不能解释为通用机器人成功率。"
+        },
+        {
+          "id": "hjepa-hierarchical-planning",
+          "name": "H-JEPA",
+          "maker": "AMI Labs / NYU / INRIA Paris / Brown University",
+          "date": "2026-10-05",
+          "status": "open",
+          "status_label": "论文 / 开源代码",
+          "summary": "Zhang、Terver、Rabbat、LeCun、Balestriero 提出多层 action-conditioned JEPA：上层预测更远时间范围，逐层生成子目标用于规划。作者报告 Visual AntMaze 三级 H-JEPA 规划成功率 73.3%，平坦 LeWorldModel 基线 18.0%，且规划计算更少；真实机器人 DROID 只评估离线规划保真度，尚不能宣称闭环成功率。",
+          "tags": [
+            "World Model",
+            "JEPA",
+            "Hierarchical Planning"
+          ],
+          "sources": [
+            "hjepa-paper",
+            "hjepa-code",
+            "hjepa-project"
+          ],
+          "evidence_type": "research_with_code",
+          "result_scope": "73.3% vs 18.0% 仅限论文 Visual AntMaze 的作者实验；未提供通用跨世界模型排名。"
+        },
+        {
           "id": "worldlabs-atlas",
           "name": "Atlas",
           "maker": "World Labs",
@@ -861,7 +952,7 @@
           "date": "2026-09-20",
           "status": "research",
           "status_label": "研究推进",
-          "summary": "AMI 继续押注表征空间里的 action-conditioned world models。9 月公开演讲增加了数学与医疗方向证据，但当前仍不应描述成已发布的通用产品模型。",
+          "summary": "AMI Labs 押注 action-conditioned world models。9 月公开演讲补充了理论与医疗方向研究线索；10 月 5/6 日共同作者团队又公开 H-JEPA 与 JEPA Control 研究。此档案追踪实验室路线，不将论文成绩写成 AMI 已发布通用产品模型。",
           "tags": [
             "Neo Lab",
             "JEPA",
@@ -870,9 +961,13 @@
           "sources": [
             "ami-world-models",
             "ami-sep20-progress"
+          ],
+          "related_tracks": [
+            "world-models"
           ]
         }
       ]
     }
-  ]
+  ],
+  "frontier_checked": "2026-10-13"
 }
