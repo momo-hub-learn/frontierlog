@@ -10,7 +10,7 @@
     "merge"
   ],
   "status": "shadow-running",
-  "note": "每 2 小时实际运行一次候选采集与 shadow 决策；只从站内已经核验的一手/官方数据生成候选，不自动把候选写成热点事实或热度分数。",
+  "note": "每 2 小时做一次网络无关的站内核验候选 shadow 评估。active_shadow_candidate 才是当前运行配置；bootstrap / learning 未训练、未启用。发现新的外部研究需独立研究采集与一手核验；评分不能让尚未发现的项目入榜，也不会自动重写编辑热度。",
   "features": [
     {
       "id": "heat_now",
@@ -65,7 +65,8 @@
     "fatigue_penalty": 0.18,
     "publish_threshold": 0.67,
     "merge_threshold": 0.52,
-    "minimum_gap_minutes": 45
+    "minimum_gap_minutes": 45,
+    "description": "尚未启用的后续奖励学习方案；与 active_shadow_candidate 不同，不得当作当前实际执行的评分权重。"
   },
   "learning": {
     "algorithm": "delayed-reward contextual bandit",
@@ -74,13 +75,27 @@
     "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
     "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
   },
-  "last_evaluated": "2026-10-13T07:09:30Z",
+  "last_evaluated": "2026-10-13T10:28:07Z",
   "last_decision": {
     "action": "publish",
-    "candidate_count": 3,
+    "candidate_count": 7,
     "publish_ready_count": 2,
     "merge_count": 1,
     "best_candidate": "candidate-019270e4cda473b1",
     "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
+  },
+  "active_shadow_candidate": {
+    "description": "当前实际上执行的 shadow 候选优先级，只对已经进入结构化数据的进展打分，不是本站发布的热度，也不决定前沿模型是否进入研究档案。",
+    "weights": {
+      "freshness": 0.3,
+      "authority": 0.27,
+      "impact": 0.27,
+      "novelty": 0.16
+    },
+    "publish_threshold": 0.78,
+    "max_age_days": 14,
+    "eligible_auto_publish": false,
+    "research_hold_by_default": true,
+    "feedback_trained": false
   }
 }

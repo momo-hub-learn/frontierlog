@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T07:09:30Z",
+  "generated_at": "2026-10-13T10:28:07Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
     "merge": 1,
-    "hold": 0
+    "hold": 4
   },
   "candidates": [
     {
@@ -57,6 +57,114 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "product_id": "arena",
       "first_seen_at": "2026-10-09T05:17:35Z"
+    },
+    {
+      "id": "candidate-b8b636bcf9ce7b3f",
+      "category": "model",
+      "published": "2026-10-05",
+      "title": "H-JEPA",
+      "summary": "Zhang、Terver、Rabbat、LeCun、Balestriero 提出多层 action-conditioned JEPA：上层预测更远时间范围，逐层生成子目标用于规划。作者报告 Visual AntMaze 三级 H-JEPA 规划成功率 73.3%，平坦 LeWorldModel 基线 18.0%，且规划计算更少；真实机器人 DROID 只评估离线规划保真度，尚不能宣称闭环成功率。",
+      "why": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+      "source": "Zhang、Terver、Rabbat、LeCun、Balestriero",
+      "source_kind": "一手研究论文",
+      "url": "https://arxiv.org/abs/2610.06805",
+      "publishable": false,
+      "features": {
+        "freshness": 0.429,
+        "authority": 0.88,
+        "impact": 0.94,
+        "novelty": 1.0
+      },
+      "priority_score": 0.78,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "track_id": "world-models",
+      "maker": "AMI Labs / NYU / INRIA Paris / Brown University",
+      "first_seen_at": "2026-10-13T10:28:07Z"
+    },
+    {
+      "id": "candidate-43c3c613b348f5b5",
+      "category": "research",
+      "published": "2026-10-06",
+      "title": "JEPA Control：保持机器人控制中的不稳定模态",
+      "summary": "研究指出单步预测与抗坍缩正则不足以保证保留可控的不稳定状态方向；提出动作重建目标并在符合特定前提的线性系统中证明保留性质，提供模拟控制实验。",
+      "why": "这解决的是“表示能预测，但保不住控制必需的信息”的问题，是世界模型能否用于规划和稳定控制的重要技术约束。",
+      "boundary": "严格理论结论针对线性系统与确切重建等条件，非线性实验限于作者给出的模拟环境；不能据此声称真实机器人的全局稳定性。",
+      "source": "Toso / LeCun 等合作团队",
+      "source_kind": "论文原文",
+      "url": "https://arxiv.org/abs/2610.07540",
+      "publishable": false,
+      "features": {
+        "freshness": 0.5,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.769,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "jepa-control-unstable-modes",
+      "topic_tags": [
+        "World Model",
+        "JEPA",
+        "Inverse Dynamics"
+      ],
+      "first_seen_at": "2026-10-13T10:28:07Z"
+    },
+    {
+      "id": "candidate-7bb692a30a0df31d",
+      "category": "research",
+      "published": "2026-10-06",
+      "title": "JEPA Control-Aware World Models",
+      "summary": "Toso、LeCun 等提出逆动力学动作重建目标，帮助 JEPA 表征保留控制中关键的不稳定模态；给出线性系统条件下的理论结果，并在 CartPole、Walker2D、PointMaze 等控制环境实验。它是方法研究，不是可直接商用的统一世界模型。",
+      "why": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+      "source": "Toso、LeCun、Anderson、Bounou",
+      "source_kind": "一手研究论文",
+      "url": "https://arxiv.org/abs/2610.07540",
+      "publishable": false,
+      "features": {
+        "freshness": 0.5,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.769,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "track_id": "world-models",
+      "maker": "AMI Labs / 合作研究团队",
+      "first_seen_at": "2026-10-13T10:28:07Z"
+    },
+    {
+      "id": "candidate-81e20ff082ab44de",
+      "category": "research",
+      "published": "2026-10-05",
+      "title": "H-JEPA · 层级世界模型与视觉规划",
+      "summary": "论文提出端到端层级 action-conditioned JEPA，在长时与短时潜表示之间传递子目标。作者报告 Visual AntMaze 规划成功率为 73.3%（三级）与 18.0%（平坦 LeWorldModel）；训练和规划代码已公开。",
+      "why": "与生成式世界模拟不同，H-JEPA 关注不同时间尺度的表征与目标驱动规划，并把计划拆成层级子目标；对长程 Agent 与具身规划有研究参考价值。",
+      "boundary": "论文数据是作者在固定模拟任务和配置中的对照，不能与 Atlas 等产品打统一能力分，也不能把 DROID 离线规划保真度解读成真实机器人闭环成功。本站没有复现或重跑。",
+      "source": "AMI Labs / NYU / INRIA Paris / Brown University",
+      "source_kind": "论文原文",
+      "url": "https://arxiv.org/abs/2610.06805",
+      "publishable": false,
+      "features": {
+        "freshness": 0.429,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.748,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "hjepa-hierarchical-planning",
+      "topic_tags": [
+        "World Model",
+        "JEPA",
+        "Hierarchical Planning"
+      ],
+      "first_seen_at": "2026-10-13T10:28:07Z"
     },
     {
       "id": "candidate-6982206f194b1f18",
