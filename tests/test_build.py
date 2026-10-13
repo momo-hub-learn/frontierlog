@@ -184,7 +184,8 @@ class BuildTests(unittest.TestCase):
     def test_progress_v5_views_and_research_archive(self):
         radar=json.loads((ROOT/'data/research-radar.json').read_text())
         build.validate_research_radar(radar)
-        self.assertEqual(len(radar['items']),15)
+        self.assertEqual(len(radar['items']),17)
+        self.assertTrue({'hjepa-hierarchical-planning','jepa-control-unstable-modes'} <= {x['id'] for x in radar['items']})
         self.assertEqual({x['id'] for x in radar['lanes']},{'paradigm','science','neo'})
         self.assertTrue(any(any(s.get('strength')=='lead' for s in x['sources']) for x in radar['items']))
         with tempfile.TemporaryDirectory() as td:

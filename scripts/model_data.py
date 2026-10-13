@@ -90,7 +90,8 @@ def validate_models(data):
 
     tracks=data.get('frontier_tracks',[])
     if not isinstance(tracks,list) or len(tracks)>20:fail('Invalid frontier tracks')
-    identifiers(tracks);frontier_ids=set()
+    track_ids=identifiers(tracks);frontier_ids=set()
+    if data.get('frontier_checked') is not None:day(data['frontier_checked'])
     valid_status={'open','limited_access','proprietary','early_access','research','available','preview'}
     for track in tracks:
         text(track.get('title'),'frontier track title');text(track.get('description'),'frontier track description')
@@ -105,6 +106,9 @@ def validate_models(data):
             if item.get('status') not in valid_status:fail('Invalid frontier item status')
             if not isinstance(item.get('tags'),list) or any(not isinstance(x,str) or not x.strip() for x in item['tags']):fail('Invalid frontier tags')
             if not item.get('sources') or not set(item['sources'])<=sids:fail('Frontier source missing')
+            related=item.get('related_tracks',[])
+            if not isinstance(related,list) or len(related)!=len(set(related)) or not set(related)<=track_ids-{track['id']}:
+                fail('Unknown or duplicate frontier cross-track relation')
 
 def validate_resets(data):
     if data.get('version')!=1:fail('Unsupported reset schema')
