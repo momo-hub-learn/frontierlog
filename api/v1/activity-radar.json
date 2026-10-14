@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-10-14T18:53:36Z",
+  "checked_at": "2026-10-14T23:26:48Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-10-14T18:53:36Z",
+    "last_success": "2026-10-14T23:26:48Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -318,6 +318,19 @@
   ],
   "media_items": [
     {
+      "id": "latent-space-e34147cb5020",
+      "source_id": "latent-space",
+      "published": "2026-10-14",
+      "title": "Crossing the Threshold: How OpenAI and Anthropic Approach Autonomy and Safety in Financial Agents",
+      "summary": "At AI Engineer New York, frontier labs and financial firms explored how to give agents useful autonomy while keeping consequential decisions under control.",
+      "url": "https://www.latent.space/p/crossing-the-threshold",
+      "tags": [
+        "Agents",
+        "Safety"
+      ],
+      "origin": "rss"
+    },
+    {
       "id": "latent-space-b4da712a20e5",
       "source_id": "latent-space",
       "published": "2026-10-14",
@@ -328,27 +341,15 @@
       "origin": "rss"
     },
     {
-      "id": "latent-space-feef2fdaa4b1",
+      "id": "latent-space-3c314a226979",
       "source_id": "latent-space",
-      "published": "2026-10-13",
-      "title": "Dyna-2: General Purpose Physical Agents with Hour-Long Autonomy — Jason Ma, Dyna Robotics",
-      "summary": "Our first robotics pod with Dyna’s Chief Scientist on their big bet on World Action Models & the Next Frontier of Physical AI",
-      "url": "https://www.latent.space/p/dyna",
+      "published": "2026-10-14",
+      "title": "Lab-in-the-Loop at Compute Speed — Ian Quigley, Leash Bio",
+      "summary": "How Leash Bio tamed DELs, the assay that traumatizes everyone, and used the data to catch cheating models. And why that same data is perfect for AI agents learning to think like chemists.",
+      "url": "https://www.latent.space/p/lab-in-the-loop-at-compute-speed",
       "tags": [
         "Agents",
-        "Robotics",
-        "Models"
-      ],
-      "origin": "rss"
-    },
-    {
-      "id": "latent-space-c19f98ea73f0",
-      "source_id": "latent-space",
-      "published": "2026-10-13",
-      "title": "[AINews] Meta Muse Wonder & Wonder Full: MSL’s Claude 5.5-tier Frontier Model",
-      "summary": "MSL’s emergence as a frontier lab is finally complete.",
-      "url": "https://www.latent.space/p/ainews-meta-muse-wonder-and-wonder",
-      "tags": [
+        "BioAI",
         "Models"
       ],
       "origin": "rss"
