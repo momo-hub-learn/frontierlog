@@ -20,6 +20,10 @@ on:
       - 'src/v10.js'
       - 'src/feed-cockpit.js'
       - 'src/top5-editorial.js'
+      # Keep checked-in GitHub Pages in sync with long-form editorial templates.
+      - 'src/deep-dives.js'
+      - 'src/deep-dives.css'
+      - 'data/deep-dives.json'
       - 'tests/test_build.py'
 
 permissions:
