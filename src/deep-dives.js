@@ -72,6 +72,31 @@ function dPoints(rows=[]){
 function dRichCode(b){
  return '<figure class="dv-code"><figcaption><div><span>'+esc(b.language||'python')+'</span><strong>'+esc(b.title)+'</strong></div><button type="button" data-d-copy>复制代码</button></figcaption><pre><code>'+esc(b.code)+'</code></pre>'+(b.caption?'<p class="dv-caption">'+esc(b.caption)+'</p>':'')+'</figure>'
 }
+
+/* Authored, source-linked system diagrams. Nodes are editorial reconstructions, not screenshots of a vendor's internals. */
+function dSystemArchitecture(a,b){
+ const g=b.diagram;if(!g||!Array.isArray(g.nodes)||!Array.isArray(g.edges))return '';
+ const slug=String(a.id+'-'+(b.id||'architecture')).replace(/[^a-z0-9-]/g,'-');
+ const byId=new Map(g.nodes.map(n=>[n.id,n]));
+ const num=v=>Number.isFinite(Number(v))?Number(v):0;
+ const port=(n,side)=>{const x=num(n.x),y=num(n.y),w=num(n.w||208),h=num(n.h||84);return side==='top'?[x+w/2,y]:side==='bottom'?[x+w/2,y+h]:side==='left'?[x,y+h/2]:[x+w,y+h/2]};
+ const zones=(g.zones||[]).map(z=>'<g class="d-sys-zone"><rect x="'+num(z.x)+'" y="'+num(z.y)+'" width="'+num(z.w)+'" height="'+num(z.h)+'" rx="16"/><text x="'+(num(z.x)+15)+'" y="'+(num(z.y)+26)+'">'+esc(z.label)+'</text></g>').join('');
+ const edges=g.edges.map(e=>{const from=byId.get(e.from),to=byId.get(e.to);if(!from||!to)return '';
+  const points=[port(from,e.from_port||'right'),...(Array.isArray(e.via)?e.via:[]),port(to,e.to_port||'left')];
+  const d=points.map((p,i)=>(i?'L':'M')+num(p[0])+' '+num(p[1])).join(' ');
+  const marker=e.dashed?'feedback':'forward';
+  return '<path class="d-sys-edge'+(e.dashed?' is-feedback':'')+'" d="'+d+'" marker-end="url(#d-sys-'+slug+'-'+marker+')"/>'+(e.label&&Array.isArray(e.at)?'<text class="d-sys-edge-label" x="'+num(e.at[0])+'" y="'+num(e.at[1])+'">'+esc(e.label)+'</text>':'');
+ }).join('');
+ const nodes=g.nodes.map((n,i)=>'<g class="d-sys-node '+(n.kind==='verify'?'is-verify':n.kind==='boundary'?'is-boundary':'')+'" transform="translate('+num(n.x)+' '+num(n.y)+')"><rect width="'+num(n.w||208)+'" height="'+num(n.h||84)+'" rx="12"/><text class="d-sys-node-index" x="14" y="21">'+String(i+1).padStart(2,'0')+'</text><text class="d-sys-node-name" x="14" y="44">'+esc(n.label)+'</text><text class="d-sys-node-detail" x="14" y="65">'+esc(n.detail||'')+'</text></g>').join('');
+ const notes=(b.annotations||[]).map((x,i)=>'<li><b>'+String(i+1).padStart(2,'0')+' / '+esc(x.title)+'</b><p>'+esc(x.detail)+'</p></li>').join('');
+ const label=esc(g.title||'系统架构图');
+ return '<figure class="d-sys" id="deep-figure-'+slug+'"><figcaption class="d-sys-caption"><div><span>TECHNICAL BLUEPRINT / '+esc(b.version||'01')+'</span><h3>'+label+'</h3><p>'+esc(g.intro||'')+'</p></div><span class="d-sys-version">可缩放矢量图 · 架构推演</span></figcaption>'+
+ '<div class="d-sys-canvas" tabindex="0" aria-label="'+label+'；窄屏可横向滚动"><svg viewBox="0 0 '+num(g.width||1120)+' '+num(g.height||460)+'" role="img" aria-label="'+label+'。'+esc(g.alt||'请同时阅读图下方的工程边界说明。')+'" xmlns="http://www.w3.org/2000/svg"><defs>'+
+ '<marker id="d-sys-'+slug+'-forward" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"/></marker>'+
+ '<marker id="d-sys-'+slug+'-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"/></marker></defs>'+zones+edges+nodes+'</svg></div>'+
+ (notes?'<ol class="d-sys-notes">'+notes+'</ol>':'')+'<p class="d-sys-boundary"><b>证据边界</b>'+esc(g.boundary||'此图为编辑概念模型，不是官方内部调用图，也不代表本站运行实测。')+'</p></figure>';
+}
+
 function dFlow(b){
  return '<figure class="dv-figure"><figcaption><span class="dv-overline">流程图 / WORKFLOW</span><h3>'+esc(b.title)+'</h3></figcaption><ol class="dv-flow" style="--steps:'+b.nodes.length+'">'+b.nodes.map((n,i)=>'<li><span class="dv-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(n.title)+'</strong><p>'+esc(n.detail||'')+'</p></li>').join('')+'</ol><p class="dv-caption">'+esc(b.caption||'')+'</p></figure>'
 }
@@ -174,6 +199,7 @@ function dRichBlock(a,b){
  case 'resources':return dEssayResources(b);
  case 'note':return '<aside class="dv-note"><strong>'+esc(b.title)+'</strong><p>'+esc(b.text)+'</p></aside>';
  case 'scene':return dScene(b);
+ case 'architecture':return dSystemArchitecture(a,b);
  case 'flow':return dFlow(b);
  case 'cards':return dRichCards(b);
  case 'code':return dRichCode(b);

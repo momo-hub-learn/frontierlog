@@ -2,19 +2,20 @@ name: World Model research discovery
 
 on:
   schedule:
-    - cron: '12 3 * * *'
+    - cron: '17 */2 * * *'
   workflow_dispatch:
   push:
     branches: [main, 'preview/frontier-world-model-recall-20261013']
     paths:
       - 'scripts/frontier_paper_watch.py'
+      - 'scripts/frontier_candidates.py'
       - 'data/models.json'
       - 'data/research-radar.json'
       - 'tests/test_frontier_paper_watch.py'
       - '.github/workflows/frontier-research-watch.yml'
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -36,6 +37,19 @@ jobs:
         id: discover
         continue-on-error: true
         run: python scripts/frontier_paper_watch.py --output frontier-research-review.json
+      - name: Preserve unreviewed papers across rolling discovery windows
+        if: steps.discover.outcome == 'success'
+        run: python scripts/frontier_candidates.py --report frontier-research-review.json
+      - name: Commit new candidates without approving them
+        if: steps.discover.outcome == 'success' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/frontier-candidates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(world): preserve newly discovered unreviewed papers"
+            git push
+          fi
       - name: Keep editorial queue and source failures visible
         if: always() && github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
@@ -78,6 +92,6 @@ jobs:
               ...bullets,
               '',
               '编辑动作：核对原文、源代码、实验条件和任务指标；区分新论文、观点/演讲与可用产品。',
-              '收录后通过 arXiv ID 自动去重。\n运行详情：'+run
+              '所有候选保存在 data/frontier-candidates.json；入榜仍需人工审核。\n运行详情：'+run
             ].join('\n');
             await upsert(title,body);

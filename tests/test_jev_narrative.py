@@ -19,9 +19,9 @@ class NarrativeTests(unittest.TestCase):
     def setUpClass(cls):
         cls.article = next(a for a in json.loads((ROOT/'data/deep-dives.json').read_text())['articles'] if a['id']=='jev-agent-decision-layer')
 
-    def test_six_continuous_chapters(self):
+    def test_seven_continuous_chapters(self):
         a=self.article
-        self.assertEqual([s['key'] for s in a['sections']],['scene','interface','implementation','confidence','stack','evaluation'])
+        self.assertEqual([s['key'] for s in a['sections']],['scene','interface','implementation','confidence','stack','ops','evaluation'])
         self.assertGreater(sum(len(b.get('text','')) for s in a['sections'] for b in s['blocks']),7500)
         for s in a['sections'][:-1]:
             self.assertEqual(s['blocks'][-1]['type'],'transition')

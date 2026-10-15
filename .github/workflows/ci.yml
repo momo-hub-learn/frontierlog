@@ -30,6 +30,7 @@ jobs:
           node --check src/github-hot.js
           node --check src/huggingface-hot.js
           node --check src/deep-dives.js
+          node --check src/world-priority.js
           node --check src/feed-cockpit.js
           node --check src/product-v3.js
           node --check src/progress-v4.js
@@ -47,11 +48,13 @@ jobs:
       - name: Deep-dive editorial and freshness regression
         run: |
           node tests/deep-editorial.test.cjs
+          node tests/deep-architecture.test.cjs
           python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
       - name: World Model topic coverage and research review regressions
         run: |
           python -m unittest tests.test_frontier_paper_watch
           node tests/world-model-recall.test.cjs
+          node tests/world-research-ui.test.cjs
       - name: GitHub Trending and REA freshness UI regression
         run: node tests/github-trending-ui.test.cjs
       - name: Product browser regression
@@ -65,6 +68,7 @@ jobs:
           test -f dist-ci/api/v1/hot-inbox.json
           test -f dist-ci/api/v1/product-radar.json
           test -f dist-ci/api/v1/research-radar.json
+          test -f dist-ci/api/v1/frontier-candidates.json
           test -f dist-ci/api/v1/activity-radar.json
           test -f dist-ci/api/v1/github-hot.json
           test -f dist-ci/api/v1/huggingface-hot.json

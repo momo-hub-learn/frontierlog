@@ -4,7 +4,8 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const source = fs.readFileSync(require('node:path').join(__dirname,'../src/v10.js'),'utf8');
 const prefix = source.split('hRows=function')[0]+'\nglobalThis.__hotTest={v10Top5Window,v10Top5Rows,v10FeedFreshnessCopy,v10HotStatusShort};';
-const make=(items)=>{const ctx={APP:{hot_policy:{}},HOT:{items,checked:'2026-10-08'},Date,Intl};vm.runInNewContext(prefix,ctx);return ctx.__hotTest};
+class FixedDate extends Date{constructor(...args){super(...(args.length?args:['2026-10-08T12:00:00Z']))}static now(){return Date.parse('2026-10-08T12:00:00Z')}}
+const make=(items)=>{const ctx={APP:{hot_policy:{}},HOT:{items,checked:'2026-10-08'},Date:FixedDate,Intl};vm.runInNewContext(prefix,ctx);return ctx.__hotTest};
 const rows=[
  {id:'new',published:'2026-10-07',heat:90},
  ...Array.from({length:9},(_,i)=>({id:'old'+i,published:'2026-09-'+String(22-i).padStart(2,'0'),heat:99-i}))
