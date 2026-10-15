@@ -125,6 +125,21 @@ function dRoleWorkflow(b){
  '<p class="d-role-table-hint">窄屏可横向滑动查看全部职责列。</p>'+
  '<p class="d-role-boundary"><strong>图示边界</strong>'+esc(b.caption||'这是基于公开文档的概念分层，不代表产品内部源码实现。')+'</p></figure>';
 }
+
+/* Editorial responsibility matrix is synthesized from the authored REA flow.
+   It stays separate from the vendor product model and makes the scope explicit. */
+function dReaRolePayload(b){
+ const details=[
+  {stage:'调查规划',output_short:'产出 · 待检验的假设',input:'用户问题、获准目标与已有线索',action:'明确问题、提出可证伪假设、选择下一步工具',output:'调查计划、候选假设、工具调用意图',boundary:'模型可能误判；未经工具证实的解释不得写成事实'},
+  {stage:'工具编排',output_short:'产出 · 来源明确的工具回执',input:'Agent 调查请求、已配置分析提供者',action:'通过 CLI / MCP 映射分析指令，整理结果、来源与局限',output:'工具回执、结构化线索、不可用能力说明',boundary:'提供统一接口不等于获得目标程序的使用与复制授权'},
+  {stage:'静态分析',output_short:'产出 · 可定位的原始证据',input:'已授权样本、具体分析任务及工具设置',action:'执行适用的反编译、符号、交叉引用或应用解析',output:'函数位置、调用关系、伪代码与证据片段',boundary:'静态结果可能近似、混淆或不完整，不能代替运行时证明'},
+  {stage:'验证与验收',output_short:'产出 · 复核结论与未知项',input:'版本固定的工件、分析记录与测试范围',action:'人工交叉核查，在允许的环境做行为测试和反证',output:'带条件的结论、复现步骤、测试用例与未知项',boundary:'未覆盖的分支应标记未知；相似功能不代表可以复制受保护实现'}
+ ];
+ return {...b,title:'四个角色，组成一条可回溯的调查链',subtitle:'每一步交付证据给下一层；有冲突就返回调查，而不是把推断直接变成实现。',feedback:'新反例 → 重新检查假设 → 更新证据记录；不能复现的结果保留为待核验。',
+  roles:b.nodes.map((node,i)=>({role:node.title,summary:node.detail,...details[i]})),
+  caption:'根据 REA 官方 CLI、README 和 Native Investigation 文档整理。权限审核、人工复核与证据记录属于本站建议的工程保障，不代表 REA 自动交付整条流程。'};
+}
+
 function dRichCards(b){
  return '<div class="dv-cards-wrap">'+(b.title?'<h3>'+esc(b.title)+'</h3>':'')+'<div class="dv-cards">'+b.items.map(x=>'<div><h4>'+esc(x.title)+'</h4><p>'+esc(x.detail)+'</p></div>').join('')+'</div></div>'
 }
@@ -226,7 +241,7 @@ function dRichBlock(a,b){
  case 'scene':return dScene(b);
  case 'architecture':return dSystemArchitecture(a,b);
  case 'role_matrix':return dRoleWorkflow(b);
- case 'flow':return dFlow(b);
+ case 'flow':return a.id==='rea-agent-reverse-engineering'&&b.title==='一次任务中谁负责什么？'?dRoleWorkflow(dReaRolePayload(b)):dFlow(b);
  case 'cards':return dRichCards(b);
  case 'code':return dRichCode(b);
  case 'demo':return a.layout==='narrative'?'<details class="je-protocol"><summary>按需查看：完整请求、响应摘录与 JSON 下载</summary>'+dDemo(a)+'</details>':dDemo(a);
