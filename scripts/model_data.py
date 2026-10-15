@@ -106,6 +106,18 @@ def validate_models(data):
             if item.get('status') not in valid_status:fail('Invalid frontier item status')
             if not isinstance(item.get('tags'),list) or any(not isinstance(x,str) or not x.strip() for x in item['tags']):fail('Invalid frontier tags')
             if not item.get('sources') or not set(item['sources'])<=sids:fail('Frontier source missing')
+            review=item.get('research_review')
+            if review is not None:
+                if track['id']!='world-models' or review.get('version')!='research-priority-v1' or review.get('scope')!='research_attention_not_capability':
+                    fail('Research priority is only valid for World Model research records')
+                reviewed=day(review['reviewed_on'])
+                if reviewed>date.fromisoformat(data.get('frontier_checked',data['checked'])):fail('Research review after snapshot')
+                text(review.get('limitation'),'research review limitation')
+                dimensions=review.get('dimensions',{})
+                if set(dimensions)!={'novelty','evidence','reproducibility','planning'}:fail('Invalid research dimensions')
+                for dimension in dimensions.values():
+                    if type(dimension.get('rating'))!=int or not 0<=dimension['rating']<=4:fail('Research rating out of range')
+                    text(dimension.get('reason'),'research dimension evidence')
             related=item.get('related_tracks',[])
             if not isinstance(related,list) or len(related)!=len(set(related)) or not set(related)<=track_ids-{track['id']}:
                 fail('Unknown or duplicate frontier cross-track relation')
