@@ -98,7 +98,32 @@ function dSystemArchitecture(a,b){
 }
 
 function dFlow(b){
- return '<figure class="dv-figure"><figcaption><span class="dv-overline">流程图 / WORKFLOW</span><h3>'+esc(b.title)+'</h3></figcaption><ol class="dv-flow" style="--steps:'+b.nodes.length+'">'+b.nodes.map((n,i)=>'<li><span class="dv-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(n.title)+'</strong><p>'+esc(n.detail||'')+'</p></li>').join('')+'</ol><p class="dv-caption">'+esc(b.caption||'')+'</p></figure>'
+ // No browser-generated list markers: the authored ordinal is the sole step number.
+ return '<figure class="dv-figure dv-flow-figure"><figcaption><span class="dv-overline">流程图 / WORKFLOW</span><h3>'+esc(b.title)+'</h3></figcaption>'+
+ '<div class="dv-flow" role="list" style="--steps:'+b.nodes.length+'">'+b.nodes.map((n,i)=>
+ '<div class="dv-flow-step" role="listitem"><span class="dv-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(n.title)+'</strong><p>'+esc(n.detail||'')+'</p></div>'
+ ).join('')+'</div>'+(b.caption?'<p class="dv-caption">'+esc(b.caption)+'</p>':'')+'</figure>';
+}
+/* Article-level responsibility blueprint: diagram + evidence-minded table, not a numbered text list. */
+function dRoleWorkflow(b){
+ if(!Array.isArray(b.roles)||b.roles.length<2)return '';
+ const roles=b.roles;
+ const cards=roles.map((r,i)=>
+  '<article class="d-role-step" role="listitem"><div class="d-role-top"><span class="d-role-ordinal">'+String(i+1).padStart(2,'0')+'</span><small>'+esc(r.stage||'环节')+'</small></div>'+
+  '<h4>'+esc(r.role)+'</h4><p>'+esc(r.summary)+'</p><span class="d-role-io">'+esc(r.output_short)+'</span></article>'
+ ).join('');
+ const headers=['环节','典型输入','核心职责','可检查的产出','风险 / 复核'];
+ const rows=roles.map((r,i)=>
+  '<tr><th scope="row"><span class="d-role-table-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(r.role)+'</strong></th>'+
+  [r.input,r.action,r.output,r.boundary].map((x,j)=>'<td data-label="'+esc(headers[j+1])+'">'+esc(x)+'</td>').join('')+'</tr>'
+ ).join('');
+ return '<figure class="d-role-workflow"><figcaption class="d-role-caption"><span>RESPONSIBILITY MAP / ANALYSIS CHAIN</span><h3>'+esc(b.title)+'</h3><p>'+esc(b.subtitle||'')+'</p></figcaption>'+
+ '<div class="d-role-blueprint"><div class="d-role-steps" role="list" aria-label="按顺序展示四个角色">'+cards+'</div>'+
+ '<p class="d-role-feedback"><span aria-hidden="true">↶</span><strong>发现矛盾，就返回调查</strong><small>'+esc(b.feedback||'重新形成假设并补充证据')+'</small></p></div>'+
+ '<div class="d-role-table-header"><h4>职责矩阵</h4><span>输入 · 责任 · 输出 · 失效边界</span></div>'+
+ '<div class="d-role-table-scroll" tabindex="0" role="region" aria-label="角色职责对照表，窄屏可横向滚动"><table class="d-role-table"><thead><tr>'+headers.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div>'+
+ '<p class="d-role-table-hint">窄屏可横向滑动查看全部职责列。</p>'+
+ '<p class="d-role-boundary"><strong>图示边界</strong>'+esc(b.caption||'这是基于公开文档的概念分层，不代表产品内部源码实现。')+'</p></figure>';
 }
 function dRichCards(b){
  return '<div class="dv-cards-wrap">'+(b.title?'<h3>'+esc(b.title)+'</h3>':'')+'<div class="dv-cards">'+b.items.map(x=>'<div><h4>'+esc(x.title)+'</h4><p>'+esc(x.detail)+'</p></div>').join('')+'</div></div>'
@@ -200,6 +225,7 @@ function dRichBlock(a,b){
  case 'note':return '<aside class="dv-note"><strong>'+esc(b.title)+'</strong><p>'+esc(b.text)+'</p></aside>';
  case 'scene':return dScene(b);
  case 'architecture':return dSystemArchitecture(a,b);
+ case 'role_matrix':return dRoleWorkflow(b);
  case 'flow':return dFlow(b);
  case 'cards':return dRichCards(b);
  case 'code':return dRichCode(b);
@@ -250,7 +276,7 @@ function dOtherReads(a){
 }
 function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
- return '<article class="d-page'+(a.demo?' d-visual':'')+(a.layout==='narrative'?' d-narrative':'')+'">'+
+ return '<article class="d-page d-visual'+(a.layout==='narrative'?' d-narrative':' d-editorial')+'">'+
   '<header class="d-hero">'+
    '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span></div>'+
    '<div class="d-hero-grid"><div class="d-hero-copy">'+
