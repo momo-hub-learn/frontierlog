@@ -97,6 +97,9 @@ try:
             page.set_viewport_size({'width':width,'height':1050})
             page.wait_for_timeout(100)
             size = page.evaluate('({doc:document.documentElement.scrollWidth,win:innerWidth})')
+            if size['doc'] > size['win']:
+                offenders=page.evaluate("""() => [...document.querySelectorAll('body *')].filter(el=>{const r=el.getBoundingClientRect();const st=getComputedStyle(el);return st.position!=='fixed'&&r.width>0&&r.right>innerWidth+0.2}).map(el=>({name:el.tagName,cls:String(el.className).slice(0,75),right:Math.round(el.getBoundingClientRect().right*10)/10,width:Math.round(el.getBoundingClientRect().width)})).sort((a,b)=>b.right-a.right).slice(0,15)""")
+                print('OVERFLOW DIAGNOSTIC',width,offenders,flush=True)
             assert size['doc'] <= size['win'], (width,size)
             overflow = page.locator('.d-visual').evaluate('el=>[...el.querySelectorAll("pre,.dv-figure,.dv-demo,.dv-applications,.je-figure")].filter(x=>x.getBoundingClientRect().width>0 && x.scrollWidth>x.clientWidth+2).map(x=>x.className)')
             assert not overflow, (width,overflow)
