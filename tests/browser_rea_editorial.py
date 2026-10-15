@@ -75,8 +75,9 @@ try:
             assert workflow.locator('tbody tr').count()==4
             role_columns=workflow.locator('.d-role-steps').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns')
             col_count=len(role_columns.split(' '))
-            assert col_count==(1 if width<=390 else 2 if width<=1024 else 4),(width,role_columns)
             article_width=page.locator('.d-article').evaluate('(el)=>el.getBoundingClientRect().width')
+            expected_columns=1 if article_width<=475 else 2 if article_width<=740 else 4
+            assert col_count==expected_columns,(width,article_width,role_columns)
             role_width=workflow.evaluate('(el)=>el.getBoundingClientRect().width')
             assert role_width<=article_width+1,(width,role_width,article_width)
             workflow.screenshot(path=str(OUT/f'{width}-roles.png'))
