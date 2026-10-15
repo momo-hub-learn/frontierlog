@@ -46,13 +46,13 @@ try:
         else:
             page.goto(url + '#/deep?id=jev-agent-decision-layer', wait_until='domcontentloaded')
         expect(page.locator('.d-visual')).to_be_visible()
-        expect(page.locator('.d-section')).to_have_count(6)
+        expect(page.locator('.d-section')).to_have_count(7)
         expect(page.locator('.je-signal')).to_have_count(3)
-        expect(page.locator('.je-transition')).to_have_count(5)
+        expect(page.locator('.je-transition')).to_have_count(6)
         assert not page.locator('.je-protocol').evaluate('(el)=>el.open')
         for signal in page.locator('.je-signal').all():
             expect(signal).to_be_visible()
-        passed('all three core interfaces visible without clicking; five chapter transitions')
+        passed('all three core interfaces visible without clicking; six chapter transitions')
         expect(page.locator('.dv-scene-verdict')).to_contain_text('因果已证明')
         page.locator('.je-protocol > summary').click()
         for key in ['supported','document_kind','relevance']:
@@ -103,7 +103,7 @@ try:
             page.evaluate('window.scrollTo(0,0)')
             page.screenshot(path=str(OUT / f'{width}-top.png'))
             if width in [390,1512]:
-                for key in ['scene','interface','implementation','confidence','stack','evaluation']:
+                for key in ['scene','interface','implementation','confidence','stack','ops','evaluation']:
                     page.locator('#deep-' + key).screenshot(path=str(OUT / f'{width}-{key}.png'), style=CAPTURE_STYLE)
             font=page.locator('.dv-text').first.evaluate('(el)=>parseFloat(getComputedStyle(el).fontSize)')
             assert font >= (17 if width<=820 else 18), (width,font)
