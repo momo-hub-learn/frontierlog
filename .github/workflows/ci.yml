@@ -49,6 +49,7 @@ jobs:
         run: |
           node tests/deep-editorial.test.cjs
           node tests/deep-architecture.test.cjs
+          node tests/rea-editorial-quality.test.cjs
           python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
       - name: World Model topic coverage and research review regressions
         run: |
