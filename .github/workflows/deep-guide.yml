@@ -2,7 +2,7 @@ name: Deep guide checks
 
 on:
   push:
-    branches: [main, 'preview/jev-visual-guide-20260925']
+    branches: [main, 'preview/jev-visual-guide-20260925', 'preview/deep-editorial-rebuild-20261015']
     paths:
       - 'src/deep-dives.js'
       - 'src/deep-dives.css'
@@ -10,6 +10,8 @@ on:
       - 'examples/jev/**'
       - 'tests/test_deep_visual.py'
       - 'tests/browser_deep_visual.py'
+      - 'tests/browser_rea_editorial.py'
+      - 'tests/rea-editorial-quality.test.cjs'
       - '.github/workflows/deep-guide.yml'
   workflow_dispatch:
 
@@ -36,6 +38,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_*.py'
           node --check src/deep-dives.js
+          node tests/rea-editorial-quality.test.cjs
           python examples/jev/jev_knowledge_demo.py
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Install browser test dependencies
@@ -43,7 +46,9 @@ jobs:
           python -m pip install playwright==1.55.0
           python -m playwright install --with-deps chromium
       - name: Browser interaction and responsive checks
-        run: python tests/browser_deep_visual.py
+        run: |
+          python tests/browser_deep_visual.py
+          python tests/browser_rea_editorial.py
       - name: Reproducible source snapshot
         run: |
           git archive --format=zip HEAD -o review-source.zip
@@ -57,6 +62,7 @@ jobs:
             source-sha.txt
             dist
             test-results/jev
+            test-results/rea
           retention-days: 7
 
   preview-snapshot:
