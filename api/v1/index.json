@@ -549,7 +549,7 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-15T05:20:26Z",
+      "last_checked_at": "2026-10-15T10:44:06Z",
       "status": "success",
       "mode": "shadow",
       "candidate_count": 7,
@@ -559,7 +559,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-15T05:20:26Z",
+    "generated_at": "2026-10-15T10:44:06Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -2804,7 +2804,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-15T05:20:26Z",
+    "last_evaluated": "2026-10-15T10:44:06Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 7,
@@ -3837,7 +3837,7 @@
   },
   "deep_dives": {
     "version": 1,
-    "checked": "2026-10-13",
+    "checked": "2026-10-15",
     "series": "拆一下",
     "articles": [
       {
@@ -3850,8 +3850,8 @@
         "subtitle": "从反编译器、MCP 工具和证据追踪，拆开 REA 的能力边界，以及“看懂软件”与“合法重做”的距离。",
         "dek": "REA 真正带来的不是一键还原源代码，而是让 AI Agent 能沿着字符串、调用关系、伪代码和运行证据持续调查程序。爆火背后，最该弄清的是可验证能力与授权边界。",
         "published": "2026-10-13",
-        "updated": "2026-10-13",
-        "read_minutes": 14,
+        "updated": "2026-10-15",
+        "read_minutes": 24,
         "tags": [
           "反向编程",
           "AI 逆向工程",
@@ -3952,6 +3952,273 @@
                   "setup",
                   "native",
                   "cli"
+                ]
+              },
+              {
+                "type": "architecture",
+                "id": "rea-investigation-system",
+                "version": "01",
+                "refs": [
+                  "repo",
+                  "native",
+                  "cli",
+                  "setup",
+                  "disclaimer"
+                ],
+                "diagram": {
+                  "title": "REA 的证据闭环：Agent、适配器和分析引擎各负责什么",
+                  "intro": "不是“Agent 读取二进制就自动复刻软件”，而是一次受约束、可回溯的调查循环。",
+                  "width": 1120,
+                  "height": 482,
+                  "zones": [
+                    {
+                      "x": 14,
+                      "y": 12,
+                      "w": 232,
+                      "h": 447,
+                      "label": "01 · 授权与问题"
+                    },
+                    {
+                      "x": 258,
+                      "y": 12,
+                      "w": 230,
+                      "h": 447,
+                      "label": "02 · 计划与结论"
+                    },
+                    {
+                      "x": 498,
+                      "y": 12,
+                      "w": 262,
+                      "h": 447,
+                      "label": "03 · 工具与核验"
+                    },
+                    {
+                      "x": 774,
+                      "y": 12,
+                      "w": 332,
+                      "h": 447,
+                      "label": "04 · 证据提供者"
+                    }
+                  ],
+                  "nodes": [
+                    {
+                      "id": "sample",
+                      "x": 30,
+                      "y": 75,
+                      "w": 198,
+                      "h": 82,
+                      "label": "授权样本",
+                      "detail": "路径 / 范围 / Hash",
+                      "kind": "boundary"
+                    },
+                    {
+                      "id": "question",
+                      "x": 30,
+                      "y": 244,
+                      "w": 198,
+                      "h": 82,
+                      "label": "待证实的假设",
+                      "detail": "离线搜索走哪条链？"
+                    },
+                    {
+                      "id": "agent",
+                      "x": 275,
+                      "y": 155,
+                      "w": 198,
+                      "h": 82,
+                      "label": "Agent 调查规划",
+                      "detail": "检索 / 缩小假设"
+                    },
+                    {
+                      "id": "rea",
+                      "x": 518,
+                      "y": 155,
+                      "w": 225,
+                      "h": 82,
+                      "label": "REA CLI / MCP",
+                      "detail": "统一会话与命令"
+                    },
+                    {
+                      "id": "native",
+                      "x": 791,
+                      "y": 70,
+                      "w": 291,
+                      "h": 82,
+                      "label": "原生分析引擎",
+                      "detail": "Hopper / Ghidra / IDA"
+                    },
+                    {
+                      "id": "js",
+                      "x": 791,
+                      "y": 199,
+                      "w": 291,
+                      "h": 82,
+                      "label": "应用结构分析",
+                      "detail": "JS / Electron / .NET"
+                    },
+                    {
+                      "id": "evidence",
+                      "x": 791,
+                      "y": 351,
+                      "w": 291,
+                      "h": 82,
+                      "label": "结构化证据",
+                      "detail": "位置 / 引用 / 局限",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "verify",
+                      "x": 518,
+                      "y": 351,
+                      "w": 225,
+                      "h": 82,
+                      "label": "反例与行为核验",
+                      "detail": "冲突 / 未知 / 复现",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "finding",
+                      "x": 275,
+                      "y": 351,
+                      "w": 198,
+                      "h": 82,
+                      "label": "带边界的结论",
+                      "detail": "事实 / 推断 / 未知"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "sample",
+                      "to": "agent",
+                      "via": [
+                        [
+                          244,
+                          116
+                        ],
+                        [
+                          244,
+                          196
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "question",
+                      "to": "agent",
+                      "via": [
+                        [
+                          248,
+                          285
+                        ],
+                        [
+                          248,
+                          196
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "agent",
+                      "to": "rea"
+                    },
+                    {
+                      "from": "rea",
+                      "to": "native",
+                      "via": [
+                        [
+                          766,
+                          196
+                        ],
+                        [
+                          766,
+                          111
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "rea",
+                      "to": "js",
+                      "via": [
+                        [
+                          770,
+                          196
+                        ],
+                        [
+                          770,
+                          240
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "native",
+                      "to": "evidence",
+                      "from_port": "right",
+                      "to_port": "right",
+                      "via": [
+                        [
+                          1095,
+                          111
+                        ],
+                        [
+                          1095,
+                          392
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "js",
+                      "to": "evidence",
+                      "from_port": "bottom",
+                      "to_port": "top"
+                    },
+                    {
+                      "from": "evidence",
+                      "to": "verify",
+                      "from_port": "left",
+                      "to_port": "right"
+                    },
+                    {
+                      "from": "verify",
+                      "to": "finding",
+                      "from_port": "left",
+                      "to_port": "right"
+                    },
+                    {
+                      "from": "verify",
+                      "to": "agent",
+                      "from_port": "top",
+                      "to_port": "bottom",
+                      "dashed": true,
+                      "via": [
+                        [
+                          630,
+                          278
+                        ],
+                        [
+                          374,
+                          278
+                        ]
+                      ],
+                      "label": "新证据 → 重新提问",
+                      "at": [
+                        415,
+                        271
+                      ]
+                    }
+                  ],
+                  "boundary": "依据 REA 官方仓库与 CLI 文档归纳的逻辑拓扑；图中授权校验、反例核验是建议的系统保护层，并非声称 REA 自动提供这些审核功能。"
+                },
+                "annotations": [
+                  {
+                    "title": "工具不是推理模型",
+                    "detail": "REA 提供 MCP/CLI 的能力统一入口，具体二进制语义来自配置好的引擎；模型做线索排序与解释，不应凭空填充缺失数据。"
+                  },
+                  {
+                    "title": "结论需要证据链",
+                    "detail": "每个主张关联目标版本、函数/模块位置、观察方式、可复现步骤和反例；一次搜索命中不等于已经解释整条调用链。"
+                  },
+                  {
+                    "title": "失败必须可见",
+                    "detail": "提供者不可用、动态行为看不到、混淆导致关联中断，都应保留 unknown，而不是把“没发现”写成“没有”。"
+                  }
                 ]
               },
               {
@@ -4068,8 +4335,101 @@
             "analysis": true
           },
           {
-            "key": "reach",
+            "key": "ledger",
             "eyebrow": "04",
+            "kicker": "证据协议",
+            "title": "如果 Agent 真理解了软件，应该交出怎样的证据？",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "真实的难点不在于能否生成一段伪代码，而是如何让另一个人不依赖原 Agent 的长上下文也能核查结论。建议把一次调查拆成不可混淆的四层：样本身份（文件哈希与版本）、观测事实（位置与工具）、推理假设（待排除的替代解释）、验证结果（测试和反例）。这是我们提出的工程验收协议，不是 REA 官方 API 的字段清单。",
+                "refs": [
+                  "cli",
+                  "native"
+                ]
+              },
+              {
+                "type": "subheading",
+                "title": "证据不是聊天记录：它应当能回放",
+                "anchor": "rea-ledger"
+              },
+              {
+                "type": "code",
+                "title": "建议的最小调查记录 · 示例 Schema",
+                "language": "json",
+                "code": "{\n  \"schema\": \"editorial-evidence-record/v1\",\n  \"artifact\": {\n    \"sha256\": \"<sha256-of-owned-sample>\",\n    \"version\": \"owned-sample-v1\"\n  },\n  \"claim\": \"离线检索会访问本地索引\",\n  \"observations\": [\n    {\n      \"kind\": \"static\",\n      \"tool\": \"REA + configured provider\",\n      \"location\": \"module:searchIndex / xref:caller\",\n      \"result\": \"出现候选的本地查找路径\"\n    }\n  ],\n  \"alternative_explanations\": [\n    \"函数仅为缓存预热，实际查询走远端\"\n  ],\n  \"dynamic_check\": {\n    \"authorized\": false,\n    \"result\": \"not_run\"\n  },\n  \"status\": \"hypothesis_unverified\",\n  \"repro_steps\": [\n    \"冻结样本\",\n    \"保留命令和输出\",\n    \"在授权沙箱中执行反例测试\"\n  ]\n}",
+                "caption": "教学示例：字段结构由 AI坐标提出，假设与模块名均为虚构，不应被误读为某款真实软件的调查结果。",
+                "refs": [
+                  "cli",
+                  "disclaimer"
+                ]
+              },
+              {
+                "type": "text",
+                "text": "把状态限制为 observed、inferred、contradicted、unknown，比只输出一个“可信度 92%”更有用。静态交叉引用能证明某个位置引用了某个符号，却不能单独证明运行时必然沿这条路径执行；运行观察能验证特定输入下发生过什么，也不能推出所有分支。证据类型不匹配时，应退回调查，而不是调高模型温度继续猜。"
+              },
+              {
+                "type": "table",
+                "title": "每条结论至少过四道门",
+                "headers": [
+                  "审核问题",
+                  "通过标准",
+                  "常见误判"
+                ],
+                "rows": [
+                  [
+                    "样本同一性",
+                    "记录哈希、版本、平台与允许读取的范围",
+                    "拿不同版本的反编译结果互相佐证"
+                  ],
+                  [
+                    "来源可追踪",
+                    "每个关键断言可定位到函数/文件/观察片段",
+                    "只有 Agent 总结、没有原始出处"
+                  ],
+                  [
+                    "反证已尝试",
+                    "记录至少一个竞争性解释或边界输入",
+                    "字符串命中即宣称功能已复刻"
+                  ],
+                  [
+                    "输出有界",
+                    "区分已观察、推断、未知及未获准测试",
+                    "未完成分析被写成不存在相应功能"
+                  ]
+                ],
+                "caption": "编辑验收门槛，可用于搭建团队自己的审核流程；不代表任何 REA 官方跑分。"
+              },
+              {
+                "type": "subheading",
+                "title": "自动化程度越高，越需要独立的审计边界"
+              },
+              {
+                "type": "text",
+                "text": "一个可复查的 Agent 调查不应在未经明确授权时自动从静态分析跳转到进程注入、流量采集或读取用户数据。建议把只读、可执行测试、可能修改环境的动作分成权限等级，并在高风险动作前要求独立审批。REA 的 setup 会预览配置变更，但这不能替代目标软件的访问授权。",
+                "refs": [
+                  "setup",
+                  "disclaimer"
+                ]
+              },
+              {
+                "type": "note",
+                "title": "这一节没有做过的事",
+                "text": "本站没有运行 REA 去检测任何第三方程序，没有测量它的函数定位正确率，也没有验证示例路径。图表与 Schema 属于可操作的工程建议，不能冒充一次真实逆向实验。"
+              }
+            ],
+            "source_refs": [
+              "repo",
+              "cli",
+              "native",
+              "setup",
+              "disclaimer"
+            ]
+          },
+          {
+            "key": "reach",
+            "eyebrow": "05",
             "kicker": "热度与能力",
             "title": "火的项目和跑通的案例，证据类型不同",
             "blocks": [
@@ -4132,8 +4492,72 @@
             "analysis": true
           },
           {
+            "key": "failure-modes",
+            "eyebrow": "06",
+            "kicker": "失效与成本",
+            "title": "真正昂贵的不是 Token，而是错误结论的证据成本",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "将 Agent 放在逆向工程工具前面，成本函数会从“单次模型推理时间”变为“工具初始化、反编译、交叉引用、上下文压缩、反例验证和人工复核”的总和。Provider 返回伪代码再多，如果没有命中问题相关调用路径，也只是昂贵的噪声。应记录从问题到第一条可验证证据的时延，而不只统计生成速度。"
+              },
+              {
+                "type": "table",
+                "title": "四类故障，四种不同的处理方式",
+                "headers": [
+                  "失效环节",
+                  "外在表现",
+                  "更合理的策略"
+                ],
+                "rows": [
+                  [
+                    "Provider / 平台",
+                    "原生工具没安装、许可不可用、目标格式不支持",
+                    "记录能力缺口；切到已授权可用工具，不捏造代码"
+                  ],
+                  [
+                    "候选召回",
+                    "模糊字符串命中太多无关模块",
+                    "用调用关系、调用频次、目标输入和边界缩小候选"
+                  ],
+                  [
+                    "静态与动态冲突",
+                    "静态路径存在，但测试时没有触发",
+                    "保留两个事实并注明覆盖条件；改测试而非强判真假"
+                  ],
+                  [
+                    "需求落地",
+                    "功能外观相似，但边界输入或性能不一致",
+                    "对照冻结测试集，分别记录正确率、回退路径和维护代价"
+                  ]
+                ],
+                "caption": "这是 AI坐标的风险拆分与恢复设计，需依据目标平台和授权条件调整。"
+              },
+              {
+                "type": "subheading",
+                "title": "怎么证明 Agent 真的提升了调查效率？"
+              },
+              {
+                "type": "text",
+                "text": "先冻结一组你有权使用的样本与 20～50 个真实问题，给出人工核验的参考证据位置。比较 A：专家手工分析；B：同样工具 + 无 Agent 搜索；C：REA + Agent。每组都记录证据定位命中率（正确定位的问题数 / 总问题数）、未经证实结论比例（无法被复核的主张数 / 所有主张数）、从提问到有效证据的 P50/P95 时间，以及人工复核分钟数。为同一版本和相同预算配对比较，才能把工具接入带来的收益与模型表达能力分开。"
+              },
+              {
+                "type": "note",
+                "title": "关于 20～50 个问题",
+                "text": "这是建议的初始验证规模，不是统计功效证明，也不是 REA 项目提供的标准 Benchmark。若要声称显著优于人工流程，还需预注册评价和样本量依据。"
+              }
+            ],
+            "source_refs": [
+              "repo",
+              "cli",
+              "native",
+              "disclaimer"
+            ]
+          },
+          {
             "key": "boundary",
-            "eyebrow": "05",
+            "eyebrow": "07",
             "kicker": "法律与工程边界",
             "title": "“拆开看”和“照着做”不是同一件事",
             "blocks": [
@@ -4179,7 +4603,7 @@
           },
           {
             "key": "experiment",
-            "eyebrow": "06",
+            "eyebrow": "08",
             "kicker": "怎样建立实测",
             "title": "换成自己的合法样本，才能知道它值不值得用",
             "blocks": [
@@ -4261,7 +4685,7 @@
           },
           {
             "key": "outlook",
-            "eyebrow": "07",
+            "eyebrow": "09",
             "kicker": "继续观察",
             "title": "真正变化：让 Agent 从“写代码”走向“查证据”",
             "blocks": [
@@ -4350,7 +4774,7 @@
             "verified_at": "2026-10-13"
           }
         ],
-        "revision_note": "新增 · 官方仓库与文档交叉核对 · 2026.10.13"
+        "revision_note": "2026-10-15：补充基于官方文档的 REA 组件拓扑、证据账本协议、失效恢复和可复验对照设计；编辑架构与教学示例不冒充官方产品内部实现。"
       },
       {
         "id": "jev-agent-decision-layer",
@@ -4362,7 +4786,7 @@
         "subtitle": "沿着一个知识 Agent 的四次判断，拆开接口、候选计算、校准与行动边界。",
         "dek": "从一条看似合理的因果结论开始，追问判断怎样计算、概率凭什么可信，以及代码何时应该接管。",
         "published": "2026-09-24",
-        "read_minutes": 32,
+        "read_minutes": 38,
         "tags": [
           "技术长文",
           "计算机制",
@@ -4857,6 +5281,207 @@
                 "decision": "无法确认哪个结论有效时，保留冲突并升级复核；不能仅凭更新日期或模型分数覆盖旧记录。"
               },
               {
+                "type": "architecture",
+                "id": "jev-decision-stack",
+                "version": "02",
+                "refs": [
+                  "api",
+                  "noul",
+                  "choice",
+                  "score",
+                  "adapter",
+                  "confidence"
+                ],
+                "diagram": {
+                  "title": "把 Jev 放进生产 Agent：概率在中间，权限在外面",
+                  "intro": "模型只产出可比较的窄判断；检索、校准、业务策略、执行与审计分别由系统其他组件负责。",
+                  "width": 1120,
+                  "height": 470,
+                  "zones": [
+                    {
+                      "x": 14,
+                      "y": 12,
+                      "w": 230,
+                      "h": 442,
+                      "label": "01 · 数据与规则"
+                    },
+                    {
+                      "x": 256,
+                      "y": 12,
+                      "w": 550,
+                      "h": 442,
+                      "label": "02 · 表征与判断"
+                    },
+                    {
+                      "x": 824,
+                      "y": 12,
+                      "w": 282,
+                      "h": 442,
+                      "label": "03 · 动作与追踪"
+                    }
+                  ],
+                  "nodes": [
+                    {
+                      "id": "evidence",
+                      "x": 30,
+                      "y": 85,
+                      "w": 198,
+                      "h": 82,
+                      "label": "原始证据",
+                      "detail": "来源 / 权限 / 版本",
+                      "kind": "boundary"
+                    },
+                    {
+                      "id": "rules",
+                      "x": 30,
+                      "y": 244,
+                      "w": 198,
+                      "h": 82,
+                      "label": "确定性规则",
+                      "detail": "批次 / 撤回 / 去重",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "state",
+                      "x": 273,
+                      "y": 167,
+                      "w": 203,
+                      "h": 82,
+                      "label": "State + Questions",
+                      "detail": "命题 / 候选 / 口径"
+                    },
+                    {
+                      "id": "model",
+                      "x": 523,
+                      "y": 167,
+                      "w": 248,
+                      "h": 82,
+                      "label": "Jev / 可替换后端",
+                      "detail": "Noul · Choice · Score"
+                    },
+                    {
+                      "id": "calibration",
+                      "x": 523,
+                      "y": 329,
+                      "w": 248,
+                      "h": 82,
+                      "label": "校准与拒答阈值",
+                      "detail": "风险分桶 / 人工转交",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "policy",
+                      "x": 842,
+                      "y": 167,
+                      "w": 245,
+                      "h": 82,
+                      "label": "业务策略与授权",
+                      "detail": "审查 / 权限 / 预算",
+                      "kind": "boundary"
+                    },
+                    {
+                      "id": "audit",
+                      "x": 842,
+                      "y": 329,
+                      "w": 245,
+                      "h": 82,
+                      "label": "执行 / 审计轨迹",
+                      "detail": "可追责 / 可回滚",
+                      "kind": "verify"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "evidence",
+                      "to": "rules",
+                      "from_port": "bottom",
+                      "to_port": "top"
+                    },
+                    {
+                      "from": "rules",
+                      "to": "state",
+                      "via": [
+                        [
+                          251,
+                          285
+                        ],
+                        [
+                          251,
+                          208
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "state",
+                      "to": "model"
+                    },
+                    {
+                      "from": "model",
+                      "to": "calibration",
+                      "from_port": "bottom",
+                      "to_port": "top"
+                    },
+                    {
+                      "from": "calibration",
+                      "to": "policy",
+                      "via": [
+                        [
+                          802,
+                          370
+                        ],
+                        [
+                          802,
+                          208
+                        ]
+                      ]
+                    },
+                    {
+                      "from": "policy",
+                      "to": "audit",
+                      "from_port": "bottom",
+                      "to_port": "top"
+                    },
+                    {
+                      "from": "audit",
+                      "to": "state",
+                      "from_port": "left",
+                      "to_port": "bottom",
+                      "dashed": true,
+                      "via": [
+                        [
+                          817,
+                          433
+                        ],
+                        [
+                          375,
+                          433
+                        ]
+                      ],
+                      "label": "离线复盘 / 分布漂移",
+                      "at": [
+                        460,
+                        424
+                      ]
+                    }
+                  ],
+                  "boundary": "Jev 官方材料能验证接口与三个原语；该图的阈值服务、审核闸门、执行器和反馈环是 AI坐标提出的参考系统设计，不代表 TypeSafe 官方已交付这些组件。"
+                },
+                "annotations": [
+                  {
+                    "title": "先决定“测什么”",
+                    "detail": "独立记录 state、候选顺序、模型版本和数据权限；同一 Choice 分布不能在候选集合改变后直接横向比较。"
+                  },
+                  {
+                    "title": "再决定“能否行动”",
+                    "detail": "0.9 的模型概率不是 90% 业务正确率，必须经留出集校准，并由业务损失、权限和审批决定阈值。"
+                  },
+                  {
+                    "title": "最后决定“如何追责”",
+                    "detail": "保留证据引用、问题版本、阈值、动作结果与人工接管；异常输入下选择拒答或回退，避免概率直接触发副作用。"
+                  }
+                ]
+              },
+              {
                 "type": "text",
                 "text": "在这个设计里，代码先检查结构化 ID、时间范围和文档状态。只有来自可信文档系统的 supersedes 关系和已生效状态，才可以帮助排除确已被替代的版本；“文件名带 v2”不是充分依据。模型可以帮助识别正文之间是否存在实质矛盾，但不能代替来源认证或审批。"
               },
@@ -4943,8 +5568,85 @@
             "analysis": true
           },
           {
-            "key": "evaluation",
+            "key": "ops",
             "eyebrow": "06",
+            "kicker": "从模型到上线",
+            "title": "把概率放进生产系统，需要多建哪几道闸？",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "如果一个团队把 Choice 的最大概率直接翻译成“允许自动执行”，事故只是时间问题。模型回答的是“在这一组候选中哪一个看起来更符合输入”，而真实系统还要回答：证据是否有效、候选是否完整、动作是否有权限、错误成本是否可接受。上面的系统架构图把这些决策放在独立的层：规则检查不能由模型取代，系统审计也不能靠模型回忆。",
+                "refs": [
+                  "api",
+                  "choice",
+                  "confidence"
+                ]
+              },
+              {
+                "type": "subheading",
+                "title": "一条概率输出，需要哪些可复盘字段？"
+              },
+              {
+                "type": "code",
+                "title": "策略门控伪代码 · 非官方 SDK",
+                "language": "python",
+                "code": "def decide(case, model_result, policy, calibration):\n    if case.evidence_revoked or not case.access_allowed:\n        return {'action': 'block', 'reason': 'invalid_evidence'}\n    if not calibration.valid_for(case.segment, case.model_version):\n        return {'action': 'human_review', 'reason': 'uncalibrated_segment'}\n    if model_result.candidates != case.expected_candidates:\n        return {'action': 'human_review', 'reason': 'candidate_mismatch'}\n    risk = calibration.estimated_error(model_result, case.segment)\n    if risk > policy.max_error_for(case.requested_action):\n        return {'action': 'human_review', 'reason': 'risk_limit'}\n    if not policy.is_authorized(case.actor, case.requested_action):\n        return {'action': 'block', 'reason': 'permission_denied'}\n    return {'action': 'propose_only', 'reason': 'requires_action_gate'}",
+                "caption": "这段伪代码展示安全门控顺序；estimated_error 只能来自具有足够覆盖的真实留出集，不是从某个样本的最大概率直接计算。"
+              },
+              {
+                "type": "text",
+                "text": "在线服务至少保留 request_id、证据版本、候选集哈希、模型标识、原始分布、阈值配置版本、最后动作和审核记录。对同一事故的重试要有幂等键；需要外部写入权限的工具应再次校验身份和操作范围。这样才能区分：模型看错、证据过期、规则漏掉，还是执行器越权。"
+              },
+              {
+                "type": "table",
+                "title": "三层评价不能互相替代",
+                "headers": [
+                  "层面",
+                  "衡量什么",
+                  "不能证明什么"
+                ],
+                "rows": [
+                  [
+                    "离线语义质量",
+                    "固定问题集上的准确率、NLL、Brier、校准误差",
+                    "真实分布漂移后仍有效"
+                  ],
+                  [
+                    "在线决策质量",
+                    "覆盖率、拒答率、错误放行率、人工接管时延",
+                    "外部行动已获授权"
+                  ],
+                  [
+                    "产品端到端价值",
+                    "同质量约束下的总延迟、Token/模型费用、人工成本",
+                    "对所有业务和语言都更优"
+                  ]
+                ],
+                "caption": "先让 B：结构化 LLM 与 C：结构化 Jev 走同一条业务链，再比较模型替换收益。"
+              },
+              {
+                "type": "note",
+                "title": "明确的上线前提",
+                "text": "必须给出明确风险预算、留出集校准结果、版本回滚、监控告警与权限审计。本文尚无官方或独立的跨业务统一结果，因此不把“更快更省”当作已经证实的结论。"
+              },
+              {
+                "type": "transition",
+                "text": "工程上把判断与行动隔开，只是第一步。下一节我们还要固定同一问题集、同一质量预算和对照组，在真实样本与明确分层上检验这套设计是否比结构化 LLM 更值得采用。"
+              }
+            ],
+            "source_refs": [
+              "api",
+              "choice",
+              "confidence",
+              "adapter",
+              "calibration",
+              "evals"
+            ]
+          },
+          {
+            "key": "evaluation",
+            "eyebrow": "07",
             "kicker": "如何证实价值",
             "title": "先分离变量，再讨论它是否值得采用",
             "blocks": [
@@ -5248,7 +5950,7 @@
           "问题不是这句话一定错误，而是现有材料没有完成它所需要的证明。两件事同时出现，与一件事导致另一件事，是不同的判断。生成了一句像答案的话，系统也可能尚未拥有足以回答问题的证据。",
           "我们把这批产品叫作 B17，把设备叫作 ETCH-03，后面始终沿着这个案例推进：先检查证据，再处理错配报告与版本冲突，最后面对一次写操作请求。本文的工业记录与数值都是教学设定，不是生产记录，也不是本站运行 Jev 得到的结果。"
         ],
-        "updated": "2026-09-27",
+        "updated": "2026-10-15",
         "demo": {
           "label": "协议示例 · 人为预设概率 · 不调用 API",
           "request": {
@@ -5457,7 +6159,7 @@
           }
         ],
         "layout": "narrative",
-        "revision_note": "主文重写 · 6 章连续推导 · 2026.09.27",
+        "revision_note": "2026-10-15：补充参考级 Agent 决策架构、概率到动作的权限闸门、审计轨迹与线上/离线评价边界。图示属于工程设计推演，不代表 Jev 官方内部架构。",
         "mini_flow": [
           {
             "label": "Code",
@@ -5472,6 +6174,508 @@
             "detail": "开放推理"
           }
         ]
+      }
+    ]
+  },
+  "frontier_candidates": {
+    "version": 1,
+    "checked": "2026-10-15",
+    "source": "arXiv Atom API",
+    "note": "未审查的论文元数据队列。收录由编辑复核决定；队列位置与候选数量不代表世界模型能力或实测结果。",
+    "items": [
+      {
+        "arxiv_id": "2610.20609",
+        "title": "SafeDriveVLA: Navigation-Conditioned World Model Dreaming for Conflict-Aware End-to-End Autonomous Driving",
+        "date": "2026-10-14",
+        "authors": [
+          "Shaoyuan Xie",
+          "Zihan Zhang",
+          "Jingxuan Wang",
+          "Jiashu Qu",
+          "Xiaoqing Liang",
+          "Lingdong Kong",
+          "Junchi Lu",
+          "Henrik I. Christensen"
+        ],
+        "url": "https://arxiv.org/abs/2610.20609",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.20240",
+        "title": "PAWA: Panoramic Action-conditioned World Modeling for Multiple Agents",
+        "date": "2026-10-14",
+        "authors": [
+          "Siqi Yang",
+          "Yimu Wang",
+          "Ziqi Cai",
+          "Chengxuan Zhu",
+          "Shuchen Weng",
+          "Erwin Wu",
+          "Zhaofei Yu",
+          "Kaipeng Zhang"
+        ],
+        "url": "https://arxiv.org/abs/2610.20240",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19955",
+        "title": "Neurosymbolic Learning of Interpretable World Models",
+        "date": "2026-10-14",
+        "authors": [
+          "Riccardo Andreoni",
+          "Massimiliano Ronzani",
+          "Chiara Ghidini",
+          "Alessandro Daniele",
+          "Emile van Krieken"
+        ],
+        "url": "https://arxiv.org/abs/2610.19955",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19795",
+        "title": "StateCraft: Augmenting Video World Models with Abstract-State Reasoning",
+        "date": "2026-10-14",
+        "authors": [
+          "Lorenzo Venturoli",
+          "Nedko Savov",
+          "Xi Wang",
+          "Marc Pollefeys",
+          "Luc Van Gool"
+        ],
+        "url": "https://arxiv.org/abs/2610.19795",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19683",
+        "title": "Enhancing Latent World Models with Associative Memory",
+        "date": "2026-10-14",
+        "authors": [
+          "Yuwei Sun",
+          "Siyu Zhu"
+        ],
+        "url": "https://arxiv.org/abs/2610.19683",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19579",
+        "title": "Back on Track: Deployment-time Policy Improvement via World Model Planning",
+        "date": "2026-10-14",
+        "authors": [
+          "Colton Crosby",
+          "Hao Wang",
+          "Mac Schwager",
+          "Somil Bansal"
+        ],
+        "url": "https://arxiv.org/abs/2610.19579",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19411",
+        "title": "W-JEPA: Wavelet Joint-Embedding Predictive Architecture for Wearable Activity Recognition",
+        "date": "2026-10-14",
+        "authors": [
+          "Yogesh Prabhu",
+          "Loki Natarajan",
+          "Jingjing Zou"
+        ],
+        "url": "https://arxiv.org/abs/2610.19411",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19375",
+        "title": "One-Step Prediction Fidelity Is a Poor Proxy for Planning Performance in JEPA World Models",
+        "date": "2026-10-14",
+        "authors": [
+          "Joshua Cheung",
+          "Zhang He"
+        ],
+        "url": "https://arxiv.org/abs/2610.19375",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19327",
+        "title": "SonoWorld: Towards Interactive Pose-Controllable Ultrasound World Models",
+        "date": "2026-10-14",
+        "authors": [
+          "Zefan Yang",
+          "Zheyuan Zhang",
+          "Boris Maihe",
+          "Yikang Liu",
+          "Hang Yu",
+          "Ankush Mukherjee",
+          "Xiao Chen",
+          "Pingkun Yan"
+        ],
+        "url": "https://arxiv.org/abs/2610.19327",
+        "first_seen_on": "2026-10-15",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19212",
+        "title": "Decoupled Drift-Diffusion World Models for Consistent Future Frame Prediction",
+        "date": "2026-10-13",
+        "authors": [
+          "Anton Arapin",
+          "Aditya Singh",
+          "Yixin Wang",
+          "Jun Gao",
+          "Bernadette Bucher"
+        ],
+        "url": "https://arxiv.org/abs/2610.19212",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19201",
+        "title": "Into the LidarVerse: A Real-Time Unified LiDAR World Model Across Tasks and Sensors",
+        "date": "2026-10-13",
+        "authors": [
+          "Henry Che",
+          "Xuanchi Ren",
+          "Sanja Fidler",
+          "Shenlong Wang",
+          "Laura Leal-Taixé",
+          "Shengyu Huang"
+        ],
+        "url": "https://arxiv.org/abs/2610.19201",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.19063",
+        "title": "WorldMemBench: A Comprehensive Benchmark for Memory of Video World Models",
+        "date": "2026-10-13",
+        "authors": [
+          "Nan Zhou",
+          "Jianxiong Gao",
+          "Qiuyu Wang",
+          "Wen Wang",
+          "Jiahao Wang",
+          "Yufeng Yuan",
+          "Shuaiting Li",
+          "Hao Ouyang"
+        ],
+        "url": "https://arxiv.org/abs/2610.19063",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18991",
+        "title": "Contact-UAN: Unsupervised Actuator Networks as a Residual World Model for Humanoid Control",
+        "date": "2026-10-13",
+        "authors": [
+          "Nolan Fey",
+          "Khai Nguyen",
+          "Yash Prabhu",
+          "Gabriel B. Margolis",
+          "Pulkit Agrawal"
+        ],
+        "url": "https://arxiv.org/abs/2610.18991",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18826",
+        "title": "WorldOracle: Benchmarking Action-Conditioned World Models against Real-World Executions",
+        "date": "2026-10-13",
+        "authors": [
+          "Haoyi Duan",
+          "Liliang Chen",
+          "Nan Wang",
+          "Yang Zhang",
+          "Yuhang Lu",
+          "Xiaotong Chen",
+          "Wei-Cheng Tseng",
+          "Shenyuan Gao"
+        ],
+        "url": "https://arxiv.org/abs/2610.18826",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18637",
+        "title": "Grid or Nodes? Probing Object Memory in World Models Under Partial Observability",
+        "date": "2026-10-13",
+        "authors": [
+          "Justin McMillen",
+          "Yasin Yilmaz"
+        ],
+        "url": "https://arxiv.org/abs/2610.18637",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18570",
+        "title": "Order-Consistent Latent Geometry for Reliable Short-Horizon Planning in World Models",
+        "date": "2026-10-13",
+        "authors": [
+          "Junlin Wu",
+          "Wen Fan",
+          "Dandan Zhang"
+        ],
+        "url": "https://arxiv.org/abs/2610.18570",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18447",
+        "title": "Thinker-WM: A Unified World Model with Shared Multimodal Representations for Embodied Intelligence",
+        "date": "2026-10-13",
+        "authors": [
+          "Thinker Team",
+          "Peng Gao",
+          "Jichao Jiao",
+          "Chen Liao",
+          "Daqin Luo",
+          "Yiming Ma",
+          "Baiyu Pan",
+          "Hailin Shi"
+        ],
+        "url": "https://arxiv.org/abs/2610.18447",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.18135",
+        "title": "SkipWorld: Latent Skip Planning with Distilled World Models for Efficient Visual Navigation",
+        "date": "2026-10-13",
+        "authors": [
+          "Yifei Yang",
+          "Zehua Fan",
+          "Zike Yan",
+          "Zhongyu Li",
+          "Yan Wang"
+        ],
+        "url": "https://arxiv.org/abs/2610.18135",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17922",
+        "title": "WoVR+: World Model as Reliable Simulator for Versatile VLA Policy Optimization with RL",
+        "date": "2026-10-13",
+        "authors": [
+          "Shangqing Zhou",
+          "Zhennan Jiang",
+          "Ning Ma",
+          "Xin Fu",
+          "Yupeng Zheng",
+          "Shuai Tian",
+          "Huangrui Li",
+          "Jiahao Liu"
+        ],
+        "url": "https://arxiv.org/abs/2610.17922",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17630",
+        "title": "From Pixels to Executable Physics: Behavior-Grounded World Models for Embodied Action Consequence Prediction",
+        "date": "2026-10-13",
+        "authors": [
+          "Ruo Chen",
+          "Jiahua Pang",
+          "Yingjie Niu",
+          "Hongyi Lin",
+          "Jun Tian",
+          "Yang Zhu",
+          "Chao Li"
+        ],
+        "url": "https://arxiv.org/abs/2610.17630",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17584",
+        "title": "RAN-JEPA: An Action-Conditioned World Model for Energy-efficient Mobile Network Control",
+        "date": "2026-10-13",
+        "authors": [
+          "Binghan Wu",
+          "Kai Zeng",
+          "Kai Yang",
+          "Ya-Qin Zhang",
+          "Joseph Sifakis",
+          "Ye Ouyang"
+        ],
+        "url": "https://arxiv.org/abs/2610.17584",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17510",
+        "title": "Rethinking World Models for Biosignals",
+        "date": "2026-10-13",
+        "authors": [
+          "Xianglong Bao",
+          "Bosong Huang",
+          "Xiaoda Wang",
+          "Keqi Han",
+          "Carl Yang",
+          "Ming Jin",
+          "Shirui Pan"
+        ],
+        "url": "https://arxiv.org/abs/2610.17510",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17434",
+        "title": "World-T3: Test-Time Training as Persistent Memory for Real-Time Video World Models",
+        "date": "2026-10-12",
+        "authors": [
+          "Junyi Wu",
+          "Zekun Li",
+          "Chenhongyi Yang",
+          "Chen Guo",
+          "Lingchen Yang",
+          "Yongan Zhang",
+          "Xinyi Zhang",
+          "Hongbing Hu"
+        ],
+        "url": "https://arxiv.org/abs/2610.17434",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17201",
+        "title": "Multics: Generative Multi-Player World Model with Hierarchical Communication",
+        "date": "2026-10-12",
+        "authors": [
+          "Kaiyi Huang",
+          "Wangbo Yu",
+          "Yukun Huang",
+          "Jiwen Yu",
+          "Kunhao Liu",
+          "Donglin Yang",
+          "Wenbo Hu",
+          "Ying Shan"
+        ],
+        "url": "https://arxiv.org/abs/2610.17201",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.17059",
+        "title": "PatientWM: Towards Generalizable Clinical World Models via Unified Patient States",
+        "date": "2026-10-12",
+        "authors": [
+          "Ziwen Kan",
+          "Jie Peng",
+          "Bo Yan",
+          "Davis Hobley",
+          "Zheng Zhang",
+          "Yu Tian",
+          "Tianlong Chen",
+          "Song Wang"
+        ],
+        "url": "https://arxiv.org/abs/2610.17059",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.16365",
+        "title": "World Models Need a Physical Registry: Learning Internal Predictive States for Physically Plausible World Models",
+        "date": "2026-10-12",
+        "authors": [
+          "Shinseong Kim",
+          "Jaeseok Jeong",
+          "Jianlong Fu",
+          "Youngjung Uh"
+        ],
+        "url": "https://arxiv.org/abs/2610.16365",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.15294",
+        "title": "ProWorld: Multi-View World Model with Proprioceptive Feedback for Closed-Loop Policy Evaluation",
+        "date": "2026-10-11",
+        "authors": [
+          "Zijun Wang",
+          "Tianyi Yan",
+          "Haokun Lin",
+          "Panwen Hu"
+        ],
+        "url": "https://arxiv.org/abs/2610.15294",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.15267",
+        "title": "LeHami: Symplectic Latent Dynamics for World Models",
+        "date": "2026-10-11",
+        "authors": [
+          "Romina Yalovetzky",
+          "Randall Balestriero",
+          "Yann LeCun"
+        ],
+        "url": "https://arxiv.org/abs/2610.15267",
+        "first_seen_on": "2026-10-14",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
       }
     ]
   },
@@ -7616,7 +8820,7 @@
   },
   "models": {
     "version": 1,
-    "checked": "2026-10-13",
+    "checked": "2026-10-15",
     "sources": [
       {
         "id": "aa-live",
@@ -8446,7 +9650,31 @@
               "jepa-control-code"
             ],
             "evidence_type": "research",
-            "result_scope": "作者论文理论与模拟控制任务；本站未复现，不能解释为通用机器人成功率。"
+            "result_scope": "作者论文理论与模拟控制任务；本站未复现，不能解释为通用机器人成功率。",
+            "research_review": {
+              "version": "research-priority-v1",
+              "reviewed_on": "2026-10-15",
+              "scope": "research_attention_not_capability",
+              "dimensions": {
+                "novelty": {
+                  "rating": 4,
+                  "reason": "用逆动力学动作重建研究不稳定可控模态的保留条件"
+                },
+                "evidence": {
+                  "rating": 2,
+                  "reason": "严格证明针对特定线性条件，配有模拟控制任务；外推受限"
+                },
+                "reproducibility": {
+                  "rating": 3,
+                  "reason": "论文与配套控制实验代码公开；未有本站独立复测"
+                },
+                "planning": {
+                  "rating": 2,
+                  "reason": "对控制安全关键的表征有所启发，尚无真实硬件闭环论证"
+                }
+              },
+              "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+            }
           },
           {
             "id": "hjepa-hierarchical-planning",
@@ -8467,7 +9695,31 @@
               "hjepa-project"
             ],
             "evidence_type": "research_with_code",
-            "result_scope": "73.3% vs 18.0% 仅限论文 Visual AntMaze 的作者实验；未提供通用跨世界模型排名。"
+            "result_scope": "73.3% vs 18.0% 仅限论文 Visual AntMaze 的作者实验；未提供通用跨世界模型排名。",
+            "research_review": {
+              "version": "research-priority-v1",
+              "reviewed_on": "2026-10-15",
+              "scope": "research_attention_not_capability",
+              "dimensions": {
+                "novelty": {
+                  "rating": 4,
+                  "reason": "多时间尺度的 action-conditioned 层级 JEPA 与逐层子目标规划"
+                },
+                "evidence": {
+                  "rating": 3,
+                  "reason": "论文报告四类仿真环境及 DROID 离线规划；暂无本站独立复跑"
+                },
+                "reproducibility": {
+                  "rating": 3,
+                  "reason": "论文和训练、规划代码公开；本站未核验全流程权重复现"
+                },
+                "planning": {
+                  "rating": 3,
+                  "reason": "长程规划实验与离线机器人视频关联；尚无真实机器人闭环成功率"
+                }
+              },
+              "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+            }
           },
           {
             "id": "worldlabs-atlas",
@@ -8518,7 +9770,31 @@
             ],
             "sources": [
               "meta-vjepa-21"
-            ]
+            ],
+            "research_review": {
+              "version": "research-priority-v1",
+              "reviewed_on": "2026-10-15",
+              "scope": "research_attention_not_capability",
+              "dimensions": {
+                "novelty": {
+                  "rating": 3,
+                  "reason": "改进视频自监督表征的密集时间一致性，延续 action-conditioned 路线"
+                },
+                "evidence": {
+                  "rating": 3,
+                  "reason": "官方发布了方法与示例结果；本次目录没有同条件独立复现"
+                },
+                "reproducibility": {
+                  "rating": 4,
+                  "reason": "Meta FAIR 官方公开代码、训练配方及模型相关资源"
+                },
+                "planning": {
+                  "rating": 2,
+                  "reason": "动作条件路线存在，但此条 2.1 增量并非已证明的通用闭环规划系统"
+                }
+              },
+              "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+            }
           }
         ]
       },
@@ -8585,7 +9861,7 @@
         ]
       }
     ],
-    "frontier_checked": "2026-10-13"
+    "frontier_checked": "2026-10-15"
   },
   "resets": {
     "version": 1,

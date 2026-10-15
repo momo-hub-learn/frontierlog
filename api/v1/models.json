@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-13",
+  "checked": "2026-10-15",
   "sources": [
     {
       "id": "aa-live",
@@ -830,7 +830,31 @@
             "jepa-control-code"
           ],
           "evidence_type": "research",
-          "result_scope": "作者论文理论与模拟控制任务；本站未复现，不能解释为通用机器人成功率。"
+          "result_scope": "作者论文理论与模拟控制任务；本站未复现，不能解释为通用机器人成功率。",
+          "research_review": {
+            "version": "research-priority-v1",
+            "reviewed_on": "2026-10-15",
+            "scope": "research_attention_not_capability",
+            "dimensions": {
+              "novelty": {
+                "rating": 4,
+                "reason": "用逆动力学动作重建研究不稳定可控模态的保留条件"
+              },
+              "evidence": {
+                "rating": 2,
+                "reason": "严格证明针对特定线性条件，配有模拟控制任务；外推受限"
+              },
+              "reproducibility": {
+                "rating": 3,
+                "reason": "论文与配套控制实验代码公开；未有本站独立复测"
+              },
+              "planning": {
+                "rating": 2,
+                "reason": "对控制安全关键的表征有所启发，尚无真实硬件闭环论证"
+              }
+            },
+            "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+          }
         },
         {
           "id": "hjepa-hierarchical-planning",
@@ -851,7 +875,31 @@
             "hjepa-project"
           ],
           "evidence_type": "research_with_code",
-          "result_scope": "73.3% vs 18.0% 仅限论文 Visual AntMaze 的作者实验；未提供通用跨世界模型排名。"
+          "result_scope": "73.3% vs 18.0% 仅限论文 Visual AntMaze 的作者实验；未提供通用跨世界模型排名。",
+          "research_review": {
+            "version": "research-priority-v1",
+            "reviewed_on": "2026-10-15",
+            "scope": "research_attention_not_capability",
+            "dimensions": {
+              "novelty": {
+                "rating": 4,
+                "reason": "多时间尺度的 action-conditioned 层级 JEPA 与逐层子目标规划"
+              },
+              "evidence": {
+                "rating": 3,
+                "reason": "论文报告四类仿真环境及 DROID 离线规划；暂无本站独立复跑"
+              },
+              "reproducibility": {
+                "rating": 3,
+                "reason": "论文和训练、规划代码公开；本站未核验全流程权重复现"
+              },
+              "planning": {
+                "rating": 3,
+                "reason": "长程规划实验与离线机器人视频关联；尚无真实机器人闭环成功率"
+              }
+            },
+            "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+          }
         },
         {
           "id": "worldlabs-atlas",
@@ -902,7 +950,31 @@
           ],
           "sources": [
             "meta-vjepa-21"
-          ]
+          ],
+          "research_review": {
+            "version": "research-priority-v1",
+            "reviewed_on": "2026-10-15",
+            "scope": "research_attention_not_capability",
+            "dimensions": {
+              "novelty": {
+                "rating": 3,
+                "reason": "改进视频自监督表征的密集时间一致性，延续 action-conditioned 路线"
+              },
+              "evidence": {
+                "rating": 3,
+                "reason": "官方发布了方法与示例结果；本次目录没有同条件独立复现"
+              },
+              "reproducibility": {
+                "rating": 4,
+                "reason": "Meta FAIR 官方公开代码、训练配方及模型相关资源"
+              },
+              "planning": {
+                "rating": 2,
+                "reason": "动作条件路线存在，但此条 2.1 增量并非已证明的通用闭环规划系统"
+              }
+            },
+            "limitation": "编辑评分衡量研究观察优先级，不代表跨模型能力排名；暂无本站实测或独立复现。"
+          }
         }
       ]
     },
@@ -969,5 +1041,5 @@
       ]
     }
   ],
-  "frontier_checked": "2026-10-13"
+  "frontier_checked": "2026-10-15"
 }
