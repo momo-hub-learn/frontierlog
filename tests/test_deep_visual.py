@@ -48,7 +48,7 @@ class DeepVisualTests(unittest.TestCase):
 
     def test_unique_sections_sources_and_apps(self):
         sections = self.article['sections']
-        self.assertEqual(len(sections), 6)
+        self.assertEqual(len(sections), 7)
         self.assertEqual(len({x['key'] for x in sections}), len(sections))
         source_ids = {s['id'] for s in self.article['sources']}
         self.assertEqual(len(source_ids), len(self.article['sources']))
