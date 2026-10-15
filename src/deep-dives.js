@@ -98,8 +98,48 @@ function dSystemArchitecture(a,b){
 }
 
 function dFlow(b){
- return '<figure class="dv-figure"><figcaption><span class="dv-overline">流程图 / WORKFLOW</span><h3>'+esc(b.title)+'</h3></figcaption><ol class="dv-flow" style="--steps:'+b.nodes.length+'">'+b.nodes.map((n,i)=>'<li><span class="dv-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(n.title)+'</strong><p>'+esc(n.detail||'')+'</p></li>').join('')+'</ol><p class="dv-caption">'+esc(b.caption||'')+'</p></figure>'
+ // No browser-generated list markers: the authored ordinal is the sole step number.
+ return '<figure class="dv-figure dv-flow-figure"><figcaption><span class="dv-overline">流程图 / WORKFLOW</span><h3>'+esc(b.title)+'</h3></figcaption>'+
+ '<div class="dv-flow" role="list" style="--steps:'+b.nodes.length+'">'+b.nodes.map((n,i)=>
+ '<div class="dv-flow-step" role="listitem"><span class="dv-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(n.title)+'</strong><p>'+esc(n.detail||'')+'</p></div>'
+ ).join('')+'</div>'+(b.caption?'<p class="dv-caption">'+esc(b.caption)+'</p>':'')+'</figure>';
 }
+/* Article-level responsibility blueprint: diagram + evidence-minded table, not a numbered text list. */
+function dRoleWorkflow(b){
+ if(!Array.isArray(b.roles)||b.roles.length<2)return '';
+ const roles=b.roles;
+ const cards=roles.map((r,i)=>
+  '<article class="d-role-step" role="listitem"><div class="d-role-top"><span class="d-role-ordinal">'+String(i+1).padStart(2,'0')+'</span><small>'+esc(r.stage||'环节')+'</small></div>'+
+  '<h4>'+esc(r.role)+'</h4><p>'+esc(r.summary)+'</p><span class="d-role-io">'+esc(r.output_short)+'</span></article>'
+ ).join('');
+ const headers=['环节','典型输入','核心职责','可检查的产出','风险 / 复核'];
+ const rows=roles.map((r,i)=>
+  '<tr><th scope="row"><span class="d-role-table-number">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(r.role)+'</strong></th>'+
+  [r.input,r.action,r.output,r.boundary].map((x,j)=>'<td data-label="'+esc(headers[j+1])+'">'+esc(x)+'</td>').join('')+'</tr>'
+ ).join('');
+ return '<figure class="d-role-workflow"><figcaption class="d-role-caption"><span>RESPONSIBILITY MAP / ANALYSIS CHAIN</span><h3>'+esc(b.title)+'</h3><p>'+esc(b.subtitle||'')+'</p></figcaption>'+
+ '<div class="d-role-blueprint"><div class="d-role-steps" role="list" aria-label="按顺序展示四个角色">'+cards+'</div>'+
+ '<p class="d-role-feedback"><span aria-hidden="true">↶</span><strong>发现矛盾，就返回调查</strong><small>'+esc(b.feedback||'重新形成假设并补充证据')+'</small></p></div>'+
+ '<div class="d-role-table-header"><h4>职责矩阵</h4><span>输入 · 责任 · 输出 · 失效边界</span></div>'+
+ '<div class="d-role-table-scroll" tabindex="0" role="region" aria-label="角色职责对照表，窄屏可横向滚动"><table class="d-role-table"><thead><tr>'+headers.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div>'+
+ '<p class="d-role-table-hint">窄屏可横向滑动查看全部职责列。</p>'+
+ '<p class="d-role-boundary"><strong>图示边界</strong>'+esc(b.caption||'这是基于公开文档的概念分层，不代表产品内部源码实现。')+'</p></figure>';
+}
+
+/* Editorial responsibility matrix is synthesized from the authored REA flow.
+   It stays separate from the vendor product model and makes the scope explicit. */
+function dReaRolePayload(b){
+ const details=[
+  {stage:'调查规划',output_short:'产出 · 待检验的假设',input:'用户问题、获准目标与已有线索',action:'明确问题、提出可证伪假设、选择下一步工具',output:'调查计划、候选假设、工具调用意图',boundary:'模型可能误判；未经工具证实的解释不得写成事实'},
+  {stage:'工具编排',output_short:'产出 · 来源明确的工具回执',input:'Agent 调查请求、已配置分析提供者',action:'通过 CLI / MCP 映射分析指令，整理结果、来源与局限',output:'工具回执、结构化线索、不可用能力说明',boundary:'提供统一接口不等于获得目标程序的使用与复制授权'},
+  {stage:'静态分析',output_short:'产出 · 可定位的原始证据',input:'已授权样本、具体分析任务及工具设置',action:'执行适用的反编译、符号、交叉引用或应用解析',output:'函数位置、调用关系、伪代码与证据片段',boundary:'静态结果可能近似、混淆或不完整，不能代替运行时证明'},
+  {stage:'验证与验收',output_short:'产出 · 复核结论与未知项',input:'版本固定的工件、分析记录与测试范围',action:'人工交叉核查，在允许的环境做行为测试和反证',output:'带条件的结论、复现步骤、测试用例与未知项',boundary:'未覆盖的分支应标记未知；相似功能不代表可以复制受保护实现'}
+ ];
+ return {...b,title:'四个角色，组成一条可回溯的调查链',subtitle:'每一步交付证据给下一层；有冲突就返回调查，而不是把推断直接变成实现。',feedback:'新反例 → 重新检查假设 → 更新证据记录；不能复现的结果保留为待核验。',
+  roles:b.nodes.map((node,i)=>({role:node.title,summary:node.detail,...details[i]})),
+  caption:'根据 REA 官方 CLI、README 和 Native Investigation 文档整理。权限审核、人工复核与证据记录属于本站建议的工程保障，不代表 REA 自动交付整条流程。'};
+}
+
 function dRichCards(b){
  return '<div class="dv-cards-wrap">'+(b.title?'<h3>'+esc(b.title)+'</h3>':'')+'<div class="dv-cards">'+b.items.map(x=>'<div><h4>'+esc(x.title)+'</h4><p>'+esc(x.detail)+'</p></div>').join('')+'</div></div>'
 }
@@ -200,7 +240,8 @@ function dRichBlock(a,b){
  case 'note':return '<aside class="dv-note"><strong>'+esc(b.title)+'</strong><p>'+esc(b.text)+'</p></aside>';
  case 'scene':return dScene(b);
  case 'architecture':return dSystemArchitecture(a,b);
- case 'flow':return dFlow(b);
+ case 'role_matrix':return dRoleWorkflow(b);
+ case 'flow':return a.id==='rea-agent-reverse-engineering'&&b.title==='一次任务中谁负责什么？'?dRoleWorkflow(dReaRolePayload(b)):dFlow(b);
  case 'cards':return dRichCards(b);
  case 'code':return dRichCode(b);
  case 'demo':return a.layout==='narrative'?'<details class="je-protocol"><summary>按需查看：完整请求、响应摘录与 JSON 下载</summary>'+dDemo(a)+'</details>':dDemo(a);
@@ -250,7 +291,7 @@ function dOtherReads(a){
 }
 function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
- return '<article class="d-page'+(a.demo?' d-visual':'')+(a.layout==='narrative'?' d-narrative':'')+'">'+
+ return '<article class="d-page d-visual'+(a.layout==='narrative'?' d-narrative':' d-editorial')+'">'+
   '<header class="d-hero">'+
    '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span></div>'+
    '<div class="d-hero-grid"><div class="d-hero-copy">'+
