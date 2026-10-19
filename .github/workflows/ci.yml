@@ -13,11 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Unit tests
         run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Reject date-only editorial changes
+        run: python scripts/deep_revision_guard.py
       - name: JavaScript syntax
         run: |
           node --check src/tibo-intel.js
@@ -48,6 +52,7 @@ jobs:
       - name: Deep-dive editorial and freshness regression
         run: |
           node tests/deep-editorial.test.cjs
+          node tests/deep-cadence-ui.test.cjs
           node tests/deep-architecture.test.cjs
           node tests/rea-editorial-quality.test.cjs
           python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
