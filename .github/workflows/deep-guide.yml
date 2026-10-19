@@ -12,6 +12,7 @@ on:
       - 'tests/browser_deep_visual.py'
       - 'tests/browser_rea_editorial.py'
       - 'tests/rea-editorial-quality.test.cjs'
+      - 'tests/deep-cadence-ui.test.cjs'
       - '.github/workflows/deep-guide.yml'
   workflow_dispatch:
 
@@ -39,6 +40,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_*.py'
           node --check src/deep-dives.js
           node tests/rea-editorial-quality.test.cjs
+          node tests/deep-cadence-ui.test.cjs
           python examples/jev/jev_knowledge_demo.py
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Install browser test dependencies
