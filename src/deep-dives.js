@@ -21,7 +21,7 @@ function dMiniFlow(a,style='d'){
 function dFeedCard(){
  const a=DEEP_LATEST[0];if(!a)return '';
  return '<section class="d-feed">'+
-  '<div class="d-feed-head"><div><p class="eyebrow">最近更新 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
+  '<div class="d-feed-head"><div><p class="eyebrow">最新深读 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
   '<a class="d-feed-card" href="#/deep?id='+encodeURIComponent(a.id)+'">'+
    '<div class="d-feed-no">01</div>'+
    '<div class="d-feed-copy"><div class="d-feed-tags">'+a.tags.slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><h3>'+esc(a.title)+'</h3><p>'+esc(a.subtitle)+'</p><div class="d-feed-thesis">'+esc(a.thesis)+'</div></div>'+
