@@ -20,18 +20,18 @@ class FrontierCandidateTests(unittest.TestCase):
 
     def test_incremental_merge_no_auto_approval(self):
         report = {
-            "checked": "2026-10-15", "status": "review_only", "auto_publish": False,
+            "checked": QUEUE["checked"], "status": "review_only", "auto_publish": False,
             "source": "arXiv Atom API", "candidates": [
                 {"arxiv_id": "2610.29999", "title": "A Synthetic World Model Research Candidate",
-                 "date": "2026-10-15", "authors": ["Example Researcher"],
+                 "date": QUEUE["checked"], "authors": ["Example Researcher"],
                  "url": "https://arxiv.org/abs/2610.29999",
                  "status": "editorial_review_required"}
             ],
         }
         merged, n = merge_queue(copy.deepcopy(QUEUE), report, set())
         self.assertEqual(n, 1)
-        self.assertEqual(merged["items"][0]["status"], "pending")
-        self.assertEqual(merged["items"][0]["arxiv_id"], "2610.29999")
+        new_row = next(x for x in merged["items"] if x["arxiv_id"] == "2610.29999")
+        self.assertEqual(new_row["status"], "pending")
         self.assertTrue(any(x["arxiv_id"] == "2610.15267" for x in merged["items"]))
         again, n = merge_queue(merged, report, set())
         self.assertEqual(n, 0)
@@ -41,14 +41,14 @@ class FrontierCandidateTests(unittest.TestCase):
         q = copy.deepcopy(QUEUE)
         q["items"][-1]["status"] = "reviewed"
         original = q["items"][-1]
-        report = {"checked": "2026-10-15", "source": "arXiv Atom API",
+        report = {"checked": QUEUE["checked"], "source": "arXiv Atom API",
                   "status": "review_only", "auto_publish": False, "candidates": []}
         merged, n = merge_queue(q, report, set())
         self.assertEqual(n, 0)
         self.assertEqual(merged["items"][-1], original)
 
     def test_reject_forged_source_and_approval(self):
-        report = {"checked": "2026-10-15", "source": "some website",
+        report = {"checked": QUEUE["checked"], "source": "some website",
                   "status": "review_only", "auto_publish": False, "candidates": []}
         with self.assertRaises(ValueError):
             merge_queue(QUEUE, report, set())
