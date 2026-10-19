@@ -17,7 +17,9 @@ class DeepDiveFreshnessTests(unittest.TestCase):
 
     def test_three_day_cycle_in_beijing_calendar_days(self):
         self.assertEqual(DEFAULT_CADENCE_DAYS,3)
-        x=report(self.deep,self.hot,date(2026,10,17))
+        base=deepcopy(self.deep)
+        base['articles'][0]['updated']='2026-10-15'
+        x=report(base,self.hot,date(2026,10,17))
         self.assertEqual(x['latest_id'],'rea-agent-reverse-engineering')
         self.assertEqual(x['latest_published'],'2026-10-13')
         self.assertEqual(x['latest_updated'],'2026-10-15')
@@ -25,15 +27,16 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         self.assertEqual(x['next_due'],'2026-10-18')
         self.assertEqual(x['age_days'],2)
         self.assertFalse(x['stale'])
-        due=report(self.deep,self.hot,date(2026,10,18))
+        due=report(base,self.hot,date(2026,10,18))
         self.assertEqual(due['age_days'],3)
         self.assertTrue(due['stale'])
-        overdue=report(self.deep,self.hot,date(2026,10,19))
+        overdue=report(base,self.hot,date(2026,10,19))
         self.assertTrue(overdue['stale'])
         self.assertEqual(overdue['overdue_days'],1)
 
     def test_revision_is_not_a_new_publication(self):
         d=deepcopy(self.deep)
+        d['articles'][0]['updated']='2026-10-15'
         old=next(a for a in d['articles'] if a['id']=='jev-agent-decision-layer')
         old['updated']='2026-10-19'
         x=report(d,self.hot,date(2026,10,19))
