@@ -1915,11 +1915,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-19T20:12:18Z",
+    "checked_at": "2026-10-19T23:55:56Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-19T20:12:18Z",
+      "last_success": "2026-10-19T23:55:56Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -2233,6 +2233,18 @@
     ],
     "media_items": [
       {
+        "id": "silicon-valley-101-acb07ddd36e1",
+        "source_id": "silicon-valley-101",
+        "published": "2026-10-19",
+        "title": "E256｜Agent、机器人与制药，谁先被GPT-6 Astra改写？",
+        "summary": "回顾9月，AI圈的重磅新闻一个接一个。 先是OpenAI发布GPT-6 Astra，总裁格雷格·布罗克曼在发布会上宣布：AGI已经到来。 这场发布对机器人行业的冲击，来得有些意外，一个发布会报告里只字未提机器人的通用模型，转身就空降了机器人评测榜首，甚至让很多机器人的Benchmark都失效了。有人开玩笑说：机器人领域等了这么多年的“GPT时刻”，居然是GPT自己。 同样在这个月里：Meta Muse冲上美国App Store榜首，它的竞争对手Instinct估值也涨到了100亿美元；xAI的Grok Bot开放了企业部署；不生成文本、只给选项打概率的决策模型Jev以“系统1”走红，发布24天就融了8.7亿美元。 在AI for S",
+        "url": "https://sv101.fireside.fm/270",
+        "tags": [
+          "Agents"
+        ],
+        "origin": "rss"
+      },
+      {
         "id": "latent-space-45c549b67894",
         "source_id": "latent-space",
         "published": "2026-10-17",
@@ -2481,18 +2493,6 @@
           "核心变量包括吞吐、GPU 利用率和推理并行方式。",
           "如果成立，下一代 inference stack 可能不再围绕传统自回归解码设计。"
         ]
-      },
-      {
-        "id": "silicon-valley-101-d9c8d636eced",
-        "source_id": "silicon-valley-101",
-        "published": "2026-09-17",
-        "title": "外滩大会线下圆桌｜敢把钱包交给AI吗？聊聊Agent交易爆发前夜的信任基建",
-        "summary": "本期节目来自2026 Inclusion·外滩大会主论坛圆桌——“当Agent成为交易主体”。 Agent的爆发不止于应用层，当应用不断涌现，底层的交易和支付方式也在被重写。今年的AI交易正沿着两条线同时展开：一条是Agent帮人完成任务，比如今年6月上线的AI版支付宝，一句话就能打车、点咖啡；另一条是Agent-to-Agent，比如两个月前，Mastercard发布了专为机器间支付设计的网络服务。 当Agent从对话走向办事、从推荐走向交易，“信任”成了绕不开的关键词。它替你花出的每一分钱，都真的经过了你授权吗？发起交易的Agent究竟是谁？它的支付权限有多大？出了问题又该由谁负责？这些围绕授权、身份、权限、责任的一个个问题，决",
-        "url": "https://sv101.fireside.fm/265",
-        "tags": [
-          "Agents"
-        ],
-        "origin": "rss"
       },
       {
         "id": "dwarkesh-noam-20260917",
