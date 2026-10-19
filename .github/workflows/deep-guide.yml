@@ -2,7 +2,7 @@ name: Deep guide checks
 
 on:
   push:
-    branches: [main, 'preview/jev-visual-guide-20260925', 'preview/deep-editorial-rebuild-20261015']
+    branches: [main, 'preview/jev-visual-guide-20260925', 'preview/deep-editorial-rebuild-20261015', 'preview/deep-three-day-cadence-20261019']
     paths:
       - 'src/deep-dives.js'
       - 'src/deep-dives.css'
@@ -13,6 +13,8 @@ on:
       - 'tests/browser_rea_editorial.py'
       - 'tests/rea-editorial-quality.test.cjs'
       - 'tests/deep-cadence-ui.test.cjs'
+      - 'scripts/deep_revision_guard.py'
+      - 'tests/test_deep_revision_guard.py'
       - '.github/workflows/deep-guide.yml'
   workflow_dispatch:
 
@@ -29,6 +31,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -38,6 +42,7 @@ jobs:
       - name: Unit tests, syntax and static build
         run: |
           python -m unittest discover -s tests -p 'test_*.py'
+          python scripts/deep_revision_guard.py
           node --check src/deep-dives.js
           node tests/rea-editorial-quality.test.cjs
           node tests/deep-cadence-ui.test.cjs
