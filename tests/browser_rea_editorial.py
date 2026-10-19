@@ -47,16 +47,23 @@ try:
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.goto(url,wait_until='domcontentloaded')
         expect(page.locator('.d-page.d-editorial.d-visual')).to_be_visible()
-        expect(page.locator('.d-section')).to_have_count(9)
+        expect(page.locator('.d-section')).to_have_count(10)
         expect(page.locator('.d-role-workflow')).to_have_count(1)
         expect(page.locator('.d-role-step')).to_have_count(4)
         expect(page.locator('.d-role-table tbody tr')).to_have_count(4)
-        expect(page.locator('.je-table')).to_have_count(4)
-        expect(page.locator('.d-sys')).to_have_count(1)
-        assert page.locator('.dv-flow[role="list"]').count()==2
+        expect(page.locator('.je-table')).to_have_count(6)
+        expect(page.locator('.d-sys')).to_have_count(2)
+        assert page.locator('.dv-flow[role="list"]').count()==3
         assert page.locator('ol.dv-flow').count()==0
-        assert page.locator('.dv-flow-step[role="listitem"]').count()==7
-        passed('two genuine workflow layouts, four responsibility cards and four styled evidence tables')
+        assert page.locator('.dv-flow-step[role="listitem"]').count()==11
+        passed('three genuine workflow layouts, four responsibility cards and six styled evidence tables')
+        completion=page.locator('#deep-completion')
+        expect(completion).to_contain_text('2026')
+        expect(completion).to_contain_text('hasMore')
+        expect(completion.locator('.d-sys')).to_have_count(1)
+        expect(completion.locator('.je-table')).to_have_count(2)
+        expect(completion.locator('.dv-code')).to_have_count(2)
+        passed('October 19 source-led completion chapter: SVG, two tables, protocol and pseudocode')
         workflow=page.locator('.d-role-workflow')
         expect(workflow.locator('h3')).to_contain_text('调查链')
         for name in ['Agent','REA','分析引擎','复核与实现']:
@@ -84,6 +91,8 @@ try:
             if width in (390,1440):
                 page.locator('.dv-flow-figure').first.screenshot(path=str(OUT/f'{width}-workflow.png'))
                 page.locator('.je-figure').first.screenshot(path=str(OUT/f'{width}-table.png'))
+                completion.locator('.d-sys').screenshot(path=str(OUT/f'{width}-completion-architecture.png'))
+                completion.locator('.je-table').first.screenshot(path=str(OUT/f'{width}-completion-table.png'))
             passed(f'{width}px: readable figure and role matrix, no double numbers or document overflow')
         page.evaluate("document.documentElement.dataset.theme='dark'")
         assert workflow.locator('tbody tr').count()==4
