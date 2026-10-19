@@ -53,10 +53,10 @@ try:
         expect(page.locator('.d-role-table tbody tr')).to_have_count(4)
         expect(page.locator('.je-table')).to_have_count(6)
         expect(page.locator('.d-sys')).to_have_count(2)
-        assert page.locator('.dv-flow[role="list"]').count()==3
+        assert page.locator('.dv-flow[role="list"]').count()==4
         assert page.locator('ol.dv-flow').count()==0
-        assert page.locator('.dv-flow-step[role="listitem"]').count()==11
-        passed('three genuine workflow layouts, four responsibility cards and six styled evidence tables')
+        assert page.locator('.dv-flow-step[role="listitem"]').count()==15
+        passed('four genuine workflow layouts, four responsibility cards and six styled evidence tables')
         completion=page.locator('#deep-completion')
         expect(completion).to_contain_text('2026')
         expect(completion).to_contain_text('hasMore')
