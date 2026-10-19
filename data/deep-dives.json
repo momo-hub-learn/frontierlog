@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-15",
+  "checked": "2026-10-19",
   "series": "拆一下",
   "articles": [
     {
@@ -11,10 +11,10 @@
       "title": "拆一下 REA：AI“反向编程”为什么突然出圈？",
       "short_title": "反向编程爆火：REA 真能把软件拆开重做吗？",
       "subtitle": "从反编译器、MCP 工具和证据追踪，拆开 REA 的能力边界，以及“看懂软件”与“合法重做”的距离。",
-      "dek": "REA 真正带来的不是一键还原源代码，而是让 AI Agent 能沿着字符串、调用关系、伪代码和运行证据持续调查程序。爆火背后，最该弄清的是可验证能力与授权边界。",
+      "dek": "REA 让 Agent 顺着函数、调用关系和结构化证据调查程序，但 MCP 补全候选并非验证事实。本次追踪 10 月 19 日源码修复，解释同名函数歧义和会话证据边界。",
       "published": "2026-10-13",
-      "updated": "2026-10-15",
-      "read_minutes": 24,
+      "updated": "2026-10-19",
+      "read_minutes": 32,
       "tags": [
         "反向编程",
         "AI 逆向工程",
@@ -40,7 +40,8 @@
       "opening": [
         "想象你正在维护自己团队的一款旧桌面应用：编译产物还在，但部分实现文档已经失散。你想知道本地搜索为什么在离线时仍然工作。过去，你要在反编译器里翻符号、搜索字符串、追调用；现在，你可以让 AI Agent 借助 REA 调用这些工具，提出候选路径，再返回到证据中验证。",
         "10 月 12 日的行业报道让“逆向一切”引发广泛讨论。但先给这个词降温：REA 不保证还原原始源代码，也不是把任意商业软件一键复制成可发布产品。它将已有的静态和部分运行时分析能力整理成 Agent 可使用的工具与工作流。案例中涉及的搜索应用只是授权测试场景。",
-        "本文分开三层证据：REA 仓库与官方文档可以确认工具接口和使用边界；10 月 12 日的媒体报道只能证明话题受到关注；重建效果与生产成本则必须通过自己设计的实验验证。本站未安装 REA，也没有对任何第三方软件开展逆向实验。"
+        "本文分开三层证据：REA 仓库与官方文档可以确认工具接口和使用边界；10 月 12 日的媒体报道只能证明话题受到关注；重建效果与生产成本则必须通过自己设计的实验验证。本站未安装 REA，也没有对任何第三方软件开展逆向实验。",
+        "2026 年 10 月 19 日追踪更新：官方源码对 MCP 函数候选的别名归并作了修正。本文新增专题，解释补全为何不能等同于发现证据、长列表为何不是全量结果，以及要怎样设计真正的回归验证；并严格注明这不是本站对 REA 的实测结果。"
       ],
       "sections": [
         {
@@ -591,8 +592,421 @@
           ]
         },
         {
-          "key": "reach",
+          "key": "completion",
           "eyebrow": "05",
+          "kicker": "十月十九日源码跟踪",
+          "title": "补全不是证据：同名函数为什么能把 Agent 带偏？",
+          "analysis": true,
+          "source_refs": [
+            "rea-prompt-guide-20261019",
+            "rea-completion-code-20261019",
+            "rea-completion-tests-20261019",
+            "mcp-completion-spec",
+            "rea-release-scope-20261019"
+          ],
+          "blocks": [
+            {
+              "type": "text",
+              "text": "2026 年 10 月 19 日，REA 官方仓库对 MCP 的 procedure 参数补全修复了一处关键边界：一个函数地址可以有多个别名，而同一个名称也可能指向不同地址。旧的“每个地址只取一条名称”思路会遗漏后续别名，甚至把不唯一的名称当作可安全选择的建议。最新提交把“地址集合”和“名称→唯一地址或歧义”分开归并，再做前缀过滤。这个小改动牵涉 Agent 能否正确选择被分析函数，却不意味着其反编译能力、准确率或权限范围发生了提升。",
+              "refs": [
+                "rea-completion-code-20261019",
+                "rea-completion-tests-20261019"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "先辨清两个容易混为一谈的协议：`prompts/list` 与 `prompts/get` 只负责发现/取得调查提示模板，`completion/complete` 只为提示参数给出与当前会话相关的候选；它不是 `tools/call`。REA 文档列出六个调查提示，包括功能追踪、版本比较与未知项审核。对于原生二进制，过程名补全读取已经就绪的 `list_procedures` 清单；冷启动、切换目标或提供者不可用时可能返回空建议。空列表不能证明函数不存在。",
+              "refs": [
+                "rea-prompt-guide-20261019",
+                "mcp-completion-spec"
+              ]
+            },
+            {
+              "type": "architecture",
+              "id": "rea-completion-boundary-20261019",
+              "version": "2026.10.19",
+              "refs": [
+                "rea-prompt-guide-20261019",
+                "rea-completion-code-20261019",
+                "mcp-completion-spec"
+              ],
+              "diagram": {
+                "title": "补全不等于调用：从会话候选到证据的责任分界",
+                "intro": "把 REA 公开的 session-aware prompt completion 逻辑拆为查询、唯一性检查和显式工具调用三道独立边界。",
+                "width": 1120,
+                "height": 526,
+                "zones": [
+                  {
+                    "x": 14,
+                    "y": 12,
+                    "w": 242,
+                    "h": 492,
+                    "label": "01 · 操作上下文"
+                  },
+                  {
+                    "x": 270,
+                    "y": 12,
+                    "w": 261,
+                    "h": 492,
+                    "label": "02 · MCP 建议接口"
+                  },
+                  {
+                    "x": 544,
+                    "y": 12,
+                    "w": 311,
+                    "h": 492,
+                    "label": "03 · 会话候选处理"
+                  },
+                  {
+                    "x": 868,
+                    "y": 12,
+                    "w": 238,
+                    "h": 492,
+                    "label": "04 · 复核与执行"
+                  }
+                ],
+                "nodes": [
+                  {
+                    "id": "prompt",
+                    "x": 31,
+                    "y": 74,
+                    "w": 209,
+                    "h": 86,
+                    "label": "Agent 参数输入",
+                    "detail": "feature / procedure",
+                    "kind": "boundary"
+                  },
+                  {
+                    "id": "session",
+                    "x": 31,
+                    "y": 314,
+                    "w": 209,
+                    "h": 86,
+                    "label": "当前授权会话",
+                    "detail": "目标工件 / Provider",
+                    "kind": "boundary"
+                  },
+                  {
+                    "id": "completion",
+                    "x": 291,
+                    "y": 193,
+                    "w": 220,
+                    "h": 86,
+                    "label": "completion/complete",
+                    "detail": "仅返回建议值"
+                  },
+                  {
+                    "id": "inventory",
+                    "x": 568,
+                    "y": 65,
+                    "w": 261,
+                    "h": 86,
+                    "label": "Provider 既有清单",
+                    "detail": "完整 list_procedures"
+                  },
+                  {
+                    "id": "unique",
+                    "x": 568,
+                    "y": 210,
+                    "w": 261,
+                    "h": 86,
+                    "label": "名称去歧义",
+                    "detail": "同名多地址 → 仅留地址"
+                  },
+                  {
+                    "id": "prefix",
+                    "x": 568,
+                    "y": 357,
+                    "w": 261,
+                    "h": 86,
+                    "label": "前缀与上限",
+                    "detail": "values / total / hasMore"
+                  },
+                  {
+                    "id": "choice",
+                    "x": 884,
+                    "y": 357,
+                    "w": 207,
+                    "h": 86,
+                    "label": "客户端选择",
+                    "detail": "建议值 ≠ 证据"
+                  },
+                  {
+                    "id": "tool",
+                    "x": 884,
+                    "y": 210,
+                    "w": 207,
+                    "h": 86,
+                    "label": "显式分析工具调用",
+                    "detail": "选定目标 + 参数"
+                  },
+                  {
+                    "id": "evidence",
+                    "x": 884,
+                    "y": 65,
+                    "w": 207,
+                    "h": 86,
+                    "label": "Evidence 返回",
+                    "detail": "观察 / 局限 / 未知",
+                    "kind": "verify"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "prompt",
+                    "to": "completion",
+                    "via": [
+                      [
+                        265,
+                        117
+                      ],
+                      [
+                        265,
+                        236
+                      ]
+                    ]
+                  },
+                  {
+                    "from": "session",
+                    "to": "completion",
+                    "via": [
+                      [
+                        265,
+                        357
+                      ],
+                      [
+                        265,
+                        236
+                      ]
+                    ]
+                  },
+                  {
+                    "from": "completion",
+                    "to": "inventory",
+                    "via": [
+                      [
+                        537,
+                        236
+                      ],
+                      [
+                        537,
+                        108
+                      ]
+                    ]
+                  },
+                  {
+                    "from": "inventory",
+                    "to": "unique"
+                  },
+                  {
+                    "from": "unique",
+                    "to": "prefix"
+                  },
+                  {
+                    "from": "prefix",
+                    "to": "choice"
+                  },
+                  {
+                    "from": "choice",
+                    "to": "tool",
+                    "from_port": "top",
+                    "to_port": "bottom"
+                  },
+                  {
+                    "from": "tool",
+                    "to": "evidence",
+                    "from_port": "top",
+                    "to_port": "bottom"
+                  }
+                ],
+                "boundary": "本站根据 REA 2026-10-19 公共源码、官方指南及 MCP 规范绘制的逻辑责任图，不是项目官方部署拓扑；仅被明确调用的分析工具才执行实际工作，补全查询不启动原生分析，本站未实跑 REA。",
+                "alt": "左边 Agent 的参数与授权会话进入 completion，读取已经就绪的 Provider 过程清单；中间对名称唯一性及最多 100 条返回进行检查；右边用户选择的候选只有经显式工具调用才可能获得 Evidence。"
+              },
+              "annotations": [
+                {
+                  "title": "上下文 ≠ 执行许可",
+                  "detail": "`prompts/get` 提供建议性路径；`completion/complete` 只读当前会话。选择候选不会打开目标、注入进程或执行分析，需要独立、显式的工具请求。"
+                },
+                {
+                  "title": "同名函数先证明唯一",
+                  "detail": "每个地址始终可作为可选择标识；同一个名称只在完整清单中指向唯一地址时进入名称候选。遇到同名多地址，优先核对明确地址和模块上下文。"
+                },
+                {
+                  "title": "100 条不是全量函数列表",
+                  "detail": "MCP 规范约束单次最多 100 个候选；`total` 与 `hasMore` 提醒仍有遗漏。REA 补全没有分页，缩小前缀也未必能区分规范化后重名项。"
+                },
+                {
+                  "title": "Evidence 不能倒推回补全",
+                  "detail": "只有后续工具响应中的证据位置、分析条件及 Unknown 能支持具体结论。补全条目的存在不是函数实现正确或某路径在运行时被触发的证明。"
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "title": "为什么“取第一个名称”会制造歧义？"
+            },
+            {
+              "type": "code",
+              "title": "离线读代码实验：完整归并后才允许展示唯一名称",
+              "language": "JavaScript",
+              "code": "// 教学精简：对应官方 2026-10-19 修复思路；并非 REA 源码原文，也未运行 REA。\nconst rows = [\n  {address:'0x1000', value:'foo'},\n  {address:'0x1000', value:'bar'},   // 同址别名：都可选\n  {address:'0x1000', value:'shared'},\n  {address:'0x2000', value:'shared'},// 同名多址：名称有歧义\n  {address:'0x3000', value:'later'},\n  {address:'0x1000', value:'later'}  // 晚到的冲突不能被忽略\n];\nconst addresses = new Set();\nconst owner = new Map();\nfor (const {address, value:name} of rows) {\n  addresses.add(address);\n  if (!name) continue;\n  const prev = owner.get(name);\n  owner.set(name, prev === undefined || prev === address ? address : null);\n}\nconst uniqueNames = [...owner].filter(([,addr]) => addr !== null)\n  .map(([name]) => name);\n// 唯一名称为 foo、bar；shared、later 均应被剔除。\n// 地址 0x1000、0x2000、0x3000 保留以供显式定位。",
+              "caption": "本站整理的可阅读伪实现，使用合成地址，不对应实际程序。完整分支、输入 Schema、筛选和上限请看固定源码与官方测试；以上代码不能替代运行 REA 的真实 MCP 会话。",
+              "refs": [
+                "rea-completion-code-20261019",
+                "rea-completion-tests-20261019"
+              ]
+            },
+            {
+              "type": "table",
+              "title": "四个简单用例，就能发现补全逻辑是否说谎",
+              "headers": [
+                "已知清单 / 情景",
+                "应该观察到的行为",
+                "不能推出的结论"
+              ],
+              "rows": [
+                [
+                  "0x1000 → foo 与 bar（同址两名）",
+                  "两个名称可同时作为唯一别名；地址仍可选",
+                  "“存在别名”不说明存在两段独立实现"
+                ],
+                [
+                  "shared → 0x1000、0x2000（同名两址）",
+                  "不提供 shared 名称；保留两个地址",
+                  "被过滤不等于函数不存在"
+                ],
+                [
+                  "later 在后续行又指向另一地址",
+                  "遍历完整清单后标为歧义；行顺序不改变结果",
+                  "不能凭第一批结果就发布最终候选"
+                ],
+                [
+                  "120 个函数名、末尾增加冲突别名",
+                  "作者新增测试的 `name_` 返回 100 值、`total=119`、`hasMore=true`",
+                  "仅展示 100 项不等于只发现 100 个"
+                ],
+                [
+                  "Provider 尚未 ready / 目标切换",
+                  "可能空建议；重新核对会话、执行必要清单查询",
+                  "空候选不是二进制没有过程的证据"
+                ],
+                [
+                  "选中补全候选但未调用工具",
+                  "只是确定一个标识；无新的分析 Evidence",
+                  "“已选择”不等于“已验证调用路径”"
+                ]
+              ],
+              "caption": "前四项取材于 2026-10-19 REA 公开单元测试与源码；后两项来自官方会话/协议说明。本文没有宣称在本站本机实际运行这些工具。"
+            },
+            {
+              "type": "subheading",
+              "title": "协议层的请求长什么样？"
+            },
+            {
+              "type": "code",
+              "title": "一条 MCP 补全请求（教学 JSON，不是已发送的网络流量）",
+              "language": "JSON",
+              "code": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"completion/complete\",\n  \"params\": {\n    \"ref\": {\n      \"type\": \"ref/prompt\",\n      \"name\": \"investigate_feature\"\n    },\n    \"argument\": {\n      \"name\": \"procedure\",\n      \"value\": \"foo\"\n    },\n    \"context\": {\n      \"arguments\": {\n        \"document\": \"Notes\"\n      }\n    }\n  }\n}",
+              "caption": "`document` 是可选上下文，实际可用名称取决于当前 Provider 和目标；这是基于 MCP 规范与 REA 文档构造的请求示例，不表示“Notes” 或 “foo” 在任何真实会话中存在。",
+              "refs": [
+                "mcp-completion-spec",
+                "rea-prompt-guide-20261019"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "补全的排序也有契约。REA 文档写明 Unicode 规范化、大小写不敏感前缀匹配、按码点排序、去重与最多 100 项返回；它没有补全分页。如果 `total>values.length` 且 `hasMore=true`，应缩小前缀或直接查完整清单，而不是用当前下拉菜单构造“所有函数”报告。若不同名字折叠到同一规范化前缀且仍超额，继续加前缀也可能取不到某些候选。这是协议展示能力的边界，不是目标软件的性质。",
+              "refs": [
+                "rea-prompt-guide-20261019",
+                "mcp-completion-spec"
+              ]
+            },
+            {
+              "type": "flow",
+              "title": "可复核的客户端验证流程（建议，未做现场实测）",
+              "nodes": [
+                {
+                  "title": "锁定合法样本",
+                  "detail": "记录工件哈希、REA 源码/安装包版本、Provider、目标及授权范围"
+                },
+                {
+                  "title": "先核对会话能力",
+                  "detail": "检查提示清单与函数清单；对 cold Provider 与切换目标分别测试"
+                },
+                {
+                  "title": "重放别名边界夹具",
+                  "detail": "同址多名、同名多址、后到冲突与 100 条截断，比较结构化结果"
+                },
+                {
+                  "title": "显式取回证据",
+                  "detail": "用确切函数地址执行独立分析工具；记录观察、未知、冲突与撤回路径"
+                }
+              ],
+              "caption": "此流程用于未来真实测试的验收，而非本站已完成的 REA 功能回归；REA 自己仓库的作者测试也不能被当成独立第三方复现。"
+            },
+            {
+              "type": "table",
+              "title": "上线前应识别五种失败模式",
+              "headers": [
+                "失败信号",
+                "根因或边界",
+                "客户端的正确退路"
+              ],
+              "rows": [
+                [
+                  "补全返回 []",
+                  "Provider 冷启动、工具失败、目标转换或清单不完整",
+                  "明确标注“当前无建议”，先查 Provider 和过程清单"
+                ],
+                [
+                  "同名却指向不同地址",
+                  "符号覆盖、别名复用、不同模块命名碰撞",
+                  "禁止裸函数名强行绑定；显示地址、模块与上下文"
+                ],
+                [
+                  "hasMore=true",
+                  "MCP 返回限制，非实际样本只有 100 个函数",
+                  "提供前缀精化与完整清单入口，不偷换总数"
+                ],
+                [
+                  "切换目标后旧建议仍在 UI",
+                  "客户端可能缓存过期状态，而 REA 的补全不缓存",
+                  "目标变化时客户端清空自身选择并重新发现"
+                ],
+                [
+                  "建议被当成越权许可",
+                  "模型把提示候选误解为可以执行敏感操作",
+                  "分离授权、只读检查、执行工具权限与独立审批"
+                ]
+              ],
+              "caption": "工程设计建议；MCP 官方规范要求校验输入、限流并保护敏感补全信息。具体是否执行危险操作仍由客户端与宿主权限负责。"
+            },
+            {
+              "type": "note",
+              "title": "版本与证据边界必须写在正文里",
+              "text": "本次跟踪的是 REA 官方 GitHub 2026-10-19 提交 d3627b1… 的文档、源码和作者测试；不是声称 npm @latest 已包含这次修复。官方安装文档提醒 main 的实现与已发布包不必一致。本站审阅公开文本、设计回归方法，并未下载运行 REA、连接第三方目标或测量真实函数补全性能。",
+              "refs": [
+                "rea-release-scope-20261019",
+                "rea-completion-code-20261019"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "这次变更的行业意义不在“函数补全增加了几个选项”，而在提醒 Agent 开发者把四件事拆清楚：候选来自哪个会话、候选是否唯一、展示是否完整、证据有没有真的被工具返回。一个实现即使全部通过作者的单元测试，也只覆盖相应夹具；跨 Provider、跨目标生命周期及权限模型仍需独立评估。",
+              "refs": [
+                "rea-completion-tests-20261019",
+                "rea-prompt-guide-20261019"
+              ]
+            },
+            {
+              "type": "transition",
+              "text": "候选列表是导航，函数地址是定位，工具返回才是观察；只有把这三层严格分开，Agent 的调查结果才可能被人复核。"
+            }
+          ]
+        },
+        {
+          "key": "reach",
+          "eyebrow": "06",
           "kicker": "热度与能力",
           "title": "火的项目和跑通的案例，证据类型不同",
           "blocks": [
@@ -656,7 +1070,7 @@
         },
         {
           "key": "failure-modes",
-          "eyebrow": "06",
+          "eyebrow": "07",
           "kicker": "失效与成本",
           "title": "真正昂贵的不是 Token，而是错误结论的证据成本",
           "analysis": true,
@@ -720,7 +1134,7 @@
         },
         {
           "key": "boundary",
-          "eyebrow": "07",
+          "eyebrow": "08",
           "kicker": "法律与工程边界",
           "title": "“拆开看”和“照着做”不是同一件事",
           "blocks": [
@@ -766,7 +1180,7 @@
         },
         {
           "key": "experiment",
-          "eyebrow": "08",
+          "eyebrow": "09",
           "kicker": "怎样建立实测",
           "title": "换成自己的合法样本，才能知道它值不值得用",
           "blocks": [
@@ -848,7 +1262,7 @@
         },
         {
           "key": "outlook",
-          "eyebrow": "09",
+          "eyebrow": "10",
           "kicker": "继续观察",
           "title": "真正变化：让 Agent 从“写代码”走向“查证据”",
           "blocks": [
@@ -935,9 +1349,54 @@
           "date": "2026-10-12",
           "url": "https://www.36kr.com/p/4022394995069062",
           "verified_at": "2026-10-13"
+        },
+        {
+          "id": "rea-prompt-guide-20261019",
+          "publisher": "REA 官方文档 / morluto",
+          "title": "Guided MCP prompts and completion（固定 2026-10-19 实现修订）",
+          "kind": "官方一手技术指南 · 固定提交",
+          "date": "2026-10-19",
+          "url": "https://github.com/morluto/rea/blob/d3627b10382b0f28b12cad1543634e165470b29a/docs/mcp-prompts.md",
+          "verified_at": "2026-10-19"
+        },
+        {
+          "id": "rea-completion-code-20261019",
+          "publisher": "REA 官方源代码 / morluto",
+          "title": "src/server/promptCompletion.ts：完整地址与别名唯一性",
+          "kind": "官方源代码 · 固定提交",
+          "date": "2026-10-19",
+          "url": "https://github.com/morluto/rea/blob/d3627b10382b0f28b12cad1543634e165470b29a/src/server/promptCompletion.ts",
+          "verified_at": "2026-10-19"
+        },
+        {
+          "id": "rea-completion-tests-20261019",
+          "publisher": "REA 官方测试 / morluto",
+          "title": "completionInventoryAliasMcp.test.ts：反序、同址别名、歧义与 100 项上限",
+          "kind": "作者测试代码 · 非本站复现",
+          "date": "2026-10-19",
+          "url": "https://github.com/morluto/rea/blob/d3627b10382b0f28b12cad1543634e165470b29a/tests/boundary/mcp/completionInventoryAliasMcp.test.ts",
+          "verified_at": "2026-10-19"
+        },
+        {
+          "id": "mcp-completion-spec",
+          "publisher": "Model Context Protocol",
+          "title": "Completion · 2025-11-25 规范：ref/prompt、completion/complete、100 项上限与安全边界",
+          "kind": "官方协议规范",
+          "date": "2025-11-25",
+          "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion",
+          "verified_at": "2026-10-19"
+        },
+        {
+          "id": "rea-release-scope-20261019",
+          "publisher": "REA 官方安装文档",
+          "title": "Released package and main：运行时版本与源码 main 的能力边界",
+          "kind": "官方安装与发布说明",
+          "date": null,
+          "url": "https://github.com/morluto/rea/blob/d3627b10382b0f28b12cad1543634e165470b29a/docs/installation.md",
+          "verified_at": "2026-10-19"
         }
       ],
-      "revision_note": "2026-10-15：补充基于官方文档的 REA 组件拓扑、证据账本协议、失效恢复和可复验对照设计；编辑架构与教学示例不冒充官方产品内部实现。"
+      "revision_note": "2026-10-15：补充基于官方文档的 REA 组件拓扑、证据账本协议、失效恢复和可复验对照设计；编辑架构与教学示例不冒充官方产品内部实现。 2026-10-19：追踪 REA 当日官方源码修订，新增 session-aware MCP 补全、同址别名去歧义、100 项限制、授权/证据边界的 SVG 架构图、夹具代码、两张工程表和可执行验证计划；来源固定到作者提交，未冒称本站实测或 npm 已发布。"
     },
     {
       "id": "jev-agent-decision-layer",
