@@ -2,7 +2,7 @@
 (()=>{
 const DEEP=APP.deep_dives||{articles:[],checked:''};
 const DEEP_MAP=new Map((DEEP.articles||[]).map(x=>[x.id,x]));
-const DEEP_LATEST=[...(DEEP.articles||[])].sort((a,b)=>b.published.localeCompare(a.published)||String(b.updated||'').localeCompare(String(a.updated||''))||a.id.localeCompare(b.id));
+const DEEP_LATEST=[...(DEEP.articles||[])].sort((a,b)=>String(b.updated||b.published).localeCompare(String(a.updated||a.published))||b.published.localeCompare(a.published)||a.id.localeCompare(b.id));
 pages.deep=['拆一下','layers'];
 
 function dParams(){return new URLSearchParams(location.hash.split('?')[1]||'')}
@@ -21,7 +21,7 @@ function dMiniFlow(a,style='d'){
 function dFeedCard(){
  const a=DEEP_LATEST[0];if(!a)return '';
  return '<section class="d-feed">'+
-  '<div class="d-feed-head"><div><p class="eyebrow">最新深读 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
+  '<div class="d-feed-head"><div><p class="eyebrow">最近更新 / 拆一下</p><h2>把热点拆成架构。</h2><p>不复述新闻，追问它改变了什么系统边界。</p></div><span>'+esc(String(a.read_minutes))+' MIN READ</span></div>'+
   '<a class="d-feed-card" href="#/deep?id='+encodeURIComponent(a.id)+'">'+
    '<div class="d-feed-no">01</div>'+
    '<div class="d-feed-copy"><div class="d-feed-tags">'+a.tags.slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><h3>'+esc(a.title)+'</h3><p>'+esc(a.subtitle)+'</p><div class="d-feed-thesis">'+esc(a.thesis)+'</div></div>'+
@@ -285,7 +285,7 @@ function dSources(a){
 function dOtherReads(a){
  const others=DEEP_LATEST.filter(x=>x.id!==a.id);
  if(!others.length)return '';
- return '<nav class="d-other-reads" aria-label="更多拆一下"><div class="d-other-head"><h2>继续拆一下</h2><span>按发表日期 · 历史档案保留</span></div><div class="d-other-list">'+others.map(x=>
+ return '<nav class="d-other-reads" aria-label="更多拆一下"><div class="d-other-head"><h2>继续拆一下</h2><span>按最新实质修订 · 原始发表日期保留</span></div><div class="d-other-list">'+others.map(x=>
   '<a href="#/deep?id='+encodeURIComponent(x.id)+'"><time>'+esc(x.published.replaceAll('-','.'))+'</time><strong>'+esc(x.short_title||x.title)+'</strong>'+icon('arrow')+'</a>'
  ).join('')+'</div></nav>'
 }
@@ -293,7 +293,7 @@ function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
  return '<article class="d-page d-visual'+(a.layout==='narrative'?' d-narrative':' d-editorial')+'">'+
   '<header class="d-hero">'+
-   '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span></div>'+
+   '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span><span class="d-update-cadence">编辑目标 · 每 3 天实质更新</span></div>'+
    '<div class="d-hero-grid"><div class="d-hero-copy">'+
     '<h1>'+esc(a.title)+'</h1><p class="d-dek">'+esc(a.dek)+'</p>'+
     '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
