@@ -36,12 +36,12 @@ function fcPersonalPanel(){
  '</section>'
 }
 function fcDeepPanel(){
- const a=[...(APP.deep_dives?.articles||[])].sort((x,y)=>String(y.published||'').localeCompare(String(x.published||'')))[0];
+ const a=[...(APP.deep_dives?.articles||[])].sort((x,y)=>String(y.updated||y.published||'').localeCompare(String(x.updated||x.published||''))||String(y.published||'').localeCompare(String(x.published||'')))[0];
  if(!a)return '';
  const flow=(a.mini_flow||[]).slice(0,3);
  const diagram=flow.length===3?'<div class="fc-mini-arch" aria-label="技术链路摘要">'+flow.map((x,i)=>(i?'<i aria-hidden="true">→</i>':'')+'<span class="'+(i===1?'is-accent':'')+'"><b>'+esc(x.label)+'</b><small>'+esc(x.detail)+'</small></span>').join('')+'</div>':'';
  return '<a class="fc-panel fc-deep-panel" href="#/deep?id='+encodeURIComponent(a.id)+'">'+
-  '<div class="fc-side-head"><span class="fc-kicker">拆一下</span><small>'+esc(a.published.slice(5).replace('-','.'))+' · '+esc(String(a.read_minutes))+' MIN</small></div>'+
+  '<div class="fc-side-head"><span class="fc-kicker">拆一下</span><small>'+esc((a.updated||a.published).slice(5).replace('-','.'))+' 更新 · '+esc(String(a.read_minutes))+' MIN</small></div>'+
   '<h2>'+esc(a.short_title||a.title)+'</h2>'+
   '<p>'+esc(a.subtitle)+'</p>'+
   diagram+
