@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-19T23:58:04Z",
+  "generated_at": "2026-10-20T05:26:34Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
     "merge": 1,
-    "hold": 6
+    "hold": 4
   },
   "candidates": [
     {
@@ -23,12 +23,12 @@
       "url": "https://arena.ai/blog/ai-alignment-index",
       "publishable": true,
       "features": {
-        "freshness": 0.214,
+        "freshness": 0.143,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.726,
+      "priority_score": 0.705,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "arena",
@@ -47,41 +47,16 @@
       "url": "https://arena.ai/blog/series-b",
       "publishable": true,
       "features": {
-        "freshness": 0.214,
+        "freshness": 0.143,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.726,
+      "priority_score": 0.705,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "arena",
       "first_seen_at": "2026-10-09T05:17:35Z"
-    },
-    {
-      "id": "candidate-b8b636bcf9ce7b3f",
-      "category": "model",
-      "published": "2026-10-05",
-      "title": "H-JEPA",
-      "summary": "Zhang、Terver、Rabbat、LeCun、Balestriero 提出多层 action-conditioned JEPA：上层预测更远时间范围，逐层生成子目标用于规划。作者报告 Visual AntMaze 三级 H-JEPA 规划成功率 73.3%，平坦 LeWorldModel 基线 18.0%，且规划计算更少；真实机器人 DROID 只评估离线规划保真度，尚不能宣称闭环成功率。",
-      "why": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
-      "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
-      "source": "Zhang、Terver、Rabbat、LeCun、Balestriero",
-      "source_kind": "一手研究论文",
-      "url": "https://arxiv.org/abs/2610.06805",
-      "publishable": false,
-      "features": {
-        "freshness": 0.0,
-        "authority": 0.88,
-        "impact": 0.94,
-        "novelty": 1.0
-      },
-      "priority_score": 0.651,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "track_id": "world-models",
-      "maker": "AMI Labs / NYU / INRIA Paris / Brown University",
-      "first_seen_at": "2026-10-13T10:28:07Z"
     },
     {
       "id": "candidate-43c3c613b348f5b5",
@@ -96,12 +71,12 @@
       "url": "https://arxiv.org/abs/2610.07540",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 0.88,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.64,
+      "priority_score": 0.619,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "research_id": "jepa-control-unstable-modes",
@@ -125,31 +100,6 @@
       "url": "https://arxiv.org/abs/2610.07540",
       "publishable": false,
       "features": {
-        "freshness": 0.071,
-        "authority": 0.88,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.64,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "track_id": "world-models",
-      "maker": "AMI Labs / 合作研究团队",
-      "first_seen_at": "2026-10-13T10:28:07Z"
-    },
-    {
-      "id": "candidate-81e20ff082ab44de",
-      "category": "research",
-      "published": "2026-10-05",
-      "title": "H-JEPA · 层级世界模型与视觉规划",
-      "summary": "论文提出端到端层级 action-conditioned JEPA，在长时与短时潜表示之间传递子目标。作者报告 Visual AntMaze 规划成功率为 73.3%（三级）与 18.0%（平坦 LeWorldModel）；训练和规划代码已公开。",
-      "why": "与生成式世界模拟不同，H-JEPA 关注不同时间尺度的表征与目标驱动规划，并把计划拆成层级子目标；对长程 Agent 与具身规划有研究参考价值。",
-      "boundary": "论文数据是作者在固定模拟任务和配置中的对照，不能与 Atlas 等产品打统一能力分，也不能把 DROID 离线规划保真度解读成真实机器人闭环成功。本站没有复现或重跑。",
-      "source": "AMI Labs / NYU / INRIA Paris / Brown University",
-      "source_kind": "论文原文",
-      "url": "https://arxiv.org/abs/2610.06805",
-      "publishable": false,
-      "features": {
         "freshness": 0.0,
         "authority": 0.88,
         "impact": 0.82,
@@ -158,12 +108,8 @@
       "priority_score": 0.619,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
-      "research_id": "hjepa-hierarchical-planning",
-      "topic_tags": [
-        "World Model",
-        "JEPA",
-        "Hierarchical Planning"
-      ],
+      "track_id": "world-models",
+      "maker": "AMI Labs / 合作研究团队",
       "first_seen_at": "2026-10-13T10:28:07Z"
     },
     {
@@ -179,12 +125,12 @@
       "url": "https://openai.com/index/gpt-6-for-everyone",
       "publishable": true,
       "features": {
-        "freshness": 0.143,
+        "freshness": 0.071,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.569,
+      "priority_score": 0.548,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "chatgpt-gpt6-intelligent-ui",
