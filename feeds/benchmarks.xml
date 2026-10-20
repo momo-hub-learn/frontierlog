@@ -5,7 +5,13 @@
 
 来源：
 https://openai.com/index/low-resource-programming-languages/
-https://github.com/openai/MultiLangBench</description></item><item><title>Terminal-Bench 4.0：资源与任务集发生破坏性变化</title><guid isPermaLink="false">frontierlog:benchmark:terminal-4-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=terminal3</link><pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate><description>官方统一 8 小时 Agent timeout，修复 19 个任务并移除 8 个任务，以减少资源不足、任务缺陷和饱和题带来的测量噪声。
+https://github.com/openai/MultiLangBench</description></item><item><title>Gemini 4 Argon 进入 AutomationBench 与 CWE-bench v1</title><guid isPermaLink="false">frontierlog:benchmark:argon-agent-benchmarks-20261013</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=automationbench</link><pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate><description>AutomationBench 1.0.6 报告 Gemini 4 Argon High 为 51.29%，CWE-bench v1 报告其程序化 pass@1 为 68%；两者分别衡量跨企业工具终态与防御性代码审计，Harness、推理档和预算也不同。
+
+编辑解读：两个结果说明 Argon 已进入长流程 Agent 与安全修复的可核查评测，但不能跨榜拼成综合分，也不能把公开榜分数写成本站实测。
+
+来源：
+https://zapier.com/benchmarks
+https://cwe-bench.com/</description></item><item><title>Terminal-Bench 4.0：资源与任务集发生破坏性变化</title><guid isPermaLink="false">frontierlog:benchmark:terminal-4-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=terminal3</link><pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate><description>官方统一 8 小时 Agent timeout，修复 19 个任务并移除 8 个任务，以减少资源不足、任务缺陷和饱和题带来的测量噪声。
 
 编辑解读：4.0 改了 Agent 环境和任务集，官方明确要求重新运行 trials；不要把 3.0 与 4.0 分数拼成模型进步曲线。
 

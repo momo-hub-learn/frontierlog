@@ -1,15 +1,68 @@
 {
   "version": 1,
-  "generated_at": "2026-10-20T12:19:57Z",
+  "generated_at": "2026-10-20T12:44:41Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 0,
+    "publish": 1,
     "merge": 1,
-    "hold": 4
+    "hold": 5
   },
   "candidates": [
+    {
+      "id": "candidate-47750334ae9b688a",
+      "category": "product",
+      "published": "2026-10-13",
+      "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+      "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+      "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+      "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+      "source": "Google",
+      "source_kind": "官方产品节点",
+      "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+      "publishable": true,
+      "features": {
+        "freshness": 0.5,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.812,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "product_id": "google-antigravity",
+      "first_seen_at": "2026-10-20T12:44:41Z"
+    },
+    {
+      "id": "candidate-567f9dfeb2c35d69",
+      "category": "research",
+      "published": "2026-10-16",
+      "title": "Anthropic 内部就业研究：Agent 工时超过员工工时",
+      "summary": "Anthropic 研究其内部 2025–2026 年工作数据，称 Agent 工时在 2026 年 3 月超过员工工时，8 月 Agent 与员工数量比约 6:1；同时观察到高复杂度 Claude 使用岗位的初级招聘占比下降。",
+      "why": "这提供了一个 AI-native 组织里任务拆分、监督负担与招聘结构同步变化的早期样本，尤其说明人类注意力与 Agent 监控可能成为新的瓶颈。",
+      "boundary": "这是单一前沿 AI 公司的内部观察研究，岗位构成、激励与工具可得性都不代表一般企业；相关性不能证明 AI 单独造成招聘变化，也不能直接外推宏观就业。",
+      "source": "Anthropic Economic Research",
+      "source_kind": "公司内部观察研究",
+      "url": "https://www.anthropic.com/research/employment-at-anthropic",
+      "publishable": false,
+      "features": {
+        "freshness": 0.714,
+        "authority": 0.72,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.79,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "anthropic-employment-ai-intensive-workplace",
+      "topic_tags": [
+        "Future of Work",
+        "Agent Adoption",
+        "Employment"
+      ],
+      "first_seen_at": "2026-10-20T12:44:41Z"
+    },
     {
       "id": "candidate-019270e4cda473b1",
       "category": "product",

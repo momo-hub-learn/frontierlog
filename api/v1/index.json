@@ -37,6 +37,53 @@
     ],
     "items": [
       {
+        "id": "gemini-4-argon-general-availability-20261013",
+        "category": "model",
+        "heat": 99,
+        "trend": "up",
+        "published": "2026-10-13",
+        "checked": "2026-10-20",
+        "verified_at": "2026-10-20T12:38:26Z",
+        "first_seen_at": "2026-10-20T12:38:26Z",
+        "title": "Gemini 4 Argon 正式开放：API、Gemini 与 Antigravity 同步上线",
+        "summary": "Google 10 月 13 日宣布 Gemini 4 Argon 面向开发者、企业与消费者正式开放，可通过 Gemini API、Gemini platform、Gemini App、Search AI Mode 与 Antigravity 使用；不同入口仍受订阅和企业资格限制。",
+        "why": "这不是预告或封闭测试，而是一个前沿模型进入开发、消费与 Agent 工具链的正式可用节点；AutomationBench 与 CWE-bench v1 也已分别公开其 Agent 工作流和防御性安全任务口径。",
+        "boundary": "可用性与评测数据来自 Google、Zapier 和 CWE-bench 的官方页面，本站未独立运行模型。榜位同时受 Harness、推理档、任务集、预算与价格口径影响，不能把厂商或单榜结果外推为通用能力第一。",
+        "source": "Google",
+        "source_kind": "官方模型发布",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+        "link": "#/hot",
+        "evidence_level": "high",
+        "access": [
+          {
+            "label": "Google 官方发布",
+            "note": "正式开放范围、入口与适用订阅",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+            "kind": "read"
+          },
+          {
+            "label": "Google Antigravity",
+            "note": "桌面 App、CLI 与企业入口",
+            "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+            "kind": "try"
+          }
+        ],
+        "related": [
+          {
+            "source": "Google",
+            "date": "2026-10-13",
+            "title": "Gemini 4 Argon: Built to solve your hardest problems",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+          },
+          {
+            "source": "Google Antigravity",
+            "date": "2026-10-13",
+            "title": "Gemini 4 Argon in Google Antigravity",
+            "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity"
+          }
+        ]
+      },
+      {
         "id": "anthropic-unintended-model-actions-20261009",
         "category": "research",
         "heat": 96,
@@ -630,26 +677,79 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-20T12:19:57Z",
+      "last_checked_at": "2026-10-20T12:44:41Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 5,
-      "publish_ready_count": 0,
+      "candidate_count": 7,
+      "publish_ready_count": 1,
       "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-20T12:19:57Z",
+    "generated_at": "2026-10-20T12:44:41Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 0,
+      "publish": 1,
       "merge": 1,
-      "hold": 4
+      "hold": 5
     },
     "candidates": [
+      {
+        "id": "candidate-47750334ae9b688a",
+        "category": "product",
+        "published": "2026-10-13",
+        "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+        "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+        "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+        "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+        "source": "Google",
+        "source_kind": "官方产品节点",
+        "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+        "publishable": true,
+        "features": {
+          "freshness": 0.5,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.812,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "product_id": "google-antigravity",
+        "first_seen_at": "2026-10-20T12:44:41Z"
+      },
+      {
+        "id": "candidate-567f9dfeb2c35d69",
+        "category": "research",
+        "published": "2026-10-16",
+        "title": "Anthropic 内部就业研究：Agent 工时超过员工工时",
+        "summary": "Anthropic 研究其内部 2025–2026 年工作数据，称 Agent 工时在 2026 年 3 月超过员工工时，8 月 Agent 与员工数量比约 6:1；同时观察到高复杂度 Claude 使用岗位的初级招聘占比下降。",
+        "why": "这提供了一个 AI-native 组织里任务拆分、监督负担与招聘结构同步变化的早期样本，尤其说明人类注意力与 Agent 监控可能成为新的瓶颈。",
+        "boundary": "这是单一前沿 AI 公司的内部观察研究，岗位构成、激励与工具可得性都不代表一般企业；相关性不能证明 AI 单独造成招聘变化，也不能直接外推宏观就业。",
+        "source": "Anthropic Economic Research",
+        "source_kind": "公司内部观察研究",
+        "url": "https://www.anthropic.com/research/employment-at-anthropic",
+        "publishable": false,
+        "features": {
+          "freshness": 0.714,
+          "authority": 0.72,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.79,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "research_id": "anthropic-employment-ai-intensive-workplace",
+        "topic_tags": [
+          "Future of Work",
+          "Agent Adoption",
+          "Employment"
+        ],
+        "first_seen_at": "2026-10-20T12:44:41Z"
+      },
       {
         "id": "candidate-019270e4cda473b1",
         "category": "product",
@@ -780,7 +880,7 @@
   },
   "product_radar": {
     "version": 1,
-    "checked": "2026-10-09",
+    "checked": "2026-10-20",
     "title": "AI 产品雷达",
     "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
     "groups": [
@@ -796,6 +896,56 @@
       }
     ],
     "items": [
+      {
+        "id": "google-antigravity",
+        "name": "Google Antigravity",
+        "company": "Google",
+        "group": "enterprise-agent",
+        "tags": [
+          "Developer Agent",
+          "App / CLI / IDE",
+          "Google"
+        ],
+        "summary": "Google 的 Agent-first 开发平台，覆盖多本地 Agent 管理、终端自治编码与 IDE 工作流；Gemini 4 Argon 已进入桌面 App、CLI 与符合条件的企业入口。",
+        "product_url": "https://antigravity.google/",
+        "source_url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+        "source_label": "Google Antigravity 官方发布",
+        "evidence": "Antigravity 官方产品页说明 App、CLI 与 IDE 形态；2026-10-13 官方博客确认 Gemini 4 Argon 的订阅与企业可用范围。",
+        "boundary": "官方产品能力与内部采用数据不等于独立任务成功率；具体可用入口受操作系统、订阅、地区与企业资格限制，自治执行仍需权限、审查和回滚。",
+        "filter_ids": [
+          "enterprise-agent",
+          "knowledge-work"
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-13",
+            "kind": "Product",
+            "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+            "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+            "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+            "facts": [
+              {
+                "label": "个人入口",
+                "value": "桌面 App / CLI"
+              },
+              {
+                "label": "企业入口",
+                "value": "API / eligible Gemini Enterprise"
+              },
+              {
+                "label": "平台形态",
+                "value": "App / CLI / IDE"
+              }
+            ],
+            "interpretation": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+            "scope": "2026-10-13 Google Antigravity 官方发布所述的订阅及企业范围。",
+            "limitations": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+            "published_at": "2026-10-13",
+            "verified_at": "2026-10-20",
+            "evidence_level": "primary_source"
+          }
+        ]
+      },
       {
         "id": "harvey",
         "name": "Harvey",
@@ -1485,7 +1635,7 @@
   },
   "research_radar": {
     "version": 1,
-    "checked": "2026-10-13",
+    "checked": "2026-10-20",
     "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
     "lanes": [
       {
@@ -1505,6 +1655,36 @@
       }
     ],
     "items": [
+      {
+        "id": "anthropic-employment-ai-intensive-workplace",
+        "lane": "science",
+        "title": "Anthropic 内部就业研究：Agent 工时超过员工工时",
+        "maker": "Anthropic Economic Research",
+        "date": "2026-10-16",
+        "tags": [
+          "Future of Work",
+          "Agent Adoption",
+          "Employment"
+        ],
+        "fact": "Anthropic 研究其内部 2025–2026 年工作数据，称 Agent 工时在 2026 年 3 月超过员工工时，8 月 Agent 与员工数量比约 6:1；同时观察到高复杂度 Claude 使用岗位的初级招聘占比下降。",
+        "insight": "这提供了一个 AI-native 组织里任务拆分、监督负担与招聘结构同步变化的早期样本，尤其说明人类注意力与 Agent 监控可能成为新的瓶颈。",
+        "boundary": "这是单一前沿 AI 公司的内部观察研究，岗位构成、激励与工具可得性都不代表一般企业；相关性不能证明 AI 单独造成招聘变化，也不能直接外推宏观就业。",
+        "next_watch": "跟踪公开方法、分岗位样本、外部组织复现，以及生产率、返工、质量和员工负担是否能在同一口径下长期测量。",
+        "sources": [
+          {
+            "label": "Anthropic Economic Research",
+            "url": "https://www.anthropic.com/research/employment-at-anthropic",
+            "kind": "公司内部观察研究",
+            "strength": "primary"
+          },
+          {
+            "label": "Anthropic 研究总览",
+            "url": "https://www.anthropic.com/research/expectations-for-the-future",
+            "kind": "官方研究说明",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "jepa-control-unstable-modes",
         "lane": "paradigm",
@@ -2827,14 +3007,14 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-20T12:19:57Z",
+    "last_evaluated": "2026-10-20T12:44:41Z",
     "last_decision": {
-      "action": "merge",
-      "candidate_count": 5,
-      "publish_ready_count": 0,
+      "action": "publish",
+      "candidate_count": 7,
+      "publish_ready_count": 1,
       "merge_count": 1,
-      "best_candidate": "candidate-019270e4cda473b1",
-      "reason": "发现与现有热点同源的新节点，建议合并。"
+      "best_candidate": "candidate-47750334ae9b688a",
+      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
     "active_shadow_candidate": {
       "description": "当前实际上执行的 shadow 候选优先级，只对已经进入结构化数据的进展打分，不是本站发布的热度，也不决定前沿模型是否进入研究档案。",
@@ -8912,6 +9092,70 @@
           "ev-human-agreement"
         ],
         "result_status": "not_run"
+      },
+      {
+        "id": "automationbench",
+        "name": "AutomationBench",
+        "group": "agent",
+        "edition": "1.0.6 / 657 tasks",
+        "subtitle": "Agent 能否把跨应用业务流程真正做完？",
+        "summary": "Zapier 在隔离环境中让 Agent 操作 CRM、邮件、日历等企业工具，并按最终环境状态做确定性评分；当前公开榜使用 1.0.6 版本，共 657 个任务。",
+        "metric": "Deterministic task success ↑ / Cost per task ↓",
+        "metric_note": "最终环境状态命中固定成功条件才计分；同一模型的推理档、fallback、Harness 与价格口径必须分开。",
+        "protocol": "固定 AutomationBench 1.0.6、657 个任务、工具集合、初始环境状态、Agent Harness、推理档和失败重试；用确定性终态检查验收，并同时保存每任务成本与工具轨迹。",
+        "boundary": "公开榜不是本站实测；模型名相同但推理档或 fallback 不同不可合并。榜单覆盖 Zapier 定义的销售、营销、运营、支持、财务与 HR 场景，不代表全部企业自动化。",
+        "business": "用于衡量跨 SaaS 工具执行与流程完成，而不是只看回答质量；企业落地仍需增加自己的权限、审批、异常恢复和数据边界。",
+        "setup": "使用 Zapier 官方环境和确定性评分器；锁定 1.0.6、模型配置、Harness、fallback、价格口径与每任务预算。",
+        "topics": [],
+        "sources": [
+          "b-automationbench"
+        ],
+        "result_url": "https://zapier.com/benchmarks",
+        "kind": "benchmark",
+        "flag": "官方榜单 / 本站未运行",
+        "checked": "2026-10-20",
+        "tested": false,
+        "checks": [
+          "固定 1.0.6、657 个任务和工具环境",
+          "记录模型推理档、fallback、Harness 与重试策略",
+          "保存终态评分、完整工具轨迹和每任务成本",
+          "按业务域报告成功率，不把公开榜直接外推到企业流程"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
+        "id": "cwe-bench-v1",
+        "name": "CWE-bench v1",
+        "group": "coding",
+        "edition": "v1 / 120 held-out tasks",
+        "subtitle": "Coding Agent 能否在未知漏洞位置时完成审计与修复？",
+        "summary": "Collinear AI 的防御性安全基准给 Agent 一个真实开源仓库，隐藏漏洞位置与数量，要求审计并修复；v1 含 120 个私有保留任务、73 类 CWE 与 8 种语言。",
+        "metric": "Programmatic Pass@1 / Pass@4 ↑",
+        "metric_note": "确定性验证要求漏洞利用不再成功且既有测试全部通过；三 Judge 面板结果并列展示，不能替代程序化门禁。",
+        "protocol": "固定 v1 的 120 个保留任务、Harness、模型推理档、每任务四次 rollout 与一小时上限；分别报告程序化验证和三 Judge 面板的 pass@1/pass@4，并保留成本。",
+        "boundary": "保留集不公开，本站不能独立复现实例集合；排行榜同时受 Harness、预算与定价影响。防御性修复成绩不等于模型可安全承担真实渗透测试，也不代表软件供应链整体安全。",
+        "business": "可作为代码审计 Agent 的外部压力测试参考，企业仍需在授权仓库上加入静态分析、回归测试、人工审查和部署门禁。",
+        "setup": "由评测方运行私有 v1 任务；复核时锁定 Harness、模型版本、推理档、rollout 数、时限和评分器，并审计失败补丁。",
+        "topics": [],
+        "sources": [
+          "b-cwe-bench-v1"
+        ],
+        "result_url": "https://cwe-bench.com/",
+        "kind": "benchmark",
+        "flag": "私有保留集 / 本站未运行",
+        "checked": "2026-10-20",
+        "tested": false,
+        "checks": [
+          "锁定 v1、120 个任务和程序化评分器",
+          "记录 Harness、推理档、四次 rollout、一小时时限和成本",
+          "分开报告 programmatic 与 judge-panel 的 pass@1/pass@4",
+          "检查修复是否阻断利用且不破坏既有测试"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
       }
     ],
     "sources": [
@@ -9222,9 +9466,45 @@
         "checked": "2026-10-20",
         "kind": "官方开源评测仓库",
         "note": "SQLite 3.40.1，约 24k 转换测试，官方建议 272 个指定前缀测试；需遵守隔离和无网络约束。"
+      },
+      {
+        "id": "b-automationbench",
+        "title": "AutomationBench 1.0.6 leaderboard and methodology",
+        "publisher": "Zapier",
+        "url": "https://zapier.com/benchmarks",
+        "published": null,
+        "checked": "2026-10-20",
+        "kind": "官方评测页",
+        "note": "657 个跨企业工具任务，以最终环境状态做确定性评分；榜单含模型配置、成本与 fallback 说明。"
+      },
+      {
+        "id": "b-cwe-bench-v1",
+        "title": "CWE-bench v1 methodology and leaderboard",
+        "publisher": "Collinear AI",
+        "url": "https://cwe-bench.com/",
+        "published": "2026-09-25",
+        "checked": "2026-10-20",
+        "kind": "官方评测页",
+        "note": "120 个私有保留审计与修复任务、73 类 CWE、8 种语言；程序化验证与三 Judge 面板分列。"
       }
     ],
     "changes": [
+      {
+        "id": "argon-agent-benchmarks-20261013",
+        "date": "2026-10-13",
+        "title": "Gemini 4 Argon 进入 AutomationBench 与 CWE-bench v1",
+        "summary": "AutomationBench 1.0.6 报告 Gemini 4 Argon High 为 51.29%，CWE-bench v1 报告其程序化 pass@1 为 68%；两者分别衡量跨企业工具终态与防御性代码审计，Harness、推理档和预算也不同。",
+        "implication": "两个结果说明 Argon 已进入长流程 Agent 与安全修复的可核查评测，但不能跨榜拼成综合分，也不能把公开榜分数写成本站实测。",
+        "benchmarks": [
+          "automationbench",
+          "cwe-bench-v1"
+        ],
+        "sources": [
+          "b-automationbench",
+          "b-cwe-bench-v1"
+        ],
+        "kind": "榜单与协议更新"
+      },
       {
         "id": "multilangbench-release-20261019",
         "date": "2026-10-19",

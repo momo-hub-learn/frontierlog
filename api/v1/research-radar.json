@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-13",
+  "checked": "2026-10-20",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,36 @@
     }
   ],
   "items": [
+    {
+      "id": "anthropic-employment-ai-intensive-workplace",
+      "lane": "science",
+      "title": "Anthropic 内部就业研究：Agent 工时超过员工工时",
+      "maker": "Anthropic Economic Research",
+      "date": "2026-10-16",
+      "tags": [
+        "Future of Work",
+        "Agent Adoption",
+        "Employment"
+      ],
+      "fact": "Anthropic 研究其内部 2025–2026 年工作数据，称 Agent 工时在 2026 年 3 月超过员工工时，8 月 Agent 与员工数量比约 6:1；同时观察到高复杂度 Claude 使用岗位的初级招聘占比下降。",
+      "insight": "这提供了一个 AI-native 组织里任务拆分、监督负担与招聘结构同步变化的早期样本，尤其说明人类注意力与 Agent 监控可能成为新的瓶颈。",
+      "boundary": "这是单一前沿 AI 公司的内部观察研究，岗位构成、激励与工具可得性都不代表一般企业；相关性不能证明 AI 单独造成招聘变化，也不能直接外推宏观就业。",
+      "next_watch": "跟踪公开方法、分岗位样本、外部组织复现，以及生产率、返工、质量和员工负担是否能在同一口径下长期测量。",
+      "sources": [
+        {
+          "label": "Anthropic Economic Research",
+          "url": "https://www.anthropic.com/research/employment-at-anthropic",
+          "kind": "公司内部观察研究",
+          "strength": "primary"
+        },
+        {
+          "label": "Anthropic 研究总览",
+          "url": "https://www.anthropic.com/research/expectations-for-the-future",
+          "kind": "官方研究说明",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "jepa-control-unstable-modes",
       "lane": "paradigm",
