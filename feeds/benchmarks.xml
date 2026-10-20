@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 09 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Terminal-Bench 4.0：资源与任务集发生破坏性变化</title><guid isPermaLink="false">frontierlog:benchmark:terminal-4-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=terminal3</link><pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate><description>官方统一 8 小时 Agent timeout，修复 19 个任务并移除 8 个任务，以减少资源不足、任务缺陷和饱和题带来的测量噪声。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>OpenAI 发布 MultiLangBench 与 COBOL 迁移评测</title><guid isPermaLink="false">frontierlog:benchmark:multilangbench-release-20261019</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=multilangbench</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 发布跨 20 种编程语言实现 SQLite 兼容数据库的评测，并公开 MultiLangBench 测试设置。官方报告 GPT-6 Astra 平均通过率 87.4%，GPT-5.6 Sol 为 26.8%；另一个 COBOL 迁移隐藏测试报告 GPT-6.1 Sol 在高推理档为 97.9%。
+
+编辑解读：这是不同的评测口径：MultiLangBench 衡量新建软件，COBOL 迁移衡量行为保持。官方模型结果不是本站独立实测，真实生产迁移还需企业数据和规则回归。
+
+来源：
+https://openai.com/index/low-resource-programming-languages/
+https://github.com/openai/MultiLangBench</description></item><item><title>Terminal-Bench 4.0：资源与任务集发生破坏性变化</title><guid isPermaLink="false">frontierlog:benchmark:terminal-4-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=terminal3</link><pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate><description>官方统一 8 小时 Agent timeout，修复 19 个任务并移除 8 个任务，以减少资源不足、任务缺陷和饱和题带来的测量噪声。
 
 编辑解读：4.0 改了 Agent 环境和任务集，官方明确要求重新运行 trials；不要把 3.0 与 4.0 分数拼成模型进步曲线。
 

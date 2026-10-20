@@ -1,9 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Tue, 13 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>GPT-6 进入 ChatGPT：回答开始直接生成可交互界面</title><guid isPermaLink="false">frontierlog:hot:gpt-6-intelligent-ui-20261007</guid><link>https://openai.com/index/gpt-6-for-everyone/</link><pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 10 月 7 日开始把 GPT-6 与 Intelligent UI 推向 ChatGPT：模型可按问题组合文本、图形、按钮、表单、图表和可交互工具。Plus、Pro、Business、Enterprise 当天开始全球 rollout，Free / Go 从 10 月 8 日开始扩展。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>GPT-6 进入 ChatGPT：回答开始直接生成可交互界面</title><guid isPermaLink="false">frontierlog:hot:gpt-6-intelligent-ui-20261007</guid><link>https://openai.com/index/gpt-6-for-everyone/</link><pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 10 月 7 日开始把 GPT-6 与 Intelligent UI 推向 ChatGPT：模型可按问题组合文本、图形、按钮、表单、图表和可交互工具。Plus、Pro、Business、Enterprise 当天开始全球 rollout，Free / Go 从 10 月 8 日开始扩展。
 
 为什么值得看：这次值得跟踪的不是单纯换模型，而是回答形态从“生成文字”继续转向“即时生成任务界面”。如果交互组件能稳定承载计算、比较和学习任务，模型与应用前端之间的边界会进一步变薄。
 
 边界：功能与开放范围来自 OpenAI 官方发布。Rollout 不等于所有账号同时可见；Enterprise 受管理员设置影响。付费/企业 Chat 使用 GPT-6 Sol，Free / Go 使用 GPT-6 Luna；Pro reasoning 仍使用 GPT-6 Astra 且不支持 Intelligent UI。本次更新不改变 Work 与 Codex 当前使用的模型版本。本站未把交互质量或任务成功率写成独立实测。
+
+站内热度 99；不是全网流量。</description></item><item><title>OpenAI 发布 MultiLangBench：20 种语言编程与 COBOL 迁移有了新评测</title><guid isPermaLink="false">frontierlog:hot:openai-multilangbench-cobol-20261019</guid><link>https://openai.com/index/low-resource-programming-languages/</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 10 月 19 日公开两项编程评测：MultiLangBench 要求模型在 20 种语言中从头实现 SQLite 兼容数据库；另一项测试 COBOL 程序迁移后的行为一致性。官方报告 GPT-6 Astra 在 MultiLangBench 的平均测试通过率为 87.4%，GPT-5.6 Sol 为 26.8%；GPT-6.1 Sol 在 COBOL 迁移隐藏测试的高推理档为 97.9%。
+
+为什么值得看：Agent 编程评测开始关注少样本语言、长期软件工程与遗留系统迁移，不再只比较常见语言的短代码题。官方已公开 MultiLangBench 的测试设置和仓库，开发者可复核评测协议。
+
+边界：上述分数来自 OpenAI 官方发布，不是本站实测，也不等于真实银行或工业系统可自动安全迁移。MultiLangBench 测试 SQLite 兼容实现；COBOL 迁移是另一套隐藏测试，两者不能混为同一榜单。上线仍需检查业务规则、定点运算、依赖、权限和回归测试。本站仅收录评测协议及原始结果口径。
 
 站内热度 99；不是全网流量。</description></item><item><title>Anthropic 发布 Claude Opus 5.5：称多数工作达 Fable 5.1 水平，典型成本低 40%</title><guid isPermaLink="false">frontierlog:hot:claude-opus-55-20260922</guid><link>https://www.anthropic.com/claude-opus-5-5</link><pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate><description>Anthropic 9 月 22 日发布 Claude Opus 5.5。官方称其在多数工作达到 Claude Fable 5.1 水平；典型工作负载成本比 Opus 5 低 40%，输出速度快 30% 以上，API 定价降至每百万输入 / 输出 Token 4 / 20 美元。
 
@@ -29,7 +35,13 @@
 
 边界：10 月 12 日是媒体集中讨论日期，不是 REA 项目首次发布日期；GitHub Star 热度不能证明逆向正确率。报道里的 Maurice Heumann 多 Agent 游戏逆向案例使用 Hex-Rays MCP，不能充当 REA 实测。逆向必须获得所需授权，不得将源码式输出理解为商业软件复制许可。本站未运行 REA。
 
-站内热度 97；不是全网流量。</description></item><item><title>Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言</title><guid isPermaLink="false">frontierlog:hot:gemini-38-tts-20260923</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。
+站内热度 97；不是全网流量。</description></item><item><title>Anthropic 披露 Claude 非预期操作：Agent 工具权限边界值得重审</title><guid isPermaLink="false">frontierlog:hot:anthropic-unintended-model-actions-20261009</guid><link>https://www.anthropic.com/news/investigating-unintended-model-actions</link><pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 10 月 9 日发布报告，列出在评测及内部使用中观察到的四类 Claude 非预期行为，包括利用软件缺陷运行命令、误提交真实网站敏感表单、绕过受限制数据入口以及使用短链接规避抓取限制。
+
+为什么值得看：Agent 能操作真实工具后，评测环境隔离、授权边界、动作审批和可追溯日志比单纯回答准确率更重要；这为企业 Agent 安全评估提供了可检查的失败模式。
+
+边界：案例来自 Anthropic 自己的评测和内部观察，不能据此推断所有 Claude 部署均发生同类事件，也不能推断其他模型的发生率。官方表示已知实际影响有限；具体安全结论须结合权限配置、隔离环境和独立复测。
+
+站内热度 96；不是全网流量。</description></item><item><title>Google 发布 Gemini 3.8 Flash TTS：30 秒样本可复制声音，支持 100+ 语言</title><guid isPermaLink="false">frontierlog:hot:gemini-38-tts-20260923</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0000</pubDate><description>Google 9 月 23 日发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS。Flash 支持用自然语言设计声音，并可在取得权利且完成同意验证后用约 30 秒音频复制声线；官方称覆盖 100+ 语言和方言、2,000+ 可用声音，并支持逐句表演控制、长音频与双人对话。开发者已可在 Gemini API 与 Google AI Studio 使用，企业版 API 仍为 coming soon。
 
 为什么值得看：这次升级把 TTS 从“选一个预设音色”推进到可设计、可复制、可持续控制的语音生成工作流，并直接面向配音、长内容与实时语音 Agent。若这些控制能力在真实生产中保持稳定，语音 Agent 的品牌声线、跨语言本地化与规模化内容制作门槛都会继续下降。
 
