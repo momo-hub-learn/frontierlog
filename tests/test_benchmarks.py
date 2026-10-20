@@ -2,7 +2,7 @@
 from __future__ import annotations
 import copy, json, re, sys, tempfile, unittest
 from pathlib import Path
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from xml.etree import ElementTree as ET
 R=Path(__file__).resolve().parents[1]
@@ -35,6 +35,12 @@ class BenchmarkTests(unittest.TestCase):
   source_ids={x['id'] for x in self.data['sources']}
   self.assertTrue(set(b['sources'])<=source_ids)
   self.assertTrue(any(x['id']=='multilangbench-release-20261019' and b['id'] in x['benchmarks'] for x in self.data['changes']))
+ def test_agent_benchmarks_keep_protocols_and_results_separate(self):
+  by_id={x['id']:x for x in self.data['items']}
+  self.assertTrue({'automationbench','cwe-bench-v1'}<=set(by_id))
+  self.assertTrue(all(by_id[x]['tested'] is False and by_id[x]['result_status']=='not_run' for x in ('automationbench','cwe-bench-v1')))
+  event=next(x for x in self.data['changes'] if x['id']=='argon-agent-benchmarks-20261013')
+  self.assertEqual(set(event['benchmarks']),{'automationbench','cwe-bench-v1'})
  def test_duplicate_item(self):self.reject(lambda d:d['items'].append(copy.deepcopy(d['items'][0])))
  def test_duplicate_source(self):self.reject(lambda d:d['sources'].append(copy.deepcopy(d['sources'][0])))
  def test_id_unsafe(self):self.reject(lambda d:d['items'][0].update(id='<script>'))
@@ -50,7 +56,14 @@ class BenchmarkTests(unittest.TestCase):
    with self.assertRaises(ValueError):validate_benchmarks(d)
  def test_no_claimed_collection(self):self.reject(lambda d:d['sync'].update(last_success='2026-09-21T10:00:00Z'))
  def test_no_pretended_live_status(self):self.reject(lambda d:d['sync'].update(status='live'))
- def test_future_date(self):self.reject(lambda d:d.update(checked=(date.today()+timedelta(days=1)).isoformat()))
+ def test_future_date(self):
+  d=copy.deepcopy(self.data);d['checked']='2026-10-22'
+  with self.assertRaises(ValueError):validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
+ def test_beijing_date_is_valid_before_utc_midnight(self):
+  d=copy.deepcopy(self.data);d['checked']='2026-10-21'
+  validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
+ def test_naive_validation_clock_rejected(self):
+  with self.assertRaises(ValueError):validate_benchmarks(self.data,now=datetime(2026,10,20,12,0))
  def test_source_after_check(self):self.reject(lambda d:d['sources'][0].update(checked='2099-01-01'))
  def test_change_after_check(self):self.reject(lambda d:d['changes'][0].update(date='2099-01-01'))
  def test_no_future_source_publication(self):self.reject(lambda d:d['sources'][0].update(published='2099-01-01'))
@@ -86,6 +99,8 @@ class BenchmarkTests(unittest.TestCase):
    self.assertIn('const BENCH=APP.benchmarks',html)
    self.assertIn('FrontierLog',html)
    self.assertIn('brand-copy',html)
+   self.assertIn('b-evidence',html)
+   self.assertIn('本站未实测',html)
    self.assertEqual((p/'index.html').read_bytes(),(p/'404.html').read_bytes())
    self.assertEqual(json.loads((p/'api/v1/benchmarks.json').read_text())['items'],self.data['items'])
    self.assertTrue((p/'assets/brand.svg').is_file())

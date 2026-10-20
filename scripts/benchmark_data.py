@@ -5,11 +5,16 @@ from email.utils import format_datetime
 import re
 from urllib.parse import urlparse
 from xml.etree import ElementTree as ET
+from zoneinfo import ZoneInfo
 
-def validate_benchmarks(data:dict)->None:
+REVIEW_TIMEZONE = ZoneInfo("Asia/Shanghai")
+
+def validate_benchmarks(data:dict, *, now:datetime|None=None)->None:
     if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported benchmark schema')
+    now = now if now is not None else datetime.now(timezone.utc)
+    if now.tzinfo is None or now.utcoffset() is None: raise ValueError('Validation clock must include timezone')
     today=date.fromisoformat(data['checked'])
-    if today>date.today():raise ValueError('Future catalog check date')
+    if today>now.astimezone(REVIEW_TIMEZONE).date():raise ValueError('Future catalog check date')
     if data.get('sync',{}).get('status')!='manual':raise ValueError('This schema stores manual protocol snapshots only')
     if data['sync'].get('last_success') is not None:raise ValueError('No verified automated collection')
     def records(key):

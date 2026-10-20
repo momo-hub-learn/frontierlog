@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from email.utils import format_datetime
 from urllib.parse import urlparse
 from xml.etree import ElementTree as ET
+from zoneinfo import ZoneInfo
 
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
@@ -17,6 +18,7 @@ from benchmark_data import validate_benchmarks, benchmark_rss
 from hot_data import validate_hot, validate_hot_inbox, hot_rss
 ROOT = Path(__file__).resolve().parents[1]
 REPO_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*$')
+REVIEW_TIMEZONE = ZoneInfo("Asia/Shanghai")
 
 def https_url(value: str) -> bool:
     try:
@@ -70,10 +72,12 @@ def validate(catalog: dict, upstream: dict, site: dict) -> None:
     if site.get('repository') and not REPO_RE.fullmatch(site['repository']): raise ValueError('Invalid site repository')
     if site.get('base_url') and not https_url(site['base_url']): raise ValueError('Base URL must use HTTPS')
 
-def validate_product_radar(data:dict)->None:
+def validate_product_radar(data:dict, *, now:datetime|None=None)->None:
     if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported product radar schema')
+    now = now if now is not None else datetime.now(timezone.utc)
+    if now.tzinfo is None or now.utcoffset() is None: raise ValueError('Validation clock must include timezone')
     checked=date.fromisoformat(data['checked'])
-    if checked>date.today(): raise ValueError('Future product radar check date')
+    if checked>now.astimezone(REVIEW_TIMEZONE).date(): raise ValueError('Future product radar check date')
     groups=data.get('groups'); items=data.get('items')
     if not isinstance(groups,list) or len(groups)<2 or not isinstance(items,list) or not 5<=len(items)<=12: raise ValueError('Invalid product radar lists')
     gids=[g.get('id') for g in groups]
@@ -121,9 +125,12 @@ def validate_product_radar(data:dict)->None:
     for item in items:
         if not set(item['filter_ids']).issubset(known): raise ValueError('Unknown product radar filter')
 
-def validate_research_radar(data:dict)->None:
+def validate_research_radar(data:dict, *, now:datetime|None=None)->None:
     if not isinstance(data,dict) or data.get('version')!=1: raise ValueError('Unsupported research radar schema')
-    date.fromisoformat(data['checked'])
+    now = now if now is not None else datetime.now(timezone.utc)
+    if now.tzinfo is None or now.utcoffset() is None: raise ValueError('Validation clock must include timezone')
+    checked=date.fromisoformat(data['checked'])
+    if checked>now.astimezone(REVIEW_TIMEZONE).date(): raise ValueError('Future research radar check date')
     lanes=data.get('lanes'); items=data.get('items')
     if not isinstance(lanes,list) or len(lanes)<3 or not isinstance(items,list) or len(items)<10: raise ValueError('Invalid research radar lists')
     lane_ids=[x.get('id') for x in lanes]
@@ -132,7 +139,7 @@ def validate_research_radar(data:dict)->None:
     if len(ids)!=len(set(ids)): raise ValueError('Duplicate research radar item')
     for x in items:
         if x.get('lane') not in set(lane_ids): raise ValueError('Unknown research radar lane')
-        date.fromisoformat(x['date'])
+        if date.fromisoformat(x['date'])>checked: raise ValueError('Future research radar item')
         for key in ('title','maker','fact','insight','boundary','next_watch'):
             if not isinstance(x.get(key),str) or not x[key].strip(): raise ValueError('Incomplete research radar item')
         if not isinstance(x.get('tags'),list) or not x['tags']: raise ValueError('Missing research radar tags')

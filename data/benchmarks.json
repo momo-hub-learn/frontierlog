@@ -814,6 +814,70 @@
         "ev-human-agreement"
       ],
       "result_status": "not_run"
+    },
+    {
+      "id": "automationbench",
+      "name": "AutomationBench",
+      "group": "agent",
+      "edition": "1.0.6 / 657 tasks",
+      "subtitle": "Agent 能否把跨应用业务流程真正做完？",
+      "summary": "Zapier 在隔离环境中让 Agent 操作 CRM、邮件、日历等企业工具，并按最终环境状态做确定性评分；当前公开榜使用 1.0.6 版本，共 657 个任务。",
+      "metric": "Deterministic task success ↑ / Cost per task ↓",
+      "metric_note": "最终环境状态命中固定成功条件才计分；同一模型的推理档、fallback、Harness 与价格口径必须分开。",
+      "protocol": "固定 AutomationBench 1.0.6、657 个任务、工具集合、初始环境状态、Agent Harness、推理档和失败重试；用确定性终态检查验收，并同时保存每任务成本与工具轨迹。",
+      "boundary": "公开榜不是本站实测；模型名相同但推理档或 fallback 不同不可合并。榜单覆盖 Zapier 定义的销售、营销、运营、支持、财务与 HR 场景，不代表全部企业自动化。",
+      "business": "用于衡量跨 SaaS 工具执行与流程完成，而不是只看回答质量；企业落地仍需增加自己的权限、审批、异常恢复和数据边界。",
+      "setup": "使用 Zapier 官方环境和确定性评分器；锁定 1.0.6、模型配置、Harness、fallback、价格口径与每任务预算。",
+      "topics": [],
+      "sources": [
+        "b-automationbench"
+      ],
+      "result_url": "https://zapier.com/benchmarks",
+      "kind": "benchmark",
+      "flag": "官方榜单 / 本站未运行",
+      "checked": "2026-10-20",
+      "tested": false,
+      "checks": [
+        "固定 1.0.6、657 个任务和工具环境",
+        "记录模型推理档、fallback、Harness 与重试策略",
+        "保存终态评分、完整工具轨迹和每任务成本",
+        "按业务域报告成功率，不把公开榜直接外推到企业流程"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
+      "id": "cwe-bench-v1",
+      "name": "CWE-bench v1",
+      "group": "coding",
+      "edition": "v1 / 120 held-out tasks",
+      "subtitle": "Coding Agent 能否在未知漏洞位置时完成审计与修复？",
+      "summary": "Collinear AI 的防御性安全基准给 Agent 一个真实开源仓库，隐藏漏洞位置与数量，要求审计并修复；v1 含 120 个私有保留任务、73 类 CWE 与 8 种语言。",
+      "metric": "Programmatic Pass@1 / Pass@4 ↑",
+      "metric_note": "确定性验证要求漏洞利用不再成功且既有测试全部通过；三 Judge 面板结果并列展示，不能替代程序化门禁。",
+      "protocol": "固定 v1 的 120 个保留任务、Harness、模型推理档、每任务四次 rollout 与一小时上限；分别报告程序化验证和三 Judge 面板的 pass@1/pass@4，并保留成本。",
+      "boundary": "保留集不公开，本站不能独立复现实例集合；排行榜同时受 Harness、预算与定价影响。防御性修复成绩不等于模型可安全承担真实渗透测试，也不代表软件供应链整体安全。",
+      "business": "可作为代码审计 Agent 的外部压力测试参考，企业仍需在授权仓库上加入静态分析、回归测试、人工审查和部署门禁。",
+      "setup": "由评测方运行私有 v1 任务；复核时锁定 Harness、模型版本、推理档、rollout 数、时限和评分器，并审计失败补丁。",
+      "topics": [],
+      "sources": [
+        "b-cwe-bench-v1"
+      ],
+      "result_url": "https://cwe-bench.com/",
+      "kind": "benchmark",
+      "flag": "私有保留集 / 本站未运行",
+      "checked": "2026-10-20",
+      "tested": false,
+      "checks": [
+        "锁定 v1、120 个任务和程序化评分器",
+        "记录 Harness、推理档、四次 rollout、一小时时限和成本",
+        "分开报告 programmatic 与 judge-panel 的 pass@1/pass@4",
+        "检查修复是否阻断利用且不破坏既有测试"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
     }
   ],
   "sources": [
@@ -1124,9 +1188,45 @@
       "checked": "2026-10-20",
       "kind": "官方开源评测仓库",
       "note": "SQLite 3.40.1，约 24k 转换测试，官方建议 272 个指定前缀测试；需遵守隔离和无网络约束。"
+    },
+    {
+      "id": "b-automationbench",
+      "title": "AutomationBench 1.0.6 leaderboard and methodology",
+      "publisher": "Zapier",
+      "url": "https://zapier.com/benchmarks",
+      "published": null,
+      "checked": "2026-10-20",
+      "kind": "官方评测页",
+      "note": "657 个跨企业工具任务，以最终环境状态做确定性评分；榜单含模型配置、成本与 fallback 说明。"
+    },
+    {
+      "id": "b-cwe-bench-v1",
+      "title": "CWE-bench v1 methodology and leaderboard",
+      "publisher": "Collinear AI",
+      "url": "https://cwe-bench.com/",
+      "published": "2026-09-25",
+      "checked": "2026-10-20",
+      "kind": "官方评测页",
+      "note": "120 个私有保留审计与修复任务、73 类 CWE、8 种语言；程序化验证与三 Judge 面板分列。"
     }
   ],
   "changes": [
+    {
+      "id": "argon-agent-benchmarks-20261013",
+      "date": "2026-10-13",
+      "title": "Gemini 4 Argon 进入 AutomationBench 与 CWE-bench v1",
+      "summary": "AutomationBench 1.0.6 报告 Gemini 4 Argon High 为 51.29%，CWE-bench v1 报告其程序化 pass@1 为 68%；两者分别衡量跨企业工具终态与防御性代码审计，Harness、推理档和预算也不同。",
+      "implication": "两个结果说明 Argon 已进入长流程 Agent 与安全修复的可核查评测，但不能跨榜拼成综合分，也不能把公开榜分数写成本站实测。",
+      "benchmarks": [
+        "automationbench",
+        "cwe-bench-v1"
+      ],
+      "sources": [
+        "b-automationbench",
+        "b-cwe-bench-v1"
+      ],
+      "kind": "榜单与协议更新"
+    },
     {
       "id": "multilangbench-release-20261019",
       "date": "2026-10-19",

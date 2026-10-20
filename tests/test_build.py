@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from datetime import datetime, timezone
 from xml.etree import ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -81,10 +82,11 @@ class BuildTests(unittest.TestCase):
     def test_product_radar_and_research_radar_render(self):
         radar=json.loads((ROOT/'data/product-radar.json').read_text())
         build.validate_product_radar(radar)
-        self.assertEqual(len(radar['items']),10)
+        self.assertGreaterEqual(len(radar['items']),10)
         self.assertEqual({g['id'] for g in radar['groups']},{'legal','enterprise-agent'})
         self.assertTrue({'legal','enterprise-agent','sequoia','yc'} <= {f['id'] for f in radar['filters']})
-        self.assertTrue(all(any(t.startswith('YC') or t=='Sequoia' for t in x['tags']) for x in radar['items'] if x['id'] not in {'palantir-aip','arena'}))
+        relationship_items=[x for x in radar['items'] if x['id'] not in {'palantir-aip','arena','google-antigravity'}]
+        self.assertTrue(all(any(t.startswith('YC') or t=='Sequoia' for t in x['tags']) for x in relationship_items))
         palantir=next(x for x in radar['items'] if x['id']=='palantir-aip')
         arena=next(x for x in radar['items'] if x['id']=='arena')
         self.assertTrue(arena['long_term_watch'])
@@ -99,7 +101,7 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')
             html=(d/'index.html').read_text()
-            self.assertEqual(len(app['product_radar']['items']),10)
+            self.assertEqual(len(app['product_radar']['items']),len(radar['items']))
             self.assertTrue((d/'api/v1/product-radar.json').exists())
             self.assertIn('AI 产品雷达',html)
             self.assertIn('Harvey',html)
@@ -184,7 +186,7 @@ class BuildTests(unittest.TestCase):
     def test_progress_v5_views_and_research_archive(self):
         radar=json.loads((ROOT/'data/research-radar.json').read_text())
         build.validate_research_radar(radar)
-        self.assertEqual(len(radar['items']),17)
+        self.assertGreaterEqual(len(radar['items']),17)
         self.assertTrue({'hjepa-hierarchical-planning','jepa-control-unstable-modes'} <= {x['id'] for x in radar['items']})
         self.assertEqual({x['id'] for x in radar['lanes']},{'paradigm','science','neo'})
         self.assertTrue(any(any(s.get('strength')=='lead' for s in x['sources']) for x in radar['items']))
@@ -200,6 +202,19 @@ class BuildTests(unittest.TestCase):
             self.assertIn('下一步看什么',html)
             self.assertIn('待核验线索',html)
             self.assertNotIn("date:s?.published||t.reviewed||DATA.snapshot",html)
+
+    def test_radar_dates_use_beijing_editorial_day(self):
+        instant=datetime(2026,10,20,16,30,tzinfo=timezone.utc)
+        product=json.loads((ROOT/'data/product-radar.json').read_text())
+        research=json.loads((ROOT/'data/research-radar.json').read_text())
+        product['checked']='2026-10-21'
+        research['checked']='2026-10-21'
+        build.validate_product_radar(product,now=instant)
+        build.validate_research_radar(research,now=instant)
+        with self.assertRaises(ValueError):
+            build.validate_product_radar(product,now=datetime(2026,10,20,15,30,tzinfo=timezone.utc))
+        with self.assertRaises(ValueError):
+            build.validate_research_radar(research,now=datetime(2026,10,20,15,30,tzinfo=timezone.utc))
 
     def test_gpt6_intelligent_ui_is_actionable_capability(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())

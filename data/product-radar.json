@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-09",
+  "checked": "2026-10-20",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,56 @@
     }
   ],
   "items": [
+    {
+      "id": "google-antigravity",
+      "name": "Google Antigravity",
+      "company": "Google",
+      "group": "enterprise-agent",
+      "tags": [
+        "Developer Agent",
+        "App / CLI / IDE",
+        "Google"
+      ],
+      "summary": "Google 的 Agent-first 开发平台，覆盖多本地 Agent 管理、终端自治编码与 IDE 工作流；Gemini 4 Argon 已进入桌面 App、CLI 与符合条件的企业入口。",
+      "product_url": "https://antigravity.google/",
+      "source_url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+      "source_label": "Google Antigravity 官方发布",
+      "evidence": "Antigravity 官方产品页说明 App、CLI 与 IDE 形态；2026-10-13 官方博客确认 Gemini 4 Argon 的订阅与企业可用范围。",
+      "boundary": "官方产品能力与内部采用数据不等于独立任务成功率；具体可用入口受操作系统、订阅、地区与企业资格限制，自治执行仍需权限、审查和回滚。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-13",
+          "kind": "Product",
+          "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+          "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+          "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+          "facts": [
+            {
+              "label": "个人入口",
+              "value": "桌面 App / CLI"
+            },
+            {
+              "label": "企业入口",
+              "value": "API / eligible Gemini Enterprise"
+            },
+            {
+              "label": "平台形态",
+              "value": "App / CLI / IDE"
+            }
+          ],
+          "interpretation": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+          "scope": "2026-10-13 Google Antigravity 官方发布所述的订阅及企业范围。",
+          "limitations": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+          "published_at": "2026-10-13",
+          "verified_at": "2026-10-20",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "harvey",
       "name": "Harvey",
