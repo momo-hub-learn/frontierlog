@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-09",
+  "checked": "2026-10-20",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,39 @@
     }
   ],
   "items": [
+    {
+      "id": "multilangbench",
+      "name": "MultiLangBench",
+      "group": "coding",
+      "edition": "SQLite 3.40.1 / 20 种语言 / 官方建议 272 题",
+      "subtitle": "低资源语言能否从头实现兼容 SQLite 的数据库？",
+      "summary": "OpenAI 10 月 19 日公开跨 20 种语言的 SQLite 兼容实现评测：模型从文档构建程序，通过数据库文件与 SQL 查询比对参考 SQLite 的输出。公开仓库提供从 SQLite TCL 测试转换的约 24k 题；官方建议按前缀抽取 272 题作成本可控的默认测量。",
+      "metric": "Test pass rate ↑ / API cost ↓",
+      "metric_note": "同一模型、语言、测试子集与推理预算下报告通过率和 API 成本；不与 COBOL 迁移隐藏测试的准确率混排。",
+      "protocol": "固定 SQLite 3.40.1 文档、测试子集、编程语言和模型配置；在无网络且移除现成 SQLite 实现的环境中让模型生成可执行程序；用初始数据库、user_query 与 validation_query 核验输出；同时记录耗时与 API 成本。",
+      "boundary": "官方研究报告的 87.4% 是 GPT-6 Astra 在其设定下的 20 语言平均测试通过率，不是本站实测；272 题是建议子集，不等于完整 24k 测试。模型可能使用非目标语言或环境残留实现，必须审计；企业遗留系统迁移仍需独立验收。",
+      "business": "用于判断模型是否有能力维护 COBOL、Fortran、Visual Basic 等低资源语言的软件，并为企业迁移前设计可复现的工程验收。",
+      "setup": "官方 GitHub 仓库与 SQLite 3.40.1 文档、隔离容器、无网络环境、语言检查、测试运行器；明确固定模型版本与推理预算。",
+      "topics": [],
+      "sources": [
+        "b-multilangbench-release",
+        "b-multilangbench-code"
+      ],
+      "result_url": "https://github.com/openai/MultiLangBench",
+      "kind": "benchmark",
+      "flag": "官方协议公开 / 本站未运行",
+      "checked": "2026-10-20",
+      "tested": false,
+      "checks": [
+        "锁定 SQLite 3.40.1、20 种语言中的目标语言与测试前缀",
+        "移除环境内可调用的 SQLite 实现并关闭网络",
+        "确保生成程序确实使用目标语言，记录失败、超时与环境信息",
+        "分别报告 test_pass_rate 与 api_cost，不混用 COBOL 迁移隐藏集分数"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "swe-pro",
       "name": "SWE-bench Pro",
@@ -1071,9 +1104,44 @@
       "published": null,
       "checked": "2026-10-09",
       "kind": "官方数据集"
+    },
+    {
+      "id": "b-multilangbench-release",
+      "title": "Advancing Coding in Low-Resource Programming Languages",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/low-resource-programming-languages/",
+      "published": "2026-10-19",
+      "checked": "2026-10-20",
+      "kind": "官方评测发布",
+      "note": "报告中的模型分数属于 OpenAI 自测，不是本站独立运行结果。"
+    },
+    {
+      "id": "b-multilangbench-code",
+      "title": "MultiLangBench evaluation setup and tests",
+      "publisher": "OpenAI",
+      "url": "https://github.com/openai/MultiLangBench",
+      "published": null,
+      "checked": "2026-10-20",
+      "kind": "官方开源评测仓库",
+      "note": "SQLite 3.40.1，约 24k 转换测试，官方建议 272 个指定前缀测试；需遵守隔离和无网络约束。"
     }
   ],
   "changes": [
+    {
+      "id": "multilangbench-release-20261019",
+      "date": "2026-10-19",
+      "title": "OpenAI 发布 MultiLangBench 与 COBOL 迁移评测",
+      "summary": "OpenAI 发布跨 20 种编程语言实现 SQLite 兼容数据库的评测，并公开 MultiLangBench 测试设置。官方报告 GPT-6 Astra 平均通过率 87.4%，GPT-5.6 Sol 为 26.8%；另一个 COBOL 迁移隐藏测试报告 GPT-6.1 Sol 在高推理档为 97.9%。",
+      "implication": "这是不同的评测口径：MultiLangBench 衡量新建软件，COBOL 迁移衡量行为保持。官方模型结果不是本站独立实测，真实生产迁移还需企业数据和规则回归。",
+      "benchmarks": [
+        "multilangbench"
+      ],
+      "sources": [
+        "b-multilangbench-release",
+        "b-multilangbench-code"
+      ],
+      "kind": "新增评测协议"
+    },
     {
       "id": "terminal-4-release",
       "date": "2026-08-28",
