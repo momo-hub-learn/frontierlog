@@ -1285,23 +1285,23 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-21T15:29:58Z",
+      "last_checked_at": "2026-10-21T17:48:39Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 17,
+      "candidate_count": 24,
       "publish_ready_count": 1,
       "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-21T15:29:58Z",
+    "generated_at": "2026-10-21T17:48:39Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 13,
+      "merge": 20,
       "hold": 3
     },
     "candidates": [
@@ -1330,6 +1330,29 @@
         "first_seen_at": "2026-10-20T12:44:41Z"
       },
       {
+        "id": "candidate-69d9d0b50530c4d3",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "Kumo Anomaly：先把工艺与设备异常检测变成可复现基线",
+        "summary": "NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。",
+        "why": "半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。",
+        "boundary": "异常不等于根因。官方 12.5 倍 AP 改善来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他机台、产品或厂区；本站未运行。",
+        "source": "NVIDIA / Kumo AI",
+        "source_kind": "官方技术发布、代码与模型卡",
+        "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
         "id": "candidate-d99b2c6d697385a3",
         "category": "industry",
         "published": "2026-10-21",
@@ -1351,6 +1374,29 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T13:33:09Z"
+      },
+      {
+        "id": "candidate-edc5df8642e5e532",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "分布式生物 Agent：把数百万脑细胞结果整理成待验证线索",
+        "summary": "OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。",
+        "why": "这是一条可审计的“实验数据→文献→候选机制→下一项实验”路径；研究者可以回到单个扰动和引用复核，而不是只读自动总结。",
+        "boundary": "数据来自小鼠脑细胞，作者论文和专家偏好不证明机制成立、能外推人类或已经找到药物；候选关系仍需独立计算、湿实验和疾病模型验证，本站未复现。",
+        "source": "OpenAI / PerturbAI / Scripps Research",
+        "source_kind": "官方研究发布与作者论文",
+        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T17:48:39Z"
       },
       {
         "id": "candidate-eff250e244822a86",
@@ -1399,6 +1445,78 @@
         "first_seen_at": "2026-10-21T15:29:58Z"
       },
       {
+        "id": "candidate-8a516f8c0cbb7b18",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "Granite Speech 5.0 发布",
+        "summary": "IBM 发布多语 2B 转写/翻译模型，并更新 TurboCTC 与 2B Plus。",
+        "why": "开放语音模型同时补足多语翻译、关键词偏置、标点恢复与多种本地推理入口；具体质量仍需按语言和业务录音复验。",
+        "boundary": "厂商 WER、速度与对比图不等于本站实测或所有口音、噪声和领域的结果；关键词偏置也可能放大误识别，需用业务录音和人工转写复核。",
+        "source": "IBM",
+        "source_kind": "官方技术发布",
+        "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "ibm-granite-speech-5",
+        "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
+        "id": "candidate-c21212465f6f4674",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "Kumo Anomaly 开放模型与代码",
+        "summary": "NVIDIA 与 Kumo AI 发布扩散式多变量时序异常检测模型和 SCS、MACS 阈值方法。",
+        "why": "制造时序可从可复现基线开始，但异常分只用于筛查，不能直接触发设备控制。",
+        "boundary": "异常不是故障根因；阈值决定误报与漏报。厂商半导体案例只是一种设备和数据分布，不能直接外推到生产线，本站未运行。",
+        "source": "NVIDIA / Kumo AI",
+        "source_kind": "官方技术发布",
+        "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "nvidia-kumo-anomaly",
+        "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
+        "id": "candidate-d82d1c6679d6eebe",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "OpenAI 模型预告进入 Antigravity 与 Gemini Agent",
+        "summary": "OpenAI 与 Google Cloud 宣布 Model Garden 合作，并预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent。",
+        "why": "开发 Agent 产品开始跨模型供应商提供选择，但真正价值要等具体模型、工具权限、上下文和定价上线后再比较。",
+        "boundary": "尚未全面 GA；公告没有给出每个模型、地区和账户的精确可用日期，不能标成现在可用。",
+        "source": "Google",
+        "source_kind": "官方产品节点",
+        "url": "https://openai.com/index/openai-models-google-cloud",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "google-antigravity",
+        "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
         "id": "candidate-ec0bbb16557febcb",
         "category": "industry",
         "published": "2026-10-20",
@@ -1420,6 +1538,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T11:52:59Z"
+      },
+      {
+        "id": "candidate-5c070fe36400c5b3",
+        "category": "research",
+        "published": "2026-10-21",
+        "title": "分布式生物推理：把大规模扰动图谱拆给数千个 Agent",
+        "summary": "团队让数千个 GPT‑Rosalind Agent 分别调查全脑 CRISPR 图谱中的基因扰动并连接文献，再合并为推理图谱；官方报告最大负载耗时 32 分钟、分布式报告在盲评中 75% 获专家偏好。",
+        "why": "前瞻信号不只是并行数量，而是将每条候选机制保留为可回查的数据、引用和下一步实验，使 Agent 参与研究设计而非只生成综述。",
+        "boundary": "现有结果主要来自小鼠脑细胞和作者给出的评估；时间、引用数量和专家偏好都不能证明生物机制、人类适用性或治疗有效性，论文与图谱仍需独立复核。",
+        "source": "OpenAI / PerturbAI / Scripps Research",
+        "source_kind": "官方研究发布与作者论文入口",
+        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
+        "publishable": false,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.815,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "distributed-biological-reasoning",
+        "topic_tags": [
+          "Agentic Science",
+          "CRISPR Atlas",
+          "Neurobiology"
+        ],
+        "first_seen_at": "2026-10-21T17:48:39Z"
       },
       {
         "id": "candidate-74819f0dd4ea64ce",
@@ -1491,6 +1638,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
+      },
+      {
+        "id": "candidate-b66c55d45e09e00b",
+        "category": "research",
+        "published": "2026-10-20",
+        "title": "FairStress：从单次公平判断走向压力稳定性",
+        "summary": "研究从 29 个领域的 300 个两候选场景构造人口属性与对抗前缀变体，扩展出 1,300 万以上实例，并提供 5 万条 Core 子集。",
+        "why": "值得关注的变化不是又一项平均分，而是检查同一决策在身份扰动、提示压力、解释与内部表征上是否稳定。",
+        "boundary": "以平等为中心的定义不覆盖所有公平观；合成压力测试、解释或激活差异不能证明真实部署无歧视，也不是合规认证。",
+        "source": "Allen Institute for AI",
+        "source_kind": "官方研究发布",
+        "url": "https://huggingface.co/blog/allenai/fairstress",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.794,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "fairstress",
+        "topic_tags": [
+          "Fairness",
+          "Decision Models",
+          "Evaluation"
+        ],
+        "first_seen_at": "2026-10-21T17:48:39Z"
       },
       {
         "id": "candidate-e41d709f57e5797b",
@@ -3965,12 +4141,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-21T15:29:58Z",
+    "last_evaluated": "2026-10-21T17:48:39Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 17,
+      "candidate_count": 24,
       "publish_ready_count": 1,
-      "merge_count": 13,
+      "merge_count": 20,
       "best_candidate": "candidate-47750334ae9b688a",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
