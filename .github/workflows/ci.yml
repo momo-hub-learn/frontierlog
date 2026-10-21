@@ -84,7 +84,9 @@ jobs:
           grep -q "GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout" dist-ci/index.html
           grep -q "the reset has been processed" dist-ci/index.html
           grep -q "banked reset 正在加载到所有付费账户" dist-ci/index.html
-          grep -q "最近检查" dist-ci/index.html
+          grep -q "正文核验" dist-ci/index.html
+          grep -q "最近策略检查" dist-ci/index.html
+          grep -q "新鲜度加权：旧 1 日 −2" dist-ci/index.html
           grep -q "HOT / RECENT" dist-ci/index.html
           grep -q "fc-hot-sync" dist-ci/index.html
           grep -q "AI 前沿现场" dist-ci/index.html
