@@ -165,6 +165,49 @@
       ]
     },
     {
+      "id": "nvidia-dsx-efficiency-20261021",
+      "category": "industry",
+      "title": "DSX AI 工厂：把节水、节电与吞吐提升放回测试边界",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:38:24+08:00",
+      "first_seen_at": "2026-10-22T03:38:24+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 32,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是独立能效评级或本站实测分。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，尝试把冷却、功率分配、并网响应和设施数字孪生接进同一套 AI 工厂设计与运营路径。",
+      "why": "基础设施竞争开始从 GPU 数量转向每兆瓦有效产出；DSX 给出了可分层验证的设计、仿真、运行与电网接口，也公开了若干厂商 PoC 数字。",
+      "boundary": "近零冷却用水、最多 30% 节电和吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、系统、负载和设施边界影响；不能外推到任意数据中心，也不是本站实测。",
+      "source": "NVIDIA",
+      "source_kind": "官方 AI 工厂平台发布 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+      "link": "#/manufacturing?article=nvidia-dsx-efficiency-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 DSX 架构与测试口径",
+          "note": "需按气候、机型、负载和设施边界复核厂商数字",
+          "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "European Ecosystem Builds World’s Most Efficient AI Factories With NVIDIA DSX",
+          "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-chatgpt-agentic-ad-stack-20261021",
       "category": "product",
       "title": "ChatGPT 广告栈公开：独立 Agent 编排检索、排序与竞价",

@@ -1,38 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T19:42:10Z",
+  "generated_at": "2026-10-21T19:43:58Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 1,
-    "merge": 25,
+    "publish": 0,
+    "merge": 26,
     "hold": 4
   },
   "candidates": [
-    {
-      "id": "candidate-2e1dbc4df560deae",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "DSX AI 工厂：效率数字必须保留测试边界",
-      "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。",
-      "why": "同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。",
-      "boundary": "近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。",
-      "source": "NVIDIA",
-      "source_kind": "官方 AI 工厂平台发布",
-      "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
-      "publishable": true,
-      "features": {
-        "freshness": 1.0,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 1.0
-      },
-      "priority_score": 0.973,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-      "first_seen_at": "2026-10-21T19:42:10Z"
-    },
     {
       "id": "candidate-b026f19029976dfa",
       "category": "research",
@@ -61,6 +38,29 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
+    },
+    {
+      "id": "candidate-2e1dbc4df560deae",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "DSX AI 工厂：效率数字必须保留测试边界",
+      "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。",
+      "why": "同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。",
+      "boundary": "近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。",
+      "source": "NVIDIA",
+      "source_kind": "官方 AI 工厂平台发布",
+      "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T19:42:10Z"
     },
     {
       "id": "candidate-2fb2fdc9e3135863",
