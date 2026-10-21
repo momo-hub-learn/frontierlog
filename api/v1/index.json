@@ -37,6 +37,98 @@
     ],
     "items": [
       {
+        "id": "mistral-voxtral-3-20261020",
+        "category": "model",
+        "title": "Voxtral 3：实时语音 Agent SDK 与新一代转写 / TTS 同步开放",
+        "published": "2026-10-20",
+        "published_at": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00",
+        "first_seen_at": "2026-10-21T21:24:00+08:00",
+        "heat": 97,
+        "heat_components": {
+          "impact": 35,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "up",
+        "summary": "Mistral 发布 Voxtral 3 语音模型家族和基于 LiveKit 的实时 Agent SDK，覆盖录音/实时转写、说话人区分、上下文词表、TTS 与工具调用；官方 API 已开放。",
+        "why": "语音能力从单独 ASR/TTS 接口走向可打断、可调用业务工具的流式 Agent；可先用授权录音测试领域术语、轮次切换和失败恢复。",
+        "boundary": "准确率、延迟和价格比较主要来自厂商评测，本站未复现；不同模型与模式的语言覆盖不相同。语音克隆、录音保存和外呼还需单独处理同意、身份冒用、隐私与人工接管。",
+        "source": "Mistral AI",
+        "source_kind": "官方发布 + 官方文档 / 本轮编辑核验",
+        "url": "https://mistral.ai/news/voxtral-3/",
+        "link": "#/toolkit",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方音频文档",
+            "note": "Public Preview；需 API Key，本站未运行模型",
+            "url": "https://docs.mistral.ai/studio/audio/overview",
+            "kind": "try"
+          }
+        ],
+        "related": [
+          {
+            "source": "Mistral AI",
+            "title": "Voxtral 3",
+            "url": "https://mistral.ai/news/voxtral-3/",
+            "date": "2026-10-20"
+          },
+          {
+            "source": "Mistral Docs",
+            "title": "Audio overview and Voxtral 3 model matrix",
+            "url": "https://docs.mistral.ai/studio/audio/overview",
+            "date": "2026-10-20"
+          }
+        ]
+      },
+      {
+        "id": "mistral-nvidia-engineering-ai-20261021",
+        "category": "industry",
+        "title": "Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00",
+        "first_seen_at": "2026-10-21T21:24:00+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 35,
+          "availability": 14,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "up",
+        "summary": "Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。",
+        "why": "工程 Agent 的评价开始从通用问答转向工具调用、多步仿真、技术正确性、执行时间与算力成本；公开口径若落地，能提高跨方案可比性。",
+        "boundary": "这是合作方向和待发布评测计划，不是现成排行榜、已发布数据集或量产收益。官方没有给出统一交付日期，本站未验证 CAD 到仿真的任务成功率。",
+        "source": "Mistral AI",
+        "source_kind": "官方合作公告 / 本轮编辑核验",
+        "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+        "link": "#/manufacturing",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读官方公告",
+            "note": "公开评测和数据集尚待发布",
+            "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+            "kind": "read"
+          }
+        ],
+        "related": [
+          {
+            "source": "Mistral AI",
+            "title": "Mistral Advances AI for Engineering with NVIDIA",
+            "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
         "id": "openai-orchestra-bio-20261020",
         "category": "industry",
         "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
@@ -849,23 +941,23 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-21T11:52:59Z",
+      "last_checked_at": "2026-10-21T13:33:09Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 10,
+      "candidate_count": 12,
       "publish_ready_count": 1,
       "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-21T11:52:59Z",
+    "generated_at": "2026-10-21T13:33:09Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 6,
+      "merge": 8,
       "hold": 3
     },
     "candidates": [
@@ -894,6 +986,29 @@
         "first_seen_at": "2026-10-20T12:44:41Z"
       },
       {
+        "id": "candidate-d99b2c6d697385a3",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径",
+        "summary": "双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。",
+        "why": "工程 Agent 需要同时衡量技术正确性、工具调用、执行时间和计算成本；公开口径比通用聊天分数更接近真实工程决策。",
+        "boundary": "目前是合作与待发布计划，不是现成排行榜或开放数据集；未给出统一交付日期，也不能据此推断仿真提速或量产收益。",
+        "source": "Mistral AI",
+        "source_kind": "官方一手来源",
+        "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T13:33:09Z"
+      },
+      {
         "id": "candidate-ec0bbb16557febcb",
         "category": "industry",
         "published": "2026-10-20",
@@ -915,6 +1030,30 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T11:52:59Z"
+      },
+      {
+        "id": "candidate-31d8648ef450c276",
+        "category": "product",
+        "published": "2026-10-20",
+        "title": "Voxtral 3 与实时语音 Agent SDK 开放",
+        "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
+        "why": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
+        "boundary": "Public Preview 与厂商评测不等于独立任务成功率；各模型的语言、上下文、延迟与价格不同。语音克隆、录音保存和外呼必须处理同意、身份冒用、隐私与人工接管。",
+        "source": "Mistral AI",
+        "source_kind": "官方模型与产品发布",
+        "url": "https://mistral.ai/news/voxtral-3",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "voxtral-3-voice-agents",
+        "first_seen_at": "2026-10-21T13:33:09Z"
       },
       {
         "id": "candidate-567f9dfeb2c35d69",
@@ -3282,12 +3421,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-21T11:52:59Z",
+    "last_evaluated": "2026-10-21T13:33:09Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 10,
+      "candidate_count": 12,
       "publish_ready_count": 1,
-      "merge_count": 6,
+      "merge_count": 8,
       "best_candidate": "candidate-47750334ae9b688a",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
@@ -3308,7 +3447,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-21T07:49:53Z",
+    "checked_at": "2026-10-21T13:21:32Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -3316,11 +3455,11 @@
       {
         "repo": "MadsLorentzen/ai-job-search",
         "rank": 1,
-        "stars_today": 3861,
+        "stars_today": 3131,
         "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
         "language": "Python",
-        "stars": 61568,
-        "forks": 19087,
+        "stars": 62289,
+        "forks": 19252,
         "repo_created_at": "2026-03-18T14:33:04Z",
         "repo_pushed_at": "2026-10-21T05:29:11Z",
         "category": "ai-tools",
@@ -3367,17 +3506,21 @@
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 61568
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 62289
           }
         ]
       },
       {
         "repo": "cloudflare/security-audit-skill",
         "rank": 2,
-        "stars_today": 1712,
+        "stars_today": 1997,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 34796,
-        "forks": 2190,
+        "stars": 35168,
+        "forks": 2211,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -3408,19 +3551,68 @@
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 34796
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 35168
+          }
+        ]
+      },
+      {
+        "repo": "vllm-project/vllm",
+        "rank": 3,
+        "stars_today": 439,
+        "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+        "language": "Python",
+        "stars": 94691,
+        "forks": 23718,
+        "repo_created_at": "2023-02-09T11:23:20Z",
+        "repo_pushed_at": "2026-10-21T12:33:44Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/vllm-project/vllm",
+        "star_history": [
+          {
+            "at": "2026-10-20T11:52:21Z",
+            "stars": 94230
+          },
+          {
+            "at": "2026-10-20T17:21:54Z",
+            "stars": 94343
+          },
+          {
+            "at": "2026-10-20T21:44:12Z",
+            "stars": 94399
+          },
+          {
+            "at": "2026-10-21T00:41:32Z",
+            "stars": 94431
+          },
+          {
+            "at": "2026-10-21T07:49:53Z",
+            "stars": 94585
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 94691
           }
         ]
       },
       {
         "repo": "stablyai/orca",
-        "rank": 3,
-        "stars_today": 1565,
+        "rank": 4,
+        "stars_today": 1543,
         "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
         "language": "TypeScript",
-        "stars": 100229,
-        "forks": 6352,
+        "stars": 100600,
+        "forks": 6359,
         "repo_created_at": "2026-03-17T03:28:57Z",
-        "repo_pushed_at": "2026-10-21T07:48:01Z",
+        "repo_pushed_at": "2026-10-21T13:17:35Z",
         "category": "agent-runtime",
         "ai_related": true,
         "tags": [
@@ -3465,310 +3657,21 @@
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 100229
-          }
-        ]
-      },
-      {
-        "repo": "DietrichGebert/ponytail",
-        "rank": 4,
-        "stars_today": 1208,
-        "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-        "language": "JavaScript",
-        "stars": 170341,
-        "forks": 9268,
-        "repo_created_at": "2026-06-12T00:52:37Z",
-        "repo_pushed_at": "2026-10-18T01:55:14Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/DietrichGebert/ponytail",
-        "star_history": [
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 168676
           },
           {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 169193
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 169475
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 169648
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 170341
-          }
-        ]
-      },
-      {
-        "repo": "Comfy-Org/ComfyUI",
-        "rank": 5,
-        "stars_today": 1206,
-        "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
-        "language": "Python",
-        "stars": 141057,
-        "forks": 16688,
-        "repo_created_at": "2023-01-17T03:15:56Z",
-        "repo_pushed_at": "2026-10-21T05:03:37Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/Comfy-Org/ComfyUI",
-        "star_history": [
-          {
-            "at": "2026-10-19T13:40:14Z",
-            "stars": 139245
-          },
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 139546
-          },
-          {
-            "at": "2026-10-19T23:48:52Z",
-            "stars": 139687
-          },
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 139952
-          },
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 140316
-          },
-          {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 140563
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 140685
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 140760
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 141057
-          }
-        ]
-      },
-      {
-        "repo": "ruvnet/ruflo",
-        "rank": 6,
-        "stars_today": 684,
-        "description": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
-        "language": "TypeScript",
-        "stars": 77997,
-        "forks": 9174,
-        "repo_created_at": "2025-06-02T21:24:20Z",
-        "repo_pushed_at": "2026-10-21T07:04:08Z",
-        "category": "agent-memory",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Memory",
-          "AI"
-        ],
-        "url": "https://github.com/ruvnet/ruflo",
-        "star_history": [
-          {
-            "at": "2026-10-19T13:40:14Z",
-            "stars": 76892
-          },
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 77078
-          },
-          {
-            "at": "2026-10-19T23:48:52Z",
-            "stars": 77168
-          },
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 77326
-          },
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 77509
-          },
-          {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 77653
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 77765
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 77841
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 77997
-          }
-        ]
-      },
-      {
-        "repo": "Graphify-Labs/graphify",
-        "rank": 7,
-        "stars_today": 802,
-        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
-        "language": "Python",
-        "stars": 130677,
-        "forks": 12566,
-        "repo_created_at": "2026-04-03T15:49:07Z",
-        "repo_pushed_at": "2026-10-20T16:16:19Z",
-        "category": "other",
-        "ai_related": false,
-        "tags": [
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/Graphify-Labs/graphify",
-        "star_history": [
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 129518
-          },
-          {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 129886
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 130105
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 130235
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 130677
-          }
-        ]
-      },
-      {
-        "repo": "anomalyco/opencode",
-        "rank": 8,
-        "stars_today": 1240,
-        "description": "The open source coding agent.",
-        "language": "TypeScript",
-        "stars": 219267,
-        "forks": 29258,
-        "repo_created_at": "2025-04-30T20:08:00Z",
-        "repo_pushed_at": "2026-10-21T07:43:44Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/anomalyco/opencode",
-        "star_history": [
-          {
-            "at": "2026-10-19T13:40:14Z",
-            "stars": 217276
-          },
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 217616
-          },
-          {
-            "at": "2026-10-19T23:48:52Z",
-            "stars": 217771
-          },
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 218011
-          },
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 218369
-          },
-          {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 218639
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 218815
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 218917
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 219267
-          }
-        ]
-      },
-      {
-        "repo": "msitarzewski/agency-agents",
-        "rank": 9,
-        "stars_today": 562,
-        "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
-        "language": "Shell",
-        "stars": 162615,
-        "forks": 26246,
-        "repo_created_at": "2025-10-13T12:12:29Z",
-        "repo_pushed_at": "2026-10-19T16:48:24Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/msitarzewski/agency-agents",
-        "star_history": [
-          {
-            "at": "2026-10-20T11:52:21Z",
-            "stars": 161979
-          },
-          {
-            "at": "2026-10-20T17:21:54Z",
-            "stars": 162136
-          },
-          {
-            "at": "2026-10-20T21:44:12Z",
-            "stars": 162256
-          },
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 162344
-          },
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 162615
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 100600
           }
         ]
       },
       {
         "repo": "headroomlabs-ai/headroom",
-        "rank": 10,
-        "stars_today": 549,
+        "rank": 5,
+        "stars_today": 477,
         "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
         "language": "Python",
-        "stars": 76900,
-        "forks": 5969,
+        "stars": 77012,
+        "forks": 5977,
         "repo_created_at": "2026-01-07T19:58:51Z",
         "repo_pushed_at": "2026-10-21T04:15:22Z",
         "category": "agent-interface",
@@ -3815,86 +3718,177 @@
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 76900
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 77012
           }
         ]
       },
       {
-        "repo": "anthropics/knowledge-work-plugins",
-        "rank": 11,
-        "stars_today": 267,
-        "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
-        "language": "Python",
-        "stars": 30920,
-        "forks": 3472,
-        "repo_created_at": "2026-01-23T20:11:54Z",
-        "repo_pushed_at": "2026-10-21T07:39:12Z",
-        "category": "other",
-        "ai_related": false,
+        "repo": "DietrichGebert/ponytail",
+        "rank": 6,
+        "stars_today": 2051,
+        "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+        "language": "JavaScript",
+        "stars": 170787,
+        "forks": 9289,
+        "repo_created_at": "2026-06-12T00:52:37Z",
+        "repo_pushed_at": "2026-10-18T01:55:14Z",
+        "category": "ai-tools",
+        "ai_related": true,
         "tags": [
+          "AI",
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/anthropics/knowledge-work-plugins",
+        "url": "https://github.com/DietrichGebert/ponytail",
         "star_history": [
           {
             "at": "2026-10-20T11:52:21Z",
-            "stars": 30609
+            "stars": 168676
           },
           {
             "at": "2026-10-20T17:21:54Z",
-            "stars": 30693
+            "stars": 169193
           },
           {
             "at": "2026-10-20T21:44:12Z",
-            "stars": 30761
+            "stars": 169475
           },
           {
             "at": "2026-10-21T00:41:32Z",
-            "stars": 30787
+            "stars": 169648
           },
           {
             "at": "2026-10-21T07:49:53Z",
-            "stars": 30920
+            "stars": 170341
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 170787
           }
         ]
       },
       {
-        "repo": "wshobson/agents",
-        "rank": 12,
-        "stars_today": 93,
-        "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi",
+        "repo": "Comfy-Org/ComfyUI",
+        "rank": 7,
+        "stars_today": 914,
+        "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
         "language": "Python",
-        "stars": 41365,
-        "forks": 4400,
-        "repo_created_at": "2025-07-24T23:28:14Z",
-        "repo_pushed_at": "2026-10-19T18:28:14Z",
-        "category": "agent-harness",
+        "stars": 141235,
+        "forks": 16703,
+        "repo_created_at": "2023-01-17T03:15:56Z",
+        "repo_pushed_at": "2026-10-21T10:39:52Z",
+        "category": "ai-tools",
         "ai_related": true,
         "tags": [
-          "Agent",
-          "Harness",
-          "Tools"
+          "AI",
+          "Open Source",
+          "GitHub"
         ],
-        "url": "https://github.com/wshobson/agents",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
         "star_history": [
           {
+            "at": "2026-10-19T13:40:14Z",
+            "stars": 139245
+          },
+          {
+            "at": "2026-10-19T20:00:59Z",
+            "stars": 139546
+          },
+          {
+            "at": "2026-10-19T23:48:52Z",
+            "stars": 139687
+          },
+          {
+            "at": "2026-10-20T05:01:50Z",
+            "stars": 139952
+          },
+          {
+            "at": "2026-10-20T11:52:21Z",
+            "stars": 140316
+          },
+          {
+            "at": "2026-10-20T17:21:54Z",
+            "stars": 140563
+          },
+          {
+            "at": "2026-10-20T21:44:12Z",
+            "stars": 140685
+          },
+          {
             "at": "2026-10-21T00:41:32Z",
-            "stars": 41251
+            "stars": 140760
           },
           {
             "at": "2026-10-21T07:49:53Z",
-            "stars": 41365
+            "stars": 141057
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 141235
+          }
+        ]
+      },
+      {
+        "repo": "supabase/supabase",
+        "rank": 8,
+        "stars_today": 509,
+        "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+        "language": "TypeScript",
+        "stars": 112648,
+        "forks": 16827,
+        "repo_created_at": "2019-10-12T05:56:49Z",
+        "repo_pushed_at": "2026-10-21T13:18:48Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/supabase/supabase",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 112648
+          }
+        ]
+      },
+      {
+        "repo": "twentyhq/twenty",
+        "rank": 9,
+        "stars_today": 105,
+        "description": "The open alternative to Salesforce, designed for AI.",
+        "language": "TypeScript",
+        "stars": 58831,
+        "forks": 9643,
+        "repo_created_at": "2022-12-01T13:04:40Z",
+        "repo_pushed_at": "2026-10-21T13:21:03Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/twentyhq/twenty",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 58831
           }
         ]
       },
       {
         "repo": "shiyu-coder/Kronos",
-        "rank": 13,
-        "stars_today": 733,
+        "rank": 10,
+        "stars_today": 570,
         "description": "Kronos: A Foundation Model for the Language of Financial Markets",
         "language": "Python",
-        "stars": 42493,
-        "forks": 7030,
+        "stars": 42619,
+        "forks": 7046,
         "repo_created_at": "2025-07-01T02:54:32Z",
         "repo_pushed_at": "2026-04-13T12:38:49Z",
         "category": "other",
@@ -3940,47 +3934,103 @@
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 42493
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 42619
           }
         ]
       },
       {
-        "repo": "vllm-project/vllm",
-        "rank": 14,
-        "stars_today": 128,
-        "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-        "language": "Python",
-        "stars": 94585,
-        "forks": 23694,
-        "repo_created_at": "2023-02-09T11:23:20Z",
-        "repo_pushed_at": "2026-10-21T06:53:30Z",
-        "category": "ai-tools",
-        "ai_related": true,
+        "repo": "strelov1/freehire",
+        "rank": 11,
+        "stars_today": 405,
+        "description": "freehire — the open-source search engine for job seekers",
+        "language": "Go",
+        "stars": 2044,
+        "forks": 229,
+        "repo_created_at": "2026-06-07T03:20:31Z",
+        "repo_pushed_at": "2026-10-21T13:18:38Z",
+        "category": "other",
+        "ai_related": false,
         "tags": [
-          "AI",
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/vllm-project/vllm",
+        "url": "https://github.com/strelov1/freehire",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 2044
+          }
+        ]
+      },
+      {
+        "repo": "akitaonrails/ai-memory",
+        "rank": 12,
+        "stars_today": 810,
+        "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+        "language": "Rust",
+        "stars": 12047,
+        "forks": 854,
+        "repo_created_at": "2026-05-21T23:23:51Z",
+        "repo_pushed_at": "2026-10-21T05:41:57Z",
+        "category": "agent-memory",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Memory",
+          "AI"
+        ],
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 12047
+          }
+        ]
+      },
+      {
+        "repo": "Graphify-Labs/graphify",
+        "rank": 13,
+        "stars_today": 1434,
+        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+        "language": "Python",
+        "stars": 130995,
+        "forks": 12589,
+        "repo_created_at": "2026-04-03T15:49:07Z",
+        "repo_pushed_at": "2026-10-20T16:16:19Z",
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/Graphify-Labs/graphify",
         "star_history": [
           {
             "at": "2026-10-20T11:52:21Z",
-            "stars": 94230
+            "stars": 129518
           },
           {
             "at": "2026-10-20T17:21:54Z",
-            "stars": 94343
+            "stars": 129886
           },
           {
             "at": "2026-10-20T21:44:12Z",
-            "stars": 94399
+            "stars": 130105
           },
           {
             "at": "2026-10-21T00:41:32Z",
-            "stars": 94431
+            "stars": 130235
           },
           {
             "at": "2026-10-21T07:49:53Z",
-            "stars": 94585
+            "stars": 130677
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 130995
           }
         ]
       }
@@ -4060,13 +4110,13 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-21T07:49:53Z",
-      "last_success_at": "2026-10-21T07:49:53Z",
+      "last_checked_at": "2026-10-21T13:21:32Z",
+      "last_success_at": "2026-10-21T13:21:32Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-21T07:49:53Z",
+      "watchlist_checked_at": "2026-10-21T13:21:32Z",
       "watchlist_errors": [],
-      "trending_count": 14,
-      "verified_count": 14,
+      "trending_count": 13,
+      "verified_count": 13,
       "skipped": []
     },
     "watchlist": [
@@ -4081,12 +4131,12 @@
           "Agent",
           "MCP"
         ],
-        "stars": 351394,
-        "forks": 88302,
+        "stars": 353983,
+        "forks": 88915,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-21T07:44:10Z",
+        "repo_pushed_at": "2026-10-21T13:20:34Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-21T07:49:53Z",
+        "verified_at": "2026-10-21T13:21:32Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
@@ -4097,10 +4147,10 @@
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · API trendingScore descending · Top 20",
-    "note": "榜位采用官方 API trendingScore 降序。本轮网页 Top 20 与 API 顺序一致；分别保留抓取时间，不能推定未来始终一致。trendingScore、Likes、Downloads 只是平台热度/使用信号，不是能力成绩或本站实测。未提供的 task/library 标为“未标注”；createdAt 是模型仓库创建时间，不是原始发布日期。",
+    "note": "榜位采用 2026-10-21T11:48:16.725433+00:00 的官方 API trendingScore 降序；2026-10-21T13:22:00+00:00 再核网页 Top 20，顺序仍一致。API 本轮不可达，因此没有改写旧 trendingScore、Likes、Downloads 或 API 成功时间。平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_api_trendingScore_desc",
     "api_fetched_at": "2026-10-21T11:48:16.725433+00:00",
-    "web_fetched_at": "2026-10-21T11:48:16.943948+00:00",
+    "web_fetched_at": "2026-10-21T13:22:00+00:00",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -10456,17 +10506,17 @@
   },
   "models": {
     "version": 1,
-    "checked": "2026-10-15",
+    "checked": "2026-10-21",
     "sources": [
       {
         "id": "aa-live",
         "publisher": "Artificial Analysis",
         "title": "LLM Leaderboard",
-        "url": "https://artificialanalysis.ai/leaderboards/models",
-        "checked": "2026-09-23",
+        "url": "https://artificialanalysis.ai/models",
+        "checked": "2026-10-21",
         "published": null,
         "kind": "评测方公开榜单",
-        "note": "人工摘录一组模型配置，保留网页所示分数。不是全量榜单；速度与单任务成本来自相同模型页，数值会随评测更新。"
+        "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-21 复核官方榜首五个配置；其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
       },
       {
         "id": "aa-gpt6-sol",
@@ -10705,12 +10755,12 @@
         "title": "综合能力",
         "provider": "Artificial Analysis",
         "metric": "intelligence",
-        "as_of": null,
-        "checked": "2026-09-23",
+        "as_of": "2026-10-21",
+        "checked": "2026-10-21",
         "methodology": "Intelligence Index v4.3.2",
         "mode": "manual_excerpt",
         "source": "aa-live",
-        "scope": "17 个配置的人工摘录，不是全榜。相同整数分不据此断言高下。",
+        "scope": "21 个配置的人工摘录，不是全榜；本轮只复核官方页面当前前五名。相同整数分不据此断言高下。",
         "rows": [
           {
             "id": "aa-opus-55-max",
@@ -10725,6 +10775,82 @@
             "context": "1M",
             "source_rank": null,
             "source_order": 0,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-live"
+          },
+          {
+            "id": "aa-sonnet-55-max",
+            "name": "Claude Sonnet 5.5 (Max, Default Fallback)",
+            "maker": "Anthropic",
+            "intelligence": 56,
+            "speed": null,
+            "cost_task": null,
+            "input_price": null,
+            "output_price": null,
+            "coding": null,
+            "context": null,
+            "source_rank": null,
+            "source_order": 1,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-live"
+          },
+          {
+            "id": "aa-opus-55-xhigh",
+            "name": "Claude Opus 5.5 (Xhigh, Default Fallback)",
+            "maker": "Anthropic",
+            "intelligence": 56,
+            "speed": null,
+            "cost_task": null,
+            "input_price": null,
+            "output_price": null,
+            "coding": null,
+            "context": null,
+            "source_rank": null,
+            "source_order": 2,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-live"
+          },
+          {
+            "id": "aa-muse-wonder-full-max",
+            "name": "Muse Wonder Full (Max)",
+            "maker": "Meta",
+            "intelligence": 56,
+            "speed": null,
+            "cost_task": null,
+            "input_price": null,
+            "output_price": null,
+            "coding": null,
+            "context": "1M",
+            "source_rank": null,
+            "source_order": 3,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-live"
+          },
+          {
+            "id": "aa-opus-55-high",
+            "name": "Claude Opus 5.5 (High, Default Fallback)",
+            "maker": "Anthropic",
+            "intelligence": 54,
+            "speed": null,
+            "cost_task": null,
+            "input_price": null,
+            "output_price": null,
+            "coding": null,
+            "context": null,
+            "source_rank": null,
+            "source_order": 4,
             "score_error": null,
             "rank_spread": null,
             "votes": null,
@@ -12085,6 +12211,36 @@
     "snapshot": "2026-10-21",
     "items": [
       {
+        "id": "voxtral-3-voice-agents",
+        "name": "Mistral · Voxtral 3",
+        "title": "转写、合成并运行可打断的实时语音 Agent",
+        "category": "交互 / Agent",
+        "mark": "V3",
+        "accent": "cyan",
+        "summary": "把离线/实时转写、说话人区分、上下文词表、TTS 与工具调用组合进流式语音 Agent；可通过 API、Studio 或按厂商说明自部署。",
+        "scope": "官方模型矩阵包含三类语音转写与两类 TTS 模型；Voice Agent SDK 基于 LiveKit，可连接 SIP / WebRTC，并让推理模型在对话中调用工具。",
+        "boundary": "Public Preview 与厂商评测不等于独立任务成功率；各模型的语言、上下文、延迟与价格不同。语音克隆、录音保存和外呼必须处理同意、身份冒用、隐私与人工接管。",
+        "repo": null,
+        "sources": [
+          "mistral-voxtral-3-release",
+          "mistral-voxtral-3-docs"
+        ],
+        "requirements": "Mistral AI Studio API Key；Python/TypeScript SDK 或 curl；实时转写需 WebSocket，完整语音 Agent 需配置 LiveKit 与业务工具权限。",
+        "test": "用获授权的短录音和人工转写对照专有名词、数字、说话人边界与漏句；再测试打断、工具失败和人工接管，不能只听一段最佳样例。",
+        "checks": [
+          "分别记录离线与实时模式、模型 ID、语言和延迟设置",
+          "核对专有名词、数字、说话人区分及端到端首音频时间",
+          "工具调用必须经过最小权限、确认与可回滚路径"
+        ],
+        "command": "python -m pip install \"mistralai[realtime]\"",
+        "effort": "API / 私有部署",
+        "evidence": "Mistral 官方发布与开发文档",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00"
+      },
+      {
         "id": "timestral",
         "name": "Timestral",
         "title": "用小型模型做多变量时序预测",
@@ -12461,6 +12617,24 @@
     ],
     "sources": [
       {
+        "id": "mistral-voxtral-3-release",
+        "publisher": "Mistral AI",
+        "title": "Voxtral 3",
+        "url": "https://mistral.ai/news/voxtral-3/",
+        "published": "2026-10-20",
+        "checked": "2026-10-21",
+        "kind": "官方模型与产品发布"
+      },
+      {
+        "id": "mistral-voxtral-3-docs",
+        "publisher": "Mistral Docs",
+        "title": "Audio overview and Voxtral 3 model matrix",
+        "url": "https://docs.mistral.ai/studio/audio/overview",
+        "published": null,
+        "checked": "2026-10-21",
+        "kind": "官方开发文档"
+      },
+      {
         "id": "timestral-repository",
         "title": "Timestral 官方推理代码与许可说明",
         "publisher": "Mistral AI",
@@ -12662,6 +12836,21 @@
       }
     ],
     "events": [
+      {
+        "id": "voxtral-3-release-20261020",
+        "task": "voxtral-3-voice-agents",
+        "date": "2026-10-20",
+        "kind": "release",
+        "title": "Voxtral 3 与实时语音 Agent SDK 开放",
+        "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
+        "delta": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
+        "sources": [
+          "mistral-voxtral-3-release",
+          "mistral-voxtral-3-docs"
+        ],
+        "reviewed": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00"
+      },
       {
         "id": "timestral-release-20261015",
         "task": "timestral",
@@ -13044,6 +13233,17 @@
     ],
     "sources": [
       {
+        "id": "mistral-nvidia-engineering-ai",
+        "title": "Mistral Advances AI for Engineering with NVIDIA",
+        "publisher": "Mistral AI",
+        "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+        "published": "2026-10-21",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00",
+        "kind": "官方一手来源",
+        "date_label": null
+      },
+      {
         "id": "timestral-industrial",
         "title": "Introducing Timestral",
         "publisher": "Mistral AI",
@@ -13278,6 +13478,40 @@
       }
     ],
     "articles": [
+      {
+        "id": "mistral-nvidia-cae-eda-benchmarks-20261021",
+        "sector": "manufacturing",
+        "topics": [
+          "equipment-design",
+          "digital-twin"
+        ],
+        "title": "Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径",
+        "summary": "双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。",
+        "why": "工程 Agent 需要同时衡量技术正确性、工具调用、执行时间和计算成本；公开口径比通用聊天分数更接近真实工程决策。",
+        "boundary": "目前是合作与待发布计划，不是现成排行榜或开放数据集；未给出统一交付日期，也不能据此推断仿真提速或量产收益。",
+        "sources": [
+          "mistral-nvidia-engineering-ai"
+        ],
+        "kind": "update",
+        "access": "官方公告；Benchmark 与数据集待发布",
+        "published": "2026-10-21",
+        "steps": [
+          "先冻结一组带参考结果的 CAD / CAE 小任务和失败条件",
+          "分别记录技术正确性、工具调用、执行时间及算力成本",
+          "待公开 Benchmark 与数据集发布后再映射口径，不用当前公告补造分数"
+        ],
+        "metrics": [
+          "技术正确性与任务完成率",
+          "仿真/Agent 执行时间",
+          "GPU 与工程人工复核成本"
+        ],
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T21:24:00+08:00",
+        "first_seen_at": "2026-10-21T21:24:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "timestral-maintenance-20261015",
         "sector": "manufacturing",
@@ -13953,6 +14187,52 @@
       }
     ],
     "items": [
+      {
+        "id": "voxtral-3-voice-agents",
+        "publisher": "Mistral AI",
+        "group": "audio",
+        "access": "model",
+        "headline": "先用一段授权录音验收转写与说话人边界",
+        "input": "一段已获授权、去除不必要敏感信息的短音频",
+        "output": "转写文本；按所选接口可再检查时间戳、说话人区分与领域词表",
+        "requirements": "Mistral AI Studio API Key；Python SDK `mistralai[realtime]`；实时转写需 WebSocket 客户端。",
+        "limitation": "只核验官方发布与开发文档，本站未调用 API。不同 Voxtral 3 模型的语言、上下文、实时与克隆能力不同；不要把厂商评测直接当业务准确率。",
+        "cost": "Mini Transcribe 3 官方价 $0.0035/分钟；Small Transcribe 3 为 $0.004/分钟。实时、TTS 与完整语音 Agent 另行计费。",
+        "steps": [
+          {
+            "title": "准备最小且已授权的录音",
+            "body": "先选 30–60 秒样本，包含一个易错专有名词；保留人工转写作为对照，不上传无关个人信息。"
+          },
+          {
+            "title": "安装官方 SDK 并运行一次转写",
+            "body": "API Key 只放环境变量，不写进脚本或日志；模型名沿用官方快速开始示例。",
+            "command": "python -m pip install \"mistralai[realtime]\"\npython - <<'PY'\nimport os\nfrom mistralai.client import Mistral\nclient = Mistral(api_key=os.environ[\"MISTRAL_API_KEY\"])\nwith open(\"sample.mp3\", \"rb\") as audio:\n    result = client.audio.transcriptions.complete(\n        model=\"voxtral-mini-transcribe-3\",\n        file={\"file_name\": \"sample.mp3\", \"content\": audio},\n    )\nprint(result.text)\nPY"
+          },
+          {
+            "title": "按业务失败条件验收",
+            "body": "逐字核对专有名词、数字、说话人边界和漏句；再测试噪声、打断及人工接管，不直接连接外呼或预约写入。"
+          }
+        ],
+        "troubleshooting": "401/403 先核对组织与 Key 权限；模型名错误时以官方模型页为准；实时连接失败检查 `realtime` extra、网络与 WebSocket；领域名词可用 context biasing，但仍需人工抽检。",
+        "sources": [
+          {
+            "title": "Voxtral 3 官方发布",
+            "url": "https://mistral.ai/news/voxtral-3/",
+            "published_at": "2026-10-20",
+            "verified_at": "2026-10-21"
+          },
+          {
+            "title": "Mistral Audio 官方快速开始",
+            "url": "https://docs.mistral.ai/studio/audio/overview",
+            "published_at": null,
+            "verified_at": "2026-10-21"
+          }
+        ],
+        "entry_url": "https://docs.mistral.ai/studio/audio/overview",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-21T21:24:00+08:00"
+      },
       {
         "id": "timestral",
         "publisher": "Mistral AI",

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T11:52:59Z",
+  "generated_at": "2026-10-21T13:33:09Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 6,
+    "merge": 8,
     "hold": 3
   },
   "candidates": [
@@ -35,6 +35,29 @@
       "first_seen_at": "2026-10-20T12:44:41Z"
     },
     {
+      "id": "candidate-d99b2c6d697385a3",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径",
+      "summary": "双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。",
+      "why": "工程 Agent 需要同时衡量技术正确性、工具调用、执行时间和计算成本；公开口径比通用聊天分数更接近真实工程决策。",
+      "boundary": "目前是合作与待发布计划，不是现成排行榜或开放数据集；未给出统一交付日期，也不能据此推断仿真提速或量产收益。",
+      "source": "Mistral AI",
+      "source_kind": "官方一手来源",
+      "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T13:33:09Z"
+    },
+    {
       "id": "candidate-ec0bbb16557febcb",
       "category": "industry",
       "published": "2026-10-20",
@@ -56,6 +79,30 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-31d8648ef450c276",
+      "category": "product",
+      "published": "2026-10-20",
+      "title": "Voxtral 3 与实时语音 Agent SDK 开放",
+      "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
+      "why": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
+      "boundary": "Public Preview 与厂商评测不等于独立任务成功率；各模型的语言、上下文、延迟与价格不同。语音克隆、录音保存和外呼必须处理同意、身份冒用、隐私与人工接管。",
+      "source": "Mistral AI",
+      "source_kind": "官方模型与产品发布",
+      "url": "https://mistral.ai/news/voxtral-3",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "voxtral-3-voice-agents",
+      "first_seen_at": "2026-10-21T13:33:09Z"
     },
     {
       "id": "candidate-567f9dfeb2c35d69",

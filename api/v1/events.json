@@ -2,6 +2,21 @@
   "snapshot": "2026-10-21",
   "events": [
     {
+      "id": "voxtral-3-release-20261020",
+      "task": "voxtral-3-voice-agents",
+      "date": "2026-10-20",
+      "kind": "release",
+      "title": "Voxtral 3 与实时语音 Agent SDK 开放",
+      "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
+      "delta": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
+      "sources": [
+        "mistral-voxtral-3-release",
+        "mistral-voxtral-3-docs"
+      ],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T21:24:00+08:00"
+    },
+    {
       "id": "timestral-release-20261015",
       "task": "timestral",
       "date": "2026-10-15",
@@ -192,6 +207,24 @@
     }
   ],
   "sources": [
+    {
+      "id": "mistral-voxtral-3-release",
+      "publisher": "Mistral AI",
+      "title": "Voxtral 3",
+      "url": "https://mistral.ai/news/voxtral-3/",
+      "published": "2026-10-20",
+      "checked": "2026-10-21",
+      "kind": "官方模型与产品发布"
+    },
+    {
+      "id": "mistral-voxtral-3-docs",
+      "publisher": "Mistral Docs",
+      "title": "Audio overview and Voxtral 3 model matrix",
+      "url": "https://docs.mistral.ai/studio/audio/overview",
+      "published": null,
+      "checked": "2026-10-21",
+      "kind": "官方开发文档"
+    },
     {
       "id": "timestral-repository",
       "title": "Timestral 官方推理代码与许可说明",

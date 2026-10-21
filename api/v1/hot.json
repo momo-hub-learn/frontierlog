@@ -36,6 +36,98 @@
   ],
   "items": [
     {
+      "id": "mistral-voxtral-3-20261020",
+      "category": "model",
+      "title": "Voxtral 3：实时语音 Agent SDK 与新一代转写 / TTS 同步开放",
+      "published": "2026-10-20",
+      "published_at": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T21:24:00+08:00",
+      "first_seen_at": "2026-10-21T21:24:00+08:00",
+      "heat": 97,
+      "heat_components": {
+        "impact": 35,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "Mistral 发布 Voxtral 3 语音模型家族和基于 LiveKit 的实时 Agent SDK，覆盖录音/实时转写、说话人区分、上下文词表、TTS 与工具调用；官方 API 已开放。",
+      "why": "语音能力从单独 ASR/TTS 接口走向可打断、可调用业务工具的流式 Agent；可先用授权录音测试领域术语、轮次切换和失败恢复。",
+      "boundary": "准确率、延迟和价格比较主要来自厂商评测，本站未复现；不同模型与模式的语言覆盖不相同。语音克隆、录音保存和外呼还需单独处理同意、身份冒用、隐私与人工接管。",
+      "source": "Mistral AI",
+      "source_kind": "官方发布 + 官方文档 / 本轮编辑核验",
+      "url": "https://mistral.ai/news/voxtral-3/",
+      "link": "#/toolkit",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方音频文档",
+          "note": "Public Preview；需 API Key，本站未运行模型",
+          "url": "https://docs.mistral.ai/studio/audio/overview",
+          "kind": "try"
+        }
+      ],
+      "related": [
+        {
+          "source": "Mistral AI",
+          "title": "Voxtral 3",
+          "url": "https://mistral.ai/news/voxtral-3/",
+          "date": "2026-10-20"
+        },
+        {
+          "source": "Mistral Docs",
+          "title": "Audio overview and Voxtral 3 model matrix",
+          "url": "https://docs.mistral.ai/studio/audio/overview",
+          "date": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "mistral-nvidia-engineering-ai-20261021",
+      "category": "industry",
+      "title": "Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T21:24:00+08:00",
+      "first_seen_at": "2026-10-21T21:24:00+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 35,
+        "availability": 14,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。",
+      "why": "工程 Agent 的评价开始从通用问答转向工具调用、多步仿真、技术正确性、执行时间与算力成本；公开口径若落地，能提高跨方案可比性。",
+      "boundary": "这是合作方向和待发布评测计划，不是现成排行榜、已发布数据集或量产收益。官方没有给出统一交付日期，本站未验证 CAD 到仿真的任务成功率。",
+      "source": "Mistral AI",
+      "source_kind": "官方合作公告 / 本轮编辑核验",
+      "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+      "link": "#/manufacturing",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读官方公告",
+          "note": "公开评测和数据集尚待发布",
+          "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+          "kind": "read"
+        }
+      ],
+      "related": [
+        {
+          "source": "Mistral AI",
+          "title": "Mistral Advances AI for Engineering with NVIDIA",
+          "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-orchestra-bio-20261020",
       "category": "industry",
       "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
@@ -848,10 +940,10 @@
     }
   ],
   "sync": {
-    "last_checked_at": "2026-10-21T11:52:59Z",
+    "last_checked_at": "2026-10-21T13:33:09Z",
     "status": "success",
     "mode": "shadow",
-    "candidate_count": 10,
+    "candidate_count": 12,
     "publish_ready_count": 1,
     "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
   }
