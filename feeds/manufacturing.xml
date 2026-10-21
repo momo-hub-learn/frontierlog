@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 制造业</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/manufacturing.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 制造业</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/manufacturing.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>AI 基础设施扩产：把时间表与承诺值分开追踪</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-ai-supply-chain-capacity-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-ai-supply-chain-capacity-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 公布基板、先进封装、半导体测试与共封装光学扩产计划：基板总产能目标三年增至 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%，KYEC 美国测试产线目标 2027 年 4 月量产，SPIL 光引擎目标 2027 年中增至 15 倍。
+
+编辑解读：供应约束正在从 GPU 芯片扩展到基板、封装、测试和光互连；公开时间表可作为产能风险台账，但必须持续区分已签协议、建设中与实际量产。
+
+边界：公告中的扩产幅度与日期多为公司计划和前瞻性陈述，不等于已经交付的产能、良率或供货保证；也不能由产能预约金额直接推断收入、需求兑现或行业份额。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout</description><category>工艺控制 · FDC / APC</category><category>装备研发与工程</category></item><item><title>DSX AI 工厂：效率数字必须保留测试边界</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-dsx-efficiency-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-dsx-efficiency-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。
+
+编辑解读：同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。
+
+边界：近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx</description><category>装备研发与工程</category><category>数字孪生与产线仿真</category></item><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
 
 编辑解读：半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。
 

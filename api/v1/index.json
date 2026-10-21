@@ -80,6 +80,92 @@
         ]
       },
       {
+        "id": "nvidia-ai-supply-chain-capacity-20261021",
+        "category": "industry",
+        "title": "NVIDIA 扩产时间表：AI 供应约束延伸到基板、封装、测试与光引擎",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "first_seen_at": "2026-10-22T03:38:24+08:00",
+        "heat": 97,
+        "heat_components": {
+          "impact": 35,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、公司估值或已交付产能。",
+        "trend": "up",
+        "summary": "NVIDIA 公布跨基板、先进封装、测试和共封装光学的扩产计划，包括基板三年 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%、KYEC 美国测试线目标 2027 年 4 月量产，以及 SPIL 光引擎 2027 年中 15 倍目标。",
+        "why": "AI 基础设施瓶颈已不只在 GPU：封装、测试、基板和光互连的建设节奏将直接影响系统交付，公开时间表值得进入持续跟踪。",
+        "boundary": "这些数字是公司计划和前瞻性陈述，不是当前已投产容量、良率、订单或供货保证；后续必须以合作方披露、设施建设和实际量产状态逐项复核。",
+        "source": "NVIDIA",
+        "source_kind": "官方供应链与产能公告 / 本轮编辑核验",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+        "link": "#/manufacturing?article=nvidia-ai-supply-chain-capacity-20261021",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方扩产时间表",
+            "note": "计划值不等于当前产能；按工序和日期继续核验",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA",
+            "title": "NVIDIA and Supply Chain Partners Expand Capacity to Accelerate AI Infrastructure Buildout",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
+        "id": "nvidia-adaptive-radiotherapy-20261021",
+        "category": "industry",
+        "title": "自适应放疗探索：Agent 共同规划、患者级仿真与实时控制仍需分层验证",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "first_seen_at": "2026-10-22T03:38:24+08:00",
+        "heat": 96,
+        "heat_components": {
+          "impact": 34,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床疗效、监管状态或本站实测分。",
+        "trend": "up",
+        "summary": "Siemens Healthineers 与 NVIDIA 正探索以 Nemotron 辅助放疗共同规划、CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真；同一公告也确认 RFD4-Proteina 已开放给多家科研与云平台。",
+        "why": "医疗 Agent 正从文档辅助进入计划、仿真与设备协同，但最关键的进展是把环节拆开验证，并保留医生、医学物理师与安全联锁的独立责任。",
+        "boundary": "这是合作与研发方向，不代表监管批准、临床疗效已经证实或系统能够自主制定并执行治疗；计算蛋白设计也不证明结合、活性、安全性或临床价值。",
+        "source": "NVIDIA / Siemens Healthineers / UW Medicine Institute for Protein Design",
+        "source_kind": "官方医疗与生命科学发布 / 本轮编辑核验",
+        "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+        "link": "#/pharma?article=nvidia-adaptive-radiotherapy-20261021",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读官方医疗合作说明",
+            "note": "合作方向与厂商测试不等于临床验证或监管许可",
+            "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA",
+            "title": "Healthcare and Life Sciences Leaders Build on NVIDIA",
+            "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
         "id": "openai-chatgpt-agentic-ad-stack-20261021",
         "category": "product",
         "title": "ChatGPT 广告栈公开：独立 Agent 编排检索、排序与竞价",
@@ -14651,6 +14737,39 @@
     ],
     "sources": [
       {
+        "id": "nvidia-healthcare-life-sciences-20261021",
+        "title": "Healthcare and Life Sciences Leaders Build on NVIDIA to Advance Drug Discovery and Expand Patient Care",
+        "publisher": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+        "published": "2026-10-21",
+        "date_label": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "kind": "官方医疗与生命科学发布"
+      },
+      {
+        "id": "nvidia-supply-chain-capacity-20261021",
+        "title": "NVIDIA and Supply Chain Partners Expand Capacity to Accelerate AI Infrastructure Buildout",
+        "publisher": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+        "published": "2026-10-21",
+        "date_label": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "kind": "官方供应链与产能公告"
+      },
+      {
+        "id": "nvidia-dsx-europe-20261021",
+        "title": "European Ecosystem Builds World’s Most Efficient AI Factories With NVIDIA DSX",
+        "publisher": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+        "published": "2026-10-21",
+        "date_label": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "kind": "官方 AI 工厂平台发布"
+      },
+      {
         "id": "openai-distributed-bio-agents",
         "title": "Using thousands of AI agents to uncover new leads in biological data",
         "publisher": "OpenAI / PerturbAI / Scripps Research",
@@ -14950,6 +15069,107 @@
     ],
     "articles": [
       {
+        "id": "nvidia-adaptive-radiotherapy-20261021",
+        "sector": "pharma",
+        "topics": [
+          "clinical"
+        ],
+        "title": "自适应放疗协同仍处探索期：先拆开计划、剂量与实时控制",
+        "summary": "Siemens Healthineers 与 NVIDIA 正在探索以 Nemotron 辅助放疗共同规划、用 CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真。",
+        "why": "公告把临床 Agent、患者级仿真和机器人控制拆成可分别验证的环节，适合建立安全边界与逐阶段验收，而不是把它们笼统包装成自动放疗。",
+        "boundary": "这是合作与研发方向，不是已获监管批准、已完成临床验证或可以自主给出治疗方案的产品声明；患者选择、处方剂量、计划审核和设备控制必须由有资质团队与适用监管流程负责。",
+        "sources": [
+          "nvidia-healthcare-life-sciences-20261021"
+        ],
+        "kind": "update",
+        "access": "官方合作公告；具体产品状态、地区可用性与监管许可待核对",
+        "published": "2026-10-21",
+        "steps": [
+          "分别界定共同规划、剂量计算、传感输入与设备控制的责任边界",
+          "在匿名或合成病例上固定模型、影像、处方与基准计划，逐项比较输出",
+          "任何临床或设备动作保留医师、医学物理师和安全联锁的独立审批"
+        ],
+        "metrics": [
+          "计划差异与剂量约束偏差",
+          "计算延迟、失败与人工修改量",
+          "按病例类型分组的安全事件和回退成功率"
+        ],
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "first_seen_at": "2026-10-22T03:38:24+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
+      {
+        "id": "nvidia-ai-supply-chain-capacity-20261021",
+        "sector": "manufacturing",
+        "topics": [
+          "fab-process",
+          "equipment-design"
+        ],
+        "title": "AI 基础设施扩产：把时间表与承诺值分开追踪",
+        "summary": "NVIDIA 公布基板、先进封装、半导体测试与共封装光学扩产计划：基板总产能目标三年增至 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%，KYEC 美国测试产线目标 2027 年 4 月量产，SPIL 光引擎目标 2027 年中增至 15 倍。",
+        "why": "供应约束正在从 GPU 芯片扩展到基板、封装、测试和光互连；公开时间表可作为产能风险台账，但必须持续区分已签协议、建设中与实际量产。",
+        "boundary": "公告中的扩产幅度与日期多为公司计划和前瞻性陈述，不等于已经交付的产能、良率或供货保证；也不能由产能预约金额直接推断收入、需求兑现或行业份额。",
+        "sources": [
+          "nvidia-supply-chain-capacity-20261021"
+        ],
+        "kind": "update",
+        "access": "官方产能公告；后续需以合作方、财报与量产披露交叉核对",
+        "published": "2026-10-21",
+        "steps": [
+          "按基板、封装、测试和光引擎拆分基准产能、目标倍数与时间点",
+          "逐项记录协议、设施建设、试产和高量产状态，不把计划值写成当前值",
+          "用合作方公告、财报和交付数据复核变更与延期"
+        ],
+        "metrics": [
+          "承诺产能与实际爬坡差异",
+          "量产时间、良率和交付节奏",
+          "供应商、地区与关键工序集中度"
+        ],
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "first_seen_at": "2026-10-22T03:38:24+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
+      {
+        "id": "nvidia-dsx-efficiency-20261021",
+        "sector": "manufacturing",
+        "topics": [
+          "equipment-design",
+          "digital-twin"
+        ],
+        "title": "DSX AI 工厂：效率数字必须保留测试边界",
+        "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。",
+        "why": "同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。",
+        "boundary": "近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。",
+        "sources": [
+          "nvidia-dsx-europe-20261021"
+        ],
+        "kind": "update",
+        "access": "官方平台公告；部分 DSX OS 组件为开发者预览，合作方采用状态不一",
+        "published": "2026-10-21",
+        "steps": [
+          "固定气候、设施边界、GPU 系统、负载和基准功率策略",
+          "先在 DSX Sim 或同等数字孪生中复现冷却与功率约束，再做受控 PoC",
+          "分别记录节水、能效、吞吐、并网响应与故障回退，不合并成单一效率分"
+        ],
+        "metrics": [
+          "设施级 PUE、WUE 与绝对能耗",
+          "固定功率预算下的吞吐与 GPU 容量",
+          "电网响应、故障恢复和仿真到现场偏差"
+        ],
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:38:24+08:00",
+        "first_seen_at": "2026-10-22T03:38:24+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
+      {
         "id": "distributed-bio-agents-brain-atlas",
         "sector": "pharma",
         "topics": [
@@ -15025,7 +15245,8 @@
         "why": "它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。",
         "boundary": "计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。",
         "sources": [
-          "nvidia-rfd4-proteina"
+          "nvidia-rfd4-proteina",
+          "nvidia-healthcare-life-sciences-20261021"
         ],
         "kind": "tool",
         "access": "公开代码、权重与 Space；完整工作流建议 NVIDIA GPU",

@@ -79,6 +79,92 @@
       ]
     },
     {
+      "id": "nvidia-ai-supply-chain-capacity-20261021",
+      "category": "industry",
+      "title": "NVIDIA 扩产时间表：AI 供应约束延伸到基板、封装、测试与光引擎",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:38:24+08:00",
+      "first_seen_at": "2026-10-22T03:38:24+08:00",
+      "heat": 97,
+      "heat_components": {
+        "impact": 35,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、公司估值或已交付产能。",
+      "trend": "up",
+      "summary": "NVIDIA 公布跨基板、先进封装、测试和共封装光学的扩产计划，包括基板三年 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%、KYEC 美国测试线目标 2027 年 4 月量产，以及 SPIL 光引擎 2027 年中 15 倍目标。",
+      "why": "AI 基础设施瓶颈已不只在 GPU：封装、测试、基板和光互连的建设节奏将直接影响系统交付，公开时间表值得进入持续跟踪。",
+      "boundary": "这些数字是公司计划和前瞻性陈述，不是当前已投产容量、良率、订单或供货保证；后续必须以合作方披露、设施建设和实际量产状态逐项复核。",
+      "source": "NVIDIA",
+      "source_kind": "官方供应链与产能公告 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+      "link": "#/manufacturing?article=nvidia-ai-supply-chain-capacity-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方扩产时间表",
+          "note": "计划值不等于当前产能；按工序和日期继续核验",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA and Supply Chain Partners Expand Capacity to Accelerate AI Infrastructure Buildout",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-adaptive-radiotherapy-20261021",
+      "category": "industry",
+      "title": "自适应放疗探索：Agent 共同规划、患者级仿真与实时控制仍需分层验证",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:38:24+08:00",
+      "first_seen_at": "2026-10-22T03:38:24+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 34,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床疗效、监管状态或本站实测分。",
+      "trend": "up",
+      "summary": "Siemens Healthineers 与 NVIDIA 正探索以 Nemotron 辅助放疗共同规划、CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真；同一公告也确认 RFD4-Proteina 已开放给多家科研与云平台。",
+      "why": "医疗 Agent 正从文档辅助进入计划、仿真与设备协同，但最关键的进展是把环节拆开验证，并保留医生、医学物理师与安全联锁的独立责任。",
+      "boundary": "这是合作与研发方向，不代表监管批准、临床疗效已经证实或系统能够自主制定并执行治疗；计算蛋白设计也不证明结合、活性、安全性或临床价值。",
+      "source": "NVIDIA / Siemens Healthineers / UW Medicine Institute for Protein Design",
+      "source_kind": "官方医疗与生命科学发布 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+      "link": "#/pharma?article=nvidia-adaptive-radiotherapy-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读官方医疗合作说明",
+          "note": "合作方向与厂商测试不等于临床验证或监管许可",
+          "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "Healthcare and Life Sciences Leaders Build on NVIDIA",
+          "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-chatgpt-agentic-ad-stack-20261021",
       "category": "product",
       "title": "ChatGPT 广告栈公开：独立 Agent 编排检索、排序与竞价",

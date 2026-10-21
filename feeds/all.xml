@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 全部专题</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/all.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>分布式生物 Agent：把数百万脑细胞结果整理成待验证线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=distributed-bio-agents-brain-atlas</link><guid isPermaLink="false">frontierlog:topic:distributed-bio-agents-brain-atlas</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 全部专题</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/all.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>自适应放疗协同仍处探索期：先拆开计划、剂量与实时控制</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=nvidia-adaptive-radiotherapy-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-adaptive-radiotherapy-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Siemens Healthineers 与 NVIDIA 正在探索以 Nemotron 辅助放疗共同规划、用 CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真。
+
+编辑解读：公告把临床 Agent、患者级仿真和机器人控制拆成可分别验证的环节，适合建立安全边界与逐阶段验收，而不是把它们笼统包装成自动放疗。
+
+边界：这是合作与研发方向，不是已获监管批准、已完成临床验证或可以自主给出治疗方案的产品声明；患者选择、处方剂量、计划审核和设备控制必须由有资质团队与适用监管流程负责。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care</description><category>临床试验与数据</category></item><item><title>AI 基础设施扩产：把时间表与承诺值分开追踪</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-ai-supply-chain-capacity-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-ai-supply-chain-capacity-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 公布基板、先进封装、半导体测试与共封装光学扩产计划：基板总产能目标三年增至 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%，KYEC 美国测试产线目标 2027 年 4 月量产，SPIL 光引擎目标 2027 年中增至 15 倍。
+
+编辑解读：供应约束正在从 GPU 芯片扩展到基板、封装、测试和光互连；公开时间表可作为产能风险台账，但必须持续区分已签协议、建设中与实际量产。
+
+边界：公告中的扩产幅度与日期多为公司计划和前瞻性陈述，不等于已经交付的产能、良率或供货保证；也不能由产能预约金额直接推断收入、需求兑现或行业份额。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout</description><category>工艺控制 · FDC / APC</category><category>装备研发与工程</category></item><item><title>DSX AI 工厂：效率数字必须保留测试边界</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-dsx-efficiency-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-dsx-efficiency-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。
+
+编辑解读：同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。
+
+边界：近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx</description><category>装备研发与工程</category><category>数字孪生与产线仿真</category></item><item><title>分布式生物 Agent：把数百万脑细胞结果整理成待验证线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=distributed-bio-agents-brain-atlas</link><guid isPermaLink="false">frontierlog:topic:distributed-bio-agents-brain-atlas</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。
 
 编辑解读：这是一条可审计的“实验数据→文献→候选机制→下一项实验”路径；研究者可以回到单个扰动和引用复核，而不是只读自动总结。
 
@@ -20,7 +41,8 @@ https://huggingface.co/blog/nvidia/kumo-anomaly</description><category>良率与
 边界：计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。
 资料核对：2026-10-21；本站未实测。
 原始来源：
-https://huggingface.co/nvidia/RFD4-Proteina</description><category>分子设计与筛选</category></item><item><title>Kumo Forecast：直接预测与历史检索要同窗对比</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-kumo-forecast-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-kumo-forecast-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。
+https://huggingface.co/nvidia/RFD4-Proteina
+https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care</description><category>分子设计与筛选</category></item><item><title>Kumo Forecast：直接预测与历史检索要同窗对比</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-kumo-forecast-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-kumo-forecast-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。
 
 编辑解读：设备维护和运营预测可以同时查看预测、检索依据和跨度解释，但应先做时间外推基线。
 
