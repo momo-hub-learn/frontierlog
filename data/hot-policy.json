@@ -75,14 +75,14 @@
     "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
     "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
   },
-  "last_evaluated": "2026-10-21T19:29:18Z",
+  "last_evaluated": "2026-10-21T19:42:10Z",
   "last_decision": {
-    "action": "merge",
-    "candidate_count": 27,
-    "publish_ready_count": 0,
-    "merge_count": 23,
-    "best_candidate": "candidate-b026f19029976dfa",
-    "reason": "发现与现有热点同源的新节点，建议合并。"
+    "action": "publish",
+    "candidate_count": 30,
+    "publish_ready_count": 1,
+    "merge_count": 25,
+    "best_candidate": "candidate-2e1dbc4df560deae",
+    "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
   },
   "active_shadow_candidate": {
     "description": "当前实际上执行的 shadow 候选优先级，只对已经进入结构化数据的进展打分，不是本站发布的热度，也不决定前沿模型是否进入研究档案。",

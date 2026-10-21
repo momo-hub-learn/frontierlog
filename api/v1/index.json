@@ -1459,16 +1459,39 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-21T19:29:18Z",
+    "generated_at": "2026-10-21T19:42:10Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 0,
-      "merge": 23,
+      "publish": 1,
+      "merge": 25,
       "hold": 4
     },
     "candidates": [
+      {
+        "id": "candidate-2e1dbc4df560deae",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "DSX AI 工厂：效率数字必须保留测试边界",
+        "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。",
+        "why": "同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。",
+        "boundary": "近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。",
+        "source": "NVIDIA",
+        "source_kind": "官方 AI 工厂平台发布",
+        "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 1.0
+        },
+        "priority_score": 0.973,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "first_seen_at": "2026-10-21T19:42:10Z"
+      },
       {
         "id": "candidate-b026f19029976dfa",
         "category": "research",
@@ -1499,6 +1522,29 @@
         "first_seen_at": "2026-10-21T19:23:10Z"
       },
       {
+        "id": "candidate-2fb2fdc9e3135863",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "AI 基础设施扩产：把时间表与承诺值分开追踪",
+        "summary": "NVIDIA 公布基板、先进封装、半导体测试与共封装光学扩产计划：基板总产能目标三年增至 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%，KYEC 美国测试产线目标 2027 年 4 月量产，SPIL 光引擎目标 2027 年中增至 15 倍。",
+        "why": "供应约束正在从 GPU 芯片扩展到基板、封装、测试和光互连；公开时间表可作为产能风险台账，但必须持续区分已签协议、建设中与实际量产。",
+        "boundary": "公告中的扩产幅度与日期多为公司计划和前瞻性陈述，不等于已经交付的产能、良率或供货保证；也不能由产能预约金额直接推断收入、需求兑现或行业份额。",
+        "source": "NVIDIA",
+        "source_kind": "官方供应链与产能公告",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T19:42:10Z"
+      },
+      {
         "id": "candidate-69d9d0b50530c4d3",
         "category": "industry",
         "published": "2026-10-21",
@@ -1520,6 +1566,29 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
+        "id": "candidate-a9f05ade665ffc32",
+        "category": "industry",
+        "published": "2026-10-21",
+        "title": "自适应放疗协同仍处探索期：先拆开计划、剂量与实时控制",
+        "summary": "Siemens Healthineers 与 NVIDIA 正在探索以 Nemotron 辅助放疗共同规划、用 CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真。",
+        "why": "公告把临床 Agent、患者级仿真和机器人控制拆成可分别验证的环节，适合建立安全边界与逐阶段验收，而不是把它们笼统包装成自动放疗。",
+        "boundary": "这是合作与研发方向，不是已获监管批准、已完成临床验证或可以自主给出治疗方案的产品声明；患者选择、处方剂量、计划审核和设备控制必须由有资质团队与适用监管流程负责。",
+        "source": "NVIDIA",
+        "source_kind": "官方医疗与生命科学发布",
+        "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T19:42:10Z"
       },
       {
         "id": "candidate-d99b2c6d697385a3",
@@ -4437,14 +4506,14 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-21T19:29:18Z",
+    "last_evaluated": "2026-10-21T19:42:10Z",
     "last_decision": {
-      "action": "merge",
-      "candidate_count": 27,
-      "publish_ready_count": 0,
-      "merge_count": 23,
-      "best_candidate": "candidate-b026f19029976dfa",
-      "reason": "发现与现有热点同源的新节点，建议合并。"
+      "action": "publish",
+      "candidate_count": 30,
+      "publish_ready_count": 1,
+      "merge_count": 25,
+      "best_candidate": "candidate-2e1dbc4df560deae",
+      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
     "active_shadow_candidate": {
       "description": "当前实际上执行的 shadow 候选优先级，只对已经进入结构化数据的进展打分，不是本站发布的热度，也不决定前沿模型是否进入研究档案。",
