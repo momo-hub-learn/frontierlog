@@ -113,3 +113,14 @@
 .fc-gh-watch{border-top:1px solid var(--line)}.fc-gh-watch .fc-gh-row{border-bottom:0}
 .fc-gh-rank{word-break:keep-all}.fc-gh-watch .fc-gh-rank{font-size:.64rem}.fc-gh-watch .fc-gh-star small{font-size:.62rem}
 
+
+/* Editorial heat: numeric strength and text tiers, never color alone. */
+.fc-hot-score{display:grid;grid-template-columns:1fr auto;gap:1px 3px;text-align:center;min-width:46px;padding:5px 4px;border-radius:7px}
+.fc-hot-score b{font-variant-numeric:tabular-nums;font-size:1rem}
+.fc-hot-score small{grid-column:1/-1;grid-row:2;font-size:.65rem;font-weight:700;line-height:1.4}
+.fc-hot-score .h-trend{grid-column:2;grid-row:1}
+.fc-hot-score.fc-heat-extreme{background:var(--ink);color:var(--lime);border:1px solid var(--ink)}
+.fc-hot-score.fc-heat-extreme b{font-size:1.14rem}
+.fc-hot-score.fc-heat-high{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent)}
+.fc-hot-score.fc-heat-rising{color:var(--text);border:1px solid var(--line)}
+.fc-hot-score.fc-heat-watch{color:var(--muted);border:1px dashed var(--line)}

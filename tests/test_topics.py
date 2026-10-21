@@ -10,9 +10,16 @@ class TopicDataTests(unittest.TestCase):
  def setUp(self):
   self.d=json.loads((R/'data/industry.json').read_text());self.i=json.loads((R/'data/topic-intake.json').read_text());self.s=json.loads((R/'data/site.json').read_text())
  def test_valid_topics(self):topics.validate_topics(self.d,self.i)
- def test_counts(self):self.assertEqual((len(self.d['sectors']),len(self.d['topics']),len(self.d['articles']),len(self.d['sources'])),(2,10,15,20))
+ def test_counts(self):
+  self.assertEqual((len(self.d['sectors']),len(self.d['topics'])),(2,10))
+  for key in ('articles','sources'):
+   ids=[x['id'] for x in self.d[key]]
+   self.assertTrue(ids)
+   self.assertEqual(len(ids),len(set(ids)))
+  feed=ET.fromstring(topics.topic_rss(self.d,self.s,'all'))
+  self.assertEqual({x.findtext('guid') for x in feed.findall('./channel/item')},{'frontierlog:topic:'+x['id'] for x in self.d['articles']})
  def test_reject_cross_sector(self):
-  self.d['articles'][0]['topics']=['fab-yield']
+  self.d['articles'][0]['topics']=['fab-yield' if self.d['articles'][0]['sector']=='pharma' else 'targets']
   with self.assertRaises(ValueError):topics.validate_topics(self.d,self.i)
  def test_missing_source(self):
   self.d['articles'][0]['sources']=['not-real']
@@ -22,8 +29,11 @@ class TopicDataTests(unittest.TestCase):
   with self.assertRaises(ValueError):topics.validate_topics(self.d,self.i)
  def test_unknown_date_not_fabricated(self):
   rss=ET.fromstring(topics.topic_rss(self.d,self.s,'csr'))
-  self.assertEqual(len(rss.findall('./channel/item')),2)
-  self.assertEqual(len(rss.findall('./channel/item/pubDate')),0)
+  rows={x.findtext('guid'):x for x in rss.findall('./channel/item')}
+  expected=[x for x in self.d['articles'] if 'csr' in x['topics']]
+  self.assertEqual(set(rows),{'frontierlog:topic:'+x['id'] for x in expected})
+  for x in expected:
+   self.assertEqual(rows['frontierlog:topic:'+x['id']].find('pubDate') is None,x['published'] is None)
  def test_rss_scope_membership(self):
   for scope in [s['id'] for s in self.d['sectors']]+[t['id'] for t in self.d['topics']]:
    feed=ET.fromstring(topics.topic_rss(self.d,self.s,scope))

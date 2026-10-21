@@ -6,6 +6,8 @@ const vm = require('node:vm');
 
 const source = fs.readFileSync(path.join(__dirname, '../src/v10.js'), 'utf8');
 const prefix = source.split('hRows=function')[0] + '\nglobalThis.__nextTest = {v10NextOfficialEvent};';
+let clock='2026-10-08T12:00:00Z';
+class FixedDate extends Date { constructor(...args){super(...(args.length?args:[clock]))} static now(){return Date.parse(clock)} }
 const ctx = {
   APP:{
     hot_policy:null,
@@ -23,11 +25,13 @@ const ctx = {
     }
   },
   HOT:{items:[],checked:''},
-  Intl,Date,
+  Intl,Date:FixedDate,
   safeLink:x=>String(x||'').startsWith('https://')?x:''
 };
 vm.runInNewContext(prefix, ctx, {filename:'src/v10.js'});
 const {v10NextOfficialEvent}=ctx.__nextTest;
 assert.equal(v10NextOfficialEvent().id,'official-soon');
+clock='2026-10-21T12:00:00Z';
+assert.equal(v10NextOfficialEvent().id,'official-later');
 assert.ok(source.includes('<h2>下一坐标</h2>'));
 console.log('PASS next coordinate selects the nearest future official event');

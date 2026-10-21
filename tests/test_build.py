@@ -49,9 +49,9 @@ class BuildTests(unittest.TestCase):
             d=Path(td);app=build.build(d,'test-owner/ai-progress','https://test-owner.github.io/ai-progress')
             self.assertEqual(app['site']['base_url'],'https://test-owner.github.io/ai-progress/')
             rss=ET.parse(d/'feed.xml')
-            self.assertEqual(len(rss.findall('./channel/item')),len(self.c['events'])+15)
+            self.assertEqual(len(rss.findall('./channel/item')),len(self.c['events'])+len(json.loads((ROOT/'data/industry.json').read_text())['articles']))
             self.assertTrue(all(i.text.startswith(app['site']['base_url']) for i in rss.findall('./channel/item/link')))
-            self.assertEqual(len({i.text for i in rss.findall('./channel/item/guid')}),len(self.c['events'])+15)
+            self.assertEqual(len({i.text for i in rss.findall('./channel/item/guid')}),len(self.c['events'])+len(json.loads((ROOT/'data/industry.json').read_text())['articles']))
             self.assertIn('sitemap.xml',(d/'robots.txt').read_text())
     def test_model_table_shows_company_logo_column(self):
         with tempfile.TemporaryDirectory() as td:
