@@ -677,24 +677,24 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-20T21:56:49Z",
+      "last_checked_at": "2026-10-21T01:03:31Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 7,
+      "candidate_count": 5,
       "publish_ready_count": 1,
       "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-20T21:56:49Z",
+    "generated_at": "2026-10-21T01:03:31Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
       "merge": 1,
-      "hold": 5
+      "hold": 3
     },
     "candidates": [
       {
@@ -710,12 +710,12 @@
         "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
         "publishable": true,
         "features": {
-          "freshness": 0.5,
+          "freshness": 0.429,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.812,
+        "priority_score": 0.791,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "product_id": "google-antigravity",
@@ -734,12 +734,12 @@
         "url": "https://www.anthropic.com/research/employment-at-anthropic",
         "publishable": false,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.79,
+        "priority_score": 0.769,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "anthropic-employment-ai-intensive-workplace",
@@ -763,12 +763,12 @@
         "url": "https://arena.ai/blog/ai-alignment-index",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.705,
+        "priority_score": 0.684,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "arena",
@@ -787,70 +787,16 @@
         "url": "https://arena.ai/blog/series-b",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.705,
+        "priority_score": 0.684,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "arena",
         "first_seen_at": "2026-10-09T05:17:35Z"
-      },
-      {
-        "id": "candidate-43c3c613b348f5b5",
-        "category": "research",
-        "published": "2026-10-06",
-        "title": "JEPA Control：保持机器人控制中的不稳定模态",
-        "summary": "研究指出单步预测与抗坍缩正则不足以保证保留可控的不稳定状态方向；提出动作重建目标并在符合特定前提的线性系统中证明保留性质，提供模拟控制实验。",
-        "why": "这解决的是“表示能预测，但保不住控制必需的信息”的问题，是世界模型能否用于规划和稳定控制的重要技术约束。",
-        "boundary": "严格理论结论针对线性系统与确切重建等条件，非线性实验限于作者给出的模拟环境；不能据此声称真实机器人的全局稳定性。",
-        "source": "Toso / LeCun 等合作团队",
-        "source_kind": "论文原文",
-        "url": "https://arxiv.org/abs/2610.07540",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.88,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.619,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "research_id": "jepa-control-unstable-modes",
-        "topic_tags": [
-          "World Model",
-          "JEPA",
-          "Inverse Dynamics"
-        ],
-        "first_seen_at": "2026-10-13T10:28:07Z"
-      },
-      {
-        "id": "candidate-7bb692a30a0df31d",
-        "category": "research",
-        "published": "2026-10-06",
-        "title": "JEPA Control-Aware World Models",
-        "summary": "Toso、LeCun 等提出逆动力学动作重建目标，帮助 JEPA 表征保留控制中关键的不稳定模态；给出线性系统条件下的理论结果，并在 CartPole、Walker2D、PointMaze 等控制环境实验。它是方法研究，不是可直接商用的统一世界模型。",
-        "why": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
-        "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
-        "source": "Toso、LeCun、Anderson、Bounou",
-        "source_kind": "一手研究论文",
-        "url": "https://arxiv.org/abs/2610.07540",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.88,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.619,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "track_id": "world-models",
-        "maker": "AMI Labs / 合作研究团队",
-        "first_seen_at": "2026-10-13T10:28:07Z"
       },
       {
         "id": "candidate-6982206f194b1f18",
@@ -865,12 +811,12 @@
         "url": "https://openai.com/index/gpt-6-for-everyone",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "chatgpt-gpt6-intelligent-ui",
@@ -3006,10 +2952,10 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-20T21:56:49Z",
+    "last_evaluated": "2026-10-21T01:03:31Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 7,
+      "candidate_count": 5,
       "publish_ready_count": 1,
       "merge_count": 1,
       "best_candidate": "candidate-47750334ae9b688a",
