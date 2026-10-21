@@ -8,7 +8,7 @@ function fcHeatBand(score){
 function fcHotPanel(){
  const rows=v10Top5Rows();
  return '<section class="fc-panel fc-hot-panel">'+
-  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span><span class="fc-hot-sync">'+esc(v10HotStatusShort())+'</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-panel-head"><div class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span><span class="fc-hot-sync">'+esc(v10HotStatusShort())+'</span><span class="fc-hot-order" title="排序分 = 编辑热度 − 2 × 距今天数">新鲜度加权：旧 1 日 −2</span></div><a href="#/hot">全部热点 '+icon('arrow')+'</a></div>'+
   '<div class="fc-hot-list">'+rows.map((x,i)=>
    '<a class="fc-hot-row" href="#/hot?item='+encodeURIComponent(x.id)+'">'+
     '<span class="fc-hot-rank">'+String(i+1).padStart(2,'0')+'</span>'+

@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "voxtral-3-voice-agents",
+      "publisher": "Mistral AI",
+      "group": "audio",
+      "access": "model",
+      "headline": "先用一段授权录音验收转写与说话人边界",
+      "input": "一段已获授权、去除不必要敏感信息的短音频",
+      "output": "转写文本；按所选接口可再检查时间戳、说话人区分与领域词表",
+      "requirements": "Mistral AI Studio API Key；Python SDK `mistralai[realtime]`；实时转写需 WebSocket 客户端。",
+      "limitation": "只核验官方发布与开发文档，本站未调用 API。不同 Voxtral 3 模型的语言、上下文、实时与克隆能力不同；不要把厂商评测直接当业务准确率。",
+      "cost": "Mini Transcribe 3 官方价 $0.0035/分钟；Small Transcribe 3 为 $0.004/分钟。实时、TTS 与完整语音 Agent 另行计费。",
+      "steps": [
+        {
+          "title": "准备最小且已授权的录音",
+          "body": "先选 30–60 秒样本，包含一个易错专有名词；保留人工转写作为对照，不上传无关个人信息。"
+        },
+        {
+          "title": "安装官方 SDK 并运行一次转写",
+          "body": "API Key 只放环境变量，不写进脚本或日志；模型名沿用官方快速开始示例。",
+          "command": "python -m pip install \"mistralai[realtime]\"\npython - <<'PY'\nimport os\nfrom mistralai.client import Mistral\nclient = Mistral(api_key=os.environ[\"MISTRAL_API_KEY\"])\nwith open(\"sample.mp3\", \"rb\") as audio:\n    result = client.audio.transcriptions.complete(\n        model=\"voxtral-mini-transcribe-3\",\n        file={\"file_name\": \"sample.mp3\", \"content\": audio},\n    )\nprint(result.text)\nPY"
+        },
+        {
+          "title": "按业务失败条件验收",
+          "body": "逐字核对专有名词、数字、说话人边界和漏句；再测试噪声、打断及人工接管，不直接连接外呼或预约写入。"
+        }
+      ],
+      "troubleshooting": "401/403 先核对组织与 Key 权限；模型名错误时以官方模型页为准；实时连接失败检查 `realtime` extra、网络与 WebSocket；领域名词可用 context biasing，但仍需人工抽检。",
+      "sources": [
+        {
+          "title": "Voxtral 3 官方发布",
+          "url": "https://mistral.ai/news/voxtral-3/",
+          "published_at": "2026-10-20",
+          "verified_at": "2026-10-21"
+        },
+        {
+          "title": "Mistral Audio 官方快速开始",
+          "url": "https://docs.mistral.ai/studio/audio/overview",
+          "published_at": null,
+          "verified_at": "2026-10-21"
+        }
+      ],
+      "entry_url": "https://docs.mistral.ai/studio/audio/overview",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-21T21:24:00+08:00"
+    },
+    {
       "id": "timestral",
       "publisher": "Mistral AI",
       "group": "research",

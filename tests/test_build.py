@@ -231,6 +231,21 @@ class BuildTests(unittest.TestCase):
             self.assertIn('GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout',html)
             self.assertIn('Work / Codex',html)
 
+    def test_voxtral3_is_actionable_without_claiming_runtime_test(self):
+        catalog=json.loads((ROOT/'data/catalog.json').read_text())
+        item=next(x for x in catalog['items'] if x['id']=='voxtral-3-voice-agents')
+        self.assertEqual(item['status'],'code')
+        self.assertFalse(item['tested'])
+        self.assertIn('人工接管',item['test'])
+        event=next(x for x in catalog['events'] if x['id']=='voxtral-3-release-20261020')
+        self.assertEqual(event['date'],'2026-10-20')
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn('转写、合成并运行可打断的实时语音 Agent',html)
+            self.assertIn('Voxtral 3 与实时语音 Agent SDK 开放',html)
+            self.assertIn('本站未调用 API',html)
+
     def test_sidebar_uses_floating_tool_dock(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
@@ -309,6 +324,11 @@ class BuildTests(unittest.TestCase):
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertIn('class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span>',html)
+            self.assertIn('新鲜度加权：旧 1 日 −2',html)
+            self.assertIn('排序分 = 编辑热度 − 2 × 距今天数',html)
+            self.assertIn('正文核验',html)
+            self.assertIn('最近正文核验',html)
+            self.assertIn('最近策略检查',html)
             self.assertNotIn('<p class="eyebrow">HOT / RECENT</p><h2>热点</h2>',html)
 
     def test_feed_header_has_no_redundant_big_title(self):

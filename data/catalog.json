@@ -3,6 +3,33 @@
   "snapshot": "2026-10-21",
   "items": [
     {
+      "id": "voxtral-3-voice-agents",
+      "name": "Mistral · Voxtral 3",
+      "title": "转写、合成并运行可打断的实时语音 Agent",
+      "category": "交互 / Agent",
+      "mark": "V3",
+      "accent": "cyan",
+      "summary": "把离线/实时转写、说话人区分、上下文词表、TTS 与工具调用组合进流式语音 Agent；可通过 API、Studio 或按厂商说明自部署。",
+      "scope": "官方模型矩阵包含三类语音转写与两类 TTS 模型；Voice Agent SDK 基于 LiveKit，可连接 SIP / WebRTC，并让推理模型在对话中调用工具。",
+      "boundary": "Public Preview 与厂商评测不等于独立任务成功率；各模型的语言、上下文、延迟与价格不同。语音克隆、录音保存和外呼必须处理同意、身份冒用、隐私与人工接管。",
+      "repo": null,
+      "sources": ["mistral-voxtral-3-release", "mistral-voxtral-3-docs"],
+      "requirements": "Mistral AI Studio API Key；Python/TypeScript SDK 或 curl；实时转写需 WebSocket，完整语音 Agent 需配置 LiveKit 与业务工具权限。",
+      "test": "用获授权的短录音和人工转写对照专有名词、数字、说话人边界与漏句；再测试打断、工具失败和人工接管，不能只听一段最佳样例。",
+      "checks": [
+        "分别记录离线与实时模式、模型 ID、语言和延迟设置",
+        "核对专有名词、数字、说话人区分及端到端首音频时间",
+        "工具调用必须经过最小权限、确认与可回滚路径"
+      ],
+      "command": "python -m pip install \"mistralai[realtime]\"",
+      "effort": "API / 私有部署",
+      "evidence": "Mistral 官方发布与开发文档",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T21:24:00+08:00"
+    },
+    {
       "id": "timestral",
       "name": "Timestral",
       "title": "用小型模型做多变量时序预测",
@@ -379,6 +406,24 @@
   ],
   "sources": [
     {
+      "id": "mistral-voxtral-3-release",
+      "publisher": "Mistral AI",
+      "title": "Voxtral 3",
+      "url": "https://mistral.ai/news/voxtral-3/",
+      "published": "2026-10-20",
+      "checked": "2026-10-21",
+      "kind": "官方模型与产品发布"
+    },
+    {
+      "id": "mistral-voxtral-3-docs",
+      "publisher": "Mistral Docs",
+      "title": "Audio overview and Voxtral 3 model matrix",
+      "url": "https://docs.mistral.ai/studio/audio/overview",
+      "published": null,
+      "checked": "2026-10-21",
+      "kind": "官方开发文档"
+    },
+    {
       "id": "timestral-repository",
       "title": "Timestral 官方推理代码与许可说明",
       "publisher": "Mistral AI",
@@ -580,6 +625,18 @@
     }
   ],
   "events": [
+    {
+      "id": "voxtral-3-release-20261020",
+      "task": "voxtral-3-voice-agents",
+      "date": "2026-10-20",
+      "kind": "release",
+      "title": "Voxtral 3 与实时语音 Agent SDK 开放",
+      "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
+      "delta": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
+      "sources": ["mistral-voxtral-3-release", "mistral-voxtral-3-docs"],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T21:24:00+08:00"
+    },
     {
       "id": "timestral-release-20261015",
       "task": "timestral",
