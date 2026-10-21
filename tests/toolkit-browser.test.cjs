@@ -14,7 +14,12 @@ const ids=r=>Array.from(r,g=>g.id);
 test('default and invalid facets',()=>{assert.equal(tk.rows(read('')).length,total);assert.equal(read('group=bad&access=bad').group,'all');assert.equal(read('group=bad&access=bad').access,'all')});
 test('all five task categories are effective',()=>{for(const g of data.groups)assert.equal(tk.rows(read('group='+g.id)).length,data.items.filter(x=>x.group===g.id).length)});
 test('usage filter is independent of task filter',()=>{assert.deepEqual(ids(tk.rows(read('group=documents&access=local'))),['docling']);assert.deepEqual(ids(tk.rows(read('group=audio&access=web'))),['gemini-38-flash-tts'])});
-test('publisher and input/output search',()=>{assert.deepEqual(ids(tk.rows(read('q=PDF'))),['docling']);assert.deepEqual(new Set(ids(tk.rows(read('q=OPENAI')))),new Set(['whisper','chatgpt-gpt6-intelligent-ui','chatgpt-voice-work']));assert.deepEqual(ids(tk.rows(read('q=字幕'))),['whisper'])});
+test('publisher and input/output search',()=>{
+ assert.deepEqual(ids(tk.rows(read('q=PDF'))),['docling']);
+ const expected=data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('openai')}).map(x=>x.id);
+ assert.deepEqual(new Set(ids(tk.rows(read('q=OPENAI')))),new Set(expected));
+ assert.deepEqual(ids(tk.rows(read('q=字幕'))),['whisper'])
+});
 test('whitespace and 300 character query bound',()=>{assert.equal(tk.rows(read('q=%20%20')).length,total);assert.equal(read('q='+'x'.repeat(400)).q.length,300)});
 test('bookmarks use shared catalogue IDs',()=>{ctx.saved.add('docling');assert.deepEqual(ids(tk.rows(read('saved=1'))),['docling']);ctx.saved.clear();assert.equal(tk.rows(read('saved=1')).length,0)});
 test('route serialization retains independent filters',()=>{const s=read('group=audio&access=local&q=录音&saved=1');const next=tk.read(tk.href(s,{access:'all'}));assert.equal(next.group,'audio');assert.equal(next.access,'all');assert.equal(next.q,'录音');assert.equal(next.only,true)});
