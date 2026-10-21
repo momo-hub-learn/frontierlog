@@ -2,16 +2,19 @@
 from __future__ import annotations
 import json
 import re
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 # Explicit primary-source hosts, reviewed alongside each guide. No arbitrary redirects.
 HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com',
     'blog.google','aistudio.google.com','gemini.google.com','help.openai.com',
     'chatgpt.com','openai.com','docs.openhands.dev','docs.browser-use.com',
-    'leanprover-community.github.io','live.lean-lang.org','mistral.ai','docs.mistral.ai'})
+    'leanprover-community.github.io','live.lean-lang.org','mistral.ai','docs.mistral.ai',
+    'huggingface.co','rfd4-proteina.org'})
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
+REVIEW_TIMEZONE = ZoneInfo('Asia/Shanghai')
 
 def _text(value, limit=1200):
     if not isinstance(value, str) or not value.strip() or len(value)>limit:
@@ -27,14 +30,18 @@ def _url(value):
         valid=False
     if not valid: raise ValueError('Toolkit requires an approved primary HTTPS source')
 
-def _date(value):
+def _date(value, today):
     if not isinstance(value,str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',value):
         raise ValueError('Invalid toolkit date precision')
     d=date.fromisoformat(value)
-    if d>date.today(): raise ValueError('Future toolkit verification/publication date')
+    if d>today: raise ValueError('Future toolkit verification/publication date')
     return d
 
-def validate_toolkit(data, catalog):
+def validate_toolkit(data, catalog, *, now=None):
+    now = now if now is not None else datetime.now().astimezone()
+    if now.tzinfo is None or now.utcoffset() is None:
+        raise ValueError('Validation clock must include timezone')
+    today = now.astimezone(REVIEW_TIMEZONE).date()
     if data.get('version')!=1: raise ValueError('Unsupported toolkit schema')
     enums={}
     for name in ('groups','access_modes'):
@@ -70,8 +77,8 @@ def validate_toolkit(data, catalog):
         urls=[]
         for s in sources:
             _text(s.get('title'),100);_url(s.get('url'));urls.append(s['url'])
-            checked=_date(s.get('verified_at'))
-            if s.get('published_at') is not None and _date(s['published_at'])>checked:
+            checked=_date(s.get('verified_at'),today)
+            if s.get('published_at') is not None and _date(s['published_at'],today)>checked:
                 raise ValueError('Toolkit publication after verification')
         if len(urls)!=len(set(urls)): raise ValueError('Duplicate toolkit source')
     if len(ids)!=len(set(ids)) or set(ids)!=expected: raise ValueError('Toolkit must cover eligible tasks exactly once')

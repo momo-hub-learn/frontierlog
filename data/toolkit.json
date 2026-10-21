@@ -42,6 +42,32 @@
   ],
   "items": [
     {
+      "id": "nvidia-rfd4-proteina",
+      "publisher": "NVIDIA / Baker Lab",
+      "group": "research",
+      "access": "research",
+      "headline": "先固定 revision 跑一个最小蛋白结构样例",
+      "input": "官方 monomer-short.cif 最小样例，或经过授权和审查的条件输入",
+      "output": "包含生成残基身份与全原子坐标的 CIF 文件",
+      "requirements": "Linux x86_64、Python 3.12；完整生成建议 NVIDIA GPU 与 CUDA 兼容环境。首次安装与权重下载需要网络和至少数 GB 存储。",
+      "limitation": "本站仅核验官方模型卡、代码和运行文档，未执行模型。计算生成不证明结合、活性、安全性或临床价值；外部评分器和数据许可需分别审查。",
+      "cost": "代码与主权重公开；本地 GPU、权重下载、存储和后续结构/湿实验验证成本自理。",
+      "steps": [
+        {"title":"安装官方原生工作流","body":"在隔离环境中克隆官方仓库并记录 commit；`make setup` 会创建项目环境，生产环境先审查脚本与依赖。","command":"git clone https://github.com/RosettaCommons/RFD4-Proteina.git\ncd RFD4-Proteina\nmake setup\nsource .venv/bin/activate"},
+        {"title":"固定官方权重 revision 生成一个 CIF","body":"沿模型卡关闭外部 metrics 与编译，先验证最小生成链路；保留命令、revision、seed、日志和产物。","command":"rfd4-generate inputs=data/benchmarks/monomer/monomer-short.cif \\\n  hf_ckpt_path=nvidia/RFD4-Proteina \\\n  hf_ckpt_revision=a06e2509c7033b010fc43614e9fd840303588502 \\\n  num_replicates=1 out_dir=./runs/first '~metrics' compile_lengths=null"},
+        {"title":"把生成与验证分开","body":"检查输出 CIF、残基和坐标后，再独立运行获准的结构评分；任何候选进入研发决策前都需领域专家与湿实验验证。"}
+      ],
+      "troubleshooting": "显存或编译问题先用官方最小样例、单 replicate 和关闭 compile；权重访问问题核对 Hugging Face 登录与 `HF_HOME`；Diffusers 在下一个正式版前需从 git 安装，不能默认当前 PyPI 已包含管线。",
+      "sources": [
+        {"title":"RFD4-Proteína 官方模型卡与安装说明","url":"https://huggingface.co/nvidia/RFD4-Proteina","published_at":"2026-10-19","verified_at":"2026-10-21"},
+        {"title":"RFD4-Proteína 官方代码仓库","url":"https://github.com/RosettaCommons/RFD4-Proteina","published_at":null,"verified_at":"2026-10-21"}
+      ],
+      "entry_url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
       "id": "voxtral-3-voice-agents",
       "publisher": "Mistral AI",
       "group": "audio",

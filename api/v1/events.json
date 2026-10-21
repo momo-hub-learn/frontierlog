@@ -2,6 +2,36 @@
   "snapshot": "2026-10-21",
   "events": [
     {
+      "id": "nvidia-rfd4-proteina-release-20261019",
+      "task": "nvidia-rfd4-proteina",
+      "date": "2026-10-19",
+      "kind": "release",
+      "title": "RFD4-Proteína 开放原生、Diffusers 与容器入口",
+      "summary": "Baker Lab 与 NVIDIA 发布联合生成蛋白质序列和全原子结构的模型、权重、代码与可运行样例。",
+      "delta": "计算设计入口更完整，但任何结合、活性或研发价值都仍需结构复核与湿实验；本站未运行。",
+      "sources": [
+        "nvidia-rfd4-proteina-model",
+        "nvidia-rfd4-proteina-code"
+      ],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
+      "id": "nvidia-kumo-forecast-release-20261021",
+      "task": "nvidia-kumo-forecast",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Forecast 开放检索增强时序预测代码与权重",
+      "summary": "NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。",
+      "delta": "工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。",
+      "sources": [
+        "nvidia-kumo-forecast-release",
+        "nvidia-kumo-forecast-code"
+      ],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
       "id": "voxtral-3-release-20261020",
       "task": "voxtral-3-voice-agents",
       "date": "2026-10-20",
@@ -207,6 +237,46 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-rfd4-proteina-model",
+      "publisher": "NVIDIA / Baker Lab",
+      "title": "RFD4-Proteína official model card",
+      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "published": "2026-10-19",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方模型卡与运行文档"
+    },
+    {
+      "id": "nvidia-rfd4-proteina-code",
+      "publisher": "RosettaCommons",
+      "title": "RFD4-Proteína official code",
+      "url": "https://github.com/RosettaCommons/RFD4-Proteina",
+      "published": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方代码仓库"
+    },
+    {
+      "id": "nvidia-kumo-forecast-release",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA Kumo Forecast",
+      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "published": "2026-10-21",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "nvidia-kumo-forecast-code",
+      "publisher": "NVIDIA",
+      "title": "Kumo-TS official code",
+      "url": "https://github.com/NVIDIA/Kumo-TS",
+      "published": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方代码仓库"
+    },
     {
       "id": "mistral-voxtral-3-release",
       "publisher": "Mistral AI",

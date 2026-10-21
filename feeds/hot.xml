@@ -83,6 +83,12 @@
 
 边界：系列发布时间与产品定位来自 Xiaomi MiMo 官方更新日志；46、约 54.2 tok/s、$0.13/task、$0.435/$0.87 每百万输入/输出 Token、1M context 与 MIT 权重信息来自 Artificial Analysis 当前英文主模型页。AA 的速度是动态实测且短期波动明显，其他语言缓存可能滞后，因此速度只代表本次核验快照；“开放权重领先”只指 AA 当前收录和同口径评测，不外推为所有 Benchmark 的绝对第一。
 
+站内热度 95；不是全网流量。</description></item><item><title>RFD4-Proteína：序列与全原子结构开始联合生成</title><guid isPermaLink="false">frontierlog:hot:nvidia-rfd4-proteina-20261019</guid><link>https://huggingface.co/nvidia/RFD4-Proteina</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>Baker Lab 与 NVIDIA 开放 RFD4-Proteína：以 flow matching 联合生成蛋白质序列和全原子结构，并可按结合靶点、酶基序、配体或选定结构特征进行条件设计。
+
+为什么值得看：模型卡同时给出原生、Diffusers、容器和 Hugging Face Space 入口，适合把可复现的计算设计候选接到后续结构评分与湿实验验证。
+
+边界：生成结构与作者给出的计算指标不等于结合、活性、安全性或临床价值；本站未运行模型。Diffusers 需从 git 安装直至下一版本，外部评分器、训练数据与权重许可需分别核对。
+
 站内热度 95；不是全网流量。</description></item><item><title>OpenAI 称内部新模型已解出 Navier–Stokes 与 100+ 数学开放问题</title><guid isPermaLink="false">frontierlog:hot:openai-math-advisory-20260921</guid><link>https://openai.com/index/advisory-group-on-mathematics-and-ai/</link><pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate><description>OpenAI 9 月 21 日称，自 8 月 28 日开始训练的一款内部模型已解决 Navier–Stokes 千禧年难题和 100+ 个长期开放数学问题，并为结果评审与发布成立独立数学顾问组。
 
 为什么值得看：如果这些结果经独立数学审查成立，前沿模型的能力边界将从竞赛题、已知证明与形式化辅助进一步推进到原创研究级数学；同时，实验室开始为这类结果建立专门的审核与发布机制。
@@ -101,6 +107,12 @@
 
 边界：官方 Benchmark 排名不等于本站实测或真实工厂收益。预测不是因果诊断或自动控制；代码为 Apache-2.0，权重另有 Modified MIT 条款。
 
+站内热度 94；不是全网流量。</description></item><item><title>Kumo Forecast：时序预测加入历史模式检索与解释</title><guid isPermaLink="false">frontierlog:hot:nvidia-kumo-forecast-20261021</guid><link>https://huggingface.co/blog/nvidia/kumo-forecast</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 Kumo Forecast：以约 3.4 亿参数的 MOMENT-1-large 编码器做多变量预测，可选 DARR 从相似历史窗口检索上下文，并为不同预测跨度生成解释。
+
+为什么值得看：在预测值之外保留检索依据与跨度解释，便于设备维护和运营预测建立可审查基线；官方代码与权重已给出。
+
+边界：只支持数值时序与指定输入长度；DARR 上下文维度需相近。检索增强并不保证优于直接预测，必须在同一留出窗口、不同工况和预测跨度下比较，本站未实测。
+
 站内热度 94；不是全网流量。</description></item><item><title>Rosalind 学术计划：美国高校实验室可申请赞助席位</title><guid isPermaLink="false">frontierlog:hot:rosalind-academic-plan-20261015</guid><link>https://openai.com/index/introducing-the-rosalind-academic-plan/</link><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>符合资格的美国高校实验室可申请最多30个 Business Standard 席位、最长12个月免费支持；GPT-Rosalind 仍需通过可信访问审核。
 
 为什么值得看：本次变化是学术访问渠道，不是新模型跑分；申请资格和实际可用权限比宣传标题更重要。
@@ -112,6 +124,12 @@
 为什么值得看：世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。
 
 边界：研究结果及领先性能为作者报告，本站未复现；可渲染不代表物理定律、可控交互或工业数字孪生已经可靠。
+
+站内热度 91；不是全网流量。</description></item><item><title>SimReady Central：2,000+ OpenUSD 资产开放给机器人与 AI 工厂</title><guid isPermaLink="false">frontierlog:hot:nvidia-simready-central-20261021</guid><link>https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Hugging Face 推出免费、免门槛的 SimReady Central，汇集 2,000+ 带碰撞、质量、摩擦或语义等仿真属性的 OpenUSD 资产。
+
+为什么值得看：机器人工作站和 AI 工厂数字孪生可以从可验证的资产规格开始，而不是为每个 CAD 模型重复补物理与语义元数据。
+
+边界：资产满足某个 SimReady profile 不等于适配所有运行时、传感器或现场精度；生成场景、间距检查和仿真结果仍需固定资产版本、运行时并与真实设施核对。
 
 站内热度 91；不是全网流量。</description></item><item><title>Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集</title><guid isPermaLink="false">frontierlog:hot:mistral-nvidia-engineering-ai-20261021</guid><link>https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。
 

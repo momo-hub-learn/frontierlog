@@ -174,6 +174,39 @@
   ],
   "sources": [
     {
+      "id": "nvidia-rfd4-proteina",
+      "title": "RFD4-Proteína official model card",
+      "publisher": "NVIDIA / Baker Lab",
+      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "published": "2026-10-19",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方模型卡与运行文档",
+      "date_label": null
+    },
+    {
+      "id": "nvidia-kumo-forecast",
+      "title": "NVIDIA Kumo Forecast",
+      "publisher": "NVIDIA",
+      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "published": "2026-10-21",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方技术发布",
+      "date_label": null
+    },
+    {
+      "id": "nvidia-simready-central",
+      "title": "Announcing SimReady Central",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
+      "published": "2026-10-21",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方发布与规范入口",
+      "date_label": null
+    },
+    {
       "id": "mistral-nvidia-engineering-ai",
       "title": "Mistral Advances AI for Engineering with NVIDIA",
       "publisher": "Mistral AI",
@@ -419,6 +452,107 @@
     }
   ],
   "articles": [
+    {
+      "id": "nvidia-rfd4-proteina-20261019",
+      "sector": "pharma",
+      "topics": [
+        "molecules"
+      ],
+      "title": "RFD4-Proteína：计算生成之后仍要过湿实验",
+      "summary": "模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。",
+      "why": "它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。",
+      "boundary": "计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。",
+      "sources": [
+        "nvidia-rfd4-proteina"
+      ],
+      "kind": "tool",
+      "access": "公开代码、权重与 Space；完整工作流建议 NVIDIA GPU",
+      "published": "2026-10-19",
+      "steps": [
+        "固定代码与模型 revision，用官方最小输入生成一个 CIF",
+        "分别记录生成成功、结构检查和外部评分，不把它们合成一个分数",
+        "由蛋白设计专家筛查，再以真实实验验证功能与安全性"
+      ],
+      "metrics": [
+        "可复现的模型、代码、seed 与输入版本",
+        "结构有效性与独立计算复核",
+        "湿实验命中率、安全性和失败样本"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "first_seen_at": "2026-10-21T23:19:42+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "nvidia-kumo-forecast-20261021",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-process",
+        "equipment-maintenance"
+      ],
+      "title": "Kumo Forecast：直接预测与历史检索要同窗对比",
+      "summary": "NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。",
+      "why": "设备维护和运营预测可以同时查看预测、检索依据和跨度解释，但应先做时间外推基线。",
+      "boundary": "只支持数值时序与指定输入长度；检索上下文维度需相近，且检索增强不保证更准。预测解释不是故障因果，本站未运行。",
+      "sources": [
+        "nvidia-kumo-forecast"
+      ],
+      "kind": "tool",
+      "access": "公开代码与权重；需按业务数据和算力配置",
+      "published": "2026-10-21",
+      "steps": [
+        "按设备和时间留出多个预测窗口，严格隔离未来信息",
+        "在相同窗口与 horizon 下比较直接模式、DARR 和季节朴素基线",
+        "影子运行，人工复核检索片段、异常预测与漂移"
+      ],
+      "metrics": [
+        "各 horizon 的误差与区间覆盖",
+        "DARR 相对直接模式的增益与失败率",
+        "推理时延、显存和人工复核负担"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "first_seen_at": "2026-10-21T23:19:42+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "nvidia-simready-central-20261021",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-design",
+        "digital-twin"
+      ],
+      "title": "SimReady Central：先核对资产 profile，再组装数字孪生",
+      "summary": "免费、免门槛的 Hugging Face 库汇集 2,000+ 带碰撞、质量、摩擦、关节或语义等属性的 OpenUSD 资产。",
+      "why": "机器人工作站和 AI 工厂场景可以复用带规格的 OEM 资产，减少从普通 CAD 补仿真元数据的重复工作。",
+      "boundary": "单个资产满足某个 SimReady profile 不代表适配所有运行时、传感器或现场精度；官方示例也不证明布局、碰撞和热设计已通过真实设施验收。",
+      "sources": [
+        "nvidia-simready-central"
+      ],
+      "kind": "tool",
+      "access": "免费、免门槛资产库；运行时和 OEM 条款逐项核对",
+      "published": "2026-10-21",
+      "steps": [
+        "按机器人或 AI 工厂任务选匹配的 SimReady profile",
+        "固定资产版本、OpenUSD 与 Isaac/目标运行时，检查关节、碰撞和单位",
+        "用真实 CAD、间距和设备数据复核场景，不把渲染预览当工程验收"
+      ],
+      "metrics": [
+        "profile 覆盖与资产版本可追溯性",
+        "碰撞、关节、单位及语义校验",
+        "仿真与现场几何、热设计和操作路径偏差"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "first_seen_at": "2026-10-21T23:19:42+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "mistral-nvidia-cae-eda-benchmarks-20261021",
       "sector": "manufacturing",

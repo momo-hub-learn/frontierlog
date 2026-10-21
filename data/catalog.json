@@ -3,6 +3,52 @@
   "snapshot": "2026-10-21",
   "items": [
     {
+      "id": "nvidia-rfd4-proteina",
+      "name": "NVIDIA / Baker Lab · RFD4-Proteína",
+      "title": "联合生成蛋白质序列与全原子结构",
+      "category": "科学研究",
+      "mark": "R4",
+      "accent": "lime",
+      "summary": "按结合靶点、酶基序、配体或指定结构特征，联合生成蛋白质残基身份与全原子坐标。",
+      "scope": "官方提供原生、Diffusers、容器与 Space 入口；当前模型卡记录 435,622,465 个存储参数和 1.74 GB 主权重。",
+      "boundary": "计算生成不证明结合、活性、安全性或临床价值；外部结构评分器与训练数据另有条款。Diffusers 需从 git 安装直至下一个正式版本，本站未运行。",
+      "repo": "RosettaCommons/RFD4-Proteina",
+      "sources": ["nvidia-rfd4-proteina-model", "nvidia-rfd4-proteina-code"],
+      "requirements": "Linux x86_64、Python 3.12；完整推理建议 NVIDIA GPU 与 CUDA 兼容环境。主权重约 1.74 GB，首次运行还会下载依赖。",
+      "test": "先用官方最小 monomer 输入固定权重 revision、seed 与单个 replicate 生成 CIF；记录日志与产物，再由结构工具和领域专家复核，不能把生成成功当成实验有效。",
+      "checks": ["固定模型 revision、代码版本、seed 与运行环境", "先禁用外部 metrics 跑通最小样例，再分别审查评分器", "候选进入任何研发决策前保留计算复核、湿实验与人工审批"],
+      "command": "git clone https://github.com/RosettaCommons/RFD4-Proteina.git\ncd RFD4-Proteina\nmake setup",
+      "effort": "本地 GPU / 官方 Space",
+      "evidence": "NVIDIA / Baker Lab 官方模型卡、代码与文档",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
+      "id": "nvidia-kumo-forecast",
+      "name": "NVIDIA · Kumo Forecast",
+      "title": "用历史模式检索增强多变量时序预测",
+      "category": "科学研究",
+      "mark": "KF",
+      "accent": "cyan",
+      "summary": "以预训练时序表示生成多变量预测，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释。",
+      "scope": "输入为时间戳加数值列的 DataFrame、CSV 或 JSON；支持 256、512、1024、2048 点输入，官方公开代码与权重。",
+      "boundary": "检索上下文维度需相近，且 DARR 不保证优于直接预测；必须在相同留出窗口与工况下比较。预测与解释都不等于故障因果，本站未运行。",
+      "repo": "NVIDIA/Kumo-TS",
+      "sources": ["nvidia-kumo-forecast-release", "nvidia-kumo-forecast-code"],
+      "requirements": "Python 与官方 Kumo-TS 环境；准备仅含必要字段的数值时序，并分别审查代码、权重和业务数据许可。",
+      "test": "按时间留出多个预测窗口，在相同 horizon 下对比直接与 DARR 配置，记录误差、区间稳定性和检索片段；避免未来数据泄漏。",
+      "checks": ["固定代码、权重、输入长度和 forecast horizon", "直接模式与 DARR 使用完全相同的留出窗口", "解释与异常预测由领域人员复核，不直接触发设备动作"],
+      "command": "git clone https://github.com/NVIDIA/Kumo-TS.git",
+      "effort": "本地 GPU / 研究环境",
+      "evidence": "NVIDIA 官方发布、代码与模型权重",
+      "status": "research",
+      "tested": false,
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
       "id": "voxtral-3-voice-agents",
       "name": "Mistral · Voxtral 3",
       "title": "转写、合成并运行可打断的实时语音 Agent",
@@ -406,6 +452,46 @@
   ],
   "sources": [
     {
+      "id": "nvidia-rfd4-proteina-model",
+      "publisher": "NVIDIA / Baker Lab",
+      "title": "RFD4-Proteína official model card",
+      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "published": "2026-10-19",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方模型卡与运行文档"
+    },
+    {
+      "id": "nvidia-rfd4-proteina-code",
+      "publisher": "RosettaCommons",
+      "title": "RFD4-Proteína official code",
+      "url": "https://github.com/RosettaCommons/RFD4-Proteina",
+      "published": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方代码仓库"
+    },
+    {
+      "id": "nvidia-kumo-forecast-release",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA Kumo Forecast",
+      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "published": "2026-10-21",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "nvidia-kumo-forecast-code",
+      "publisher": "NVIDIA",
+      "title": "Kumo-TS official code",
+      "url": "https://github.com/NVIDIA/Kumo-TS",
+      "published": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00",
+      "kind": "官方代码仓库"
+    },
+    {
       "id": "mistral-voxtral-3-release",
       "publisher": "Mistral AI",
       "title": "Voxtral 3",
@@ -625,6 +711,30 @@
     }
   ],
   "events": [
+    {
+      "id": "nvidia-rfd4-proteina-release-20261019",
+      "task": "nvidia-rfd4-proteina",
+      "date": "2026-10-19",
+      "kind": "release",
+      "title": "RFD4-Proteína 开放原生、Diffusers 与容器入口",
+      "summary": "Baker Lab 与 NVIDIA 发布联合生成蛋白质序列和全原子结构的模型、权重、代码与可运行样例。",
+      "delta": "计算设计入口更完整，但任何结合、活性或研发价值都仍需结构复核与湿实验；本站未运行。",
+      "sources": ["nvidia-rfd4-proteina-model", "nvidia-rfd4-proteina-code"],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
+    {
+      "id": "nvidia-kumo-forecast-release-20261021",
+      "task": "nvidia-kumo-forecast",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Forecast 开放检索增强时序预测代码与权重",
+      "summary": "NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。",
+      "delta": "工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。",
+      "sources": ["nvidia-kumo-forecast-release", "nvidia-kumo-forecast-code"],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T23:19:42+08:00"
+    },
     {
       "id": "voxtral-3-release-20261020",
       "task": "voxtral-3-voice-agents",

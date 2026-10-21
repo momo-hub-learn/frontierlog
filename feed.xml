@@ -1,11 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Voxtral 3 与实时语音 Agent SDK 开放</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=voxtral-3-voice-agents&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:voxtral-3-release-20261020</guid><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Kumo Forecast 开放检索增强时序预测代码与权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-kumo-forecast&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-kumo-forecast-release-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。
+
+编辑解读：工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。
+
+公开资料，本站未复测。
+来源：https://huggingface.co/blog/nvidia/kumo-forecast
+https://github.com/NVIDIA/Kumo-TS</description></item><item><title>Voxtral 3 与实时语音 Agent SDK 开放</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=voxtral-3-voice-agents&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:voxtral-3-release-20261020</guid><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。
 
 编辑解读：语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。
 
 公开资料，本站未复测。
 来源：https://mistral.ai/news/voxtral-3/
-https://docs.mistral.ai/studio/audio/overview</description></item><item><title>Mistral 发布 Timestral 时序模型与推理代码</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=timestral&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:timestral-release-20261015</guid><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。
+https://docs.mistral.ai/studio/audio/overview</description></item><item><title>RFD4-Proteína 开放原生、Diffusers 与容器入口</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-rfd4-proteina&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-rfd4-proteina-release-20261019</guid><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>Baker Lab 与 NVIDIA 发布联合生成蛋白质序列和全原子结构的模型、权重、代码与可运行样例。
+
+编辑解读：计算设计入口更完整，但任何结合、活性或研发价值都仍需结构复核与湿实验；本站未运行。
+
+公开资料，本站未复测。
+来源：https://huggingface.co/nvidia/RFD4-Proteina
+https://github.com/RosettaCommons/RFD4-Proteina</description></item><item><title>Mistral 发布 Timestral 时序模型与推理代码</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=timestral&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:timestral-release-20261015</guid><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。
 
 编辑解读：可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。
 
@@ -67,7 +79,28 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：开发者可以沿公开实现检查构建和查询流程。
 
 公开资料，本站未复测。
-来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=mistral-nvidia-cae-eda-benchmarks-20261021</link><guid isPermaLink="false">frontierlog:topic:mistral-nvidia-cae-eda-benchmarks-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。
+来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>RFD4-Proteína：计算生成之后仍要过湿实验</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=nvidia-rfd4-proteina-20261019</link><guid isPermaLink="false">frontierlog:topic:nvidia-rfd4-proteina-20261019</guid><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。
+
+编辑解读：它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。
+
+边界：计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://huggingface.co/nvidia/RFD4-Proteina</description><category>分子设计与筛选</category></item><item><title>Kumo Forecast：直接预测与历史检索要同窗对比</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-kumo-forecast-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-kumo-forecast-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。
+
+编辑解读：设备维护和运营预测可以同时查看预测、检索依据和跨度解释，但应先做时间外推基线。
+
+边界：只支持数值时序与指定输入长度；检索上下文维度需相近，且检索增强不保证更准。预测解释不是故障因果，本站未运行。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://huggingface.co/blog/nvidia/kumo-forecast</description><category>工艺控制 · FDC / APC</category><category>装备运维与质检</category></item><item><title>SimReady Central：先核对资产 profile，再组装数字孪生</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-simready-central-20261021</link><guid isPermaLink="false">frontierlog:topic:nvidia-simready-central-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>免费、免门槛的 Hugging Face 库汇集 2,000+ 带碰撞、质量、摩擦、关节或语义等属性的 OpenUSD 资产。
+
+编辑解读：机器人工作站和 AI 工厂场景可以复用带规格的 OEM 资产，减少从普通 CAD 补仿真元数据的重复工作。
+
+边界：单个资产满足某个 SimReady profile 不代表适配所有运行时、传感器或现场精度；官方示例也不证明布局、碰撞和热设计已通过真实设施验收。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories</description><category>装备研发与工程</category><category>数字孪生与产线仿真</category></item><item><title>Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=mistral-nvidia-cae-eda-benchmarks-20261021</link><guid isPermaLink="false">frontierlog:topic:mistral-nvidia-cae-eda-benchmarks-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。
 
 编辑解读：工程 Agent 需要同时衡量技术正确性、工具调用、执行时间和计算成本；公开口径比通用聊天分数更接近真实工程决策。
 

@@ -1,6 +1,7 @@
 """Guard the evidence and build contract for task-first toolkit guides."""
 import copy
 import json
+from datetime import datetime
 from pathlib import Path
 import sys
 import tempfile
@@ -31,6 +32,15 @@ class ToolkitTests(unittest.TestCase):
             with self.subTest(key=key,value=value):
                 data=copy.deepcopy(self.data);data['items'][0]['sources'][0][key]=value
                 with self.assertRaises(ValueError):validate_toolkit(data,self.catalog)
+    def test_verification_dates_use_beijing_calendar_day(self):
+        data=copy.deepcopy(self.data)
+        data['items'][0]['sources'][0]['verified_at']='2026-10-22'
+        # The same instant is still October 21 in UTC, but already October 22 in Beijing.
+        validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-21T16:00:00+00:00'))
+        with self.assertRaisesRegex(ValueError,'timezone'):
+            validate_toolkit(data,self.catalog,now=datetime(2026,10,22))
+        with self.assertRaisesRegex(ValueError,'Future toolkit'):
+            validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-21T15:59:59+00:00'))
     def test_no_runtime_claim_without_logs(self):
         for key,value in [('runtime_tested',True),('evidence_level','onsite-test')]:
             data=copy.deepcopy(self.data);data['items'][0][key]=value

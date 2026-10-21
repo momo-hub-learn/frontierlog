@@ -190,5 +190,9 @@ document.addEventListener('input',e=>{if(e.target.id!=='h-search')return;const p
 /* Preserve deep links and inject hot signals into the curated landing page. */
 const beforeHotDetails=moduleDetailsFromRoute;
 moduleDetailsFromRoute=function(){if(state.view==='hot'){const id=hState().item;if(id)hDetail(id);else if(modal.open&&modal.dataset.type==='hot')hideModal(false);return}if(modal.open&&modal.dataset.type==='hot')hideModal(false);beforeHotDetails()};
+/* Closing a deep-linked drawer must leave a truthful, refresh-safe route. */
+modal.addEventListener('close',()=>{
+ if(modal.dataset.type==='hot'&&state.view==='hot'&&hState().item)hRoute({item:null},true)
+});
 const beforeHotFeed=feedPage;
 feedPage=function(){const html=beforeHotFeed();const rows=[...HOT.items].sort((a,b)=>b.heat-a.heat).slice(0,5);const board=`<section class="v-hot-entry"><div class="v-sectionline"><h2>${icon('fire')}当前热点</h2><a href="#/hot">完整榜单 ${icon('arrow')}</a></div><div class="v-hot-mini">${rows.map((x,i)=>`<a href="#/hot?item=${encodeURIComponent(x.id)}"><b>${i+1}</b><span>${esc(x.title)}</span><em>${x.heat}${hTrend(x)}</em></a>`).join('')}</div></section>`;return board+html};
