@@ -42,6 +42,29 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemotron-3-5-retriever",
+      "publisher": "NVIDIA",
+      "group": "documents",
+      "access": "model",
+      "headline": "把 Nemotron 3.5 的解析、召回和重排拆成三段验收",
+      "input": "50–200 个已授权的 PDF、扫描页、表格和图表，以及带证据位置与相关性标签的查询集",
+      "output": "结构化 Markdown/HTML、候选证据、重排分数，以及每段可追踪的错误与延迟",
+      "requirements": "Python 推理环境、选定的 Parse/Embed/Rerank 权重和相应 GPU；也可先用官方托管入口做小样本验证。",
+      "limitation": "本站只核验官方文档，未下载或运行模型。ViDoRe、ParseBench、吞吐和厂商错误率不代表你的文档、语言或最终 RAG 答案；授权、隐私和索引更新策略仍需单独评估。",
+      "cost": "开放权重可下载；本地算力、NIM 与第三方托管价格分别计算，先用小样本测显存、吞吐和单位文档成本。",
+      "steps": [
+        {"title": "先验收解析结构", "body": "对扫描页、双栏文本、复杂表格和图表各选样例，检查阅读顺序、单元格关系、图表字段及原页坐标；失败样本不要进入索引。"},
+        {"title": "固定召回与重排对照", "body": "在同一查询和候选库上比较 Embed 1B/8B，并分别关闭和开启 Rerank；记录 Recall@k、nDCG@10、延迟和显存，不只看厂商平均分。"},
+        {"title": "再接生成并保留引用", "body": "只把通过重排的证据交给生成模型，强制返回文档、页码或区域；把无证据回答、错误引用和过期索引单独计数。"}
+      ],
+      "troubleshooting": "表格关系错乱时先切回原页坐标并调整 Parse pass；召回漏掉图像证据时核对索引是否包含页面图像；Rerank 变差时检查候选深度、相关性标注和查询语言。",
+      "sources": [{"title": "Nemotron 3.5 Retriever 官方发布", "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval", "published_at": "2026-10-21", "verified_at": "2026-10-22"}],
+      "entry_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T07:16:00+08:00"
+    },
+    {
       "id": "anthropic-claude-security",
       "publisher": "Anthropic",
       "group": "agents",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-08",
+  "checked": "2026-10-22",
   "account": "thsottiaux",
   "events": [
     {
@@ -318,28 +318,29 @@
     {
       "id": "tibo-global-processed-2026-10-07",
       "kind": "global",
-      "status": "pending",
+      "status": "confirmed",
       "date": "2026-10-07",
       "published_at": "2026-10-07T03:35:00Z",
       "effective_at": null,
       "precision": "instant",
       "source_timezone": "UTC",
-      "title": "第三方定位到 Tibo：“the reset has been processed”——完成措辞强，但原帖直读仍待核验",
-      "summary": "多个公开追踪页一致定位到 Tibo 10 月 7 日 03:35 UTC 的 X 原帖，并保留“the reset has been processed. Enjoy!”这一完成式措辞；已定位原帖状态 ID 2107676072871600470。",
+      "title": "Tibo：“the reset has been processed”——原帖已直读核验",
+      "summary": "Tibo 原帖正文已直接读取：在回顾四项发布和社区投票后，他明确写出“the reset has been processed. Enjoy!”；原帖状态 ID 为 2107676072871600470。",
       "scope": "Codex / ChatGPT Work 社区 reset 语境；第三方追踪页将其归为 shared/global reset",
-      "boundary": "若能直接核验 Tibo 原帖，这类“processed”措辞足以视为执行完成信号；但本站本轮 X 官方 API 仍未配置、服务端直读 X 失败，因此严格保持 pending，不能写成本站已确认的 global reset，更不能推出 propagation 已完成或每个账户都已刷新。",
+      "boundary": "原帖可确认 Tibo 已宣布处理 reset；它仍不能证明传播已在每个账户完成，也不能推出个人账户余额、banked reset 数量或有效期。",
       "sources": [
         "tibo-post-2107676072871600470",
         "codex-reset-watch-oct7",
         "limitbell-oct7"
       ],
-      "reviewed": "2026-10-08",
-      "review_basis": "secondary_lead",
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T07:23:00+08:00",
+      "review_basis": "primary_source",
       "related_ids": [],
       "original_text": "We shipped four things that were deemed good to great and some math proofs, but the vote is clear and the community demands a reset. I did calibrate it and it seems that the game is rigged in reset's favor, but such are the rules at the moment. Therefore ... the reset has been processed. Enjoy!",
       "conversation_context": "公开追踪页显示这是 Tibo 的独立原帖，内容把前两天的更新 / 投票与一次 reset 处理结果放在同一语境。",
-      "interpretation": "这是迄今比 9 月 22 日“正在加载”更强的执行完成信号；但因为第一方正文尚未被本站直接读取，证据等级只能停在待核验。",
-      "evidence_strength": "medium",
+      "interpretation": "这是比 9 月 22 日“正在加载”更强的第一方执行完成信号，应从线索升级为已确认；是否已传播到每个账户仍需独立证据。",
+      "evidence_strength": "high",
       "semantic_type": "global_reset_completion_claim",
       "not_proves": "未证明 reset 已在每个账户完成传播；未证明 banked reset 数量、有效期或个人账户余额；也未证明随后不会有单独 banked grant。",
       "post_id": "2107676072871600470",
@@ -544,9 +545,9 @@
       "publisher": "Tibo / X",
       "title": "“the reset has been processed. Enjoy!” post",
       "url": "https://x.com/thsottiaux/status/2107676072871600470",
-      "checked": "2026-10-08",
-      "kind": "原帖待直接核验",
-      "note": "第三方追踪页定位到该 Tibo 原帖、状态 ID 与 2026-10-07 03:35 UTC 时间；本站本轮服务端直读 X 仍失败，因此不能把镜像文本升级为第一方已确认。"
+      "checked": "2026-10-22",
+      "kind": "官方原帖",
+      "note": "2026-10-22 07:23 +08:00 直接读取 X 原帖正文、作者账号和状态 ID；正文明确包含“the reset has been processed. Enjoy!”。"
     },
     {
       "id": "codex-reset-watch-oct7",

@@ -3,6 +3,29 @@
   "snapshot": "2026-10-22",
   "items": [
     {
+      "id": "nvidia-nemotron-3-5-retriever",
+      "name": "NVIDIA · Nemotron 3.5 Retriever",
+      "title": "解析、检索并重排企业多模态文档",
+      "category": "知识管理",
+      "mark": "NR",
+      "accent": "cyan",
+      "summary": "用 Parse 把扫描页、表格和图表转为结构化内容，再由 Embed 检索文本与图像证据、Rerank 对候选做二阶段排序。",
+      "scope": "官方开放 8B/1B Embed、8B Rerank 和 631M Parse 权重，并提供 NIM、合作方推理入口及多模态微调配方。",
+      "boundary": "厂商公布的 ViDoRe、ParseBench、吞吐和错误率依赖指定数据、硬件与配置。本站未运行模型；开放权重不代表所有部署路径免费，也不能保证特定企业文档、语言或 RAG 答案质量。",
+      "repo": "NVIDIA-NeMo/Automodel",
+      "sources": ["nvidia-nemotron-3-5-retriever-release"],
+      "requirements": "Python 推理环境、相应模型权重和显存；生产前需自建带相关性标签的多模态文档评测集。",
+      "test": "固定 50–200 个获授权文档与查询，分别记录解析结构、Recall@k、nDCG@10、重排增益、延迟和显存；与文本抽取、旧 Embed 及不开 Rerank 的基线同窗比较。",
+      "checks": ["锁定模型、配方、数据与硬件版本", "把解析、召回、重排和最终回答错误分开记录", "人工抽检表格、图表、阅读顺序和引用定位"],
+      "command": "",
+      "effort": "开放权重 / 本地或托管推理",
+      "evidence": "NVIDIA 与 Hugging Face 官方技术发布",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T07:16:00+08:00"
+    },
+    {
       "id": "anthropic-claude-duet",
       "name": "Anthropic · Claude Duet",
       "title": "让主动 Agent 在后台跟进连接应用",
@@ -590,6 +613,15 @@
   ],
   "sources": [
     {
+      "id": "nvidia-nemotron-3-5-retriever-release",
+      "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布与模型入口"
+    },
+    {
       "id": "anthropic-claude-duet-release",
       "title": "Introducing Claude Duet",
       "publisher": "Anthropic",
@@ -936,6 +968,17 @@
     }
   ],
   "events": [
+    {
+      "id": "nvidia-nemotron-3-5-retriever-release",
+      "task": "nvidia-nemotron-3-5-retriever",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Nemotron 3.5 Retriever 开放解析、检索与重排模型",
+      "summary": "开放 8B/1B Embed、8B Rerank 和 631M Parse，并给出 ViDoRe v3.1、ParseBench 与部署配方。",
+      "delta": "企业知识链从单一文本向量检索扩展为可复现的多模态解析、召回和二阶段排序组件。",
+      "sources": ["nvidia-nemotron-3-5-retriever-release"],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "anthropic-claude-duet-preview",
       "task": "anthropic-claude-duet",

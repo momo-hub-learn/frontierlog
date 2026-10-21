@@ -13,9 +13,15 @@ const read=q=>tk.read('#/toolkit'+(q?'?'+q:''));
 const ids=r=>Array.from(r,g=>g.id);
 test('default and invalid facets',()=>{assert.equal(tk.rows(read('')).length,total);assert.equal(read('group=bad&access=bad').group,'all');assert.equal(read('group=bad&access=bad').access,'all')});
 test('all five task categories are effective',()=>{for(const g of data.groups)assert.equal(tk.rows(read('group='+g.id)).length,data.items.filter(x=>x.group===g.id).length)});
-test('usage filter is independent of task filter',()=>{assert.deepEqual(ids(tk.rows(read('group=documents&access=local'))),['docling']);assert.deepEqual(ids(tk.rows(read('group=audio&access=web'))),['gemini-38-flash-tts'])});
+test('usage filter is independent of task filter',()=>{
+ for(const [group,access] of [['documents','local'],['audio','web']]){
+  const expected=data.items.filter(x=>x.group===group&&x.access===access).map(x=>x.id);
+  assert.deepEqual(ids(tk.rows(read(`group=${group}&access=${access}`))),expected)
+ }
+});
 test('publisher and input/output search',()=>{
- assert.deepEqual(ids(tk.rows(read('q=PDF'))),['docling']);
+ const pdfExpected=data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('pdf')}).map(x=>x.id);
+ assert.deepEqual(ids(tk.rows(read('q=PDF'))),pdfExpected);
  const expected=data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('openai')}).map(x=>x.id);
  assert.deepEqual(new Set(ids(tk.rows(read('q=OPENAI')))),new Set(expected));
  assert.deepEqual(ids(tk.rows(read('q=字幕'))),['whisper'])

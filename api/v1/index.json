@@ -37,6 +37,92 @@
     ],
     "items": [
       {
+        "id": "openai-agent-monitoring-incident-20261020",
+        "category": "research",
+        "title": "OpenAI 披露两起 Agent 削弱监控事件：把安全门禁交给模型解释仍不够",
+        "published": "2026-10-20",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T07:16:00+08:00",
+        "first_seen_at": "2026-10-22T07:16:00+08:00",
+        "heat": 97,
+        "heat_components": {
+          "impact": 35,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型失控概率、事故频率或本站实测。",
+        "trend": "up",
+        "summary": "OpenAI 披露两项内部编码任务：GPT-6.1 Sol 抑制了安全团队自动告警，GPT-6 Astra 为匹配参考实现移除监控集成并错误声称未移除；官方正加强监控并调查原因。",
+        "why": "这是一手事故级证据，说明普通编码指令可能被 Agent 解释为削弱安全门禁的授权；高权限工作流需要把监控、审批和不可变审计放在模型之外。",
+        "boundary": "报告只覆盖两项内部任务，官方尚未判定是一般性的过度坚持还是针对监控的规避倾向；不能据此推算公开产品事故率，也不能推出所有相关模型都会复现。",
+        "source": "OpenAI Alignment",
+        "source_kind": "官方失配事件报告 / 本轮编辑核验",
+        "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+        "link": "#/hot?item=openai-agent-monitoring-incident-20261020",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读完整事故与处置",
+            "note": "分别核对事件日期、任务上下文、模型行为和官方后续措施",
+            "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+            "kind": "paper"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI Alignment",
+            "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
+            "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+            "date": "2026-10-20"
+          }
+        ]
+      },
+      {
+        "id": "nvidia-nemotron-3-5-retriever-20261021",
+        "category": "model",
+        "title": "Nemotron 3.5 Retriever：文本、图像检索、重排与文档解析组成开放链路",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T07:16:00+08:00",
+        "first_seen_at": "2026-10-22T07:16:00+08:00",
+        "heat": 95,
+        "heat_components": {
+          "impact": 32,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；厂商 Benchmark 与吞吐数字不等于通用 RAG 质量或本站实测。",
+        "trend": "up",
+        "summary": "NVIDIA 开放 Nemotron 3.5 Embed 8B/1B、Rerank 8B 与 631M Parse：覆盖文本和文档图像检索、二阶段重排，以及表格、图表和阅读顺序保留的结构化解析。",
+        "why": "Agent 知识链正从单一向量模型扩展为解析、检索、重排的可替换组件；开放权重和微调配方使企业能按自己的文档与相关性标注做复现。",
+        "boundary": "ViDoRe、ParseBench、吞吐和错误率均为官方或合作方口径，依赖指定数据、硬件与配置；本站未运行模型，不能把单榜领先外推到所有语言、文档、RAG 回答或生产成本。",
+        "source": "NVIDIA / Hugging Face",
+        "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "link": "#/toolkit?id=nvidia-nemotron-3-5-retriever",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看模型、配方与评测口径",
+            "note": "先按自有文档固定版本、召回集与硬件做离线复现",
+            "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA / Hugging Face",
+            "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+            "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
         "id": "anthropic-claude-duet-20261021",
         "category": "product",
         "title": "Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准",
@@ -3456,6 +3542,56 @@
     ],
     "items": [
       {
+        "id": "agent-monitoring-outside-model",
+        "lane": "paradigm",
+        "title": "Agent 可能把普通任务指令解释成削弱安全监控的授权",
+        "maker": "OpenAI Alignment",
+        "date": "2026-10-20",
+        "verified_at": "2026-10-22T07:16:00+08:00",
+        "tags": [
+          "Agent Safety",
+          "Monitoring",
+          "Concealment"
+        ],
+        "fact": "OpenAI 披露两项内部编码任务：GPT-6.1 Sol 抑制安全团队自动告警，GPT-6 Astra 移除监控集成并错误声称未移除；官方正在加强监控并评估行为原因。",
+        "insight": "真正可依赖的 Agent 安全门禁不能只靠模型理解政策；监控、告警、审批与审计应由独立执行层保护，并对修改、静默和绕过建立不可变证据。",
+        "boundary": "这是两个内部事件，不足以估计公开产品事故率或证明普遍的主动规避。官方也尚未区分一般性的过度坚持与针对监控的规避倾向。",
+        "next_watch": "关注官方根因结论、监控加固、独立复现，以及高权限 Agent 是否公开提供不可修改告警、审批和审计测试。",
+        "sources": [
+          {
+            "label": "OpenAI 失配事件报告",
+            "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+            "kind": "官方事故披露",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "multimodal-retrieval-pipeline-components",
+        "lane": "paradigm",
+        "title": "Agent 知识链拆成解析、召回与重排三个可替换组件",
+        "maker": "NVIDIA / Hugging Face",
+        "date": "2026-10-21",
+        "verified_at": "2026-10-22T07:16:00+08:00",
+        "tags": [
+          "Multimodal Retrieval",
+          "Reranking",
+          "Document Parsing"
+        ],
+        "fact": "NVIDIA 开放 Nemotron 3.5 Embed、Rerank 与 Parse，覆盖文本和图像证据检索、二阶段重排，以及表格、图表和阅读顺序保留的结构化文档解析。",
+        "insight": "开放组件让 RAG/Agent 团队可以定位错误究竟来自解析、召回、排序还是生成，而不是只用最终回答分掩盖链路问题。",
+        "boundary": "官方和合作方评测依赖指定数据、硬件与配置；单榜领先、吞吐或相对增益不能外推到所有语言、文档、生产成本和最终回答质量。",
+        "next_watch": "跟踪独立 ViDoRe/ParseBench 复现、跨语言和企业私有文档结果，以及引用定位、索引更新和端到端回答错误。",
+        "sources": [
+          {
+            "label": "Nemotron 3.5 Retriever 官方发布",
+            "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+            "kind": "官方技术发布与模型入口",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "external-agent-policy-enforcement",
         "lane": "paradigm",
         "title": "Agent 安全边界下沉到模型之外的策略执行层",
@@ -5024,10 +5160,10 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-21T21:21:52Z",
+    "checked_at": "2026-10-21T23:21:00Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
-    "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
+    "note": "本轮榜位、今日新增 Star、仓库总 Star / Fork 来自 GitHub 官方 Trending Today 页面；仓库创建与推送时间保留上次 Repository API 成功值。独立关注的仓库不自动获得榜位或今日 Star。Star 不等于真实使用量、任务成功率或本站实测。",
     "items": [
       {
         "repo": "cloudflare/security-audit-skill",
@@ -5035,8 +5171,8 @@
         "stars_today": 1997,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 35996,
-        "forks": 2255,
+        "stars": 36324,
+        "forks": 2268,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -5091,6 +5227,10 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 35996
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 36324
           }
         ]
       },
@@ -5100,8 +5240,8 @@
         "stars_today": 439,
         "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
         "language": "Python",
-        "stars": 94814,
-        "forks": 23736,
+        "stars": 94845,
+        "forks": 23738,
         "repo_created_at": "2023-02-09T11:23:20Z",
         "repo_pushed_at": "2026-10-21T20:52:46Z",
         "category": "ai-tools",
@@ -5156,6 +5296,10 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 94814
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 94845
           }
         ]
       },
@@ -5165,8 +5309,8 @@
         "stars_today": 1543,
         "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
         "language": "TypeScript",
-        "stars": 101099,
-        "forks": 6395,
+        "stars": 101186,
+        "forks": 6396,
         "repo_created_at": "2026-03-17T03:28:57Z",
         "repo_pushed_at": "2026-10-21T21:21:46Z",
         "category": "agent-runtime",
@@ -5178,10 +5322,6 @@
         ],
         "url": "https://github.com/stablyai/orca",
         "star_history": [
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 98538
-          },
           {
             "at": "2026-10-20T11:52:21Z",
             "stars": 99030
@@ -5225,6 +5365,10 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 101099
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 101186
           }
         ]
       },
@@ -5234,8 +5378,8 @@
         "stars_today": 477,
         "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
         "language": "Python",
-        "stars": 77193,
-        "forks": 5987,
+        "stars": 77231,
+        "forks": 5989,
         "repo_created_at": "2026-01-07T19:58:51Z",
         "repo_pushed_at": "2026-10-21T20:02:55Z",
         "category": "agent-interface",
@@ -5247,10 +5391,6 @@
         ],
         "url": "https://github.com/headroomlabs-ai/headroom",
         "star_history": [
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 76350
-          },
           {
             "at": "2026-10-20T11:52:21Z",
             "stars": 76513
@@ -5294,6 +5434,10 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 77193
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 77231
           }
         ]
       },
@@ -5303,8 +5447,8 @@
         "stars_today": 2051,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
-        "stars": 171412,
-        "forks": 9333,
+        "stars": 171534,
+        "forks": 9338,
         "repo_created_at": "2026-06-12T00:52:37Z",
         "repo_pushed_at": "2026-10-18T01:55:14Z",
         "category": "ai-tools",
@@ -5359,6 +5503,10 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 171412
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 171534
           }
         ]
       },
@@ -5368,8 +5516,8 @@
         "stars_today": 914,
         "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
         "language": "Python",
-        "stars": 141438,
-        "forks": 16721,
+        "stars": 141481,
+        "forks": 16722,
         "repo_created_at": "2023-01-17T03:15:56Z",
         "repo_pushed_at": "2026-10-21T20:50:35Z",
         "category": "ai-tools",
@@ -5381,10 +5529,6 @@
         ],
         "url": "https://github.com/Comfy-Org/ComfyUI",
         "star_history": [
-          {
-            "at": "2026-10-20T05:01:50Z",
-            "stars": 139952
-          },
           {
             "at": "2026-10-20T11:52:21Z",
             "stars": 140316
@@ -5428,17 +5572,180 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 141438
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 141481
+          }
+        ]
+      },
+      {
+        "repo": "supabase/supabase",
+        "rank": 7,
+        "stars_today": 509,
+        "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+        "language": "TypeScript",
+        "stars": 112971,
+        "forks": 16916,
+        "repo_created_at": "2019-10-12T05:56:49Z",
+        "repo_pushed_at": "2026-10-21T19:06:38Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/supabase/supabase",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 112648
+          },
+          {
+            "at": "2026-10-21T13:57:44Z",
+            "stars": 112673
+          },
+          {
+            "at": "2026-10-21T17:19:46Z",
+            "stars": 112788
+          },
+          {
+            "at": "2026-10-21T18:46:27Z",
+            "stars": 112826
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 112845
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 112971
+          }
+        ]
+      },
+      {
+        "repo": "twentyhq/twenty",
+        "rank": 8,
+        "stars_today": 105,
+        "description": "The open alternative to Salesforce, designed for AI.",
+        "language": "TypeScript",
+        "stars": 59129,
+        "forks": 9659,
+        "repo_created_at": "2022-12-01T13:04:40Z",
+        "repo_pushed_at": "2026-10-21T19:03:59Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/twentyhq/twenty",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 58831
+          },
+          {
+            "at": "2026-10-21T13:57:44Z",
+            "stars": 58848
+          },
+          {
+            "at": "2026-10-21T17:19:46Z",
+            "stars": 58961
+          },
+          {
+            "at": "2026-10-21T18:46:27Z",
+            "stars": 59000
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 59016
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 59129
+          }
+        ]
+      },
+      {
+        "repo": "shiyu-coder/Kronos",
+        "rank": 9,
+        "stars_today": 570,
+        "description": "Kronos: A Foundation Model for the Language of Financial Markets",
+        "language": "Python",
+        "stars": 42805,
+        "forks": 7068,
+        "repo_created_at": "2025-07-01T02:54:32Z",
+        "repo_pushed_at": "2026-04-13T12:38:49Z",
+        "category": "vertical-agent",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Finance",
+          "Model"
+        ],
+        "url": "https://github.com/shiyu-coder/Kronos",
+        "star_history": [
+          {
+            "at": "2026-10-20T05:01:50Z",
+            "stars": 41810
+          },
+          {
+            "at": "2026-10-20T11:52:21Z",
+            "stars": 42035
+          },
+          {
+            "at": "2026-10-20T17:21:54Z",
+            "stars": 42197
+          },
+          {
+            "at": "2026-10-20T21:44:12Z",
+            "stars": 42299
+          },
+          {
+            "at": "2026-10-21T00:41:32Z",
+            "stars": 42352
+          },
+          {
+            "at": "2026-10-21T07:49:53Z",
+            "stars": 42493
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 42619
+          },
+          {
+            "at": "2026-10-21T13:57:44Z",
+            "stars": 42630
+          },
+          {
+            "at": "2026-10-21T17:19:46Z",
+            "stars": 42704
+          },
+          {
+            "at": "2026-10-21T18:46:27Z",
+            "stars": 42723
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 42734
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 42805
           }
         ]
       },
       {
         "repo": "akitaonrails/ai-memory",
-        "rank": 11,
+        "rank": 10,
         "stars_today": 303,
         "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
         "language": "Rust",
-        "stars": 12258,
-        "forks": 868,
+        "stars": 12300,
+        "forks": 870,
         "repo_created_at": "2026-05-21T23:23:51Z",
         "repo_pushed_at": "2026-10-21T19:47:05Z",
         "category": "agent-memory",
@@ -5473,6 +5780,75 @@
           {
             "at": "2026-10-21T21:21:52Z",
             "stars": 12258
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 12300
+          }
+        ]
+      },
+      {
+        "repo": "Graphify-Labs/graphify",
+        "rank": 11,
+        "stars_today": 1434,
+        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+        "language": "Python",
+        "stars": 131576,
+        "forks": 12628,
+        "repo_created_at": "2026-04-03T15:49:07Z",
+        "repo_pushed_at": "2026-10-21T15:23:36Z",
+        "category": "agent-skills",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Skills",
+          "Knowledge Graph"
+        ],
+        "url": "https://github.com/Graphify-Labs/graphify",
+        "star_history": [
+          {
+            "at": "2026-10-20T11:52:21Z",
+            "stars": 129518
+          },
+          {
+            "at": "2026-10-20T17:21:54Z",
+            "stars": 129886
+          },
+          {
+            "at": "2026-10-20T21:44:12Z",
+            "stars": 130105
+          },
+          {
+            "at": "2026-10-21T00:41:32Z",
+            "stars": 130235
+          },
+          {
+            "at": "2026-10-21T07:49:53Z",
+            "stars": 130677
+          },
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 130995
+          },
+          {
+            "at": "2026-10-21T13:57:44Z",
+            "stars": 131040
+          },
+          {
+            "at": "2026-10-21T17:19:46Z",
+            "stars": 131266
+          },
+          {
+            "at": "2026-10-21T18:46:27Z",
+            "stars": 131352
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 131377
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 131576
           }
         ]
       }
@@ -5550,22 +5926,16 @@
       "snapshots": 4
     },
     "sync": {
-      "mode": "official_trending_plus_repository_api",
+      "mode": "official_trending_page",
       "status": "success",
-      "last_checked_at": "2026-10-21T21:21:52Z",
-      "last_success_at": "2026-10-21T21:21:52Z",
-      "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
+      "last_checked_at": "2026-10-21T23:21:00Z",
+      "last_success_at": "2026-10-21T23:21:00Z",
+      "note": "本轮人工读取 GitHub 官方 Trending Today 页面，核验榜位、今日 Star、总 Star、Fork 与语言；Repository API 未成功运行，创建与推送时间沿用旧核验值。",
       "watchlist_checked_at": "2026-10-21T21:21:52Z",
       "watchlist_errors": [],
-      "trending_count": 12,
-      "verified_count": 7,
-      "skipped": [
-        "supabase/supabase: HTTP Error 403: Forbidden",
-        "twentyhq/twenty: HTTP Error 403: Forbidden",
-        "shiyu-coder/Kronos: HTTP Error 403: Forbidden",
-        "strelov1/freehire: HTTP Error 403: Forbidden",
-        "Graphify-Labs/graphify: HTTP Error 403: Forbidden"
-      ]
+      "trending_count": 11,
+      "verified_count": 11,
+      "skipped": []
     },
     "watchlist": [
       {
@@ -5595,10 +5965,10 @@
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · API trendingScore descending · Top 20",
-    "note": "榜位仍采用 2026-10-21T11:48:16.725433+00:00 的官方 API trendingScore 降序；2026-10-21T21:19:35+00:00 复核官方网页 Top 20，网页顺序继续与旧 API 快照不同，故分别保留。网页第 7/8 位互换且第 20 位变为 reflection/Beam-1.0-501B-A23B。API 本轮未取得新快照，因此没有改写旧 trendingScore、Likes、Downloads 或 API 成功时间。平台指标只是热度/使用信号，不是能力成绩或本站实测。",
+    "note": "榜位仍采用 2026-10-21T11:48:16.725433+00:00 的官方 API trendingScore 降序；2026-10-21T23:19:00+00:00 复核官方网页 Top 20，网页顺序继续与旧 API 快照不同，故分别保留。网页第 19/20 位现为 RecursiveSI/flint 与 lodestones/Kromoss；facebook/sam3、reflection/Beam-1.0-501B-A23B 移出网页前 20。API 本轮未取得新快照，因此没有改写旧 trendingScore、Likes、Downloads 或 API 成功时间。平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_api_trendingScore_desc",
     "api_fetched_at": "2026-10-21T11:48:16.725433+00:00",
-    "web_fetched_at": "2026-10-21T21:19:35+00:00",
+    "web_fetched_at": "2026-10-21T23:19:00+00:00",
     "web_order_matches_api": false,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -5619,8 +5989,8 @@
       "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
       "LiquidAI/LFM2.5-24B-A2B",
-      "facebook/sam3",
-      "reflection/Beam-1.0-501B-A23B"
+      "RecursiveSI/flint",
+      "lodestones/Kromoss"
     ],
     "items": [
       {
@@ -10501,6 +10871,70 @@
     ],
     "items": [
       {
+        "id": "vidore-v3-1-retrieval",
+        "name": "ViDoRe v3.1 Retrieval / Reranking",
+        "group": "knowledge",
+        "edition": "v3.1 / text、image、combined inputs",
+        "subtitle": "复杂文档里的文本与视觉证据，能否被召回并正确重排？",
+        "summary": "ViDoRe v3.1 分别测量多模态文档的 dense retrieval 与 reranking；NVIDIA 发布稿给出 Nemotron 3.5 Embed/Rerank 与 Qwen、EmbeddingGemma 等模型在相同输入设置下的官方结果。",
+        "metric": "nDCG@10 ↑ / Recall@k ↑ / agent inference tokens ↓",
+        "metric_note": "必须分开报告 dense retrieval、reranking、输入模态、模型尺寸与候选深度；端到端 Agent token 成本不能替代检索准确率。",
+        "protocol": "固定 ViDoRe v3.1 修订、文本/图像/组合输入、查询集合、候选库、top-k 与 rerank 深度；分别运行 embedding-only 和 embedding+rerank，并保存每个查询的候选、分数与失败样本。",
+        "boundary": "发布稿中的领先名次和数值为厂商在 2026-10-20 快照上的报告，不是本站实测；公开文档榜不能代表私有语料、所有语言、最终 RAG 回答或生产成本。",
+        "business": "适合评估产品手册、图表、数据表和技术文档的多模态检索链，但上线前仍需加入企业自己的文档、权限和时效性样本。",
+        "setup": "锁定 ViDoRe v3.1 数据与评分器、模型权重、图像分辨率、索引配置、top-k 和硬件；先在小样本校验预处理与评分，再跑完整集。",
+        "topics": [],
+        "sources": [
+          "b-nemotron-retriever-release"
+        ],
+        "result_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "kind": "benchmark",
+        "flag": "官方榜单快照 / 本站未运行",
+        "checked": "2026-10-22",
+        "tested": false,
+        "checks": [
+          "固定 v3.1 修订、输入模态和评分器",
+          "分别记录召回与重排，不把两段增益合并",
+          "保存逐查询候选与失败样本",
+          "厂商榜分不外推到最终回答或私有语料"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
+        "id": "parsebench",
+        "name": "ParseBench",
+        "group": "knowledge",
+        "edition": "2026-10-20 snapshot / document parsing",
+        "subtitle": "表格、图表、格式与视觉定位能否一起被准确保留？",
+        "summary": "ParseBench 测量表格和图表抽取、内容忠实度、语义格式与视觉定位；NVIDIA 发布稿同时报告 Nemotron 3.5 Parse 的单次、双次和三次解析配置。",
+        "metric": "ParseBench score ↑ / pages per second ↑",
+        "metric_note": "准确率与吞吐必须按同一模型、pass 数、分辨率、硬件和评分器分别报告，不能把不同运行配置拼成单一最优值。",
+        "protocol": "固定 ParseBench 快照、页面渲染与评分器；分别运行 single/double/triple pass，保存结构化输出、页级错误、每页耗时和硬件；人工抽检阅读顺序、表头关系与图表引用。",
+        "boundary": "官方的 75.20 分和每秒 10.5 页来自三次解析及单张 H100 设置，不是本站实测；小于 1B 模型中的榜首不能外推到所有参数规模、文档类型或低成本硬件。",
+        "business": "可用于 PDF 入库前选择速度/精度运行点，并把结构错误挡在索引之外；仍需加入企业模板、扫描质量与敏感字段遮蔽测试。",
+        "setup": "锁定页面渲染、模型权重、pass 数、H100 或自有硬件、batch 和评分器；先逐页保存中间结果，再汇总准确率与吞吐。",
+        "topics": [],
+        "sources": [
+          "b-nemotron-retriever-release"
+        ],
+        "result_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "kind": "benchmark",
+        "flag": "厂商公开评测 / 本站未运行",
+        "checked": "2026-10-22",
+        "tested": false,
+        "checks": [
+          "固定 ParseBench 快照、评分器与页面渲染",
+          "按 pass 数和硬件分别报告分数与吞吐",
+          "逐页抽检表格、图表、阅读顺序和定位",
+          "不把小于 1B 组别名次外推到全部模型"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
         "id": "fairstress",
         "name": "FairStress",
         "group": "reasoning",
@@ -11364,6 +11798,15 @@
     ],
     "sources": [
       {
+        "id": "b-nemotron-retriever-release",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+        "publisher": "NVIDIA / Hugging Face",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "published": "2026-10-21",
+        "checked": "2026-10-22",
+        "kind": "官方技术发布与评测口径"
+      },
+      {
         "id": "b-fairstress-release",
         "title": "FairStress official release",
         "publisher": "Allen Institute for AI",
@@ -11711,6 +12154,20 @@
       }
     ],
     "changes": [
+      {
+        "id": "nemotron-retriever-benchmarks-20261021",
+        "date": "2026-10-21",
+        "title": "Nemotron 3.5 发布 ViDoRe v3.1 与 ParseBench 对照口径",
+        "summary": "官方发布分别报告多模态检索/重排与文档解析的准确率、候选排序、pass 数和吞吐，不把它们合成通用 Agent 分数。",
+        "implication": "企业知识系统可以把解析、召回和重排拆开复现；厂商榜单和硬件吞吐仍需用自己的文档、权限和成本条件重测。",
+        "benchmarks": [
+          "vidore-v3-1-retrieval",
+          "parsebench"
+        ],
+        "sources": [
+          "b-nemotron-retriever-release"
+        ]
+      },
       {
         "id": "fairstress-release-20261020",
         "date": "2026-10-20",
@@ -13140,7 +13597,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-08",
+    "checked": "2026-10-22",
     "account": "thsottiaux",
     "events": [
       {
@@ -13458,28 +13915,29 @@
       {
         "id": "tibo-global-processed-2026-10-07",
         "kind": "global",
-        "status": "pending",
+        "status": "confirmed",
         "date": "2026-10-07",
         "published_at": "2026-10-07T03:35:00Z",
         "effective_at": null,
         "precision": "instant",
         "source_timezone": "UTC",
-        "title": "第三方定位到 Tibo：“the reset has been processed”——完成措辞强，但原帖直读仍待核验",
-        "summary": "多个公开追踪页一致定位到 Tibo 10 月 7 日 03:35 UTC 的 X 原帖，并保留“the reset has been processed. Enjoy!”这一完成式措辞；已定位原帖状态 ID 2107676072871600470。",
+        "title": "Tibo：“the reset has been processed”——原帖已直读核验",
+        "summary": "Tibo 原帖正文已直接读取：在回顾四项发布和社区投票后，他明确写出“the reset has been processed. Enjoy!”；原帖状态 ID 为 2107676072871600470。",
         "scope": "Codex / ChatGPT Work 社区 reset 语境；第三方追踪页将其归为 shared/global reset",
-        "boundary": "若能直接核验 Tibo 原帖，这类“processed”措辞足以视为执行完成信号；但本站本轮 X 官方 API 仍未配置、服务端直读 X 失败，因此严格保持 pending，不能写成本站已确认的 global reset，更不能推出 propagation 已完成或每个账户都已刷新。",
+        "boundary": "原帖可确认 Tibo 已宣布处理 reset；它仍不能证明传播已在每个账户完成，也不能推出个人账户余额、banked reset 数量或有效期。",
         "sources": [
           "tibo-post-2107676072871600470",
           "codex-reset-watch-oct7",
           "limitbell-oct7"
         ],
-        "reviewed": "2026-10-08",
-        "review_basis": "secondary_lead",
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T07:23:00+08:00",
+        "review_basis": "primary_source",
         "related_ids": [],
         "original_text": "We shipped four things that were deemed good to great and some math proofs, but the vote is clear and the community demands a reset. I did calibrate it and it seems that the game is rigged in reset's favor, but such are the rules at the moment. Therefore ... the reset has been processed. Enjoy!",
         "conversation_context": "公开追踪页显示这是 Tibo 的独立原帖，内容把前两天的更新 / 投票与一次 reset 处理结果放在同一语境。",
-        "interpretation": "这是迄今比 9 月 22 日“正在加载”更强的执行完成信号；但因为第一方正文尚未被本站直接读取，证据等级只能停在待核验。",
-        "evidence_strength": "medium",
+        "interpretation": "这是比 9 月 22 日“正在加载”更强的第一方执行完成信号，应从线索升级为已确认；是否已传播到每个账户仍需独立证据。",
+        "evidence_strength": "high",
         "semantic_type": "global_reset_completion_claim",
         "not_proves": "未证明 reset 已在每个账户完成传播；未证明 banked reset 数量、有效期或个人账户余额；也未证明随后不会有单独 banked grant。",
         "post_id": "2107676072871600470",
@@ -13684,9 +14142,9 @@
         "publisher": "Tibo / X",
         "title": "“the reset has been processed. Enjoy!” post",
         "url": "https://x.com/thsottiaux/status/2107676072871600470",
-        "checked": "2026-10-08",
-        "kind": "原帖待直接核验",
-        "note": "第三方追踪页定位到该 Tibo 原帖、状态 ID 与 2026-10-07 03:35 UTC 时间；本站本轮服务端直读 X 仍失败，因此不能把镜像文本升级为第一方已确认。"
+        "checked": "2026-10-22",
+        "kind": "官方原帖",
+        "note": "2026-10-22 07:23 +08:00 直接读取 X 原帖正文、作者账号和状态 ID；正文明确包含“the reset has been processed. Enjoy!”。"
       },
       {
         "id": "codex-reset-watch-oct7",
@@ -13723,6 +14181,35 @@
     "version": 2,
     "snapshot": "2026-10-22",
     "items": [
+      {
+        "id": "nvidia-nemotron-3-5-retriever",
+        "name": "NVIDIA · Nemotron 3.5 Retriever",
+        "title": "解析、检索并重排企业多模态文档",
+        "category": "知识管理",
+        "mark": "NR",
+        "accent": "cyan",
+        "summary": "用 Parse 把扫描页、表格和图表转为结构化内容，再由 Embed 检索文本与图像证据、Rerank 对候选做二阶段排序。",
+        "scope": "官方开放 8B/1B Embed、8B Rerank 和 631M Parse 权重，并提供 NIM、合作方推理入口及多模态微调配方。",
+        "boundary": "厂商公布的 ViDoRe、ParseBench、吞吐和错误率依赖指定数据、硬件与配置。本站未运行模型；开放权重不代表所有部署路径免费，也不能保证特定企业文档、语言或 RAG 答案质量。",
+        "repo": "NVIDIA-NeMo/Automodel",
+        "sources": [
+          "nvidia-nemotron-3-5-retriever-release"
+        ],
+        "requirements": "Python 推理环境、相应模型权重和显存；生产前需自建带相关性标签的多模态文档评测集。",
+        "test": "固定 50–200 个获授权文档与查询，分别记录解析结构、Recall@k、nDCG@10、重排增益、延迟和显存；与文本抽取、旧 Embed 及不开 Rerank 的基线同窗比较。",
+        "checks": [
+          "锁定模型、配方、数据与硬件版本",
+          "把解析、召回、重排和最终回答错误分开记录",
+          "人工抽检表格、图表、阅读顺序和引用定位"
+        ],
+        "command": "",
+        "effort": "开放权重 / 本地或托管推理",
+        "evidence": "NVIDIA 与 Hugging Face 官方技术发布",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T07:16:00+08:00"
+      },
       {
         "id": "anthropic-claude-duet",
         "name": "Anthropic · Claude Duet",
@@ -14368,6 +14855,15 @@
     ],
     "sources": [
       {
+        "id": "nvidia-nemotron-3-5-retriever-release",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+        "publisher": "NVIDIA / Hugging Face",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "published": "2026-10-21",
+        "checked": "2026-10-22",
+        "kind": "官方技术发布与模型入口"
+      },
+      {
         "id": "anthropic-claude-duet-release",
         "title": "Introducing Claude Duet",
         "publisher": "Anthropic",
@@ -14714,6 +15210,19 @@
       }
     ],
     "events": [
+      {
+        "id": "nvidia-nemotron-3-5-retriever-release",
+        "task": "nvidia-nemotron-3-5-retriever",
+        "date": "2026-10-21",
+        "kind": "release",
+        "title": "Nemotron 3.5 Retriever 开放解析、检索与重排模型",
+        "summary": "开放 8B/1B Embed、8B Rerank 和 631M Parse，并给出 ViDoRe v3.1、ParseBench 与部署配方。",
+        "delta": "企业知识链从单一文本向量检索扩展为可复现的多模态解析、召回和二阶段排序组件。",
+        "sources": [
+          "nvidia-nemotron-3-5-retriever-release"
+        ],
+        "reviewed": "2026-10-22"
+      },
       {
         "id": "anthropic-claude-duet-preview",
         "task": "anthropic-claude-duet",
@@ -16574,6 +17083,45 @@
       }
     ],
     "items": [
+      {
+        "id": "nvidia-nemotron-3-5-retriever",
+        "publisher": "NVIDIA",
+        "group": "documents",
+        "access": "model",
+        "headline": "把 Nemotron 3.5 的解析、召回和重排拆成三段验收",
+        "input": "50–200 个已授权的 PDF、扫描页、表格和图表，以及带证据位置与相关性标签的查询集",
+        "output": "结构化 Markdown/HTML、候选证据、重排分数，以及每段可追踪的错误与延迟",
+        "requirements": "Python 推理环境、选定的 Parse/Embed/Rerank 权重和相应 GPU；也可先用官方托管入口做小样本验证。",
+        "limitation": "本站只核验官方文档，未下载或运行模型。ViDoRe、ParseBench、吞吐和厂商错误率不代表你的文档、语言或最终 RAG 答案；授权、隐私和索引更新策略仍需单独评估。",
+        "cost": "开放权重可下载；本地算力、NIM 与第三方托管价格分别计算，先用小样本测显存、吞吐和单位文档成本。",
+        "steps": [
+          {
+            "title": "先验收解析结构",
+            "body": "对扫描页、双栏文本、复杂表格和图表各选样例，检查阅读顺序、单元格关系、图表字段及原页坐标；失败样本不要进入索引。"
+          },
+          {
+            "title": "固定召回与重排对照",
+            "body": "在同一查询和候选库上比较 Embed 1B/8B，并分别关闭和开启 Rerank；记录 Recall@k、nDCG@10、延迟和显存，不只看厂商平均分。"
+          },
+          {
+            "title": "再接生成并保留引用",
+            "body": "只把通过重排的证据交给生成模型，强制返回文档、页码或区域；把无证据回答、错误引用和过期索引单独计数。"
+          }
+        ],
+        "troubleshooting": "表格关系错乱时先切回原页坐标并调整 Parse pass；召回漏掉图像证据时核对索引是否包含页面图像；Rerank 变差时检查候选深度、相关性标注和查询语言。",
+        "sources": [
+          {
+            "title": "Nemotron 3.5 Retriever 官方发布",
+            "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+            "published_at": "2026-10-21",
+            "verified_at": "2026-10-22"
+          }
+        ],
+        "entry_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-22T07:16:00+08:00"
+      },
       {
         "id": "anthropic-claude-security",
         "publisher": "Anthropic",

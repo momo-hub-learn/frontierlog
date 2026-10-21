@@ -40,6 +40,7 @@ function sortWithinDay(list){
   return [...list].sort((a,b)=>sortMoment(b)-sortMoment(a)||b.heat-a.heat||a.id.localeCompare(b.id))
 }
 function dayTitle(date){const m=Number(date.slice(5,7)),d=Number(date.slice(8,10));return m+'月'+d+'日'}
+function openDayAttr(index){return index===0?' open':''}
 function timelineCard(x){
   const t=dtInfo(x);
   const time=t.time||'--:--';
@@ -64,9 +65,9 @@ function chronology(rows,{compact=false}={}){
   const grouped={};
   rows.forEach(x=>{const d=dtInfo(x).date;(grouped[d]??=[]).push(x)});
   const dates=Object.keys(grouped).sort((a,b)=>b.localeCompare(a));
-  return `<div class="intraday-timeline ${compact?'compact':''}">${dates.map(date=>{
+  return `<div class="intraday-timeline ${compact?'compact':''}">${dates.map((date,index)=>{
     const list=sortWithinDay(grouped[date]);
-    return `<details class="intraday-day" open>
+    return `<details class="intraday-day"${openDayAttr(index)}>
       <summary>
         <span class="intraday-daymark"><i aria-hidden="true"></i><b>${dayTitle(date)}</b><em>${weekday(date)}</em><small>· ${list.length} 条</small></span>
         ${icon('chevron')}

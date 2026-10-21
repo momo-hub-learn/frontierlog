@@ -62,13 +62,15 @@ class ValidationTests(unittest.TestCase):
   precise=sum(1 for e in E['events'] if e['precision']=='instant')
   self.assertEqual(sum(i.find('pubDate') is not None for i in items),precise)
   self.assertTrue(any('待核验' in i.findtext('title') for i in items));self.assertIn('help.openai.com',ET.tostring(xml,encoding='unicode'))
- def test_oct7_reset_signals_stay_pending_without_direct_primary_review(self):
+ def test_oct7_reset_processed_is_confirmed_only_after_direct_primary_review(self):
   rows={x['id']:x for x in E['events']}
   self.assertIn('tibo-global-processed-2026-10-07',rows)
   self.assertIn('tibo-banked-loading-2026-10-07',rows)
-  self.assertEqual(rows['tibo-global-processed-2026-10-07']['status'],'pending')
+  self.assertEqual(rows['tibo-global-processed-2026-10-07']['status'],'confirmed')
   self.assertEqual(rows['tibo-banked-loading-2026-10-07']['status'],'pending')
-  self.assertEqual(rows['tibo-global-processed-2026-10-07']['review_basis'],'secondary_lead')
+  self.assertEqual(rows['tibo-global-processed-2026-10-07']['review_basis'],'primary_source')
+  self.assertEqual(rows['tibo-global-processed-2026-10-07']['evidence_strength'],'high')
+  self.assertTrue(rows['tibo-global-processed-2026-10-07']['verified_at'].endswith('+08:00'))
   self.assertIn('processed',rows['tibo-global-processed-2026-10-07']['original_text'])
   validate_resets(E)
  def test_model_feed_boards_separate_stable_guids(self):

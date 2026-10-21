@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>FairStress 公开 1,300 万以上公平性压力场景</title><guid isPermaLink="false">frontierlog:benchmark:fairstress-release-20261020</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>AllenAI 从 300 个两候选决策场景构造人口属性和对抗前缀变体，并提供 5 万条 Core 子集。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Nemotron 3.5 发布 ViDoRe v3.1 与 ParseBench 对照口径</title><guid isPermaLink="false">frontierlog:benchmark:nemotron-retriever-benchmarks-20261021</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=vidore-v3-1-retrieval</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>官方发布分别报告多模态检索/重排与文档解析的准确率、候选排序、pass 数和吞吐，不把它们合成通用 Agent 分数。
+
+编辑解读：企业知识系统可以把解析、召回和重排拆开复现；厂商榜单和硬件吞吐仍需用自己的文档、权限和成本条件重测。
+
+来源：
+https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval</description></item><item><title>FairStress 公开 1,300 万以上公平性压力场景</title><guid isPermaLink="false">frontierlog:benchmark:fairstress-release-20261020</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>AllenAI 从 300 个两候选决策场景构造人口属性和对抗前缀变体，并提供 5 万条 Core 子集。
 
 编辑解读：公平性评测开始从单次群体差异扩展到身份扰动、提示压力与解释稳定性；但定义、数据代表性和真实部署伤害仍需单独审查。
 

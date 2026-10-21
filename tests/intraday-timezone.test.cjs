@@ -5,10 +5,10 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const code = fs.readFileSync(path.join(__dirname, '../src/intraday.js'), 'utf8')
-  .replace(/\}\)\(\);\s*$/, 'globalThis.__timeTest = {stampParts, dtInfo, sortMoment};\n})();');
+  .replace(/\}\)\(\);\s*$/, 'globalThis.__timeTest = {stampParts, dtInfo, sortMoment, openDayAttr};\n})();');
 const ctx = {state: {view:'none'}, feedPage: () => ''};
 vm.runInNewContext(code, ctx, {filename: 'src/intraday.js'});
-const {stampParts, dtInfo, sortMoment} = ctx.__timeTest;
+const {stampParts, dtInfo, sortMoment, openDayAttr} = ctx.__timeTest;
 
 assert.equal(stampParts('2026-10-08T03:30:00Z').time, '11:30');
 assert.equal(stampParts('2026-10-07T23:30:00-04:00').date, '2026-10-08');
@@ -28,4 +28,7 @@ assert.match(unknown.label, /时区未注明/);
 assert.equal(sortMoment({published_at:'2026-10-08T03:30:00Z'}),
              sortMoment({published_at:'2026-10-08T11:30:00+08:00'}));
 assert.equal(sortMoment({published_at:'2026-10-08T11:30:00'}), 0);
+assert.equal(openDayAttr(0), ' open');
+assert.equal(openDayAttr(1), '');
+assert.equal(openDayAttr(8), '');
 console.log('PASS intraday timezone and provenance regression');

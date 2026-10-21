@@ -52,6 +52,70 @@
   ],
   "items": [
     {
+      "id": "vidore-v3-1-retrieval",
+      "name": "ViDoRe v3.1 Retrieval / Reranking",
+      "group": "knowledge",
+      "edition": "v3.1 / text、image、combined inputs",
+      "subtitle": "复杂文档里的文本与视觉证据，能否被召回并正确重排？",
+      "summary": "ViDoRe v3.1 分别测量多模态文档的 dense retrieval 与 reranking；NVIDIA 发布稿给出 Nemotron 3.5 Embed/Rerank 与 Qwen、EmbeddingGemma 等模型在相同输入设置下的官方结果。",
+      "metric": "nDCG@10 ↑ / Recall@k ↑ / agent inference tokens ↓",
+      "metric_note": "必须分开报告 dense retrieval、reranking、输入模态、模型尺寸与候选深度；端到端 Agent token 成本不能替代检索准确率。",
+      "protocol": "固定 ViDoRe v3.1 修订、文本/图像/组合输入、查询集合、候选库、top-k 与 rerank 深度；分别运行 embedding-only 和 embedding+rerank，并保存每个查询的候选、分数与失败样本。",
+      "boundary": "发布稿中的领先名次和数值为厂商在 2026-10-20 快照上的报告，不是本站实测；公开文档榜不能代表私有语料、所有语言、最终 RAG 回答或生产成本。",
+      "business": "适合评估产品手册、图表、数据表和技术文档的多模态检索链，但上线前仍需加入企业自己的文档、权限和时效性样本。",
+      "setup": "锁定 ViDoRe v3.1 数据与评分器、模型权重、图像分辨率、索引配置、top-k 和硬件；先在小样本校验预处理与评分，再跑完整集。",
+      "topics": [],
+      "sources": [
+        "b-nemotron-retriever-release"
+      ],
+      "result_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "kind": "benchmark",
+      "flag": "官方榜单快照 / 本站未运行",
+      "checked": "2026-10-22",
+      "tested": false,
+      "checks": [
+        "固定 v3.1 修订、输入模态和评分器",
+        "分别记录召回与重排，不把两段增益合并",
+        "保存逐查询候选与失败样本",
+        "厂商榜分不外推到最终回答或私有语料"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
+      "id": "parsebench",
+      "name": "ParseBench",
+      "group": "knowledge",
+      "edition": "2026-10-20 snapshot / document parsing",
+      "subtitle": "表格、图表、格式与视觉定位能否一起被准确保留？",
+      "summary": "ParseBench 测量表格和图表抽取、内容忠实度、语义格式与视觉定位；NVIDIA 发布稿同时报告 Nemotron 3.5 Parse 的单次、双次和三次解析配置。",
+      "metric": "ParseBench score ↑ / pages per second ↑",
+      "metric_note": "准确率与吞吐必须按同一模型、pass 数、分辨率、硬件和评分器分别报告，不能把不同运行配置拼成单一最优值。",
+      "protocol": "固定 ParseBench 快照、页面渲染与评分器；分别运行 single/double/triple pass，保存结构化输出、页级错误、每页耗时和硬件；人工抽检阅读顺序、表头关系与图表引用。",
+      "boundary": "官方的 75.20 分和每秒 10.5 页来自三次解析及单张 H100 设置，不是本站实测；小于 1B 模型中的榜首不能外推到所有参数规模、文档类型或低成本硬件。",
+      "business": "可用于 PDF 入库前选择速度/精度运行点，并把结构错误挡在索引之外；仍需加入企业模板、扫描质量与敏感字段遮蔽测试。",
+      "setup": "锁定页面渲染、模型权重、pass 数、H100 或自有硬件、batch 和评分器；先逐页保存中间结果，再汇总准确率与吞吐。",
+      "topics": [],
+      "sources": [
+        "b-nemotron-retriever-release"
+      ],
+      "result_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "kind": "benchmark",
+      "flag": "厂商公开评测 / 本站未运行",
+      "checked": "2026-10-22",
+      "tested": false,
+      "checks": [
+        "固定 ParseBench 快照、评分器与页面渲染",
+        "按 pass 数和硬件分别报告分数与吞吐",
+        "逐页抽检表格、图表、阅读顺序和定位",
+        "不把小于 1B 组别名次外推到全部模型"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "fairstress",
       "name": "FairStress",
       "group": "reasoning",
@@ -915,6 +979,15 @@
   ],
   "sources": [
     {
+      "id": "b-nemotron-retriever-release",
+      "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布与评测口径"
+    },
+    {
       "id": "b-fairstress-release",
       "title": "FairStress official release",
       "publisher": "Allen Institute for AI",
@@ -1262,6 +1335,20 @@
     }
   ],
   "changes": [
+    {
+      "id": "nemotron-retriever-benchmarks-20261021",
+      "date": "2026-10-21",
+      "title": "Nemotron 3.5 发布 ViDoRe v3.1 与 ParseBench 对照口径",
+      "summary": "官方发布分别报告多模态检索/重排与文档解析的准确率、候选排序、pass 数和吞吐，不把它们合成通用 Agent 分数。",
+      "implication": "企业知识系统可以把解析、召回和重排拆开复现；厂商榜单和硬件吞吐仍需用自己的文档、权限和成本条件重测。",
+      "benchmarks": [
+        "vidore-v3-1-retrieval",
+        "parsebench"
+      ],
+      "sources": [
+        "b-nemotron-retriever-release"
+      ]
+    },
     {
       "id": "fairstress-release-20261020",
       "date": "2026-10-20",

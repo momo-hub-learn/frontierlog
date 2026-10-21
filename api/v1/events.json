@@ -2,6 +2,19 @@
   "snapshot": "2026-10-22",
   "events": [
     {
+      "id": "nvidia-nemotron-3-5-retriever-release",
+      "task": "nvidia-nemotron-3-5-retriever",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Nemotron 3.5 Retriever 开放解析、检索与重排模型",
+      "summary": "开放 8B/1B Embed、8B Rerank 和 631M Parse，并给出 ViDoRe v3.1、ParseBench 与部署配方。",
+      "delta": "企业知识链从单一文本向量检索扩展为可复现的多模态解析、召回和二阶段排序组件。",
+      "sources": [
+        "nvidia-nemotron-3-5-retriever-release"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
       "id": "anthropic-claude-duet-preview",
       "task": "anthropic-claude-duet",
       "date": "2026-10-21",
@@ -319,6 +332,15 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-nemotron-3-5-retriever-release",
+      "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布与模型入口"
+    },
     {
       "id": "anthropic-claude-duet-release",
       "title": "Introducing Claude Duet",
