@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-20",
+  "checked": "2026-10-21",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,38 @@
     }
   ],
   "items": [
+    {
+      "id": "aeon-video-4d-world-model",
+      "lane": "paradigm",
+      "title": "AEON：视频潜空间连接显式4D世界",
+      "maker": "AEON 作者团队",
+      "date": "2026-10-20",
+      "published_at": "2026-10-20T17:59:51Z",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "tags": [
+        "World Model",
+        "4D Gaussian Splatting",
+        "Video Generation"
+      ],
+      "fact": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
+      "insight": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
+      "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
+      "next_watch": "跟踪代码、权重、运行条件，以及长期一致性、交互控制和跨场景泛化的独立复现。",
+      "sources": [
+        {
+          "label": "AEON 论文 v1 / arXiv",
+          "url": "https://arxiv.org/abs/2610.28631",
+          "kind": "作者论文原文",
+          "strength": "primary"
+        },
+        {
+          "label": "AEON 作者项目页",
+          "url": "https://weiqi-zhang.github.io/AEON/",
+          "kind": "作者项目说明",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "anthropic-employment-ai-intensive-workplace",
       "lane": "science",

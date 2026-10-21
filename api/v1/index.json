@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,178 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-orchestra-bio-20261020",
+        "category": "industry",
+        "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
+        "published": "2026-10-20",
+        "published_at": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "heat": 96,
+        "heat_components": {
+          "impact": 35,
+          "availability": 21,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "flat",
+        "summary": "OpenAI 宣布已收购 Orchestra Bio，并将其团队与技术结合到 Rosalind。重点是协助生物制药团队跟踪研究、依赖关系和项目进度。",
+        "why": "生命科学 Agent 开始连接科学分析与研发流程；可关注证据追溯、权限和人工决策如何衔接。",
+        "boundary": "收购与整合方向不等于新药已验证、已获批准或研发周期已被独立证实缩短；原文没有给出统一开放日期。",
+        "source": "OpenAI",
+        "source_kind": "官方原文 / 本轮编辑核验",
+        "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "link": "#/pharma",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读原始来源",
+            "note": "保留原始发布日期；未做独立性能实测",
+            "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+            "kind": "read"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
+            "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+            "date": "2026-10-20"
+          }
+        ]
+      },
+      {
+        "id": "rosalind-academic-plan-20261015",
+        "category": "product",
+        "title": "Rosalind 学术计划：美国高校实验室可申请赞助席位",
+        "published": "2026-10-15",
+        "published_at": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "heat": 93,
+        "heat_components": {
+          "impact": 33,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 11
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "flat",
+        "summary": "符合资格的美国高校实验室可申请最多30个 Business Standard 席位、最长12个月免费支持；GPT-Rosalind 仍需通过可信访问审核。",
+        "why": "本次变化是学术访问渠道，不是新模型跑分；申请资格和实际可用权限比宣传标题更重要。",
+        "boundary": "API 不包含在计划内；不是全球高校自动开放。已有学校 Enterprise 协议的团队应走学校流程；研究结果仍需实验验证。",
+        "source": "OpenAI",
+        "source_kind": "官方原文 / 本轮编辑核验",
+        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+        "link": "#/pharma",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读原始来源",
+            "note": "保留原始发布日期；未做独立性能实测",
+            "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+            "kind": "read"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Rosalind 学术计划：美国高校实验室可申请赞助席位",
+            "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+            "date": "2026-10-15"
+          }
+        ]
+      },
+      {
+        "id": "mistral-timestral-20261015",
+        "category": "model",
+        "title": "Timestral 开放：小型时序模型支持多变量概率预测",
+        "published": "2026-10-15",
+        "published_at": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "heat": 94,
+        "heat_components": {
+          "impact": 34,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 11
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "flat",
+        "summary": "Mistral 发布5M、28M、123M和209M四档时序模型，支持历史与已知未来协变量，并提供 CPU/GPU 推理代码。",
+        "why": "可先用小样本检验设备传感器、产能与需求预测，减少从零训练的门槛；站内已补入可运行指南。",
+        "boundary": "官方 Benchmark 排名不等于本站实测或真实工厂收益。预测不是因果诊断或自动控制；代码为 Apache-2.0，权重另有 Modified MIT 条款。",
+        "source": "Mistral AI",
+        "source_kind": "官方原文 / 本轮编辑核验",
+        "url": "https://mistral.ai/news/timestral/",
+        "link": "#/toolkit",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读原始来源",
+            "note": "保留原始发布日期；未做独立性能实测",
+            "url": "https://mistral.ai/news/timestral/",
+            "kind": "read"
+          }
+        ],
+        "related": [
+          {
+            "source": "Mistral AI",
+            "title": "Timestral 开放：小型时序模型支持多变量概率预测",
+            "url": "https://mistral.ai/news/timestral/",
+            "date": "2026-10-15"
+          }
+        ]
+      },
+      {
+        "id": "aeon-world-model-20261020",
+        "category": "research",
+        "title": "AEON：把视频生成连接到可渲染的4D世界表示",
+        "published": "2026-10-20",
+        "published_at": "2026-10-20T17:59:51Z",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "heat": 91,
+        "heat_components": {
+          "impact": 35,
+          "availability": 16,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "flat",
+        "summary": "论文提出在视频潜空间生成，再通过域适配与4D解码器输出动态高斯表示和相机位姿，连接视频外观与三维一致性。",
+        "why": "世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。",
+        "boundary": "研究结果及领先性能为作者报告，本站未复现；可渲染不代表物理定律、可控交互或工业数字孪生已经可靠。",
+        "source": "AEON 作者 / arXiv",
+        "source_kind": "官方原文 / 本轮编辑核验",
+        "url": "https://arxiv.org/abs/2610.28631",
+        "link": "#/progress?view=research",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读原始来源",
+            "note": "保留原始发布日期；未做独立性能实测",
+            "url": "https://arxiv.org/abs/2610.28631",
+            "kind": "read"
+          }
+        ],
+        "related": [
+          {
+            "source": "AEON 作者 / arXiv",
+            "title": "AEON：把视频生成连接到可渲染的4D世界表示",
+            "url": "https://arxiv.org/abs/2610.28631",
+            "date": "2026-10-20"
+          }
+        ]
+      },
       {
         "id": "gemini-4-argon-general-availability-20261013",
         "category": "model",
@@ -677,23 +849,23 @@
       }
     ],
     "sync": {
-      "last_checked_at": "2026-10-21T08:01:17Z",
+      "last_checked_at": "2026-10-21T11:52:59Z",
       "status": "success",
       "mode": "shadow",
-      "candidate_count": 5,
+      "candidate_count": 10,
       "publish_ready_count": 1,
       "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
     }
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-21T08:01:17Z",
+    "generated_at": "2026-10-21T11:52:59Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 1,
+      "merge": 6,
       "hold": 3
     },
     "candidates": [
@@ -720,6 +892,29 @@
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "product_id": "google-antigravity",
         "first_seen_at": "2026-10-20T12:44:41Z"
+      },
+      {
+        "id": "candidate-ec0bbb16557febcb",
+        "category": "industry",
+        "published": "2026-10-20",
+        "title": "Orchestra Bio 加入 OpenAI：研发项目依赖纳入 Agent 工作流",
+        "summary": "官方收购公告强调研究、项目进度与跨团队依赖的协调，并计划与 Rosalind 结合。",
+        "why": "可以把研究证据、行动责任人与进度变更放在同一可追溯流程中评估。",
+        "boundary": "尚不能据此确认临床合规、真实研发提速或统一开放时间；关键研究决策仍由专业人员负责。",
+        "source": "OpenAI",
+        "source_kind": "官方一手来源",
+        "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.816,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T11:52:59Z"
       },
       {
         "id": "candidate-567f9dfeb2c35d69",
@@ -749,6 +944,105 @@
           "Employment"
         ],
         "first_seen_at": "2026-10-20T12:44:41Z"
+      },
+      {
+        "id": "candidate-3298080199d6d527",
+        "category": "research",
+        "published": "2026-10-20",
+        "title": "AEON：视频潜空间连接显式4D世界",
+        "summary": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
+        "why": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
+        "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
+        "source": "AEON 作者团队",
+        "source_kind": "作者论文原文",
+        "url": "https://arxiv.org/abs/2610.28631",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 0.88,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.762,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "aeon-video-4d-world-model",
+        "topic_tags": [
+          "World Model",
+          "4D Gaussian Splatting",
+          "Video Generation"
+        ],
+        "first_seen_at": "2026-10-21T11:52:59Z"
+      },
+      {
+        "id": "candidate-0b44fe8cbd278171",
+        "category": "industry",
+        "published": "2026-10-15",
+        "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
+        "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
+        "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
+        "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
+        "source": "OpenAI",
+        "source_kind": "官方一手来源",
+        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+        "publishable": true,
+        "features": {
+          "freshness": 0.571,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.708,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T11:52:59Z"
+      },
+      {
+        "id": "candidate-d4630f9691a2082a",
+        "category": "industry",
+        "published": "2026-10-15",
+        "title": "Timestral：为传感器监测补一个概率预测基线",
+        "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
+        "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
+        "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
+        "source": "Mistral AI",
+        "source_kind": "官方一手来源",
+        "url": "https://mistral.ai/news/timestral",
+        "publishable": true,
+        "features": {
+          "freshness": 0.571,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.708,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-21T11:52:59Z"
+      },
+      {
+        "id": "candidate-a99e4b2c8792457e",
+        "category": "product",
+        "published": "2026-10-15",
+        "title": "Mistral 发布 Timestral 时序模型与推理代码",
+        "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
+        "why": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
+        "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
+        "source": "Mistral AI",
+        "source_kind": "官方一手来源",
+        "url": "https://mistral.ai/news/timestral",
+        "publishable": true,
+        "features": {
+          "freshness": 0.571,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.698,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "timestral",
+        "first_seen_at": "2026-10-21T11:52:59Z"
       },
       {
         "id": "candidate-019270e4cda473b1",
@@ -1581,7 +1875,7 @@
   },
   "research_radar": {
     "version": 1,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
     "lanes": [
       {
@@ -1601,6 +1895,38 @@
       }
     ],
     "items": [
+      {
+        "id": "aeon-video-4d-world-model",
+        "lane": "paradigm",
+        "title": "AEON：视频潜空间连接显式4D世界",
+        "maker": "AEON 作者团队",
+        "date": "2026-10-20",
+        "published_at": "2026-10-20T17:59:51Z",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "tags": [
+          "World Model",
+          "4D Gaussian Splatting",
+          "Video Generation"
+        ],
+        "fact": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
+        "insight": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
+        "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
+        "next_watch": "跟踪代码、权重、运行条件，以及长期一致性、交互控制和跨场景泛化的独立复现。",
+        "sources": [
+          {
+            "label": "AEON 论文 v1 / arXiv",
+            "url": "https://arxiv.org/abs/2610.28631",
+            "kind": "作者论文原文",
+            "strength": "primary"
+          },
+          {
+            "label": "AEON 作者项目页",
+            "url": "https://weiqi-zhang.github.io/AEON/",
+            "kind": "作者项目说明",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "anthropic-employment-ai-intensive-workplace",
         "lane": "science",
@@ -2956,12 +3282,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-21T08:01:17Z",
+    "last_evaluated": "2026-10-21T11:52:59Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 5,
+      "candidate_count": 10,
       "publish_ready_count": 1,
-      "merge_count": 1,
+      "merge_count": 6,
       "best_candidate": "candidate-47750334ae9b688a",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
@@ -3767,19 +4093,45 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-20T06:00:18.055Z",
+    "checked_at": "2026-10-21T11:48:16.725433+00:00",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · API trendingScore descending · Top 20",
-    "note": "完整榜位采用本次 Hugging Face 官方 API sort=trendingScore&direction=-1 的返回顺序；官方 Trending 网页同轮前列一致，但局部排序/展示集合与 API 不完全一致，网页榜位不与 API 数值拼接。trendingScore、Likes、Downloads 仅为平台热度和使用信号，不代表模型能力或本站实测。task/library 若 API 缺失明确标“未标注”；createdAt 为仓库创建时间而非模型发布日。",
+    "note": "榜位采用官方 API trendingScore 降序。本轮网页 Top 20 与 API 顺序一致；分别保留抓取时间，不能推定未来始终一致。trendingScore、Likes、Downloads 只是平台热度/使用信号，不是能力成绩或本站实测。未提供的 task/library 标为“未标注”；createdAt 是模型仓库创建时间，不是原始发布日期。",
+    "rank_source": "official_api_trendingScore_desc",
+    "api_fetched_at": "2026-10-21T11:48:16.725433+00:00",
+    "web_fetched_at": "2026-10-21T11:48:16.943948+00:00",
+    "web_order_matches_api": true,
+    "web_order": [
+      "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "black-forest-labs/flux-3-image-klein-comfy",
+      "fishaudio/drama-3",
+      "meta-models/Muse-Spark-Open-816B-A42B",
+      "black-forest-labs/flux-3-image-klein",
+      "OpenMOSS-Team/MOSS-Image-SFT",
+      "google/embeddinggemma-2",
+      "Lightricks/LTX-2.5",
+      "OpenMOSS-Team/MOSS-Image-Base",
+      "jialinyyzz/humanizer",
+      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "Comfy-Org/MOSS-Image",
+      "Qwen/Qwen3.8-27B",
+      "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+      "LiquidAI/LFM2.5-24B-A2B",
+      "tencent/Hy-Memory-30B-A3B",
+      "datalab-to/indra-ocr",
+      "mistralai/Timestral-209M",
+      "facebook/sam3",
+      "reflection/Beam-1.0-501B-A23B"
+    ],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1567,
-        "likes": 1727,
-        "downloads": 17924,
+        "trending_score": 1851,
+        "likes": 2072,
+        "downloads": 42122,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-10-17T02:40:38.000Z",
@@ -3794,9 +4146,9 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 757,
-        "likes": 981,
-        "downloads": 393062,
+        "trending_score": 850,
+        "likes": 1129,
+        "downloads": 490447,
         "task": "image-to-image",
         "library": "diffusion-single-file",
         "created_at": "2026-10-14T12:00:13.000Z",
@@ -3811,9 +4163,9 @@
         "rank": 3,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 745,
-        "likes": 777,
-        "downloads": 11795,
+        "trending_score": 612,
+        "likes": 863,
+        "downloads": 15274,
         "task": "text-to-speech",
         "library": "未标注",
         "created_at": "2026-10-01T04:34:57.000Z",
@@ -3826,62 +4178,11 @@
       },
       {
         "rank": 4,
-        "id": "openbmb/MiniCPM-V-4.7-35B-A3B",
-        "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
-        "trending_score": 727,
-        "likes": 1069,
-        "downloads": 76410,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-07T07:07:30.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "minicpmv4_7",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 5,
-        "id": "google/embeddinggemma-2",
-        "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 617,
-        "likes": 2733,
-        "downloads": 167750,
-        "task": "feature-extraction",
-        "library": "transformers",
-        "created_at": "2026-09-14T14:53:42.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "embedding_gemma2",
-          "feature-extraction"
-        ]
-      },
-      {
-        "rank": 6,
-        "id": "jialinyyzz/humanizer",
-        "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 585,
-        "likes": 1993,
-        "downloads": 109937,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-09-11T05:00:16.000Z",
-        "tags": [
-          "gguf",
-          "safetensors",
-          "gemma4_unified",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 7,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 536,
-        "likes": 585,
-        "downloads": 2109,
+        "trending_score": 560,
+        "likes": 618,
+        "downloads": 2891,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-09-15T19:23:19.000Z",
@@ -3893,29 +4194,12 @@
         ]
       },
       {
-        "rank": 8,
-        "id": "LiquidAI/LFM2.5-24B-A2B",
-        "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
-        "trending_score": 485,
-        "likes": 501,
-        "downloads": 14151,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-12T05:35:46.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "lfm2_moe",
-          "text-generation"
-        ]
-      },
-      {
-        "rank": 9,
+        "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 482,
-        "likes": 530,
-        "downloads": 62006,
+        "trending_score": 520,
+        "likes": 585,
+        "downloads": 92604,
         "task": "image-to-image",
         "library": "diffusers",
         "created_at": "2026-10-13T10:58:40.000Z",
@@ -3927,29 +4211,12 @@
         ]
       },
       {
-        "rank": 10,
-        "id": "Lightricks/LTX-2.5",
-        "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 438,
-        "likes": 8501,
-        "downloads": 2019834,
-        "task": "image-to-video",
-        "library": "diffusion-single-file",
-        "created_at": "2026-07-23T07:55:24.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "image-to-video",
-          "text-to-video",
-          "video-to-video"
-        ]
-      },
-      {
-        "rank": 11,
+        "rank": 6,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 397,
-        "likes": 414,
-        "downloads": 3336,
+        "trending_score": 477,
+        "likes": 512,
+        "downloads": 5840,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T07:01:17.000Z",
@@ -3961,29 +4228,46 @@
         ]
       },
       {
-        "rank": 12,
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 374,
-        "likes": 4645,
-        "downloads": 2739572,
-        "task": "text-to-image",
-        "library": "gguf",
-        "created_at": "2026-09-20T15:51:13.000Z",
+        "rank": 7,
+        "id": "google/embeddinggemma-2",
+        "url": "https://huggingface.co/google/embeddinggemma-2",
+        "trending_score": 472,
+        "likes": 2785,
+        "downloads": 179734,
+        "task": "feature-extraction",
+        "library": "transformers",
+        "created_at": "2026-09-14T14:53:42.000Z",
         "tags": [
-          "gguf",
-          "qwen",
-          "image-generation",
-          "comfyui"
+          "transformers",
+          "safetensors",
+          "embedding_gemma2",
+          "feature-extraction"
         ]
       },
       {
-        "rank": 13,
+        "rank": 8,
+        "id": "Lightricks/LTX-2.5",
+        "url": "https://huggingface.co/Lightricks/LTX-2.5",
+        "trending_score": 431,
+        "likes": 8675,
+        "downloads": 2057942,
+        "task": "image-to-video",
+        "library": "diffusion-single-file",
+        "created_at": "2026-07-23T07:55:24.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "image-to-video",
+          "text-to-video",
+          "video-to-video"
+        ]
+      },
+      {
+        "rank": 9,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 355,
-        "likes": 371,
-        "downloads": 2774,
+        "trending_score": 422,
+        "likes": 447,
+        "downloads": 4344,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T06:49:17.000Z",
@@ -3995,12 +4279,63 @@
         ]
       },
       {
-        "rank": 14,
+        "rank": 10,
+        "id": "jialinyyzz/humanizer",
+        "url": "https://huggingface.co/jialinyyzz/humanizer",
+        "trending_score": 410,
+        "likes": 2040,
+        "downloads": 120930,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-09-11T05:00:16.000Z",
+        "tags": [
+          "gguf",
+          "safetensors",
+          "gemma4_unified",
+          "image-text-to-text"
+        ]
+      },
+      {
+        "rank": 11,
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "trending_score": 345,
+        "likes": 4740,
+        "downloads": 2738344,
+        "task": "text-to-image",
+        "library": "gguf",
+        "created_at": "2026-09-20T15:51:13.000Z",
+        "tags": [
+          "gguf",
+          "qwen",
+          "image-generation",
+          "comfyui"
+        ]
+      },
+      {
+        "rank": 12,
+        "id": "Comfy-Org/MOSS-Image",
+        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
+        "trending_score": 298,
+        "likes": 313,
+        "downloads": 1290080,
+        "task": "未标注",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-16T12:42:32.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "comfyui",
+          "base_model:OpenMOSS-Team/MOSS-Image-Base",
+          "license:apache-2.0"
+        ]
+      },
+      {
+        "rank": 13,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 288,
-        "likes": 18017,
-        "downloads": 7458401,
+        "trending_score": 296,
+        "likes": 18098,
+        "downloads": 7729432,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-08-05T08:22:59.000Z",
@@ -4012,46 +4347,63 @@
         ]
       },
       {
-        "rank": 15,
-        "id": "baidu/Unlimited-OCR",
-        "url": "https://huggingface.co/baidu/Unlimited-OCR",
-        "trending_score": 265,
-        "likes": 4825,
-        "downloads": 1799825,
+        "rank": 14,
+        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "trending_score": 273,
+        "likes": 279,
+        "downloads": 9340,
         "task": "image-text-to-text",
+        "library": "Model Optimizer",
+        "created_at": "2026-10-08T16:20:17.000Z",
+        "tags": [
+          "Model Optimizer",
+          "safetensors",
+          "qwen4_exp",
+          "nvidia"
+        ]
+      },
+      {
+        "rank": 15,
+        "id": "LiquidAI/LFM2.5-24B-A2B",
+        "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+        "trending_score": 269,
+        "likes": 533,
+        "downloads": 16939,
+        "task": "text-generation",
         "library": "transformers",
-        "created_at": "2026-06-19T09:40:33.000Z",
+        "created_at": "2026-10-12T05:35:46.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "unlimited_ocr",
-          "feature-extraction"
+          "lfm2_moe",
+          "text-generation"
         ]
       },
       {
         "rank": 16,
-        "id": "Qwen/Qwen-Image-2.1-Turbo",
-        "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
-        "trending_score": 247,
-        "likes": 1001,
-        "downloads": 25033,
-        "task": "text-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-09T04:50:01.000Z",
+        "id": "tencent/Hy-Memory-30B-A3B",
+        "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
+        "trending_score": 259,
+        "likes": 264,
+        "downloads": 2682,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-15T09:52:00.000Z",
         "tags": [
-          "diffusers",
+          "transformers",
           "safetensors",
-          "qwen",
-          "image-generation"
+          "hy_v3",
+          "text-generation"
         ]
       },
       {
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 245,
-        "likes": 249,
-        "downloads": 2433,
+        "trending_score": 254,
+        "likes": 324,
+        "downloads": 3588,
         "task": "image-to-text",
         "library": "onnx",
         "created_at": "2026-10-10T14:12:33.000Z",
@@ -4064,44 +4416,28 @@
       },
       {
         "rank": 18,
-        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 237,
-        "likes": 241,
-        "downloads": 6047,
-        "task": "image-text-to-text",
-        "library": "Model Optimizer",
-        "created_at": "2026-10-08T16:20:17.000Z",
+        "id": "mistralai/Timestral-209M",
+        "url": "https://huggingface.co/mistralai/Timestral-209M",
+        "trending_score": 238,
+        "likes": 248,
+        "downloads": 5488,
+        "task": "time-series-forecasting",
+        "library": "timestral",
+        "created_at": "2026-10-14T08:52:36.000Z",
         "tags": [
-          "Model Optimizer",
+          "timestral",
           "safetensors",
-          "qwen4_exp",
-          "nvidia"
+          "time-series",
+          "forecasting"
         ]
       },
       {
         "rank": 19,
-        "id": "Comfy-Org/MOSS-Image",
-        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 237,
-        "likes": 243,
-        "downloads": 673110,
-        "task": "未标注",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-16T12:42:32.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "comfyui",
-          "base_model:OpenMOSS-Team/MOSS-Image-Base"
-        ]
-      },
-      {
-        "rank": 20,
         "id": "facebook/sam3",
         "url": "https://huggingface.co/facebook/sam3",
-        "trending_score": 217,
-        "likes": 4706,
-        "downloads": 1902371,
+        "trending_score": 208,
+        "likes": 4803,
+        "downloads": 1906176,
         "task": "mask-generation",
         "library": "transformers",
         "created_at": "2025-11-07T05:17:48.000Z",
@@ -4110,6 +4446,23 @@
           "safetensors",
           "sam3_video",
           "feature-extraction"
+        ]
+      },
+      {
+        "rank": 20,
+        "id": "reflection/Beam-1.0-501B-A23B",
+        "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
+        "trending_score": 188,
+        "likes": 191,
+        "downloads": 3555,
+        "task": "text-generation",
+        "library": "未标注",
+        "created_at": "2026-10-07T19:52:01.000Z",
+        "tags": [
+          "safetensors",
+          "beam",
+          "mixture-of-experts",
+          "reasoning"
         ]
       }
     ]
@@ -6474,9 +6827,12 @@
         ],
         "url": "https://arxiv.org/abs/2610.28631",
         "first_seen_on": "2026-10-21",
-        "status": "pending",
+        "status": "reviewed",
         "discovery_source": "arXiv Atom API",
-        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35",
+        "reviewed_at": "2026-10-21T19:40:00+08:00",
+        "editorial_target": "#/progress?view=research",
+        "review_note": "本轮核验论文与项目原文后进入研究雷达；不是能力排行榜或本站实测。"
       },
       {
         "arxiv_id": "2610.28613",
@@ -11726,8 +12082,38 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-10-08",
+    "snapshot": "2026-10-21",
     "items": [
+      {
+        "id": "timestral",
+        "name": "Timestral",
+        "title": "用小型模型做多变量时序预测",
+        "category": "科学研究",
+        "mark": "TS",
+        "accent": "cyan",
+        "summary": "输入历史传感器或需求序列，联合预测多个变量，并输出分位数表示不确定性。",
+        "scope": "官方提供5M至209M权重与 PyTorch 推理；可在 CPU/GPU 上使用历史或已知未来协变量。",
+        "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
+        "repo": "mistralai/timestral",
+        "sources": [
+          "timestral-release",
+          "timestral-repository"
+        ],
+        "requirements": "Python >=3.10、PyTorch >=2.4；首次下载权重；先读代码与权重各自许可。",
+        "test": "以固定时点切分一段获授权的序列，与季节朴素基线比较误差和区间覆盖；禁止把未来目标值当协变量。",
+        "checks": [
+          "固定代码与权重版本，记录 CPU/GPU 和序列形状",
+          "按时间留出测试集，比较 MASE 等误差与区间覆盖",
+          "预测异常由人工复核，不直接触发生产设备动作"
+        ],
+        "command": "git clone https://github.com/mistralai/timestral.git\ncd timestral\nuv sync --frozen",
+        "effort": "本地 CPU / GPU",
+        "evidence": "官方发布与代码文档",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00"
+      },
       {
         "id": "chatgpt-gpt6-intelligent-ui",
         "name": "ChatGPT · GPT-6 Intelligent UI",
@@ -12075,6 +12461,26 @@
     ],
     "sources": [
       {
+        "id": "timestral-repository",
+        "title": "Timestral 官方推理代码与许可说明",
+        "publisher": "Mistral AI",
+        "url": "https://github.com/mistralai/timestral",
+        "published": null,
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "kind": "官方一手来源"
+      },
+      {
+        "id": "timestral-release",
+        "title": "Introducing Timestral",
+        "publisher": "Mistral AI",
+        "url": "https://mistral.ai/news/timestral/",
+        "published": "2026-10-15",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "kind": "官方一手来源"
+      },
+      {
         "id": "openhands",
         "title": "OpenHands · Agent Canvas",
         "publisher": "OpenHands",
@@ -12256,6 +12662,21 @@
       }
     ],
     "events": [
+      {
+        "id": "timestral-release-20261015",
+        "task": "timestral",
+        "date": "2026-10-15",
+        "kind": "release",
+        "title": "Mistral 发布 Timestral 时序模型与推理代码",
+        "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
+        "delta": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
+        "sources": [
+          "timestral-release",
+          "timestral-repository"
+        ],
+        "reviewed": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00"
+      },
       {
         "id": "chatgpt-gpt6-intelligent-ui-oct7",
         "task": "chatgpt-gpt6-intelligent-ui",
@@ -12449,7 +12870,7 @@
   },
   "industry": {
     "version": 1,
-    "checked": "2026-09-23",
+    "checked": "2026-10-21",
     "sectors": [
       {
         "id": "pharma",
@@ -12622,6 +13043,39 @@
       }
     ],
     "sources": [
+      {
+        "id": "timestral-industrial",
+        "title": "Introducing Timestral",
+        "publisher": "Mistral AI",
+        "url": "https://mistral.ai/news/timestral/",
+        "published": "2026-10-15",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "kind": "官方一手来源",
+        "date_label": null
+      },
+      {
+        "id": "rosalind-academic",
+        "title": "Rosalind Academic Plan",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+        "published": "2026-10-15",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "kind": "官方一手来源",
+        "date_label": null
+      },
+      {
+        "id": "orchestra-acquisition",
+        "title": "OpenAI acquires Orchestra Bio",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "published": "2026-10-20",
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "kind": "官方一手来源",
+        "date_label": null
+      },
       {
         "id": "ot-2606",
         "title": "Open Targets Platform 26.06 has been released!",
@@ -12824,6 +13278,108 @@
       }
     ],
     "articles": [
+      {
+        "id": "timestral-maintenance-20261015",
+        "sector": "manufacturing",
+        "topics": [
+          "fab-process",
+          "equipment-maintenance"
+        ],
+        "title": "Timestral：为传感器监测补一个概率预测基线",
+        "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
+        "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
+        "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
+        "sources": [
+          "timestral-industrial"
+        ],
+        "kind": "tool",
+        "access": "公开代码与权重；许可分别审查",
+        "published": "2026-10-15",
+        "steps": [
+          "按设备与时间切分数据，避免未来信息泄漏",
+          "比较季节朴素基线、误差及区间覆盖",
+          "影子运行并人工复核告警，不直接控制设备"
+        ],
+        "metrics": [
+          "MASE与区间覆盖",
+          "误报漏报与设备漂移",
+          "CPU/GPU时延及运维成本"
+        ],
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
+      {
+        "id": "rosalind-academic-access-20261015",
+        "sector": "pharma",
+        "topics": [
+          "targets",
+          "molecules"
+        ],
+        "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
+        "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
+        "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
+        "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
+        "sources": [
+          "rosalind-academic"
+        ],
+        "kind": "update",
+        "access": "美国高校实验室申请 / 可信访问审核",
+        "published": "2026-10-15",
+        "steps": [
+          "由 PI 或实验室负责人核对官方资格和学校既有协议",
+          "确认席位、使用限制、数据政策及 GPT-Rosalind 审核条件",
+          "用获授权的研究问题记录来源与实验验证计划"
+        ],
+        "metrics": [
+          "申请资格与访问状态",
+          "可追溯来源和验证记录",
+          "人工审核与真实实验结果"
+        ],
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
+      {
+        "id": "orchestra-program-coordination-20261020",
+        "sector": "pharma",
+        "topics": [
+          "clinical",
+          "csr"
+        ],
+        "title": "Orchestra Bio 加入 OpenAI：研发项目依赖纳入 Agent 工作流",
+        "summary": "官方收购公告强调研究、项目进度与跨团队依赖的协调，并计划与 Rosalind 结合。",
+        "why": "可以把研究证据、行动责任人与进度变更放在同一可追溯流程中评估。",
+        "boundary": "尚不能据此确认临床合规、真实研发提速或统一开放时间；关键研究决策仍由专业人员负责。",
+        "sources": [
+          "orchestra-acquisition"
+        ],
+        "kind": "update",
+        "access": "官方公告；产品整合范围待跟踪",
+        "published": "2026-10-20",
+        "steps": [
+          "阅读收购原文并区分已完成收购与未来产品计划",
+          "选取获授权的非敏感项目流程，定义人工审批节点",
+          "要求来源链、权限隔离与变更审计"
+        ],
+        "metrics": [
+          "依赖识别准确性",
+          "错误建议与人工复核负担",
+          "资料及行动的追溯完整性"
+        ],
+        "checked": "2026-10-21",
+        "verified_at": "2026-10-21T19:40:00+08:00",
+        "first_seen_at": "2026-10-21T19:40:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "ot-release-2606",
         "sector": "pharma",
@@ -13397,6 +13953,47 @@
       }
     ],
     "items": [
+      {
+        "id": "timestral",
+        "publisher": "Mistral AI",
+        "group": "research",
+        "access": "local",
+        "headline": "先跑一个96步时序预测基线",
+        "input": "获授权的历史序列，或固定随机种子的合成序列",
+        "output": "预测中位数与21个分位数；示例输出96个未来步",
+        "requirements": "Python >=3.10、PyTorch >=2.4、已安装 uv；首次下载模型权重，需要网络与本地存储。",
+        "limitation": "只核验官方安装与 API 文档，本站未运行模型；代码 Apache-2.0，权重 Modified MIT，商业部署应分别审核。",
+        "cost": "本地 CPU/GPU、权重下载与存储成本；不包含托管服务。",
+        "steps": [
+          {
+            "title": "克隆并安装锁定依赖",
+            "body": "在独立目录操作；保存实际代码 commit 与模型 revision，便于重现。",
+            "command": "git clone https://github.com/mistralai/timestral.git\ncd timestral\nuv sync --frozen"
+          },
+          {
+            "title": "用合成数据检查接口",
+            "body": "先验证输入维度和输出形状，再换成获授权的数据；不要把示例曲线当效果证据。",
+            "command": "uv run python - <<'PY'\nimport numpy as np\nfrom timestral import TimestralForecaster\nf = TimestralForecaster.from_pretrained(\"mistralai/Timestral-5M\")\nx = np.random.default_rng(42).standard_normal((1, 1, 2000)).cumsum(-1)\ny = f.forecast(x, prediction_length=96)\nprint(y.quantiles.shape, y.median.shape)\nPY"
+          },
+          {
+            "title": "按时间留出验证",
+            "body": "保持96步预测窗口，与季节朴素基线比较误差、区间覆盖和运行时间。仅提供预测时已知的协变量；不连接生产控制。"
+          }
+        ],
+        "troubleshooting": "安装失败核对 Python/PyTorch；下载失败检查网络和缓存；形状不匹配核对(series, variates, time)。未来协变量必须覆盖历史与预测窗口。",
+        "sources": [
+          {
+            "title": "Timestral 官方 README：安装、Forecast、License",
+            "url": "https://github.com/mistralai/timestral",
+            "published_at": null,
+            "verified_at": "2026-10-21"
+          }
+        ],
+        "entry_url": "https://github.com/mistralai/timestral",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-21T19:40:00+08:00"
+      },
       {
         "id": "docling",
         "publisher": "Docling Project",

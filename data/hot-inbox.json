@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T08:01:17Z",
+  "generated_at": "2026-10-21T11:52:59Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 1,
+    "merge": 6,
     "hold": 3
   },
   "candidates": [
@@ -33,6 +33,29 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "product_id": "google-antigravity",
       "first_seen_at": "2026-10-20T12:44:41Z"
+    },
+    {
+      "id": "candidate-ec0bbb16557febcb",
+      "category": "industry",
+      "published": "2026-10-20",
+      "title": "Orchestra Bio 加入 OpenAI：研发项目依赖纳入 Agent 工作流",
+      "summary": "官方收购公告强调研究、项目进度与跨团队依赖的协调，并计划与 Rosalind 结合。",
+      "why": "可以把研究证据、行动责任人与进度变更放在同一可追溯流程中评估。",
+      "boundary": "尚不能据此确认临床合规、真实研发提速或统一开放时间；关键研究决策仍由专业人员负责。",
+      "source": "OpenAI",
+      "source_kind": "官方一手来源",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.816,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T11:52:59Z"
     },
     {
       "id": "candidate-567f9dfeb2c35d69",
@@ -62,6 +85,105 @@
         "Employment"
       ],
       "first_seen_at": "2026-10-20T12:44:41Z"
+    },
+    {
+      "id": "candidate-3298080199d6d527",
+      "category": "research",
+      "published": "2026-10-20",
+      "title": "AEON：视频潜空间连接显式4D世界",
+      "summary": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
+      "why": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
+      "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
+      "source": "AEON 作者团队",
+      "source_kind": "作者论文原文",
+      "url": "https://arxiv.org/abs/2610.28631",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.762,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "aeon-video-4d-world-model",
+      "topic_tags": [
+        "World Model",
+        "4D Gaussian Splatting",
+        "Video Generation"
+      ],
+      "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-0b44fe8cbd278171",
+      "category": "industry",
+      "published": "2026-10-15",
+      "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
+      "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
+      "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
+      "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
+      "source": "OpenAI",
+      "source_kind": "官方一手来源",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "publishable": true,
+      "features": {
+        "freshness": 0.571,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.708,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-d4630f9691a2082a",
+      "category": "industry",
+      "published": "2026-10-15",
+      "title": "Timestral：为传感器监测补一个概率预测基线",
+      "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
+      "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
+      "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
+      "source": "Mistral AI",
+      "source_kind": "官方一手来源",
+      "url": "https://mistral.ai/news/timestral",
+      "publishable": true,
+      "features": {
+        "freshness": 0.571,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.708,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-a99e4b2c8792457e",
+      "category": "product",
+      "published": "2026-10-15",
+      "title": "Mistral 发布 Timestral 时序模型与推理代码",
+      "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
+      "why": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
+      "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
+      "source": "Mistral AI",
+      "source_kind": "官方一手来源",
+      "url": "https://mistral.ai/news/timestral",
+      "publishable": true,
+      "features": {
+        "freshness": 0.571,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.698,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "timestral",
+      "first_seen_at": "2026-10-21T11:52:59Z"
     },
     {
       "id": "candidate-019270e4cda473b1",

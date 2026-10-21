@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-09-23",
+  "checked": "2026-10-21",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,39 @@
     }
   ],
   "sources": [
+    {
+      "id": "timestral-industrial",
+      "title": "Introducing Timestral",
+      "publisher": "Mistral AI",
+      "url": "https://mistral.ai/news/timestral/",
+      "published": "2026-10-15",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "kind": "官方一手来源",
+      "date_label": null
+    },
+    {
+      "id": "rosalind-academic",
+      "title": "Rosalind Academic Plan",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+      "published": "2026-10-15",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "kind": "官方一手来源",
+      "date_label": null
+    },
+    {
+      "id": "orchestra-acquisition",
+      "title": "OpenAI acquires Orchestra Bio",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+      "published": "2026-10-20",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "kind": "官方一手来源",
+      "date_label": null
+    },
     {
       "id": "ot-2606",
       "title": "Open Targets Platform 26.06 has been released!",
@@ -375,6 +408,108 @@
     }
   ],
   "articles": [
+    {
+      "id": "timestral-maintenance-20261015",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-process",
+        "equipment-maintenance"
+      ],
+      "title": "Timestral：为传感器监测补一个概率预测基线",
+      "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
+      "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
+      "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
+      "sources": [
+        "timestral-industrial"
+      ],
+      "kind": "tool",
+      "access": "公开代码与权重；许可分别审查",
+      "published": "2026-10-15",
+      "steps": [
+        "按设备与时间切分数据，避免未来信息泄漏",
+        "比较季节朴素基线、误差及区间覆盖",
+        "影子运行并人工复核告警，不直接控制设备"
+      ],
+      "metrics": [
+        "MASE与区间覆盖",
+        "误报漏报与设备漂移",
+        "CPU/GPU时延及运维成本"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "rosalind-academic-access-20261015",
+      "sector": "pharma",
+      "topics": [
+        "targets",
+        "molecules"
+      ],
+      "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
+      "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
+      "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
+      "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
+      "sources": [
+        "rosalind-academic"
+      ],
+      "kind": "update",
+      "access": "美国高校实验室申请 / 可信访问审核",
+      "published": "2026-10-15",
+      "steps": [
+        "由 PI 或实验室负责人核对官方资格和学校既有协议",
+        "确认席位、使用限制、数据政策及 GPT-Rosalind 审核条件",
+        "用获授权的研究问题记录来源与实验验证计划"
+      ],
+      "metrics": [
+        "申请资格与访问状态",
+        "可追溯来源和验证记录",
+        "人工审核与真实实验结果"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "orchestra-program-coordination-20261020",
+      "sector": "pharma",
+      "topics": [
+        "clinical",
+        "csr"
+      ],
+      "title": "Orchestra Bio 加入 OpenAI：研发项目依赖纳入 Agent 工作流",
+      "summary": "官方收购公告强调研究、项目进度与跨团队依赖的协调，并计划与 Rosalind 结合。",
+      "why": "可以把研究证据、行动责任人与进度变更放在同一可追溯流程中评估。",
+      "boundary": "尚不能据此确认临床合规、真实研发提速或统一开放时间；关键研究决策仍由专业人员负责。",
+      "sources": [
+        "orchestra-acquisition"
+      ],
+      "kind": "update",
+      "access": "官方公告；产品整合范围待跟踪",
+      "published": "2026-10-20",
+      "steps": [
+        "阅读收购原文并区分已完成收购与未来产品计划",
+        "选取获授权的非敏感项目流程，定义人工审批节点",
+        "要求来源链、权限隔离与变更审计"
+      ],
+      "metrics": [
+        "依赖识别准确性",
+        "错误建议与人工复核负担",
+        "资料及行动的追溯完整性"
+      ],
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "ot-release-2606",
       "sector": "pharma",

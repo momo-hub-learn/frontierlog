@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 23 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=chatgpt-gpt6-intelligent-ui&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:chatgpt-gpt6-intelligent-ui-oct7</guid><pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 把 GPT-6 带到 ChatGPT Chat，并让模型按问题生成图形、按钮、表单、图表和可交互体验；付费与企业层 10 月 7 日开始，Free / Go 从 10 月 8 日开始扩展。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Mistral 发布 Timestral 时序模型与推理代码</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=timestral&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:timestral-release-20261015</guid><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。
+
+编辑解读：可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。
+
+公开资料，本站未复测。
+来源：https://mistral.ai/news/timestral/
+https://github.com/mistralai/timestral</description></item><item><title>GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=chatgpt-gpt6-intelligent-ui&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:chatgpt-gpt6-intelligent-ui-oct7</guid><pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 把 GPT-6 带到 ChatGPT Chat，并让模型按问题生成图形、按钮、表单、图表和可交互体验；付费与企业层 10 月 7 日开始，Free / Go 从 10 月 8 日开始扩展。
 
 编辑解读：ChatGPT 的能力边界从“生成答案”继续走向“即时生成任务界面”；但这次只改变 Chat 体验，Work / Codex 模型不在本次更新范围，且 rollout 不代表所有账户瞬时可见。
 
@@ -55,7 +61,28 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：开发者可以沿公开实现检查构建和查询流程。
 
 公开资料，本站未复测。
-来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>Open Targets 26.06：靶点评估增加细胞类型表达数据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=ot-release-2606</link><guid isPermaLink="false">frontierlog:topic:ot-release-2606</guid><pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate><description>官方更新加入 PRIDE 蛋白组与单细胞 RNA 测序数据，并调整临床挖掘、Locus-to-Gene 与文献处理流程。
+来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>Timestral：为传感器监测补一个概率预测基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=timestral-maintenance-20261015</link><guid isPermaLink="false">frontierlog:topic:timestral-maintenance-20261015</guid><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。
+
+编辑解读：预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。
+
+边界：厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://mistral.ai/news/timestral/</description><category>工艺控制 · FDC / APC</category><category>装备运维与质检</category></item><item><title>Rosalind 学术计划：先核对美国高校与可信访问资格</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=rosalind-academic-access-20261015</link><guid isPermaLink="false">frontierlog:topic:rosalind-academic-access-20261015</guid><pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate><description>符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。
+
+编辑解读：新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。
+
+边界：不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://openai.com/index/introducing-the-rosalind-academic-plan/</description><category>靶点发现与验证</category><category>分子设计与筛选</category></item><item><title>Orchestra Bio 加入 OpenAI：研发项目依赖纳入 Agent 工作流</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=orchestra-program-coordination-20261020</link><guid isPermaLink="false">frontierlog:topic:orchestra-program-coordination-20261020</guid><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>官方收购公告强调研究、项目进度与跨团队依赖的协调，并计划与 Rosalind 结合。
+
+编辑解读：可以把研究证据、行动责任人与进度变更放在同一可追溯流程中评估。
+
+边界：尚不能据此确认临床合规、真实研发提速或统一开放时间；关键研究决策仍由专业人员负责。
+资料核对：2026-10-21；本站未实测。
+原始来源：
+https://openai.com/index/openai-to-acquire-orchestra-bio/</description><category>临床试验与数据</category><category>CSR 与医学写作</category></item><item><title>Open Targets 26.06：靶点评估增加细胞类型表达数据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=ot-release-2606</link><guid isPermaLink="false">frontierlog:topic:ot-release-2606</guid><pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate><description>官方更新加入 PRIDE 蛋白组与单细胞 RNA 测序数据，并调整临床挖掘、Locus-to-Gene 与文献处理流程。
 
 编辑解读：靶点优先级不只看“有没有关联”，也要看它在哪里表达。
 
