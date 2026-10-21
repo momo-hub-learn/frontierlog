@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-20",
+  "checked": "2026-10-21",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,178 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-orchestra-bio-20261020",
+      "category": "industry",
+      "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
+      "published": "2026-10-20",
+      "published_at": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 35,
+        "availability": 21,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "flat",
+      "summary": "OpenAI 宣布已收购 Orchestra Bio，并将其团队与技术结合到 Rosalind。重点是协助生物制药团队跟踪研究、依赖关系和项目进度。",
+      "why": "生命科学 Agent 开始连接科学分析与研发流程；可关注证据追溯、权限和人工决策如何衔接。",
+      "boundary": "收购与整合方向不等于新药已验证、已获批准或研发周期已被独立证实缩短；原文没有给出统一开放日期。",
+      "source": "OpenAI",
+      "source_kind": "官方原文 / 本轮编辑核验",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+      "link": "#/pharma",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读原始来源",
+          "note": "保留原始发布日期；未做独立性能实测",
+          "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+          "kind": "read"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "OpenAI 收购 Orchestra Bio：连接药物研发与项目协作",
+          "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+          "date": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "rosalind-academic-plan-20261015",
+      "category": "product",
+      "title": "Rosalind 学术计划：美国高校实验室可申请赞助席位",
+      "published": "2026-10-15",
+      "published_at": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 33,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 11
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "flat",
+      "summary": "符合资格的美国高校实验室可申请最多30个 Business Standard 席位、最长12个月免费支持；GPT-Rosalind 仍需通过可信访问审核。",
+      "why": "本次变化是学术访问渠道，不是新模型跑分；申请资格和实际可用权限比宣传标题更重要。",
+      "boundary": "API 不包含在计划内；不是全球高校自动开放。已有学校 Enterprise 协议的团队应走学校流程；研究结果仍需实验验证。",
+      "source": "OpenAI",
+      "source_kind": "官方原文 / 本轮编辑核验",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+      "link": "#/pharma",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读原始来源",
+          "note": "保留原始发布日期；未做独立性能实测",
+          "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+          "kind": "read"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Rosalind 学术计划：美国高校实验室可申请赞助席位",
+          "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+          "date": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "mistral-timestral-20261015",
+      "category": "model",
+      "title": "Timestral 开放：小型时序模型支持多变量概率预测",
+      "published": "2026-10-15",
+      "published_at": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 34,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 11
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "flat",
+      "summary": "Mistral 发布5M、28M、123M和209M四档时序模型，支持历史与已知未来协变量，并提供 CPU/GPU 推理代码。",
+      "why": "可先用小样本检验设备传感器、产能与需求预测，减少从零训练的门槛；站内已补入可运行指南。",
+      "boundary": "官方 Benchmark 排名不等于本站实测或真实工厂收益。预测不是因果诊断或自动控制；代码为 Apache-2.0，权重另有 Modified MIT 条款。",
+      "source": "Mistral AI",
+      "source_kind": "官方原文 / 本轮编辑核验",
+      "url": "https://mistral.ai/news/timestral/",
+      "link": "#/toolkit",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读原始来源",
+          "note": "保留原始发布日期；未做独立性能实测",
+          "url": "https://mistral.ai/news/timestral/",
+          "kind": "read"
+        }
+      ],
+      "related": [
+        {
+          "source": "Mistral AI",
+          "title": "Timestral 开放：小型时序模型支持多变量概率预测",
+          "url": "https://mistral.ai/news/timestral/",
+          "date": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "aeon-world-model-20261020",
+      "category": "research",
+      "title": "AEON：把视频生成连接到可渲染的4D世界表示",
+      "published": "2026-10-20",
+      "published_at": "2026-10-20T17:59:51Z",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "first_seen_at": "2026-10-21T19:40:00+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 35,
+        "availability": 16,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "flat",
+      "summary": "论文提出在视频潜空间生成，再通过域适配与4D解码器输出动态高斯表示和相机位姿，连接视频外观与三维一致性。",
+      "why": "世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。",
+      "boundary": "研究结果及领先性能为作者报告，本站未复现；可渲染不代表物理定律、可控交互或工业数字孪生已经可靠。",
+      "source": "AEON 作者 / arXiv",
+      "source_kind": "官方原文 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.28631",
+      "link": "#/progress?view=research",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读原始来源",
+          "note": "保留原始发布日期；未做独立性能实测",
+          "url": "https://arxiv.org/abs/2610.28631",
+          "kind": "read"
+        }
+      ],
+      "related": [
+        {
+          "source": "AEON 作者 / arXiv",
+          "title": "AEON：把视频生成连接到可渲染的4D世界表示",
+          "url": "https://arxiv.org/abs/2610.28631",
+          "date": "2026-10-20"
+        }
+      ]
+    },
     {
       "id": "gemini-4-argon-general-availability-20261013",
       "category": "model",

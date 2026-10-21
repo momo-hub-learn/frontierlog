@@ -1,349 +1,276 @@
 {
   "version": 1,
-  "checked_at": "2026-10-20T06:00:18.055Z",
+  "checked_at": "2026-10-21T11:48:16.725433+00:00",
   "source_url": "https://huggingface.co/models?sort=trending",
   "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
   "source_scope": "Hugging Face Models · API trendingScore descending · Top 20",
-  "note": "完整榜位采用本次 Hugging Face 官方 API sort=trendingScore&direction=-1 的返回顺序；官方 Trending 网页同轮前列一致，但局部排序/展示集合与 API 不完全一致，网页榜位不与 API 数值拼接。trendingScore、Likes、Downloads 仅为平台热度和使用信号，不代表模型能力或本站实测。task/library 若 API 缺失明确标“未标注”；createdAt 为仓库创建时间而非模型发布日。",
+  "note": "榜位采用官方 API trendingScore 降序。本轮网页 Top 20 与 API 顺序一致；分别保留抓取时间，不能推定未来始终一致。trendingScore、Likes、Downloads 只是平台热度/使用信号，不是能力成绩或本站实测。未提供的 task/library 标为“未标注”；createdAt 是模型仓库创建时间，不是原始发布日期。",
+  "rank_source": "official_api_trendingScore_desc",
+  "api_fetched_at": "2026-10-21T11:48:16.725433+00:00",
+  "web_fetched_at": "2026-10-21T11:48:16.943948+00:00",
+  "web_order_matches_api": true,
+  "web_order": [
+    "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "black-forest-labs/flux-3-image-klein-comfy",
+    "fishaudio/drama-3",
+    "meta-models/Muse-Spark-Open-816B-A42B",
+    "black-forest-labs/flux-3-image-klein",
+    "OpenMOSS-Team/MOSS-Image-SFT",
+    "google/embeddinggemma-2",
+    "Lightricks/LTX-2.5",
+    "OpenMOSS-Team/MOSS-Image-Base",
+    "jialinyyzz/humanizer",
+    "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+    "Comfy-Org/MOSS-Image",
+    "Qwen/Qwen3.8-27B",
+    "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+    "LiquidAI/LFM2.5-24B-A2B",
+    "tencent/Hy-Memory-30B-A3B",
+    "datalab-to/indra-ocr",
+    "mistralai/Timestral-209M",
+    "facebook/sam3",
+    "reflection/Beam-1.0-501B-A23B"
+  ],
   "items": [
     {
       "rank": 1,
       "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "trending_score": 1567,
-      "likes": 1727,
-      "downloads": 17924,
+      "trending_score": 1851,
+      "likes": 2072,
+      "downloads": 42122,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-10-17T02:40:38.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "deepseek_v41",
-        "text-generation"
-      ]
+      "tags": ["transformers", "safetensors", "deepseek_v41", "text-generation"]
     },
     {
       "rank": 2,
       "id": "black-forest-labs/flux-3-image-klein-comfy",
       "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-      "trending_score": 757,
-      "likes": 981,
-      "downloads": 393062,
+      "trending_score": 850,
+      "likes": 1129,
+      "downloads": 490447,
       "task": "image-to-image",
       "library": "diffusion-single-file",
       "created_at": "2026-10-14T12:00:13.000Z",
-      "tags": [
-        "diffusion-single-file",
-        "comfyui",
-        "image-generation",
-        "image-editing"
-      ]
+      "tags": ["diffusion-single-file", "comfyui", "image-generation", "image-editing"]
     },
     {
       "rank": 3,
       "id": "fishaudio/drama-3",
       "url": "https://huggingface.co/fishaudio/drama-3",
-      "trending_score": 745,
-      "likes": 777,
-      "downloads": 11795,
+      "trending_score": 612,
+      "likes": 863,
+      "downloads": 15274,
       "task": "text-to-speech",
       "library": "未标注",
       "created_at": "2026-10-01T04:34:57.000Z",
-      "tags": [
-        "safetensors",
-        "fish_omni",
-        "fish-audio",
-        "text-to-speech"
-      ]
+      "tags": ["safetensors", "fish_omni", "fish-audio", "text-to-speech"]
     },
     {
       "rank": 4,
-      "id": "openbmb/MiniCPM-V-4.7-35B-A3B",
-      "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
-      "trending_score": 727,
-      "likes": 1069,
-      "downloads": 76410,
-      "task": "image-text-to-text",
-      "library": "transformers",
-      "created_at": "2026-10-07T07:07:30.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "minicpmv4_7",
-        "image-text-to-text"
-      ]
-    },
-    {
-      "rank": 5,
-      "id": "google/embeddinggemma-2",
-      "url": "https://huggingface.co/google/embeddinggemma-2",
-      "trending_score": 617,
-      "likes": 2733,
-      "downloads": 167750,
-      "task": "feature-extraction",
-      "library": "transformers",
-      "created_at": "2026-09-14T14:53:42.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "embedding_gemma2",
-        "feature-extraction"
-      ]
-    },
-    {
-      "rank": 6,
-      "id": "jialinyyzz/humanizer",
-      "url": "https://huggingface.co/jialinyyzz/humanizer",
-      "trending_score": 585,
-      "likes": 1993,
-      "downloads": 109937,
-      "task": "text-generation",
-      "library": "gguf",
-      "created_at": "2026-09-11T05:00:16.000Z",
-      "tags": [
-        "gguf",
-        "safetensors",
-        "gemma4_unified",
-        "image-text-to-text"
-      ]
-    },
-    {
-      "rank": 7,
       "id": "meta-models/Muse-Spark-Open-816B-A42B",
       "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-      "trending_score": 536,
-      "likes": 585,
-      "downloads": 2109,
+      "trending_score": 560,
+      "likes": 618,
+      "downloads": 2891,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-09-15T19:23:19.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "muse_spark",
-        "image-text-to-text"
-      ]
+      "tags": ["transformers", "safetensors", "muse_spark", "image-text-to-text"]
     },
     {
-      "rank": 8,
-      "id": "LiquidAI/LFM2.5-24B-A2B",
-      "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
-      "trending_score": 485,
-      "likes": 501,
-      "downloads": 14151,
-      "task": "text-generation",
-      "library": "transformers",
-      "created_at": "2026-10-12T05:35:46.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "lfm2_moe",
-        "text-generation"
-      ]
-    },
-    {
-      "rank": 9,
+      "rank": 5,
       "id": "black-forest-labs/flux-3-image-klein",
       "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-      "trending_score": 482,
-      "likes": 530,
-      "downloads": 62006,
+      "trending_score": 520,
+      "likes": 585,
+      "downloads": 92604,
       "task": "image-to-image",
       "library": "diffusers",
       "created_at": "2026-10-13T10:58:40.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "image-generation",
-        "image-editing"
-      ]
+      "tags": ["diffusers", "safetensors", "image-generation", "image-editing"]
     },
     {
-      "rank": 10,
-      "id": "Lightricks/LTX-2.5",
-      "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "trending_score": 438,
-      "likes": 8501,
-      "downloads": 2019834,
-      "task": "image-to-video",
-      "library": "diffusion-single-file",
-      "created_at": "2026-07-23T07:55:24.000Z",
-      "tags": [
-        "diffusion-single-file",
-        "image-to-video",
-        "text-to-video",
-        "video-to-video"
-      ]
-    },
-    {
-      "rank": 11,
+      "rank": 6,
       "id": "OpenMOSS-Team/MOSS-Image-SFT",
       "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-      "trending_score": 397,
-      "likes": 414,
-      "downloads": 3336,
+      "trending_score": 477,
+      "likes": 512,
+      "downloads": 5840,
       "task": "text-to-image",
       "library": "diffusers",
       "created_at": "2026-10-11T07:01:17.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "moss-image",
-        "text-to-image"
-      ]
+      "tags": ["diffusers", "safetensors", "moss-image", "text-to-image"]
     },
     {
-      "rank": 12,
-      "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "trending_score": 374,
-      "likes": 4645,
-      "downloads": 2739572,
-      "task": "text-to-image",
-      "library": "gguf",
-      "created_at": "2026-09-20T15:51:13.000Z",
-      "tags": [
-        "gguf",
-        "qwen",
-        "image-generation",
-        "comfyui"
-      ]
+      "rank": 7,
+      "id": "google/embeddinggemma-2",
+      "url": "https://huggingface.co/google/embeddinggemma-2",
+      "trending_score": 472,
+      "likes": 2785,
+      "downloads": 179734,
+      "task": "feature-extraction",
+      "library": "transformers",
+      "created_at": "2026-09-14T14:53:42.000Z",
+      "tags": ["transformers", "safetensors", "embedding_gemma2", "feature-extraction"]
     },
     {
-      "rank": 13,
+      "rank": 8,
+      "id": "Lightricks/LTX-2.5",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5",
+      "trending_score": 431,
+      "likes": 8675,
+      "downloads": 2057942,
+      "task": "image-to-video",
+      "library": "diffusion-single-file",
+      "created_at": "2026-07-23T07:55:24.000Z",
+      "tags": ["diffusion-single-file", "image-to-video", "text-to-video", "video-to-video"]
+    },
+    {
+      "rank": 9,
       "id": "OpenMOSS-Team/MOSS-Image-Base",
       "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-      "trending_score": 355,
-      "likes": 371,
-      "downloads": 2774,
+      "trending_score": 422,
+      "likes": 447,
+      "downloads": 4344,
       "task": "text-to-image",
       "library": "diffusers",
       "created_at": "2026-10-11T06:49:17.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "moss-image",
-        "text-to-image"
-      ]
+      "tags": ["diffusers", "safetensors", "moss-image", "text-to-image"]
     },
     {
-      "rank": 14,
+      "rank": 10,
+      "id": "jialinyyzz/humanizer",
+      "url": "https://huggingface.co/jialinyyzz/humanizer",
+      "trending_score": 410,
+      "likes": 2040,
+      "downloads": 120930,
+      "task": "text-generation",
+      "library": "gguf",
+      "created_at": "2026-09-11T05:00:16.000Z",
+      "tags": ["gguf", "safetensors", "gemma4_unified", "image-text-to-text"]
+    },
+    {
+      "rank": 11,
+      "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "trending_score": 345,
+      "likes": 4740,
+      "downloads": 2738344,
+      "task": "text-to-image",
+      "library": "gguf",
+      "created_at": "2026-09-20T15:51:13.000Z",
+      "tags": ["gguf", "qwen", "image-generation", "comfyui"]
+    },
+    {
+      "rank": 12,
+      "id": "Comfy-Org/MOSS-Image",
+      "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
+      "trending_score": 298,
+      "likes": 313,
+      "downloads": 1290080,
+      "task": "未标注",
+      "library": "diffusion-single-file",
+      "created_at": "2026-10-16T12:42:32.000Z",
+      "tags": ["diffusion-single-file", "comfyui", "base_model:OpenMOSS-Team/MOSS-Image-Base", "license:apache-2.0"]
+    },
+    {
+      "rank": 13,
       "id": "Qwen/Qwen3.8-27B",
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "trending_score": 288,
-      "likes": 18017,
-      "downloads": 7458401,
+      "trending_score": 296,
+      "likes": 18098,
+      "downloads": 7729432,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-08-05T08:22:59.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "qwen3_5",
-        "image-text-to-text"
-      ]
+      "tags": ["transformers", "safetensors", "qwen3_5", "image-text-to-text"]
+    },
+    {
+      "rank": 14,
+      "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+      "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
+      "trending_score": 273,
+      "likes": 279,
+      "downloads": 9340,
+      "task": "image-text-to-text",
+      "library": "Model Optimizer",
+      "created_at": "2026-10-08T16:20:17.000Z",
+      "tags": ["Model Optimizer", "safetensors", "qwen4_exp", "nvidia"]
     },
     {
       "rank": 15,
-      "id": "baidu/Unlimited-OCR",
-      "url": "https://huggingface.co/baidu/Unlimited-OCR",
-      "trending_score": 265,
-      "likes": 4825,
-      "downloads": 1799825,
-      "task": "image-text-to-text",
+      "id": "LiquidAI/LFM2.5-24B-A2B",
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "trending_score": 269,
+      "likes": 533,
+      "downloads": 16939,
+      "task": "text-generation",
       "library": "transformers",
-      "created_at": "2026-06-19T09:40:33.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "unlimited_ocr",
-        "feature-extraction"
-      ]
+      "created_at": "2026-10-12T05:35:46.000Z",
+      "tags": ["transformers", "safetensors", "lfm2_moe", "text-generation"]
     },
     {
       "rank": 16,
-      "id": "Qwen/Qwen-Image-2.1-Turbo",
-      "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
-      "trending_score": 247,
-      "likes": 1001,
-      "downloads": 25033,
-      "task": "text-to-image",
-      "library": "diffusers",
-      "created_at": "2026-10-09T04:50:01.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "qwen",
-        "image-generation"
-      ]
+      "id": "tencent/Hy-Memory-30B-A3B",
+      "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
+      "trending_score": 259,
+      "likes": 264,
+      "downloads": 2682,
+      "task": "text-generation",
+      "library": "transformers",
+      "created_at": "2026-10-15T09:52:00.000Z",
+      "tags": ["transformers", "safetensors", "hy_v3", "text-generation"]
     },
     {
       "rank": 17,
       "id": "datalab-to/indra-ocr",
       "url": "https://huggingface.co/datalab-to/indra-ocr",
-      "trending_score": 245,
-      "likes": 249,
-      "downloads": 2433,
+      "trending_score": 254,
+      "likes": 324,
+      "downloads": 3588,
       "task": "image-to-text",
       "library": "onnx",
       "created_at": "2026-10-10T14:12:33.000Z",
-      "tags": [
-        "onnx",
-        "safetensors",
-        "indra-ocr",
-        "ocr"
-      ]
+      "tags": ["onnx", "safetensors", "indra-ocr", "ocr"]
     },
     {
       "rank": 18,
-      "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
-      "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-      "trending_score": 237,
-      "likes": 241,
-      "downloads": 6047,
-      "task": "image-text-to-text",
-      "library": "Model Optimizer",
-      "created_at": "2026-10-08T16:20:17.000Z",
-      "tags": [
-        "Model Optimizer",
-        "safetensors",
-        "qwen4_exp",
-        "nvidia"
-      ]
+      "id": "mistralai/Timestral-209M",
+      "url": "https://huggingface.co/mistralai/Timestral-209M",
+      "trending_score": 238,
+      "likes": 248,
+      "downloads": 5488,
+      "task": "time-series-forecasting",
+      "library": "timestral",
+      "created_at": "2026-10-14T08:52:36.000Z",
+      "tags": ["timestral", "safetensors", "time-series", "forecasting"]
     },
     {
       "rank": 19,
-      "id": "Comfy-Org/MOSS-Image",
-      "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-      "trending_score": 237,
-      "likes": 243,
-      "downloads": 673110,
-      "task": "未标注",
-      "library": "diffusion-single-file",
-      "created_at": "2026-10-16T12:42:32.000Z",
-      "tags": [
-        "diffusion-single-file",
-        "comfyui",
-        "base_model:OpenMOSS-Team/MOSS-Image-Base"
-      ]
-    },
-    {
-      "rank": 20,
       "id": "facebook/sam3",
       "url": "https://huggingface.co/facebook/sam3",
-      "trending_score": 217,
-      "likes": 4706,
-      "downloads": 1902371,
+      "trending_score": 208,
+      "likes": 4803,
+      "downloads": 1906176,
       "task": "mask-generation",
       "library": "transformers",
       "created_at": "2025-11-07T05:17:48.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "sam3_video",
-        "feature-extraction"
-      ]
+      "tags": ["transformers", "safetensors", "sam3_video", "feature-extraction"]
+    },
+    {
+      "rank": 20,
+      "id": "reflection/Beam-1.0-501B-A23B",
+      "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
+      "trending_score": 188,
+      "likes": 191,
+      "downloads": 3555,
+      "task": "text-generation",
+      "library": "未标注",
+      "created_at": "2026-10-07T19:52:01.000Z",
+      "tags": ["safetensors", "beam", "mixture-of-experts", "reasoning"]
     }
   ]
 }

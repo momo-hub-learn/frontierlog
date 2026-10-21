@@ -42,6 +42,47 @@
   ],
   "items": [
     {
+      "id": "timestral",
+      "publisher": "Mistral AI",
+      "group": "research",
+      "access": "local",
+      "headline": "先跑一个96步时序预测基线",
+      "input": "获授权的历史序列，或固定随机种子的合成序列",
+      "output": "预测中位数与21个分位数；示例输出96个未来步",
+      "requirements": "Python >=3.10、PyTorch >=2.4、已安装 uv；首次下载模型权重，需要网络与本地存储。",
+      "limitation": "只核验官方安装与 API 文档，本站未运行模型；代码 Apache-2.0，权重 Modified MIT，商业部署应分别审核。",
+      "cost": "本地 CPU/GPU、权重下载与存储成本；不包含托管服务。",
+      "steps": [
+        {
+          "title": "克隆并安装锁定依赖",
+          "body": "在独立目录操作；保存实际代码 commit 与模型 revision，便于重现。",
+          "command": "git clone https://github.com/mistralai/timestral.git\ncd timestral\nuv sync --frozen"
+        },
+        {
+          "title": "用合成数据检查接口",
+          "body": "先验证输入维度和输出形状，再换成获授权的数据；不要把示例曲线当效果证据。",
+          "command": "uv run python - <<'PY'\nimport numpy as np\nfrom timestral import TimestralForecaster\nf = TimestralForecaster.from_pretrained(\"mistralai/Timestral-5M\")\nx = np.random.default_rng(42).standard_normal((1, 1, 2000)).cumsum(-1)\ny = f.forecast(x, prediction_length=96)\nprint(y.quantiles.shape, y.median.shape)\nPY"
+        },
+        {
+          "title": "按时间留出验证",
+          "body": "保持96步预测窗口，与季节朴素基线比较误差、区间覆盖和运行时间。仅提供预测时已知的协变量；不连接生产控制。"
+        }
+      ],
+      "troubleshooting": "安装失败核对 Python/PyTorch；下载失败检查网络和缓存；形状不匹配核对(series, variates, time)。未来协变量必须覆盖历史与预测窗口。",
+      "sources": [
+        {
+          "title": "Timestral 官方 README：安装、Forecast、License",
+          "url": "https://github.com/mistralai/timestral",
+          "published_at": null,
+          "verified_at": "2026-10-21"
+        }
+      ],
+      "entry_url": "https://github.com/mistralai/timestral",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-21T19:40:00+08:00"
+    },
+    {
       "id": "docling",
       "publisher": "Docling Project",
       "group": "documents",

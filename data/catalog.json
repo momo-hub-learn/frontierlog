@@ -1,7 +1,37 @@
 {
   "version": 2,
-  "snapshot": "2026-10-08",
+  "snapshot": "2026-10-21",
   "items": [
+    {
+      "id": "timestral",
+      "name": "Timestral",
+      "title": "用小型模型做多变量时序预测",
+      "category": "科学研究",
+      "mark": "TS",
+      "accent": "cyan",
+      "summary": "输入历史传感器或需求序列，联合预测多个变量，并输出分位数表示不确定性。",
+      "scope": "官方提供5M至209M权重与 PyTorch 推理；可在 CPU/GPU 上使用历史或已知未来协变量。",
+      "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
+      "repo": "mistralai/timestral",
+      "sources": [
+        "timestral-release",
+        "timestral-repository"
+      ],
+      "requirements": "Python >=3.10、PyTorch >=2.4；首次下载权重；先读代码与权重各自许可。",
+      "test": "以固定时点切分一段获授权的序列，与季节朴素基线比较误差和区间覆盖；禁止把未来目标值当协变量。",
+      "checks": [
+        "固定代码与权重版本，记录 CPU/GPU 和序列形状",
+        "按时间留出测试集，比较 MASE 等误差与区间覆盖",
+        "预测异常由人工复核，不直接触发生产设备动作"
+      ],
+      "command": "git clone https://github.com/mistralai/timestral.git\ncd timestral\nuv sync --frozen",
+      "effort": "本地 CPU / GPU",
+      "evidence": "官方发布与代码文档",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00"
+    },
     {
       "id": "chatgpt-gpt6-intelligent-ui",
       "name": "ChatGPT · GPT-6 Intelligent UI",
@@ -349,6 +379,26 @@
   ],
   "sources": [
     {
+      "id": "timestral-repository",
+      "title": "Timestral 官方推理代码与许可说明",
+      "publisher": "Mistral AI",
+      "url": "https://github.com/mistralai/timestral",
+      "published": null,
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "kind": "官方一手来源"
+    },
+    {
+      "id": "timestral-release",
+      "title": "Introducing Timestral",
+      "publisher": "Mistral AI",
+      "url": "https://mistral.ai/news/timestral/",
+      "published": "2026-10-15",
+      "checked": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00",
+      "kind": "官方一手来源"
+    },
+    {
       "id": "openhands",
       "title": "OpenHands · Agent Canvas",
       "publisher": "OpenHands",
@@ -530,6 +580,21 @@
     }
   ],
   "events": [
+    {
+      "id": "timestral-release-20261015",
+      "task": "timestral",
+      "date": "2026-10-15",
+      "kind": "release",
+      "title": "Mistral 发布 Timestral 时序模型与推理代码",
+      "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
+      "delta": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
+      "sources": [
+        "timestral-release",
+        "timestral-repository"
+      ],
+      "reviewed": "2026-10-21",
+      "verified_at": "2026-10-21T19:40:00+08:00"
+    },
     {
       "id": "chatgpt-gpt6-intelligent-ui-oct7",
       "task": "chatgpt-gpt6-intelligent-ui",
