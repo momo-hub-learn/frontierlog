@@ -8,6 +8,7 @@ function v10HotVerifiedAt(){return (HOT.items||[]).map(x=>x.verified_at).filter(
 function v10HotCheckedText(){return v10FormatShanghai(v10HotVerifiedAt())||(HOT.checked||'').replaceAll('-','.')}
 function v10ShadowCheckedText(){return v10FormatShanghai(HOT_POLICY?.last_evaluated)||'—'}
 function v10LocalToday(now=new Date()){try{return new Intl.DateTimeFormat('en-CA',{timeZone:AIC_EDITORIAL_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(now)}catch{const d=new Date(now.getTime()+8*60*60*1000);return d.toISOString().slice(0,10)}}
+function v10LocalDayFromStamp(raw){if(typeof raw!=='string'||!/(?:Z|[+-]\d\d:\d\d)$/.test(raw))return '';const d=new Date(raw);return Number.isFinite(d.getTime())?v10LocalToday(d):''}
 function v10DayOrdinal(raw){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(raw||''));return m?Date.UTC(+m[1],+m[2]-1,+m[3]):NaN}
 function v10HotAgeDays(raw){const a=v10DayOrdinal(v10LocalToday()),b=v10DayOrdinal(raw);return Number.isFinite(a)&&Number.isFinite(b)?Math.max(0,Math.floor((a-b)/864e5)):999}
 function v10Top5Score(x){return (Number(x.heat)||0)-2*v10HotAgeDays(x.published)}
@@ -21,10 +22,11 @@ function v10Top5Window(){
 }
 function v10Top5Rows(){return v10Top5Window().rows}
 function v10FeedFreshnessCopy(){
- const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,w=v10Top5Window();
+ const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,todaySeen=all.filter(x=>v10LocalDayFromStamp(x.first_seen_at)===v10LocalToday()&&v10HotAgeDays(x.published)!==0).length,w=v10Top5Window();
  if(!w.rows.length)return '目前暂无已核验的高信号热点；可从时间线查看历史记录。';
  const archive=w.archiveCount?'，另补充 '+w.archiveCount+' 条较早的已核验热点（保留原始日期）':'';
- return (today?'今天已核验 '+today+' 个高信号变化':'当前没有今日发布的已核验高信号变化')+'；'+w.label+'内 '+w.recentCount+' 条'+archive+'。';
+ const lead=today?'今天发布并已核验 '+today+' 条高信号变化':todaySeen?'今天新收录 '+todaySeen+' 条（原始发布日期见卡片）':'当前没有今日发布或新收录的已核验高信号变化';
+ return lead+'；'+w.label+'内 '+w.recentCount+' 条'+archive+'。';
 }
 function v10HotStatusShort(){const w=v10Top5Window();return '正文核验 '+v10HotCheckedText()+' · '+w.label+(w.archiveCount?' + 历史精选':'')}
 function v10HotByTime(rows){return [...rows].sort((a,b)=>b.published.localeCompare(a.published)||b.heat-a.heat||a.id.localeCompare(b.id))}

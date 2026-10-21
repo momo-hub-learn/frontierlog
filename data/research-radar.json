@@ -21,6 +21,34 @@
   ],
   "items": [
     {
+      "id": "external-agent-policy-enforcement",
+      "lane": "paradigm",
+      "title": "Agent 安全边界下沉到模型之外的策略执行层",
+      "maker": "NVIDIA",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "tags": ["Agent Runtime", "Policy Enforcement", "Observability"],
+      "fact": "NVIDIA 发布 OpenShell 参考架构，将 Agent 的隔离、观察和策略执行放在模型与工具调用之外，并说明与 Vera、BlueField-4/Sentry 等组件的组合路径。",
+      "insight": "前瞻信号是 Agent 安全从提示词与模型自律转向独立、可审计、可强制执行的运行基础设施；这更适合约束高权限和长时运行任务。",
+      "boundary": "参考架构不等于安全认证；策略遗漏、旁路和底层配置错误仍可能导致越权。厂商性能与容量数字需要在相同硬件、任务和策略下独立复验。",
+      "next_watch": "跟踪文档、代码与支持矩阵，以及第三方对策略绕过、故障安全、审计完整性和性能开销的复现。",
+      "sources": [{"label": "NVIDIA OpenShell 官方发布", "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture", "kind": "官方参考架构发布", "strength": "primary"}]
+    },
+    {
+      "id": "proactive-background-agent-governance",
+      "lane": "paradigm",
+      "title": "主动 Agent：从等待指令转向周期检查与按需打断",
+      "maker": "Anthropic",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "tags": ["Proactive Agent", "Background Work", "Human Approval"],
+      "fact": "Claude Duet 研究预览可每隔数小时检查连接账户、生成晨间简报，在独立虚拟机与浏览器中后台执行，并在发送、付款、签署和删除前等待批准。",
+      "insight": "主动 Agent 的研究问题从单次任务成功转向何时观察、何时打断、如何控制额度、如何证明外部动作遵循了用户意图。",
+      "boundary": "这是厂商早期预览；官方承认可能误读线程或误判紧急程度。产品审批设计不等于安全性、隐私或任务质量已经得到独立验证。",
+      "next_watch": "跟踪通知精确率、遗漏与误打断、长期任务恢复、额度效率、敏感信息路由和外部动作审计的公开评测。",
+      "sources": [{"label": "Anthropic Claude Duet 官方发布", "url": "https://claude.com/resources/articles/claude-duet", "kind": "官方产品与安全说明", "strength": "primary"}]
+    },
+    {
       "id": "agent-assisted-vulnerability-response",
       "lane": "paradigm",
       "title": "安全 Agent：从发现漏洞走向可审计的协同修补",

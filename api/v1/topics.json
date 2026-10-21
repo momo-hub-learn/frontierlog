@@ -174,6 +174,15 @@
   ],
   "sources": [
     {
+      "id": "nvidia-isaac-platform-20261021",
+      "title": "NVIDIA Advances Isaac Platform for General-Purpose Robotics",
+      "publisher": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方平台发布"
+    },
+    {
       "id": "nvidia-healthcare-life-sciences-20261021",
       "title": "Healthcare and Life Sciences Leaders Build on NVIDIA to Advance Drug Discovery and Expand Patient Care",
       "publisher": "NVIDIA",
@@ -505,6 +514,40 @@
     }
   ],
   "articles": [
+    {
+      "id": "nvidia-isaac-platform-20261021",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-design",
+        "digital-twin"
+      ],
+      "title": "Isaac 机器人栈：把已开放、伙伴限定与 2027 计划分开验收",
+      "summary": "NVIDIA 同时发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA、数据与仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。",
+      "why": "机器人选型开始覆盖参考硬件、运行时、训练、仿真和部署全链路；清楚区分当前可用和未来计划，可以避免用演示或伙伴项目替代现场验收。",
+      "boundary": "Agile ONE SN 仍是未来计划，Human 1M 数据仅限指定联盟伙伴；2,000+ SimReady 资产等为厂商披露。本站未运行 Isaac Lab、机器人策略或安全测试，不能由平台完整度推断量产可靠性。",
+      "sources": [
+        "nvidia-isaac-platform-20261021"
+      ],
+      "kind": "update",
+      "access": "Isaac Lab 3.0 已 GA；其他组件分别为开放源码、伙伴限定或未来计划，需逐项核对",
+      "published": "2026-10-21",
+      "steps": [
+        "按运行时、仿真、数据、模型、参考硬件拆分当前状态与许可",
+        "先在 Isaac Lab 固定机器人、场景、策略版本与失败条件复现最小任务",
+        "进入真实设备前单独验收安全联锁、人工接管、域差异和故障回退"
+      ],
+      "metrics": [
+        "仿真到现场成功率差异",
+        "碰撞、越界与人工接管次数",
+        "任务成功率、周期时间和故障恢复"
+      ],
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "first_seen_at": "2026-10-22T05:22:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "nvidia-adaptive-radiotherapy-20261021",
       "sector": "pharma",

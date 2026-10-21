@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Gemini 4 Argon 正式开放：API、Gemini 与 Antigravity 同步上线</title><guid isPermaLink="false">frontierlog:hot:gemini-4-argon-general-availability-20261013</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/</link><pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate><description>Google 10 月 13 日宣布 Gemini 4 Argon 面向开发者、企业与消费者正式开放，可通过 Gemini API、Gemini platform、Gemini App、Search AI Mode 与 Antigravity 使用；不同入口仍受订阅和企业资格限制。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
+
+为什么值得看：主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。
+
+边界：这是早期研究预览，不是普遍开放或独立可靠性证明。官方明确它可能误读线程或误判紧急程度，个人事务较弱且暂不能展示浏览器；后台检查也计入现有套餐额度。
+
+站内热度 99；不是全网流量。</description></item><item><title>Gemini 4 Argon 正式开放：API、Gemini 与 Antigravity 同步上线</title><guid isPermaLink="false">frontierlog:hot:gemini-4-argon-general-availability-20261013</guid><link>https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/</link><pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate><description>Google 10 月 13 日宣布 Gemini 4 Argon 面向开发者、企业与消费者正式开放，可通过 Gemini API、Gemini platform、Gemini App、Search AI Mode 与 Antigravity 使用；不同入口仍受订阅和企业资格限制。
 
 为什么值得看：这不是预告或封闭测试，而是一个前沿模型进入开发、消费与 Agent 工具链的正式可用节点；AutomationBench 与 CWE-bench v1 也已分别公开其 Agent 工作流和防御性安全任务口径。
 
@@ -28,6 +34,12 @@
 为什么值得看：Jev 值得关注的不是“又一个小模型”，而是它在挑战当前 Agent 架构默认假设：并非每一步判断都需要调用生成式 LLM。若这种“LLM 负责生成 / Jev 类模型负责路由、判断、校验、打分”的分层成立，Agent 的成本、延迟、可控性和可观测性都可能明显改变。最近媒体和开发者讨论升温，说明它已从一次新品发布变成值得追踪的架构信号。
 
 边界：System One、RLCD、70–500ms、$0.042/MTok、两数量级效率提升等核心结果主要来自 TypeSafe 自己的定义和评测。TypeSafe 也明确承认其 workflow eval 由自家模型能力团队构造，可能存在偏差；RLCD 尚无公开论文、训练配方或独立大规模复现。“不能 hallucinate”准确说法是输出结构/类型不会越界，不等于业务判断永远正确。
+
+站内热度 98；不是全网流量。</description></item><item><title>NVIDIA 扩展 Isaac：人形机器人参考机、开放运行时与仿真链同时推进</title><guid isPermaLink="false">frontierlog:hot:nvidia-isaac-platform-20261021</guid><link>https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA 与数据/仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。
+
+为什么值得看：具身 AI 的竞争正从单一模型扩展到参考硬件、开放运行时、仿真、数据与部署的整套接口；这会影响未来数月机器人团队的技术选型。
+
+边界：参考人形机器人仍是 2027 年初计划，不是已经量产；Human 1M 数据仅向指定联盟伙伴开放。2,000+ SimReady 资产等数字来自厂商口径，本站未独立复现机器人任务或安全性。
 
 站内热度 98；不是全网流量。</description></item><item><title>数千个 AI Agent 并行分析脑细胞数据：从结果生成可检验的生物学线索</title><guid isPermaLink="false">frontierlog:hot:openai-distributed-bio-agents-20261021</guid><link>https://openai.com/index/scaling-ai-research-for-complex-biological-data/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI、PerturbAI 与 Scripps Research 把全脑 CRISPR 图谱按基因扰动拆给数千个 GPT‑Rosalind Agent，并行连接数百万个小鼠脑细胞的实验信号与文献；官方称最大负载下 32 分钟完成分析。
 
@@ -59,6 +71,12 @@
 
 边界：这些数字是公司计划和前瞻性陈述，不是当前已投产容量、良率、订单或供货保证；后续必须以合作方披露、设施建设和实际量产状态逐项复核。
 
+站内热度 97；不是全网流量。</description></item><item><title>OpenShell：把 Agent 的权限与策略执行移到模型之外</title><guid isPermaLink="false">frontierlog:hot:nvidia-openshell-20261021</guid><link>https://nvidianews.nvidia.com/news/openshell-reference-architecture</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 OpenShell Agent 安全参考架构，将隔离、观察和策略执行放在模型与工具调用之外，并给出与 Vera、BlueField-4/Sentry 组合的运行路径。
+
+为什么值得看：Agent 安全边界开始从提示词和模型自律转向独立、可观测、可强制执行的运行时控制，是高权限 Agent 落地的重要基础设施信号。
+
+边界：这是参考架构与厂商实现，不等于部署后自动安全。30×/MW、2× CPU 与 20% 容量等均为厂商声明，必须在相同硬件、任务和策略下独立复验；策略配置错误仍会造成过度授权或阻断。
+
 站内热度 97；不是全网流量。</description></item><item><title>OpenAI 模型与 Codex 将进入 Google Cloud Model Garden</title><guid isPermaLink="false">frontierlog:hot:openai-google-cloud-model-garden-20261021</guid><link>https://openai.com/index/openai-models-google-cloud/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 与 Google Cloud 宣布将把前沿模型和 Codex Agent 工作流接入 Model Garden，并计划通过 Google Cloud Marketplace 交易；已有 GCP 消费承诺的企业可用于购买。
 
 为什么值得看：这会把模型选择、数据治理、访问控制和采购带进同一云环境；公告还预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent，值得继续跟踪实际开放范围。
@@ -71,7 +89,13 @@
 
 边界：10 月 12 日是媒体集中讨论日期，不是 REA 项目首次发布日期；GitHub Star 热度不能证明逆向正确率。报道里的 Maurice Heumann 多 Agent 游戏逆向案例使用 Hex-Rays MCP，不能充当 REA 实测。逆向必须获得所需授权，不得将源码式输出理解为商业软件复制许可。本站未运行 REA。
 
-站内热度 97；不是全网流量。</description></item><item><title>Anthropic 披露 Claude 非预期操作：Agent 工具权限边界值得重审</title><guid isPermaLink="false">frontierlog:hot:anthropic-unintended-model-actions-20261009</guid><link>https://www.anthropic.com/news/investigating-unintended-model-actions</link><pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 10 月 9 日发布报告，列出在评测及内部使用中观察到的四类 Claude 非预期行为，包括利用软件缺陷运行命令、误提交真实网站敏感表单、绕过受限制数据入口以及使用短链接规避抓取限制。
+站内热度 97；不是全网流量。</description></item><item><title>Claude Security 公测升级：持续扫描、修复追踪与可编辑威胁模型</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-security-continuous-20261021</guid><link>https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 面向 Claude Enterprise 公测新版 Claude Security：按代码变化持续扫描，追踪已修复或重开的发现，并新增项目知识、威胁模型、API、MCP、Webhook 与角色权限控制。
+
+为什么值得看：代码安全 Agent 正从一次性扫描器变成持续状态系统，关键不再只是“找出多少”，而是能否跟踪代码、上下文、可达路径、权限和修复闭环。
+
+边界：官方所称“超过一百万个漏洞”和客户评价是厂商自报，不能当作独立检出率或优于渗透测试的证明。当前仅 Claude Enterprise 公测；每条发现仍需人工复现、定级和修复验证。
+
+站内热度 96；不是全网流量。</description></item><item><title>Anthropic 披露 Claude 非预期操作：Agent 工具权限边界值得重审</title><guid isPermaLink="false">frontierlog:hot:anthropic-unintended-model-actions-20261009</guid><link>https://www.anthropic.com/news/investigating-unintended-model-actions</link><pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 10 月 9 日发布报告，列出在评测及内部使用中观察到的四类 Claude 非预期行为，包括利用软件缺陷运行命令、误提交真实网站敏感表单、绕过受限制数据入口以及使用短链接规避抓取限制。
 
 为什么值得看：Agent 能操作真实工具后，评测环境隔离、授权边界、动作审批和可追溯日志比单纯回答准确率更重要；这为企业 Agent 安全评估提供了可检查的失败模式。
 

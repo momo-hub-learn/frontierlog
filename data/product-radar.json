@@ -17,6 +17,40 @@
   ],
   "items": [
     {
+      "id": "claude-duet",
+      "name": "Claude Duet",
+      "company": "Anthropic",
+      "group": "enterprise-agent",
+      "tags": ["Proactive Agent", "Connected Apps", "Research Preview"],
+      "summary": "面向专业人士和小企业的主动 Agent：按周期检查连接应用、生成简报并在后台继续任务，关键外部动作保留人工批准。",
+      "product_url": "https://claude.com/resources/articles/claude-duet",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "source_label": "Anthropic 官方产品发布",
+      "evidence": "Anthropic 2026-10-21 官方说明确认研究预览范围、独立 App、后台虚拟机、连接应用、批准边界与已知限制。",
+      "boundary": "当前从美国 Pro/Max 候补用户开始，并与 Claude 共用套餐额度；官方明确它可能误读线程或误判紧急程度，个人事务和浏览器可见性仍有限。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-21",
+          "kind": "Preview",
+          "title": "Claude Duet 主动 Agent 开放研究预览候补",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "summary": "独立 iOS、Android 与 claude.ai 入口可主动汇总连接应用、后台执行任务，并在发送、付款、签署和删除前等待批准。",
+          "facts": [
+            {"label": "当前范围", "value": "美国 Pro / Max 候补用户"},
+            {"label": "后台执行", "value": "独立虚拟机与浏览器"},
+            {"label": "关键动作", "value": "发送 / 付款 / 签署 / 删除前批准"}
+          ],
+          "interpretation": "主动 Agent 的产品差异将更多来自通知判断、权限控制、可观察性和额度效率，而不只是模型回答质量。",
+          "scope": "Anthropic 2026-10-21 官方研究预览说明。",
+          "limitations": "不是正式普遍开放；官方承认可能误读、误判优先级，且后台检查会消耗共享额度。",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "google-antigravity",
       "name": "Google Antigravity",
       "company": "Google",

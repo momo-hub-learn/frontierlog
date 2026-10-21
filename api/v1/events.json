@@ -2,6 +2,45 @@
   "snapshot": "2026-10-22",
   "events": [
     {
+      "id": "anthropic-claude-duet-preview",
+      "task": "anthropic-claude-duet",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Claude Duet 研究预览开放候补",
+      "summary": "主动 Agent 可定期检查连接应用、发送晨间简报，并在独立虚拟机中后台执行任务。",
+      "delta": "把 Agent 从按需对话推进到后台持续工作，同时以关键动作批准和禁区保留人工边界。",
+      "sources": [
+        "anthropic-claude-duet-release"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
+      "id": "anthropic-claude-security-continuous",
+      "task": "anthropic-claude-security",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Claude Security 增加持续扫描与修复追踪",
+      "summary": "新版公测加入项目知识、可编辑威胁模型、发现状态、API、MCP、Webhook 与 RBAC。",
+      "delta": "代码安全 Agent 从一次性扫描推进到带状态、上下文和权限的持续闭环。",
+      "sources": [
+        "anthropic-claude-security-release"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
+      "id": "nvidia-openshell-launch",
+      "task": "nvidia-openshell",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "OpenShell Agent 安全参考架构发布",
+      "summary": "将隔离、观察和策略执行放到模型与工具调用之外的独立运行层。",
+      "delta": "Agent 安全由提示层约束进一步下沉到可强制执行、可审计的基础设施。",
+      "sources": [
+        "nvidia-openshell-release"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
       "id": "openai-patch-the-planet-release",
       "task": "openai-patch-the-planet",
       "date": "2026-10-21",
@@ -280,6 +319,33 @@
     }
   ],
   "sources": [
+    {
+      "id": "anthropic-claude-duet-release",
+      "title": "Introducing Claude Duet",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/resources/articles/claude-duet",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方产品发布"
+    },
+    {
+      "id": "anthropic-claude-security-release",
+      "title": "Claude Security now scans continuously and tracks fixes",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方产品发布"
+    },
+    {
+      "id": "nvidia-openshell-release",
+      "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents",
+      "publisher": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方架构发布"
+    },
     {
       "id": "openai-patch-the-planet-disclosure",
       "publisher": "OpenAI",

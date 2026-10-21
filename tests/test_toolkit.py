@@ -32,6 +32,11 @@ class ToolkitTests(unittest.TestCase):
             with self.subTest(key=key,value=value):
                 data=copy.deepcopy(self.data);data['items'][0]['sources'][0][key]=value
                 with self.assertRaises(ValueError):validate_toolkit(data,self.catalog)
+    def test_reviewed_vendor_newsrooms_are_accepted(self):
+        rows={row['id']:row for row in self.data['items']}
+        self.assertEqual(rows['anthropic-claude-security']['sources'][0]['url'].split('/')[2],'claude.com')
+        self.assertEqual(rows['nvidia-openshell']['sources'][0]['url'].split('/')[2],'nvidianews.nvidia.com')
+        validate_toolkit(self.data,self.catalog)
     def test_verification_dates_use_beijing_calendar_day(self):
         data=copy.deepcopy(self.data)
         data['items'][0]['sources'][0]['verified_at']='2026-10-22'

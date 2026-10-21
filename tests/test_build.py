@@ -85,8 +85,11 @@ class BuildTests(unittest.TestCase):
         self.assertGreaterEqual(len(radar['items']),10)
         self.assertEqual({g['id'] for g in radar['groups']},{'legal','enterprise-agent'})
         self.assertTrue({'legal','enterprise-agent','sequoia','yc'} <= {f['id'] for f in radar['filters']})
-        relationship_items=[x for x in radar['items'] if x['id'] not in {'palantir-aip','arena','google-antigravity'}]
+        relationship_items=[x for x in radar['items'] if {'sequoia','yc'} & set(x['filter_ids'])]
         self.assertTrue(all(any(t.startswith('YC') or t=='Sequoia' for t in x['tags']) for x in relationship_items))
+        duet=next(x for x in radar['items'] if x['id']=='claude-duet')
+        self.assertIn('enterprise-agent',duet['filter_ids'])
+        self.assertEqual(duet['timeline'][0]['evidence_level'],'primary_source')
         palantir=next(x for x in radar['items'] if x['id']=='palantir-aip')
         arena=next(x for x in radar['items'] if x['id']=='arena')
         self.assertTrue(arena['long_term_watch'])

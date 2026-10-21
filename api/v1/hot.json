@@ -36,6 +36,178 @@
   ],
   "items": [
     {
+      "id": "anthropic-claude-duet-20261021",
+      "category": "product",
+      "title": "Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "first_seen_at": "2026-10-22T05:22:00+08:00",
+      "heat": 99,
+      "heat_components": {
+        "impact": 35,
+        "availability": 25,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是用户规模、任务成功率或模型能力分。",
+      "trend": "up",
+      "summary": "Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。",
+      "why": "主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。",
+      "boundary": "这是早期研究预览，不是普遍开放或独立可靠性证明。官方明确它可能误读线程或误判紧急程度，个人事务较弱且暂不能展示浏览器；后台检查也计入现有套餐额度。",
+      "source": "Anthropic",
+      "source_kind": "官方产品发布 / 本轮编辑核验",
+      "url": "https://claude.com/resources/articles/claude-duet",
+      "link": "#/products?id=claude-duet",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "加入官方研究预览候补",
+          "note": "当前从美国 Pro/Max 用户开始；实际资格以账户页面为准",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Introducing Claude Duet",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-isaac-platform-20261021",
+      "category": "industry",
+      "title": "NVIDIA 扩展 Isaac：人形机器人参考机、开放运行时与仿真链同时推进",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "first_seen_at": "2026-10-22T05:22:00+08:00",
+      "heat": 98,
+      "heat_components": {
+        "impact": 35,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是机器人能力、量产进度或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA 与数据/仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。",
+      "why": "具身 AI 的竞争正从单一模型扩展到参考硬件、开放运行时、仿真、数据与部署的整套接口；这会影响未来数月机器人团队的技术选型。",
+      "boundary": "参考人形机器人仍是 2027 年初计划，不是已经量产；Human 1M 数据仅向指定联盟伙伴开放。2,000+ SimReady 资产等数字来自厂商口径，本站未独立复现机器人任务或安全性。",
+      "source": "NVIDIA",
+      "source_kind": "官方平台发布 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+      "link": "#/industry?sector=manufacturing",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 Isaac 官方发布",
+          "note": "分别核对 GA、开放源码、伙伴限定与未来计划",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Advances Isaac Platform for General-Purpose Robotics",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-openshell-20261021",
+      "category": "research",
+      "title": "OpenShell：把 Agent 的权限与策略执行移到模型之外",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "first_seen_at": "2026-10-22T05:22:00+08:00",
+      "heat": 97,
+      "heat_components": {
+        "impact": 34,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是安全评级、性能排名或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 OpenShell Agent 安全参考架构，将隔离、观察和策略执行放在模型与工具调用之外，并给出与 Vera、BlueField-4/Sentry 组合的运行路径。",
+      "why": "Agent 安全边界开始从提示词和模型自律转向独立、可观测、可强制执行的运行时控制，是高权限 Agent 落地的重要基础设施信号。",
+      "boundary": "这是参考架构与厂商实现，不等于部署后自动安全。30×/MW、2× CPU 与 20% 容量等均为厂商声明，必须在相同硬件、任务和策略下独立复验；策略配置错误仍会造成过度授权或阻断。",
+      "source": "NVIDIA",
+      "source_kind": "官方架构发布 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "link": "#/toolkit?id=nvidia-openshell",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 OpenShell 官方文档入口",
+          "note": "先在隔离环境验证最小权限、审计和拒绝路径",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-claude-security-continuous-20261021",
+      "category": "product",
+      "title": "Claude Security 公测升级：持续扫描、修复追踪与可编辑威胁模型",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T05:22:00+08:00",
+      "first_seen_at": "2026-10-22T05:22:00+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 33,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是漏洞检出率或独立安全评测。",
+      "trend": "up",
+      "summary": "Anthropic 面向 Claude Enterprise 公测新版 Claude Security：按代码变化持续扫描，追踪已修复或重开的发现，并新增项目知识、威胁模型、API、MCP、Webhook 与角色权限控制。",
+      "why": "代码安全 Agent 正从一次性扫描器变成持续状态系统，关键不再只是“找出多少”，而是能否跟踪代码、上下文、可达路径、权限和修复闭环。",
+      "boundary": "官方所称“超过一百万个漏洞”和客户评价是厂商自报，不能当作独立检出率或优于渗透测试的证明。当前仅 Claude Enterprise 公测；每条发现仍需人工复现、定级和修复验证。",
+      "source": "Anthropic",
+      "source_kind": "官方产品发布 / 本轮编辑核验",
+      "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+      "link": "#/toolkit?id=claude-security",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方公测说明",
+          "note": "需 Claude Enterprise 管理员启用；先在非生产仓库做权限与误报验收",
+          "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Claude Security now scans continuously and tracks fixes",
+          "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-patch-the-planet-php-20261021",
       "category": "research",
       "title": "Patch the Planet：AI 找到 PHP 严重漏洞后，验证重点转向协同修补",

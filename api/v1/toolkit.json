@@ -42,6 +42,84 @@
   ],
   "items": [
     {
+      "id": "anthropic-claude-security",
+      "publisher": "Anthropic",
+      "group": "agents",
+      "access": "web",
+      "headline": "用隔离仓库验收 Claude Security 的持续扫描与修复闭环",
+      "input": "一个无生产密钥的测试仓库，以及可确认的已知漏洞、已修复样例和不可达代码",
+      "output": "带严重度、可达路径和状态的发现；可检查修复后关闭、复现后重开及 API/Webhook 通知",
+      "requirements": "Claude Enterprise 公测资格与管理员启用；最小权限 GitHub App 或代码提供方令牌。",
+      "limitation": "本站只核验官方说明，未运行产品。厂商披露的漏洞总数与客户评价不是独立准确率；扫描结果不能替代人工复现、代码审查或授权渗透测试。",
+      "cost": "商业企业产品；官方的限时试用额度与完整条款可能变化，应以账户和帮助中心为准。",
+      "steps": [
+        {
+          "title": "建立最小权限测试项目",
+          "body": "只连接隔离仓库和指定分支，令牌不含写入或组织管理权限；在项目知识中写清部署边界和已知控制。"
+        },
+        {
+          "title": "分别验证检出与状态变化",
+          "body": "对已知漏洞、不可达样例和已修复提交分别运行基线与增量扫描，记录可达路径、严重度、关闭和重开行为。"
+        },
+        {
+          "title": "由安全人员复现再接流程",
+          "body": "逐条复现高风险发现并记录误报、漏报和人工修改；API、MCP 或 Webhook 只接入测试项目，确认权限与防重复后再扩展。"
+        }
+      ],
+      "troubleshooting": "发现与部署事实不符时先校正可编辑威胁模型并保留前后差异；状态没有关闭或错误重开时核对扫描分支、提交和修复证据，不手工掩盖未验证发现。",
+      "sources": [
+        {
+          "title": "Claude Security 官方公测更新",
+          "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T05:22:00+08:00"
+    },
+    {
+      "id": "nvidia-openshell",
+      "publisher": "NVIDIA",
+      "group": "agents",
+      "access": "research",
+      "headline": "先用允许、拒绝和越权样例验收 OpenShell 策略边界",
+      "input": "一个只读测试 Agent、明确的文件/网络/工具权限矩阵，以及正常、拒绝、越权和故障样例",
+      "output": "策略决定、工具调用审计日志、拒绝原因与安全回退记录",
+      "requirements": "隔离基础设施与官方文档支持的环境；先不接生产凭据、写入工具或真实付款/删除能力。",
+      "limitation": "本站只核验官方架构发布，未部署或测试。参考架构不等于安全认证；策略遗漏、日志缺口和底层配置错误仍可能造成越权。",
+      "cost": "软件与硬件成本取决于实际部署；厂商性能与容量数字需在自己的任务、策略和硬件上复验。",
+      "steps": [
+        {
+          "title": "写出可审计的最小策略",
+          "body": "只允许读取一个测试目录和访问一个固定域名，明确禁止写入、外传、凭据读取和未列出的工具。"
+        },
+        {
+          "title": "测试允许、拒绝与绕过",
+          "body": "依次运行正常读取、越界文件、非许可域名、提示注入和工具故障样例，确认策略执行不依赖模型自觉且日志能定位决定。"
+        },
+        {
+          "title": "验证失败后的安全状态",
+          "body": "检查被拒绝或组件失效后没有残留写入、开放会话或重复动作；保留人工批准和快速撤权路径。"
+        }
+      ],
+      "troubleshooting": "正常任务被阻断时只增加完成该任务所需的最小权限；越权样例通过时立即停止扩展，检查策略默认值、执行层覆盖范围和旁路，再从隔离样例重测。",
+      "sources": [
+        {
+          "title": "OpenShell 官方参考架构发布",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T05:22:00+08:00"
+    },
+    {
       "id": "openai-patch-the-planet",
       "publisher": "OpenAI / PHP 维护者与安全伙伴",
       "group": "agents",
