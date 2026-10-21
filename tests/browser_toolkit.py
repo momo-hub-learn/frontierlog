@@ -9,8 +9,13 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT=Path(__file__).resolve().parents[1]
 TOOLKIT_DATA=json.loads((ROOT/'data/toolkit.json').read_text(encoding='utf-8'))
+CATALOG_DATA=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
+TASKS={x['id']:x for x in CATALOG_DATA['items']}
+GROUPS={x['id']:x['label'] for x in TOOLKIT_DATA['groups']}
 TOOLKIT_COUNT=len(TOOLKIT_DATA['items'])
-OPENAI_COUNT=sum(x.get('publisher')=='OpenAI' for x in TOOLKIT_DATA['items'])
+OPENAI_COUNT=sum('openai' in ' '.join([
+    TASKS[x['id']]['name'],x['publisher'],x['headline'],x['input'],x['output'],GROUPS[x['group']]
+]).lower() for x in TOOLKIT_DATA['items'])
 OUT=ROOT/'test-results/toolkit';OUT.mkdir(parents=True,exist_ok=True)
 MEMORY=os.environ.get('BROWSER_TEST_MODE')=='memory'
 server=None
