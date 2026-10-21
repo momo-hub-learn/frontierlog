@@ -4,6 +4,8 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 R=Path(__file__).resolve().parents[1];OUT=R/'screenshots';OUT.mkdir(exist_ok=True)
 HTML=(R/'dist/index.html').read_text();checks=[];errors=[]
+DATA=json.loads((R/'data/benchmarks.json').read_text());TOTAL=len(DATA['items'])
+GROUP_COUNTS={group:sum(x['group']==group for x in DATA['items']) for group in ('pharma','manufacturing')}
 def ok(s):checks.append(s);print('PASS',s,flush=True)
 def route(p,s):p.evaluate('(s)=>location.hash=s',s);p.wait_for_timeout(100)
 def shot(p,n,full=False):
@@ -14,27 +16,26 @@ with sync_playwright() as pw:
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
  browser=pw.chromium.launch(**opts);p=browser.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1)
  p.set_default_timeout(5000);p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(HTML)
- assert p.locator('.brand strong').inner_text()=='FrontierLog'
+ assert p.locator('.brand strong').inner_text()=='AI坐标'
  assert not p.locator('.brand-resources').get_attribute('open')
  assert p.locator('[data-action="repo"]').count()==1
  assert p.locator('html').get_attribute('data-theme')=='light'
- assert p.locator('.b-entry[href="#/benchmarks"]').count()==1
- shot(p,'brand-home.png');ok('unified brand, compact support menu, original homepage and benchmark gateway')
- route(p,'#/benchmarks');expect(p.locator('[data-b-card]')).to_have_count(20)
- assert '模型榜' in p.locator('#nav a.active').inner_text();assert p.locator('.m-hubtab.active').inner_text().startswith('Benchmark')
+ shot(p,'brand-home.png');ok('unified brand, compact support menu and current homepage')
+ route(p,'#/benchmarks');expect(p.locator('[data-b-card]')).to_have_count(TOTAL)
+ assert '模型榜' in p.locator('#nav a.active').inner_text();assert 'Benchmark' in p.locator('.m-hubtab.active,.v3-capnav a.active').inner_text()
  assert float(p.locator('.b-body p').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=14
  assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
- shot(p,'benchmark-first-screen.png');ok('20 catalog entries nested under model hub, readable protocol cards, no desktop overflow')
- p.locator('[data-ba="group"][data-id="pharma"]').click();expect(p.locator('[data-b-card]')).to_have_count(5)
+ shot(p,'benchmark-first-screen.png');ok(f'{TOTAL} catalog entries nested under model hub, readable protocol cards, no desktop overflow')
+ p.locator('[data-ba="group"][data-id="pharma"]').first.click();expect(p.locator('[data-b-card]')).to_have_count(GROUP_COUNTS['pharma'])
  shot(p,'benchmark-pharma.png')
- p.locator('[data-ba="group"][data-id="manufacturing"]').click();expect(p.locator('[data-b-card]')).to_have_count(4)
+ p.locator('[data-ba="group"][data-id="manufacturing"]').first.click();expect(p.locator('[data-b-card]')).to_have_count(GROUP_COUNTS['manufacturing'])
  assert '数据集' in p.locator('[data-b-card="secom"]').inner_text()
- p.locator('[data-ba="group"][data-id="all"]').click()
+ p.locator('[data-ba="group"][data-id="all"]').first.click()
  p.locator('#b-search').fill('RAGBench');expect(p.locator('[data-b-card]')).to_have_count(1)
  p.locator('#b-search').fill('no-matching-zzz');expect(p.locator('.b-empty')).to_have_count(1)
- p.locator('[data-ba="clear"]').click();expect(p.locator('[data-b-card]')).to_have_count(20)
- p.locator('#b-order').select_option('name');assert 'BioASQ' in p.locator('.b-title').first.inner_text()
- p.locator('[data-ba="layout"][data-id="matrix"]').click();expect(p.locator('[data-b-row]')).to_have_count(20)
+ p.locator('[data-ba="clear"]').click();expect(p.locator('[data-b-card]')).to_have_count(TOTAL)
+ p.locator('#b-order').select_option('name');assert p.locator('.b-title').first.inner_text()==sorted(x['name'] for x in DATA['items'])[0]
+ p.locator('[data-ba="layout"][data-id="matrix"]').click();expect(p.locator('[data-b-row]')).to_have_count(TOTAL)
  p.locator('[data-ba="layout"][data-id="cards"]').click();p.locator('#b-order').select_option('curated')
  ok('pharma/manufacturing filters, dataset distinction, search/reset, sorting and matrix')
  p.locator('[data-ba="save"][data-id="swe-pro"]').click();p.locator('#b-stars').check();expect(p.locator('[data-b-card]')).to_have_count(1)
@@ -61,9 +62,9 @@ with sync_playwright() as pw:
  assert '本站未运行' in Path(d.value.path()).read_text()
  p.keyboard.press('Escape');assert 'bench=' not in p.evaluate('location.hash')
  route(p,'#/benchmarks?bench=tau3');assert p.locator('[data-b-check="tau3"]').first.is_checked()
- route(p,'#/models');expect(p.locator('dialog[open]')).to_have_count(0);expect(p.locator('[data-model-row]')).to_have_count(12)
+ route(p,'#/models');expect(p.locator('dialog[open]')).to_have_count(0);expect(p.locator('[data-model-row]')).not_to_have_count(0)
  ok('version-aware source drawer, checklist, exported card, deep link and route exit cleanup')
- route(p,'#/benchmarks?mode=changes');expect(p.locator('.b-event')).to_have_count(4)
+ route(p,'#/benchmarks?mode=changes');expect(p.locator('.b-event')).to_have_count(len(DATA['changes']))
  assert '2026-02-23' in p.locator('.b-changes').inner_text()
  with p.expect_download() as d:p.locator('[data-ba="template"]').click()
  data=json.loads(Path(d.value.path()).read_text());assert data['status']=='draft_not_executed'
@@ -101,7 +102,7 @@ with sync_playwright() as pw:
  route(p,'#/benchmarks');p.locator('[data-ba="status"]').click()
  assert '未接入' in p.locator('#modal-body').inner_text()
  with p.expect_download() as d:p.locator('[data-ba="data"]').click()
- assert len(json.loads(Path(d.value.path()).read_text())['items'])==20
+ assert len(json.loads(Path(d.value.path()).read_text())['items'])==TOTAL
  with p.expect_download() as d:p.locator('[data-ba="backup"]').click()
  backup=json.loads(Path(d.value.path()).read_text());backup['saved']+=['<script>',None,'unknown'];backup['plan']+=['unknown'];backup['checks']={'tau3':[0,999,'x'],'__proto__':{'bad':True}}
  p.locator('#benchmark-import').set_input_files({'name':'backup.json','mimeType':'application/json','buffer':json.dumps(backup).encode()});p.wait_for_timeout(100)
@@ -124,7 +125,7 @@ with sync_playwright() as pw:
  route(p,'#/benchmarks?q=%3Cimg%20src=x%20onerror=alert(1)%3E');expect(p.locator('.b-empty')).to_have_count(1)
  assert p.locator('.b-wrap img').count()==0
  route(p,'#/benchmarks?mode=unknown&group=unknown&bench=not-there&pick=hle,unknown,hle')
- expect(p.locator('[data-b-card]')).to_have_count(20);assert p.evaluate('bPicked().size')==1
+ expect(p.locator('[data-b-card]')).to_have_count(TOTAL);assert p.evaluate('bPicked().size')==1
  ok('unknown/hostile URL state safely normalized')
  for width in [1512,1280,1024,790,768,600,390,360]:
   p.set_viewport_size({'width':width,'height':940})

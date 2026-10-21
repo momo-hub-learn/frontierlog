@@ -1,7 +1,53 @@
 {
   "version": 2,
-  "snapshot": "2026-10-21",
+  "snapshot": "2026-10-22",
   "items": [
+    {
+      "id": "ibm-granite-speech-5",
+      "name": "IBM · Granite Speech 5.0",
+      "title": "多语转写、翻译与关键词偏置",
+      "category": "语音处理",
+      "mark": "GS",
+      "accent": "cyan",
+      "summary": "用开放语音模型完成多语转写、语言提示、专有词偏置和英语言对翻译。",
+      "scope": "2B 模型覆盖英语、法语、德语、西班牙语、葡萄牙语和日语转写，并支持这些语言与英语互译；另有 470M TurboCTC 和 2B Plus。",
+      "boundary": "厂商 WER、速度与对比图不等于本站实测或所有口音、噪声和领域的结果；关键词偏置也可能放大误识别，需用业务录音和人工转写复核。",
+      "repo": null,
+      "sources": ["ibm-granite-speech-5-release", "ibm-granite-speech-5-model"],
+      "requirements": "Python、Transformers 与匹配的音频依赖；下载 2B 或 470M 模型权重。只使用已获授权且最小化的音频样本。",
+      "test": "固定模型 revision、语言提示和解码参数，用含专有名词、数字、噪声及多口音的留出录音比较 WER、专有词召回、翻译忠实度和延迟。",
+      "checks": ["固定模型、权重 revision、语言和解码参数", "分开记录转写、翻译、时间戳与专有词表现", "录音与声音数据先取得授权并限制留存"],
+      "command": "python -m pip install transformers",
+      "effort": "本地模型 / GPU 可选",
+      "evidence": "IBM 官方发布与模型卡",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00"
+    },
+    {
+      "id": "nvidia-kumo-anomaly",
+      "name": "NVIDIA / Kumo AI · Kumo Anomaly",
+      "title": "检测多变量时序异常",
+      "category": "制造业",
+      "mark": "KA",
+      "accent": "orange",
+      "summary": "对多变量数值时序输出重建误差异常分与二值标签，并可选择 SCS 或 MACS 阈值。",
+      "scope": "约 800 万参数、Apache 2.0；官方代码和权重公开，输入输出保留原始 DataFrame 列。",
+      "boundary": "异常不是故障根因；阈值决定误报与漏报。厂商半导体案例只是一种设备和数据分布，不能直接外推到生产线，本站未运行。",
+      "repo": "NVIDIA/Kumo-TS",
+      "sources": ["nvidia-kumo-anomaly-release", "nvidia-kumo-anomaly-model", "nvidia-kumo-forecast-code"],
+      "requirements": "Python 与官方 Kumo-TS 环境；只准备经过授权、去标识且保留时间顺序的数值传感器数据。",
+      "test": "先冻结不含未来信息的时间留出集，对比 SCS、MACS 和简单统计基线；按机台、批次、工况报告 PR-AUC、误报、漏报和检测延迟。",
+      "checks": ["固定模型 revision、阈值方法和时间切分", "按机台、批次与工况分别报告误报和漏报", "只做影子检测，任何设备动作保留人工确认"],
+      "command": "git clone https://github.com/NVIDIA/Kumo-TS.git",
+      "effort": "本地 Python / GPU 可选",
+      "evidence": "NVIDIA / Kumo AI 官方发布、代码与模型卡",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00"
+    },
     {
       "id": "nvidia-rfd4-proteina",
       "name": "NVIDIA / Baker Lab · RFD4-Proteína",
@@ -452,6 +498,46 @@
   ],
   "sources": [
     {
+      "id": "ibm-granite-speech-5-release",
+      "publisher": "IBM",
+      "title": "Granite Speech 5.0",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "ibm-granite-speech-5-model",
+      "publisher": "IBM",
+      "title": "Granite Speech 5.0 2B model card",
+      "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方模型卡"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-release",
+      "publisher": "NVIDIA / Kumo AI",
+      "title": "Kumo Anomaly",
+      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-model",
+      "publisher": "NVIDIA / Kumo AI",
+      "title": "Kumo Anomaly model card",
+      "url": "https://huggingface.co/nvidia/Kumo-Anomaly",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方模型卡"
+    },
+    {
       "id": "nvidia-rfd4-proteina-model",
       "publisher": "NVIDIA / Baker Lab",
       "title": "RFD4-Proteína official model card",
@@ -711,6 +797,28 @@
     }
   ],
   "events": [
+    {
+      "id": "ibm-granite-speech-5-release",
+      "task": "ibm-granite-speech-5",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Granite Speech 5.0 发布",
+      "summary": "IBM 发布多语 2B 转写/翻译模型，并更新 TurboCTC 与 2B Plus。",
+      "delta": "开放语音模型同时补足多语翻译、关键词偏置、标点恢复与多种本地推理入口；具体质量仍需按语言和业务录音复验。",
+      "sources": ["ibm-granite-speech-5-release", "ibm-granite-speech-5-model"],
+      "reviewed": "2026-10-22"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-release",
+      "task": "nvidia-kumo-anomaly",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Anomaly 开放模型与代码",
+      "summary": "NVIDIA 与 Kumo AI 发布扩散式多变量时序异常检测模型和 SCS、MACS 阈值方法。",
+      "delta": "制造时序可从可复现基线开始，但异常分只用于筛查，不能直接触发设备控制。",
+      "sources": ["nvidia-kumo-anomaly-release", "nvidia-kumo-anomaly-model", "nvidia-kumo-forecast-code"],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "nvidia-rfd4-proteina-release-20261019",
       "task": "nvidia-rfd4-proteina",

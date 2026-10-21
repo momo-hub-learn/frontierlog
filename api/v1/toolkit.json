@@ -42,6 +42,104 @@
   ],
   "items": [
     {
+      "id": "ibm-granite-speech-5",
+      "publisher": "IBM",
+      "group": "audio",
+      "access": "local",
+      "headline": "先用一组授权录音验收 Granite Speech 5.0",
+      "input": "已获授权的短音频，以及独立人工转写；按目标语言准备专有名词、数字、口音与噪声样本",
+      "output": "转写或英语言对翻译结果；按配置可检查语言提示、时间戳、标点与关键词偏置",
+      "requirements": "Python、Transformers 与音频依赖；下载所选 2B 或 470M 权重。本地运行资源按模型和音频长度评估。",
+      "limitation": "本站只核验 IBM 官方发布和模型卡，未运行模型。厂商 WER 与速度不保证在你的语言、口音、噪声和硬件上复现；关键词偏置可能引入误识别。",
+      "cost": "模型与代码 Apache 2.0；本地下载、存储、CPU/GPU 和人工标注成本自理。",
+      "steps": [
+        {
+          "title": "固定模型与一组最小录音",
+          "body": "先选择 2B 或 470M 模型并记录完整 revision；录音只保留验收所需片段，另存人工转写和语言标签。"
+        },
+        {
+          "title": "按官方模型卡安装并推理",
+          "body": "在隔离环境使用官方 Transformers 示例；先不加入关键词，再以完全相同录音增加关键词偏置，保留解码参数、耗时和输出。",
+          "command": "python -m pip install transformers torch torchaudio\n# 推理代码与处理器配置以官方模型卡当前示例为准"
+        },
+        {
+          "title": "按失败类型而不是单一平均分验收",
+          "body": "分别检查专有名词、数字、漏句、插入词、标点和翻译忠实度；按语言、口音和噪声分组报告，并保留人工抽检。"
+        }
+      ],
+      "troubleshooting": "模型加载失败先核对完整模型 ID、Transformers 版本和音频采样率；显存不足可先用 470M TurboCTC。关键词召回提高但误报增加时，缩小词表并同时报告精确率与召回率。",
+      "sources": [
+        {
+          "title": "Granite Speech 5.0 官方发布",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        },
+        {
+          "title": "Granite Speech 5.0 2B 官方模型卡",
+          "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T01:21:52+08:00"
+    },
+    {
+      "id": "nvidia-kumo-anomaly",
+      "publisher": "NVIDIA / Kumo AI",
+      "group": "research",
+      "access": "research",
+      "headline": "先在时间留出集上比较 Kumo Anomaly 与简单基线",
+      "input": "经过授权、去标识的多变量数值时序；保留机台、批次、工况与已确认异常区间",
+      "output": "原始列、MAE 异常分和二值标签；可比较 SCS、MACS 阈值结果",
+      "requirements": "Python 与官方 Kumo-TS 环境；下载 Kumo Anomaly 权重。生产传感器数据先脱离控制系统，在隔离环境使用。",
+      "limitation": "本站未运行模型。异常分不是故障根因；官方半导体微调案例是一种设备和数据分布，不能外推到其他机台或产线。",
+      "cost": "模型、代码 Apache 2.0；本地算力、数据准备、标注和工程复核成本自理。",
+      "steps": [
+        {
+          "title": "冻结时间切分与简单基线",
+          "body": "按时间而不是随机拆分训练、阈值校准和测试区间；先保存 z-score、移动窗口或现有规则的误报、漏报和检测延迟。"
+        },
+        {
+          "title": "按官方仓库固定环境与模型 revision",
+          "body": "克隆官方仓库并记录 commit，读取模型卡当前用法；先在公开或脱敏小样本上验证输入输出列，再加载业务数据。",
+          "command": "git clone https://github.com/NVIDIA/Kumo-TS.git\ncd Kumo-TS\n# 安装、权重 ID 与推理调用以仓库当前 README 为准"
+        },
+        {
+          "title": "分别比较阈值与工况",
+          "body": "在同一测试区间比较 SCS、MACS 和简单基线；按机台、批次、工况报告 PR-AUC、误报、漏报和提前量，只做影子检测。"
+        }
+      ],
+      "troubleshooting": "输入错误先检查时间顺序、缺失值和是否混入字符串列；标签全空或全一时检查阈值校准区间。跨工况性能骤降时不要重用旧阈值，回到分组评测和数据漂移检查。",
+      "sources": [
+        {
+          "title": "Kumo Anomaly 官方技术发布",
+          "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        },
+        {
+          "title": "Kumo Anomaly 官方模型卡",
+          "url": "https://huggingface.co/nvidia/Kumo-Anomaly",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        },
+        {
+          "title": "Kumo-TS 官方代码仓库",
+          "url": "https://github.com/NVIDIA/Kumo-TS",
+          "published_at": null,
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://huggingface.co/nvidia/Kumo-Anomaly",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T01:21:52+08:00"
+    },
+    {
       "id": "nvidia-rfd4-proteina",
       "publisher": "NVIDIA / Baker Lab",
       "group": "research",

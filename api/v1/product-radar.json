@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-20",
+  "checked": "2026-10-22",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -26,17 +26,44 @@
         "App / CLI / IDE",
         "Google"
       ],
-      "summary": "Google 的 Agent-first 开发平台，覆盖多本地 Agent 管理、终端自治编码与 IDE 工作流；Gemini 4 Argon 已进入桌面 App、CLI 与符合条件的企业入口。",
+      "summary": "Google 的 Agent-first 开发平台，覆盖多本地 Agent 管理、终端自治编码与 IDE 工作流；Gemini 4 Argon 已开放，OpenAI 模型也已预告接入。",
       "product_url": "https://antigravity.google/",
       "source_url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
       "source_label": "Google Antigravity 官方发布",
-      "evidence": "Antigravity 官方产品页说明 App、CLI 与 IDE 形态；2026-10-13 官方博客确认 Gemini 4 Argon 的订阅与企业可用范围。",
-      "boundary": "官方产品能力与内部采用数据不等于独立任务成功率；具体可用入口受操作系统、订阅、地区与企业资格限制，自治执行仍需权限、审查和回滚。",
+      "evidence": "Antigravity 官方产品页说明 App、CLI 与 IDE 形态；2026-10-13 官方博客确认 Gemini 4 Argon 范围，OpenAI 2026-10-21 公告预告其模型将进入 Antigravity。",
+      "boundary": "OpenAI 模型接入仍是“即将提供”的计划，不等于当前账户已可选；具体模型、日期、地区、订阅与企业资格仍待上线文档，自治执行也需要权限、审查和回滚。",
       "filter_ids": [
         "enterprise-agent",
         "knowledge-work"
       ],
       "timeline": [
+        {
+          "date": "2026-10-21",
+          "kind": "Announcement",
+          "title": "OpenAI 模型预告进入 Antigravity 与 Gemini Agent",
+          "url": "https://openai.com/index/openai-models-google-cloud/",
+          "summary": "OpenAI 与 Google Cloud 宣布 Model Garden 合作，并预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent。",
+          "facts": [
+            {
+              "label": "当前状态",
+              "value": "即将提供"
+            },
+            {
+              "label": "关联入口",
+              "value": "Antigravity / Gemini Agent"
+            },
+            {
+              "label": "云端采购",
+              "value": "Google Cloud Marketplace（计划）"
+            }
+          ],
+          "interpretation": "开发 Agent 产品开始跨模型供应商提供选择，但真正价值要等具体模型、工具权限、上下文和定价上线后再比较。",
+          "scope": "OpenAI 2026-10-21 官方合作公告中的未来开放计划。",
+          "limitations": "尚未全面 GA；公告没有给出每个模型、地区和账户的精确可用日期，不能标成现在可用。",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22",
+          "evidence_level": "primary_source"
+        },
         {
           "date": "2026-10-13",
           "kind": "Product",

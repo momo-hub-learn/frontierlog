@@ -61,6 +61,8 @@ class BenchmarkTests(unittest.TestCase):
   with self.assertRaises(ValueError):validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
  def test_beijing_date_is_valid_before_utc_midnight(self):
   d=copy.deepcopy(self.data);d['checked']='2026-10-21'
+  for row in d['sources']+d['items']:
+   if row['checked']>'2026-10-21':row['checked']='2026-10-21'
   validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
  def test_naive_validation_clock_rejected(self):
   with self.assertRaises(ValueError):validate_benchmarks(self.data,now=datetime(2026,10,20,12,0))

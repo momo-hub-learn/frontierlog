@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-21",
+  "checked": "2026-10-22",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,54 @@
     }
   ],
   "items": [
+    {
+      "id": "distributed-biological-reasoning",
+      "lane": "science",
+      "title": "分布式生物推理：把大规模扰动图谱拆给数千个 Agent",
+      "maker": "OpenAI / PerturbAI / Scripps Research",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T01:31:00+08:00",
+      "tags": ["Agentic Science", "CRISPR Atlas", "Neurobiology"],
+      "fact": "团队让数千个 GPT‑Rosalind Agent 分别调查全脑 CRISPR 图谱中的基因扰动并连接文献，再合并为推理图谱；官方报告最大负载耗时 32 分钟、分布式报告在盲评中 75% 获专家偏好。",
+      "insight": "前瞻信号不只是并行数量，而是将每条候选机制保留为可回查的数据、引用和下一步实验，使 Agent 参与研究设计而非只生成综述。",
+      "boundary": "现有结果主要来自小鼠脑细胞和作者给出的评估；时间、引用数量和专家偏好都不能证明生物机制、人类适用性或治疗有效性，论文与图谱仍需独立复核。",
+      "next_watch": "跟踪作者论文版本、公开推理图谱的独立审计、湿实验命中率，以及相同方法在其他组学和疾病数据上的外部复现。",
+      "sources": [
+        {
+          "label": "OpenAI 研究发布",
+          "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+          "kind": "官方研究发布与作者论文入口",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "fairstress",
+      "lane": "science",
+      "title": "FairStress：从单次公平判断走向压力稳定性",
+      "maker": "Allen Institute for AI",
+      "date": "2026-10-20",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "tags": ["Fairness", "Decision Models", "Evaluation"],
+      "fact": "研究从 29 个领域的 300 个两候选场景构造人口属性与对抗前缀变体，扩展出 1,300 万以上实例，并提供 5 万条 Core 子集。",
+      "insight": "值得关注的变化不是又一项平均分，而是检查同一决策在身份扰动、提示压力、解释与内部表征上是否稳定。",
+      "boundary": "以平等为中心的定义不覆盖所有公平观；合成压力测试、解释或激活差异不能证明真实部署无歧视，也不是合规认证。",
+      "next_watch": "跟踪数据集版本、独立复现、真实高影响流程的外部效度，以及不同公平定义下结论是否一致。",
+      "sources": [
+        {
+          "label": "AllenAI FairStress",
+          "url": "https://huggingface.co/blog/allenai/fairstress",
+          "kind": "官方研究发布",
+          "strength": "primary"
+        },
+        {
+          "label": "FairStress dataset",
+          "url": "https://huggingface.co/datasets/allenai/fairstress",
+          "kind": "官方数据集",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "aeon-video-4d-world-model",
       "lane": "paradigm",

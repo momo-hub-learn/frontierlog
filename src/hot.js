@@ -24,8 +24,9 @@ function hRoute(patch={},replace=false){
  // Category navigation leaves the platform view, including its private filters.
  // Keep a news search across news categories, but never carry a repository query over.
  if(Object.prototype.hasOwnProperty.call(patch,'cat')){
-  if(['github','hf'].includes(p.get('tab')))p.delete('q');
-  for(const key of ['tab','ghcat','hftype','hfq'])p.delete(key)
+  const current=hNormalizeCat(p.get('cat')),next=hNormalizeCat(patch.cat);
+  if(['github','hf'].includes(p.get('tab'))||current==='product'||next==='product')p.delete('q');
+  for(const key of ['tab','ghcat','hftype','hfq','pview','scene','investor','kind','product','legacy'])p.delete(key)
  }
  for(const [k,v]of Object.entries(patch)){
   if(v===null||v===undefined||v==='')p.delete(k);else p.set(k,String(v))
@@ -129,6 +130,12 @@ function hAccessCards(x){
  const hasTry=rows.some(r=>['try','demo','gateway'].includes(r.kind));
  return '<section class="h-detail-panel"><div class="h-detail-panel-head"><span>体验 / 查看入口</span><small>'+rows.length+' 个</small></div><div class="h-access-list">'+rows.map((r,i)=>'<a class="h-access-card '+(i===0?'primary':'')+'" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer"><span class="h-access-icon">'+icon(r.kind==='try'?'zap':r.kind==='docs'?'book':r.kind==='gateway'?'box':'external')+'</span><span><strong>'+esc(r.label)+'</strong><small>'+esc(r.note)+'</small></span>'+icon('external')+'</a>').join('')+'</div>'+(!hasTry?'<div class="h-access-status">当前没有独立可体验入口，先提供官方材料 / 代码 / 论文。</div>':'')+'</section>'
 }
+function hPrimaryCta(r){
+ if(!r)return '';
+ const interactive=['try','demo','gateway'].includes(r.kind);
+ const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料';
+ return '<a class="button primary h-try-now" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer">'+icon(interactive?'zap':'book')+' '+label+'</a>'
+}
 function hRelatedCards(x){
  const rows=hRelatedRows(x);
  return '<section class="h-detail-panel"><div class="h-detail-panel-head"><span>相关报道 / 资料</span><small>'+rows.length+' 条</small></div><div class="h-news-list">'+rows.map(r=>'<a class="h-news-item" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer"><span class="h-news-meta"><b>'+esc(r.source)+'</b>'+(r.date?'<time>'+esc(r.date)+'</time>':'')+'</span><strong>'+esc(r.title)+'</strong><span class="h-news-arrow">'+icon('external')+'</span></a>').join('')+'</div></section>'
@@ -156,7 +163,7 @@ function hDetail(id){
  const x=HOT_ITEMS.get(id);if(!x)return;
  const t=H_TREND[x.trend]||H_TREND.flat;
  const access=hAccessRows(x),primary=access.find(r=>['try','demo','gateway'].includes(r.kind))||access[0];
- const heroCta=(primary?'<a class="button primary h-try-now" href="'+safeLink(primary.url)+'" target="_blank" rel="noopener noreferrer">'+icon(primary.kind==='docs'?'book':'zap')+' '+(primary.kind==='docs'?'查看资料':'立即体验')+'</a>':'')+
+ const heroCta=hPrimaryCta(primary)+
    '<a class="button" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">官方 / 原始来源 '+icon('external')+'</a>'+
    (x.link?'<a class="button subtle" href="'+esc(x.link)+'" onclick="document.getElementById(\'modal\').close();document.body.style.overflow=\'\'">相关专题 '+icon('arrow')+'</a>':'');
  showModal('HOT SIGNAL / '+HOT_CATS.get(x.category).title,

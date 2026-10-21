@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-21",
+  "checked": "2026-10-22",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-distributed-bio-agents",
+      "title": "Using thousands of AI agents to uncover new leads in biological data",
+      "publisher": "OpenAI / PerturbAI / Scripps Research",
+      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "published": "2026-10-21",
+      "date_label": null,
+      "checked": "2026-10-22",
+      "kind": "官方研究发布与作者论文"
+    },
+    {
+      "id": "nvidia-kumo-anomaly",
+      "title": "Kumo Anomaly",
+      "publisher": "NVIDIA / Kumo AI",
+      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+      "published": "2026-10-21",
+      "date_label": null,
+      "checked": "2026-10-22",
+      "kind": "官方技术发布、代码与模型卡"
+    },
     {
       "id": "nvidia-rfd4-proteina",
       "title": "RFD4-Proteína official model card",
@@ -452,6 +472,71 @@
     }
   ],
   "articles": [
+    {
+      "id": "distributed-bio-agents-brain-atlas",
+      "sector": "pharma",
+      "topics": [
+        "targets",
+        "clinical"
+      ],
+      "title": "分布式生物 Agent：把数百万脑细胞结果整理成待验证线索",
+      "summary": "OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。",
+      "why": "这是一条可审计的“实验数据→文献→候选机制→下一项实验”路径；研究者可以回到单个扰动和引用复核，而不是只读自动总结。",
+      "boundary": "数据来自小鼠脑细胞，作者论文和专家偏好不证明机制成立、能外推人类或已经找到药物；候选关系仍需独立计算、湿实验和疾病模型验证，本站未复现。",
+      "sources": [
+        "openai-distributed-bio-agents"
+      ],
+      "kind": "update",
+      "access": "官方研究页、作者论文、公开数据与推理图谱",
+      "published": "2026-10-21",
+      "steps": [
+        "固定公开图谱、数据与论文版本，抽样回查扰动、细胞类型和引用",
+        "把复现既有发现与新候选线索分开记录",
+        "为高价值候选预注册独立计算与湿实验验证"
+      ],
+      "metrics": [
+        "引用与数据行可追溯率",
+        "盲评复核的一致性与错误类型",
+        "独立实验的候选命中率和失败记录"
+      ],
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:31:00+08:00",
+      "first_seen_at": "2026-10-22T01:31:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "kumo-anomaly-manufacturing",
+      "sector": "manufacturing",
+      "topics": [
+        "fab-yield",
+        "equipment-maintenance"
+      ],
+      "title": "Kumo Anomaly：先把工艺与设备异常检测变成可复现基线",
+      "summary": "NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。",
+      "why": "半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。",
+      "boundary": "异常不等于根因。官方 12.5 倍 AP 改善来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他机台、产品或厂区；本站未运行。",
+      "sources": [
+        "nvidia-kumo-anomaly"
+      ],
+      "kind": "tool",
+      "access": "开放代码与权重",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "steps": [
+        "按机台、批次、工况和时间冻结训练、阈值校准与测试切分",
+        "在完全相同的测试区间比较 SCS、MACS 与现有统计规则",
+        "先影子运行并由工程师核对根因，禁止直接触发停机或配方变更"
+      ],
+      "metrics": [
+        "PR-AUC 与异常提前量",
+        "按工况分组的误报与漏报",
+        "人工复核时间与根因命中率"
+      ],
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "nvidia-rfd4-proteina-20261019",
       "sector": "pharma",

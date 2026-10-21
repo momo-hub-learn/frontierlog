@@ -1,6 +1,35 @@
 {
-  "snapshot": "2026-10-21",
+  "snapshot": "2026-10-22",
   "events": [
+    {
+      "id": "ibm-granite-speech-5-release",
+      "task": "ibm-granite-speech-5",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Granite Speech 5.0 发布",
+      "summary": "IBM 发布多语 2B 转写/翻译模型，并更新 TurboCTC 与 2B Plus。",
+      "delta": "开放语音模型同时补足多语翻译、关键词偏置、标点恢复与多种本地推理入口；具体质量仍需按语言和业务录音复验。",
+      "sources": [
+        "ibm-granite-speech-5-release",
+        "ibm-granite-speech-5-model"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-release",
+      "task": "nvidia-kumo-anomaly",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Anomaly 开放模型与代码",
+      "summary": "NVIDIA 与 Kumo AI 发布扩散式多变量时序异常检测模型和 SCS、MACS 阈值方法。",
+      "delta": "制造时序可从可复现基线开始，但异常分只用于筛查，不能直接触发设备控制。",
+      "sources": [
+        "nvidia-kumo-anomaly-release",
+        "nvidia-kumo-anomaly-model",
+        "nvidia-kumo-forecast-code"
+      ],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "nvidia-rfd4-proteina-release-20261019",
       "task": "nvidia-rfd4-proteina",
@@ -237,6 +266,46 @@
     }
   ],
   "sources": [
+    {
+      "id": "ibm-granite-speech-5-release",
+      "publisher": "IBM",
+      "title": "Granite Speech 5.0",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "ibm-granite-speech-5-model",
+      "publisher": "IBM",
+      "title": "Granite Speech 5.0 2B model card",
+      "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方模型卡"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-release",
+      "publisher": "NVIDIA / Kumo AI",
+      "title": "Kumo Anomaly",
+      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方技术发布"
+    },
+    {
+      "id": "nvidia-kumo-anomaly-model",
+      "publisher": "NVIDIA / Kumo AI",
+      "title": "Kumo Anomaly model card",
+      "url": "https://huggingface.co/nvidia/Kumo-Anomaly",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "kind": "官方模型卡"
+    },
     {
       "id": "nvidia-rfd4-proteina-model",
       "publisher": "NVIDIA / Baker Lab",

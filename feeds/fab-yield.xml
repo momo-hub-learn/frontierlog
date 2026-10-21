@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 良率与缺陷分析</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/fab-yield.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Enlight 3 + ExtractAI：从缺陷信号中筛出有效线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=extractai-inspection</link><guid isPermaLink="false">frontierlog:topic:extractai-inspection</guid><description>Applied Materials 产品页描述光学检测、ExtractAI 与电子束复检之间的联动，用于缺陷分类与晶圆分析。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 良率与缺陷分析</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/fab-yield.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
+
+编辑解读：半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。
+
+边界：异常不等于根因。官方 12.5 倍 AP 改善来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他机台、产品或厂区；本站未运行。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://huggingface.co/blog/nvidia/kumo-anomaly</description><category>良率与缺陷分析</category><category>装备运维与质检</category></item><item><title>Enlight 3 + ExtractAI：从缺陷信号中筛出有效线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=extractai-inspection</link><guid isPermaLink="false">frontierlog:topic:extractai-inspection</guid><description>Applied Materials 产品页描述光学检测、ExtractAI 与电子束复检之间的联动，用于缺陷分类与晶圆分析。
 
 编辑解读：把良率议题拆成检测、分类、复检，而不是笼统说“AI 提高良率”。
 

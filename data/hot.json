@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-21",
+  "checked": "2026-10-22",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,211 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-distributed-bio-agents-20261021",
+      "category": "industry",
+      "title": "数千个 AI Agent 并行分析脑细胞数据：从结果生成可检验的生物学线索",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:31:00+08:00",
+      "first_seen_at": "2026-10-22T01:31:00+08:00",
+      "heat": 98,
+      "heat_components": {"impact": 35, "availability": 24, "evidence": 25, "recency": 14},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "OpenAI、PerturbAI 与 Scripps Research 把全脑 CRISPR 图谱按基因扰动拆给数千个 GPT‑Rosalind Agent，并行连接数百万个小鼠脑细胞的实验信号与文献；官方称最大负载下 32 分钟完成分析。",
+      "why": "推理图谱已公开，研究者可以回到基因、细胞效应、文献和候选机制逐项检查。官方还报告分布式报告在盲评中 75% 获人类专家偏好，最大负载引用 700+ 篇文献，而单 Agent 为 11 篇。",
+      "boundary": "这是对既有小鼠细胞数据和文献的线索发现，论文仍需独立复核；人类专家偏好、引用数量和 32 分钟用时都不能证明机制成立、对人类有效或已经产生治疗方案。候选关系必须回到实验室验证。",
+      "source": "OpenAI / PerturbAI / Scripps Research",
+      "source_kind": "官方研究发布与作者论文 / 本轮编辑核验",
+      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "link": "#/pharma?topic=targets",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读研究与公开推理图谱",
+          "note": "公开材料用于产生待实验线索，不是临床或药物有效性证据",
+          "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Using thousands of AI agents to uncover new leads in biological data",
+          "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "openai-google-cloud-model-garden-20261021",
+      "category": "product",
+      "title": "OpenAI 模型与 Codex 将进入 Google Cloud Model Garden",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:31:00+08:00",
+      "first_seen_at": "2026-10-22T01:31:00+08:00",
+      "heat": 97,
+      "heat_components": {"impact": 34, "availability": 23, "evidence": 25, "recency": 15},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "OpenAI 与 Google Cloud 宣布将把前沿模型和 Codex Agent 工作流接入 Model Garden，并计划通过 Google Cloud Marketplace 交易；已有 GCP 消费承诺的企业可用于购买。",
+      "why": "这会把模型选择、数据治理、访问控制和采购带进同一云环境；公告还预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent，值得继续跟踪实际开放范围。",
+      "boundary": "官方明确写的是未来数周计划正式开放，并非本轮已全面可用；地区、模型清单、价格、配额和企业资格尚需以上线文档为准。Microsoft 仍是 OpenAI 的主要云合作伙伴。",
+      "source": "OpenAI / Google Cloud",
+      "source_kind": "双方官方合作公告 / 本轮编辑核验",
+      "url": "https://openai.com/index/openai-models-google-cloud/",
+      "link": "#/hot?cat=product",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读合作与开放计划",
+          "note": "尚非全面 GA；不要把预告写成当前可用",
+          "url": "https://openai.com/index/openai-models-google-cloud/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "OpenAI models are coming to Google Cloud",
+          "url": "https://openai.com/index/openai-models-google-cloud/",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "ibm-granite-speech-5-20261021",
+      "category": "model",
+      "title": "Granite Speech 5.0：多语转写、翻译与关键词偏置进入开放语音模型",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "first_seen_at": "2026-10-22T01:21:52+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 34,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "IBM 发布 Granite Speech 5.0：新增 2B 多语转写与双向英语翻译模型，并更新 470M TurboCTC 与 2B Plus；支持语言提示、最多 2,000 个关键词偏置、标点与大小写恢复。",
+      "why": "三款模型都以 Apache 2.0 开放并接入 Transformers；2B 模型还覆盖 vLLM、llama.cpp 与 MLX-Audio，适合为会议、客服或现场语音建立可审计的本地基线。",
+      "boundary": "IBM 发布中的 WER、吞吐和“开放模型领先”属于厂商给定口径，不是本站实测或所有语言、噪声、口音下的保证；说话人、专有名词、翻译和长音频仍需按业务数据逐项验证。",
+      "source": "IBM",
+      "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+      "link": "#/toolkit?id=ibm-granite-speech-5",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方发布与模型入口",
+          "note": "Apache 2.0；本站未运行，先按目标语言与噪声复验",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "IBM",
+          "title": "Granite Speech 5.0 official release",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-kumo-anomaly-20261021",
+      "category": "industry",
+      "title": "Kumo Anomaly：多变量时序异常检测开放模型与阈值方法",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "first_seen_at": "2026-10-22T01:21:52+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 32,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "NVIDIA 与 Kumo AI 开放约 800 万参数的扩散式多变量时序异常检测模型，输出原始列、MAE 异常分与二值标签，并提供 SCS、MACS 两种阈值选择。",
+      "why": "模型、代码、数据处理与阈值方法都可追溯，可为设备传感器和半导体工艺信号建立统一的影子检测基线，再决定是否微调。",
+      "boundary": "异常分与阈值不是故障根因或停机指令；官方 12.5 倍 AP 提升来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他产线。上线前必须按机台、批次、工况与时间留出评估误报和漏报。",
+      "source": "NVIDIA / Kumo AI",
+      "source_kind": "官方技术发布、代码与模型卡 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+      "link": "#/manufacturing",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方实现",
+          "note": "Apache 2.0；先在隔离环境用公开或已授权时序复验",
+          "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA / Kumo AI",
+          "title": "Kumo Anomaly official release",
+          "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "allenai-fairstress-20261020",
+      "category": "benchmark",
+      "title": "FairStress：把公平性评测扩展到 1,300 万种决策压力场景",
+      "published": "2026-10-20",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T01:21:52+08:00",
+      "first_seen_at": "2026-10-22T01:21:52+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 33,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "Allen Institute for AI 发布 FairStress：从 29 个领域的 300 个现实两候选决策场景出发，组合人口属性和对抗前缀，扩展出 1,300 万以上压力测试实例，并提供 5 万条 Core 子集。",
+      "why": "它不只问一次选择是否公平，而是检查同一决策在身份变化、提示压力和解释层面是否稳定，可作为招聘、金融、医疗等高影响流程的补充压力测试。",
+      "boundary": "FairStress 采用以平等为中心的公平性定义，不覆盖所有规范立场；合成场景与模型解释、激活差异也不能证明真实部署无歧视。本站只登记协议，未运行或生成排行榜。",
+      "source": "Allen Institute for AI",
+      "source_kind": "官方研究发布与数据集 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/allenai/fairstress",
+      "link": "#/benchmarks?bench=fairstress",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方研究说明",
+          "note": "数据集公开；需先确认领域、定义与使用许可",
+          "url": "https://huggingface.co/blog/allenai/fairstress",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Allen Institute for AI",
+          "title": "FairStress official release",
+          "url": "https://huggingface.co/blog/allenai/fairstress",
+          "date": "2026-10-20"
+        }
+      ]
+    },
     {
       "id": "nvidia-rfd4-proteina-20261019",
       "category": "model",

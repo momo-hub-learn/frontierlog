@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-20",
+  "checked": "2026-10-22",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,36 @@
     }
   ],
   "items": [
+    {
+      "id": "fairstress",
+      "name": "FairStress",
+      "group": "reasoning",
+      "edition": "Core 50K / Full 13M+ / 300 场景 / 29 领域",
+      "subtitle": "同一高影响决策在身份变化和提示压力下是否保持公平稳定？",
+      "summary": "Allen Institute for AI 从 29 个领域的 300 个现实两候选场景出发，组合人口属性与对抗前缀扩展出 1,300 万以上案例，并提供 5 万条 Core 子集；评测选择、解释和内部表征的公平稳定性。",
+      "metric": "Fairness stability / decision divergence / explanation divergence",
+      "metric_note": "必须按场景、人口属性与压力前缀分别报告；不把不同公平定义或内部激活差异压成一个通用能力总分。",
+      "protocol": "固定 FairStress 版本、Core 或 Full 子集、模型与解码设置；对同一基础场景只改变受控人口属性或对抗前缀，比较两候选选择与解释稳定性；记录拒答、无效输出和所有分组结果。",
+      "boundary": "该研究采用以平等为中心的公平性定义，不覆盖所有规范立场；合成场景与模型解释或激活差异不能证明真实部署无歧视。高影响流程仍需法律、领域、数据和真实结果审查。",
+      "business": "可作为招聘、信贷、医疗分诊、教育等决策系统上线前的差异压力测试，但不能替代组织自己的授权数据、伤害评估与申诉机制。",
+      "setup": "使用 allenai/fairstress 数据集，固定版本、模板、人口属性、压力前缀、模型配置和解析器；先在 Core 50K 上建立可复现基线，再决定是否扩展。",
+      "topics": [],
+      "sources": ["b-fairstress-release", "b-fairstress-data"],
+      "result_url": "https://huggingface.co/datasets/allenai/fairstress",
+      "kind": "benchmark",
+      "flag": "开放压力测试 / 本站未运行",
+      "checked": "2026-10-22",
+      "tested": false,
+      "checks": [
+        "固定数据集版本、Core/Full 范围、模型与解码配置",
+        "每次只改变受控人口属性或压力前缀，保存原始输出",
+        "按场景、群体与前缀报告选择和解释差异，不只报平均值",
+        "将结果视为压力测试信号，不把通过写成合规或无歧视认证"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "multilangbench",
       "name": "MultiLangBench",
@@ -882,6 +912,24 @@
   ],
   "sources": [
     {
+      "id": "b-fairstress-release",
+      "title": "FairStress official release",
+      "publisher": "Allen Institute for AI",
+      "url": "https://huggingface.co/blog/allenai/fairstress",
+      "published": "2026-10-20",
+      "checked": "2026-10-22",
+      "kind": "官方研究发布"
+    },
+    {
+      "id": "b-fairstress-data",
+      "title": "FairStress dataset card",
+      "publisher": "Allen Institute for AI",
+      "url": "https://huggingface.co/datasets/allenai/fairstress",
+      "published": "2026-10-20",
+      "checked": "2026-10-22",
+      "kind": "官方数据集"
+    },
+    {
       "id": "b-hle",
       "title": "Humanity’s Last Exam · 项目与版本记录",
       "publisher": "CAIS / Scale AI",
@@ -1211,6 +1259,15 @@
     }
   ],
   "changes": [
+    {
+      "id": "fairstress-release-20261020",
+      "date": "2026-10-20",
+      "title": "FairStress 公开 1,300 万以上公平性压力场景",
+      "summary": "AllenAI 从 300 个两候选决策场景构造人口属性和对抗前缀变体，并提供 5 万条 Core 子集。",
+      "implication": "公平性评测开始从单次群体差异扩展到身份扰动、提示压力与解释稳定性；但定义、数据代表性和真实部署伤害仍需单独审查。",
+      "benchmarks": ["fairstress"],
+      "sources": ["b-fairstress-release", "b-fairstress-data"]
+    },
     {
       "id": "argon-agent-benchmarks-20261013",
       "date": "2026-10-13",

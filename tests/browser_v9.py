@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
@@ -5,15 +6,17 @@ OUT=ROOT/'screenshots-v9'; OUT.mkdir(exist_ok=True)
 html=(ROOT/'dist/index.html').read_text(encoding='utf-8')
 errors=[]
 with sync_playwright() as p:
-    browser=p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox'])
+    options={'headless':True}
+    if os.environ.get('CHROMIUM_EXECUTABLE'):options['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
+    browser=p.chromium.launch(**options)
     page=browser.new_page(viewport={'width':1440,'height':1000},device_scale_factor=1)
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.set_content(html,wait_until='load')
     assert page.locator('.brand-copy strong').text_content()=='AI坐标'
     assert 'FrontierLog' not in page.locator('.brand').inner_text()
+    assert page.locator('.fc-cockpit').count()==1
     assert page.locator('.sector-gateways').count()==0
-    assert page.locator('.aic-day').count()>=5
-    assert page.locator('.aic-story').count()==5
+    assert page.locator('.fc-hot-row').count()>0
     page.screenshot(path=str(OUT/'home.png'),full_page=True)
     page.evaluate("location.hash='#/hot'"); page.wait_for_timeout(100)
     page.screenshot(path=str(OUT/'hot.png'),full_page=True)

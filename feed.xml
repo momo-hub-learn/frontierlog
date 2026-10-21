@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Kumo Forecast 开放检索增强时序预测代码与权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-kumo-forecast&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-kumo-forecast-release-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Granite Speech 5.0 发布</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=ibm-granite-speech-5&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:ibm-granite-speech-5-release</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布多语 2B 转写/翻译模型，并更新 TurboCTC 与 2B Plus。
+
+编辑解读：开放语音模型同时补足多语翻译、关键词偏置、标点恢复与多种本地推理入口；具体质量仍需按语言和业务录音复验。
+
+公开资料，本站未复测。
+来源：https://huggingface.co/blog/ibm-granite/granite-speech-5
+https://huggingface.co/ibm-granite/granite-speech-5.0-2b</description></item><item><title>Kumo Anomaly 开放模型与代码</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-kumo-anomaly&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-kumo-anomaly-release</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 发布扩散式多变量时序异常检测模型和 SCS、MACS 阈值方法。
+
+编辑解读：制造时序可从可复现基线开始，但异常分只用于筛查，不能直接触发设备控制。
+
+公开资料，本站未复测。
+来源：https://huggingface.co/blog/nvidia/kumo-anomaly
+https://huggingface.co/nvidia/Kumo-Anomaly
+https://github.com/NVIDIA/Kumo-TS</description></item><item><title>Kumo Forecast 开放检索增强时序预测代码与权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-kumo-forecast&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-kumo-forecast-release-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。
 
 编辑解读：工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。
 
@@ -79,7 +92,21 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：开发者可以沿公开实现检查构建和查询流程。
 
 公开资料，本站未复测。
-来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>RFD4-Proteína：计算生成之后仍要过湿实验</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=nvidia-rfd4-proteina-20261019</link><guid isPermaLink="false">frontierlog:topic:nvidia-rfd4-proteina-20261019</guid><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。
+来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>分布式生物 Agent：把数百万脑细胞结果整理成待验证线索</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=distributed-bio-agents-brain-atlas</link><guid isPermaLink="false">frontierlog:topic:distributed-bio-agents-brain-atlas</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。
+
+编辑解读：这是一条可审计的“实验数据→文献→候选机制→下一项实验”路径；研究者可以回到单个扰动和引用复核，而不是只读自动总结。
+
+边界：数据来自小鼠脑细胞，作者论文和专家偏好不证明机制成立、能外推人类或已经找到药物；候选关系仍需独立计算、湿实验和疾病模型验证，本站未复现。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://openai.com/index/scaling-ai-research-for-complex-biological-data/</description><category>靶点发现与验证</category><category>临床试验与数据</category></item><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
+
+编辑解读：半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。
+
+边界：异常不等于根因。官方 12.5 倍 AP 改善来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他机台、产品或厂区；本站未运行。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://huggingface.co/blog/nvidia/kumo-anomaly</description><category>良率与缺陷分析</category><category>装备运维与质检</category></item><item><title>RFD4-Proteína：计算生成之后仍要过湿实验</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=nvidia-rfd4-proteina-20261019</link><guid isPermaLink="false">frontierlog:topic:nvidia-rfd4-proteina-20261019</guid><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。
 
 编辑解读：它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。
 

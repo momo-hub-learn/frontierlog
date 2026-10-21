@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import urlsplit,unquote
 from playwright.sync_api import sync_playwright,expect
 R=Path(__file__).resolve().parents[1];D=R/'dist';OUT=R/'test-results';OUT.mkdir(exist_ok=True)
+BENCHMARK_DATA=json.loads((R/'data/benchmarks.json').read_text());ITEM_COUNT=len(BENCHMARK_DATA['items'])
 base='https://frontierlog.test/frontierlog/';errors=[];checks=[]
 with sync_playwright() as p:
  opts={'headless':True}
@@ -19,7 +20,7 @@ with sync_playwright() as p:
   if D.resolve() not in file.parents or not file.is_file():return route.fulfill(status=404,body='not found')
   route.fulfill(status=200,body=file.read_bytes(),content_type=mimetypes.guess_type(file.name)[0] or 'application/octet-stream')
  c.route('**/*',handler);page=c.new_page();page.set_default_timeout(7000);page.on('pageerror',lambda e:errors.append(str(e)))
- page.goto(base+'#/benchmarks');expect(page.locator('[data-b-card]')).to_have_count(20)
+ page.goto(base+'#/benchmarks');expect(page.locator('[data-b-card]')).to_have_count(ITEM_COUNT)
  page.locator('[data-ba="save"][data-id="hle"]').click();page.locator('[data-b-pick="hle"]').check()
  page.reload();expect(page.locator('[data-ba="save"][data-id="hle"]')).to_have_attribute('aria-pressed','true')
  assert page.locator('[data-b-pick="hle"]').is_checked();checks.append('favorites and plan survive real reload on isolated test origin')
@@ -29,9 +30,9 @@ with sync_playwright() as p:
  page.locator('#b-note-title').fill('本地持久化测试');page.locator('[data-ba="notes"]').click();page.reload()
  assert page.locator('.b-report-paper h2').inner_text()=='本地持久化测试';checks.append('local report notes survive reload')
  page.locator('[data-action="theme"]').click();page.reload();assert page.locator('html').get_attribute('data-theme')=='dark';checks.append('theme survives reload')
- page.goto(base+'#/benchmarks');expect(page.locator('[data-b-card]')).to_have_count(20)
+ page.goto(base+'#/benchmarks');expect(page.locator('[data-b-card]')).to_have_count(ITEM_COUNT)
  data=page.evaluate("fetch('./api/v1/benchmarks.json').then(r=>r.json())")
- assert len(data['items'])==20;checks.append('nested project path resolves local catalog endpoint')
+ assert len(data['items'])==ITEM_COUNT;checks.append('nested project path resolves the complete local catalog endpoint')
  other=b.new_context();other.route('**/*',handler);q=other.new_page();q.goto(base+'#/benchmarks')
  expect(q.locator('[data-ba="save"][data-id="hle"]')).to_have_attribute('aria-pressed','false');checks.append('separate visitor context does not inherit favorites')
  assert not errors,errors;b.close()
