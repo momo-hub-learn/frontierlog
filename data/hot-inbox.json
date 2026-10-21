@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T19:45:07Z",
+  "generated_at": "2026-10-21T21:30:26Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 26,
+    "merge": 33,
     "hold": 4
   },
   "candidates": [
@@ -132,6 +132,29 @@
       "first_seen_at": "2026-10-21T19:42:10Z"
     },
     {
+      "id": "candidate-d280c86d543cb18a",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "Isaac 机器人栈：把已开放、伙伴限定与 2027 计划分开验收",
+      "summary": "NVIDIA 同时发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA、数据与仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。",
+      "why": "机器人选型开始覆盖参考硬件、运行时、训练、仿真和部署全链路；清楚区分当前可用和未来计划，可以避免用演示或伙伴项目替代现场验收。",
+      "boundary": "Agile ONE SN 仍是未来计划，Human 1M 数据仅限指定联盟伙伴；2,000+ SimReady 资产等为厂商披露。本站未运行 Isaac Lab、机器人策略或安全测试，不能由平台完整度推断量产可靠性。",
+      "source": "NVIDIA",
+      "source_kind": "官方平台发布",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
       "id": "candidate-d99b2c6d697385a3",
       "category": "industry",
       "published": "2026-10-21",
@@ -222,6 +245,54 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-02f1d79923b3f7ba",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "OpenShell Agent 安全参考架构发布",
+      "summary": "将隔离、观察和策略执行放到模型与工具调用之外的独立运行层。",
+      "why": "Agent 安全由提示层约束进一步下沉到可强制执行、可审计的基础设施。",
+      "boundary": "参考架构不是安全认证。策略过宽会放大权限，过窄会阻断任务；厂商性能数字不等于本站实测或任意部署可复现。",
+      "source": "NVIDIA",
+      "source_kind": "官方架构发布",
+      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-openshell",
+      "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
+      "id": "candidate-1040d08afdb3c713",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "Claude Security 增加持续扫描与修复追踪",
+      "summary": "新版公测加入项目知识、可编辑威胁模型、发现状态、API、MCP、Webhook 与 RBAC。",
+      "why": "代码安全 Agent 从一次性扫描推进到带状态、上下文和权限的持续闭环。",
+      "boundary": "厂商报告的组织数、漏洞数和客户评价不是独立检出率。工具可能误报、漏报或误判可达性；令牌、项目权限、定级、复现与修复关闭都需安全团队复核。",
+      "source": "Anthropic",
+      "source_kind": "官方产品发布",
+      "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "anthropic-claude-security",
+      "first_seen_at": "2026-10-21T21:30:26Z"
     },
     {
       "id": "candidate-78c73999374b87c6",
@@ -320,6 +391,30 @@
       "first_seen_at": "2026-10-21T17:48:39Z"
     },
     {
+      "id": "candidate-fe69ddefb585e6dc",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "Claude Duet 主动 Agent 开放研究预览候补",
+      "summary": "独立 iOS、Android 与 claude.ai 入口可主动汇总连接应用、后台执行任务，并在发送、付款、签署和删除前等待批准。",
+      "why": "主动 Agent 的产品差异将更多来自通知判断、权限控制、可观察性和额度效率，而不只是模型回答质量。",
+      "boundary": "不是正式普遍开放；官方承认可能误读、误判优先级，且后台检查会消耗共享额度。",
+      "source": "Anthropic",
+      "source_kind": "官方产品节点",
+      "url": "https://claude.com/resources/articles/claude-duet",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "claude-duet",
+      "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
       "id": "candidate-ec0bbb16557febcb",
       "category": "industry",
       "published": "2026-10-20",
@@ -372,6 +467,59 @@
       "first_seen_at": "2026-10-21T17:48:39Z"
     },
     {
+      "id": "candidate-5cedc277db895f25",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "Claude Duet 研究预览开放候补",
+      "summary": "主动 Agent 可定期检查连接应用、发送晨间简报，并在独立虚拟机中后台执行任务。",
+      "why": "把 Agent 从按需对话推进到后台持续工作，同时以关键动作批准和禁区保留人工边界。",
+      "boundary": "官方明确早期版本可能误读线程或误判紧急程度，个人事务较弱且暂不能显示浏览器。后台检查会消耗套餐额度；接入真实账户前必须收窄权限并复核每个外部动作。",
+      "source": "Anthropic",
+      "source_kind": "官方产品发布",
+      "url": "https://claude.com/resources/articles/claude-duet",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "anthropic-claude-duet",
+      "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
+      "id": "candidate-65ea4d777c048e98",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "Agent 安全边界下沉到模型之外的策略执行层",
+      "summary": "NVIDIA 发布 OpenShell 参考架构，将 Agent 的隔离、观察和策略执行放在模型与工具调用之外，并说明与 Vera、BlueField-4/Sentry 等组件的组合路径。",
+      "why": "前瞻信号是 Agent 安全从提示词与模型自律转向独立、可审计、可强制执行的运行基础设施；这更适合约束高权限和长时运行任务。",
+      "boundary": "参考架构不等于安全认证；策略遗漏、旁路和底层配置错误仍可能导致越权。厂商性能与容量数字需要在相同硬件、任务和策略下独立复验。",
+      "source": "NVIDIA",
+      "source_kind": "官方参考架构发布",
+      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "external-agent-policy-enforcement",
+      "topic_tags": [
+        "Agent Runtime",
+        "Policy Enforcement",
+        "Observability"
+      ],
+      "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
       "id": "candidate-74819f0dd4ea64ce",
       "category": "research",
       "published": "2026-10-21",
@@ -394,6 +542,35 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-kumo-forecast",
       "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-7b8d231ce78e3335",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "主动 Agent：从等待指令转向周期检查与按需打断",
+      "summary": "Claude Duet 研究预览可每隔数小时检查连接账户、生成晨间简报，在独立虚拟机与浏览器中后台执行，并在发送、付款、签署和删除前等待批准。",
+      "why": "主动 Agent 的研究问题从单次任务成功转向何时观察、何时打断、如何控制额度、如何证明外部动作遵循了用户意图。",
+      "boundary": "这是厂商早期预览；官方承认可能误读线程或误判紧急程度。产品审批设计不等于安全性、隐私或任务质量已经得到独立验证。",
+      "source": "Anthropic",
+      "source_kind": "官方产品与安全说明",
+      "url": "https://claude.com/resources/articles/claude-duet",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "proactive-background-agent-governance",
+      "topic_tags": [
+        "Proactive Agent",
+        "Background Work",
+        "Human Approval"
+      ],
+      "first_seen_at": "2026-10-21T21:30:26Z"
     },
     {
       "id": "candidate-a0182d1af9c28496",
