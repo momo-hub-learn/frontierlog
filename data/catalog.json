@@ -3,6 +3,29 @@
   "snapshot": "2026-10-22",
   "items": [
     {
+      "id": "openai-patch-the-planet",
+      "name": "OpenAI · Patch the Planet",
+      "title": "核对 PHP 严重漏洞影响并协同修补",
+      "category": "软件开发",
+      "mark": "PT",
+      "accent": "lime",
+      "summary": "从公开披露页核对受影响系统、官方补丁、升级路径和验证步骤，把 AI 辅助发现接到维护者主导的修补流程。",
+      "scope": "当前披露聚焦一个由 GPT‑5.6 Sol 协助发现的 PHP 严重漏洞及跨组织响应；公开站点汇总受影响范围、修复建议和验证入口。",
+      "boundary": "这不是授权外扫描或自动入侵工具，也不证明 AI 可以独立完成漏洞定级与修复。只在拥有或获准管理的系统上操作，并以 PHP、托管商和安全维护者公告为准。",
+      "repo": null,
+      "sources": ["openai-patch-the-planet-disclosure", "openai-patch-the-planet-guide"],
+      "requirements": "已获授权的系统清单、当前 PHP 版本、部署方式与变更窗口；先做备份和回滚计划。",
+      "test": "在隔离或预发布环境按官方公告确认版本与补丁状态，升级后运行应用回归、日志检查和漏洞验证；生产变更需人工审批。",
+      "checks": ["先确认资产所有权和授权范围", "以维护者公告核对受影响版本与补丁", "修补后保留回归、监控和人工复核"],
+      "command": "",
+      "effort": "网页核对 / 运维变更",
+      "evidence": "OpenAI 官方披露与 Patch the Planet 联合响应页",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00"
+    },
+    {
       "id": "ibm-granite-speech-5",
       "name": "IBM · Granite Speech 5.0",
       "title": "多语转写、翻译与关键词偏置",
@@ -498,6 +521,26 @@
   ],
   "sources": [
     {
+      "id": "openai-patch-the-planet-disclosure",
+      "publisher": "OpenAI",
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "kind": "官方安全披露"
+    },
+    {
+      "id": "openai-patch-the-planet-guide",
+      "publisher": "Patch the Planet",
+      "title": "Patch the Planet",
+      "url": "https://patchtheplanet.org/",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "kind": "官方联合响应与修补指南"
+    },
+    {
       "id": "ibm-granite-speech-5-release",
       "publisher": "IBM",
       "title": "Granite Speech 5.0",
@@ -797,6 +840,17 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-patch-the-planet-release",
+      "task": "openai-patch-the-planet",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Patch the Planet 公开 PHP 漏洞协同响应",
+      "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
+      "delta": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
+      "sources": ["openai-patch-the-planet-disclosure", "openai-patch-the-planet-guide"],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "ibm-granite-speech-5-release",
       "task": "ibm-granite-speech-5",

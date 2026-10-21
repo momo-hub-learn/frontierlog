@@ -7,7 +7,7 @@ from email.utils import parsedate_to_datetime
 R=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(R/'scripts'))
 from hot_data import validate_hot, validate_hot_inbox, hot_rss
-from hot_sync import collect_candidates, evaluate
+from hot_sync import collect_candidates, curated_urls, evaluate
 from build import build
 
 class HotDataTests(unittest.TestCase):
@@ -21,9 +21,9 @@ class HotDataTests(unittest.TestCase):
   validate_hot(self.data);self.assertGreater(len(self.data['items']),0);self.assertEqual(len(self.data['categories']),6)
  def test_not_fake_live(self):self.reject(lambda d:d['method'].update(automatic=True))
  def test_no_claimed_success(self):self.reject(lambda d:d['method'].update(last_success='2026-09-21T00:00:00Z'))
- def test_sync_status_is_precise_and_shadow(self):
-  validate_hot(self.data);self.assertEqual(self.data['sync']['mode'],'shadow')
-  self.assertIn('T',self.data['sync']['last_checked_at'])
+ def test_shadow_runtime_state_cannot_enter_editorial_content(self):
+  validate_hot(self.data);self.assertNotIn('sync',self.data)
+  self.reject(lambda d:d.update(sync={'mode':'shadow','last_checked_at':'2026-10-21T00:00:00Z'}))
  def test_hot_inbox_and_shadow_collector(self):
   inbox=json.loads((R/'data/hot-inbox.json').read_text());validate_hot_inbox(inbox)
   rows=collect_candidates(datetime.fromisoformat('2026-09-28T09:55:00+00:00'))
@@ -32,6 +32,8 @@ class HotDataTests(unittest.TestCase):
   self.assertTrue(all(0<=x['priority_score']<=1 for x in rows))
   result,decision=evaluate(datetime.fromisoformat('2026-09-28T09:55:00+00:00'),inbox)
   validate_hot_inbox(result);self.assertEqual(decision['candidate_count'],len(rows))
+ def test_nested_evidence_url_is_not_a_novel_candidate(self):
+  self.assertIn('https://antigravity.google/blog/gemini-4-argon-in-google-antigravity',curated_urls(self.data))
 
  def test_heat_range(self):self.reject(lambda d:d['items'][0].update(heat=145))
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))

@@ -2,6 +2,20 @@
   "snapshot": "2026-10-22",
   "events": [
     {
+      "id": "openai-patch-the-planet-release",
+      "task": "openai-patch-the-planet",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Patch the Planet 公开 PHP 漏洞协同响应",
+      "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
+      "delta": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
+      "sources": [
+        "openai-patch-the-planet-disclosure",
+        "openai-patch-the-planet-guide"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
       "id": "ibm-granite-speech-5-release",
       "task": "ibm-granite-speech-5",
       "date": "2026-10-21",
@@ -266,6 +280,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-patch-the-planet-disclosure",
+      "publisher": "OpenAI",
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "kind": "官方安全披露"
+    },
+    {
+      "id": "openai-patch-the-planet-guide",
+      "publisher": "Patch the Planet",
+      "title": "Patch the Planet",
+      "url": "https://patchtheplanet.org/",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "kind": "官方联合响应与修补指南"
+    },
     {
       "id": "ibm-granite-speech-5-release",
       "publisher": "IBM",

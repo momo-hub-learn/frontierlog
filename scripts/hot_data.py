@@ -20,14 +20,8 @@ def validate_hot(data:dict, *, now:datetime|None=None)->None:
     if checked>now.astimezone(REVIEW_TIMEZONE).date(): raise ValueError('Future hot check date')
     if data.get('method',{}).get('automatic') is not False: raise ValueError('Hot score must not pretend to be live')
     if data['method'].get('last_success') is not None: raise ValueError('No verified automated hot collection')
-    sync=data.get('sync')
-    if sync is not None:
-        if not isinstance(sync,dict) or sync.get('status') not in {'success','error'} or sync.get('mode')!='shadow': raise ValueError('Invalid hot sync status')
-        raw=sync.get('last_checked_at')
-        if not raw: raise ValueError('Missing hot sync timestamp')
-        checked_at=datetime.fromisoformat(str(raw).replace('Z','+00:00'))
-        if checked_at.tzinfo is None: raise ValueError('Hot sync timestamp must include timezone')
-        if any(type(sync.get(k)) is not int or sync[k]<0 for k in ('candidate_count','publish_ready_count')): raise ValueError('Invalid hot sync counts')
+    if data.get('sync') is not None:
+        raise ValueError('Hot content must not store shadow evaluation state')
 
     cats=data.get('categories'); items=data.get('items')
     if not isinstance(cats,list) or not isinstance(items,list): raise ValueError('Missing lists')

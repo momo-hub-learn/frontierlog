@@ -42,6 +42,31 @@
   ],
   "items": [
     {
+      "id": "openai-patch-the-planet",
+      "publisher": "OpenAI / PHP 维护者与安全伙伴",
+      "group": "agents",
+      "access": "web",
+      "headline": "先用 Patch the Planet 核对 PHP 版本与官方升级路径",
+      "input": "只提交或核对你拥有、管理或明确获准处理的系统：当前 PHP 版本、部署方式、托管商与变更窗口",
+      "output": "受影响版本线索、官方补丁或升级路径、修补后验证清单与后续公告入口",
+      "requirements": "资产授权、当前版本清单、备份与回滚方案；生产修改遵循组织审批流程。",
+      "limitation": "本站只核验公开披露与指南，未运行漏洞验证。页面不是授权外扫描许可，也不能替代 PHP 维护者、托管商、安全团队或事件响应流程。",
+      "cost": "公开网页免费；升级、测试、停机窗口与安全响应成本由使用者承担。",
+      "steps": [
+        {"title": "确认授权与当前版本", "body": "先确认资产边界，在控制台或部署清单记录 PHP 完整版本、运行方式与托管商，不扫描第三方系统。"},
+        {"title": "按一手公告选择修补路径", "body": "从 Patch the Planet 进入维护者公告，核对受影响范围、可用补丁与升级说明；不以转载或 AI 摘要代替版本判断。"},
+        {"title": "隔离验证后再上线", "body": "在预发布环境完成应用回归与漏洞验证，保留结果、审批和回滚路径；上线后继续监控维护者更新。"}
+      ],
+      "troubleshooting": "版本识别不清时先向托管商或维护者确认；无法立即升级时，记录官方缓解措施、有效期和补丁计划，不把临时缓解写成已修复。",
+      "sources": [
+        {"title": "OpenAI 官方安全披露", "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/", "published_at": "2026-10-21", "verified_at": "2026-10-22"}
+      ],
+      "entry_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T03:18:01+08:00"
+    },
+    {
       "id": "ibm-granite-speech-5",
       "publisher": "IBM",
       "group": "audio",

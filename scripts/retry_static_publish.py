@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLISHED = ["index.html", "404.html", "api/v1", "feeds",
              "feed.xml", "sitemap.xml", "robots.txt"]
 DATA_FILES = {
-    "hot": ["data/hot.json", "data/hot-policy.json", "data/hot-inbox.json"],
+    "hot": ["data/hot-policy.json", "data/hot-inbox.json"],
     "activity": ["data/activity-radar.json"],
     "tibo": [],
 }

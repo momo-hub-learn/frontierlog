@@ -36,6 +36,92 @@
   ],
   "items": [
     {
+      "id": "openai-patch-the-planet-php-20261021",
+      "category": "research",
+      "title": "Patch the Planet：AI 找到 PHP 严重漏洞后，验证重点转向协同修补",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "first_seen_at": "2026-10-22T03:18:01+08:00",
+      "heat": 98,
+      "heat_components": {
+        "impact": 35,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "OpenAI 披露 GPT-5.6 Sol 参与发现 PHP 严重漏洞，并与 PHP 维护者、Wiz、Cloudflare 等协调修复和公开指引；Patch the Planet 页面现已汇总受影响系统、升级与验证入口。",
+      "why": "前沿信号不只是模型会找漏洞，而是发现、保密披露、维护者修补、供应商防护和运营者验证开始形成同一条 Agent 辅助安全响应链。",
+      "boundary": "这不是允许扫描未授权系统的声明，也不能推出 AI 已能独立完成漏洞定级、补丁正确性或入侵排查。运营者仍应使用 PHP 维护者与自身供应商的版本、补丁和取证指引，并由安全人员复核。",
+      "source": "OpenAI / PHP maintainers / security partners",
+      "source_kind": "官方安全披露与修复协调说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+      "link": "#/toolkit?id=openai-patch-the-planet",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方漏洞与升级指引",
+          "note": "只检查自己有权管理的系统；版本判断和修补仍以维护者公告为准",
+          "url": "https://patchtheplanet.org/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+          "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "openai-chatgpt-agentic-ad-stack-20261021",
+      "category": "product",
+      "title": "ChatGPT 广告栈公开：独立 Agent 编排检索、排序与竞价",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "first_seen_at": "2026-10-22T03:18:01+08:00",
+      "heat": 95,
+      "heat_components": {
+        "impact": 33,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+      "trend": "up",
+      "summary": "OpenAI 公开 ChatGPT Ads 的 Agent 架构：独立后训练模型维持跨轮广告会话，并调用检索、资格过滤、相关性评分和竞价工具；广告服务与正常回答生成使用分离的模型、代码和服务路径。",
+      "why": "这是多轮意图理解进入商业排序系统的具体工程样本：Agent 不直接决定价格，而是编排候选生成、质量门槛和竞价，并允许“本轮不展示广告”成为正常结果。",
+      "boundary": "文章描述的是 OpenAI 自身系统与厂商指标，不是通用广告效果证明；分离服务、隐私声明、收入数据和相关性目标仍需独立审计，且广告只面向指定套餐与已开放地区。",
+      "source": "OpenAI",
+      "source_kind": "官方产品与工程架构说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/building-chatgpt-ad-stack/",
+      "link": "#/hot?cat=product",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读广告 Agent 架构",
+          "note": "架构说明与厂商运营数据，不等于第三方可复现结果",
+          "url": "https://openai.com/index/building-chatgpt-ad-stack/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "ChatGPT Ads expands to 26 new countries",
+          "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries/",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-distributed-bio-agents-20261021",
       "category": "industry",
       "title": "数千个 AI Agent 并行分析脑细胞数据：从结果生成可检验的生物学线索",
@@ -1282,13 +1368,5 @@
         }
       ]
     }
-  ],
-  "sync": {
-    "last_checked_at": "2026-10-21T18:59:44Z",
-    "status": "success",
-    "mode": "shadow",
-    "candidate_count": 24,
-    "publish_ready_count": 1,
-    "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
-  }
+  ]
 }

@@ -35,6 +35,19 @@ def canonical(raw):
 def norm_title(v):
     return re.sub(r'[^0-9a-z\u4e00-\u9fff]+','',str(v).lower())
 
+def curated_urls(hot):
+    """All URLs already represented by an editorial hot record.
+
+    Related evidence and access links are part of the same editorial event;
+    treating them as novel candidates would create duplicate headlines.
+    """
+    urls=set()
+    for item in hot.get('items',[]):
+        for raw in [item.get('url'),*(x.get('url') for x in item.get('access',[]) if isinstance(x,dict)),
+                    *(x.get('url') for x in item.get('related',[]) if isinstance(x,dict))]:
+            if canonical(raw): urls.add(canonical(raw))
+    return urls
+
 def cid(category,url,published,title):
     raw='|'.join([category,canonical(url),published,norm_title(title)])
     return 'candidate-'+hashlib.sha1(raw.encode()).hexdigest()[:16]
@@ -69,7 +82,7 @@ def collect_candidates(now=None):
     threshold=config.get('publish_threshold')
     if type(lookback)!=int or lookback<1 or type(threshold) not in (float,int) or not 0<=threshold<=1:
         raise ValueError('Invalid active candidate threshold or lookback')
-    existing_urls={canonical(x.get('url')) for x in hot.get('items',[]) if canonical(x.get('url'))}
+    existing_urls=curated_urls(hot)
     existing_titles={norm_title(x.get('title')) for x in hot.get('items',[])}
     rows=[]
     def add(category,published,title,summary,why,boundary,source,source_kind,url,publishable=False,extra=None):
@@ -164,13 +177,11 @@ def main():
     old_path=ROOT/'data/hot-inbox.json'
     previous=json.loads(old_path.read_text(encoding='utf-8')) if old_path.exists() else {}
     inbox,decision=evaluate(now,previous);ts=stamp(now)
-    hot=load('hot.json');policy=load('hot-policy.json')
-    # Shadow evaluation is NOT a source review. Preserve the last editorial date.
-    hot['sync']={'last_checked_at':ts,'status':'success','mode':'shadow',
-      'candidate_count':decision['candidate_count'],'publish_ready_count':decision['publish_ready_count'],
-      'note':'站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。'}
+    policy=load('hot-policy.json')
+    # Shadow evaluation is NOT a source review. Its runtime state belongs only
+    # in the policy/inbox files; curated hot content must remain byte-for-byte
+    # unchanged until an editor verifies and writes a real source update.
     policy['status']='shadow-running';policy['last_evaluated']=ts;policy['last_decision']=decision
-    (ROOT/'data/hot.json').write_text(json.dumps(hot,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     (ROOT/'data/hot-policy.json').write_text(json.dumps(policy,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     old_path.write_text(json.dumps(inbox,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('hot sync:',len(inbox['candidates']),'candidates;',decision['publish_ready_count'],'publish-ready; decision',decision['action'])

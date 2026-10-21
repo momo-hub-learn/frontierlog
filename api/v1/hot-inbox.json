@@ -1,38 +1,43 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T18:59:44Z",
+  "generated_at": "2026-10-21T19:24:56Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 1,
-    "merge": 20,
-    "hold": 3
+    "publish": 0,
+    "merge": 23,
+    "hold": 4
   },
   "candidates": [
     {
-      "id": "candidate-47750334ae9b688a",
-      "category": "product",
-      "published": "2026-10-13",
-      "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
-      "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
-      "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
-      "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
-      "source": "Google",
-      "source_kind": "官方产品节点",
-      "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
-      "publishable": true,
+      "id": "candidate-b026f19029976dfa",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "广告排序成为独立的有状态 Agent 系统",
+      "summary": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
+      "why": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
+      "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
+      "source": "OpenAI",
+      "source_kind": "官方系统架构发布",
+      "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
+      "publishable": false,
       "features": {
-        "freshness": 0.429,
+        "freshness": 1.0,
         "authority": 1.0,
-        "impact": 0.86,
+        "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.791,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-      "product_id": "google-antigravity",
-      "first_seen_at": "2026-10-20T12:44:41Z"
+      "priority_score": 0.951,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "stateful-agentic-ad-stack",
+      "topic_tags": [
+        "Agent Architecture",
+        "Retrieval",
+        "Ranking"
+      ],
+      "first_seen_at": "2026-10-21T19:23:10Z"
     },
     {
       "id": "candidate-69d9d0b50530c4d3",
@@ -148,6 +153,30 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-78c73999374b87c6",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "Patch the Planet 公开 PHP 漏洞协同响应",
+      "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
+      "why": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
+      "boundary": "这不是授权外扫描或自动入侵工具，也不证明 AI 可以独立完成漏洞定级与修复。只在拥有或获准管理的系统上操作，并以 PHP、托管商和安全维护者公告为准。",
+      "source": "OpenAI",
+      "source_kind": "官方安全披露",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "openai-patch-the-planet",
+      "first_seen_at": "2026-10-21T19:23:10Z"
     },
     {
       "id": "candidate-8a516f8c0cbb7b18",
@@ -296,6 +325,35 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-kumo-forecast",
       "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-a0182d1af9c28496",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "安全 Agent：从发现漏洞走向可审计的协同修补",
+      "summary": "OpenAI 披露 GPT‑5.6 Sol 协助识别一个 PHP 严重漏洞，随后由维护者、安全伙伴和平台方协调验证、补丁、升级与通知；Patch the Planet 汇总受影响范围和指导。",
+      "why": "前瞻信号在于安全 Agent 的价值不只来自发现速度，而在于能否把证据、权限边界、维护者确认、修补和复验串成可审计流程。",
+      "boundary": "一次官方披露不能证明模型能独立发现或修复任意漏洞；不得外推到未授权测试，也不能用厂商叙述替代维护者公告和独立复验。",
+      "source": "OpenAI / PHP 维护者与安全伙伴",
+      "source_kind": "官方披露与联合响应说明",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "agent-assisted-vulnerability-response",
+      "topic_tags": [
+        "Security Agent",
+        "Vulnerability Response",
+        "Human Oversight"
+      ],
+      "first_seen_at": "2026-10-21T19:23:10Z"
     },
     {
       "id": "candidate-31d8648ef450c276",
@@ -572,6 +630,30 @@
       "reason": "保留候选，等待更强证据、影响或更新。",
       "product_id": "arena",
       "first_seen_at": "2026-10-09T05:17:35Z"
+    },
+    {
+      "id": "candidate-47750334ae9b688a",
+      "category": "product",
+      "published": "2026-10-13",
+      "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+      "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+      "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+      "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+      "source": "Google",
+      "source_kind": "官方产品节点",
+      "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+      "publishable": true,
+      "features": {
+        "freshness": 0.429,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.655,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "google-antigravity",
+      "first_seen_at": "2026-10-20T12:44:41Z"
     },
     {
       "id": "candidate-6982206f194b1f18",

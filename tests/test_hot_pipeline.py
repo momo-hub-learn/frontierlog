@@ -111,16 +111,15 @@ class HotShadowRegressions(unittest.TestCase):
             for name, value in {'hot.json': d, 'hot-policy.json': {},
                                 'hot-inbox.json': {'version': 1, 'candidates': []}}.items():
                 (root / 'data' / name).write_text(json.dumps(value), encoding='utf-8')
+            original = (root / 'data/hot.json').read_bytes()
             for _ in range(2):
                 with patch.object(hot_sync, 'ROOT', root), patch.object(hot_sync, 'collect_candidates', return_value=[]), \
                      patch.object(sys, 'argv', ['hot_sync.py', '--now', '2026-10-11T02:00:00Z']):
                     hot_sync.main()
-                result = json.loads((root / 'data/hot.json').read_text())
-                self.assertEqual(result['checked'], d['checked'])
-                self.assertEqual(result['items'], d['items'])
-                self.assertEqual(result['method'], d['method'])
-                self.assertEqual(result['sync']['mode'], 'shadow')
-                self.assertEqual(result['sync']['last_checked_at'], '2026-10-11T02:00:00Z')
+                self.assertEqual((root / 'data/hot.json').read_bytes(), original)
+                policy = json.loads((root / 'data/hot-policy.json').read_text())
+                self.assertEqual(policy['last_evaluated'], '2026-10-11T02:00:00Z')
+                self.assertEqual(policy['last_decision']['candidate_count'], 0)
 
     def test_workflow_evaluates_latest_checkout_without_copying_stale_hot_data(self):
         text = (ROOT / '.github/workflows/hot-sync.yml').read_text()

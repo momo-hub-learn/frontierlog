@@ -21,6 +21,56 @@
   ],
   "items": [
     {
+      "id": "agent-assisted-vulnerability-response",
+      "lane": "paradigm",
+      "title": "安全 Agent：从发现漏洞走向可审计的协同修补",
+      "maker": "OpenAI / PHP 维护者与安全伙伴",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "tags": [
+        "Security Agent",
+        "Vulnerability Response",
+        "Human Oversight"
+      ],
+      "fact": "OpenAI 披露 GPT‑5.6 Sol 协助识别一个 PHP 严重漏洞，随后由维护者、安全伙伴和平台方协调验证、补丁、升级与通知；Patch the Planet 汇总受影响范围和指导。",
+      "insight": "前瞻信号在于安全 Agent 的价值不只来自发现速度，而在于能否把证据、权限边界、维护者确认、修补和复验串成可审计流程。",
+      "boundary": "一次官方披露不能证明模型能独立发现或修复任意漏洞；不得外推到未授权测试，也不能用厂商叙述替代维护者公告和独立复验。",
+      "next_watch": "跟踪 PHP 维护者后续公告、受影响版本与补丁采用情况，以及是否公开可重复的授权评测和误报数据。",
+      "sources": [
+        {
+          "label": "OpenAI 官方安全披露",
+          "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+          "kind": "官方披露与联合响应说明",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "stateful-agentic-ad-stack",
+      "lane": "paradigm",
+      "title": "广告排序成为独立的有状态 Agent 系统",
+      "maker": "OpenAI",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T03:18:01+08:00",
+      "tags": [
+        "Agent Architecture",
+        "Retrieval",
+        "Ranking"
+      ],
+      "fact": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
+      "insight": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
+      "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
+      "next_watch": "跟踪公开评测、广告标注与控制体验、国家扩展后的治理差异，以及“无广告”决策在真实流量中的约束和审计。",
+      "sources": [
+        {
+          "label": "OpenAI 官方工程说明",
+          "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack/",
+          "kind": "官方系统架构发布",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "distributed-biological-reasoning",
       "lane": "science",
       "title": "分布式生物推理：把大规模扰动图谱拆给数千个 Agent",

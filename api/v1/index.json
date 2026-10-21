@@ -37,6 +37,92 @@
     ],
     "items": [
       {
+        "id": "openai-patch-the-planet-php-20261021",
+        "category": "research",
+        "title": "Patch the Planet：AI 找到 PHP 严重漏洞后，验证重点转向协同修补",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "first_seen_at": "2026-10-22T03:18:01+08:00",
+        "heat": 98,
+        "heat_components": {
+          "impact": 35,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "up",
+        "summary": "OpenAI 披露 GPT-5.6 Sol 参与发现 PHP 严重漏洞，并与 PHP 维护者、Wiz、Cloudflare 等协调修复和公开指引；Patch the Planet 页面现已汇总受影响系统、升级与验证入口。",
+        "why": "前沿信号不只是模型会找漏洞，而是发现、保密披露、维护者修补、供应商防护和运营者验证开始形成同一条 Agent 辅助安全响应链。",
+        "boundary": "这不是允许扫描未授权系统的声明，也不能推出 AI 已能独立完成漏洞定级、补丁正确性或入侵排查。运营者仍应使用 PHP 维护者与自身供应商的版本、补丁和取证指引，并由安全人员复核。",
+        "source": "OpenAI / PHP maintainers / security partners",
+        "source_kind": "官方安全披露与修复协调说明 / 本轮编辑核验",
+        "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+        "link": "#/toolkit?id=openai-patch-the-planet",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方漏洞与升级指引",
+            "note": "只检查自己有权管理的系统；版本判断和修补仍以维护者公告为准",
+            "url": "https://patchtheplanet.org/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+            "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
+        "id": "openai-chatgpt-agentic-ad-stack-20261021",
+        "category": "product",
+        "title": "ChatGPT 广告栈公开：独立 Agent 编排检索、排序与竞价",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "first_seen_at": "2026-10-22T03:18:01+08:00",
+        "heat": 95,
+        "heat_components": {
+          "impact": 33,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是流量、用户热度或模型能力分。",
+        "trend": "up",
+        "summary": "OpenAI 公开 ChatGPT Ads 的 Agent 架构：独立后训练模型维持跨轮广告会话，并调用检索、资格过滤、相关性评分和竞价工具；广告服务与正常回答生成使用分离的模型、代码和服务路径。",
+        "why": "这是多轮意图理解进入商业排序系统的具体工程样本：Agent 不直接决定价格，而是编排候选生成、质量门槛和竞价，并允许“本轮不展示广告”成为正常结果。",
+        "boundary": "文章描述的是 OpenAI 自身系统与厂商指标，不是通用广告效果证明；分离服务、隐私声明、收入数据和相关性目标仍需独立审计，且广告只面向指定套餐与已开放地区。",
+        "source": "OpenAI",
+        "source_kind": "官方产品与工程架构说明 / 本轮编辑核验",
+        "url": "https://openai.com/index/building-chatgpt-ad-stack/",
+        "link": "#/hot?cat=product",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读广告 Agent 架构",
+            "note": "架构说明与厂商运营数据，不等于第三方可复现结果",
+            "url": "https://openai.com/index/building-chatgpt-ad-stack/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "ChatGPT Ads expands to 26 new countries",
+            "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries/",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
         "id": "openai-distributed-bio-agents-20261021",
         "category": "industry",
         "title": "数千个 AI Agent 并行分析脑细胞数据：从结果生成可检验的生物学线索",
@@ -1283,51 +1369,48 @@
           }
         ]
       }
-    ],
-    "sync": {
-      "last_checked_at": "2026-10-21T18:59:44Z",
-      "status": "success",
-      "mode": "shadow",
-      "candidate_count": 24,
-      "publish_ready_count": 1,
-      "note": "站内候选评估已完成；未执行站外来源核验，未更新热点正文、热度或编辑核验日期。"
-    }
+    ]
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-21T18:59:44Z",
+    "generated_at": "2026-10-21T19:24:56Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 1,
-      "merge": 20,
-      "hold": 3
+      "publish": 0,
+      "merge": 23,
+      "hold": 4
     },
     "candidates": [
       {
-        "id": "candidate-47750334ae9b688a",
-        "category": "product",
-        "published": "2026-10-13",
-        "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
-        "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
-        "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
-        "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
-        "source": "Google",
-        "source_kind": "官方产品节点",
-        "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
-        "publishable": true,
+        "id": "candidate-b026f19029976dfa",
+        "category": "research",
+        "published": "2026-10-21",
+        "title": "广告排序成为独立的有状态 Agent 系统",
+        "summary": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
+        "why": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
+        "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
+        "source": "OpenAI",
+        "source_kind": "官方系统架构发布",
+        "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
+        "publishable": false,
         "features": {
-          "freshness": 0.429,
+          "freshness": 1.0,
           "authority": 1.0,
-          "impact": 0.86,
+          "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.791,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-        "product_id": "google-antigravity",
-        "first_seen_at": "2026-10-20T12:44:41Z"
+        "priority_score": 0.951,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "research_id": "stateful-agentic-ad-stack",
+        "topic_tags": [
+          "Agent Architecture",
+          "Retrieval",
+          "Ranking"
+        ],
+        "first_seen_at": "2026-10-21T19:23:10Z"
       },
       {
         "id": "candidate-69d9d0b50530c4d3",
@@ -1443,6 +1526,30 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
+      },
+      {
+        "id": "candidate-78c73999374b87c6",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "Patch the Planet 公开 PHP 漏洞协同响应",
+        "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
+        "why": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
+        "boundary": "这不是授权外扫描或自动入侵工具，也不证明 AI 可以独立完成漏洞定级与修复。只在拥有或获准管理的系统上操作，并以 PHP、托管商和安全维护者公告为准。",
+        "source": "OpenAI",
+        "source_kind": "官方安全披露",
+        "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openai-patch-the-planet",
+        "first_seen_at": "2026-10-21T19:23:10Z"
       },
       {
         "id": "candidate-8a516f8c0cbb7b18",
@@ -1591,6 +1698,35 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "nvidia-kumo-forecast",
         "first_seen_at": "2026-10-21T15:29:58Z"
+      },
+      {
+        "id": "candidate-a0182d1af9c28496",
+        "category": "research",
+        "published": "2026-10-21",
+        "title": "安全 Agent：从发现漏洞走向可审计的协同修补",
+        "summary": "OpenAI 披露 GPT‑5.6 Sol 协助识别一个 PHP 严重漏洞，随后由维护者、安全伙伴和平台方协调验证、补丁、升级与通知；Patch the Planet 汇总受影响范围和指导。",
+        "why": "前瞻信号在于安全 Agent 的价值不只来自发现速度，而在于能否把证据、权限边界、维护者确认、修补和复验串成可审计流程。",
+        "boundary": "一次官方披露不能证明模型能独立发现或修复任意漏洞；不得外推到未授权测试，也不能用厂商叙述替代维护者公告和独立复验。",
+        "source": "OpenAI / PHP 维护者与安全伙伴",
+        "source_kind": "官方披露与联合响应说明",
+        "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+        "publishable": false,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.815,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "agent-assisted-vulnerability-response",
+        "topic_tags": [
+          "Security Agent",
+          "Vulnerability Response",
+          "Human Oversight"
+        ],
+        "first_seen_at": "2026-10-21T19:23:10Z"
       },
       {
         "id": "candidate-31d8648ef450c276",
@@ -1867,6 +2003,30 @@
         "reason": "保留候选，等待更强证据、影响或更新。",
         "product_id": "arena",
         "first_seen_at": "2026-10-09T05:17:35Z"
+      },
+      {
+        "id": "candidate-47750334ae9b688a",
+        "category": "product",
+        "published": "2026-10-13",
+        "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+        "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+        "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+        "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+        "source": "Google",
+        "source_kind": "官方产品节点",
+        "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+        "publishable": true,
+        "features": {
+          "freshness": 0.429,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.655,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "google-antigravity",
+        "first_seen_at": "2026-10-20T12:44:41Z"
       },
       {
         "id": "candidate-6982206f194b1f18",
@@ -2698,6 +2858,56 @@
       }
     ],
     "items": [
+      {
+        "id": "agent-assisted-vulnerability-response",
+        "lane": "paradigm",
+        "title": "安全 Agent：从发现漏洞走向可审计的协同修补",
+        "maker": "OpenAI / PHP 维护者与安全伙伴",
+        "date": "2026-10-21",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "tags": [
+          "Security Agent",
+          "Vulnerability Response",
+          "Human Oversight"
+        ],
+        "fact": "OpenAI 披露 GPT‑5.6 Sol 协助识别一个 PHP 严重漏洞，随后由维护者、安全伙伴和平台方协调验证、补丁、升级与通知；Patch the Planet 汇总受影响范围和指导。",
+        "insight": "前瞻信号在于安全 Agent 的价值不只来自发现速度，而在于能否把证据、权限边界、维护者确认、修补和复验串成可审计流程。",
+        "boundary": "一次官方披露不能证明模型能独立发现或修复任意漏洞；不得外推到未授权测试，也不能用厂商叙述替代维护者公告和独立复验。",
+        "next_watch": "跟踪 PHP 维护者后续公告、受影响版本与补丁采用情况，以及是否公开可重复的授权评测和误报数据。",
+        "sources": [
+          {
+            "label": "OpenAI 官方安全披露",
+            "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+            "kind": "官方披露与联合响应说明",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "stateful-agentic-ad-stack",
+        "lane": "paradigm",
+        "title": "广告排序成为独立的有状态 Agent 系统",
+        "maker": "OpenAI",
+        "date": "2026-10-21",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "tags": [
+          "Agent Architecture",
+          "Retrieval",
+          "Ranking"
+        ],
+        "fact": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
+        "insight": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
+        "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
+        "next_watch": "跟踪公开评测、广告标注与控制体验、国家扩展后的治理差异，以及“无广告”决策在真实流量中的约束和审计。",
+        "sources": [
+          {
+            "label": "OpenAI 官方工程说明",
+            "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack/",
+            "kind": "官方系统架构发布",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "distributed-biological-reasoning",
         "lane": "science",
@@ -4141,14 +4351,14 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-21T18:59:44Z",
+    "last_evaluated": "2026-10-21T19:24:56Z",
     "last_decision": {
-      "action": "publish",
-      "candidate_count": 24,
-      "publish_ready_count": 1,
-      "merge_count": 20,
-      "best_candidate": "candidate-47750334ae9b688a",
-      "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
+      "action": "merge",
+      "candidate_count": 27,
+      "publish_ready_count": 0,
+      "merge_count": 23,
+      "best_candidate": "candidate-b026f19029976dfa",
+      "reason": "发现与现有热点同源的新节点，建议合并。"
     },
     "active_shadow_candidate": {
       "description": "当前实际上执行的 shadow 候选优先级，只对已经进入结构化数据的进展打分，不是本站发布的热度，也不决定前沿模型是否进入研究档案。",
@@ -4167,7 +4377,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-21T18:46:27Z",
+    "checked_at": "2026-10-21T19:17:09Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -4178,8 +4388,8 @@
         "stars_today": 1997,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 35568,
-        "forks": 2236,
+        "stars": 35610,
+        "forks": 2237,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -4226,6 +4436,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 35568
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 35610
           }
         ]
       },
@@ -4235,7 +4449,7 @@
         "stars_today": 439,
         "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
         "language": "Python",
-        "stars": 94783,
+        "stars": 94790,
         "forks": 23731,
         "repo_created_at": "2023-02-09T11:23:20Z",
         "repo_pushed_at": "2026-10-21T18:34:24Z",
@@ -4283,6 +4497,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 94783
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 94790
           }
         ]
       },
@@ -4292,10 +4510,10 @@
         "stars_today": 1543,
         "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
         "language": "TypeScript",
-        "stars": 100972,
-        "forks": 6385,
+        "stars": 101000,
+        "forks": 6386,
         "repo_created_at": "2026-03-17T03:28:57Z",
-        "repo_pushed_at": "2026-10-21T18:45:25Z",
+        "repo_pushed_at": "2026-10-21T19:16:38Z",
         "category": "agent-runtime",
         "ai_related": true,
         "tags": [
@@ -4305,10 +4523,6 @@
         ],
         "url": "https://github.com/stablyai/orca",
         "star_history": [
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 98051
-          },
           {
             "at": "2026-10-19T23:48:52Z",
             "stars": 98222
@@ -4352,6 +4566,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 100972
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 101000
           }
         ]
       },
@@ -4361,7 +4579,7 @@
         "stars_today": 477,
         "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
         "language": "Python",
-        "stars": 77145,
+        "stars": 77156,
         "forks": 5985,
         "repo_created_at": "2026-01-07T19:58:51Z",
         "repo_pushed_at": "2026-10-21T04:15:22Z",
@@ -4374,10 +4592,6 @@
         ],
         "url": "https://github.com/headroomlabs-ai/headroom",
         "star_history": [
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 76158
-          },
           {
             "at": "2026-10-19T23:48:52Z",
             "stars": 76229
@@ -4421,6 +4635,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 77145
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 77156
           }
         ]
       },
@@ -4430,8 +4648,8 @@
         "stars_today": 2051,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
-        "stars": 171236,
-        "forks": 9317,
+        "stars": 171270,
+        "forks": 9320,
         "repo_created_at": "2026-06-12T00:52:37Z",
         "repo_pushed_at": "2026-10-18T01:55:14Z",
         "category": "ai-tools",
@@ -4478,6 +4696,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 171236
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 171270
           }
         ]
       },
@@ -4487,7 +4709,7 @@
         "stars_today": 914,
         "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
         "language": "Python",
-        "stars": 141370,
+        "stars": 141387,
         "forks": 16717,
         "repo_created_at": "2023-01-17T03:15:56Z",
         "repo_pushed_at": "2026-10-21T18:41:49Z",
@@ -4500,10 +4722,6 @@
         ],
         "url": "https://github.com/Comfy-Org/ComfyUI",
         "star_history": [
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 139546
-          },
           {
             "at": "2026-10-19T23:48:52Z",
             "stars": 139687
@@ -4547,6 +4765,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 141370
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 141387
           }
         ]
       },
@@ -4556,10 +4778,10 @@
         "stars_today": 509,
         "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
         "language": "TypeScript",
-        "stars": 112826,
-        "forks": 16879,
+        "stars": 112845,
+        "forks": 16883,
         "repo_created_at": "2019-10-12T05:56:49Z",
-        "repo_pushed_at": "2026-10-21T18:44:31Z",
+        "repo_pushed_at": "2026-10-21T19:06:38Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -4584,6 +4806,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 112826
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 112845
           }
         ]
       },
@@ -4593,10 +4819,10 @@
         "stars_today": 105,
         "description": "The open alternative to Salesforce, designed for AI.",
         "language": "TypeScript",
-        "stars": 59000,
-        "forks": 9655,
+        "stars": 59016,
+        "forks": 9656,
         "repo_created_at": "2022-12-01T13:04:40Z",
-        "repo_pushed_at": "2026-10-21T18:18:17Z",
+        "repo_pushed_at": "2026-10-21T19:03:59Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -4621,6 +4847,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 59000
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 59016
           }
         ]
       },
@@ -4630,8 +4860,8 @@
         "stars_today": 570,
         "description": "Kronos: A Foundation Model for the Language of Financial Markets",
         "language": "Python",
-        "stars": 42723,
-        "forks": 7056,
+        "stars": 42734,
+        "forks": 7061,
         "repo_created_at": "2025-07-01T02:54:32Z",
         "repo_pushed_at": "2026-04-13T12:38:49Z",
         "category": "other",
@@ -4642,10 +4872,6 @@
         ],
         "url": "https://github.com/shiyu-coder/Kronos",
         "star_history": [
-          {
-            "at": "2026-10-19T20:00:59Z",
-            "stars": 41531
-          },
           {
             "at": "2026-10-19T23:48:52Z",
             "stars": 41631
@@ -4689,6 +4915,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 42723
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 42734
           }
         ]
       },
@@ -4698,8 +4928,8 @@
         "stars_today": 396,
         "description": "freehire — the open-source search engine for job seekers",
         "language": "Go",
-        "stars": 2235,
-        "forks": 238,
+        "stars": 2259,
+        "forks": 239,
         "repo_created_at": "2026-06-07T03:20:31Z",
         "repo_pushed_at": "2026-10-21T18:08:14Z",
         "category": "other",
@@ -4725,6 +4955,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 2235
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 2259
           }
         ]
       },
@@ -4734,7 +4968,7 @@
         "stars_today": 303,
         "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
         "language": "Rust",
-        "stars": 12192,
+        "stars": 12209,
         "forks": 865,
         "repo_created_at": "2026-05-21T23:23:51Z",
         "repo_pushed_at": "2026-10-21T15:49:38Z",
@@ -4762,6 +4996,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 12192
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 12209
           }
         ]
       },
@@ -4771,7 +5009,7 @@
         "stars_today": 1434,
         "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
         "language": "Python",
-        "stars": 131352,
+        "stars": 131377,
         "forks": 12613,
         "repo_created_at": "2026-04-03T15:49:07Z",
         "repo_pushed_at": "2026-10-21T15:23:36Z",
@@ -4818,6 +5056,10 @@
           {
             "at": "2026-10-21T18:46:27Z",
             "stars": 131352
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 131377
           }
         ]
       }
@@ -4897,10 +5139,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-21T18:46:27Z",
-      "last_success_at": "2026-10-21T18:46:27Z",
+      "last_checked_at": "2026-10-21T19:17:09Z",
+      "last_success_at": "2026-10-21T19:17:09Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-21T18:46:27Z",
+      "watchlist_checked_at": "2026-10-21T19:17:09Z",
       "watchlist_errors": [],
       "trending_count": 12,
       "verified_count": 12,
@@ -4918,12 +5160,12 @@
           "Agent",
           "MCP"
         ],
-        "stars": 356218,
-        "forks": 89448,
+        "stars": 356399,
+        "forks": 89493,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-21T18:46:19Z",
+        "repo_pushed_at": "2026-10-21T19:16:12Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-21T18:46:27Z",
+        "verified_at": "2026-10-21T19:17:09Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
@@ -4934,16 +5176,16 @@
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · API trendingScore descending · Top 20",
-    "note": "榜位仍采用 2026-10-21T11:48:16.725433+00:00 的官方 API trendingScore 降序；2026-10-21T17:21:52+00:00 复核官方网页 Top 20，网页第 8/9、15–18 与第 20 位已与旧 API 快照不同，故分别保留两套顺序。API 本轮不可达，因此没有改写旧 trendingScore、Likes、Downloads 或 API 成功时间。平台指标只是热度/使用信号，不是能力成绩或本站实测。",
+    "note": "榜位仍采用 2026-10-21T11:48:16.725433+00:00 的官方 API trendingScore 降序；2026-10-21T19:18:01+00:00 复核官方网页 Top 20，网页顺序继续与旧 API 快照不同，故分别保留。API 本轮未取得新快照，因此没有改写旧 trendingScore、Likes、Downloads 或 API 成功时间。平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_api_trendingScore_desc",
     "api_fetched_at": "2026-10-21T11:48:16.725433+00:00",
-    "web_fetched_at": "2026-10-21T17:21:52+00:00",
+    "web_fetched_at": "2026-10-21T19:18:01+00:00",
     "web_order_matches_api": false,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "black-forest-labs/flux-3-image-klein-comfy",
-      "fishaudio/drama-3",
       "meta-models/Muse-Spark-Open-816B-A42B",
+      "fishaudio/drama-3",
       "black-forest-labs/flux-3-image-klein",
       "OpenMOSS-Team/MOSS-Image-SFT",
       "google/embeddinggemma-2",
@@ -13063,6 +13305,36 @@
     "snapshot": "2026-10-22",
     "items": [
       {
+        "id": "openai-patch-the-planet",
+        "name": "OpenAI · Patch the Planet",
+        "title": "核对 PHP 严重漏洞影响并协同修补",
+        "category": "软件开发",
+        "mark": "PT",
+        "accent": "lime",
+        "summary": "从公开披露页核对受影响系统、官方补丁、升级路径和验证步骤，把 AI 辅助发现接到维护者主导的修补流程。",
+        "scope": "当前披露聚焦一个由 GPT‑5.6 Sol 协助发现的 PHP 严重漏洞及跨组织响应；公开站点汇总受影响范围、修复建议和验证入口。",
+        "boundary": "这不是授权外扫描或自动入侵工具，也不证明 AI 可以独立完成漏洞定级与修复。只在拥有或获准管理的系统上操作，并以 PHP、托管商和安全维护者公告为准。",
+        "repo": null,
+        "sources": [
+          "openai-patch-the-planet-disclosure",
+          "openai-patch-the-planet-guide"
+        ],
+        "requirements": "已获授权的系统清单、当前 PHP 版本、部署方式与变更窗口；先做备份和回滚计划。",
+        "test": "在隔离或预发布环境按官方公告确认版本与补丁状态，升级后运行应用回归、日志检查和漏洞验证；生产变更需人工审批。",
+        "checks": [
+          "先确认资产所有权和授权范围",
+          "以维护者公告核对受影响版本与补丁",
+          "修补后保留回归、监控和人工复核"
+        ],
+        "command": "",
+        "effort": "网页核对 / 运维变更",
+        "evidence": "OpenAI 官方披露与 Patch the Planet 联合响应页",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T03:18:01+08:00"
+      },
+      {
         "id": "ibm-granite-speech-5",
         "name": "IBM · Granite Speech 5.0",
         "title": "多语转写、翻译与关键词偏置",
@@ -13590,6 +13862,26 @@
     ],
     "sources": [
       {
+        "id": "openai-patch-the-planet-disclosure",
+        "publisher": "OpenAI",
+        "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+        "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+        "published": "2026-10-21",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "kind": "官方安全披露"
+      },
+      {
+        "id": "openai-patch-the-planet-guide",
+        "publisher": "Patch the Planet",
+        "title": "Patch the Planet",
+        "url": "https://patchtheplanet.org/",
+        "published": "2026-10-21",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T03:18:01+08:00",
+        "kind": "官方联合响应与修补指南"
+      },
+      {
         "id": "ibm-granite-speech-5-release",
         "publisher": "IBM",
         "title": "Granite Speech 5.0",
@@ -13889,6 +14181,20 @@
       }
     ],
     "events": [
+      {
+        "id": "openai-patch-the-planet-release",
+        "task": "openai-patch-the-planet",
+        "date": "2026-10-21",
+        "kind": "release",
+        "title": "Patch the Planet 公开 PHP 漏洞协同响应",
+        "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
+        "delta": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
+        "sources": [
+          "openai-patch-the-planet-disclosure",
+          "openai-patch-the-planet-guide"
+        ],
+        "reviewed": "2026-10-22"
+      },
       {
         "id": "ibm-granite-speech-5-release",
         "task": "ibm-granite-speech-5",
@@ -15518,6 +15824,45 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-patch-the-planet",
+        "publisher": "OpenAI / PHP 维护者与安全伙伴",
+        "group": "agents",
+        "access": "web",
+        "headline": "先用 Patch the Planet 核对 PHP 版本与官方升级路径",
+        "input": "只提交或核对你拥有、管理或明确获准处理的系统：当前 PHP 版本、部署方式、托管商与变更窗口",
+        "output": "受影响版本线索、官方补丁或升级路径、修补后验证清单与后续公告入口",
+        "requirements": "资产授权、当前版本清单、备份与回滚方案；生产修改遵循组织审批流程。",
+        "limitation": "本站只核验公开披露与指南，未运行漏洞验证。页面不是授权外扫描许可，也不能替代 PHP 维护者、托管商、安全团队或事件响应流程。",
+        "cost": "公开网页免费；升级、测试、停机窗口与安全响应成本由使用者承担。",
+        "steps": [
+          {
+            "title": "确认授权与当前版本",
+            "body": "先确认资产边界，在控制台或部署清单记录 PHP 完整版本、运行方式与托管商，不扫描第三方系统。"
+          },
+          {
+            "title": "按一手公告选择修补路径",
+            "body": "从 Patch the Planet 进入维护者公告，核对受影响范围、可用补丁与升级说明；不以转载或 AI 摘要代替版本判断。"
+          },
+          {
+            "title": "隔离验证后再上线",
+            "body": "在预发布环境完成应用回归与漏洞验证，保留结果、审批和回滚路径；上线后继续监控维护者更新。"
+          }
+        ],
+        "troubleshooting": "版本识别不清时先向托管商或维护者确认；无法立即升级时，记录官方缓解措施、有效期和补丁计划，不把临时缓解写成已修复。",
+        "sources": [
+          {
+            "title": "OpenAI 官方安全披露",
+            "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+            "published_at": "2026-10-21",
+            "verified_at": "2026-10-22"
+          }
+        ],
+        "entry_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-22T03:18:01+08:00"
+      },
       {
         "id": "ibm-granite-speech-5",
         "publisher": "IBM",
