@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T14:10:25Z",
+  "generated_at": "2026-10-21T15:29:58Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 8,
+    "merge": 13,
     "hold": 3
   },
   "candidates": [
@@ -58,6 +58,52 @@
       "first_seen_at": "2026-10-21T13:33:09Z"
     },
     {
+      "id": "candidate-eff250e244822a86",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "Kumo Forecast：直接预测与历史检索要同窗对比",
+      "summary": "NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。",
+      "why": "设备维护和运营预测可以同时查看预测、检索依据和跨度解释，但应先做时间外推基线。",
+      "boundary": "只支持数值时序与指定输入长度；检索上下文维度需相近，且检索增强不保证更准。预测解释不是故障因果，本站未运行。",
+      "source": "NVIDIA",
+      "source_kind": "官方技术发布",
+      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-f1788e9b0f10048c",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "SimReady Central：先核对资产 profile，再组装数字孪生",
+      "summary": "免费、免门槛的 Hugging Face 库汇集 2,000+ 带碰撞、质量、摩擦、关节或语义等属性的 OpenUSD 资产。",
+      "why": "机器人工作站和 AI 工厂场景可以复用带规格的 OEM 资产，减少从普通 CAD 补仿真元数据的重复工作。",
+      "boundary": "单个资产满足某个 SimReady profile 不代表适配所有运行时、传感器或现场精度；官方示例也不证明布局、碰撞和热设计已通过真实设施验收。",
+      "source": "NVIDIA / Hugging Face",
+      "source_kind": "官方发布与规范入口",
+      "url": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
       "id": "candidate-ec0bbb16557febcb",
       "category": "industry",
       "published": "2026-10-20",
@@ -79,6 +125,30 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-74819f0dd4ea64ce",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "Kumo Forecast 开放检索增强时序预测代码与权重",
+      "summary": "NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。",
+      "why": "工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。",
+      "boundary": "检索上下文维度需相近，且 DARR 不保证优于直接预测；必须在相同留出窗口与工况下比较。预测与解释都不等于故障因果，本站未运行。",
+      "source": "NVIDIA",
+      "source_kind": "官方技术发布",
+      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-kumo-forecast",
+      "first_seen_at": "2026-10-21T15:29:58Z"
     },
     {
       "id": "candidate-31d8648ef450c276",
@@ -103,6 +173,53 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "voxtral-3-voice-agents",
       "first_seen_at": "2026-10-21T13:33:09Z"
+    },
+    {
+      "id": "candidate-2894c9471b45dfc8",
+      "category": "industry",
+      "published": "2026-10-19",
+      "title": "RFD4-Proteína：计算生成之后仍要过湿实验",
+      "summary": "模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。",
+      "why": "它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。",
+      "boundary": "计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。",
+      "source": "NVIDIA / Baker Lab",
+      "source_kind": "官方模型卡与运行文档",
+      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "publishable": true,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-e41d709f57e5797b",
+      "category": "product",
+      "published": "2026-10-19",
+      "title": "RFD4-Proteína 开放原生、Diffusers 与容器入口",
+      "summary": "Baker Lab 与 NVIDIA 发布联合生成蛋白质序列和全原子结构的模型、权重、代码与可运行样例。",
+      "why": "计算设计入口更完整，但任何结合、活性或研发价值都仍需结构复核与湿实验；本站未运行。",
+      "boundary": "计算生成不证明结合、活性、安全性或临床价值；外部结构评分器与训练数据另有条款。Diffusers 需从 git 安装直至下一个正式版本，本站未运行。",
+      "source": "NVIDIA / Baker Lab",
+      "source_kind": "官方模型卡与运行文档",
+      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
+      "publishable": true,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.783,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-rfd4-proteina",
+      "first_seen_at": "2026-10-21T15:29:58Z"
     },
     {
       "id": "candidate-567f9dfeb2c35d69",
