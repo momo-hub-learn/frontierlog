@@ -132,7 +132,7 @@ jobs:
           node --check src/tibo-intel.js
           node --check assets/tibo-intel.js
           python scripts/build.py --out /tmp/frontierlog-dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
-          grep -q "Tibo 预告：周二会有一次 reset" /tmp/frontierlog-dist/index.html
+          grep -q "预计落地" /tmp/frontierlog-dist/index.html
           grep -q "原始证据 / X 官方原帖" /tmp/frontierlog-dist/index.html
           grep -q "LATEST RESET SIGNAL / TIBO ON X" /tmp/frontierlog-dist/index.html
           grep -q "data-x-conversation=\\\"none\\\"" /tmp/frontierlog-dist/index.html

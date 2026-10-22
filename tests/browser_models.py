@@ -49,10 +49,14 @@ with sync_playwright() as p:
  expect(page.locator('.tibo-evidence-card')).not_to_have_count(0)
  tibo=page.locator('#vertical-root').inner_text()
  assert '待核验' in tibo and 'X 当前无法直连' in tibo and '不模拟 X 界面' in tibo
+ assert '明确预告 · 尚未执行确认' in tibo and '预计落地' in tibo and '10月24日 01:00 前' in tibo
  assert page.locator('.tibo-featured a[href*="x.com"],.tibo-evidence-card a[href*="x.com"]').count()>=1
  assert page.locator('.tibo-x-fallback').count()>=1
  shot(page,'tibo-first-screen.png');shot(page,'tibo-full.png',True)
  ok('Tibo page separates original evidence, editorial inference and explicit X access limits without fake screenshots')
+ route(page,'#/tibo?event=tibo-reset-announced-2026-10-22-day17');expect(page.locator('dialog[open]')).to_have_count(1)
+ assert '太平洋时间 10 月 23 日上午 10 点前' in page.locator('dialog[open]').inner_text();page.keyboard.press('Escape')
+ ok('Tibo announcement deep link opens the exact reviewed record')
  # Guard invalid runtime data and ensure sources/text cannot become executed markup.
  assert page.evaluate("modulePayloadValid(APP.models,'models')")
  assert not page.evaluate("modulePayloadValid({version:1,checked:'2026-09-21'},'models')")

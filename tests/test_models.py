@@ -44,6 +44,12 @@ class ValidationTests(unittest.TestCase):
  def test_timezone_required(self):
   d=copy.deepcopy(E);d['events'][0].update(precision='instant',published_at='2026-09-03T01:00:00')
   with self.assertRaises(ValueError):validate_resets(d)
+ def test_deadline_requires_timezone_and_is_not_execution(self):
+  row=next(x for x in E['events'] if x['id']=='tibo-reset-announced-2026-10-22-day17')
+  self.assertEqual(row['status'],'announced');self.assertNotIn('effective_at',row)
+  self.assertEqual(datetime.fromisoformat(row['deadline_at'].replace('Z','+00:00')).astimezone(timezone(timedelta(hours=8))).isoformat(),'2026-10-24T01:00:00+08:00')
+  d=copy.deepcopy(E);next(x for x in d['events'] if x['id']==row['id'])['deadline_at']='2026-10-23T17:00:00'
+  with self.assertRaises(ValueError):validate_resets(d)
  def test_pending_not_confirmed(self):
   d=copy.deepcopy(E);d['events'][-1]['status']='confirmed'
   with self.assertRaises(ValueError):validate_resets(d)

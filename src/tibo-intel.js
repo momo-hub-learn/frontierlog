@@ -48,6 +48,7 @@ function officialSyncLabel(){
   return '人工核对快照 '+(RESET_DATA.checked||'')
 }
 function compactText(value,max=96){const text=String(value||'').replace(/^我们理解[：:]\s*/,'').trim();return text.length>max?text.slice(0,max-1).trimEnd()+'…':text}
+function deadline(x){if(!x.deadline_at)return '';try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(x.deadline_at)).replace('/','月').replace(' ','日 ')+' 前'}catch{return ''}}
 function heroHeadline(x){
   const raw=String(x.original_text||x.title||x.summary||'');
   if(x.semantic_type==='explicit_announcement')return /Tuesday|周二/i.test(raw)?'Tibo 预告：周二会有一次 reset':'Tibo：明确预告一次 reset';
@@ -60,7 +61,7 @@ function heroHeadline(x){
   return 'Tibo：'+compactText(title||raw,46)
 }
 function heroBoundary(x){
-  if(x.semantic_type==='explicit_announcement')return '还不能视为已执行；具体时刻、banked / global 类型和适用套餐仍未确认。';
+  if(x.semantic_type==='explicit_announcement')return compactText(x.not_proves||x.boundary||(x.deadline_at?'这是最晚落地时间，不是已执行确认。':'还不能视为已执行；具体时刻、类型和适用套餐仍未确认。'),92);
   if(x.semantic_type==='propagation_complete')return x.status==='confirmed'?'不能据此读取个人账号余额或剩余额度。':'原帖仍待直接核验，暂不升级为正式确认。';
   if(x.semantic_type==='usage_explanation')return '这是修复 / 补偿说明，不等于面向所有用户的 global reset。';
   return compactText(x.not_proves||x.boundary||x.reason||'需要更多上下文。',92)
@@ -74,6 +75,7 @@ function featuredHero(){
   const x=featuredSignal();if(!x)return '';
   const url=originalUrl(x),stamp=when(x);
   const reading=compactText(x.interpretation||x.summary,104);
+  const due=deadline(x);
   const detail=x._source==='event'?'<button data-ma="reset-detail" data-id="'+esc(x.id)+'">查看上下文 '+icon('arrow')+'</button>':'<span class="tibo-featured-machine">机器候选 · 待人工核验</span>';
   return '<section class="tibo-featured">'+
     '<div class="tibo-featured-bar"><div><span class="tibo-featured-kicker">最新重置消息</span><span class="tibo-featured-status">'+esc(heroStateLabel(x))+'</span></div><time>'+esc(stamp)+'</time></div>'+
@@ -84,6 +86,7 @@ function featuredHero(){
       '<div class="tibo-featured-facts">'+
         '<div><span>判断</span><strong>'+esc(semanticLabel[x.semantic_type]||RESET_KINDS[x.kind]||'待分类')+'</strong></div>'+
         '<div><span>证据</span><strong>'+esc(strengthLabel[x.evidence_strength]||'待评估')+' · '+esc(heroReviewState(x))+'</strong></div>'+
+        (due?'<div class="deadline"><span>预计落地</span><strong>'+esc(due)+'</strong></div>':'')+
         '<div class="boundary"><span>边界</span><p>'+esc(heroBoundary(x))+'</p></div>'+
       '</div>'+
       '<div class="tibo-featured-actions"><a class="tibo-featured-primary" href="'+url+'" target="_blank" rel="noopener noreferrer">打开 X 原帖 '+icon('external')+'</a>'+detail+'</div>'+

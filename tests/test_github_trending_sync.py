@@ -85,8 +85,9 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertEqual(row['stars'],previous['stars'])
         self.assertEqual(row['rank'],1)
         self.assertEqual(row['stars_today'],1205)
-        self.assertEqual(row['metadata_verified_at'],self.data['checked_at'])
+        self.assertEqual(row['metadata_verified_at'],previous['metadata_verified_at'])
         self.assertEqual(row['metadata_status'],'stale')
+        self.assertEqual(out['sync']['metadata_failed_count'],1)
 
     def test_api_limit_keeps_new_official_row_with_unknown_metadata(self):
         def limited(repo):

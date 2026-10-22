@@ -234,6 +234,7 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
             tracked_errors.append(row["repo"] + ": " + str(exc)[:130])
     status["watchlist_checked_at"] = stamp
     status["watchlist_errors"] = tracked_errors[:5]
+    status["watchlist_failed_count"] = len(tracked_errors)
     try:
         source = parse_trending(fetch_page())
         rows = []
@@ -304,6 +305,7 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
         status["last_success_at"] = stamp
         status["trending_count"] = len(source)
         status["verified_count"] = len(source) - len(misses)
+        status["metadata_failed_count"] = len(misses)
         status["metadata_status"] = "partial" if misses else "success"
         status["skipped"] = misses[:6]
     except (HTTPError, URLError, OSError, ValueError, KeyError) as exc:

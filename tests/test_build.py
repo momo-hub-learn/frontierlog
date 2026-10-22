@@ -241,6 +241,20 @@ class BuildTests(unittest.TestCase):
             self.assertIn('GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout',html)
             self.assertIn('Work / Codex',html)
 
+    def test_capability_boards_keep_independent_source_dates_and_current_leaders(self):
+        caps=json.loads((ROOT/'data/capabilities.json').read_text())
+        self.assertEqual(caps['boards']['coding']['checked'],'2026-09-22')
+        self.assertEqual(caps['boards']['coding']['source_checked'],'2026-10-22')
+        self.assertEqual(caps['boards']['t2i']['checked'],'2026-10-22')
+        self.assertEqual(caps['boards']['t2i']['rows'][0]['name'],'GPT Image 2.5 Sunburst (max)')
+        self.assertEqual(caps['boards']['wbench']['rows'][0]['name'],'Alaya-EVOKE-Turbo · 3-step')
+        self.assertEqual(caps['boards']['tts']['rows'][0]['name'],'Eleven v4 Turbo')
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn("b.checked||CAP3.checked",html)
+            self.assertIn('榜单数据核对',html)
+
     def test_voxtral3_is_actionable_without_claiming_runtime_test(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
         item=next(x for x in catalog['items'] if x['id']=='voxtral-3-voice-agents')
