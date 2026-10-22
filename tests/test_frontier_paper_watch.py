@@ -57,11 +57,17 @@ class WorldModelCoverageTests(unittest.TestCase):
         ids={x['id'] for x in RESEARCH['items']}
         self.assertIn('hjepa-hierarchical-planning',ids)
         self.assertIn('jepa-control-unstable-modes',ids)
+        self.assertIn('event-transitions-world-model-return-error',ids)
         x=next(x for x in RESEARCH['items'] if x['id']=='hjepa-hierarchical-planning')
         self.assertEqual(x['date'],'2026-10-05')
         self.assertTrue(all(s['strength']=='primary' for s in x['sources']))
         self.assertIn('本站没有复现',x['boundary'])
         self.assertIn('https://arxiv.org/abs/2610.06805',[s['url'] for s in x['sources']])
+        event=next(x for x in RESEARCH['items'] if x['id']=='event-transitions-world-model-return-error')
+        self.assertEqual(event['date'],'2026-10-21')
+        self.assertIn('Atari-100k',event['fact'])
+        self.assertIn('https://arxiv.org/abs/2610.29435',[s['url'] for s in event['sources']])
+        self.assertIn('不代表',event['boundary'])
 
     def test_known_arxiv_ids_are_cross_source_deduplicated(self):
         known=covered_ids(MODELS,RESEARCH)
