@@ -124,7 +124,7 @@ jobs:
           grep -q "GitHub AI 热仓" dist-ci/index.html
           grep -q "GitHub 热榜" dist-ci/index.html
           grep -q "Hugging Face 热榜" dist-ci/index.html
-          grep -Fq "title:'开源'" src/hot.js
+          grep -Fq "title:'平台热榜'" src/hot.js
           grep -Fq "title:'研究 / 评测'" src/hot.js
           grep -q "h-open-tabs" dist-ci/index.html
           grep -q "h-filterbar .h-search{width:230px;flex:0 0 230px" dist-ci/index.html

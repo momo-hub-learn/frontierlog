@@ -274,7 +274,7 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
-            self.assertIn("title:'开源'",html)
+            self.assertIn("title:'平台热榜'",html)
             self.assertIn("title:'研究 / 评测'",html)
             self.assertIn('h-open-tabs',html)
             self.assertIn('GitHub<small>',html)

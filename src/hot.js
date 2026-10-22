@@ -10,7 +10,7 @@ const H_TREND={up:['↗','上升'],flat:['—','持平'],down:['↘','回落']};
 const H_ICON={all:'sparkles',model:'cpu',product:'box',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
 const H_PRIMARY_TABS=[
  {id:'all',title:'全部',icon:'sparkles'},
- {id:'open',title:'开源',icon:'github',href:'#/hot?tab=github'},
+ {id:'open',title:'平台热榜',icon:'github',href:'#/hot?tab=github'},
  {id:'model',title:'模型',icon:'cpu'},
  {id:'product',title:'产品',icon:'box'},
  {id:'industry',title:'行业',icon:'factory'},
@@ -54,7 +54,7 @@ function hTabs(s){
 }
 function hOpenTabs(active){
  const gh=(APP.github_hot?.items||[]).length,hf=(APP.huggingface_hot?.items||[]).length;
- return '<nav class="h-open-tabs" aria-label="开源平台">'+
+ return '<nav class="h-open-tabs" aria-label="平台热榜">'+
   '<a class="'+(active==='github'?'active':'')+'" href="#/hot?tab=github">'+icon('github')+'GitHub<small>'+gh+'</small></a>'+
   '<a class="'+(active==='hf'?'active':'')+'" href="#/hot?tab=hf">'+icon('layers')+'Hugging Face<small>'+hf+'</small></a>'+
  '</nav>'

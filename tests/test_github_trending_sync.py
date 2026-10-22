@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+from urllib.error import HTTPError
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -63,6 +64,29 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertEqual(tracked['verified_at'],'2026-10-13T08:15:00Z')
         self.assertGreaterEqual(len(out['items'][0]['star_history']),1)
         self.assertEqual(out['items'][0]['star_history'][-1]['at'],'2026-10-13T08:15:00Z')
+        self.assertEqual(out['items'][0]['metadata_verified_at'],'2026-10-13T08:15:00Z')
+        self.assertEqual(out['sync']['metadata_status'],'success')
+
+    def test_api_limit_preserves_complete_official_ranking_and_old_metadata(self):
+        previous=self.data['items'][0]
+        target=previous['repo']
+        def limited(repo):
+            if repo==target:
+                raise HTTPError('https://api.github.com/repos/'+repo,403,'Forbidden',{},None)
+            return api(repo)
+        html=page().replace('/morluto/rea','/'+target,1)
+        out=update_state(self.data,self.now,fetch_page=lambda:html,fetch_metadata=limited)
+        self.assertEqual(out['sync']['status'],'success')
+        self.assertEqual(out['sync']['metadata_status'],'partial')
+        self.assertEqual(len(out['items']),8)
+        self.assertEqual([x['rank'] for x in out['items']],list(range(1,9)))
+        row=out['items'][0]
+        self.assertEqual(row['repo'],target)
+        self.assertEqual(row['stars'],previous['stars'])
+        self.assertEqual(row['rank'],1)
+        self.assertEqual(row['stars_today'],1205)
+        self.assertEqual(row['metadata_verified_at'],self.data['checked_at'])
+        self.assertEqual(row['metadata_status'],'stale')
 
     def test_failed_trending_does_not_advance_verified_date_or_old_rank(self):
         original=json.dumps(self.data['items'],sort_keys=True)

@@ -239,6 +239,7 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
         rows = []
         misses = []
         for x in source:
+            old = previous.get(x["repo"].lower(), {})
             try:
                 info = fetch_metadata(x["repo"])
                 repo_name = info.get("full_name") or x["repo"]
@@ -246,18 +247,32 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
                     # Renamed/moved repos are not silently attributed to another Trending rank.
                     raise ValueError("Repository path changed since Trending snapshot")
                 desc = info.get("description") or x["description"]
-                old = previous.get(x["repo"].lower(), {})
                 category, related, tags = classify(x["repo"], desc, old)
                 merged = {**x, **api_fields(info), "repo": x["repo"],
                           "description": desc, "category": category,
                           "ai_related": related, "tags": tags,
                           "url": "https://github.com/" + x["repo"],
+                          "metadata_verified_at": stamp,
                           "star_history": history_for(old, info["stargazers_count"], stamp)}
                 rows.append(merged)
             except (HTTPError, URLError, OSError, ValueError, KeyError) as exc:
                 misses.append(x["repo"] + ": " + str(exc)[:100])
-        if len(rows) < max(5, int(len(source) * 0.60)):
-            raise ValueError("Too few verified Trending repo metadata records")
+                # Trending rank and stars-today come from the official page and
+                # remain usable when the independent Repository API is limited.
+                # Preserve the last verified metadata instead of silently
+                # deleting a row from the official ranking.
+                if old:
+                    fallback = copy.deepcopy(old)
+                    fallback.update(x)
+                    fallback["repo"] = x["repo"]
+                    fallback["url"] = "https://github.com/" + x["repo"]
+                    fallback["description"] = x.get("description") or old.get("description", "")
+                    fallback["language"] = x.get("language") or old.get("language", "")
+                    fallback["metadata_verified_at"] = old.get("metadata_verified_at") or data.get("checked_at")
+                    fallback["metadata_status"] = "stale"
+                    rows.append(fallback)
+        if len(rows) != len(source):
+            raise ValueError("Official Trending rows lack reusable repository metadata")
         out["items"] = rows
         out["checked_at"] = stamp
         categories = {x["id"]: x for x in out.get("categories", [])}
@@ -268,7 +283,8 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
         status["status"] = "success"
         status["last_success_at"] = stamp
         status["trending_count"] = len(source)
-        status["verified_count"] = len(rows)
+        status["verified_count"] = len(source) - len(misses)
+        status["metadata_status"] = "partial" if misses else "success"
         status["skipped"] = misses[:6]
     except (HTTPError, URLError, OSError, ValueError, KeyError) as exc:
         status["status"] = "error"
