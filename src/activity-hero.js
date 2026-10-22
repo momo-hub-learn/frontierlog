@@ -148,6 +148,18 @@ if (typeof document !== 'undefined' && typeof APP !== 'undefined') (() => {
   else if(!same)slot.innerHTML=ActivityHero.featureHTML(next);
   currentFeature=next;
  }
+ function refreshEventCards(now=Date.now()) {
+  const host=root();if(!host?.classList.contains('ah-page')||document.hidden)return;
+  const byId=new Map(ActivityHero.events(radar,config).map(event=>[event.id,event]));
+  let changed=false;
+  host.querySelectorAll('.ah-event').forEach(card=>{
+   const event=byId.get(card.dataset.ahId);if(!event)return;
+   const mode=ActivityHero.phase(event,now);
+   if(!card.classList.contains(mode)){card.outerHTML=ActivityHero.eventHTML(event,now);changed=true}
+  });
+  if(changed)orderCards();
+ }
+ function refreshTemporalState(){refreshFeature();refreshEventCards()}
  function enhance() {
   const host=root();if(!host)return;
   host.classList.toggle('ah-page',state.view==='activity');
@@ -188,8 +200,8 @@ if (typeof document !== 'undefined' && typeof APP !== 'undefined') (() => {
  });
  document.addEventListener('change',e=>{if(e.target.matches('[data-ah-sort]')){sort=e.target.value;orderCards()}});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.ah-rules[open]').forEach(d=>{d.open=false;d.querySelector('summary').focus()})});
- document.addEventListener('visibilitychange',refreshFeature);
- window.addEventListener('pageshow',refreshFeature);
- setInterval(refreshFeature,60000);
+ document.addEventListener('visibilitychange',refreshTemporalState);
+ window.addEventListener('pageshow',refreshTemporalState);
+ setInterval(refreshTemporalState,60000);
  enhance();
 })();
