@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-22T12:07:22Z",
+  "checked_at": "2026-10-22T13:19:48Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -32,7 +32,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 40784
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "anthropics/knowledge-work-plugins",
@@ -61,7 +62,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 31298
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "DietrichGebert/ponytail",
@@ -131,7 +133,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 172588
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "cloudflare/security-audit-skill",
@@ -201,7 +204,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 38098
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Graphify-Labs/graphify",
@@ -271,7 +275,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 132295
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "supabase/supabase",
@@ -341,7 +346,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 113272
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "fastapi/fastapi",
@@ -370,7 +376,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 103412
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "luongnv89/claude-howto",
@@ -400,7 +407,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 42630
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Meloong-Git/PCL",
@@ -429,7 +437,8 @@
           "at": "2026-10-22T12:07:22Z",
           "stars": 8540
         }
-      ]
+      ],
+      "metadata_status": "stale"
     }
   ],
   "categories": [
@@ -507,15 +516,26 @@
   "sync": {
     "mode": "official_trending_plus_repository_api",
     "status": "success",
-    "last_checked_at": "2026-10-22T12:07:22Z",
-    "last_success_at": "2026-10-22T12:07:22Z",
+    "last_checked_at": "2026-10-22T13:19:48Z",
+    "last_success_at": "2026-10-22T13:19:48Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-22T12:07:22Z",
-    "watchlist_errors": [],
+    "watchlist_checked_at": "2026-10-22T13:19:48Z",
+    "watchlist_errors": [
+      "morluto/rea: HTTP Error 403: Forbidden"
+    ],
+    "watchlist_failed_count": 1,
     "trending_count": 9,
-    "verified_count": 9,
-    "metadata_status": "success",
-    "skipped": []
+    "verified_count": 0,
+    "metadata_failed_count": 9,
+    "metadata_status": "partial",
+    "skipped": [
+      "php/php-src: HTTP Error 403: Forbidden",
+      "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+      "DietrichGebert/ponytail: HTTP Error 403: Forbidden",
+      "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+      "Graphify-Labs/graphify: HTTP Error 403: Forbidden",
+      "supabase/supabase: HTTP Error 403: Forbidden"
+    ]
   },
   "watchlist": [
     {

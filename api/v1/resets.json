@@ -375,6 +375,36 @@
       "semantic_type": "banked_announcement",
       "not_proves": "未证明所有付费账户已经收到 banked reset、传播完成、有效期或兑换规则；也不能把它与同日 global reset 合并计为一次事件。",
       "relation": "original"
+    },
+    {
+      "id": "tibo-reset-announced-2026-10-22-day17",
+      "kind": "announcement",
+      "status": "announced",
+      "date": "2026-10-22",
+      "published_at": "2026-10-22T06:55:22.314Z",
+      "deadline_at": "2026-10-23T17:00:00Z",
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 预告下一次 reset：太平洋时间 10 月 23 日上午 10 点前落地",
+      "summary": "Tibo 在本人 X 原帖写明 10 月 22 日是 reset day；他随即在本人回复中把执行窗口进一步限定为次日上午 10 点（太平洋时间）前，即北京时间 10 月 24 日 01:00 前。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖没有说明 banked / global 类型、适用套餐或账户范围",
+      "boundary": "这是最晚落地时间，不是已经执行或传播完成的证明；“before”也不是精确执行时刻。原帖同段的 Daybreak Blue 访问提醒不是 reset 的资格条件或执行机制。",
+      "sources": [
+        "tibo-post-2113162277688070445",
+        "tibo-reply-2113162413008884099"
+      ],
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T21:20:00+08:00",
+      "review_basis": "primary_source",
+      "related_ids": [],
+      "original_text": "Day 17/ … it’s reset day today. … Lands tomorrow before 10am PST.",
+      "conversation_context": "本人回复紧接本人原帖，将原帖的“today”改写成更具体的未来落地窗口；因此本站采用回复给出的最晚时间，并保留预告状态。",
+      "interpretation": "这是可直接核验的一手 reset 预告。对用户最有用的事实是北京时间 10 月 24 日 01:00 前这一截止边界；在后续执行帖或官方说明出现前，不把它升级为已完成。",
+      "evidence_strength": "high",
+      "semantic_type": "explicit_announcement",
+      "not_proves": "未证明 reset 已执行、已传播到每个账户，也未说明 banked / global 类型、适用套餐、个人余额或精确执行时刻。",
+      "post_id": "2113162277688070445",
+      "relation": "original"
     }
   ],
   "sources": [
@@ -566,6 +596,24 @@
       "checked": "2026-10-08",
       "kind": "第三方定位线索",
       "note": "用于交叉定位 2026-10-07 的公开 Tibo 文本与时间；不替代 Tibo 原帖直读或 OpenAI 官方说明。"
+    },
+    {
+      "id": "tibo-post-2113162277688070445",
+      "publisher": "Tibo / X",
+      "title": "Day 17 reset-day announcement",
+      "url": "https://x.com/thsottiaux/status/2113162277688070445",
+      "checked": "2026-10-22",
+      "kind": "官方原帖",
+      "note": "本轮直接读取本人 X 原帖、作者账号与状态 ID；正文明确称当日是 reset day，但单独看这条不足以判断已执行。"
+    },
+    {
+      "id": "tibo-reply-2113162413008884099",
+      "publisher": "Tibo / X",
+      "title": "Reset timing clarification reply",
+      "url": "https://x.com/thsottiaux/status/2113162413008884099",
+      "checked": "2026-10-22",
+      "kind": "官方原帖",
+      "note": "本轮直接读取同一线程中的本人回复；“Lands tomorrow before 10am PST”提供最晚落地时间，不构成完成确认。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

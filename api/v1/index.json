@@ -37,6 +37,55 @@
     ],
     "items": [
       {
+        "id": "tibo-reset-announced-20261022-day17",
+        "category": "product",
+        "title": "Tibo 预告下一次 reset：北京时间 10 月 24 日 01:00 前落地",
+        "published": "2026-10-22",
+        "published_at": "2026-10-22T06:55:22.314Z",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T21:20:00+08:00",
+        "first_seen_at": "2026-10-22T21:20:00+08:00",
+        "heat": 94,
+        "heat_components": {
+          "impact": 32,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是全网热度、到账概率或本站实测。",
+        "trend": "up",
+        "summary": "Tibo 本人原帖称 10 月 22 日是 reset day，并在本人回复中澄清会在次日上午 10 点（太平洋时间）前落地，对应北京时间 10 月 24 日 01:00 前。",
+        "why": "这是用户可以据此安排额度使用的明确时间边界；原帖和紧接的本人回复都可直接核验，比第三方追踪或单条模糊预告更强。",
+        "boundary": "这是最晚落地时间，不是已执行确认，也不是精确执行时刻；帖文未说明 banked / global 类型、适用套餐或账户范围，同段的 Daybreak Blue 提醒也不是 reset 资格条件。",
+        "source": "Tibo / X",
+        "source_kind": "本人原帖与本人回复 / 本轮编辑核验",
+        "url": "https://x.com/thsottiaux/status/2113162277688070445",
+        "link": "#/tibo?event=tibo-reset-announced-2026-10-22-day17",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看本人时间澄清回复",
+            "note": "次日上午 10 点（太平洋时间）前落地",
+            "url": "https://x.com/thsottiaux/status/2113162413008884099",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Tibo / X",
+            "title": "Day 17 reset-day announcement",
+            "url": "https://x.com/thsottiaux/status/2113162277688070445",
+            "date": "2026-10-22"
+          },
+          {
+            "source": "Tibo / X",
+            "title": "Reset timing clarification reply",
+            "url": "https://x.com/thsottiaux/status/2113162413008884099",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
         "id": "ibm-granite-timeseries-ensemble-r1-20261022",
         "category": "model",
         "title": "Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测",
@@ -1942,7 +1991,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T12:32:22Z",
+    "generated_at": "2026-10-22T13:32:27Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -5487,7 +5536,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T12:32:22Z",
+    "last_evaluated": "2026-10-22T13:32:27Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 47,
@@ -5513,7 +5562,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T12:07:22Z",
+    "checked_at": "2026-10-22T13:19:48Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -5545,7 +5594,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 40784
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "anthropics/knowledge-work-plugins",
@@ -5574,7 +5624,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 31298
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "DietrichGebert/ponytail",
@@ -5644,7 +5695,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 172588
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "cloudflare/security-audit-skill",
@@ -5714,7 +5766,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 38098
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Graphify-Labs/graphify",
@@ -5784,7 +5837,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 132295
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "supabase/supabase",
@@ -5854,7 +5908,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 113272
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "fastapi/fastapi",
@@ -5883,7 +5938,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 103412
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "luongnv89/claude-howto",
@@ -5913,7 +5969,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 42630
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Meloong-Git/PCL",
@@ -5942,7 +5999,8 @@
             "at": "2026-10-22T12:07:22Z",
             "stars": 8540
           }
-        ]
+        ],
+        "metadata_status": "stale"
       }
     ],
     "categories": [
@@ -6020,15 +6078,26 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-22T12:07:22Z",
-      "last_success_at": "2026-10-22T12:07:22Z",
+      "last_checked_at": "2026-10-22T13:19:48Z",
+      "last_success_at": "2026-10-22T13:19:48Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-22T12:07:22Z",
-      "watchlist_errors": [],
+      "watchlist_checked_at": "2026-10-22T13:19:48Z",
+      "watchlist_errors": [
+        "morluto/rea: HTTP Error 403: Forbidden"
+      ],
+      "watchlist_failed_count": 1,
       "trending_count": 9,
-      "verified_count": 9,
-      "metadata_status": "success",
-      "skipped": []
+      "verified_count": 0,
+      "metadata_failed_count": 9,
+      "metadata_status": "partial",
+      "skipped": [
+        "php/php-src: HTTP Error 403: Forbidden",
+        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+        "DietrichGebert/ponytail: HTTP Error 403: Forbidden",
+        "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+        "Graphify-Labs/graphify: HTTP Error 403: Forbidden",
+        "supabase/supabase: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -6054,15 +6123,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T11:19:40Z",
+    "checked_at": "2026-10-22T13:19:10Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T11:19:40Z",
-    "web_fetched_at": "2026-10-22T11:19:40Z",
+    "api_fetched_at": "2026-10-22T13:19:10Z",
+    "web_fetched_at": "2026-10-22T13:19:10Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6073,16 +6142,16 @@
       "fishaudio/drama-3",
       "OpenMOSS-Team/MOSS-Image-Base",
       "Lightricks/LTX-2.5",
-      "google/embeddinggemma-2",
       "RecursiveSI/flint",
+      "google/embeddinggemma-2",
       "jialinyyzz/humanizer",
       "Comfy-Org/MOSS-Image",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
       "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "tencent/Hy-Memory-30B-A3B",
-      "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
+      "datalab-to/indra-ocr",
       "reflection/Beam-1.0-501B-A23B",
       "lodestones/Kromoss"
     ],
@@ -6091,8 +6160,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1979,
-        "likes": 2263,
+        "trending_score": 1993,
+        "likes": 2281,
         "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6108,8 +6177,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 917,
-        "likes": 1237,
+        "trending_score": 925,
+        "likes": 1246,
         "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6125,8 +6194,8 @@
         "rank": 3,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 583,
-        "likes": 648,
+        "trending_score": 585,
+        "likes": 651,
         "downloads": 3163,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6142,8 +6211,8 @@
         "rank": 4,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 544,
-        "likes": 618,
+        "trending_score": 545,
+        "likes": 620,
         "downloads": 102903,
         "task": "image-to-image",
         "library": "diffusers",
@@ -6159,8 +6228,8 @@
         "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 506,
-        "likes": 546,
+        "trending_score": 511,
+        "likes": 551,
         "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6176,8 +6245,8 @@
         "rank": 6,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 494,
-        "likes": 903,
+        "trending_score": 485,
+        "likes": 904,
         "downloads": 16305,
         "task": "text-to-speech",
         "library": "未标注",
@@ -6193,8 +6262,8 @@
         "rank": 7,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 449,
-        "likes": 476,
+        "trending_score": 451,
+        "likes": 478,
         "downloads": 5013,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6210,8 +6279,8 @@
         "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 416,
-        "likes": 8812,
+        "trending_score": 410,
+        "likes": 8820,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6225,27 +6294,10 @@
       },
       {
         "rank": 9,
-        "id": "google/embeddinggemma-2",
-        "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 386,
-        "likes": 2827,
-        "downloads": 185259,
-        "task": "feature-extraction",
-        "library": "transformers",
-        "created_at": "2026-09-14T14:53:42.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "embedding_gemma2",
-          "feature-extraction"
-        ]
-      },
-      {
-        "rank": 10,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 370,
-        "likes": 374,
+        "trending_score": 393,
+        "likes": 399,
         "downloads": 420,
         "task": "text-generation",
         "library": "transformers",
@@ -6258,11 +6310,28 @@
         ]
       },
       {
+        "rank": 10,
+        "id": "google/embeddinggemma-2",
+        "url": "https://huggingface.co/google/embeddinggemma-2",
+        "trending_score": 377,
+        "likes": 2829,
+        "downloads": 185259,
+        "task": "feature-extraction",
+        "library": "transformers",
+        "created_at": "2026-09-14T14:53:42.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "embedding_gemma2",
+          "feature-extraction"
+        ]
+      },
+      {
         "rank": 11,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 353,
-        "likes": 2079,
+        "trending_score": 344,
+        "likes": 2080,
         "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
@@ -6278,8 +6347,8 @@
         "rank": 12,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 328,
-        "likes": 349,
+        "trending_score": 330,
+        "likes": 351,
         "downloads": 1463386,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6295,8 +6364,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 308,
-        "likes": 4797,
+        "trending_score": 310,
+        "likes": 4803,
         "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
@@ -6312,8 +6381,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 297,
-        "likes": 18172,
+        "trending_score": 293,
+        "likes": 18175,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6329,8 +6398,8 @@
         "rank": 15,
         "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
         "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 291,
-        "likes": 301,
+        "trending_score": 292,
+        "likes": 303,
         "downloads": 10519,
         "task": "image-text-to-text",
         "library": "Model Optimizer",
@@ -6346,8 +6415,8 @@
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 272,
-        "likes": 280,
+        "trending_score": 274,
+        "likes": 282,
         "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
@@ -6361,27 +6430,10 @@
       },
       {
         "rank": 17,
-        "id": "datalab-to/indra-ocr",
-        "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 262,
-        "likes": 354,
-        "downloads": 3823,
-        "task": "image-to-text",
-        "library": "onnx",
-        "created_at": "2026-10-10T14:12:33.000Z",
-        "tags": [
-          "onnx",
-          "safetensors",
-          "indra-ocr",
-          "ocr"
-        ]
-      },
-      {
-        "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 262,
-        "likes": 273,
+        "trending_score": 264,
+        "likes": 275,
         "downloads": 6194,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -6394,11 +6446,28 @@
         ]
       },
       {
+        "rank": 18,
+        "id": "datalab-to/indra-ocr",
+        "url": "https://huggingface.co/datalab-to/indra-ocr",
+        "trending_score": 261,
+        "likes": 355,
+        "downloads": 3823,
+        "task": "image-to-text",
+        "library": "onnx",
+        "created_at": "2026-10-10T14:12:33.000Z",
+        "tags": [
+          "onnx",
+          "safetensors",
+          "indra-ocr",
+          "ocr"
+        ]
+      },
+      {
         "rank": 19,
         "id": "reflection/Beam-1.0-501B-A23B",
         "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-        "trending_score": 212,
-        "likes": 219,
+        "trending_score": 213,
+        "likes": 220,
         "downloads": 3984,
         "task": "text-generation",
         "library": "未标注",
@@ -6414,8 +6483,8 @@
         "rank": 20,
         "id": "lodestones/Kromoss",
         "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 208,
-        "likes": 213,
+        "trending_score": 212,
+        "likes": 217,
         "downloads": 14415,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6430,7 +6499,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T11:19:40Z",
+      "last_checked_at": "2026-10-22T13:19:10Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -10345,7 +10414,7 @@
   },
   "capabilities": {
     "version": 2,
-    "checked": "2026-09-22",
+    "checked": "2026-10-22",
     "groups": [
       {
         "id": "coding",
@@ -10391,6 +10460,8 @@
     ],
     "boards": {
       "coding": {
+        "checked": "2026-09-22",
+        "source_checked": "2026-10-22",
         "title": "Coding Agent Index",
         "source": "Artificial Analysis",
         "url": "https://artificialanalysis.ai/agents/coding-agents",
@@ -10488,10 +10559,11 @@
         ]
       },
       "t2i": {
+        "checked": "2026-10-22",
         "title": "文生图",
         "source": "Artificial Analysis · Image Arena",
         "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
-        "note": "盲测偏好 Elo；价格与质量分开看。",
+        "note": "AA-Image-T2I v2.1 盲测偏好 Elo；价格与质量分开看。",
         "primary": "elo",
         "columns": [
           {
@@ -10518,20 +10590,20 @@
         ],
         "rows": [
           {
-            "name": "GPT Image 2.5 Flare (max)",
+            "name": "GPT Image 2.5 Sunburst (max)",
             "maker": "OpenAI",
             "detail": "Text-to-Image",
-            "elo": 1188,
-            "samples": 5941,
+            "elo": 1222,
+            "samples": 13014,
             "price": 210.7,
             "release": "2026-09"
           },
           {
-            "name": "GPT Image 2.5 Sunburst (max)",
+            "name": "GPT Image 2.5 Flare (max)",
             "maker": "OpenAI",
             "detail": "Text-to-Image",
-            "elo": 1182,
-            "samples": 5858,
+            "elo": 1207,
+            "samples": 12364,
             "price": 210.7,
             "release": "2026-09"
           },
@@ -10539,32 +10611,33 @@
             "name": "GPT Image 2 (high)",
             "maker": "OpenAI",
             "detail": "Text-to-Image",
-            "elo": 1171,
-            "samples": 15046,
+            "elo": 1186,
+            "samples": 12835,
             "price": 211,
             "release": "2026-04"
           },
           {
-            "name": "Grok Imagine Image 2.0",
-            "maker": "SpaceXAI",
+            "name": "Nano Banana 2.1",
+            "maker": "Google",
             "detail": "Text-to-Image",
-            "elo": 1154,
-            "samples": 5881,
-            "price": 60,
-            "release": "2026-08"
+            "elo": 1176,
+            "samples": 6210,
+            "price": 33.6,
+            "release": "2026-10"
           },
           {
             "name": "MAI-Image-2.6",
             "maker": "Microsoft AI",
             "detail": "Text-to-Image",
-            "elo": 1147,
-            "samples": 8082,
+            "elo": 1166,
+            "samples": 8342,
             "price": 38.9,
             "release": "2026-08"
           }
         ]
       },
       "imgedit": {
+        "checked": "2026-10-22",
         "title": "图像编辑",
         "source": "Artificial Analysis · Image Arena",
         "url": "https://artificialanalysis.ai/image/leaderboard/editing",
@@ -10598,8 +10671,8 @@
             "name": "GPT Image 2.5 Sunburst (max)",
             "maker": "OpenAI",
             "detail": "Image Edit",
-            "elo": 1176,
-            "samples": 5560,
+            "elo": 1200,
+            "samples": 18179,
             "price": 210.7,
             "release": "2026-09"
           },
@@ -10607,8 +10680,8 @@
             "name": "GPT Image 2.5 Flare (max)",
             "maker": "OpenAI",
             "detail": "Image Edit",
-            "elo": 1155,
-            "samples": 5753,
+            "elo": 1183,
+            "samples": 19073,
             "price": 210.7,
             "release": "2026-09"
           },
@@ -10616,32 +10689,33 @@
             "name": "MAI-Image-2.6",
             "maker": "Microsoft AI",
             "detail": "Image Edit",
-            "elo": 1132,
-            "samples": 13922,
+            "elo": 1153,
+            "samples": 16591,
             "price": 38.9,
             "release": "2026-08"
           },
           {
-            "name": "MAI-Image-2.6-Flash",
-            "maker": "Microsoft AI",
+            "name": "Nano Banana 2.1",
+            "maker": "Google",
             "detail": "Image Edit",
-            "elo": 1122,
-            "samples": 10023,
-            "price": 19.5,
-            "release": "2026-09"
+            "elo": 1152,
+            "samples": 6800,
+            "price": 33.6,
+            "release": "2026-10"
           },
           {
-            "name": "GPT Image 2 (high)",
-            "maker": "OpenAI",
+            "name": "Krea 3 (Ultra)",
+            "maker": "Krea",
             "detail": "Image Edit",
-            "elo": 1121,
-            "samples": 13391,
-            "price": 211,
-            "release": "2026-04"
+            "elo": 1152,
+            "samples": 5440,
+            "price": 270,
+            "release": "2026-10"
           }
         ]
       },
       "t2v": {
+        "checked": "2026-10-22",
         "title": "文生视频",
         "source": "Artificial Analysis · Video Arena",
         "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
@@ -10675,50 +10749,51 @@
             "name": "Wan 3.0",
             "maker": "Alibaba",
             "detail": "Text-to-Video",
-            "elo": 1243,
-            "samples": 5771,
+            "elo": 1175,
+            "samples": 6372,
             "price": 12,
             "release": "2026-08"
           },
           {
-            "name": "Gemini Omni Flash",
-            "maker": "Google",
+            "name": "Utopai X",
+            "maker": "Utopai Studios",
             "detail": "Text-to-Video",
-            "elo": 1238,
-            "samples": 16395,
-            "price": 6,
-            "release": "2026-05"
+            "elo": 1167,
+            "samples": 5813,
+            "price": null,
+            "release": "2026-09"
           },
           {
-            "name": "Minimax H3 Max",
-            "maker": "Fal",
+            "name": "HeyGen Video (ultraquality)",
+            "maker": "HeyGen",
             "detail": "Text-to-Video",
-            "elo": 1231,
-            "samples": 5499,
-            "price": 2.4,
-            "release": "2026-08"
+            "elo": 1160,
+            "samples": 5520,
+            "price": null,
+            "release": "2026-10"
           },
           {
-            "name": "MiniMax H3",
+            "name": "MiniMax H3 (768p)",
             "maker": "MiniMax",
             "detail": "Text-to-Video",
-            "elo": 1225,
-            "samples": 8874,
-            "price": 7.8,
+            "elo": 1158,
+            "samples": 6484,
+            "price": 4.8,
             "release": "2026-07"
           },
           {
-            "name": "Dreamina Seedance 2.0 720p",
+            "name": "Dreamina Seedance 2.5",
             "maker": "ByteDance Seed",
             "detail": "Text-to-Video",
-            "elo": 1220,
-            "samples": 22625,
-            "price": 9.07,
-            "release": "2026-03"
+            "elo": 1158,
+            "samples": 6477,
+            "price": 34.12,
+            "release": "2026-07"
           }
         ]
       },
       "i2v": {
+        "checked": "2026-10-22",
         "title": "图生视频",
         "source": "Artificial Analysis · Video Arena",
         "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
@@ -10749,57 +10824,58 @@
         ],
         "rows": [
           {
-            "name": "Minimax H3 Max",
-            "maker": "Fal",
-            "detail": "Image-to-Video",
-            "elo": 1195,
-            "samples": 5569,
-            "price": 2.4,
-            "release": "2026-08"
-          },
-          {
-            "name": "MiniMax H3",
+            "name": "MiniMax H3 (768p)",
             "maker": "MiniMax",
             "detail": "Image-to-Video",
-            "elo": 1181,
-            "samples": 6949,
-            "price": 7.8,
+            "elo": 1140,
+            "samples": 4209,
+            "price": 4.8,
             "release": "2026-07"
           },
           {
-            "name": "Gemini Omni Flash",
-            "maker": "Google",
+            "name": "FLUX 3 Max (720p)",
+            "maker": "Fal",
             "detail": "Image-to-Video",
-            "elo": 1177,
-            "samples": 10079,
-            "price": 6,
-            "release": "2026-05"
+            "elo": 1138,
+            "samples": 5054,
+            "price": 2.55,
+            "release": "2026-10"
           },
           {
-            "name": "HiDream-O1-Video",
-            "maker": "HiDream",
+            "name": "Dreamina Seedance 2.5",
+            "maker": "ByteDance Seed",
             "detail": "Image-to-Video",
-            "elo": 1176,
-            "samples": 2815,
-            "price": 5.8,
+            "elo": 1138,
+            "samples": 3688,
+            "price": 34.12,
+            "release": "2026-07"
+          },
+          {
+            "name": "Gemini Omni Flash 1.1",
+            "maker": "Google",
+            "detail": "Image-to-Video",
+            "elo": 1132,
+            "samples": 3368,
+            "price": 9.12,
             "release": "2026-08"
           },
           {
-            "name": "Dreamina Seedance 2.0 720p",
-            "maker": "ByteDance Seed",
+            "name": "Wan 3.0",
+            "maker": "Alibaba",
             "detail": "Image-to-Video",
-            "elo": 1174,
-            "samples": 13797,
-            "price": 9.07,
-            "release": "2026-03"
+            "elo": 1127,
+            "samples": 5144,
+            "price": 12,
+            "release": "2026-08"
           }
         ]
       },
       "wbench": {
+        "checked": "2026-10-22",
         "title": "WBench · 交互世界",
         "source": "WBench",
         "url": "https://meituan-longcat.github.io/WBench/",
-        "note": "交互式世界模型；覆盖质量、场景、交互、一致性与物理。",
+        "note": "官方榜 2026-10-12 更新；45 个模型、289 个多轮案例，不存在跨维度全能领先者。",
         "primary": "avg",
         "columns": [
           {
@@ -10811,6 +10887,11 @@
           {
             "key": "quality",
             "label": "质量",
+            "unit": ""
+          },
+          {
+            "key": "setting",
+            "label": "场景",
             "unit": ""
           },
           {
@@ -10831,58 +10912,64 @@
         ],
         "rows": [
           {
-            "name": "XGEN-Jing · camera bidirection",
+            "name": "Alaya-EVOKE-Turbo · 3-step",
+            "maker": "Alaya Lab",
+            "detail": "Open Source",
+            "avg": 82,
+            "quality": 81.9,
+            "setting": 82.1,
+            "interaction": 83.9,
+            "consistency": 88.1,
+            "physical": 74
+          },
+          {
+            "name": "XGEN-Jing · bidirection",
             "maker": "XGEN Labs",
             "detail": "Open Source",
-            "avg": 81,
-            "quality": 80.9,
-            "interaction": 76.7,
-            "consistency": 85.7,
+            "avg": 81.9,
+            "quality": 82.4,
+            "setting": 90.3,
+            "interaction": 75.6,
+            "consistency": 88.1,
             "physical": 73.3
           },
           {
-            "name": "XGEN-Jing · camera 4-step AR",
-            "maker": "XGEN Labs",
-            "detail": "Open Source",
-            "avg": 79.9,
-            "quality": 79.8,
-            "interaction": 79.5,
-            "consistency": 81.4,
-            "physical": 69.9
-          },
-          {
-            "name": "Kling 3.0 · text",
-            "maker": "Kling AI",
-            "detail": "API",
-            "avg": 79.4,
-            "quality": 80,
-            "interaction": 73.1,
-            "consistency": 83.9,
-            "physical": 69.2
-          },
-          {
-            "name": "Wan 2.7 · text",
-            "maker": "Alibaba",
-            "detail": "API",
-            "avg": 78.4,
-            "quality": 81,
-            "interaction": 72.1,
-            "consistency": 75.8,
-            "physical": 71.6
-          },
-          {
-            "name": "Seedance 1.5 · text",
+            "name": "Enuma · bidirection",
             "maker": "ByteDance",
-            "detail": "API",
-            "avg": 76.2,
-            "quality": 81.9,
-            "interaction": 68.3,
-            "consistency": 79.9,
-            "physical": 68.2
+            "detail": "Unreleased",
+            "avg": 81.7,
+            "quality": 83.6,
+            "setting": 79.9,
+            "interaction": 83.2,
+            "consistency": 88.6,
+            "physical": 73.3
+          },
+          {
+            "name": "VWA-World",
+            "maker": "X-Era AI",
+            "detail": "World Model",
+            "avg": 81.7,
+            "quality": 82.1,
+            "setting": 83.8,
+            "interaction": 85.9,
+            "consistency": 87.7,
+            "physical": 68.9
+          },
+          {
+            "name": "JoyAI-Echo-1.5 · bidirection audio",
+            "maker": "JD Future Academy",
+            "detail": "Open Source",
+            "avg": 81.6,
+            "quality": 81.5,
+            "setting": 79.4,
+            "interaction": 86.6,
+            "consistency": 89.8,
+            "physical": 70.6
           }
         ]
       },
       "worldolympiad": {
+        "checked": "2026-10-22",
         "title": "WorldOlympiad",
         "source": "Alibaba DAMO Academy",
         "url": "https://alibaba-damo-academy.github.io/WorldOlympiad/",
@@ -10970,6 +11057,7 @@
         ]
       },
       "tts": {
+        "checked": "2026-10-22",
         "title": "文本转语音",
         "source": "Artificial Analysis · Speech Arena",
         "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
@@ -11000,57 +11088,59 @@
         ],
         "rows": [
           {
+            "name": "Eleven v4 Turbo",
+            "maker": "ElevenLabs",
+            "detail": "TTS",
+            "elo": 1335,
+            "samples": 2045,
+            "price": 40,
+            "release": "2026-09"
+          },
+          {
+            "name": "Eleven v4",
+            "maker": "ElevenLabs",
+            "detail": "TTS",
+            "elo": 1329,
+            "samples": 2346,
+            "price": 80,
+            "release": "2026-09"
+          },
+          {
+            "name": "Qwen-Audio-3.1-TTS-Plus",
+            "maker": "Alibaba",
+            "detail": "TTS",
+            "elo": 1301,
+            "samples": 1977,
+            "price": 19.3,
+            "release": "2026-09"
+          },
+          {
             "name": "Sonic 3.6",
             "maker": "Cartesia",
             "detail": "TTS",
-            "elo": 1276,
-            "samples": 1822,
+            "elo": 1289,
+            "samples": 2789,
             "price": 49,
             "release": "2026-08"
           },
           {
-            "name": "Qwen-Audio-3.0-TTS-Plus",
-            "maker": "Alibaba",
+            "name": "Gemini 3.8 Flash TTS",
+            "maker": "Google",
             "detail": "TTS",
-            "elo": 1260,
-            "samples": 1559,
-            "price": 27.6,
+            "elo": 1278,
+            "samples": 3033,
+            "price": 16.5,
             "release": "2026-09"
-          },
-          {
-            "name": "Realtime TTS-2",
-            "maker": "Inworld",
-            "detail": "TTS",
-            "elo": 1247,
-            "samples": 1262,
-            "price": 20.8,
-            "release": "2026-08"
-          },
-          {
-            "name": "Simba 3.2",
-            "maker": "SpeechifyAI",
-            "detail": "TTS",
-            "elo": 1240,
-            "samples": 2498,
-            "price": 6.6,
-            "release": "2026-07"
-          },
-          {
-            "name": "Luna TTS",
-            "maker": "VUI Labs",
-            "detail": "TTS",
-            "elo": 1231,
-            "samples": 2698,
-            "price": 80,
-            "release": "2026-06"
           }
         ]
       },
       "s2s": {
+        "checked": "2026-09-22",
+        "source_checked": "2026-10-22",
         "title": "实时语音 Agent",
         "source": "Artificial Analysis · Speech-to-Speech",
         "url": "https://artificialanalysis.ai/speech-to-speech",
-        "note": "综合语音推理、对话动态、Agentic、任务成功、延迟和成本。",
+        "note": "综合语音推理、对话动态、Agentic、任务成功、延迟和成本；本轮官方页面可核验方法与样本覆盖，但动态榜值未提供可核对文本，表内保留 9 月 22 日快照。",
         "primary": "index",
         "columns": [
           {
@@ -14380,6 +14470,36 @@
         "semantic_type": "banked_announcement",
         "not_proves": "未证明所有付费账户已经收到 banked reset、传播完成、有效期或兑换规则；也不能把它与同日 global reset 合并计为一次事件。",
         "relation": "original"
+      },
+      {
+        "id": "tibo-reset-announced-2026-10-22-day17",
+        "kind": "announcement",
+        "status": "announced",
+        "date": "2026-10-22",
+        "published_at": "2026-10-22T06:55:22.314Z",
+        "deadline_at": "2026-10-23T17:00:00Z",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 预告下一次 reset：太平洋时间 10 月 23 日上午 10 点前落地",
+        "summary": "Tibo 在本人 X 原帖写明 10 月 22 日是 reset day；他随即在本人回复中把执行窗口进一步限定为次日上午 10 点（太平洋时间）前，即北京时间 10 月 24 日 01:00 前。",
+        "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖没有说明 banked / global 类型、适用套餐或账户范围",
+        "boundary": "这是最晚落地时间，不是已经执行或传播完成的证明；“before”也不是精确执行时刻。原帖同段的 Daybreak Blue 访问提醒不是 reset 的资格条件或执行机制。",
+        "sources": [
+          "tibo-post-2113162277688070445",
+          "tibo-reply-2113162413008884099"
+        ],
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T21:20:00+08:00",
+        "review_basis": "primary_source",
+        "related_ids": [],
+        "original_text": "Day 17/ … it’s reset day today. … Lands tomorrow before 10am PST.",
+        "conversation_context": "本人回复紧接本人原帖，将原帖的“today”改写成更具体的未来落地窗口；因此本站采用回复给出的最晚时间，并保留预告状态。",
+        "interpretation": "这是可直接核验的一手 reset 预告。对用户最有用的事实是北京时间 10 月 24 日 01:00 前这一截止边界；在后续执行帖或官方说明出现前，不把它升级为已完成。",
+        "evidence_strength": "high",
+        "semantic_type": "explicit_announcement",
+        "not_proves": "未证明 reset 已执行、已传播到每个账户，也未说明 banked / global 类型、适用套餐、个人余额或精确执行时刻。",
+        "post_id": "2113162277688070445",
+        "relation": "original"
       }
     ],
     "sources": [
@@ -14571,6 +14691,24 @@
         "checked": "2026-10-08",
         "kind": "第三方定位线索",
         "note": "用于交叉定位 2026-10-07 的公开 Tibo 文本与时间；不替代 Tibo 原帖直读或 OpenAI 官方说明。"
+      },
+      {
+        "id": "tibo-post-2113162277688070445",
+        "publisher": "Tibo / X",
+        "title": "Day 17 reset-day announcement",
+        "url": "https://x.com/thsottiaux/status/2113162277688070445",
+        "checked": "2026-10-22",
+        "kind": "官方原帖",
+        "note": "本轮直接读取本人 X 原帖、作者账号与状态 ID；正文明确称当日是 reset day，但单独看这条不足以判断已执行。"
+      },
+      {
+        "id": "tibo-reply-2113162413008884099",
+        "publisher": "Tibo / X",
+        "title": "Reset timing clarification reply",
+        "url": "https://x.com/thsottiaux/status/2113162413008884099",
+        "checked": "2026-10-22",
+        "kind": "官方原帖",
+        "note": "本轮直接读取同一线程中的本人回复；“Lands tomorrow before 10am PST”提供最晚落地时间，不构成完成确认。"
       }
     ],
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
