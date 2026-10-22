@@ -36,7 +36,15 @@ class ToolkitTests(unittest.TestCase):
         rows={row['id']:row for row in self.data['items']}
         self.assertEqual(rows['anthropic-claude-security']['sources'][0]['url'].split('/')[2],'claude.com')
         self.assertEqual(rows['nvidia-openshell']['sources'][0]['url'].split('/')[2],'nvidianews.nvidia.com')
+        self.assertEqual(rows['nvidia-auto-ontology']['sources'][0]['url'].split('/')[2],'blogs.nvidia.com')
         validate_toolkit(self.data,self.catalog)
+
+    def test_auto_ontology_preserves_credential_boundary(self):
+        row=next(x for x in self.data['items'] if x['id']=='nvidia-auto-ontology')
+        self.assertEqual(row['publisher'],'NVIDIA')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('Vault',row['requirements'])
+        self.assertIn('明文',row['limitation'])
     def test_verification_dates_use_beijing_calendar_day(self):
         data=copy.deepcopy(self.data)
         data['items'][0]['sources'][0]['verified_at']='2026-10-22'

@@ -36,6 +36,54 @@
   ],
   "items": [
     {
+      "id": "nvidia-agent-knowledge-foundation-20261021",
+      "category": "product",
+      "title": "Agent Knowledge Foundation：把企业数据接入 Agent 的语义层开放出来",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T13:20:00+08:00",
+      "first_seen_at": "2026-10-22T13:20:00+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 33,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是通用准确率、商业价值或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 Agent Knowledge Foundation，把 Nemotron Retriever、Kumo、Auto Ontology 与 cuDF、cuGraph、cuML、cuOpt、cuVS 组合成可独立采用的数据链；其中 Auto Ontology 已以 Apache 2.0 开源，并通过 MCP、CLI 与 API 向 Agent 暴露经认证的业务语义和来源。",
+      "why": "企业 Agent 的瓶颈从“能不能调用数据库”转向“是否理解指标、关系、权限与来源”。开放的语义层允许团队在既有数据平台上单独验证检索、定义对齐、预测与优化，而不必接受一个封闭的端到端套件。",
+      "boundary": "官方所述 ontology 创建时间降低 90%、检索与 CUDA-X 加速数字均来自 NVIDIA 测试或特定支持工作负载，不能跨组件合成总收益。Auto Ontology 默认推理路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 添加的数据库凭据会以明文存入 Postgres。本站只核验文档与代码，未运行。",
+      "source": "NVIDIA",
+      "source_kind": "官方平台发布与开源仓库 / 本轮编辑核验",
+      "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+      "link": "#/toolkit?id=nvidia-auto-ontology",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "在隔离测试库验证 Auto Ontology",
+          "note": "先固定问题、标准 SQL、权限和凭据存储方式",
+          "url": "https://github.com/NVIDIA/auto-ontology",
+          "kind": "code"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data",
+          "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+          "date": "2026-10-21"
+        },
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Auto Ontology",
+          "url": "https://github.com/NVIDIA/auto-ontology"
+        }
+      ]
+    },
+    {
       "id": "nvidia-kumo-relational-20261021",
       "category": "model",
       "title": "Kumo Relational：直接在关系数据库上做少样本预测",
