@@ -2,6 +2,19 @@
   "snapshot": "2026-10-22",
   "events": [
     {
+      "id": "nvidia-kumo-relational-release",
+      "task": "nvidia-kumo-relational",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Relational 开放关系数据少样本预测入口",
+      "summary": "开放模型权重、structured-data-models 库、PQL 客户端、NIM 与快速入门。",
+      "delta": "企业预测可以从每个任务单独造特征与训练模型，转向保留关系结构的上下文学习；必须用本地时间外推基线复验。",
+      "sources": [
+        "nvidia-kumo-relational-release"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
       "id": "nvidia-nemotron-3-5-retriever-release",
       "task": "nvidia-nemotron-3-5-retriever",
       "date": "2026-10-21",
@@ -332,6 +345,15 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-kumo-relational-release",
+      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布、论文与开放入口"
+    },
     {
       "id": "nvidia-nemotron-3-5-retriever-release",
       "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",

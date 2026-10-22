@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-21T23:45:03Z",
+  "generated_at": "2026-10-22T01:32:24Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 36,
+    "merge": 38,
     "hold": 4
   },
   "candidates": [
@@ -23,12 +23,12 @@
       "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.951,
+      "priority_score": 0.93,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "research_id": "stateful-agentic-ad-stack",
@@ -52,12 +52,12 @@
       "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T19:42:10Z"
@@ -75,12 +75,12 @@
       "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T19:42:10Z"
@@ -98,15 +98,38 @@
       "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T17:48:39Z"
+    },
+    {
+      "id": "candidate-7e5edc5a0d94b32f",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "DSX POD：用预制集成压缩 AI 工厂现场工期",
+      "summary": "NVIDIA 发布 DSX POD 参考设计：合作伙伴在工厂内把 Vera Rubin 计算、网络、布线、机柜供电与液冷集成到模块并先行验证，再运到已准备的场地连接。",
+      "why": "产品化预制可以让模块集成与场地电力、冷却和网络准备并行，把 AI 基础设施的竞争点从单一系统扩展到制造、物流、现场接口和验收节拍。",
+      "boundary": "六个月缩短到最短 14 天是 NVIDIA 针对已准备场地的厂商声明，不是现有交付项目的独立统计。它不包含前期电力、并网、审批、土建与运输所需全部时间；生态伙伴计划 2027 年初交付，不等于当前可用。",
+      "source": "NVIDIA",
+      "source_kind": "官方 AI 基础设施参考设计公告",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.816,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-22T01:32:24Z"
     },
     {
       "id": "candidate-a9f05ade665ffc32",
@@ -121,12 +144,12 @@
       "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T19:42:10Z"
@@ -144,12 +167,12 @@
       "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T21:30:26Z"
@@ -167,12 +190,12 @@
       "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T13:33:09Z"
@@ -190,12 +213,12 @@
       "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T17:48:39Z"
@@ -213,12 +236,12 @@
       "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
@@ -236,12 +259,12 @@
       "url": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.837,
+      "priority_score": 0.816,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
@@ -259,12 +282,12 @@
       "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-openshell",
@@ -283,12 +306,12 @@
       "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "anthropic-claude-security",
@@ -307,16 +330,40 @@
       "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-nemotron-3-5-retriever",
       "first_seen_at": "2026-10-21T23:27:58Z"
+    },
+    {
+      "id": "candidate-2c43ecffbf7a9b8f",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "Kumo Relational 开放关系数据少样本预测入口",
+      "summary": "开放模型权重、structured-data-models 库、PQL 客户端、NIM 与快速入门。",
+      "why": "企业预测可以从每个任务单独造特征与训练模型，转向保留关系结构的上下文学习；必须用本地时间外推基线复验。",
+      "boundary": "作者在 RelBench、SAP SALT 与 4DBInfer 上的结果不代表任意企业数据；大训练集、跨跳数信号或数据漂移下，专用监督模型可能更强。本站未运行模型。",
+      "source": "NVIDIA / Hugging Face",
+      "source_kind": "官方技术发布、论文与开放入口",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-kumo-relational",
+      "first_seen_at": "2026-10-22T01:32:24Z"
     },
     {
       "id": "candidate-78c73999374b87c6",
@@ -331,12 +378,12 @@
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-patch-the-planet",
@@ -355,12 +402,12 @@
       "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "ibm-granite-speech-5",
@@ -379,12 +426,12 @@
       "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-kumo-anomaly",
@@ -403,12 +450,12 @@
       "url": "https://openai.com/index/openai-models-google-cloud",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "google-antigravity",
@@ -427,12 +474,12 @@
       "url": "https://claude.com/resources/articles/claude-duet",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.826,
+      "priority_score": 0.805,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "claude-duet",
@@ -451,15 +498,44 @@
       "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
       "publishable": true,
       "features": {
-        "freshness": 0.929,
+        "freshness": 0.857,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.816,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
+    },
+    {
+      "id": "candidate-1a8825c7fc7b6d70",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "关系数据预测从任务级训练转向少样本上下文学习",
+      "summary": "Kumo Relational 直接在表、外键和时间戳上运行，以最多 10,000 个历史样例作为上下文；作者报告其在 15 个数据库的 41 个任务上超过多种监督关系模型与特征工程基线。",
+      "why": "如果独立复现成立，企业表数据的新预测任务可以更像声明一个查询，而不是每次重建特征、训练与部署流水线；这也给 Agent 增加了“预测下一步”的结构化数据工具。",
+      "boundary": "不同榜单的 AUROC、MRR 和 Elo 不能合并成综合分。报告来自作者；官方也明确大训练集下专用监督模型可能更强，且预测信号必须在有限关系跳数内可达。",
+      "source": "NVIDIA / Kumo",
+      "source_kind": "官方发布、论文、文档与代码入口",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "relational-foundation-models-in-context-prediction",
+      "topic_tags": [
+        "Relational Foundation Model",
+        "In-Context Learning",
+        "Structured Data"
+      ],
+      "first_seen_at": "2026-10-22T01:32:24Z"
     },
     {
       "id": "candidate-5c070fe36400c5b3",
@@ -474,12 +550,12 @@
       "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "distributed-biological-reasoning",
@@ -503,12 +579,12 @@
       "url": "https://claude.com/resources/articles/claude-duet",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "anthropic-claude-duet",
@@ -527,12 +603,12 @@
       "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "external-agent-policy-enforcement",
@@ -556,12 +632,12 @@
       "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
       "publishable": true,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-kumo-forecast",
@@ -580,12 +656,12 @@
       "url": "https://claude.com/resources/articles/claude-duet",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "proactive-background-agent-governance",
@@ -609,12 +685,12 @@
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "agent-assisted-vulnerability-response",
@@ -638,12 +714,12 @@
       "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
       "publishable": false,
       "features": {
-        "freshness": 1.0,
+        "freshness": 0.929,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.815,
+      "priority_score": 0.794,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "multimodal-retrieval-pipeline-components",
@@ -667,12 +743,12 @@
       "url": "https://mistral.ai/news/voxtral-3",
       "publishable": true,
       "features": {
-        "freshness": 0.929,
+        "freshness": 0.857,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.805,
+      "priority_score": 0.783,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "voxtral-3-voice-agents",
@@ -691,12 +767,12 @@
       "url": "https://huggingface.co/nvidia/RFD4-Proteina",
       "publishable": true,
       "features": {
-        "freshness": 0.857,
+        "freshness": 0.786,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.794,
+      "priority_score": 0.773,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
@@ -714,12 +790,12 @@
       "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
       "publishable": false,
       "features": {
-        "freshness": 0.929,
+        "freshness": 0.857,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.794,
+      "priority_score": 0.773,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "agent-monitoring-outside-model",
@@ -743,12 +819,12 @@
       "url": "https://huggingface.co/blog/allenai/fairstress",
       "publishable": false,
       "features": {
-        "freshness": 0.929,
+        "freshness": 0.857,
         "authority": 1.0,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.794,
+      "priority_score": 0.773,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "fairstress",
@@ -772,12 +848,12 @@
       "url": "https://huggingface.co/nvidia/RFD4-Proteina",
       "publishable": true,
       "features": {
-        "freshness": 0.857,
+        "freshness": 0.786,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.783,
+      "priority_score": 0.762,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-rfd4-proteina",
@@ -796,12 +872,12 @@
       "url": "https://www.anthropic.com/research/employment-at-anthropic",
       "publishable": false,
       "features": {
-        "freshness": 0.643,
+        "freshness": 0.571,
         "authority": 0.72,
         "impact": 0.82,
         "novelty": 1.0
       },
-      "priority_score": 0.769,
+      "priority_score": 0.747,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "research_id": "anthropic-employment-ai-intensive-workplace",
@@ -825,12 +901,12 @@
       "url": "https://arxiv.org/abs/2610.28631",
       "publishable": false,
       "features": {
-        "freshness": 0.929,
+        "freshness": 0.857,
         "authority": 0.88,
         "impact": 0.82,
         "novelty": 0.15
       },
-      "priority_score": 0.762,
+      "priority_score": 0.74,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "research_id": "aeon-video-4d-world-model",
@@ -854,12 +930,12 @@
       "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
       "publishable": true,
       "features": {
-        "freshness": 0.571,
+        "freshness": 0.5,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.708,
+      "priority_score": 0.687,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
@@ -877,12 +953,12 @@
       "url": "https://mistral.ai/news/timestral",
       "publishable": true,
       "features": {
-        "freshness": 0.571,
+        "freshness": 0.5,
         "authority": 1.0,
         "impact": 0.9,
         "novelty": 0.15
       },
-      "priority_score": 0.708,
+      "priority_score": 0.687,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
@@ -900,12 +976,12 @@
       "url": "https://mistral.ai/news/timestral",
       "publishable": true,
       "features": {
-        "freshness": 0.571,
+        "freshness": 0.5,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.698,
+      "priority_score": 0.676,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "timestral",
@@ -924,88 +1000,16 @@
       "url": "https://arena.ai/blog/ai-alignment-index",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.684,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "product_id": "arena",
-      "first_seen_at": "2026-10-09T05:17:35Z"
-    },
-    {
-      "id": "candidate-c95f97cd68f31bb5",
-      "category": "product",
-      "published": "2026-10-08",
-      "title": "Arena 宣布 2 亿美元 B 轮融资，估值 31 亿美元",
-      "summary": "Arena 官方宣布完成 2 亿美元 B 轮融资、估值 31 亿美元，并称年化营收已超过 1 亿美元；此项为公司披露而非第三方审计。",
-      "why": "融资与营收是商业需求信号，不等于评测方法已获得独立验证；更需要观察企业可复现的真实效果。",
-      "boundary": "不把融资估值、年化营收作为模型能力或企业客户 ROI 证据；年化营收不等于年度审计收入。",
-      "source": "Arena Intelligence",
-      "source_kind": "官方产品节点",
-      "url": "https://arena.ai/blog/series-b",
-      "publishable": true,
-      "features": {
-        "freshness": 0.071,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.684,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "product_id": "arena",
-      "first_seen_at": "2026-10-09T05:17:35Z"
-    },
-    {
-      "id": "candidate-47750334ae9b688a",
-      "category": "product",
-      "published": "2026-10-13",
-      "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
-      "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
-      "why": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
-      "boundary": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
-      "source": "Google",
-      "source_kind": "官方产品节点",
-      "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
-      "publishable": true,
-      "features": {
-        "freshness": 0.429,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.655,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "google-antigravity",
-      "first_seen_at": "2026-10-20T12:44:41Z"
-    },
-    {
-      "id": "candidate-6982206f194b1f18",
-      "category": "product",
-      "published": "2026-10-07",
-      "title": "GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout",
-      "summary": "OpenAI 把 GPT-6 带到 ChatGPT Chat，并让模型按问题生成图形、按钮、表单、图表和可交互体验；付费与企业层 10 月 7 日开始，Free / Go 从 10 月 8 日开始扩展。",
-      "why": "ChatGPT 的能力边界从“生成答案”继续走向“即时生成任务界面”；但这次只改变 Chat 体验，Work / Codex 模型不在本次更新范围，且 rollout 不代表所有账户瞬时可见。",
-      "boundary": "官方措辞是 rollout，不等于所有账号同时可见；Intelligent UI 的布局与交互质量仍会随问题而变化，也不等于任意网页应用、无限制代码执行或外部动作权限。此次更新只针对 Chat，Work 与 Codex 的模型不随本次发布改变。",
-      "source": "OpenAI",
-      "source_kind": "官方产品发布",
-      "url": "https://openai.com/index/gpt-6-for-everyone",
-      "publishable": true,
-      "features": {
         "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
-        "novelty": 0.15
+        "novelty": 1.0
       },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "chatgpt-gpt6-intelligent-ui",
-      "first_seen_at": "2026-10-08T02:57:27Z"
+      "priority_score": 0.662,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "product_id": "arena",
+      "first_seen_at": "2026-10-09T05:17:35Z"
     }
   ]
 }

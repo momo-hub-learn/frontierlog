@@ -137,6 +137,12 @@
 
 边界：这是合作与研发方向，不代表监管批准、临床疗效已经证实或系统能够自主制定并执行治疗；计算蛋白设计也不证明结合、活性、安全性或临床价值。
 
+站内热度 96；不是全网流量。</description></item><item><title>Kumo Relational：直接在关系数据库上做少样本预测</title><guid isPermaLink="false">frontierlog:hot:nvidia-kumo-relational-20261021</guid><link>https://huggingface.co/blog/nvidia/kumo-relational</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 开放 Kumo Relational：以最多 10,000 个历史样例做上下文，直接读取表、外键与时间戳，在单次前向中预测流失、需求或欺诈，无需每个任务单独训练与手工特征工程。
+
+为什么值得看：结构化数据基础模型开始把“新建一条监督学习流水线”改写成“连接数据库、提出预测查询”；开放库、权重、NIM 与快速入门让企业可以用自己的时间切分独立复现。
+
+边界：41 个任务、15 个数据库、RelArena-α 与 SAP SALT 结果来自作者评测，且不同榜的 AUROC、MRR 与 Elo 不能合并。官方明确：大训练集下专用监督模型仍可能更强，信号还必须在有限关系跳数内可达；本站未运行。
+
 站内热度 96；不是全网流量。</description></item><item><title>OpenAI 收购 Orchestra Bio：连接药物研发与项目协作</title><guid isPermaLink="false">frontierlog:hot:openai-orchestra-bio-20261020</guid><link>https://openai.com/index/openai-to-acquire-orchestra-bio/</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 宣布已收购 Orchestra Bio，并将其团队与技术结合到 Rosalind。重点是协助生物制药团队跟踪研究、依赖关系和项目进度。
 
 为什么值得看：生命科学 Agent 开始连接科学分析与研发流程；可关注证据追溯、权限和人工决策如何衔接。
@@ -190,6 +196,12 @@
 为什么值得看：基础设施竞争开始从 GPU 数量转向每兆瓦有效产出；DSX 给出了可分层验证的设计、仿真、运行与电网接口，也公开了若干厂商 PoC 数字。
 
 边界：近零冷却用水、最多 30% 节电和吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、系统、负载和设施边界影响；不能外推到任意数据中心，也不是本站实测。
+
+站内热度 94；不是全网流量。</description></item><item><title>DSX POD：把 Vera Rubin AI 工厂集成到预制模块</title><guid isPermaLink="false">frontierlog:hot:nvidia-dsx-pod-20261021</guid><link>https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 DSX POD 参考设计：合作伙伴在工厂内完成 Vera Rubin 系统、网络、机柜供电与液冷的集成验证，再运到已备电力、冷却和网络的场地连接。
+
+为什么值得看：AI 工厂交付正从现场定制施工转向工厂预制与并行场地准备；这会影响 2027 年算力扩容的工期、供应链与验收方法。
+
+边界：“从六个月到最短 14 天”是 NVIDIA 对已准备场地的前瞻性交付声明，不是已完成的全球项目统计；电力、并网、审批、交通、现场土建和供应商产能仍可成为瓶颈。合作生态系统计划于 2027 年初交付，不等于现已可购。
 
 站内热度 94；不是全网流量。</description></item><item><title>Kumo Forecast：时序预测加入历史模式检索与解释</title><guid isPermaLink="false">frontierlog:hot:nvidia-kumo-forecast-20261021</guid><link>https://huggingface.co/blog/nvidia/kumo-forecast</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 Kumo Forecast：以约 3.4 亿参数的 MOMENT-1-large 编码器做多变量预测，可选 DARR 从相似历史窗口检索上下文，并为不同预测跨度生成解释。
 
