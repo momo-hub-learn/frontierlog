@@ -42,6 +42,45 @@
   ],
   "items": [
     {
+      "id": "nvidia-kumo-relational",
+      "publisher": "NVIDIA",
+      "group": "research",
+      "access": "model",
+      "headline": "用严格时间外推测试比较 Kumo Relational 与现网基线",
+      "input": "一个获得授权、保留外键和时间戳的关系数据库，以及明确的实体、预测时点和未来目标窗口",
+      "output": "对每个待预测实体的分类或回归结果，以及可与 XGBoost、现网模型同口径比较的质量、校准、时延和资源记录",
+      "requirements": "Python、官方 structured-data-models 环境、支持的 NVIDIA GPU 和可以复现的数据库快照；权重许可与业务数据合规分别审查。",
+      "limitation": "本站只核验官方发布、文档与入口，未下载或运行模型。作者评测不等于你的数据；最多 10,000 个上下文样例、有限关系跳数和时间漂移都可能限制效果。",
+      "cost": "代码为 Apache 2.0，权重使用 OpenMDW 1.1；本地 GPU、NIM、云端和数据处理成本需分别计算。",
+      "steps": [
+        {
+          "title": "先冻结时间与关系边界",
+          "body": "对每个实体明确预测时点，只提供当时可见的表、外键和字段；把目标窗口及其派生字段排除在输入外。"
+        },
+        {
+          "title": "在同一留出集上建立对照",
+          "body": "按官方快速入门运行小样本，同时保留简单多数类/均值、XGBoost 或现网模型；不跨数据集比分数。"
+        },
+        {
+          "title": "分组记录质量与资源",
+          "body": "分实体类型、时间段和目标频率记录质量、校准、推理时延、显存和失败样本；只有优于基线才扩大范围。"
+        }
+      ],
+      "troubleshooting": "分数异常高时先查未来标签、聚合表和重复实体；显存不足时缩小上下文样例与相关表；无增益时保留基线，不用微调掩盖评测泄漏。",
+      "sources": [
+        {
+          "title": "Kumo Relational 官方发布与快速入门",
+          "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T09:20:00+08:00"
+    },
+    {
       "id": "nvidia-nemotron-3-5-retriever",
       "publisher": "NVIDIA",
       "group": "documents",

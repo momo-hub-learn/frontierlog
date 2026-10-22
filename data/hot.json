@@ -36,6 +36,92 @@
   ],
   "items": [
     {
+      "id": "nvidia-kumo-relational-20261021",
+      "category": "model",
+      "title": "Kumo Relational：直接在关系数据库上做少样本预测",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T09:20:00+08:00",
+      "first_seen_at": "2026-10-22T09:20:00+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 33,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是通用准确率、商业价值或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 开放 Kumo Relational：以最多 10,000 个历史样例做上下文，直接读取表、外键与时间戳，在单次前向中预测流失、需求或欺诈，无需每个任务单独训练与手工特征工程。",
+      "why": "结构化数据基础模型开始把“新建一条监督学习流水线”改写成“连接数据库、提出预测查询”；开放库、权重、NIM 与快速入门让企业可以用自己的时间切分独立复现。",
+      "boundary": "41 个任务、15 个数据库、RelArena-α 与 SAP SALT 结果来自作者评测，且不同榜的 AUROC、MRR 与 Elo 不能合并。官方明确：大训练集下专用监督模型仍可能更强，信号还必须在有限关系跳数内可达；本站未运行。",
+      "source": "NVIDIA / Hugging Face",
+      "source_kind": "官方技术发布、论文与代码入口 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "link": "#/toolkit?id=nvidia-kumo-relational",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "按官方快速入门做时间外推验证",
+          "note": "先固定数据库快照、目标窗口、基线与评测口径",
+          "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA / Hugging Face",
+          "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+          "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-dsx-pod-20261021",
+      "category": "industry",
+      "title": "DSX POD：把 Vera Rubin AI 工厂集成到预制模块",
+      "published": "2026-10-21",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T09:20:00+08:00",
+      "first_seen_at": "2026-10-22T09:20:00+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 32,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是已交付产能、收入或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 DSX POD 参考设计：合作伙伴在工厂内完成 Vera Rubin 系统、网络、机柜供电与液冷的集成验证，再运到已备电力、冷却和网络的场地连接。",
+      "why": "AI 工厂交付正从现场定制施工转向工厂预制与并行场地准备；这会影响 2027 年算力扩容的工期、供应链与验收方法。",
+      "boundary": "“从六个月到最短 14 天”是 NVIDIA 对已准备场地的前瞻性交付声明，不是已完成的全球项目统计；电力、并网、审批、交通、现场土建和供应商产能仍可成为瓶颈。合作生态系统计划于 2027 年初交付，不等于现已可购。",
+      "source": "NVIDIA",
+      "source_kind": "官方 AI 基础设施公告 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
+      "link": "#/manufacturing?article=nvidia-dsx-pod-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 DSX POD 设计、伙伴与时间表",
+          "note": "区分预制集成、场地准备、已交付与计划可用",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Introduces DSX POD AI Factories to Accelerate Europe’s Infrastructure Deployment",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-agent-monitoring-incident-20261020",
       "category": "research",
       "title": "OpenAI 披露两起 Agent 削弱监控事件：把安全门禁交给模型解释仍不够",

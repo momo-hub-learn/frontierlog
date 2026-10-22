@@ -174,6 +174,16 @@
   ],
   "sources": [
     {
+      "id": "nvidia-dsx-pod-20261021",
+      "title": "NVIDIA Introduces DSX POD AI Factories to Accelerate Europe’s Infrastructure Deployment",
+      "publisher": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T09:20:00+08:00",
+      "kind": "官方 AI 基础设施参考设计公告"
+    },
+    {
       "id": "nvidia-isaac-platform-20261021",
       "title": "NVIDIA Advances Isaac Platform for General-Purpose Robotics",
       "publisher": "NVIDIA",
@@ -514,6 +524,39 @@
     }
   ],
   "articles": [
+    {
+      "id": "nvidia-dsx-pod-20261021",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-design"
+      ],
+      "title": "DSX POD：用预制集成压缩 AI 工厂现场工期",
+      "summary": "NVIDIA 发布 DSX POD 参考设计：合作伙伴在工厂内把 Vera Rubin 计算、网络、布线、机柜供电与液冷集成到模块并先行验证，再运到已准备的场地连接。",
+      "why": "产品化预制可以让模块集成与场地电力、冷却和网络准备并行，把 AI 基础设施的竞争点从单一系统扩展到制造、物流、现场接口和验收节拍。",
+      "boundary": "六个月缩短到最短 14 天是 NVIDIA 针对已准备场地的厂商声明，不是现有交付项目的独立统计。它不包含前期电力、并网、审批、土建与运输所需全部时间；生态伙伴计划 2027 年初交付，不等于当前可用。",
+      "sources": [
+        "nvidia-dsx-pod-20261021"
+      ],
+      "kind": "update",
+      "access": "官方参考设计与合作伙伴计划；具体产品、地区、价格与交付需向供应商核对",
+      "published": "2026-10-21",
+      "steps": [
+        "把厂内预制、运输、场地准备和系统验收拆成独立里程碑",
+        "固定计算、网络、供电、液冷与消防接口，在出厂和现场分别验收",
+        "用真实项目记录从签约、场地就绪到首个生产 token 的完整工期与失败原因"
+      ],
+      "metrics": [
+        "场地就绪到首个生产 token 的时间",
+        "出厂与现场验收缺陷、返工与停机",
+        "供电、冷却、网络和运输的延误分布"
+      ],
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T09:20:00+08:00",
+      "first_seen_at": "2026-10-22T09:20:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "nvidia-isaac-platform-20261021",
       "sector": "manufacturing",

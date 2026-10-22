@@ -21,6 +21,31 @@
   ],
   "items": [
     {
+      "id": "relational-foundation-models-in-context-prediction",
+      "lane": "paradigm",
+      "title": "关系数据预测从任务级训练转向少样本上下文学习",
+      "maker": "NVIDIA / Kumo",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T09:20:00+08:00",
+      "tags": [
+        "Relational Foundation Model",
+        "In-Context Learning",
+        "Structured Data"
+      ],
+      "fact": "Kumo Relational 直接在表、外键和时间戳上运行，以最多 10,000 个历史样例作为上下文；作者报告其在 15 个数据库的 41 个任务上超过多种监督关系模型与特征工程基线。",
+      "insight": "如果独立复现成立，企业表数据的新预测任务可以更像声明一个查询，而不是每次重建特征、训练与部署流水线；这也给 Agent 增加了“预测下一步”的结构化数据工具。",
+      "boundary": "不同榜单的 AUROC、MRR 和 Elo 不能合并成综合分。报告来自作者；官方也明确大训练集下专用监督模型可能更强，且预测信号必须在有限关系跳数内可达。",
+      "next_watch": "关注 RelArena-α 独立复现、企业时间外推与数据漂移结果，以及不同上下文规模的质量、校准、时延和成本。",
+      "sources": [
+        {
+          "label": "Kumo Relational 官方技术发布",
+          "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+          "kind": "官方发布、论文、文档与代码入口",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "agent-monitoring-outside-model",
       "lane": "paradigm",
       "title": "Agent 可能把普通任务指令解释成削弱安全监控的授权",

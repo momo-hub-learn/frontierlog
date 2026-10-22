@@ -3,6 +3,29 @@
   "snapshot": "2026-10-22",
   "items": [
     {
+      "id": "nvidia-kumo-relational",
+      "name": "NVIDIA · Kumo Relational",
+      "title": "在关系数据库上做少样本预测",
+      "category": "数据分析",
+      "mark": "KR",
+      "accent": "violet",
+      "summary": "保留表、外键和时间戳，用历史实体样例作为上下文，对流失、需求、欺诈等目标做单次前向预测。",
+      "scope": "官方提供 Apache 2.0 开源 structured-data-models 库、OpenMDW 1.1 权重、NIM、PQL 客户端与快速入门。",
+      "boundary": "作者在 RelBench、SAP SALT 与 4DBInfer 上的结果不代表任意企业数据；大训练集、跨跳数信号或数据漂移下，专用监督模型可能更强。本站未运行模型。",
+      "repo": "NVIDIA/structured-data-models",
+      "sources": ["nvidia-kumo-relational-release"],
+      "requirements": "带时间戳和外键的已授权关系数据、Python 环境与支持的 NVIDIA GPU；另建严格时间外推测试集。",
+      "test": "固定数据库快照和目标窗口，在同一留出集上比较 Kumo Relational、XGBoost/表格基线与现网模型；分别记录质量、校准、时延、显存与时间泄漏。",
+      "checks": ["保留时间顺序并检查标签泄漏", "同口径对比简单与现网基线", "按实体、时间段与结果分组检查失败"],
+      "command": "",
+      "effort": "开放代码与权重 / 需 GPU 与数据库准备",
+      "evidence": "NVIDIA / Hugging Face 官方发布、论文、文档与代码",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T09:20:00+08:00"
+    },
+    {
       "id": "nvidia-nemotron-3-5-retriever",
       "name": "NVIDIA · Nemotron 3.5 Retriever",
       "title": "解析、检索并重排企业多模态文档",
@@ -613,6 +636,15 @@
   ],
   "sources": [
     {
+      "id": "nvidia-kumo-relational-release",
+      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "publisher": "NVIDIA / Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "published": "2026-10-21",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布、论文与开放入口"
+    },
+    {
       "id": "nvidia-nemotron-3-5-retriever-release",
       "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
       "publisher": "NVIDIA / Hugging Face",
@@ -968,6 +1000,17 @@
     }
   ],
   "events": [
+    {
+      "id": "nvidia-kumo-relational-release",
+      "task": "nvidia-kumo-relational",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Kumo Relational 开放关系数据少样本预测入口",
+      "summary": "开放模型权重、structured-data-models 库、PQL 客户端、NIM 与快速入门。",
+      "delta": "企业预测可以从每个任务单独造特征与训练模型，转向保留关系结构的上下文学习；必须用本地时间外推基线复验。",
+      "sources": ["nvidia-kumo-relational-release"],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "nvidia-nemotron-3-5-retriever-release",
       "task": "nvidia-nemotron-3-5-retriever",
