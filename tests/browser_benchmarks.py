@@ -18,7 +18,12 @@ with sync_playwright() as pw:
  p.set_default_timeout(5000);p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(HTML)
  assert p.locator('.brand strong').inner_text()=='AI坐标'
  assert not p.locator('.brand-resources').get_attribute('open')
- assert p.locator('[data-action="repo"]').count()==1
+ repo=p.locator('[data-repo-link]')
+ assert repo.count()==1
+ assert repo.get_attribute('href')=='https://github.com/momo-hub-learn/frontierlog'
+ assert repo.get_attribute('target')=='_blank'
+ assert 'noopener' in (repo.get_attribute('rel') or '')
+ assert '新窗口打开' in (repo.get_attribute('aria-label') or '')
  assert p.locator('html').get_attribute('data-theme')=='light'
  shot(p,'brand-home.png');ok('unified brand, compact support menu and current homepage')
  route(p,'#/benchmarks');expect(p.locator('[data-b-card]')).to_have_count(TOTAL)

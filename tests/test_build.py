@@ -328,7 +328,7 @@ class BuildTests(unittest.TestCase):
             self.assertIn('function hfSourceRows()',html)
             self.assertIn("ageHours>6",html)
             self.assertIn('GitHub 历史快照',html)
-            self.assertIn('HuggingFace 历史快照',html)
+            self.assertIn('Hugging Face 历史快照',html)
             self.assertIn("const delta=t.gain>0?",html)
 
     def test_hot_panel_title_is_inline_bilingual(self):

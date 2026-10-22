@@ -99,8 +99,8 @@ hotPage=function(){
   if(!hfActive())return hfBaseHotPage();
   const s=hState(),q=hfQuery(),fresh=hfFreshness(),stale=fresh.web.stale;
   return '<section class="h-wrap v10-hot hf-embedded">'+
-    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'MODEL ECOSYSTEM / TRENDING')+'</p><h1>'+(stale?'HuggingFace 历史快照':'HuggingFace 热榜')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再冒充当前 Trending；保留历史快照供追溯，并直接回到官方原榜。':'看开源模型生态正在关注什么；平台热度与模型能力严格分开。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'Hugging Face 官方 Trending')+'</span><span>'+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+'</span></div></header>'+
-    '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="hf-search" type="search" value="'+esc(q)+'" placeholder="搜索模型、任务、标签…" aria-label="搜索 HuggingFace 热榜"><kbd>/</kbd></label></div>'+
+    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'MODEL ECOSYSTEM / TRENDING')+'</p><h1>'+(stale?'Hugging Face 历史快照':'Hugging Face 热榜')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再冒充当前 Trending；保留历史快照供追溯，并直接回到官方原榜。':'看模型社区正在关注什么；平台热度与模型能力严格分开。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'Hugging Face 官方 Trending')+'</span><span>'+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+'</span></div></header>'+
+    '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="hf-search" type="search" value="'+esc(q)+'" placeholder="搜索模型、任务、标签…" aria-label="搜索 Hugging Face 热榜"><kbd>/</kbd></label></div>'+
     hfInline()+
   '</section>'
 };

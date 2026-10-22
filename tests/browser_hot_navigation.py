@@ -90,16 +90,20 @@ with sync_playwright() as pw:
     page.evaluate("""() => {
       APP.huggingface_hot.web_fetched_at = new Date().toISOString();
       APP.huggingface_hot.api_fetched_at = new Date(Date.now() - 7 * 3600 * 1000).toISOString();
+      APP.huggingface_hot.web_order = [...APP.huggingface_hot.web_order];
+      APP.huggingface_hot.web_order[10] = 'example/web-only-model';
     }""")
     route(page, '#/hot?tab=hf')
     rendered = page.locator('.hf-model').evaluate_all("els => els.map(x => x.firstChild.nodeValue.trim())")
     expected = page.evaluate('APP.huggingface_hot.web_order')
     assert rendered == expected, (rendered, expected)
-    expect(page.locator('.h-head h1')).to_contain_text('HuggingFace 热榜')
+    expect(page.locator('.h-head h1')).to_contain_text('Hugging Face 热榜')
+    expect(page.locator('.h-head')).to_contain_text('看模型社区正在关注什么')
+    expect(page.locator('#hf-search')).to_have_attribute('aria-label', '搜索 Hugging Face 热榜')
     expect(page.locator('.h-head .h-meta')).not_to_contain_text('待核验')
     expect(page.locator('.ranking-stale strong')).to_have_text('网页榜位已核验；API 指标沿用旧快照')
     expect(page.locator('.hf-score span', has_text='API Trending（旧）')).not_to_have_count(0)
-    expect(page.locator('.hf-row', has_text='RecursiveSI/flint').locator('.hf-score span')).to_have_text('API 未收录')
+    expect(page.locator('.hf-row', has_text='example/web-only-model').locator('.hf-score span')).to_have_text('API 未收录')
     ok('HF web order stays current while older API metrics remain visibly time-separated')
 
     sizes = {}
