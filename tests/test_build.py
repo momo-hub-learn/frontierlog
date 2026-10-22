@@ -53,6 +53,11 @@ class BuildTests(unittest.TestCase):
             self.assertTrue(all(i.text.startswith(app['site']['base_url']) for i in rss.findall('./channel/item/link')))
             self.assertEqual(len({i.text for i in rss.findall('./channel/item/guid')}),len(self.c['events'])+len(json.loads((ROOT/'data/industry.json').read_text())['articles']))
             self.assertIn('sitemap.xml',(d/'robots.txt').read_text())
+            html=(d/'index.html').read_text()
+            self.assertIn('<a class="iconbutton brand-github" href="#" data-action="repo" data-repo-link',html)
+            self.assertIn("repoLink.href='https://github.com/'+SITE.repository",html)
+            self.assertIn("repoLink.removeAttribute('data-action')",html)
+            self.assertNotIn('<button class="iconbutton brand-github"',html)
     def test_model_table_shows_company_logo_column(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
