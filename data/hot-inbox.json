@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-22T01:32:24Z",
+  "generated_at": "2026-10-22T03:33:57Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
     "merge": 38,
-    "hold": 4
+    "hold": 5
   },
   "candidates": [
     {
@@ -38,6 +38,35 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
+    },
+    {
+      "id": "candidate-92ca2707f4cec9ad",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "世界模型的关键误差不一定出现在最差画面，而在稀有事件",
+      "summary": "论文在 44 个通过可靠性检查的 Atari-100k 模型—数据集组合上，用真实转移替换想象转移；作者报告，修补获得奖励或回合结束的事件转移可消除中位数 70% 的回报误差，而按 MSE、SSIM 或 LPIPS 选出的高像素误差转移不及随机选择。",
+      "why": "世界模型用于规划时，评测重点需要从“帧看起来像不像”进一步转向“奖励、终止与关键事件是否正确”；这会影响训练数据采样、诊断预算和部署门禁。",
+      "boundary": "结论来自作者在 Atari-100k 与少量控制任务上的诊断，不代表所有视觉世界模型或真实机器人都遵循相同比例；论文也不是新的通用能力榜。",
+      "source": "Haoyue Liu / Xiaoying Tang",
+      "source_kind": "论文原文与实验口径",
+      "url": "https://arxiv.org/abs/2610.29435",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.898,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "event-transitions-world-model-return-error",
+      "topic_tags": [
+        "World Model",
+        "Planning",
+        "Evaluation"
+      ],
+      "first_seen_at": "2026-10-22T03:33:57Z"
     },
     {
       "id": "candidate-2e1dbc4df560deae",
@@ -986,30 +1015,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "timestral",
       "first_seen_at": "2026-10-21T11:52:59Z"
-    },
-    {
-      "id": "candidate-019270e4cda473b1",
-      "category": "product",
-      "published": "2026-10-08",
-      "title": "发布 Alignment Index：跟踪三类可验证的 Agent 对齐问题",
-      "summary": "Arena 发布初版 Alignment Index，以真实 Agent Arena 会话衡量 Unauthorized Action、False Attribution、Deceptive Completion，作为 Agent 能力榜的补充。",
-      "why": "Arena 正从“哪一个回答更讨喜”转向“Agent 是否按授权执行、是否如实汇报结果”；值得持续追踪可观测证据与标签质量。",
-      "boundary": "不能据此宣称模型全面安全，也不能保证对所有企业工作流的泛化性。榜单和协议可能继续迭代。",
-      "source": "Arena Intelligence",
-      "source_kind": "官方产品节点",
-      "url": "https://arena.ai/blog/ai-alignment-index",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.662,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "product_id": "arena",
-      "first_seen_at": "2026-10-09T05:17:35Z"
     }
   ]
 }

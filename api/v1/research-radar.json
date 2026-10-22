@@ -21,6 +21,31 @@
   ],
   "items": [
     {
+      "id": "event-transitions-world-model-return-error",
+      "lane": "paradigm",
+      "title": "世界模型的关键误差不一定出现在最差画面，而在稀有事件",
+      "maker": "Haoyue Liu / Xiaoying Tang",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-22T11:24:35+08:00",
+      "tags": [
+        "World Model",
+        "Planning",
+        "Evaluation"
+      ],
+      "fact": "论文在 44 个通过可靠性检查的 Atari-100k 模型—数据集组合上，用真实转移替换想象转移；作者报告，修补获得奖励或回合结束的事件转移可消除中位数 70% 的回报误差，而按 MSE、SSIM 或 LPIPS 选出的高像素误差转移不及随机选择。",
+      "insight": "世界模型用于规划时，评测重点需要从“帧看起来像不像”进一步转向“奖励、终止与关键事件是否正确”；这会影响训练数据采样、诊断预算和部署门禁。",
+      "boundary": "结论来自作者在 Atari-100k 与少量控制任务上的诊断，不代表所有视觉世界模型或真实机器人都遵循相同比例；论文也不是新的通用能力榜。",
+      "next_watch": "关注事件感知指标是否在机器人、多主体环境与长时规划中复现，以及修补关键事件能否稳定提高真实任务成功率。",
+      "sources": [
+        {
+          "label": "Events, Not Pixels 论文原文",
+          "url": "https://arxiv.org/abs/2610.29435",
+          "kind": "论文原文与实验口径",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "relational-foundation-models-in-context-prediction",
       "lane": "paradigm",
       "title": "关系数据预测从任务级训练转向少样本上下文学习",
