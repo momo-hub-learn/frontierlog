@@ -6,7 +6,7 @@ function hfActive(){
 }
 function hfWhen(value){
   const raw=String(value||'');if(!raw)return '待核验';
-  try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}
+  try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}
   catch{return raw}
 }
 function hfAge(raw){

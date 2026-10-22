@@ -82,6 +82,7 @@ try:
         expect(page.locator(".p5-research-card")).to_have_count(len(RESEARCH["items"]))
         body = page.locator(".p5-progress").inner_text()
         assert "我们的解读" in body and "现在还不能推出" in body
+        assert "世界模型的关键误差不一定出现在最差画面，而在稀有事件" in body
         passed("research radar keeps fact, interpretation and boundary visibly separate")
 
         go("#/toolkit")
@@ -106,6 +107,12 @@ try:
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), route
         passed("all primary content routes render with no desktop page overflow")
 
+        go("#/hot?tab=hf")
+        hf_text = page.locator(".hf-inline").inner_text()
+        assert "北京时间" in hf_text and "RecursiveSI/flint" in hf_text
+        assert "API Trending（旧）" not in hf_text
+        passed("fresh Hugging Face web/API snapshots show explicit Beijing timestamps")
+
         go("#/feed")
         page.locator('[data-action="theme"]').click()
         assert page.locator("html").get_attribute("data-theme") == "dark"
@@ -121,7 +128,7 @@ try:
         )
         mobile.on("pageerror", lambda e: errors.append(str(e)))
         mobile.set_content(HTML, wait_until="load") if MEMORY else mobile.goto(url)
-        for route in ("#/feed", "#/progress", "#/hot", "#/toolkit", "#/manufacturing"):
+        for route in ("#/feed", "#/progress", "#/hot", "#/hot?tab=hf", "#/toolkit", "#/manufacturing"):
             mobile.evaluate("route => location.hash = route", route)
             mobile.wait_for_timeout(120)
             assert mobile.evaluate("document.documentElement.scrollWidth <= innerWidth"), route
