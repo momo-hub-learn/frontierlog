@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-23",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,54 @@
     }
   ],
   "items": [
+    {
+      "id": "nvidia-minerva-ai-factory-observability-20261022",
+      "category": "industry",
+      "title": "NVIDIA Minerva：把 AI 工厂的作业与基础设施告警串成一张图",
+      "published": "2026-10-22",
+      "published_at": "2026-10-22T08:00:00-07:00",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T01:26:00+08:00",
+      "first_seen_at": "2026-10-23T01:26:00+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 33,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是产品可靠性、故障减少比例或本站实测。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 AI 工厂 AIOps 平台 Minerva：把 GPU、网络、存储、调度器和工作负载遥测映射成动态知识图，用专用模型检测异常、预测故障并把告警风暴聚合成带可能根因的事件。",
+      "why": "训练和推理集群的优化目标正从单卡利用率扩展到作业、网络、存储与站点的联合可观察性；Minerva 还给出 AI factory yield 口径，把 GPU 小时、goodput、集群在线时间和 token 产出放进同一运营视角。",
+      "boundary": "功能、规模和合作方均来自 NVIDIA 发布，本站未接入或压测。官方文中没有给出定价、部署门槛、支持矩阵或可复现的故障预测准确率；文章所链产品页在本轮核验时返回 404，因此不能写成公开可试用。",
+      "source": "NVIDIA",
+      "source_kind": "官方产品发布与 GTC Berlin 实时更新 / 本轮编辑核验",
+      "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Minerva 官方发布",
+          "note": "先核对遥测范围、知识图、告警聚合与人工在环边界",
+          "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+          "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+          "date": "2026-10-22"
+        },
+        {
+          "source": "NVIDIA",
+          "title": "GTC Berlin 2026: Live Updates",
+          "url": "https://blogs.nvidia.com/gtc-berlin-2026-news/",
+          "date": "2026-10-22"
+        }
+      ]
+    },
     {
       "id": "tibo-reset-announced-20261022-day17",
       "category": "product",

@@ -148,6 +148,9 @@ class BuildTests(unittest.TestCase):
     def test_activity_radar_renders_frontier_live_categories(self):
         radar=json.loads((ROOT/'data/activity-radar.json').read_text())
         sources={x['id']:x for x in radar['sources']}
+        fde=next(x for x in radar['events'] if x['id']=='openai-fde-frontier-2026-10-22')
+        self.assertEqual(fde['status'],'upcoming')
+        self.assertEqual(sources[fde['source_id']]['authority'],'official')
         self.assertTrue(any(x['status']=='upcoming' for x in radar['events']))
         self.assertTrue({'dwarkesh','latent-space','no-priors','lex-fridman','zhang-xiaojun','silicon-valley-101','42zhangjing','crossing'} <= set(sources))
         self.assertTrue({'openai-engineering','anthropic-engineering','google-research-blog','nvidia-technical-blog','microsoft-research-blog','meta-ai-research'} <= set(sources))

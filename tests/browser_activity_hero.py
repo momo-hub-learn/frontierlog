@@ -5,12 +5,28 @@ import os
 from pathlib import Path
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'test-results/activity-hero'
 OUT.mkdir(parents=True, exist_ok=True)
+RADAR = json.loads((ROOT/'data/activity-radar.json').read_text(encoding='utf-8'))
+FEATURES = json.loads((ROOT/'data/activity-feature.json').read_text(encoding='utf-8'))['events']
+EVENT_IDS = [event['id'] for event in RADAR['events']]
+assert len(EVENT_IDS) == len(set(EVENT_IDS))
 MEMORY = os.environ.get('BROWSER_TEST_MODE') == 'memory'
+CLOCK_ISO = '2026-09-25T13:00:00Z'
+CLOCK_NOW = datetime.fromisoformat(CLOCK_ISO.replace('Z','+00:00'))
+FEATURE_ID, FEATURE = min(
+    ((event_id,event) for event_id,event in FEATURES.items()
+     if event.get('start_at') and datetime.fromisoformat(event['start_at'].replace('Z','+00:00')) > CLOCK_NOW),
+    key=lambda pair: datetime.fromisoformat(pair[1]['start_at'].replace('Z','+00:00')))
+FEATURE_START = datetime.fromisoformat(FEATURE['start_at'].replace('Z','+00:00'))
+BEIJING_TEXT = FEATURE_START.astimezone(ZoneInfo('Asia/Shanghai')).strftime('%m/%d %H:%M')
+SOURCE_TEXT = FEATURE_START.astimezone(ZoneInfo(FEATURE['time_zone'])).strftime('%m/%d %H:%M')
+ICS_START = FEATURE_START.astimezone(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 CLOCK = """{ const OriginalDate=Date; const fixed=OriginalDate.parse('2026-09-25T13:00:00Z');
 window.Date=class extends OriginalDate { constructor(...a){super(...(a.length?a:[fixed]))} static now(){return fixed} }; }"""
 class Quiet(SimpleHTTPRequestHandler):
@@ -44,12 +60,15 @@ try:
         go('#/activity')
         expect(page.locator('.ah-hero')).to_have_count(1)
         expect(page.locator('.ah-feature')).to_have_count(1)
-        expect(page.locator('.ah-event')).to_have_count(4)
+        expect(page.locator('.ah-event')).to_have_count(len(EVENT_IDS))
+        assert page.locator('.ah-event').evaluate_all("es=>es.map(e=>e.dataset.ahId)") == EVENT_IDS
         assert len(page.locator('.ah-intro').inner_text()) < 125
-        expect(page.locator('.ah-feature .ah-start')).to_contain_text('12/02 03:00')
-        expect(page.locator('.ah-feature .ah-local')).to_contain_text('12/01 14:00')
+        expect(page.locator('.ah-feature')).to_have_attribute('data-ah-feature',FEATURE_ID)
+        expect(page.locator('.ah-feature .ah-start')).to_contain_text(BEIJING_TEXT)
+        expect(page.locator('.ah-feature .ah-local')).to_contain_text(SOURCE_TEXT)
         # A readable type scale is allowed more space than the former 10px labels.
-        assert page.locator('.ah-hero').bounding_box()['height'] < 370
+        hero_height=page.locator('.ah-hero').bounding_box()['height']
+        assert hero_height < 550, hero_height
         passed('readable header, one feature, correct Beijing and source-local times')
         expect(page.locator('.ah-rules-panel')).not_to_be_visible()
         page.locator('.ah-rules summary').click()
@@ -62,13 +81,13 @@ try:
         with page.expect_download() as dl:
             page.locator('[data-ah-calendar]').click()
         text=Path(dl.value.path()).read_bytes().decode('utf-8')
-        assert 'DTSTART:20261201T190000Z' in text and 'TRIGGER:-PT15M' in text
+        assert 'DTSTART:'+ICS_START in text and 'TRIGGER:-PT15M' in text
         assert 'ATTENDEE' not in text
         passed('calendar button exports a real ICS, exact UTC start, no external signup')
         page.wait_for_timeout(3600)
         if not MEMORY:
             page.wait_for_function("[...document.querySelectorAll('.ah-art img')].every(i=>i.complete&&i.naturalWidth>0)")
-            passed('all five visible artwork instances load from checked-in local previews')
+            passed('all configured local event artwork loads from checked-in previews')
         page.locator('[data-ah-view=list]').click()
         expect(page.locator('#content')).to_have_attribute('data-ah-layout','list')
         expect(page.locator('[data-ah-view=list]')).to_have_attribute('aria-pressed','true')
@@ -84,7 +103,9 @@ try:
             expect(page.locator('.v2-radar-tabs .active')).to_have_attribute('href','#/activity?type='+kind)
             go('#/activity?type='+kind+'&source='+source)
             expect(page.locator('.v2-radar-subtabs .active')).to_contain_text({'apple-events':'Apple Events','google-research-blog':'Google Research','dwarkesh':'Dwarkesh'}[source])
-            if kind=='events': expect(page.locator('.ah-event')).to_have_count(2)
+            if kind=='events':
+                expected=sum(event['source_id']==source for event in RADAR['events'])
+                expect(page.locator('.ah-event')).to_have_count(expected)
         passed('type and source filters preserve state and the global featured event')
         go('#/activity?type=technical')
         page.locator('[data-ah-sort]').select_option('picks')

@@ -8,7 +8,10 @@ const now=Date.parse('2026-09-25T13:00:00Z');
 let n=0;
 function test(name,fn){fn();n++;console.log('PASS',name)}
 const event=H.events(radar,conf).find(e=>e.id==='nvidia-gtc-dc-2026');
-test('select tracked official future event',()=>{assert.equal(H.select(radar,conf,now).item.id,event.id);assert.equal(H.phase(event,now),'upcoming')});
+const fde=H.events(radar,conf).find(e=>e.id==='openai-fde-frontier-2026-10-22');
+test('current official event outranks a distant future event',()=>{const f=H.select(radar,conf,Date.parse('2026-10-22T17:20:00Z'));assert.equal(f.item.id,fde.id);assert.equal(f.mode,'started')});
+test('verified event without reusable artwork uses labelled fallback',()=>{const s=H.featureHTML({kind:'event',item:fde,mode:'started'},Date.parse('2026-10-22T17:20:00Z'));assert.match(s,/ah-art-fallback[^>]*>OpenAI</);assert.doesNotMatch(s,/<img /)});
+test('select nearest tracked official future event',()=>{assert.equal(H.select(radar,conf,now).item.id,fde.id);assert.equal(H.phase(fde,now),'upcoming')});
 test('timezone conversion crosses the Beijing date boundary',()=>{assert.match(H.times(event).primary,/12\/02.*03:00/);assert.match(H.times(event).secondary,/12\/01.*14:00/)});
 test('countdown derived from clock, not a stored 67',()=>{assert.notEqual(H.remaining(event,now),H.remaining(event,now+86400000));assert.match(H.remaining(event,Date.parse(event.start_at)-1000),/1 分钟后/)});
 test('past event never retains upcoming label',()=>{assert.equal(H.phase(event,Date.parse(event.start_at)+1),'started');assert.equal(H.phase(event,Date.parse(event.start_at)+7*3600000),'ended')});

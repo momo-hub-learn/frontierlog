@@ -40,7 +40,10 @@ jobs:
           from pathlib import Path
           meta=json.loads(Path('data/activity-feature.json').read_text())
           for event in meta['events'].values():
-              path=Path(event['artwork']['local'])
+              artwork=event.get('artwork')
+              if not artwork:
+                  continue
+              path=Path(artwork['local'])
               data=path.read_bytes()
               assert data[:4]==b'RIFF' and data[8:12]==b'WEBP' and len(data)>100
               assert (Path('dist')/path).read_bytes()==data
