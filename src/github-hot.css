@@ -21,6 +21,7 @@
 .gh-repo em{font:700 .8125rem var(--sans);font-style:normal;color:var(--accent);background:var(--accent-bg);border:1px solid color-mix(in srgb,var(--accent) 18%,var(--line));border-radius:999px;padding:2px 6px;white-space:nowrap}
 .gh-main p{color:var(--sub);font-size:1rem;line-height:1.75;margin-top:7px;overflow-wrap:anywhere}
 .gh-sub{display:flex;gap:4px 12px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.875rem;line-height:1.6;margin-top:8px}
+.gh-sub .gh-metadata-warning{color:var(--warning,#c56a10);font-weight:750}
 .gh-delta{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:6px}
 .gh-delta strong{font:850 1.375rem var(--display,var(--sans));color:var(--accent)}
 .gh-delta span{font-size:.8125rem;color:var(--muted);text-align:right}

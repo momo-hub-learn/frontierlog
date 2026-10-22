@@ -42,6 +42,51 @@
   ],
   "items": [
     {
+      "id": "ibm-granite-timeseries-ensemble-r1",
+      "publisher": "IBM Research",
+      "group": "research",
+      "access": "model",
+      "headline": "用滚动回测核验 Granite 四模型概率预测配方",
+      "input": "一组已授权、按时间排序的单变量或多变量序列，以及明确的预测起点、跨度和业务损失函数",
+      "output": "中位数点预测、0.1–0.9 分位数预测，以及与季节性朴素和单模型基线同口径的误差、覆盖率和资源记录",
+      "requirements": "Python、granite-tsfm>=0.3.11、四个默认 Granite 成员检查点与足够的内存；首次运行需下载模型。",
+      "limitation": "本站只核验官方发布、模型卡与代码，未运行配方。当前实现不建模跨通道依赖；公开 97 配置聚合结果不能替代本地滚动回测，等权或较窄区间也不保证校准。",
+      "cost": "默认配方与 Granite TSFM 为 Apache 2.0，但成员许可仍需逐一核对；四模型推理的下载、内存和延迟高于单模型。",
+      "steps": [
+        {
+          "title": "冻结预测窗口与基线",
+          "body": "按真实上线节奏建立多个滚动起点，固定 context_length、prediction_length，并保留季节性朴素与最强单成员。"
+        },
+        {
+          "title": "同窗运行两种组合",
+          "body": "先跑默认等权概率池，再用 recipes/granite-iqr 运行 IQR 配方；不要用测试窗口挑权重或成员。"
+        },
+        {
+          "title": "同时验收准确率、校准与成本",
+          "body": "记录 MASE、分位损失、0.1–0.9 区间经验覆盖率、峰值内存与运行时间，按序列和预测跨度查看失败。"
+        }
+      ],
+      "troubleshooting": "首次运行慢时先确认四个成员已缓存；区间过窄时检查 IQR 是否偏爱过度自信成员；多变量结果异常时记住当前成员逐通道预测，必要时保留能利用跨通道信息的现有模型。",
+      "sources": [
+        {
+          "title": "IBM Granite Timeseries Ensemble 官方发布",
+          "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-22"
+        },
+        {
+          "title": "Granite Timeseries Ensemble R1 模型卡",
+          "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+          "published_at": null,
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-22T19:20:00+08:00"
+    },
+    {
       "id": "nvidia-kumo-relational",
       "publisher": "NVIDIA",
       "group": "research",

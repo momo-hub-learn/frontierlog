@@ -217,6 +217,8 @@ class BuildTests(unittest.TestCase):
         research=json.loads((ROOT/'data/research-radar.json').read_text())
         product['checked']='2026-10-21'
         research['checked']='2026-10-21'
+        for item in research['items']:
+            if item['date']>'2026-10-21':item['date']='2026-10-21'
         build.validate_product_radar(product,now=instant)
         build.validate_research_radar(research,now=instant)
         with self.assertRaises(ValueError):
@@ -304,9 +306,12 @@ class BuildTests(unittest.TestCase):
 
     def test_github_hot_shows_time_and_star_trend(self):
         data=json.loads((ROOT/'data/github-hot.json').read_text())
-        self.assertTrue(all(x.get('repo_created_at') and x.get('repo_pushed_at') for x in data['items']))
-        self.assertTrue(all(len(x.get('star_history',[])) >= 1 for x in data['items']))
-        self.assertTrue(all(x['star_history'][-1]['stars'] >= 0 for x in data['items']))
+        verified=[x for x in data['items'] if x.get('metadata_status')!='unavailable']
+        unavailable=[x for x in data['items'] if x.get('metadata_status')=='unavailable']
+        self.assertTrue(all(x.get('repo_created_at') and x.get('repo_pushed_at') for x in verified))
+        self.assertTrue(all(len(x.get('star_history',[])) >= 1 for x in verified))
+        self.assertTrue(all(x['star_history'][-1]['stars'] >= 0 for x in verified))
+        self.assertTrue(all(x.get('stars') is None and x.get('forks') is None and x.get('star_history')==[] for x in unavailable))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()

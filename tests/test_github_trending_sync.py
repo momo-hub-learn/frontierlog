@@ -88,6 +88,23 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertEqual(row['metadata_verified_at'],self.data['checked_at'])
         self.assertEqual(row['metadata_status'],'stale')
 
+    def test_api_limit_keeps_new_official_row_with_unknown_metadata(self):
+        def limited(repo):
+            if repo=='example/repo-7':
+                raise HTTPError('https://api.github.com/repos/'+repo,403,'Forbidden',{},None)
+            return api(repo)
+        out=update_state(self.data,self.now,fetch_page=page,fetch_metadata=limited)
+        self.assertEqual(out['sync']['status'],'success')
+        self.assertEqual(out['sync']['metadata_status'],'partial')
+        self.assertEqual(len(out['items']),8)
+        row=out['items'][-1]
+        self.assertEqual(row['repo'],'example/repo-7')
+        self.assertEqual(row['rank'],8)
+        self.assertEqual(row['stars_today'],1275)
+        self.assertIsNone(row['stars'])
+        self.assertIsNone(row['metadata_verified_at'])
+        self.assertEqual(row['metadata_status'],'unavailable')
+
     def test_failed_trending_does_not_advance_verified_date_or_old_rank(self):
         original=json.dumps(self.data['items'],sort_keys=True)
         out=update_state(self.data,self.now,fetch_page=lambda:"<html>blocked</html>",fetch_metadata=api)

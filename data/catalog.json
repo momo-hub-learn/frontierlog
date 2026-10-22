@@ -3,6 +3,38 @@
   "snapshot": "2026-10-22",
   "items": [
     {
+      "id": "ibm-granite-timeseries-ensemble-r1",
+      "name": "IBM Granite · Timeseries Ensemble R1",
+      "title": "用四个开放模型建立概率预测基线",
+      "category": "数据分析",
+      "mark": "GE",
+      "accent": "blue",
+      "summary": "以统一接口组合四个 Granite 时间序列检查点，输出中位数和多个分位数预测；默认等权概率池无需拟合组合权重。",
+      "scope": "官方提供 Apache 2.0 的 Granite TSFM 实现、模型配方、Hugging Face 检查点和入门代码；默认配方引用四个 Granite 开放模型。",
+      "boundary": "公开 GIFT-Eval 结果是跨 97 个配置的聚合比较，不代表具体业务序列。当前实现逐通道预测、不利用跨通道关系；四模型增加时延和内存，IQR 权重还可能偏爱过度自信成员。本站未运行。",
+      "repo": "ibm-granite/granite-tsfm",
+      "sources": [
+        "ibm-granite-timeseries-ensemble-release",
+        "ibm-granite-timeseries-ensemble-model",
+        "ibm-granite-tsfm-repo"
+      ],
+      "requirements": "Python、granite-tsfm>=0.3.11、四个成员检查点的下载与推理资源，以及带时间顺序的授权历史序列。",
+      "test": "固定滚动预测起点与跨度，同窗比较季节性朴素基线、PatchTST-FM-r2、等权概率池和 IQR 配方；记录 MASE、分位损失、80% 区间覆盖、运行时间和峰值内存。",
+      "checks": [
+        "训练与评测窗口严格按时间切开",
+        "分别报告点预测、分位损失与经验覆盖率",
+        "把四模型额外时延和内存计入决策",
+        "逐成员复核许可，不把可下载等同于任意商用"
+      ],
+      "command": "pip install \"granite-tsfm>=0.3.11\"",
+      "effort": "开放代码与配方 / 需下载四个成员检查点",
+      "evidence": "IBM Research 官方发布、模型卡、代码与 GIFT-Eval 公开结果",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00"
+    },
+    {
       "id": "nvidia-auto-ontology",
       "name": "NVIDIA · Auto Ontology",
       "title": "为企业 Agent 建立可认证的数据语义层",
@@ -659,6 +691,36 @@
   ],
   "sources": [
     {
+      "id": "ibm-granite-timeseries-ensemble-release",
+      "publisher": "IBM Research / Hugging Face",
+      "title": "Ensemble forecasting with IBM Granite time-series models",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "published": "2026-10-22",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方技术发布与使用说明"
+    },
+    {
+      "id": "ibm-granite-timeseries-ensemble-model",
+      "publisher": "IBM Granite",
+      "title": "Granite Timeseries Ensemble R1 model card",
+      "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+      "published": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方模型卡、许可、配方与评测"
+    },
+    {
+      "id": "ibm-granite-tsfm-repo",
+      "publisher": "IBM Granite",
+      "title": "Granite TSFM",
+      "url": "https://github.com/ibm-granite/granite-tsfm",
+      "published": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方开源仓库"
+    },
+    {
       "id": "nvidia-agent-knowledge-foundation-release",
       "publisher": "NVIDIA",
       "title": "NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data",
@@ -1043,6 +1105,21 @@
     }
   ],
   "events": [
+    {
+      "id": "ibm-granite-timeseries-ensemble-r1-release",
+      "task": "ibm-granite-timeseries-ensemble-r1",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
+      "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
+      "delta": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
+      "sources": [
+        "ibm-granite-timeseries-ensemble-release",
+        "ibm-granite-timeseries-ensemble-model",
+        "ibm-granite-tsfm-repo"
+      ],
+      "reviewed": "2026-10-22"
+    },
     {
       "id": "nvidia-auto-ontology-release",
       "task": "nvidia-auto-ontology",

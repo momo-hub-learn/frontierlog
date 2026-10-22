@@ -52,6 +52,40 @@
   ],
   "items": [
     {
+      "id": "gift-eval-granite-ensemble-r1",
+      "name": "GIFT-Eval · Granite Timeseries Ensemble R1",
+      "group": "manufacturing",
+      "edition": "97 configurations / snapshot 2026-10-20",
+      "subtitle": "四个开放预测模型的组合，是否比单个成员更稳？",
+      "summary": "IBM Research 在 97 个 GIFT-Eval 数据配置上比较 Granite 四成员等权概率池、IQR 组合及单成员；公开结果同时给出点预测 MASE、概率预测 CRPS/MWQL 与跨配置平均排名。",
+      "metric": "MASE ↓ / CRPS(MWQL) ↓ / average rank ↓",
+      "metric_note": "MASE、概率损失和平均排名必须分列；过滤后的展示名次不能替代全榜 rank，也不能把四个指标合成综合分。",
+      "protocol": "固定 GIFT-Eval 快照、97 个配置、成员修订、context/horizon、预处理和评测脚本；用同一窗口运行季节性朴素、四个单成员、等权概率池与 IQR 配方，保存逐配置分数、资源与失败。",
+      "boundary": "结果来自 IBM/Hugging Face 官方发布与模型卡，本站未运行。两种组合的聚合 MASE 约 0.683，与最佳单成员 0.685 的差距很小；最佳 CRPS 仍来自 PatchTST-FM-r2。当前配方不使用跨通道关系，也不保证区间校准。",
+      "business": "适合为需求、能耗、设备或产能预测建立零样本概率基线，但上线判断必须使用自己的滚动窗口、成本和误差代价。",
+      "setup": "锁定 granite-tsfm、四个检查点和 GIFT-Eval 版本；先在小样本验证分位数方向与缺失值处理，再跑 97 配置或业务滚动窗口。",
+      "topics": [],
+      "sources": [
+        "b-granite-timeseries-ensemble-release",
+        "b-granite-timeseries-ensemble-model",
+        "b-gift-eval"
+      ],
+      "result_url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+      "kind": "benchmark",
+      "flag": "官方公开评测 / 本站未运行",
+      "checked": "2026-10-22",
+      "tested": false,
+      "checks": [
+        "固定数据、模型修订、context、horizon 和评分脚本",
+        "MASE、CRPS/MWQL 与平均排名分列报告",
+        "保留逐配置结果，不用聚合小差距宣传普遍领先",
+        "另测经验覆盖率、时延、内存和分布漂移"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "vidore-v3-1-retrieval",
       "name": "ViDoRe v3.1 Retrieval / Reranking",
       "group": "knowledge",
@@ -962,6 +996,36 @@
   ],
   "sources": [
     {
+      "id": "b-granite-timeseries-ensemble-release",
+      "title": "Ensemble forecasting with IBM Granite time-series models",
+      "publisher": "IBM Research / Hugging Face",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "published": "2026-10-22",
+      "checked": "2026-10-22",
+      "kind": "官方技术发布与评测说明",
+      "note": "分别披露 97 个配置上的 MASE、CRPS/MWQL、平均排名、成员、过滤条件和限制。"
+    },
+    {
+      "id": "b-granite-timeseries-ensemble-model",
+      "title": "Granite Timeseries Ensemble R1 model card",
+      "publisher": "IBM Granite",
+      "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+      "published": null,
+      "checked": "2026-10-22",
+      "kind": "官方模型卡与评测表",
+      "note": "记录配方、检查点、许可、GIFT-Eval 口径、结果与部署限制。"
+    },
+    {
+      "id": "b-gift-eval",
+      "title": "GIFT-Eval",
+      "publisher": "Salesforce",
+      "url": "https://huggingface.co/spaces/Salesforce/GIFT-Eval",
+      "published": null,
+      "checked": "2026-10-22",
+      "kind": "官方公开评测空间",
+      "note": "时间序列基础模型公开评测入口；榜单会变化，必须固定快照和过滤条件。"
+    },
+    {
       "id": "b-nemotron-retriever-release",
       "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
       "publisher": "NVIDIA / Hugging Face",
@@ -1318,6 +1382,22 @@
     }
   ],
   "changes": [
+    {
+      "id": "granite-timeseries-ensemble-r1-release",
+      "date": "2026-10-22",
+      "title": "Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较",
+      "summary": "IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。",
+      "implication": "组合的主要价值是减少预先选错模型的风险，不应把约 0.002 的聚合 MASE 差异写成普遍领先；业务验证还要检查区间覆盖和四模型成本。",
+      "benchmarks": [
+        "gift-eval-granite-ensemble-r1"
+      ],
+      "sources": [
+        "b-granite-timeseries-ensemble-release",
+        "b-granite-timeseries-ensemble-model",
+        "b-gift-eval"
+      ],
+      "kind": "新公开结果"
+    },
     {
       "id": "nemotron-retriever-benchmarks-20261021",
       "date": "2026-10-21",

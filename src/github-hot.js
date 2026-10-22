@@ -59,6 +59,15 @@ function ghFmt(n){
   if(v>=10000)return (v/1000).toFixed(1)+'k';
   return v.toLocaleString('en-US');
 }
+function ghApiMetric(symbol,value){
+  return Number.isInteger(value)?symbol+' '+ghFmt(value):symbol+' 待核验';
+}
+function ghMetadataNote(x){
+  if(x.metadata_status==='unavailable')return '<span class="gh-metadata-warning">仓库 API 元数据待核验</span>';
+  if(x.metadata_status!=='stale')return '';
+  const at=String(x.metadata_verified_at||'').slice(0,10);
+  return '<span class="gh-metadata-warning">仓库 API 旧快照'+(at?' · '+esc(at):'')+'</span>';
+}
 function ghWhen(){
   const raw=String(GH.checked_at||'');
   if(!raw)return '待核验';
@@ -144,7 +153,7 @@ function ghInline(){
     (rows.length?'<div class="gh-list">'+rows.map(x=>
       '<a class="gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="gh-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+
-        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>★ '+ghFmt(x.stars)+'</span><span>⑂ '+ghFmt(x.forks)+'</span><span>创建 '+esc(ghRepoMonth(x.repo_created_at))+'</span><span title="北京时间">推送 '+esc(ghRepoPush(x.repo_pushed_at))+'</span></div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
+        '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>'+esc(ghApiMetric('★',x.stars))+'</span><span>'+esc(ghApiMetric('⑂',x.forks))+'</span><span>创建 '+esc(ghRepoMonth(x.repo_created_at))+'</span><span title="北京时间">推送 '+esc(ghRepoPush(x.repo_pushed_at))+'</span>'+ghMetadataNote(x)+'</div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
         '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i>'+ghSpark(x)+'<small class="gh-velocity">'+esc(ghTrendLabel(x))+'</small></div>'+
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词继续看。</p></div>')+

@@ -63,6 +63,10 @@ class BenchmarkTests(unittest.TestCase):
   d=copy.deepcopy(self.data);d['checked']='2026-10-21'
   for row in d['sources']+d['items']:
    if row['checked']>'2026-10-21':row['checked']='2026-10-21'
+  for row in d['sources']:
+   if row.get('published') and row['published']>'2026-10-21':row['published']='2026-10-21'
+  for row in d['changes']:
+   if row['date']>'2026-10-21':row['date']='2026-10-21'
   validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
  def test_naive_validation_clock_rejected(self):
   with self.assertRaises(ValueError):validate_benchmarks(self.data,now=datetime(2026,10,20,12,0))

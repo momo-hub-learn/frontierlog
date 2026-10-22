@@ -277,19 +277,28 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
         if row['repo'] in gh_seen: raise ValueError('Duplicate GitHub hot repository')
         gh_seen.add(row['repo'])
         if not https_url(row.get('url','')): raise ValueError('Invalid GitHub hot repository URL')
-        if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','stars','forks','stars_today')): raise ValueError('Invalid GitHub hot metric')
+        if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('rank','stars_today')): raise ValueError('Invalid GitHub hot metric')
         if row['rank']<1 or row['rank'] in gh_ranks:raise ValueError('Duplicated or invalid official Trending rank')
         gh_ranks.add(row['rank'])
+        metadata_status=row.get('metadata_status')
+        if metadata_status=='unavailable':
+            if any(row.get(k) is not None for k in ('stars','forks','repo_created_at','repo_pushed_at','metadata_verified_at')): raise ValueError('Unverified GitHub metadata must be empty')
+            if row.get('star_history') != []: raise ValueError('Unverified GitHub metadata cannot have star history')
+        else:
+            if any((not isinstance(row.get(k),int) or row[k] < 0) for k in ('stars','forks')): raise ValueError('Invalid GitHub API metric')
+            for key in ('repo_created_at','repo_pushed_at'):
+                parsed=datetime.fromisoformat(row[key].replace('Z','+00:00'))
+                if parsed.tzinfo is None: raise ValueError('Invalid GitHub repository timestamp')
+            observed=row.get('metadata_verified_at')
+            if observed and datetime.fromisoformat(observed.replace('Z','+00:00')).tzinfo is None: raise ValueError('Invalid GitHub metadata verification timestamp')
         if row.get('category') not in gh_category_ids: raise ValueError('Unknown GitHub hot category')
         if not isinstance(row.get('ai_related'),bool): raise ValueError('Invalid GitHub AI relation flag')
         tags=row.get('tags')
         min_tags=3 if row.get('ai_related') else 2
         if not isinstance(tags,list) or not min_tags <= len(tags) <= 4 or len(tags)!=len(set(tags)) or any(not isinstance(t,str) or not t.strip() or len(t)>40 for t in tags): raise ValueError('Invalid GitHub hot tags')
         if row.get('category') in {'agent-app','agent-framework','agent-infra','mcp-knowledge'}: raise ValueError('GitHub hot category is too coarse')
-        datetime.fromisoformat(row['repo_created_at'].replace('Z','+00:00'))
-        datetime.fromisoformat(row['repo_pushed_at'].replace('Z','+00:00'))
         history=row.get('star_history')
-        if not isinstance(history,list) or not 1<=len(history)<=12: raise ValueError('Invalid GitHub hot star history')
+        if not isinstance(history,list) or (metadata_status!='unavailable' and not 1<=len(history)<=12): raise ValueError('Invalid GitHub hot star history')
         hist_times=[]
         for point in history:
             if not isinstance(point,dict) or not isinstance(point.get('stars'),int) or point['stars']<0: raise ValueError('Invalid GitHub hot star history point')

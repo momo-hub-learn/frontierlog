@@ -271,6 +271,26 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
                     fallback["metadata_verified_at"] = old.get("metadata_verified_at") or data.get("checked_at")
                     fallback["metadata_status"] = "stale"
                     rows.append(fallback)
+                else:
+                    # A new official Trending row is still valid evidence for
+                    # rank and stars-today when the independent Repository API
+                    # is unavailable. Keep API-only fields explicitly unknown
+                    # instead of dropping the row (or the whole official list).
+                    category, related, tags = classify(x["repo"], x.get("description", ""))
+                    rows.append({
+                        **x,
+                        "stars": None,
+                        "forks": None,
+                        "repo_created_at": None,
+                        "repo_pushed_at": None,
+                        "category": category,
+                        "ai_related": related,
+                        "tags": tags,
+                        "url": "https://github.com/" + x["repo"],
+                        "metadata_verified_at": None,
+                        "metadata_status": "unavailable",
+                        "star_history": [],
+                    })
         if len(rows) != len(source):
             raise ValueError("Official Trending rows lack reusable repository metadata")
         out["items"] = rows

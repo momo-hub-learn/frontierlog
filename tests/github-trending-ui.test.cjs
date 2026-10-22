@@ -14,6 +14,7 @@ function extract(s,start,end){
  return s.slice(a,b);
 }
 const watchPart=extract(gh,'function ghWatchPanel(){','function ghActive(){');
+const metadataPart=extract(gh,'function ghFmt(n){','function ghWhen(){');
 const app={
  GH:data,ghQuery:()=>'',ghTopic:()=> 'all',
  ghFreshness:()=>({stale:true}),ghFmt:v=>String(v),
@@ -25,6 +26,14 @@ assert.match(app.__watch,/长期关注仓库/);
 assert.match(app.__watch,/morluto\/rea/);
 assert.match(app.__watch,/不代表今日上榜/);
 assert.doesNotMatch(app.__watch,/官方 Trending #\d/);
+
+const metadataView={ghFmt:v=>String(v),esc:x=>String(x)};
+vm.createContext(metadataView);
+vm.runInContext(metadataPart+'\nthis.__unknown=ghApiMetric("★",null)+ghMetadataNote({metadata_status:"unavailable"});this.__stale=ghMetadataNote({metadata_status:"stale",metadata_verified_at:"2026-10-21T08:00:00Z"});',metadataView);
+assert.match(metadataView.__unknown,/★ 待核验/);
+assert.match(metadataView.__unknown,/API 元数据待核验/);
+assert.match(metadataView.__stale,/API 旧快照/);
+assert.match(metadataView.__stale,/2026-10-21/);
 
 const panel=extract(cockpit,'function fcGithubPanel(){','function fcCockpit(){');
 const historical={...data,checked_at:'2026-09-25T23:16:36Z',sync:{...data.sync,status:'error'}};

@@ -39,6 +39,17 @@ class HotDataTests(unittest.TestCase):
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
  def test_bad_internal_link(self):self.reject(lambda d:d['items'][0].update(link='https://evil.example'))
+ def test_toolkit_links_use_supported_task_contract(self):
+  tasks={x['id'] for x in json.loads((R/'data/catalog.json').read_text())['items']}
+  links=[x['link'] for x in self.data['items'] if x.get('link','').startswith('#/toolkit?')]
+  self.assertTrue(links)
+  for link in links:
+   with self.subTest(link=link):
+    self.assertNotIn('?id=',link)
+    query=link.split('?',1)[1]
+    params=dict(part.split('=',1) for part in query.split('&'))
+    self.assertIn(params.get('task'),tasks)
+    self.assertEqual(params.get('tab'),'run')
  def test_precise_timestamp_optional(self):
   d=copy.deepcopy(self.data);d['items'][0]['published_at']='2026-09-10T16:10:00+08:00';validate_hot(d)
  def test_precise_timestamp_requires_timezone(self):self.reject(lambda d:d['items'][0].update(published_at='2026-09-10T16:10:00'))
