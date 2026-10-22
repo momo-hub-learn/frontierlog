@@ -9,7 +9,23 @@ ATOM=b'''<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Clinical study 
 class TopicDataTests(unittest.TestCase):
  def setUp(self):
   self.d=json.loads((R/'data/industry.json').read_text());self.i=json.loads((R/'data/topic-intake.json').read_text());self.s=json.loads((R/'data/site.json').read_text())
+ def test_collector_config_covers_declared_topics_and_primary_repositories(self):
+  conf=json.loads((R/'data/collect-sources.json').read_text())
+  topic_ids={x['id'] for x in self.d['topics']}
+  self.assertEqual(set(conf['topic_ids']),topic_ids)
+  enabled=[x for x in conf['sources'] if x.get('enabled')]
+  self.assertGreaterEqual(len(enabled),3)
+  self.assertEqual(len({x['id'] for x in enabled}),len(enabled))
+  for source in enabled:
+   self.assertEqual(source['type'],'github')
+   self.assertRegex(source['repo'],r'^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$')
+   self.assertTrue(set(source['default_topics'])<=topic_ids)
  def test_valid_topics(self):topics.validate_topics(self.d,self.i)
+ def test_life_sciences_call_is_an_opportunity_not_a_result(self):
+  row=next(x for x in self.d['articles'] if x['id']=='anthropic-life-sciences-guest-investigators-20261022')
+  self.assertFalse(row['tested'])
+  self.assertIn('不是研究结果',row['boundary'])
+  self.assertEqual(set(row['topics']),{'targets','molecules','clinical'})
  def test_counts(self):
   self.assertEqual((len(self.d['sectors']),len(self.d['topics'])),(2,10))
   for key in ('articles','sources'):

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "max_items": 300,
+  "topic_ids": [
+    "targets",
+    "molecules",
+    "clinical",
+    "csr",
+    "fab-yield",
+    "fab-process",
+    "fab-maintenance",
+    "equipment-design",
+    "equipment-maintenance",
+    "digital-twin"
+  ],
+  "sources": [
+    {
+      "id": "github-bionemo-framework",
+      "type": "github",
+      "repo": "NVIDIA/bionemo-framework",
+      "name": "NVIDIA BioNeMo Framework releases",
+      "enabled": true,
+      "default_topics": ["targets", "molecules"]
+    },
+    {
+      "id": "github-boltz",
+      "type": "github",
+      "repo": "jwohlwend/boltz",
+      "name": "Boltz releases",
+      "enabled": true,
+      "default_topics": ["molecules"]
+    },
+    {
+      "id": "github-anomalib",
+      "type": "github",
+      "repo": "open-edge-platform/anomalib",
+      "name": "Open Edge Platform Anomalib releases",
+      "enabled": true,
+      "default_topics": ["fab-yield", "equipment-maintenance"]
+    }
+  ]
+}

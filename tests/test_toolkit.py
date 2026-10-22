@@ -57,6 +57,12 @@ class ToolkitTests(unittest.TestCase):
         self.assertIn('--dry-run',row['steps'][0]['command'])
         self.assertIn('GPU',row['requirements'])
         self.assertIn('不能推出',row['limitation'])
+    def test_decisions_api_keeps_vendor_claims_separate_from_local_evidence(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-decisions-api')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('未调用',row['limitation'])
+        self.assertIn('低置信度',row['steps'][-1]['body'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-22')
     def test_verification_dates_use_beijing_calendar_day(self):
         data=copy.deepcopy(self.data)
         data['items'][0]['sources'][0]['verified_at']='2026-10-23'

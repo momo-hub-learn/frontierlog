@@ -52,6 +52,36 @@
   ],
   "items": [
     {
+      "id": "verifierbench-agent-verifiers",
+      "name": "VerifierBench · Agent-generated Verifiers",
+      "group": "agent",
+      "edition": "v1 · 222 tasks / 4,993 hidden cases / 19 models",
+      "subtitle": "Agent 写出的可执行验证器，能否同时接纳多种正确解并拒绝错误或攻击？",
+      "summary": "作者从六个 Agent benchmark 整理工具调用、环境状态与代码验证任务，并用替代正确解、常见错误和攻击组成隐藏测试；Verifier4Verifier 先对源验证器与测试套件做六项审计。",
+      "metric": "normalized balanced accuracy ↑ / valid-solution acceptance ↑ / invalid-solution rejection ↑",
+      "metric_note": "必须同时报告正确解接受率与错误解拒绝率；只看拒绝能力会把“拒绝所有答案”的过严验证器误认为可靠。",
+      "protocol": "锁定 VerifierBench 数据和 Gavel/Harness 修订、模型、提示、工具权限、预算、超时与种子；验证器只读取任务指令和环境，提交后在 4,993 个隐藏用例上评分，并分别汇报有效变体、常见错误和攻击。",
+      "boundary": "作者在统一 Harness 下报告 19 个模型的归一化 balanced accuracy 为 10.6–62.1；这些是论文结果，本站未运行。任务来自既有 benchmark，不能直接外推到企业私有流程、全部验证器类型或真实事故率。",
+      "business": "适合验收 Agent 的自动测试、奖励函数与交付门禁：先证明至少一个正确解可通过，再加入不同实现的正确解、典型错误和越权攻击。",
+      "setup": "从官方项目页固定数据集和代码修订；先对少量任务复核 source verifier 与隐藏用例隔离，再按三类用例分层运行，保留每个误接纳和误拒绝的具体规则。",
+      "topics": [],
+      "sources": ["b-verifierbench-paper", "b-verifierbench-project", "b-verifierbench-dataset", "b-verifierbench-code"],
+      "result_url": "https://verifierbench.github.io/",
+      "kind": "benchmark",
+      "flag": "作者公开评测 / 本站未运行",
+      "checked": "2026-10-23",
+      "tested": false,
+      "checks": [
+        "至少加入一个正确解和多个等价正确解",
+        "正确解接受率与错误/攻击拒绝率分列",
+        "固定任务、Harness、模型、预算和代码修订",
+        "逐条审计格式、工具调用和代码变更的隐藏假设"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "agent4sci",
       "name": "Agent4Sci",
       "group": "agent",
@@ -1030,6 +1060,46 @@
   ],
   "sources": [
     {
+      "id": "b-verifierbench-paper",
+      "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+      "publisher": "VerifierBench authors",
+      "url": "https://arxiv.org/abs/2610.28679",
+      "published": "2026-10-19",
+      "checked": "2026-10-23",
+      "kind": "作者预印本",
+      "note": "v1 提交于 2026-10-19 17:22:36 UTC；规模、协议与模型结果均按作者论文记录。"
+    },
+    {
+      "id": "b-verifierbench-project",
+      "title": "VerifierBench project page",
+      "publisher": "VerifierBench authors",
+      "url": "https://verifierbench.github.io/",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者项目页",
+      "note": "提供论文、代码和数据入口；本站没有运行在线结果。"
+    },
+    {
+      "id": "b-verifierbench-dataset",
+      "title": "VerifierBench dataset",
+      "publisher": "VerifierBench authors",
+      "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者数据集",
+      "note": "复现时需锁定数据修订并保持隐藏用例与生成阶段隔离。"
+    },
+    {
+      "id": "b-verifierbench-code",
+      "title": "verifier-suite code and Gavel harness",
+      "publisher": "VerifierBench authors",
+      "url": "https://github.com/DwanZhang-AI/verifier-suite",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者代码仓库",
+      "note": "代码与 Harness 版本会影响可比性，运行时应记录 commit。"
+    },
+    {
       "id": "b-agent4sci-paper",
       "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
       "publisher": "Agent4Sci authors / arXiv",
@@ -1446,6 +1516,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "verifierbench-release-20261019",
+      "date": "2026-10-19",
+      "title": "VerifierBench 检查 Agent 验证器是否过严",
+      "summary": "作者公开 222 个任务和 4,993 个隐藏用例；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。",
+      "implication": "验证器不只要拒绝错误，还要接受不同形式的正确解；否则自动测试或训练奖励会系统性丢掉有效结果。",
+      "benchmarks": ["verifierbench-agent-verifiers"],
+      "sources": ["b-verifierbench-paper", "b-verifierbench-project", "b-verifierbench-dataset", "b-verifierbench-code"],
+      "kind": "新公开评测套件"
+    },
     {
       "id": "agent4sci-release",
       "date": "2026-10-20",

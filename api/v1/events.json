@@ -2,6 +2,19 @@
   "snapshot": "2026-10-23",
   "events": [
     {
+      "id": "openai-decisions-api-ga",
+      "task": "openai-decisions-api",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "OpenAI Decisions API 正式可用",
+      "summary": "专用 endpoint 处理 predicate、choice 和 score 三类有界判断，支持文本、图像、JSON、提示缓存及 GPT-Live 原生接入。",
+      "delta": "实时 Agent 可以把分类、路由和下一动作选择拆成单独可评测、可限权的决策层；开放式推理和高风险执行仍需更强模型或人工接管。",
+      "sources": [
+        "openai-decisions-api-ga"
+      ],
+      "reviewed": "2026-10-23"
+    },
+    {
       "id": "agent4sci-release",
       "task": "agent4sci",
       "date": "2026-10-20",
@@ -389,6 +402,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-decisions-api-ga",
+      "publisher": "OpenAI",
+      "title": "Build more responsive apps with the Decisions API",
+      "url": "https://openai.com/index/decisions-api/",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "kind": "官方产品发布、使用模式、定价与限制"
+    },
     {
       "id": "agent4sci-paper",
       "publisher": "Agent4Sci authors / arXiv",

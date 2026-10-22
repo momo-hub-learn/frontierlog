@@ -42,6 +42,45 @@
   ],
   "items": [
     {
+      "id": "openai-decisions-api",
+      "publisher": "OpenAI",
+      "group": "agents",
+      "access": "web",
+      "headline": "先评测一个真实分类或路由任务，再把 Decisions API 放进实时路径",
+      "input": "脱敏的真实文本、图像或 JSON 样本，固定问题、允许答案、标准答案与业务代价",
+      "output": "predicate 概率、choice 及概率/置信度，或按有序等级计算的 score",
+      "requirements": "OpenAI API 账户与当前可用区域；一组带标准答案的评测样本、现有 Responses/规则基线、置信度阈值和人工升级路径。",
+      "limitation": "本站只核验官方 GA 公告和使用说明，未调用 API。它只适合答案空间已定义的有界判断；官方最高 10 倍速度及客户案例不能代替本域正确率、校准、时延和成本评测。",
+      "cost": "官方公告列出每百万输入 token 0.10 美元、缓存输入 0.01 美元且无输出 token 费用；价格和区域可能变化，接入前以当前官方指南为准。",
+      "steps": [
+        {
+          "title": "固定一个高频小决策",
+          "body": "从现有分类、路由或下一动作选择中选一项，定义 predicate、choice 或 score，并记录错误决策的业务代价。"
+        },
+        {
+          "title": "在 Playground 跑分层样本",
+          "body": "导入脱敏样本，分开正常、边界、对抗和低置信度情况；同口径比较 Decisions 与现有 Responses/规则基线。"
+        },
+        {
+          "title": "只在门槛达标后接入",
+          "body": "同时验收正确率、概率校准、p95 时延、成本与升级率；低置信度送人工或更强模型，高风险动作保留批准。"
+        }
+      ],
+      "troubleshooting": "结果不稳定时先收紧问题和允许答案，检查样本标签与上下文是否一致；低置信度升高时调查输入漂移，不通过降低阈值掩盖；实时链路变慢时分开记录网络、排队和模型时延。",
+      "sources": [
+        {
+          "title": "OpenAI Decisions API 官方 GA 与使用指南",
+          "url": "https://openai.com/index/decisions-api/",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-23"
+        }
+      ],
+      "entry_url": "https://openai.com/index/decisions-api/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-23T07:20:00+08:00"
+    },
+    {
       "id": "agent4sci",
       "publisher": "Agent4Sci authors",
       "group": "research",

@@ -3,6 +3,34 @@
   "snapshot": "2026-10-23",
   "items": [
     {
+      "id": "openai-decisions-api",
+      "name": "OpenAI · Decisions API",
+      "title": "把分类、路由和下一动作选择拆成可评测的有界决策",
+      "category": "Agent 与自动化",
+      "mark": "OD",
+      "accent": "lime",
+      "summary": "为应用和 Agent 的高频小决策定义问题、允许答案与上下文，返回 predicate、choice 或 score；可输入文本、图像与原生 JSON。",
+      "scope": "OpenAI 2026-10-22 宣布正式可用，单次最多 400 个问题，支持提示缓存、美国和欧盟推理驻留，并可原生接入 GPT-Live。",
+      "boundary": "仅适合答案空间已定义的有界判断；官方速度、成本和客户准确率案例不是本站实测。生产使用前必须按真实分布测错误率、概率校准、低置信度升级和漂移。",
+      "repo": null,
+      "sources": ["openai-decisions-api-ga"],
+      "requirements": "OpenAI API 账户与当前可用区域；准备一组带标准答案的真实样本、允许答案集合、置信度阈值和人工升级路径。",
+      "test": "选择一个现有分类或路由任务，固定数据集和业务代价，同口径比较 Decisions API 与现有 Responses/规则基线的正确率、校准、p95 时延、成本和升级率。",
+      "checks": [
+        "先固定 predicate、choice 或 score 的答案空间和评判规则",
+        "把正常、边界、对抗与分布漂移样本分层报告",
+        "低置信度结果进入人工或更强模型，不静默执行高风险动作",
+        "速度与成本只使用自己的端到端测量，不照搬供应商案例"
+      ],
+      "command": "在官方 Decisions Playground 导入一组脱敏、带标准答案的样本，固定问题、允许答案与阈值后运行评测；通过后再按官方开发指南接入专用 endpoint。",
+      "effort": "专用 API / 按量计费 / 需要自备评测集与 OpenAI API 权限",
+      "evidence": "OpenAI 官方 GA 公告、使用模式、定价与限制",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00"
+    },
+    {
       "id": "agent4sci",
       "name": "Agent4Sci · ML 科研 Agent 评测套件",
       "title": "在固定预算下复现科学机器学习改进",
@@ -723,6 +751,16 @@
   ],
   "sources": [
     {
+      "id": "openai-decisions-api-ga",
+      "publisher": "OpenAI",
+      "title": "Build more responsive apps with the Decisions API",
+      "url": "https://openai.com/index/decisions-api/",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "kind": "官方产品发布、使用模式、定价与限制"
+    },
+    {
       "id": "agent4sci-paper",
       "publisher": "Agent4Sci authors / arXiv",
       "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
@@ -1167,6 +1205,17 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-decisions-api-ga",
+      "task": "openai-decisions-api",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "OpenAI Decisions API 正式可用",
+      "summary": "专用 endpoint 处理 predicate、choice 和 score 三类有界判断，支持文本、图像、JSON、提示缓存及 GPT-Live 原生接入。",
+      "delta": "实时 Agent 可以把分类、路由和下一动作选择拆成单独可评测、可限权的决策层；开放式推理和高风险执行仍需更强模型或人工接管。",
+      "sources": ["openai-decisions-api-ga"],
+      "reviewed": "2026-10-23"
+    },
     {
       "id": "agent4sci-release",
       "task": "agent4sci",

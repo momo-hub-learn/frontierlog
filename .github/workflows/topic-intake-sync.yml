@@ -1,0 +1,67 @@
+name: Topic intake sync
+
+on:
+  schedule:
+    - cron: '49 */2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/topic-intake-sync.yml'
+      - 'scripts/collect_topics.py'
+      - 'scripts/topics.py'
+      - 'data/collect-sources.json'
+      - 'tests/test_topics.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: frontierlog-static-publish
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh declared public-source candidates and publish safely
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "Topic intake publish attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/collect_topics.py
+            python -m unittest tests.test_topics
+            python scripts/build.py --out /tmp/frontierlog-topics --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
+            test -f /tmp/frontierlog-topics/api/v1/topic-intake.json
+            cp /tmp/frontierlog-topics/index.html index.html
+            cp /tmp/frontierlog-topics/404.html 404.html
+            cp /tmp/frontierlog-topics/api/v1/index.json api/v1/index.json
+            cp /tmp/frontierlog-topics/api/v1/topic-intake.json api/v1/topic-intake.json
+            git add data/topic-intake.json index.html 404.html api/v1/index.json api/v1/topic-intake.json
+            if git diff --cached --quiet; then
+              echo "No topic-intake or generated-site changes."
+              break
+            fi
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Sync topic intake candidates"
+            if git push origin HEAD:main; then
+              echo "Published unreviewed topic candidates."
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Unable to publish after three concurrent-update retries" >&2
+              exit 1
+            fi
+          done

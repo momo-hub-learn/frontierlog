@@ -36,6 +36,127 @@
   ],
   "items": [
     {
+      "id": "openai-decisions-api-ga-20261022",
+      "category": "product",
+      "title": "OpenAI Decisions API 正式开放：把高频小决策放进低时延路径",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "first_seen_at": "2026-10-23T07:20:00+08:00",
+      "heat": 96,
+      "heat_components": {"impact": 34, "availability": 25, "evidence": 25, "recency": 12},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、准确率或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenAI 宣布 Decisions API 正式可用：基于 GPT-6 Luna，对文本、图像和原生 JSON 做 predicate、choice、score 三类有界判断；单次最多 400 个问题，并可原生接入 GPT-Live。",
+      "why": "分类、路由和下一动作选择可以从通用生成调用中拆出，单独衡量时延、成本、置信度和人工接管；这会直接改变实时 Agent 的编排方式。",
+      "boundary": "“最高 10 倍更快”及客户案例均来自 OpenAI 与其客户披露，本站未复测。它只适合答案空间已定义的有界判断，不能替代开放式推理；上线前仍需用本域样本测准确率、校准、拒答和低置信度升级。",
+      "source": "OpenAI",
+      "source_kind": "官方产品发布与使用指南 / 本轮编辑核验",
+      "url": "https://openai.com/index/decisions-api/",
+      "link": "#/toolkit?task=openai-decisions-api&tab=run",
+      "evidence_level": "primary-source",
+      "access": [{"label": "查看官方说明并设计第一组评测", "note": "先固定问题、允许答案和真实样本，再比较 Responses 基线", "url": "https://openai.com/index/decisions-api/", "kind": "source"}],
+      "related": [{"source": "OpenAI", "title": "Build more responsive apps with the Decisions API", "url": "https://openai.com/index/decisions-api/", "date": "2026-10-22"}]
+    },
+    {
+      "id": "anthropic-agent-skills-aaif-20261022",
+      "category": "product",
+      "title": "Agent Skills 捐给 AAIF：Agent 工作流标准转入中立治理",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "first_seen_at": "2026-10-23T07:20:00+08:00",
+      "heat": 92,
+      "heat_components": {"impact": 34, "availability": 23, "evidence": 25, "recency": 10},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是生态规模、兼容质量或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic 将 Agent Skills 名称、Logo、GitHub 组织和 agentskills.io 域名捐给 Linux Foundation 旗下 AAIF，并提出版本发布、正式提案流程与安全指南路线。",
+      "why": "已有多个 Agent 平台读取 SKILL.md 目录规范；转入中立治理后，版本兼容、安全审查和跨平台迁移有机会从厂商约定变成公共流程。",
+      "boundary": "“70 多个平台集成、100 万技能、近 2.8 亿次安装”来自 Anthropic 官方统计，本站未独立审计；捐赠治理资产不等于所有实现立即兼容，也不代表第三方技能安全。",
+      "source": "Anthropic",
+      "source_kind": "官方产品公告 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "evidence_level": "primary-source",
+      "access": [{"label": "阅读规范与治理变更", "note": "安装第三方技能前仍需审查脚本、权限和依赖", "url": "https://agentskills.io/", "kind": "source"}],
+      "related": [{"source": "Anthropic", "title": "Donating Agent Skills to the Agentic AI Foundation", "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation", "date": "2026-10-22"}]
+    },
+    {
+      "id": "anthropic-life-sciences-guest-investigators-20261022",
+      "category": "industry",
+      "title": "Anthropic 征集生命科学客座研究者：8–12 周共建公开成果",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "first_seen_at": "2026-10-23T07:20:00+08:00",
+      "heat": 86,
+      "heat_components": {"impact": 29, "availability": 20, "evidence": 25, "recency": 12},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研质量、录取概率或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。",
+      "why": "项目承诺由 Anthropic 免费运行模型与 Harness，并计划公开分析、工具、数据和代码，为观察 AI 科研流程能否形成可复核公共产物提供近期窗口。",
+      "boundary": "这是约 14 天申请窗口和 8–12 周合作计划，不是研究结果、临床验证或产品发布；申请材料只能包含公开信息，初步发现仍需独立实验和同行评议。",
+      "source": "Anthropic",
+      "source_kind": "官方生命科学招募公告 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+      "link": "#/pharma",
+      "evidence_level": "primary-source",
+      "access": [{"label": "查看官方申请说明", "note": "申请材料仅使用公开信息，不提交私有数据", "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences", "kind": "source"}],
+      "related": [{"source": "Anthropic", "title": "Open call for guest investigators in the life sciences", "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences", "date": "2026-10-22"}]
+    },
+    {
+      "id": "verifierbench-agent-verifiers-20261019",
+      "category": "benchmark",
+      "title": "VerifierBench：Agent 写的验证器会把正确解也拒绝掉",
+      "published": "2026-10-19",
+      "published_at": "2026-10-19T17:22:36Z",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:25:00+08:00",
+      "first_seen_at": "2026-10-23T07:25:00+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 33,
+        "availability": 22,
+        "evidence": 24,
+        "recency": 10
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是验证器准确率、Agent 能力或本站实测分数。",
+      "trend": "up",
+      "summary": "作者公开 222 个 Agent 任务和 4,993 个隐藏用例，用替代正确解、常见错误与攻击检查模型生成的可执行验证器；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。",
+      "why": "自动测试和 RL 奖励若只会拒错、不会接纳不同形式的正确解，就会把实现偏好误当任务要求；门禁必须同时覆盖至少一个已知正确解和多个等价正确解。",
+      "boundary": "规模与分数来自作者论文，本站未运行。六个来源 benchmark、统一 Harness 和隐藏用例不能外推到全部企业流程或真实事故率，也不能与其他 Agent 榜单拼成综合分。",
+      "source": "VerifierBench authors / arXiv",
+      "source_kind": "作者预印本、项目页、代码与数据集 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.28679",
+      "link": "#/benchmarks?bench=verifierbench-agent-verifiers",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看项目页与复现入口",
+          "note": "先锁定数据、Harness 和代码修订，再分列误接纳与误拒绝",
+          "url": "https://verifierbench.github.io/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "VerifierBench authors / arXiv",
+          "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+          "url": "https://arxiv.org/abs/2610.28679",
+          "date": "2026-10-19"
+        },
+        {
+          "source": "VerifierBench authors",
+          "title": "VerifierBench project page",
+          "url": "https://verifierbench.github.io/"
+        },
+        {
+          "source": "VerifierBench authors / Hugging Face",
+          "title": "VerifierBench dataset",
+          "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench"
+        }
+      ]
+    },
+    {
       "id": "agent4sci-scientific-ml-benchmark-20261020",
       "category": "research",
       "title": "Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-23",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "anthropic-life-sciences-guest-investigators-20261022",
+      "title": "Open call for guest investigators in the life sciences",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "kind": "官方生命科学合作招募、数据权利与公开成果边界"
+    },
     {
       "id": "ibm-granite-timeseries-ensemble-20261022",
       "title": "Ensemble forecasting with IBM Granite time-series models",
@@ -534,6 +544,35 @@
     }
   ],
   "articles": [
+    {
+      "id": "anthropic-life-sciences-guest-investigators-20261022",
+      "sector": "pharma",
+      "topics": ["targets", "molecules", "clinical"],
+      "title": "Anthropic 生命科学客座研究：先把 8–12 周目标写成可公开验证的产物",
+      "summary": "Anthropic 邀请高校、非营利组织和政府实验室提交生命科学提案，提供研究人员协作及免费模型/Harness 运行，并计划公开分析、工具、数据和代码。",
+      "why": "这为靶点、分子与临床研究团队提供一个短周期验证窗口；真正的价值不是“使用最强模型”，而是能否在锁定数据权利和验证路径后产出可复核公共证据。",
+      "boundary": "这是申请和合作计划，不是研究结果或临床证据。官方要求申请材料仅含公开信息；8–12 周更适合初步证据、数据集或工具，结论仍需独立实验、合规审查和同行评议。",
+      "sources": ["anthropic-life-sciences-guest-investigators-20261022"],
+      "kind": "update",
+      "access": "约 14 天申请窗口；入选团队由 Anthropic 免费运行模型与 Harness",
+      "published": "2026-10-22",
+      "steps": [
+        "把问题压缩成 8–12 周可交付的分析、数据集、工具或初步证据",
+        "申请只使用公开信息，另列数据权利、伦理、隐私和后续验证边界",
+        "预先定义公开产物、失败标准与独立复核方式，避免把合作本身写成研究结论"
+      ],
+      "metrics": [
+        "可公开复核的产物与代码/数据完整性",
+        "预注册里程碑、失败标准与独立验证结果",
+        "数据权利、合规审查和人工专家工作量"
+      ],
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T07:20:00+08:00",
+      "first_seen_at": "2026-10-23T07:20:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "ibm-granite-timeseries-ensemble-20261022",
       "sector": "manufacturing",

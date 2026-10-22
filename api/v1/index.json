@@ -37,6 +37,184 @@
     ],
     "items": [
       {
+        "id": "openai-decisions-api-ga-20261022",
+        "category": "product",
+        "title": "OpenAI Decisions API 正式开放：把高频小决策放进低时延路径",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "first_seen_at": "2026-10-23T07:20:00+08:00",
+        "heat": 96,
+        "heat_components": {
+          "impact": 34,
+          "availability": 25,
+          "evidence": 25,
+          "recency": 12
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、准确率或本站实测分数。",
+        "trend": "up",
+        "summary": "OpenAI 宣布 Decisions API 正式可用：基于 GPT-6 Luna，对文本、图像和原生 JSON 做 predicate、choice、score 三类有界判断；单次最多 400 个问题，并可原生接入 GPT-Live。",
+        "why": "分类、路由和下一动作选择可以从通用生成调用中拆出，单独衡量时延、成本、置信度和人工接管；这会直接改变实时 Agent 的编排方式。",
+        "boundary": "“最高 10 倍更快”及客户案例均来自 OpenAI 与其客户披露，本站未复测。它只适合答案空间已定义的有界判断，不能替代开放式推理；上线前仍需用本域样本测准确率、校准、拒答和低置信度升级。",
+        "source": "OpenAI",
+        "source_kind": "官方产品发布与使用指南 / 本轮编辑核验",
+        "url": "https://openai.com/index/decisions-api/",
+        "link": "#/toolkit?task=openai-decisions-api&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方说明并设计第一组评测",
+            "note": "先固定问题、允许答案和真实样本，再比较 Responses 基线",
+            "url": "https://openai.com/index/decisions-api/",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Build more responsive apps with the Decisions API",
+            "url": "https://openai.com/index/decisions-api/",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-agent-skills-aaif-20261022",
+        "category": "product",
+        "title": "Agent Skills 捐给 AAIF：Agent 工作流标准转入中立治理",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "first_seen_at": "2026-10-23T07:20:00+08:00",
+        "heat": 92,
+        "heat_components": {
+          "impact": 34,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 10
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是生态规模、兼容质量或本站实测分数。",
+        "trend": "up",
+        "summary": "Anthropic 将 Agent Skills 名称、Logo、GitHub 组织和 agentskills.io 域名捐给 Linux Foundation 旗下 AAIF，并提出版本发布、正式提案流程与安全指南路线。",
+        "why": "已有多个 Agent 平台读取 SKILL.md 目录规范；转入中立治理后，版本兼容、安全审查和跨平台迁移有机会从厂商约定变成公共流程。",
+        "boundary": "“70 多个平台集成、100 万技能、近 2.8 亿次安装”来自 Anthropic 官方统计，本站未独立审计；捐赠治理资产不等于所有实现立即兼容，也不代表第三方技能安全。",
+        "source": "Anthropic",
+        "source_kind": "官方产品公告 / 本轮编辑核验",
+        "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读规范与治理变更",
+            "note": "安装第三方技能前仍需审查脚本、权限和依赖",
+            "url": "https://agentskills.io/",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Anthropic",
+            "title": "Donating Agent Skills to the Agentic AI Foundation",
+            "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-life-sciences-guest-investigators-20261022",
+        "category": "industry",
+        "title": "Anthropic 征集生命科学客座研究者：8–12 周共建公开成果",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "first_seen_at": "2026-10-23T07:20:00+08:00",
+        "heat": 86,
+        "heat_components": {
+          "impact": 29,
+          "availability": 20,
+          "evidence": 25,
+          "recency": 12
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研质量、录取概率或本站实测分数。",
+        "trend": "up",
+        "summary": "Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。",
+        "why": "项目承诺由 Anthropic 免费运行模型与 Harness，并计划公开分析、工具、数据和代码，为观察 AI 科研流程能否形成可复核公共产物提供近期窗口。",
+        "boundary": "这是约 14 天申请窗口和 8–12 周合作计划，不是研究结果、临床验证或产品发布；申请材料只能包含公开信息，初步发现仍需独立实验和同行评议。",
+        "source": "Anthropic",
+        "source_kind": "官方生命科学招募公告 / 本轮编辑核验",
+        "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+        "link": "#/pharma",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方申请说明",
+            "note": "申请材料仅使用公开信息，不提交私有数据",
+            "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Anthropic",
+            "title": "Open call for guest investigators in the life sciences",
+            "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
+        "id": "verifierbench-agent-verifiers-20261019",
+        "category": "benchmark",
+        "title": "VerifierBench：Agent 写的验证器会把正确解也拒绝掉",
+        "published": "2026-10-19",
+        "published_at": "2026-10-19T17:22:36Z",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:25:00+08:00",
+        "first_seen_at": "2026-10-23T07:25:00+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 33,
+          "availability": 22,
+          "evidence": 24,
+          "recency": 10
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是验证器准确率、Agent 能力或本站实测分数。",
+        "trend": "up",
+        "summary": "作者公开 222 个 Agent 任务和 4,993 个隐藏用例，用替代正确解、常见错误与攻击检查模型生成的可执行验证器；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。",
+        "why": "自动测试和 RL 奖励若只会拒错、不会接纳不同形式的正确解，就会把实现偏好误当任务要求；门禁必须同时覆盖至少一个已知正确解和多个等价正确解。",
+        "boundary": "规模与分数来自作者论文，本站未运行。六个来源 benchmark、统一 Harness 和隐藏用例不能外推到全部企业流程或真实事故率，也不能与其他 Agent 榜单拼成综合分。",
+        "source": "VerifierBench authors / arXiv",
+        "source_kind": "作者预印本、项目页、代码与数据集 / 本轮编辑核验",
+        "url": "https://arxiv.org/abs/2610.28679",
+        "link": "#/benchmarks?bench=verifierbench-agent-verifiers",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看项目页与复现入口",
+            "note": "先锁定数据、Harness 和代码修订，再分列误接纳与误拒绝",
+            "url": "https://verifierbench.github.io/",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "VerifierBench authors / arXiv",
+            "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+            "url": "https://arxiv.org/abs/2610.28679",
+            "date": "2026-10-19"
+          },
+          {
+            "source": "VerifierBench authors",
+            "title": "VerifierBench project page",
+            "url": "https://verifierbench.github.io/"
+          },
+          {
+            "source": "VerifierBench authors / Hugging Face",
+            "title": "VerifierBench dataset",
+            "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench"
+          }
+        ]
+      },
+      {
         "id": "agent4sci-scientific-ml-benchmark-20261020",
         "category": "research",
         "title": "Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收",
@@ -3966,6 +4144,43 @@
     ],
     "items": [
       {
+        "id": "agent-written-verifier-overconstraint",
+        "lane": "paradigm",
+        "title": "Agent 自写验证器的主要风险，可能是把正确解也全部拒绝",
+        "maker": "VerifierBench authors",
+        "date": "2026-10-19",
+        "verified_at": "2026-10-23T07:25:00+08:00",
+        "tags": [
+          "Agent Evaluation",
+          "Executable Verifiers",
+          "RLVR"
+        ],
+        "fact": "VerifierBench 汇集六个 Agent benchmark 的 222 个任务与 4,993 个隐藏用例；作者报告 19 个模型在统一 Harness 下的归一化 balanced accuracy 为 10.6–62.1，并发现生成验证器对无效解的拒绝通常强于对有效解的接纳。",
+        "insight": "当 Agent 同时生成任务、答案和奖励验证器时，过严规则会把共享格式假设伪装成正确性。可靠门禁要显式测试一个已知正确解，以及多个任务允许但形式不同的正确解。",
+        "boundary": "这是作者论文和公开数据的结果，本站未运行；统一 Harness 与六个来源 benchmark 不能代表全部企业流程、所有验证器类型或真实事故率，10.6–62.1 也不是通用 Agent 能力分。",
+        "next_watch": "关注独立复现、不同正确解覆盖的构造方法、验证器误拒绝对训练数据和 RL 奖励的影响，以及项目代码和隐藏测试版本变化。",
+        "sources": [
+          {
+            "label": "VerifierBench 作者预印本",
+            "url": "https://arxiv.org/abs/2610.28679",
+            "kind": "作者论文、协议与结果",
+            "strength": "primary"
+          },
+          {
+            "label": "VerifierBench 作者项目页",
+            "url": "https://verifierbench.github.io/",
+            "kind": "项目、代码与数据入口",
+            "strength": "primary"
+          },
+          {
+            "label": "VerifierBench 作者数据集",
+            "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench",
+            "kind": "公开数据集",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "agent4sci-scientific-ml-hill-climbing",
         "lane": "science",
         "title": "科研 Agent 开始接受隐藏测试与轨迹审计，而不只生成论文或代码",
@@ -5727,7 +5942,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T21:46:16Z",
+    "checked_at": "2026-10-22T23:25:21Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -5738,8 +5953,8 @@
         "stars_today": 423,
         "description": "The PHP Interpreter",
         "language": "C",
-        "stars": 41102,
-        "forks": 8304,
+        "stars": 41130,
+        "forks": 8305,
         "repo_created_at": "2011-06-16T01:52:25Z",
         "repo_pushed_at": "2026-10-22T19:28:54Z",
         "category": "other",
@@ -5749,7 +5964,7 @@
           "GitHub"
         ],
         "url": "https://github.com/php/php-src",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -5774,6 +5989,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 41102
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 41130
           }
         ]
       },
@@ -5783,8 +6002,8 @@
         "stars_today": 303,
         "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
-        "stars": 31525,
-        "forks": 3529,
+        "stars": 31564,
+        "forks": 3530,
         "repo_created_at": "2026-01-23T20:11:54Z",
         "repo_pushed_at": "2026-10-22T07:39:25Z",
         "category": "other",
@@ -5794,7 +6013,7 @@
           "GitHub"
         ],
         "url": "https://github.com/anthropics/knowledge-work-plugins",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -5819,6 +6038,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 31525
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 31564
           }
         ]
       },
@@ -5828,8 +6051,8 @@
         "stars_today": 1949,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
-        "stars": 173306,
-        "forks": 9431,
+        "stars": 173406,
+        "forks": 9436,
         "repo_created_at": "2026-06-12T00:52:37Z",
         "repo_pushed_at": "2026-10-18T01:55:14Z",
         "category": "ai-tools",
@@ -5840,12 +6063,8 @@
           "GitHub"
         ],
         "url": "https://github.com/DietrichGebert/ponytail",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 171548
-          },
           {
             "at": "2026-10-22T03:21:03Z",
             "stars": 171872
@@ -5889,6 +6108,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 173306
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 173406
           }
         ]
       },
@@ -5898,8 +6121,8 @@
         "stars_today": 2979,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 39317,
-        "forks": 2449,
+        "stars": 39465,
+        "forks": 2455,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -5910,12 +6133,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 36336
-          },
           {
             "at": "2026-10-22T03:21:03Z",
             "stars": 36837
@@ -5959,6 +6178,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 39317
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 39465
           }
         ]
       },
@@ -5968,8 +6191,8 @@
         "stars_today": 1407,
         "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
         "language": "Python",
-        "stars": 132844,
-        "forks": 12713,
+        "stars": 132904,
+        "forks": 12718,
         "repo_created_at": "2026-04-03T15:49:07Z",
         "repo_pushed_at": "2026-10-22T16:19:38Z",
         "category": "agent-skills",
@@ -5980,12 +6203,8 @@
           "Knowledge Graph"
         ],
         "url": "https://github.com/Graphify-Labs/graphify",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 131579
-          },
           {
             "at": "2026-10-22T03:21:03Z",
             "stars": 131799
@@ -6029,6 +6248,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 132844
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 132904
           }
         ]
       },
@@ -6038,10 +6261,10 @@
         "stars_today": 683,
         "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
         "language": "TypeScript",
-        "stars": 113440,
-        "forks": 16996,
+        "stars": 113467,
+        "forks": 16999,
         "repo_created_at": "2019-10-12T05:56:49Z",
-        "repo_pushed_at": "2026-10-22T21:42:16Z",
+        "repo_pushed_at": "2026-10-22T23:07:08Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -6050,12 +6273,8 @@
           "GitHub"
         ],
         "url": "https://github.com/supabase/supabase",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 112973
-          },
           {
             "at": "2026-10-22T03:21:03Z",
             "stars": 113088
@@ -6099,6 +6318,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 113440
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 113467
           }
         ]
       },
@@ -6108,10 +6331,10 @@
         "stars_today": 96,
         "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
         "language": "Python",
-        "stars": 103676,
-        "forks": 10084,
+        "stars": 103711,
+        "forks": 10086,
         "repo_created_at": "2018-12-08T08:21:47Z",
-        "repo_pushed_at": "2026-10-22T19:13:04Z",
+        "repo_pushed_at": "2026-10-22T22:21:50Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6119,7 +6342,7 @@
           "GitHub"
         ],
         "url": "https://github.com/fastapi/fastapi",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6144,6 +6367,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 103676
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 103711
           }
         ]
       },
@@ -6153,8 +6380,8 @@
         "stars_today": 370,
         "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
         "language": "Python",
-        "stars": 43084,
-        "forks": 5378,
+        "stars": 43157,
+        "forks": 5385,
         "repo_created_at": "2025-11-07T22:59:34Z",
         "repo_pushed_at": "2026-10-20T12:23:14Z",
         "category": "ai-tools",
@@ -6165,7 +6392,7 @@
           "GitHub"
         ],
         "url": "https://github.com/luongnv89/claude-howto",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6190,6 +6417,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 43084
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 43157
           }
         ]
       },
@@ -6199,8 +6430,8 @@
         "stars_today": 115,
         "description": "Minecraft 启动器 Plain Craft Launcher（PCL）。",
         "language": "Visual Basic .NET",
-        "stars": 8666,
-        "forks": 1197,
+        "stars": 8680,
+        "forks": 1198,
         "repo_created_at": "2022-07-26T15:43:26Z",
         "repo_pushed_at": "2026-10-20T07:01:33Z",
         "category": "other",
@@ -6210,7 +6441,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Meloong-Git/PCL",
-        "metadata_verified_at": "2026-10-22T21:46:16Z",
+        "metadata_verified_at": "2026-10-22T23:25:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6235,6 +6466,10 @@
           {
             "at": "2026-10-22T21:46:16Z",
             "stars": 8666
+          },
+          {
+            "at": "2026-10-22T23:25:21Z",
+            "stars": 8680
           }
         ]
       }
@@ -6314,10 +6549,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-22T21:46:16Z",
-      "last_success_at": "2026-10-22T21:46:16Z",
+      "last_checked_at": "2026-10-22T23:25:21Z",
+      "last_success_at": "2026-10-22T23:25:21Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-22T21:46:16Z",
+      "watchlist_checked_at": "2026-10-22T23:25:21Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 9,
@@ -6338,27 +6573,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 365642,
-        "forks": 91641,
+        "stars": 365972,
+        "forks": 91706,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-22T21:42:19Z",
+        "repo_pushed_at": "2026-10-22T22:42:53Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-22T21:46:16Z",
+        "verified_at": "2026-10-22T23:25:21Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T21:16:30Z",
+    "checked_at": "2026-10-22T23:26:15Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T21:16:30Z",
-    "web_fetched_at": "2026-10-22T21:16:30Z",
+    "api_fetched_at": "2026-10-22T23:26:15Z",
+    "web_fetched_at": "2026-10-22T23:26:15Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6375,8 +6610,8 @@
       "jialinyyzz/humanizer",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
-      "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "tencent/Hy-Memory-30B-A3B",
+      "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
       "XHToken/Spark-X2.6-4B",
@@ -6387,8 +6622,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2032,
-        "likes": 2343,
+        "trending_score": 2039,
+        "likes": 2352,
         "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6404,8 +6639,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 808,
-        "likes": 1287,
+        "trending_score": 789,
+        "likes": 1299,
         "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6421,8 +6656,8 @@
         "rank": 3,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 527,
-        "likes": 570,
+        "trending_score": 530,
+        "likes": 574,
         "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6438,8 +6673,8 @@
         "rank": 4,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 497,
-        "likes": 505,
+        "trending_score": 518,
+        "likes": 526,
         "downloads": 420,
         "task": "text-generation",
         "library": "transformers",
@@ -6455,8 +6690,8 @@
         "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 456,
-        "likes": 484,
+        "trending_score": 457,
+        "likes": 485,
         "downloads": 5013,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6472,8 +6707,8 @@
         "rank": 6,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 417,
-        "likes": 908,
+        "trending_score": 418,
+        "likes": 915,
         "downloads": 16305,
         "task": "text-to-speech",
         "library": "未标注",
@@ -6490,7 +6725,7 @@
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
         "trending_score": 413,
-        "likes": 8881,
+        "likes": 8895,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6506,7 +6741,7 @@
         "rank": 8,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 413,
+        "trending_score": 382,
         "likes": 659,
         "downloads": 3163,
         "task": "image-text-to-text",
@@ -6523,8 +6758,8 @@
         "rank": 9,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 389,
-        "likes": 634,
+        "trending_score": 359,
+        "likes": 636,
         "downloads": 102903,
         "task": "image-to-image",
         "library": "diffusers",
@@ -6540,8 +6775,8 @@
         "rank": 10,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 353,
-        "likes": 2838,
+        "trending_score": 355,
+        "likes": 2844,
         "downloads": 185259,
         "task": "feature-extraction",
         "library": "transformers",
@@ -6557,8 +6792,8 @@
         "rank": 11,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 338,
-        "likes": 360,
+        "trending_score": 340,
+        "likes": 362,
         "downloads": 1463386,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6574,8 +6809,8 @@
         "rank": 12,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 320,
-        "likes": 2090,
+        "trending_score": 321,
+        "likes": 2096,
         "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
@@ -6591,8 +6826,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 306,
-        "likes": 4823,
+        "trending_score": 311,
+        "likes": 4829,
         "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
@@ -6608,8 +6843,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 304,
-        "likes": 18203,
+        "trending_score": 306,
+        "likes": 18212,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6623,27 +6858,10 @@
       },
       {
         "rank": 15,
-        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 285,
-        "likes": 311,
-        "downloads": 10519,
-        "task": "image-text-to-text",
-        "library": "Model Optimizer",
-        "created_at": "2026-10-08T16:20:17.000Z",
-        "tags": [
-          "Model Optimizer",
-          "safetensors",
-          "qwen4_exp",
-          "nvidia"
-        ]
-      },
-      {
-        "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 278,
-        "likes": 286,
+        "trending_score": 279,
+        "likes": 287,
         "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
@@ -6656,11 +6874,28 @@
         ]
       },
       {
+        "rank": 16,
+        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "trending_score": 264,
+        "likes": 313,
+        "downloads": 10519,
+        "task": "image-text-to-text",
+        "library": "Model Optimizer",
+        "created_at": "2026-10-08T16:20:17.000Z",
+        "tags": [
+          "Model Optimizer",
+          "safetensors",
+          "qwen4_exp",
+          "nvidia"
+        ]
+      },
+      {
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 254,
-        "likes": 364,
+        "trending_score": 256,
+        "likes": 367,
         "downloads": 3823,
         "task": "image-to-text",
         "library": "onnx",
@@ -6676,8 +6911,8 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 246,
-        "likes": 284,
+        "trending_score": 244,
+        "likes": 285,
         "downloads": 6194,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -6693,8 +6928,8 @@
         "rank": 19,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 228,
-        "likes": 242,
+        "trending_score": 231,
+        "likes": 245,
         "downloads": 482,
         "task": "text-generation",
         "library": "transformers",
@@ -6710,8 +6945,8 @@
         "rank": 20,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 222,
-        "likes": 250,
+        "trending_score": 225,
+        "likes": 256,
         "downloads": 3808,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6726,7 +6961,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T21:16:30Z",
+      "last_checked_at": "2026-10-22T23:26:15Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -11516,6 +11751,41 @@
     ],
     "items": [
       {
+        "id": "verifierbench-agent-verifiers",
+        "name": "VerifierBench · Agent-generated Verifiers",
+        "group": "agent",
+        "edition": "v1 · 222 tasks / 4,993 hidden cases / 19 models",
+        "subtitle": "Agent 写出的可执行验证器，能否同时接纳多种正确解并拒绝错误或攻击？",
+        "summary": "作者从六个 Agent benchmark 整理工具调用、环境状态与代码验证任务，并用替代正确解、常见错误和攻击组成隐藏测试；Verifier4Verifier 先对源验证器与测试套件做六项审计。",
+        "metric": "normalized balanced accuracy ↑ / valid-solution acceptance ↑ / invalid-solution rejection ↑",
+        "metric_note": "必须同时报告正确解接受率与错误解拒绝率；只看拒绝能力会把“拒绝所有答案”的过严验证器误认为可靠。",
+        "protocol": "锁定 VerifierBench 数据和 Gavel/Harness 修订、模型、提示、工具权限、预算、超时与种子；验证器只读取任务指令和环境，提交后在 4,993 个隐藏用例上评分，并分别汇报有效变体、常见错误和攻击。",
+        "boundary": "作者在统一 Harness 下报告 19 个模型的归一化 balanced accuracy 为 10.6–62.1；这些是论文结果，本站未运行。任务来自既有 benchmark，不能直接外推到企业私有流程、全部验证器类型或真实事故率。",
+        "business": "适合验收 Agent 的自动测试、奖励函数与交付门禁：先证明至少一个正确解可通过，再加入不同实现的正确解、典型错误和越权攻击。",
+        "setup": "从官方项目页固定数据集和代码修订；先对少量任务复核 source verifier 与隐藏用例隔离，再按三类用例分层运行，保留每个误接纳和误拒绝的具体规则。",
+        "topics": [],
+        "sources": [
+          "b-verifierbench-paper",
+          "b-verifierbench-project",
+          "b-verifierbench-dataset",
+          "b-verifierbench-code"
+        ],
+        "result_url": "https://verifierbench.github.io/",
+        "kind": "benchmark",
+        "flag": "作者公开评测 / 本站未运行",
+        "checked": "2026-10-23",
+        "tested": false,
+        "checks": [
+          "至少加入一个正确解和多个等价正确解",
+          "正确解接受率与错误/攻击拒绝率分列",
+          "固定任务、Harness、模型、预算和代码修订",
+          "逐条审计格式、工具调用和代码变更的隐藏假设"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
         "id": "agent4sci",
         "name": "Agent4Sci",
         "group": "agent",
@@ -12511,6 +12781,46 @@
     ],
     "sources": [
       {
+        "id": "b-verifierbench-paper",
+        "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+        "publisher": "VerifierBench authors",
+        "url": "https://arxiv.org/abs/2610.28679",
+        "published": "2026-10-19",
+        "checked": "2026-10-23",
+        "kind": "作者预印本",
+        "note": "v1 提交于 2026-10-19 17:22:36 UTC；规模、协议与模型结果均按作者论文记录。"
+      },
+      {
+        "id": "b-verifierbench-project",
+        "title": "VerifierBench project page",
+        "publisher": "VerifierBench authors",
+        "url": "https://verifierbench.github.io/",
+        "published": null,
+        "checked": "2026-10-23",
+        "kind": "作者项目页",
+        "note": "提供论文、代码和数据入口；本站没有运行在线结果。"
+      },
+      {
+        "id": "b-verifierbench-dataset",
+        "title": "VerifierBench dataset",
+        "publisher": "VerifierBench authors",
+        "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench",
+        "published": null,
+        "checked": "2026-10-23",
+        "kind": "作者数据集",
+        "note": "复现时需锁定数据修订并保持隐藏用例与生成阶段隔离。"
+      },
+      {
+        "id": "b-verifierbench-code",
+        "title": "verifier-suite code and Gavel harness",
+        "publisher": "VerifierBench authors",
+        "url": "https://github.com/DwanZhang-AI/verifier-suite",
+        "published": null,
+        "checked": "2026-10-23",
+        "kind": "作者代码仓库",
+        "note": "代码与 Harness 版本会影响可比性，运行时应记录 commit。"
+      },
+      {
         "id": "b-agent4sci-paper",
         "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
         "publisher": "Agent4Sci authors / arXiv",
@@ -12927,6 +13237,23 @@
       }
     ],
     "changes": [
+      {
+        "id": "verifierbench-release-20261019",
+        "date": "2026-10-19",
+        "title": "VerifierBench 检查 Agent 验证器是否过严",
+        "summary": "作者公开 222 个任务和 4,993 个隐藏用例；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。",
+        "implication": "验证器不只要拒绝错误，还要接受不同形式的正确解；否则自动测试或训练奖励会系统性丢掉有效结果。",
+        "benchmarks": [
+          "verifierbench-agent-verifiers"
+        ],
+        "sources": [
+          "b-verifierbench-paper",
+          "b-verifierbench-project",
+          "b-verifierbench-dataset",
+          "b-verifierbench-code"
+        ],
+        "kind": "新公开评测套件"
+      },
       {
         "id": "agent4sci-release",
         "date": "2026-10-20",
@@ -15035,6 +15362,36 @@
     "snapshot": "2026-10-23",
     "items": [
       {
+        "id": "openai-decisions-api",
+        "name": "OpenAI · Decisions API",
+        "title": "把分类、路由和下一动作选择拆成可评测的有界决策",
+        "category": "Agent 与自动化",
+        "mark": "OD",
+        "accent": "lime",
+        "summary": "为应用和 Agent 的高频小决策定义问题、允许答案与上下文，返回 predicate、choice 或 score；可输入文本、图像与原生 JSON。",
+        "scope": "OpenAI 2026-10-22 宣布正式可用，单次最多 400 个问题，支持提示缓存、美国和欧盟推理驻留，并可原生接入 GPT-Live。",
+        "boundary": "仅适合答案空间已定义的有界判断；官方速度、成本和客户准确率案例不是本站实测。生产使用前必须按真实分布测错误率、概率校准、低置信度升级和漂移。",
+        "repo": null,
+        "sources": [
+          "openai-decisions-api-ga"
+        ],
+        "requirements": "OpenAI API 账户与当前可用区域；准备一组带标准答案的真实样本、允许答案集合、置信度阈值和人工升级路径。",
+        "test": "选择一个现有分类或路由任务，固定数据集和业务代价，同口径比较 Decisions API 与现有 Responses/规则基线的正确率、校准、p95 时延、成本和升级率。",
+        "checks": [
+          "先固定 predicate、choice 或 score 的答案空间和评判规则",
+          "把正常、边界、对抗与分布漂移样本分层报告",
+          "低置信度结果进入人工或更强模型，不静默执行高风险动作",
+          "速度与成本只使用自己的端到端测量，不照搬供应商案例"
+        ],
+        "command": "在官方 Decisions Playground 导入一组脱敏、带标准答案的样本，固定问题、允许答案与阈值后运行评测；通过后再按官方开发指南接入专用 endpoint。",
+        "effort": "专用 API / 按量计费 / 需要自备评测集与 OpenAI API 权限",
+        "evidence": "OpenAI 官方 GA 公告、使用模式、定价与限制",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00"
+      },
+      {
         "id": "agent4sci",
         "name": "Agent4Sci · ML 科研 Agent 评测套件",
         "title": "在固定预算下复现科学机器学习改进",
@@ -15831,6 +16188,16 @@
     ],
     "sources": [
       {
+        "id": "openai-decisions-api-ga",
+        "publisher": "OpenAI",
+        "title": "Build more responsive apps with the Decisions API",
+        "url": "https://openai.com/index/decisions-api/",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "kind": "官方产品发布、使用模式、定价与限制"
+      },
+      {
         "id": "agent4sci-paper",
         "publisher": "Agent4Sci authors / arXiv",
         "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
@@ -16276,6 +16643,19 @@
     ],
     "events": [
       {
+        "id": "openai-decisions-api-ga",
+        "task": "openai-decisions-api",
+        "date": "2026-10-22",
+        "kind": "release",
+        "title": "OpenAI Decisions API 正式可用",
+        "summary": "专用 endpoint 处理 predicate、choice 和 score 三类有界判断，支持文本、图像、JSON、提示缓存及 GPT-Live 原生接入。",
+        "delta": "实时 Agent 可以把分类、路由和下一动作选择拆成单独可评测、可限权的决策层；开放式推理和高风险执行仍需更强模型或人工接管。",
+        "sources": [
+          "openai-decisions-api-ga"
+        ],
+        "reviewed": "2026-10-23"
+      },
+      {
         "id": "agent4sci-release",
         "task": "agent4sci",
         "date": "2026-10-20",
@@ -16680,7 +17060,7 @@
   },
   "industry": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "sectors": [
       {
         "id": "pharma",
@@ -16853,6 +17233,16 @@
       }
     ],
     "sources": [
+      {
+        "id": "anthropic-life-sciences-guest-investigators-20261022",
+        "title": "Open call for guest investigators in the life sciences",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "kind": "官方生命科学合作招募、数据权利与公开成果边界"
+      },
       {
         "id": "ibm-granite-timeseries-ensemble-20261022",
         "title": "Ensemble forecasting with IBM Granite time-series models",
@@ -17214,6 +17604,41 @@
       }
     ],
     "articles": [
+      {
+        "id": "anthropic-life-sciences-guest-investigators-20261022",
+        "sector": "pharma",
+        "topics": [
+          "targets",
+          "molecules",
+          "clinical"
+        ],
+        "title": "Anthropic 生命科学客座研究：先把 8–12 周目标写成可公开验证的产物",
+        "summary": "Anthropic 邀请高校、非营利组织和政府实验室提交生命科学提案，提供研究人员协作及免费模型/Harness 运行，并计划公开分析、工具、数据和代码。",
+        "why": "这为靶点、分子与临床研究团队提供一个短周期验证窗口；真正的价值不是“使用最强模型”，而是能否在锁定数据权利和验证路径后产出可复核公共证据。",
+        "boundary": "这是申请和合作计划，不是研究结果或临床证据。官方要求申请材料仅含公开信息；8–12 周更适合初步证据、数据集或工具，结论仍需独立实验、合规审查和同行评议。",
+        "sources": [
+          "anthropic-life-sciences-guest-investigators-20261022"
+        ],
+        "kind": "update",
+        "access": "约 14 天申请窗口；入选团队由 Anthropic 免费运行模型与 Harness",
+        "published": "2026-10-22",
+        "steps": [
+          "把问题压缩成 8–12 周可交付的分析、数据集、工具或初步证据",
+          "申请只使用公开信息，另列数据权利、伦理、隐私和后续验证边界",
+          "预先定义公开产物、失败标准与独立复核方式，避免把合作本身写成研究结论"
+        ],
+        "metrics": [
+          "可公开复核的产物与代码/数据完整性",
+          "预注册里程碑、失败标准与独立验证结果",
+          "数据权利、合规审查和人工专家工作量"
+        ],
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T07:20:00+08:00",
+        "first_seen_at": "2026-10-23T07:20:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "ibm-granite-timeseries-ensemble-20261022",
         "sector": "manufacturing",
@@ -18181,13 +18606,1043 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": null,
-    "last_success": null,
-    "last_full_success": null,
-    "items": [],
-    "sources": [],
+    "last_attempt": "2026-10-22T23:23:21.173912Z",
+    "last_success": "2026-10-22T23:23:21.173912Z",
+    "last_full_success": "2026-10-22T23:23:21.173912Z",
+    "items": [
+      {
+        "title": "Release Anomalib Library v2.7.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.7.0",
+        "published_at": "2026-10-06T14:34:16Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added - 🚀 **model**: Add MH-PatchCore by @NickF93 in https://github.com/open-edge-platform/anomalib/pull/3809 - 🚀 **model**: Add RAD (Retrieval-based Anomaly …",
+        "prerelease": false,
+        "id": "signal-7416458b0cc5fb3b",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.6.2",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.6.2",
+        "published_at": "2026-09-11T10:06:58Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Changed - ⚠️ **data**: `Tabular.from_file()` now only accepts `csv`, `json`, and `parquet`; `pickle`, `hdf`, and other pandas readers that can execute code ar…",
+        "prerelease": false,
+        "id": "signal-7e8c135cc342be0e",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.6.1",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.6.1",
+        "published_at": "2026-09-04T13:12:22Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Changed - 🔄 **data**: Update Kaputt dataset source to the official Hugging Face repository (https://huggingface.co/datasets/amazon/kaputt) by @ashwinvaidya17 …",
+        "prerelease": false,
+        "id": "signal-e8e004885ef85efb",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.6.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.6.0",
+        "published_at": "2026-07-25T08:58:23Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added - 🚀 **model**: Add SuperADD VAND4.0 winning method by @alexriedel1 in https://github.com/open-edge-platform/anomalib/pull/3628 - 🚀 **data**: Add AutoVI …",
+        "prerelease": false,
+        "id": "signal-4c9a9d911675f622",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.5.1",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.5.1",
+        "published_at": "2026-07-17T10:58:18Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added - 🚀 **model**: Migrate all DINOv2-based models to `timm` feature extraction with DINOv3 backbone support by @alexriedel1 in https://github.com/open-edge…",
+        "prerelease": false,
+        "id": "signal-8895b10cd8944af7",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "v3.0.0 - BioNeMo Recipes",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v3.0.0",
+        "published_at": "2026-06-24T18:26:26Z",
+        "updated_at": null,
+        "excerpt": "This marks the first release from BioNeMo Recipes, a lighter-weight version of the BioNeMo model training framework which demonstrates NVIDIA-optimized reference architectures for …",
+        "prerelease": false,
+        "id": "signal-99897a50c67e6665",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.5.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.5.0",
+        "published_at": "2026-05-29T07:46:03Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added - 🚀 **model**: Add INP-Former model by @abc-125 and @alexriedel1 in https://github.com/open-edge-platform/anomalib/pull/3605 - 🚀 **model**: Add GLASS an…",
+        "prerelease": false,
+        "id": "signal-3d85fe728af3fd2c",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.4.2",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.4.2",
+        "published_at": "2026-05-15T09:01:15Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added * 🚀 **model:** Half precision training for Dinomaly by @alexriedel1 in https://github.com/open-edge-platform/anomalib/pull/3593 **Full Changelog**: http…",
+        "prerelease": false,
+        "id": "signal-f3a60689b785fd1d",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.4.1",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.4.1",
+        "published_at": "2026-05-01T13:28:55Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Fixed - 🐞 **training**: Fix DDP adaptive F1 score computation by @ashwinvaidya17 in https://github.com/open-edge-platform/anomalib/pull/3569 - 🔧 **deps**: Upd…",
+        "prerelease": false,
+        "id": "signal-5920178633f4407c",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.4.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.4.0",
+        "published_at": "2026-04-24T12:04:44Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Added - 🚀 **model**: Add L2BT anomaly detection model by @Sharon-9 in https://github.com/open-edge-platform/anomalib/pull/3410 - 🚀 **model**: Add GeneralAD an…",
+        "prerelease": false,
+        "id": "signal-2d9efa42f3d7c6d4",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Release Anomalib Library v2.3.3",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.3.3",
+        "published_at": "2026-04-10T12:26:27Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Changed - 🔧 **path**: Move pre-trained model downloads to platform-specific cache directories and add deprecation warnings for legacy local `./datasets/ ` roo…",
+        "prerelease": false,
+        "id": "signal-808e5380b7bf92f7",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Anomalib Library v2.3.2",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.3.2",
+        "published_at": "2026-04-03T06:58:15Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed ### Changed - 📝 **docs**: Add Kaputt dataset example notebook and extend datamodule API to support paper's four training settings by @ashwinvaidya17 in https://gi…",
+        "prerelease": false,
+        "id": "signal-818151f5d8e51f59",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Anomalib Library v2.3.1",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/lib/v2.3.1",
+        "published_at": "2026-03-27T09:56:31Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed * chore(deps): lock file maintenance by @oep-renovate[bot] in https://github.com/open-edge-platform/anomalib/pull/3449 * chore(library): remove deprecated MVTec d…",
+        "prerelease": false,
+        "id": "signal-8d56890e3093e866",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "v2.3.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.3.0",
+        "published_at": "2026-03-20T16:03:44Z",
+        "updated_at": null,
+        "excerpt": "# Release Notes ## v2.3.0 ### Added - 🚀 **model**: Introduces AnomalyDINO model by @rajeshgangireddy, @alfieroddanintel in https://github.com/open-edge-platform/anomalib/pull/3193 …",
+        "prerelease": false,
+        "id": "signal-8412d501f56b3323",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "v2.2.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.2.0",
+        "published_at": "2025-10-08T12:39:04Z",
+        "updated_at": null,
+        "excerpt": "# Release Notes ## v2.2.0 ### Added - 🚀 **data**: Add 3D-ADAM dataset by @PaulMcHard in https://github.com/open-edge-platform/anomalib/pull/2986, https://github.com/open-edge-platf…",
+        "prerelease": false,
+        "id": "signal-83fcc7c1e8856f8a",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.7",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.7",
+        "published_at": "2025-10-01T23:46:29Z",
+        "updated_at": null,
+        "excerpt": "### Updates & Improvements - Evo2 model improvements: - Context, tensor and data parallelism support in the prediction endpoint as well as support for context lengths over 8192 htt…",
+        "prerelease": false,
+        "id": "signal-bf86963a994b0d15",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v2.2.1: Minor bug fixes",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.2.1",
+        "published_at": "2025-09-08T16:00:36Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed * fix: redundant PoseBustersPotential bounds by @simonlevine in https://github.com/jwohlwend/boltz/pull/478 * Fix help message in --use_potentials flag by @Albert…",
+        "prerelease": false,
+        "id": "signal-ffb817dd17f04f3d",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "v2.1.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.1.0",
+        "published_at": "2025-08-01T09:14:46Z",
+        "updated_at": null,
+        "excerpt": "# Release Notes ## v2.1.0 ### Added * Add MVTec LOCO dataset by @samet-akcay in https://github.com/open-edge-platform/anomalib/pull/2607 * 🚀 Add VAD dataset by @abc-125 in https://…",
+        "prerelease": false,
+        "id": "signal-bef9a57aa478f087",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.6.3",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.6.3",
+        "published_at": "2025-07-31T21:09:57Z",
+        "updated_at": null,
+        "excerpt": "## Updates & Improvements * Fixes numerous issues with Evo2 model: 1. Inference/Generation issues resolved. https://github.com/NVIDIA/bionemo-framework/issues/890 2. FP8 training r…",
+        "prerelease": false,
+        "id": "signal-f263da67f1540f18",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v2.2.0: Contact conditioning fixes, new potentials",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.2.0",
+        "published_at": "2025-07-15T03:29:05Z",
+        "updated_at": null,
+        "excerpt": "## Highlight - Fixes for contact and pocket conditioning which was not fully functional for Boltz2 - New potentials - Kernels are now optional to avoid installation issues on non-l…",
+        "prerelease": false,
+        "id": "signal-4df76ac7037ffba4",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.6.2",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.6.2",
+        "published_at": "2025-07-02T23:18:41Z",
+        "updated_at": null,
+        "excerpt": "### Updates & Improvements * Fixes numerous ESM2 model issues: 1. Finetuning metric for token classification is fixed. https://github.com/NVIDIA/bionemo-framework/pull/946 2. Losse…",
+        "prerelease": false,
+        "id": "signal-8d45f42646e4c8ea",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v2.1.1: New CUDA kernels from NVIDIA",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.1.1",
+        "published_at": "2025-06-11T12:22:26Z",
+        "updated_at": null,
+        "excerpt": "## New Features This release introduces two novel kernels from NVIDIA for the triangular attention and triangular multiplication layers, achieve 2x speedup and large memory savings…",
+        "prerelease": false,
+        "id": "signal-e7e5a7839768c1c7",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v2.1.0",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.1.0",
+        "published_at": "2025-06-11T07:17:35Z",
+        "updated_at": null,
+        "excerpt": "",
+        "prerelease": false,
+        "id": "signal-ab07a3c097243c16",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v2.0.3: Patch CCD affinity",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.0.3",
+        "published_at": "2025-06-07T05:01:27Z",
+        "updated_at": null,
+        "excerpt": "",
+        "prerelease": false,
+        "id": "signal-dcf156d339261c1d",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v2.0.2",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.0.2",
+        "published_at": "2025-06-06T16:13:19Z",
+        "updated_at": null,
+        "excerpt": "Another patch, small issue with multi ligand copies and affinity.",
+        "prerelease": false,
+        "id": "signal-363d793299048735",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v2.0.1: Patch",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.0.1",
+        "published_at": "2025-06-06T15:52:11Z",
+        "updated_at": null,
+        "excerpt": "Fixes an important issue with checkpoint download. Please delete your cache to trigger re-download of the checkpoints if you encounter an issue.",
+        "prerelease": false,
+        "id": "signal-15ece6f10b9a279f",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v2.0.0: Boltz-2 release",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v2.0.0",
+        "published_at": "2025-06-06T13:27:05Z",
+        "updated_at": null,
+        "excerpt": "## Boltz-2 is out! Boltz-2 is our latest model and a step forward in molecular modeling with the introduction of binding affinity prediction. Boltz-2 also comes with exciting new f…",
+        "prerelease": false,
+        "id": "signal-e272f117ed7baf08",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.6.1",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.6.1",
+        "published_at": "2025-06-02T18:38:18Z",
+        "updated_at": null,
+        "excerpt": "### Updates & Improvements * Fixes around ESM2 pretraining and funetuning checkpoints. * Added sanity dataset for AMPLIFY testing. * Tested against A100 [brev](https://developer.nv…",
+        "prerelease": false,
+        "id": "signal-a0ced7c36f6e2add",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.6",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.6",
+        "published_at": "2025-04-30T20:15:17Z",
+        "updated_at": null,
+        "excerpt": "### New Features * Adds support for AMPLIFY [doi:10.1101/2024.09.23.614603](https://doi.org/10.1101/2024.09.23.614603) pre-training and inference, offering a 70% speedup over the x…",
+        "prerelease": false,
+        "id": "signal-150902a6f6057c55",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v1.0.0: Boltz-1x release",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v1.0.0",
+        "published_at": "2025-04-26T20:40:32Z",
+        "updated_at": null,
+        "excerpt": "## We're excited to release Boltz-1x! Boltz-1x introduces inference-time steering for much higher physical quality, CUDA kernels for faster, more memory-efficient inference and tra…",
+        "prerelease": false,
+        "id": "signal-b84f1b09e13245ab",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "v2.0.0",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.0.0",
+        "published_at": "2025-03-19T16:23:08Z",
+        "updated_at": null,
+        "excerpt": "# Release Notes ## v2.0.0 ### Added - 🚀 Add `Dataclasses` and `PostProcessor` by @djdameln in https://github.com/openvinotoolkit/anomalib/pull/2098 - 🚀 Add dataclass validators by …",
+        "prerelease": false,
+        "id": "signal-346221c9ce3db4f7",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.5",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.5",
+        "published_at": "2025-03-17T13:40:36Z",
+        "updated_at": null,
+        "excerpt": "### New Features * Adding the Evo2 model training workflow, including data preprocessing, pre-training, fine-tuning and inference with bf16 and fp8 support. ### Updates & Improveme…",
+        "prerelease": false,
+        "id": "signal-de5a72fc46abc511",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.4.1",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.4.1",
+        "published_at": "2025-02-28T19:39:54Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed Applies fixes to ESM2 metric logging that result in `NotImplementedError` while using Model Parallelism. **Full Changelog**: https://github.com/NVIDIA/bionemo-fra…",
+        "prerelease": false,
+        "id": "signal-5c25e663c6b8268c",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.4",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.4",
+        "published_at": "2025-02-25T17:27:37Z",
+        "updated_at": null,
+        "excerpt": "### New Features * Draft implementation of Evo2 with support for Hyena operators * bionemo-moco v0.0.1 released for building diffusion-like generative models. ### Updates & Improve…",
+        "prerelease": false,
+        "id": "signal-77765841da2e76ed",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "v1.1.3",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v1.1.3",
+        "published_at": "2025-02-18T16:32:52Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed * [Hotfix] Model setup hotfix by @djdameln in https://github.com/openvinotoolkit/anomalib/pull/2575 **Full Changelog**: https://github.com/openvinotoolkit/anomali…",
+        "prerelease": false,
+        "id": "signal-a0d626046b1cf14c",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "v1.1.2",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v1.1.2",
+        "published_at": "2025-02-18T14:52:29Z",
+        "updated_at": null,
+        "excerpt": "## What's Changed * [Hotfix] check model attribute in setup method by @djdameln in https://github.com/openvinotoolkit/anomalib/pull/2574 **Full Changelog**: https://github.com/open…",
+        "prerelease": false,
+        "id": "signal-cb9bb0d1805b88ea",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "v2.0.0b3",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.0.0b3",
+        "published_at": "2025-02-14T16:27:41Z",
+        "updated_at": null,
+        "excerpt": "## v2.0.0 ### Added - 🚀 Add XPU accelerator and strategy by @ashwinvaidya17 in https://github.com/openvinotoolkit/anomalib/pull/2530 - 🚀 Add `Dataclasses` and `PostProcessor` by @d…",
+        "prerelease": true,
+        "id": "signal-8f248c3351811afb",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.3",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.3",
+        "published_at": "2025-01-28T15:27:48Z",
+        "updated_at": null,
+        "excerpt": "### New Features * Distributed Inference Support for ESM2 and Geneformer * Enables linear inference throughput as GPU number is increased * [See ESM2 inference notebook](https://gi…",
+        "prerelease": false,
+        "id": "signal-9ea52af3847d05ba",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v0.4.1: Small patch release",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.4.1",
+        "published_at": "2025-01-12T10:37:33Z",
+        "updated_at": null,
+        "excerpt": "Small patch due to an error in chucking mode",
+        "prerelease": false,
+        "id": "signal-0b6bc20e290e9d33",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "v2.0.0b2",
+        "url": "https://github.com/open-edge-platform/anomalib/releases/tag/v2.0.0b2",
+        "published_at": "2025-01-09T15:25:44Z",
+        "updated_at": null,
+        "excerpt": "## v2.0.0 ### Added - 🚀 Add `Dataclasses` and `PostProcessor` by @djdameln in https://github.com/openvinotoolkit/anomalib/pull/2098 - 🚀 Add dataclass validators by @samet-akcay in …",
+        "prerelease": true,
+        "id": "signal-abd35c256febab0d",
+        "publisher": "Open Edge Platform Anomalib releases",
+        "topics": [
+          "equipment-maintenance",
+          "fab-yield"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-anomalib"
+        ]
+      },
+      {
+        "title": "Boltz v0.4.0: Full data processing pipeline, evals & pocket conditioning",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.4.0",
+        "published_at": "2024-12-21T16:06:56Z",
+        "updated_at": null,
+        "excerpt": "## New Features - We've released our full data processing pipelines, including documentation - Updated evaluations, including code, results and predictions - Pocket conditioning: y…",
+        "prerelease": false,
+        "id": "signal-fd8a0040b43ce426",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework v2.2",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.2",
+        "published_at": "2024-12-20T16:30:58Z",
+        "updated_at": null,
+        "excerpt": "### New Features * Small Molecule Featurization * Implemented elementary and advanced atom, bond, and full molecule featurizers. * GH200 Support for BioNeMo * Added a `Dockerfile.a…",
+        "prerelease": false,
+        "id": "signal-f08a98d53d35e297",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v0.3.2: Memory improvements",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.3.2",
+        "published_at": "2024-12-04T20:00:27Z",
+        "updated_at": null,
+        "excerpt": "## Bug Fixes - Fixed max MSA length, which was causing some OOM for some users - Changed default chunking threshold",
+        "prerelease": false,
+        "id": "signal-743f4b05b23469bf",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v0.3.1: Few bug fixes",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.3.1",
+        "published_at": "2024-12-04T16:25:34Z",
+        "updated_at": null,
+        "excerpt": "## Bug Fixes - Fixed an issue with automated MSA's when running boltz on multiple inputs - Improved handling for smiles that fail conformer generation",
+        "prerelease": false,
+        "id": "signal-54f14af24963d1d9",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v0.3.0: Confidence model, low memory mode & custom MSA pairing",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.3.0",
+        "published_at": "2024-11-28T15:25:13Z",
+        "updated_at": null,
+        "excerpt": "## New features - We've added our confidence model, which can be used to rank multiple samples (as controlled by the `--diffusion_samples` flag). It dumps a json file with aggregat…",
+        "prerelease": false,
+        "id": "signal-336ad0f14e75bffe",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz v0.2.1: MSA generation now opt-in",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.2.1",
+        "published_at": "2024-11-21T03:49:54Z",
+        "updated_at": null,
+        "excerpt": "# Bolts v0.2.1 Release ## Changes We've made MSA generation an opt-in feature that is set using the `--use_msa_server` flag. This is important for privacy reasons. ## Bug fixed Fix…",
+        "prerelease": false,
+        "id": "signal-af70e443f8b7e6ae",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework 2.1",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.1",
+        "published_at": "2024-11-21T00:33:47Z",
+        "updated_at": null,
+        "excerpt": "# New Features: * ESM2 Implementation * Updated the ESM-2 Model Card with detailed performance benchmarks comparing BioNeMo2 training against vanilla pytorch. * Added ESM-2 inferen…",
+        "prerelease": false,
+        "id": "signal-eb772270d8a1573d",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "Boltz v0.2.0: Automatic MSA generation & various improvements",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.2.0",
+        "published_at": "2024-11-20T10:39:03Z",
+        "updated_at": null,
+        "excerpt": "## New Features - The `boltz predict` command will now automatically generate an MSA using the mmseqs2 server! Shoutout to the colabfold team for providing the server to the commun…",
+        "prerelease": false,
+        "id": "signal-58f6be0e2fdaa423",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "Boltz-1: First release",
+        "url": "https://github.com/jwohlwend/boltz/releases/tag/v0.1.0",
+        "published_at": "2024-11-17T16:03:04Z",
+        "updated_at": null,
+        "excerpt": "",
+        "prerelease": false,
+        "id": "signal-8046bfbb1fc94540",
+        "publisher": "Boltz releases",
+        "topics": [
+          "molecules"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-boltz"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework 2.0",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v2.0",
+        "published_at": "2024-10-23T21:54:16Z",
+        "updated_at": null,
+        "excerpt": "# New Features: * ESM2 implementation * State of the art training performance and equivalent accuracy to the reference implementation * 650M, and 3B scale checkpoints available whi…",
+        "prerelease": false,
+        "id": "signal-58a38244ef00b817",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      },
+      {
+        "title": "NVIDIA BioNeMo Framework 1.10",
+        "url": "https://github.com/NVIDIA-BioNeMo/bionemo-recipes/releases/tag/v1.10",
+        "published_at": "2024-10-23T21:54:10Z",
+        "updated_at": null,
+        "excerpt": "# Changes * Migrated development from NVIDIA internal to GitHub * License changed from NVIDIA proprietary to Apache 2.0 * 1.10 release is functionally equivalent to 1.9 release, pr…",
+        "prerelease": false,
+        "id": "signal-b7ee8b0d1a16fb9e",
+        "publisher": "NVIDIA BioNeMo Framework releases",
+        "topics": [
+          "molecules",
+          "targets"
+        ],
+        "review_status": "unreviewed",
+        "first_seen": "2026-10-22T23:23:21.173912Z",
+        "last_seen": "2026-10-22T23:23:21.173912Z",
+        "source_ids": [
+          "github-bionemo-framework"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "github-bionemo-framework",
+        "name": "NVIDIA BioNeMo Framework releases",
+        "status": "success",
+        "checked_at": "2026-10-22T23:23:21.173912Z",
+        "parsed": 14,
+        "matched": 14
+      },
+      {
+        "id": "github-boltz",
+        "name": "Boltz releases",
+        "status": "success",
+        "checked_at": "2026-10-22T23:23:21.173912Z",
+        "parsed": 17,
+        "matched": 17
+      },
+      {
+        "id": "github-anomalib",
+        "name": "Open Edge Platform Anomalib releases",
+        "status": "success",
+        "checked_at": "2026-10-22T23:23:21.173912Z",
+        "parsed": 20,
+        "matched": 20
+      }
+    ],
     "errors": [],
-    "note": "采集代码已准备，首次联网运行待部署后验证。"
+    "note": "自动候选资料，未核验。机器分类不等于疗效、良率、可用性或监管结论。",
+    "version": 1
   },
   "activity_feature": {
     "version": 1,
@@ -18304,6 +19759,45 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-decisions-api",
+        "publisher": "OpenAI",
+        "group": "agents",
+        "access": "web",
+        "headline": "先评测一个真实分类或路由任务，再把 Decisions API 放进实时路径",
+        "input": "脱敏的真实文本、图像或 JSON 样本，固定问题、允许答案、标准答案与业务代价",
+        "output": "predicate 概率、choice 及概率/置信度，或按有序等级计算的 score",
+        "requirements": "OpenAI API 账户与当前可用区域；一组带标准答案的评测样本、现有 Responses/规则基线、置信度阈值和人工升级路径。",
+        "limitation": "本站只核验官方 GA 公告和使用说明，未调用 API。它只适合答案空间已定义的有界判断；官方最高 10 倍速度及客户案例不能代替本域正确率、校准、时延和成本评测。",
+        "cost": "官方公告列出每百万输入 token 0.10 美元、缓存输入 0.01 美元且无输出 token 费用；价格和区域可能变化，接入前以当前官方指南为准。",
+        "steps": [
+          {
+            "title": "固定一个高频小决策",
+            "body": "从现有分类、路由或下一动作选择中选一项，定义 predicate、choice 或 score，并记录错误决策的业务代价。"
+          },
+          {
+            "title": "在 Playground 跑分层样本",
+            "body": "导入脱敏样本，分开正常、边界、对抗和低置信度情况；同口径比较 Decisions 与现有 Responses/规则基线。"
+          },
+          {
+            "title": "只在门槛达标后接入",
+            "body": "同时验收正确率、概率校准、p95 时延、成本与升级率；低置信度送人工或更强模型，高风险动作保留批准。"
+          }
+        ],
+        "troubleshooting": "结果不稳定时先收紧问题和允许答案，检查样本标签与上下文是否一致；低置信度升高时调查输入漂移，不通过降低阈值掩盖；实时链路变慢时分开记录网络、排队和模型时延。",
+        "sources": [
+          {
+            "title": "OpenAI Decisions API 官方 GA 与使用指南",
+            "url": "https://openai.com/index/decisions-api/",
+            "published_at": "2026-10-22",
+            "verified_at": "2026-10-23"
+          }
+        ],
+        "entry_url": "https://openai.com/index/decisions-api/",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-23T07:20:00+08:00"
+      },
       {
         "id": "agent4sci",
         "publisher": "Agent4Sci authors",

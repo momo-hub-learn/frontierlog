@@ -38,6 +38,11 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("fcHeatBand(x.heat).label+'</small>'",text)
   css=(ROOT/'src/feed-cockpit.css').read_text()
   for band in ('extreme','high','rising','watch'):self.assertIn('.fc-heat-'+band,css)
+ def test_intraday_heat_is_not_mislabelled_as_an_ai_score(self):
+  text=(ROOT/'src/intraday.js').read_text()
+  self.assertNotIn('AI 评分',text)
+  self.assertIn('本站热度',text)
+  self.assertIn('aria-label="本站编辑热度 ${x.heat} 分"',text)
  def test_hot_primary_cta_does_not_call_documents_an_experience(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)

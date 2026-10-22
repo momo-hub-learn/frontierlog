@@ -24,7 +24,15 @@ https://huggingface.co/datasets/MingZhong/agent4sci</description></item><item><t
 
 来源：
 https://huggingface.co/blog/allenai/fairstress
-https://huggingface.co/datasets/allenai/fairstress</description></item><item><title>OpenAI 发布 MultiLangBench 与 COBOL 迁移评测</title><guid isPermaLink="false">frontierlog:benchmark:multilangbench-release-20261019</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=multilangbench</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 发布跨 20 种编程语言实现 SQLite 兼容数据库的评测，并公开 MultiLangBench 测试设置。官方报告 GPT-6 Astra 平均通过率 87.4%，GPT-5.6 Sol 为 26.8%；另一个 COBOL 迁移隐藏测试报告 GPT-6.1 Sol 在高推理档为 97.9%。
+https://huggingface.co/datasets/allenai/fairstress</description></item><item><title>VerifierBench 检查 Agent 验证器是否过严</title><guid isPermaLink="false">frontierlog:benchmark:verifierbench-release-20261019</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=verifierbench-agent-verifiers</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 222 个任务和 4,993 个隐藏用例；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。
+
+编辑解读：验证器不只要拒绝错误，还要接受不同形式的正确解；否则自动测试或训练奖励会系统性丢掉有效结果。
+
+来源：
+https://arxiv.org/abs/2610.28679
+https://verifierbench.github.io/
+https://huggingface.co/datasets/Catherine1213/VerifierBench
+https://github.com/DwanZhang-AI/verifier-suite</description></item><item><title>OpenAI 发布 MultiLangBench 与 COBOL 迁移评测</title><guid isPermaLink="false">frontierlog:benchmark:multilangbench-release-20261019</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=multilangbench</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 发布跨 20 种编程语言实现 SQLite 兼容数据库的评测，并公开 MultiLangBench 测试设置。官方报告 GPT-6 Astra 平均通过率 87.4%，GPT-5.6 Sol 为 26.8%；另一个 COBOL 迁移隐藏测试报告 GPT-6.1 Sol 在高推理档为 97.9%。
 
 编辑解读：这是不同的评测口径：MultiLangBench 衡量新建软件，COBOL 迁移衡量行为保持。官方模型结果不是本站独立实测，真实生产迁移还需企业数据和规则回归。
 

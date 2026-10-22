@@ -149,6 +149,12 @@
 
 边界：41 个任务、15 个数据库、RelArena-α 与 SAP SALT 结果来自作者评测，且不同榜的 AUROC、MRR 与 Elo 不能合并。官方明确：大训练集下专用监督模型仍可能更强，信号还必须在有限关系跳数内可达；本站未运行。
 
+站内热度 96；不是全网流量。</description></item><item><title>OpenAI Decisions API 正式开放：把高频小决策放进低时延路径</title><guid isPermaLink="false">frontierlog:hot:openai-decisions-api-ga-20261022</guid><link>https://openai.com/index/decisions-api/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 宣布 Decisions API 正式可用：基于 GPT-6 Luna，对文本、图像和原生 JSON 做 predicate、choice、score 三类有界判断；单次最多 400 个问题，并可原生接入 GPT-Live。
+
+为什么值得看：分类、路由和下一动作选择可以从通用生成调用中拆出，单独衡量时延、成本、置信度和人工接管；这会直接改变实时 Agent 的编排方式。
+
+边界：“最高 10 倍更快”及客户案例均来自 OpenAI 与其客户披露，本站未复测。它只适合答案空间已定义的有界判断，不能替代开放式推理；上线前仍需用本域样本测准确率、校准、拒答和低置信度升级。
+
 站内热度 96；不是全网流量。</description></item><item><title>OpenAI 收购 Orchestra Bio：连接药物研发与项目协作</title><guid isPermaLink="false">frontierlog:hot:openai-orchestra-bio-20261020</guid><link>https://openai.com/index/openai-to-acquire-orchestra-bio/</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 宣布已收购 Orchestra Bio，并将其团队与技术结合到 Rosalind。重点是协助生物制药团队跟踪研究、依赖关系和项目进度。
 
 为什么值得看：生命科学 Agent 开始连接科学分析与研发流程；可关注证据追溯、权限和人工决策如何衔接。
@@ -239,6 +245,12 @@
 
 边界：FairStress 采用以平等为中心的公平性定义，不覆盖所有规范立场；合成场景与模型解释、激活差异也不能证明真实部署无歧视。本站只登记协议，未运行或生成排行榜。
 
+站内热度 92；不是全网流量。</description></item><item><title>Agent Skills 捐给 AAIF：Agent 工作流标准转入中立治理</title><guid isPermaLink="false">frontierlog:hot:anthropic-agent-skills-aaif-20261022</guid><link>https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 将 Agent Skills 名称、Logo、GitHub 组织和 agentskills.io 域名捐给 Linux Foundation 旗下 AAIF，并提出版本发布、正式提案流程与安全指南路线。
+
+为什么值得看：已有多个 Agent 平台读取 SKILL.md 目录规范；转入中立治理后，版本兼容、安全审查和跨平台迁移有机会从厂商约定变成公共流程。
+
+边界：“70 多个平台集成、100 万技能、近 2.8 亿次安装”来自 Anthropic 官方统计，本站未独立审计；捐赠治理资产不等于所有实现立即兼容，也不代表第三方技能安全。
+
 站内热度 92；不是全网流量。</description></item><item><title>Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-timeseries-ensemble-r1-20261022</guid><link>https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。
 
 为什么值得看：团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。
@@ -275,4 +287,16 @@
 
 边界：这是合作方向和待发布评测计划，不是现成排行榜、已发布数据集或量产收益。官方没有给出统一交付日期，本站未验证 CAD 到仿真的任务成功率。
 
-站内热度 89；不是全网流量。</description></item></channel></rss>
+站内热度 89；不是全网流量。</description></item><item><title>VerifierBench：Agent 写的验证器会把正确解也拒绝掉</title><guid isPermaLink="false">frontierlog:hot:verifierbench-agent-verifiers-20261019</guid><link>https://arxiv.org/abs/2610.28679</link><pubDate>Mon, 19 Oct 2026 17:22:36 +0000</pubDate><description>作者公开 222 个 Agent 任务和 4,993 个隐藏用例，用替代正确解、常见错误与攻击检查模型生成的可执行验证器；统一 Harness 下 19 个模型的归一化 balanced accuracy 为 10.6–62.1。
+
+为什么值得看：自动测试和 RL 奖励若只会拒错、不会接纳不同形式的正确解，就会把实现偏好误当任务要求；门禁必须同时覆盖至少一个已知正确解和多个等价正确解。
+
+边界：规模与分数来自作者论文，本站未运行。六个来源 benchmark、统一 Harness 和隐藏用例不能外推到全部企业流程或真实事故率，也不能与其他 Agent 榜单拼成综合分。
+
+站内热度 89；不是全网流量。</description></item><item><title>Anthropic 征集生命科学客座研究者：8–12 周共建公开成果</title><guid isPermaLink="false">frontierlog:hot:anthropic-life-sciences-guest-investigators-20261022</guid><link>https://www.anthropic.com/news/open-call-guest-investigators-life-sciences</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。
+
+为什么值得看：项目承诺由 Anthropic 免费运行模型与 Harness，并计划公开分析、工具、数据和代码，为观察 AI 科研流程能否形成可复核公共产物提供近期窗口。
+
+边界：这是约 14 天申请窗口和 8–12 周合作计划，不是研究结果、临床验证或产品发布；申请材料只能包含公开信息，初步发现仍需独立实验和同行评议。
+
+站内热度 86；不是全网流量。</description></item></channel></rss>

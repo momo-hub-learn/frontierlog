@@ -53,7 +53,7 @@ function timelineCard(x){
     <div class="intraday-content">
       <div class="intraday-cardtop">
         <div class="intraday-meta"><span class="h-cat">${icon(H_ICON[x.category]||'sparkles')}${esc(HOT_CATS.get(x.category).title)}</span><span>${esc(x.source)}</span><span>${esc(x.source_kind)}</span></div>
-        <div class="intraday-score"><span>AI 评分</span><strong>${x.heat}/100</strong>${hTrend(x)}</div>
+        <div class="intraday-score" aria-label="本站编辑热度 ${x.heat} 分"><span>本站热度</span><strong>${x.heat}/100</strong>${hTrend(x)}</div>
       </div>
       <button class="intraday-title" data-ha="detail" data-id="${x.id}">${esc(x.title)}</button>
       <p class="intraday-summary">${esc(x.summary)}</p>
