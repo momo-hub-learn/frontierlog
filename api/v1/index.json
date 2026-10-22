@@ -2270,13 +2270,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T21:57:46Z",
+    "generated_at": "2026-10-22T23:36:20Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 44,
+      "merge": 47,
       "hold": 5
     },
     "candidates": [
@@ -2339,6 +2339,29 @@
         "first_seen_at": "2026-10-22T03:33:57Z"
       },
       {
+        "id": "candidate-5b6012e7e08daff6",
+        "category": "industry",
+        "published": "2026-10-22",
+        "title": "Anthropic 生命科学客座研究：先把 8–12 周目标写成可公开验证的产物",
+        "summary": "Anthropic 邀请高校、非营利组织和政府实验室提交生命科学提案，提供研究人员协作及免费模型/Harness 运行，并计划公开分析、工具、数据和代码。",
+        "why": "这为靶点、分子与临床研究团队提供一个短周期验证窗口；真正的价值不是“使用最强模型”，而是能否在锁定数据权利和验证路径后产出可复核公共证据。",
+        "boundary": "这是申请和合作计划，不是研究结果或临床证据。官方要求申请材料仅含公开信息；8–12 周更适合初步证据、数据集或工具，结论仍需独立实验、合规审查和同行评议。",
+        "source": "Anthropic",
+        "source_kind": "官方生命科学合作招募、数据权利与公开成果边界",
+        "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-22T23:36:20Z"
+      },
+      {
         "id": "candidate-657add4de8695366",
         "category": "industry",
         "published": "2026-10-22",
@@ -2360,6 +2383,30 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T11:33:11Z"
+      },
+      {
+        "id": "candidate-de99d9964dc4e064",
+        "category": "product",
+        "published": "2026-10-22",
+        "title": "OpenAI Decisions API 正式可用",
+        "summary": "专用 endpoint 处理 predicate、choice 和 score 三类有界判断，支持文本、图像、JSON、提示缓存及 GPT-Live 原生接入。",
+        "why": "实时 Agent 可以把分类、路由和下一动作选择拆成单独可评测、可限权的决策层；开放式推理和高风险执行仍需更强模型或人工接管。",
+        "boundary": "仅适合答案空间已定义的有界判断；官方速度、成本和客户准确率案例不是本站实测。生产使用前必须按真实分布测错误率、概率校准、低置信度升级和漂移。",
+        "source": "OpenAI",
+        "source_kind": "官方产品发布、使用模式、定价与限制",
+        "url": "https://openai.com/index/decisions-api",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openai-decisions-api",
+        "first_seen_at": "2026-10-22T23:36:20Z"
       },
       {
         "id": "candidate-f86089c70378a7ad",
@@ -3233,59 +3280,6 @@
           "Evaluation"
         ],
         "first_seen_at": "2026-10-21T17:48:39Z"
-      },
-      {
-        "id": "candidate-e41d709f57e5797b",
-        "category": "product",
-        "published": "2026-10-19",
-        "title": "RFD4-Proteína 开放原生、Diffusers 与容器入口",
-        "summary": "Baker Lab 与 NVIDIA 发布联合生成蛋白质序列和全原子结构的模型、权重、代码与可运行样例。",
-        "why": "计算设计入口更完整，但任何结合、活性或研发价值都仍需结构复核与湿实验；本站未运行。",
-        "boundary": "计算生成不证明结合、活性、安全性或临床价值；外部结构评分器与训练数据另有条款。Diffusers 需从 git 安装直至下一个正式版本，本站未运行。",
-        "source": "NVIDIA / Baker Lab",
-        "source_kind": "官方模型卡与运行文档",
-        "url": "https://huggingface.co/nvidia/RFD4-Proteina",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.762,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "nvidia-rfd4-proteina",
-        "first_seen_at": "2026-10-21T15:29:58Z"
-      },
-      {
-        "id": "candidate-567f9dfeb2c35d69",
-        "category": "research",
-        "published": "2026-10-16",
-        "title": "Anthropic 内部就业研究：Agent 工时超过员工工时",
-        "summary": "Anthropic 研究其内部 2025–2026 年工作数据，称 Agent 工时在 2026 年 3 月超过员工工时，8 月 Agent 与员工数量比约 6:1；同时观察到高复杂度 Claude 使用岗位的初级招聘占比下降。",
-        "why": "这提供了一个 AI-native 组织里任务拆分、监督负担与招聘结构同步变化的早期样本，尤其说明人类注意力与 Agent 监控可能成为新的瓶颈。",
-        "boundary": "这是单一前沿 AI 公司的内部观察研究，岗位构成、激励与工具可得性都不代表一般企业；相关性不能证明 AI 单独造成招聘变化，也不能直接外推宏观就业。",
-        "source": "Anthropic Economic Research",
-        "source_kind": "公司内部观察研究",
-        "url": "https://www.anthropic.com/research/employment-at-anthropic",
-        "publishable": false,
-        "features": {
-          "freshness": 0.571,
-          "authority": 0.72,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.747,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "research_id": "anthropic-employment-ai-intensive-workplace",
-        "topic_tags": [
-          "Future of Work",
-          "Agent Adoption",
-          "Employment"
-        ],
-        "first_seen_at": "2026-10-20T12:44:41Z"
       }
     ]
   },
@@ -5916,12 +5910,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T21:57:46Z",
+    "last_evaluated": "2026-10-22T23:36:20Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 49,
+      "candidate_count": 52,
       "publish_ready_count": 0,
-      "merge_count": 44,
+      "merge_count": 47,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
