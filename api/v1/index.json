@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,54 @@
       }
     ],
     "items": [
+      {
+        "id": "nvidia-minerva-ai-factory-observability-20261022",
+        "category": "industry",
+        "title": "NVIDIA Minerva：把 AI 工厂的作业与基础设施告警串成一张图",
+        "published": "2026-10-22",
+        "published_at": "2026-10-22T08:00:00-07:00",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T01:26:00+08:00",
+        "first_seen_at": "2026-10-23T01:26:00+08:00",
+        "heat": 91,
+        "heat_components": {
+          "impact": 33,
+          "availability": 18,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是产品可靠性、故障减少比例或本站实测。",
+        "trend": "up",
+        "summary": "NVIDIA 发布 AI 工厂 AIOps 平台 Minerva：把 GPU、网络、存储、调度器和工作负载遥测映射成动态知识图，用专用模型检测异常、预测故障并把告警风暴聚合成带可能根因的事件。",
+        "why": "训练和推理集群的优化目标正从单卡利用率扩展到作业、网络、存储与站点的联合可观察性；Minerva 还给出 AI factory yield 口径，把 GPU 小时、goodput、集群在线时间和 token 产出放进同一运营视角。",
+        "boundary": "功能、规模和合作方均来自 NVIDIA 发布，本站未接入或压测。官方文中没有给出定价、部署门槛、支持矩阵或可复现的故障预测准确率；文章所链产品页在本轮核验时返回 404，因此不能写成公开可试用。",
+        "source": "NVIDIA",
+        "source_kind": "官方产品发布与 GTC Berlin 实时更新 / 本轮编辑核验",
+        "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 Minerva 官方发布",
+            "note": "先核对遥测范围、知识图、告警聚合与人工在环边界",
+            "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA",
+            "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+            "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+            "date": "2026-10-22"
+          },
+          {
+            "source": "NVIDIA",
+            "title": "GTC Berlin 2026: Live Updates",
+            "url": "https://blogs.nvidia.com/gtc-berlin-2026-news/",
+            "date": "2026-10-22"
+          }
+        ]
+      },
       {
         "id": "tibo-reset-announced-20261022-day17",
         "category": "product",
@@ -1991,7 +2039,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T15:32:23Z",
+    "generated_at": "2026-10-22T17:33:07Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -4650,14 +4698,27 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-22T12:25:51Z",
+    "checked_at": "2026-10-22T17:22:42Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-22T12:25:51Z",
+      "last_success": "2026-10-22T17:22:42Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
+      {
+        "id": "openai-forum",
+        "name": "OpenAI Forum",
+        "publisher": "OpenAI",
+        "kind": "event",
+        "formats": [
+          "官方直播",
+          "一手对谈"
+        ],
+        "url": "https://forum.openai.com/public/events",
+        "authority": "official",
+        "sync": "official-page"
+      },
       {
         "id": "apple-events",
         "name": "Apple Events",
@@ -4908,6 +4969,23 @@
     ],
     "events": [
       {
+        "id": "openai-fde-frontier-2026-10-22",
+        "source_id": "openai-forum",
+        "date": "2026-10-22",
+        "status": "upcoming",
+        "title": "Work at the Frontier: Forward Deployed Engineering at OpenAI",
+        "summary": "OpenAI FDE 团队的一手直播对谈，聚焦如何理解客户业务，并把模型能力落成可靠系统；官方议程包含团队介绍、Panel 与问答。",
+        "url": "https://forum.openai.com/public/events/work-at-the-frontier-forward-deployed-engineering-at-openai-vmimj73oz5",
+        "first_seen_at": "2026-10-22T17:18:00Z",
+        "verified_at": "2026-10-22T17:18:00Z",
+        "evidence_level": "primary",
+        "tags": [
+          "OpenAI",
+          "FDE",
+          "可靠系统"
+        ]
+      },
+      {
         "id": "nvidia-gtc-dc-2026",
         "source_id": "nvidia-gtc",
         "date": "2026-12-01",
@@ -4968,12 +5046,32 @@
     ],
     "media_items": [
       {
+        "id": "latent-space-d55b272f10a8",
+        "source_id": "latent-space",
+        "published": "2026-10-22",
+        "title": "You are the Team  — Anekha Sokhal, Moshi",
+        "summary": "How Moshi turns market data into actionable insights, and why AI tools have to fit the trader’s workflow.",
+        "url": "https://www.latent.space/p/moshi",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
         "id": "latent-space-6c8a08517e6c",
         "source_id": "latent-space",
         "published": "2026-10-22",
         "title": "[AINews] OpenAI’s Patch the Planet program is 1 of 2 parties to discover PHP2Shell vulnerabilities in core PHP affecting 70% of the web, using GPT-5.6 Sol; coordinated response over 2 months",
         "summary": "The Big Hardening begins",
         "url": "https://www.latent.space/p/ainews-openais-patch-the-planet-program",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
+        "id": "dwarkesh-1aa10672a913",
+        "source_id": "dwarkesh",
+        "published": "2026-10-22",
+        "title": "What will computer chips look like in 2045?",
+        "summary": "What I learned from touring Intel’s most advanced fab and talking to its leadership.",
+        "url": "https://www.dwarkesh.com/p/intel-tour",
         "tags": [],
         "origin": "rss"
       },
@@ -4986,18 +5084,6 @@
         "url": "https://www.latent.space/p/claude-mods",
         "tags": [
           "Agents"
-        ],
-        "origin": "rss"
-      },
-      {
-        "id": "latent-space-7af02910cd01",
-        "source_id": "latent-space",
-        "published": "2026-10-21",
-        "title": "[AINews] DeepSeek DeepInfer: Open Source SOTA Inference running 155T toks/day/cluster making $22m/day at ~80% margin for a 81 day payback",
-        "summary": "An open source “bomb” drops from China",
-        "url": "https://www.latent.space/p/ainews-deepseek-deepinfer-open-source",
-        "tags": [
-          "Inference"
         ],
         "origin": "rss"
       },
@@ -5315,18 +5401,6 @@
         ]
       },
       {
-        "id": "dwarkesh-3e0ac0110708",
-        "source_id": "dwarkesh",
-        "published": "2026-09-11",
-        "title": "AI researchers debate how close we are to recursive self-improvement",
-        "summary": "“We're nowhere near the ceiling.”",
-        "url": "https://www.dwarkesh.com/p/john-beren-charlie",
-        "tags": [
-          "RSI"
-        ],
-        "origin": "rss"
-      },
-      {
         "id": "zhang-xiaojun-zengming-20260903",
         "source_id": "zhang-xiaojun",
         "published": "2026-09-03",
@@ -5536,7 +5610,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T15:32:23Z",
+    "last_evaluated": "2026-10-22T17:33:07Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 47,
@@ -6145,45 +6219,45 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T15:24:04Z",
+    "checked_at": "2026-10-22T17:20:51Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T15:24:04Z",
-    "web_fetched_at": "2026-10-22T15:24:04Z",
+    "api_fetched_at": "2026-10-22T17:20:51Z",
+    "web_fetched_at": "2026-10-22T17:20:51Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "black-forest-labs/flux-3-image-klein-comfy",
       "meta-models/Muse-Spark-Open-816B-A42B",
-      "black-forest-labs/flux-3-image-klein",
       "OpenMOSS-Team/MOSS-Image-SFT",
-      "fishaudio/drama-3",
-      "OpenMOSS-Team/MOSS-Image-Base",
       "RecursiveSI/flint",
+      "black-forest-labs/flux-3-image-klein",
+      "OpenMOSS-Team/MOSS-Image-Base",
+      "fishaudio/drama-3",
       "Lightricks/LTX-2.5",
       "google/embeddinggemma-2",
-      "jialinyyzz/humanizer",
       "Comfy-Org/MOSS-Image",
+      "jialinyyzz/humanizer",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
       "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "tencent/Hy-Memory-30B-A3B",
-      "mistralai/Timestral-209M",
       "datalab-to/indra-ocr",
-      "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "lodestones/Kromoss"
+      "mistralai/Timestral-209M",
+      "XHToken/Spark-X2.6-4B",
+      "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8"
     ],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2007,
-        "likes": 2305,
+        "trending_score": 2018,
+        "likes": 2321,
         "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6199,8 +6273,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 932,
-        "likes": 1257,
+        "trending_score": 866,
+        "likes": 1271,
         "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6216,8 +6290,8 @@
         "rank": 3,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 585,
-        "likes": 651,
+        "trending_score": 572,
+        "likes": 653,
         "downloads": 3163,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6231,27 +6305,10 @@
       },
       {
         "rank": 4,
-        "id": "black-forest-labs/flux-3-image-klein",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 548,
-        "likes": 624,
-        "downloads": 102903,
-        "task": "image-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-13T10:58:40.000Z",
-        "tags": [
-          "diffusers",
-          "safetensors",
-          "image-generation",
-          "image-editing"
-        ]
-      },
-      {
-        "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 513,
-        "likes": 554,
+        "trending_score": 519,
+        "likes": 560,
         "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6264,28 +6321,45 @@
         ]
       },
       {
-        "rank": 6,
-        "id": "fishaudio/drama-3",
-        "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 474,
-        "likes": 903,
-        "downloads": 16305,
-        "task": "text-to-speech",
-        "library": "未标注",
-        "created_at": "2026-10-01T04:34:57.000Z",
+        "rank": 5,
+        "id": "RecursiveSI/flint",
+        "url": "https://huggingface.co/RecursiveSI/flint",
+        "trending_score": 461,
+        "likes": 467,
+        "downloads": 420,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-21T14:20:58.000Z",
         "tags": [
+          "transformers",
           "safetensors",
-          "fish_omni",
-          "fish-audio",
-          "text-to-speech"
+          "flint",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "black-forest-labs/flux-3-image-klein",
+        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
+        "trending_score": 457,
+        "likes": 629,
+        "downloads": 102903,
+        "task": "image-to-image",
+        "library": "diffusers",
+        "created_at": "2026-10-13T10:58:40.000Z",
+        "tags": [
+          "diffusers",
+          "safetensors",
+          "image-generation",
+          "image-editing"
         ]
       },
       {
         "rank": 7,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 452,
-        "likes": 479,
+        "trending_score": 454,
+        "likes": 482,
         "downloads": 5013,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6299,27 +6373,27 @@
       },
       {
         "rank": 8,
-        "id": "RecursiveSI/flint",
-        "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 434,
-        "likes": 440,
-        "downloads": 420,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-21T14:20:58.000Z",
+        "id": "fishaudio/drama-3",
+        "url": "https://huggingface.co/fishaudio/drama-3",
+        "trending_score": 444,
+        "likes": 903,
+        "downloads": 16305,
+        "task": "text-to-speech",
+        "library": "未标注",
+        "created_at": "2026-10-01T04:34:57.000Z",
         "tags": [
-          "transformers",
           "safetensors",
-          "flint",
-          "text-generation"
+          "fish_omni",
+          "fish-audio",
+          "text-to-speech"
         ]
       },
       {
         "rank": 9,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 414,
-        "likes": 8838,
+        "trending_score": 412,
+        "likes": 8852,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6335,8 +6409,8 @@
         "rank": 10,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 372,
-        "likes": 2833,
+        "trending_score": 368,
+        "likes": 2837,
         "downloads": 185259,
         "task": "feature-extraction",
         "library": "transformers",
@@ -6350,23 +6424,6 @@
       },
       {
         "rank": 11,
-        "id": "jialinyyzz/humanizer",
-        "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 334,
-        "likes": 2083,
-        "downloads": 124773,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-09-11T05:00:16.000Z",
-        "tags": [
-          "gguf",
-          "safetensors",
-          "gemma4_unified",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 12,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
         "trending_score": 332,
@@ -6383,11 +6440,28 @@
         ]
       },
       {
+        "rank": 12,
+        "id": "jialinyyzz/humanizer",
+        "url": "https://huggingface.co/jialinyyzz/humanizer",
+        "trending_score": 328,
+        "likes": 2085,
+        "downloads": 124773,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-09-11T05:00:16.000Z",
+        "tags": [
+          "gguf",
+          "safetensors",
+          "gemma4_unified",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 306,
-        "likes": 4808,
+        "trending_score": 307,
+        "likes": 4815,
         "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
@@ -6403,8 +6477,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 302,
-        "likes": 18187,
+        "trending_score": 301,
+        "likes": 18191,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6437,8 +6511,8 @@
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 275,
-        "likes": 283,
+        "trending_score": 276,
+        "likes": 284,
         "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
@@ -6452,27 +6526,10 @@
       },
       {
         "rank": 17,
-        "id": "mistralai/Timestral-209M",
-        "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 266,
-        "likes": 277,
-        "downloads": 6194,
-        "task": "time-series-forecasting",
-        "library": "timestral",
-        "created_at": "2026-10-14T08:52:36.000Z",
-        "tags": [
-          "timestral",
-          "safetensors",
-          "time-series",
-          "forecasting"
-        ]
-      },
-      {
-        "rank": 18,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
         "trending_score": 258,
-        "likes": 359,
+        "likes": 361,
         "downloads": 3823,
         "task": "image-to-text",
         "library": "onnx",
@@ -6485,11 +6542,45 @@
         ]
       },
       {
+        "rank": 18,
+        "id": "mistralai/Timestral-209M",
+        "url": "https://huggingface.co/mistralai/Timestral-209M",
+        "trending_score": 252,
+        "likes": 278,
+        "downloads": 6194,
+        "task": "time-series-forecasting",
+        "library": "timestral",
+        "created_at": "2026-10-14T08:52:36.000Z",
+        "tags": [
+          "timestral",
+          "safetensors",
+          "time-series",
+          "forecasting"
+        ]
+      },
+      {
         "rank": 19,
+        "id": "XHToken/Spark-X2.6-4B",
+        "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
+        "trending_score": 218,
+        "likes": 231,
+        "downloads": 482,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-19T03:19:51.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "spark2_5",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 20,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "trending_score": 217,
-        "likes": 244,
+        "likes": 245,
         "downloads": 3808,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6500,28 +6591,11 @@
           "deepseek_v41",
           "text-generation"
         ]
-      },
-      {
-        "rank": 20,
-        "id": "lodestones/Kromoss",
-        "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 217,
-        "likes": 222,
-        "downloads": 14415,
-        "task": "text-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-19T01:34:35.000Z",
-        "tags": [
-          "diffusers",
-          "safetensors",
-          "moss-image",
-          "text-to-image"
-        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T15:24:04Z",
+      "last_checked_at": "2026-10-22T17:20:51Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -17829,8 +17903,20 @@
   },
   "activity_feature": {
     "version": 1,
-    "checked": "2026-09-25",
+    "checked": "2026-10-23",
     "events": {
+      "openai-fde-frontier-2026-10-22": {
+        "date": "2026-10-22",
+        "short_name": "OpenAI",
+        "start_at": "2026-10-22T17:15:00Z",
+        "end_at": "2026-10-22T18:00:00Z",
+        "time_zone": "Etc/UTC",
+        "location": "Online",
+        "time_source_url": "https://forum.openai.com/public/events/work-at-the-frontier-forward-deployed-engineering-at-openai-vmimj73oz5",
+        "checked": "2026-10-23",
+        "display_title": "Work at the Frontier: OpenAI FDE",
+        "short_summary": "OpenAI FDE 团队分享如何把前沿模型能力落成客户可依赖的系统。"
+      },
       "nvidia-gtc-dc-2026": {
         "date": "2026-12-01",
         "short_name": "GTC",
