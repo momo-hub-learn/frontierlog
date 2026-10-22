@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-22T03:33:57Z",
+  "generated_at": "2026-10-22T05:26:27Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 38,
+    "merge": 39,
     "hold": 5
   },
   "candidates": [
@@ -441,6 +441,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "ibm-granite-speech-5",
       "first_seen_at": "2026-10-21T17:48:39Z"
+    },
+    {
+      "id": "candidate-9f05dff55ada20e0",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "Auto Ontology 作为 Agent Knowledge Foundation 组件开放",
+      "summary": "NVIDIA 开放 ontology 生成、认证、查询验证与 MCP/API 暴露路径，并把它与检索、预测和 CUDA-X 数据组件放入同一可组合基础层。",
+      "why": "企业 Agent 可以在既有数据平台上单独检查业务定义、来源和权限，而不是只比较最终回答；生产接入前仍需独立验证查询准确率与凭据存储。",
+      "boundary": "官方 90% ontology 创建时间降幅来自 NVIDIA 测试。默认模型路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 新增的数据源凭据会以明文存入 Postgres。本站未安装或运行。",
+      "source": "NVIDIA",
+      "source_kind": "官方平台发布",
+      "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-auto-ontology",
+      "first_seen_at": "2026-10-22T05:26:27Z"
     },
     {
       "id": "candidate-c21212465f6f4674",
@@ -990,30 +1014,6 @@
       "priority_score": 0.687,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T11:52:59Z"
-    },
-    {
-      "id": "candidate-a99e4b2c8792457e",
-      "category": "product",
-      "published": "2026-10-15",
-      "title": "Mistral 发布 Timestral 时序模型与推理代码",
-      "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
-      "why": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
-      "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
-      "source": "Mistral AI",
-      "source_kind": "官方一手来源",
-      "url": "https://mistral.ai/news/timestral",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.676,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "timestral",
       "first_seen_at": "2026-10-21T11:52:59Z"
     }
   ]

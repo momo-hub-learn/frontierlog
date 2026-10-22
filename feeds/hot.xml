@@ -137,6 +137,12 @@
 
 边界：这是合作与研发方向，不代表监管批准、临床疗效已经证实或系统能够自主制定并执行治疗；计算蛋白设计也不证明结合、活性、安全性或临床价值。
 
+站内热度 96；不是全网流量。</description></item><item><title>Agent Knowledge Foundation：把企业数据接入 Agent 的语义层开放出来</title><guid isPermaLink="false">frontierlog:hot:nvidia-agent-knowledge-foundation-20261021</guid><link>https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 Agent Knowledge Foundation，把 Nemotron Retriever、Kumo、Auto Ontology 与 cuDF、cuGraph、cuML、cuOpt、cuVS 组合成可独立采用的数据链；其中 Auto Ontology 已以 Apache 2.0 开源，并通过 MCP、CLI 与 API 向 Agent 暴露经认证的业务语义和来源。
+
+为什么值得看：企业 Agent 的瓶颈从“能不能调用数据库”转向“是否理解指标、关系、权限与来源”。开放的语义层允许团队在既有数据平台上单独验证检索、定义对齐、预测与优化，而不必接受一个封闭的端到端套件。
+
+边界：官方所述 ontology 创建时间降低 90%、检索与 CUDA-X 加速数字均来自 NVIDIA 测试或特定支持工作负载，不能跨组件合成总收益。Auto Ontology 默认推理路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 添加的数据库凭据会以明文存入 Postgres。本站只核验文档与代码，未运行。
+
 站内热度 96；不是全网流量。</description></item><item><title>Kumo Relational：直接在关系数据库上做少样本预测</title><guid isPermaLink="false">frontierlog:hot:nvidia-kumo-relational-20261021</guid><link>https://huggingface.co/blog/nvidia/kumo-relational</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 开放 Kumo Relational：以最多 10,000 个历史样例做上下文，直接读取表、外键与时间戳，在单次前向中预测流失、需求或欺诈，无需每个任务单独训练与手工特征工程。
 
 为什么值得看：结构化数据基础模型开始把“新建一条监督学习流水线”改写成“连接数据库、提出预测查询”；开放库、权重、NIM 与快速入门让企业可以用自己的时间切分独立复现。

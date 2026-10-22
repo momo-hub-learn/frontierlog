@@ -900,6 +900,50 @@
       "entry_url": null,
       "evidence_level": "primary-docs",
       "runtime_tested": false
+    },
+    {
+      "id": "nvidia-auto-ontology",
+      "publisher": "NVIDIA",
+      "group": "agents",
+      "access": "model",
+      "headline": "在隔离测试库验证 Auto Ontology 的语义与权限边界",
+      "input": "脱敏测试数据库、10 个带标准 SQL 的业务问题，以及经业务专家确认的指标和实体定义",
+      "output": "可检查的 ontology、查询与来源记录，以及对正确率、RBAC、延迟和模型调用成本的同口径对比",
+      "requirements": "Docker Compose v2、NVIDIA NIM 凭据、Databricks/Postgres/Snowflake/DuckDB 测试源；生产凭据必须使用 Vault 或等效受控注入。",
+      "limitation": "本站只核验官方发布、README 与部署边界，未安装或运行。官方 90% ontology 创建时间降幅来自 NVIDIA 测试；无 Vault 时 UI 新增连接的凭据会明文存入 Postgres。",
+      "cost": "代码为 Apache 2.0；NIM 调用、数据库、Postgres/Vault、容器或 Kubernetes 资源成本需分别核算。",
+      "steps": [
+        {
+          "title": "先隔离数据与凭据",
+          "body": "克隆脱敏数据库快照；配置 Vault 后再从 UI 添加连接。若不配置 Vault，只使用可随时撤销的测试凭据，并确认 Postgres 中不会留下生产密钥。"
+        },
+        {
+          "title": "固定问题与标准答案",
+          "body": "为 10 个业务问题记录标准 SQL、预期结果、指标定义和授权角色；先跑无 ontology 基线，再让业务专家修订并认证生成的 ontology。"
+        },
+        {
+          "title": "逐层验收而非只看答案",
+          "body": "逐题核对生成 SQL、采用的定义、来源、RBAC、错误类型、延迟和调用成本；对错定义或越权查询先修语义与权限，不用继续重试掩盖问题。"
+        }
+      ],
+      "troubleshooting": "界面缺少左侧导航时先按 README 清理因 AUTH_SECRET 变化产生的旧会话；认证失败检查 AUTH_SECRET、APP_URL 与 NIM 配置；结果异常时回到标准 SQL、ontology 定义和数据快照逐项对照。",
+      "sources": [
+        {
+          "title": "Agent Knowledge Foundation 官方发布",
+          "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22"
+        },
+        {
+          "title": "Auto Ontology 官方仓库与部署说明",
+          "url": "https://github.com/NVIDIA/auto-ontology",
+          "published_at": null,
+          "verified_at": "2026-10-22"
+        }
+      ],
+      "entry_url": "https://github.com/NVIDIA/auto-ontology",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
     }
   ]
 }

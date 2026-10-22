@@ -37,6 +37,54 @@
     ],
     "items": [
       {
+        "id": "nvidia-agent-knowledge-foundation-20261021",
+        "category": "product",
+        "title": "Agent Knowledge Foundation：把企业数据接入 Agent 的语义层开放出来",
+        "published": "2026-10-21",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T13:20:00+08:00",
+        "first_seen_at": "2026-10-22T13:20:00+08:00",
+        "heat": 96,
+        "heat_components": {
+          "impact": 33,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是通用准确率、商业价值或本站实测。",
+        "trend": "up",
+        "summary": "NVIDIA 发布 Agent Knowledge Foundation，把 Nemotron Retriever、Kumo、Auto Ontology 与 cuDF、cuGraph、cuML、cuOpt、cuVS 组合成可独立采用的数据链；其中 Auto Ontology 已以 Apache 2.0 开源，并通过 MCP、CLI 与 API 向 Agent 暴露经认证的业务语义和来源。",
+        "why": "企业 Agent 的瓶颈从“能不能调用数据库”转向“是否理解指标、关系、权限与来源”。开放的语义层允许团队在既有数据平台上单独验证检索、定义对齐、预测与优化，而不必接受一个封闭的端到端套件。",
+        "boundary": "官方所述 ontology 创建时间降低 90%、检索与 CUDA-X 加速数字均来自 NVIDIA 测试或特定支持工作负载，不能跨组件合成总收益。Auto Ontology 默认推理路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 添加的数据库凭据会以明文存入 Postgres。本站只核验文档与代码，未运行。",
+        "source": "NVIDIA",
+        "source_kind": "官方平台发布与开源仓库 / 本轮编辑核验",
+        "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+        "link": "#/toolkit?id=nvidia-auto-ontology",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "在隔离测试库验证 Auto Ontology",
+            "note": "先固定问题、标准 SQL、权限和凭据存储方式",
+            "url": "https://github.com/NVIDIA/auto-ontology",
+            "kind": "code"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA",
+            "title": "NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data",
+            "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+            "date": "2026-10-21"
+          },
+          {
+            "source": "NVIDIA",
+            "title": "NVIDIA Auto Ontology",
+            "url": "https://github.com/NVIDIA/auto-ontology"
+          }
+        ]
+      },
+      {
         "id": "nvidia-kumo-relational-20261021",
         "category": "model",
         "title": "Kumo Relational：直接在关系数据库上做少样本预测",
@@ -1846,13 +1894,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T03:33:57Z",
+    "generated_at": "2026-10-22T05:26:27Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 38,
+      "merge": 39,
       "hold": 5
     },
     "candidates": [
@@ -2287,6 +2335,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "ibm-granite-speech-5",
         "first_seen_at": "2026-10-21T17:48:39Z"
+      },
+      {
+        "id": "candidate-9f05dff55ada20e0",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "Auto Ontology 作为 Agent Knowledge Foundation 组件开放",
+        "summary": "NVIDIA 开放 ontology 生成、认证、查询验证与 MCP/API 暴露路径，并把它与检索、预测和 CUDA-X 数据组件放入同一可组合基础层。",
+        "why": "企业 Agent 可以在既有数据平台上单独检查业务定义、来源和权限，而不是只比较最终回答；生产接入前仍需独立验证查询准确率与凭据存储。",
+        "boundary": "官方 90% ontology 创建时间降幅来自 NVIDIA 测试。默认模型路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 新增的数据源凭据会以明文存入 Postgres。本站未安装或运行。",
+        "source": "NVIDIA",
+        "source_kind": "官方平台发布",
+        "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "nvidia-auto-ontology",
+        "first_seen_at": "2026-10-22T05:26:27Z"
       },
       {
         "id": "candidate-c21212465f6f4674",
@@ -2836,30 +2908,6 @@
         "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T11:52:59Z"
-      },
-      {
-        "id": "candidate-a99e4b2c8792457e",
-        "category": "product",
-        "published": "2026-10-15",
-        "title": "Mistral 发布 Timestral 时序模型与推理代码",
-        "summary": "四档参数规模支持多变量概率预测与协变量；本地 CPU/GPU 可用。",
-        "why": "可先在已有时序监测管线做零样本基线；上线前须验证数据泄漏、区间校准和漂移，不能把官方榜单当现场验收。",
-        "boundary": "零样本预测不是故障原因诊断；需防止未来数据泄漏，按设备与时间外推验证。官方成绩不代表本站实测。",
-        "source": "Mistral AI",
-        "source_kind": "官方一手来源",
-        "url": "https://mistral.ai/news/timestral",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.676,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "timestral",
         "first_seen_at": "2026-10-21T11:52:59Z"
       }
     ]
@@ -5361,12 +5409,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T03:33:57Z",
+    "last_evaluated": "2026-10-22T05:26:27Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 43,
+      "candidate_count": 44,
       "publish_ready_count": 0,
-      "merge_count": 38,
+      "merge_count": 39,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
@@ -6256,15 +6304,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T03:27:29Z",
+    "checked_at": "2026-10-22T05:17:15Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T03:27:29Z",
-    "web_fetched_at": "2026-10-22T03:27:29Z",
+    "api_fetched_at": "2026-10-22T05:17:15Z",
+    "web_fetched_at": "2026-10-22T05:17:15Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6280,8 +6328,8 @@
       "Comfy-Org/MOSS-Image",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
-      "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "RecursiveSI/flint",
+      "nvidia/Qwen3.8-Flash-Next-FP4-Local",
       "tencent/Hy-Memory-30B-A3B",
       "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
@@ -6293,8 +6341,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1931,
-        "likes": 2190,
+        "trending_score": 1942,
+        "likes": 2207,
         "downloads": 42122,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6310,8 +6358,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 895,
-        "likes": 1198,
+        "trending_score": 899,
+        "likes": 1204,
         "downloads": 490447,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6327,8 +6375,8 @@
         "rank": 3,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 578,
-        "likes": 639,
+        "trending_score": 580,
+        "likes": 641,
         "downloads": 2891,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6344,8 +6392,8 @@
         "rank": 4,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 535,
-        "likes": 604,
+        "trending_score": 537,
+        "likes": 607,
         "downloads": 92604,
         "task": "image-to-image",
         "library": "diffusers",
@@ -6361,8 +6409,8 @@
         "rank": 5,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 528,
-        "likes": 891,
+        "trending_score": 522,
+        "likes": 896,
         "downloads": 15274,
         "task": "text-to-speech",
         "library": "未标注",
@@ -6378,8 +6426,8 @@
         "rank": 6,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 498,
-        "likes": 537,
+        "trending_score": 501,
+        "likes": 540,
         "downloads": 5840,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6395,8 +6443,8 @@
         "rank": 7,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 442,
-        "likes": 469,
+        "trending_score": 445,
+        "likes": 472,
         "downloads": 4344,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6412,8 +6460,8 @@
         "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 429,
-        "likes": 8768,
+        "trending_score": 428,
+        "likes": 8781,
         "downloads": 2057942,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6429,8 +6477,8 @@
         "rank": 9,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 413,
-        "likes": 2812,
+        "trending_score": 406,
+        "likes": 2815,
         "downloads": 179734,
         "task": "feature-extraction",
         "library": "transformers",
@@ -6446,8 +6494,8 @@
         "rank": 10,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 369,
-        "likes": 2069,
+        "trending_score": 367,
+        "likes": 2070,
         "downloads": 120930,
         "task": "text-generation",
         "library": "gguf",
@@ -6463,8 +6511,8 @@
         "rank": 11,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 317,
-        "likes": 338,
+        "trending_score": 321,
+        "likes": 342,
         "downloads": 1290080,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6480,8 +6528,8 @@
         "rank": 12,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 311,
-        "likes": 4776,
+        "trending_score": 313,
+        "likes": 4781,
         "downloads": 2738344,
         "task": "text-to-image",
         "library": "gguf",
@@ -6497,8 +6545,8 @@
         "rank": 13,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 302,
-        "likes": 18149,
+        "trending_score": 299,
+        "likes": 18151,
         "downloads": 7729432,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6512,27 +6560,10 @@
       },
       {
         "rank": 14,
-        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 285,
-        "likes": 292,
-        "downloads": 9340,
-        "task": "image-text-to-text",
-        "library": "Model Optimizer",
-        "created_at": "2026-10-08T16:20:17.000Z",
-        "tags": [
-          "Model Optimizer",
-          "safetensors",
-          "qwen4_exp",
-          "nvidia"
-        ]
-      },
-      {
-        "rank": 15,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 276,
-        "likes": 278,
+        "trending_score": 295,
+        "likes": 298,
         "downloads": 0,
         "task": "text-generation",
         "library": "transformers",
@@ -6545,11 +6576,28 @@
         ]
       },
       {
+        "rank": 15,
+        "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
+        "trending_score": 287,
+        "likes": 294,
+        "downloads": 9340,
+        "task": "image-text-to-text",
+        "library": "Model Optimizer",
+        "created_at": "2026-10-08T16:20:17.000Z",
+        "tags": [
+          "Model Optimizer",
+          "safetensors",
+          "qwen4_exp",
+          "nvidia"
+        ]
+      },
+      {
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 266,
-        "likes": 274,
+        "trending_score": 268,
+        "likes": 276,
         "downloads": 2682,
         "task": "text-generation",
         "library": "transformers",
@@ -6565,8 +6613,8 @@
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 256,
-        "likes": 342,
+        "trending_score": 258,
+        "likes": 344,
         "downloads": 3588,
         "task": "image-to-text",
         "library": "onnx",
@@ -6582,8 +6630,8 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 253,
-        "likes": 264,
+        "trending_score": 255,
+        "likes": 266,
         "downloads": 5488,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -6599,7 +6647,7 @@
         "rank": 19,
         "id": "LiquidAI/LFM2.5-24B-A2B",
         "url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
-        "trending_score": 214,
+        "trending_score": 211,
         "likes": 551,
         "downloads": 16939,
         "task": "text-generation",
@@ -6616,8 +6664,8 @@
         "rank": 20,
         "id": "reflection/Beam-1.0-501B-A23B",
         "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-        "trending_score": 203,
-        "likes": 209,
+        "trending_score": 205,
+        "likes": 212,
         "downloads": 3555,
         "task": "text-generation",
         "library": "未标注",
@@ -6632,7 +6680,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T03:27:29Z",
+      "last_checked_at": "2026-10-22T05:17:15Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -14712,6 +14760,36 @@
     "snapshot": "2026-10-22",
     "items": [
       {
+        "id": "nvidia-auto-ontology",
+        "name": "NVIDIA · Auto Ontology",
+        "title": "为企业 Agent 建立可认证的数据语义层",
+        "category": "知识管理",
+        "mark": "AO",
+        "accent": "cyan",
+        "summary": "从数据库元数据和文档生成可由业务专家修订、认证的 ontology，并通过 MCP、CLI 与 API 为 Agent 提供指标、实体、关系和来源。",
+        "scope": "官方以 Apache 2.0 开源 Python 后端、Next.js 前端、Postgres/pgvector 数据层、Docker Compose 与 Helm 部署入口；支持 Databricks、Postgres、Snowflake 或 DuckDB 数据源。",
+        "boundary": "官方 90% ontology 创建时间降幅来自 NVIDIA 测试。默认模型路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 新增的数据源凭据会以明文存入 Postgres。本站未安装或运行。",
+        "repo": "NVIDIA/auto-ontology",
+        "sources": [
+          "nvidia-agent-knowledge-foundation-release",
+          "nvidia-auto-ontology-repo"
+        ],
+        "requirements": "隔离测试数据库、Docker Compose v2、NVIDIA NIM 凭据与可复核的业务定义；生产凭据必须使用 Vault 或等效受控注入路径。",
+        "test": "选 10 个带标准 SQL 和业务定义的问题，在同一数据库快照上比较无 ontology 与经专家认证 ontology 的查询正确率、来源完整性、RBAC、延迟和模型调用成本。",
+        "checks": [
+          "只连接脱敏测试库并冻结数据库快照",
+          "未配置 Vault 时禁止从 UI 输入生产凭据",
+          "逐题核对 SQL、定义、来源与权限边界"
+        ],
+        "command": "",
+        "effort": "开放代码 / 需数据库、NIM 与安全配置",
+        "evidence": "NVIDIA 官方发布、开发页与开源仓库",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T13:20:00+08:00"
+      },
+      {
         "id": "nvidia-kumo-relational",
         "name": "NVIDIA · Kumo Relational",
         "title": "在关系数据库上做少样本预测",
@@ -15414,6 +15492,26 @@
     ],
     "sources": [
       {
+        "id": "nvidia-agent-knowledge-foundation-release",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data",
+        "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+        "published": "2026-10-21",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T13:20:00+08:00",
+        "kind": "官方平台发布"
+      },
+      {
+        "id": "nvidia-auto-ontology-repo",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Auto Ontology",
+        "url": "https://github.com/NVIDIA/auto-ontology",
+        "published": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T13:20:00+08:00",
+        "kind": "官方开源仓库与部署文档"
+      },
+      {
         "id": "nvidia-kumo-relational-release",
         "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
         "publisher": "NVIDIA / Hugging Face",
@@ -15778,6 +15876,20 @@
       }
     ],
     "events": [
+      {
+        "id": "nvidia-auto-ontology-release",
+        "task": "nvidia-auto-ontology",
+        "date": "2026-10-21",
+        "kind": "release",
+        "title": "Auto Ontology 作为 Agent Knowledge Foundation 组件开放",
+        "summary": "NVIDIA 开放 ontology 生成、认证、查询验证与 MCP/API 暴露路径，并把它与检索、预测和 CUDA-X 数据组件放入同一可组合基础层。",
+        "delta": "企业 Agent 可以在既有数据平台上单独检查业务定义、来源和权限，而不是只比较最终回答；生产接入前仍需独立验证查询准确率与凭据存储。",
+        "sources": [
+          "nvidia-agent-knowledge-foundation-release",
+          "nvidia-auto-ontology-repo"
+        ],
+        "reviewed": "2026-10-22"
+      },
       {
         "id": "nvidia-kumo-relational-release",
         "task": "nvidia-kumo-relational",
@@ -18564,6 +18676,50 @@
           }
         ],
         "entry_url": null,
+        "evidence_level": "primary-docs",
+        "runtime_tested": false
+      },
+      {
+        "id": "nvidia-auto-ontology",
+        "publisher": "NVIDIA",
+        "group": "agents",
+        "access": "model",
+        "headline": "在隔离测试库验证 Auto Ontology 的语义与权限边界",
+        "input": "脱敏测试数据库、10 个带标准 SQL 的业务问题，以及经业务专家确认的指标和实体定义",
+        "output": "可检查的 ontology、查询与来源记录，以及对正确率、RBAC、延迟和模型调用成本的同口径对比",
+        "requirements": "Docker Compose v2、NVIDIA NIM 凭据、Databricks/Postgres/Snowflake/DuckDB 测试源；生产凭据必须使用 Vault 或等效受控注入。",
+        "limitation": "本站只核验官方发布、README 与部署边界，未安装或运行。官方 90% ontology 创建时间降幅来自 NVIDIA 测试；无 Vault 时 UI 新增连接的凭据会明文存入 Postgres。",
+        "cost": "代码为 Apache 2.0；NIM 调用、数据库、Postgres/Vault、容器或 Kubernetes 资源成本需分别核算。",
+        "steps": [
+          {
+            "title": "先隔离数据与凭据",
+            "body": "克隆脱敏数据库快照；配置 Vault 后再从 UI 添加连接。若不配置 Vault，只使用可随时撤销的测试凭据，并确认 Postgres 中不会留下生产密钥。"
+          },
+          {
+            "title": "固定问题与标准答案",
+            "body": "为 10 个业务问题记录标准 SQL、预期结果、指标定义和授权角色；先跑无 ontology 基线，再让业务专家修订并认证生成的 ontology。"
+          },
+          {
+            "title": "逐层验收而非只看答案",
+            "body": "逐题核对生成 SQL、采用的定义、来源、RBAC、错误类型、延迟和调用成本；对错定义或越权查询先修语义与权限，不用继续重试掩盖问题。"
+          }
+        ],
+        "troubleshooting": "界面缺少左侧导航时先按 README 清理因 AUTH_SECRET 变化产生的旧会话；认证失败检查 AUTH_SECRET、APP_URL 与 NIM 配置；结果异常时回到标准 SQL、ontology 定义和数据快照逐项对照。",
+        "sources": [
+          {
+            "title": "Agent Knowledge Foundation 官方发布",
+            "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+            "published_at": "2026-10-21",
+            "verified_at": "2026-10-22"
+          },
+          {
+            "title": "Auto Ontology 官方仓库与部署说明",
+            "url": "https://github.com/NVIDIA/auto-ontology",
+            "published_at": null,
+            "verified_at": "2026-10-22"
+          }
+        ],
+        "entry_url": "https://github.com/NVIDIA/auto-ontology",
         "evidence_level": "primary-docs",
         "runtime_tested": false
       }
