@@ -1894,7 +1894,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T07:27:28Z",
+    "generated_at": "2026-10-22T09:32:35Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -5409,7 +5409,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T07:27:28Z",
+    "last_evaluated": "2026-10-22T09:32:35Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 44,
@@ -5435,7 +5435,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T07:19:30Z",
+    "checked_at": "2026-10-22T09:26:36Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -5446,8 +5446,8 @@
         "stars_today": 2012,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 37436,
-        "forks": 2341,
+        "stars": 37750,
+        "forks": 2355,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -5458,11 +5458,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 34796
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 35168
@@ -5506,6 +5503,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 37436
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 37750
           }
         ]
       },
@@ -5515,10 +5516,10 @@
         "stars_today": 441,
         "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
         "language": "Python",
-        "stars": 95019,
-        "forks": 23777,
+        "stars": 95076,
+        "forks": 23787,
         "repo_created_at": "2023-02-09T11:23:20Z",
-        "repo_pushed_at": "2026-10-22T06:57:09Z",
+        "repo_pushed_at": "2026-10-22T09:00:22Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5527,11 +5528,8 @@
           "GitHub"
         ],
         "url": "https://github.com/vllm-project/vllm",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 94585
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 94691
@@ -5575,6 +5573,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 95019
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 95076
           }
         ]
       },
@@ -5584,10 +5586,10 @@
         "stars_today": 1541,
         "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
         "language": "TypeScript",
-        "stars": 101796,
-        "forks": 6437,
+        "stars": 101965,
+        "forks": 6443,
         "repo_created_at": "2026-03-17T03:28:57Z",
-        "repo_pushed_at": "2026-10-22T07:17:06Z",
+        "repo_pushed_at": "2026-10-22T09:26:12Z",
         "category": "agent-runtime",
         "ai_related": true,
         "tags": [
@@ -5596,11 +5598,8 @@
           "AI"
         ],
         "url": "https://github.com/stablyai/orca",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 100229
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 100600
@@ -5644,6 +5643,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 101796
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 101965
           }
         ]
       },
@@ -5653,10 +5656,10 @@
         "stars_today": 474,
         "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
         "language": "Python",
-        "stars": 77407,
-        "forks": 6009,
+        "stars": 77462,
+        "forks": 6016,
         "repo_created_at": "2026-01-07T19:58:51Z",
-        "repo_pushed_at": "2026-10-22T05:19:27Z",
+        "repo_pushed_at": "2026-10-22T07:28:37Z",
         "category": "agent-interface",
         "ai_related": true,
         "tags": [
@@ -5665,11 +5668,8 @@
           "MCP"
         ],
         "url": "https://github.com/headroomlabs-ai/headroom",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 76900
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 77012
@@ -5713,6 +5713,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 77407
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 77462
           }
         ]
       },
@@ -5722,8 +5726,8 @@
         "stars_today": 2079,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
-        "stars": 172171,
-        "forks": 9371,
+        "stars": 172378,
+        "forks": 9382,
         "repo_created_at": "2026-06-12T00:52:37Z",
         "repo_pushed_at": "2026-10-18T01:55:14Z",
         "category": "ai-tools",
@@ -5734,11 +5738,8 @@
           "GitHub"
         ],
         "url": "https://github.com/DietrichGebert/ponytail",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 170341
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 170787
@@ -5782,6 +5783,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 172171
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 172378
           }
         ]
       },
@@ -5791,10 +5796,10 @@
         "stars_today": 939,
         "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
         "language": "Python",
-        "stars": 141732,
-        "forks": 16746,
+        "stars": 141808,
+        "forks": 16756,
         "repo_created_at": "2023-01-17T03:15:56Z",
-        "repo_pushed_at": "2026-10-22T04:26:33Z",
+        "repo_pushed_at": "2026-10-22T09:15:34Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5803,11 +5808,8 @@
           "GitHub"
         ],
         "url": "https://github.com/Comfy-Org/ComfyUI",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T07:49:53Z",
-            "stars": 141057
-          },
           {
             "at": "2026-10-21T13:21:32Z",
             "stars": 141235
@@ -5851,6 +5853,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 141732
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 141808
           }
         ]
       },
@@ -5860,10 +5866,10 @@
         "stars_today": 504,
         "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
         "language": "TypeScript",
-        "stars": 113170,
-        "forks": 16984,
+        "stars": 113222,
+        "forks": 16987,
         "repo_created_at": "2019-10-12T05:56:49Z",
-        "repo_pushed_at": "2026-10-22T07:11:10Z",
+        "repo_pushed_at": "2026-10-22T09:17:31Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5872,6 +5878,7 @@
           "GitHub"
         ],
         "url": "https://github.com/supabase/supabase",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
           {
             "at": "2026-10-21T13:21:32Z",
@@ -5912,6 +5919,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 113170
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 113222
           }
         ]
       },
@@ -5921,10 +5932,10 @@
         "stars_today": 112,
         "description": "The open alternative to Salesforce, designed for AI.",
         "language": "TypeScript",
-        "stars": 59387,
-        "forks": 9674,
+        "stars": 59451,
+        "forks": 9681,
         "repo_created_at": "2022-12-01T13:04:40Z",
-        "repo_pushed_at": "2026-10-22T06:54:19Z",
+        "repo_pushed_at": "2026-10-22T09:26:10Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5933,6 +5944,7 @@
           "GitHub"
         ],
         "url": "https://github.com/twentyhq/twenty",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
           {
             "at": "2026-10-21T13:21:32Z",
@@ -5973,6 +5985,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 59387
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 59451
           }
         ]
       },
@@ -5982,8 +5998,8 @@
         "stars_today": 575,
         "description": "Kronos: A Foundation Model for the Language of Financial Markets",
         "language": "Python",
-        "stars": 42988,
-        "forks": 7087,
+        "stars": 43035,
+        "forks": 7095,
         "repo_created_at": "2025-07-01T02:54:32Z",
         "repo_pushed_at": "2026-04-13T12:38:49Z",
         "category": "vertical-agent",
@@ -5994,11 +6010,8 @@
           "Model"
         ],
         "url": "https://github.com/shiyu-coder/Kronos",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 42352
-          },
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 42493
@@ -6042,6 +6055,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 42988
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 43035
           }
         ]
       },
@@ -6051,8 +6068,8 @@
         "stars_today": 360,
         "description": "freehire — the open-source search engine for job seekers",
         "language": "Go",
-        "stars": 2553,
-        "forks": 257,
+        "stars": 2645,
+        "forks": 263,
         "repo_created_at": "2026-06-07T03:20:31Z",
         "repo_pushed_at": "2026-10-22T05:09:30Z",
         "category": "other",
@@ -6062,6 +6079,7 @@
           "GitHub"
         ],
         "url": "https://github.com/strelov1/freehire",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
           {
             "at": "2026-10-22T03:21:03Z",
@@ -6074,6 +6092,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 2553
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 2645
           }
         ]
       },
@@ -6083,10 +6105,10 @@
         "stars_today": 286,
         "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
         "language": "Rust",
-        "stars": 12532,
-        "forks": 882,
+        "stars": 12583,
+        "forks": 889,
         "repo_created_at": "2026-05-21T23:23:51Z",
-        "repo_pushed_at": "2026-10-22T06:37:13Z",
+        "repo_pushed_at": "2026-10-22T07:40:15Z",
         "category": "agent-memory",
         "ai_related": true,
         "tags": [
@@ -6095,6 +6117,7 @@
           "AI"
         ],
         "url": "https://github.com/akitaonrails/ai-memory",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
           {
             "at": "2026-10-21T13:21:32Z",
@@ -6139,6 +6162,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 12532
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 12583
           }
         ]
       },
@@ -6148,8 +6175,8 @@
         "stars_today": 1433,
         "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
         "language": "Python",
-        "stars": 132004,
-        "forks": 12664,
+        "stars": 132138,
+        "forks": 12672,
         "repo_created_at": "2026-04-03T15:49:07Z",
         "repo_pushed_at": "2026-10-21T15:23:36Z",
         "category": "agent-skills",
@@ -6160,11 +6187,8 @@
           "Knowledge Graph"
         ],
         "url": "https://github.com/Graphify-Labs/graphify",
+        "metadata_verified_at": "2026-10-22T09:26:36Z",
         "star_history": [
-          {
-            "at": "2026-10-21T00:41:32Z",
-            "stars": 130235
-          },
           {
             "at": "2026-10-21T07:49:53Z",
             "stars": 130677
@@ -6208,6 +6232,10 @@
           {
             "at": "2026-10-22T07:19:30Z",
             "stars": 132004
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 132138
           }
         ]
       }
@@ -6287,13 +6315,14 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-22T07:19:30Z",
-      "last_success_at": "2026-10-22T07:19:30Z",
+      "last_checked_at": "2026-10-22T09:26:36Z",
+      "last_success_at": "2026-10-22T09:26:36Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-22T07:19:30Z",
+      "watchlist_checked_at": "2026-10-22T09:26:36Z",
       "watchlist_errors": [],
       "trending_count": 12,
       "verified_count": 12,
+      "metadata_status": "success",
       "skipped": []
     },
     "watchlist": [
@@ -6308,35 +6337,35 @@
           "Agent",
           "MCP"
         ],
-        "stars": 360291,
-        "forks": 90426,
+        "stars": 361293,
+        "forks": 90670,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-22T07:19:18Z",
+        "repo_pushed_at": "2026-10-22T09:25:26Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-22T07:19:30Z",
+        "verified_at": "2026-10-22T09:26:36Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T07:20:16Z",
+    "checked_at": "2026-10-22T09:27:25Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T07:20:16Z",
-    "web_fetched_at": "2026-10-22T07:20:16Z",
+    "api_fetched_at": "2026-10-22T09:27:25Z",
+    "web_fetched_at": "2026-10-22T09:27:25Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "black-forest-labs/flux-3-image-klein-comfy",
       "meta-models/Muse-Spark-Open-816B-A42B",
       "black-forest-labs/flux-3-image-klein",
-      "fishaudio/drama-3",
       "OpenMOSS-Team/MOSS-Image-SFT",
+      "fishaudio/drama-3",
       "OpenMOSS-Team/MOSS-Image-Base",
       "Lightricks/LTX-2.5",
       "google/embeddinggemma-2",
@@ -6357,8 +6386,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1953,
-        "likes": 2224,
+        "trending_score": 1963,
+        "likes": 2240,
         "downloads": 42122,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6374,8 +6403,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 905,
-        "likes": 1213,
+        "trending_score": 914,
+        "likes": 1226,
         "downloads": 490447,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6392,8 +6421,8 @@
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
         "trending_score": 582,
-        "likes": 643,
-        "downloads": 2891,
+        "likes": 645,
+        "downloads": 3163,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-09-15T19:23:19.000Z",
@@ -6408,8 +6437,8 @@
         "rank": 4,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 539,
-        "likes": 611,
+        "trending_score": 542,
+        "likes": 615,
         "downloads": 92604,
         "task": "image-to-image",
         "library": "diffusers",
@@ -6423,27 +6452,10 @@
       },
       {
         "rank": 5,
-        "id": "fishaudio/drama-3",
-        "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 508,
-        "likes": 896,
-        "downloads": 15274,
-        "task": "text-to-speech",
-        "library": "未标注",
-        "created_at": "2026-10-01T04:34:57.000Z",
-        "tags": [
-          "safetensors",
-          "fish_omni",
-          "fish-audio",
-          "text-to-speech"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 503,
-        "likes": 543,
+        "trending_score": 505,
+        "likes": 545,
         "downloads": 5840,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6456,11 +6468,28 @@
         ]
       },
       {
+        "rank": 6,
+        "id": "fishaudio/drama-3",
+        "url": "https://huggingface.co/fishaudio/drama-3",
+        "trending_score": 500,
+        "likes": 900,
+        "downloads": 15274,
+        "task": "text-to-speech",
+        "library": "未标注",
+        "created_at": "2026-10-01T04:34:57.000Z",
+        "tags": [
+          "safetensors",
+          "fish_omni",
+          "fish-audio",
+          "text-to-speech"
+        ]
+      },
+      {
         "rank": 7,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 448,
-        "likes": 475,
+        "trending_score": 449,
+        "likes": 476,
         "downloads": 4344,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6476,9 +6505,9 @@
         "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 422,
-        "likes": 8790,
-        "downloads": 2057942,
+        "trending_score": 419,
+        "likes": 8801,
+        "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
         "created_at": "2026-07-23T07:55:24.000Z",
@@ -6493,9 +6522,9 @@
         "rank": 9,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 399,
-        "likes": 2820,
-        "downloads": 179734,
+        "trending_score": 394,
+        "likes": 2823,
+        "downloads": 185259,
         "task": "feature-extraction",
         "library": "transformers",
         "created_at": "2026-09-14T14:53:42.000Z",
@@ -6510,9 +6539,9 @@
         "rank": 10,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 361,
-        "likes": 2073,
-        "downloads": 120930,
+        "trending_score": 359,
+        "likes": 2077,
+        "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
         "created_at": "2026-09-11T05:00:16.000Z",
@@ -6527,8 +6556,8 @@
         "rank": 11,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 325,
-        "likes": 328,
+        "trending_score": 351,
+        "likes": 355,
         "downloads": 0,
         "task": "text-generation",
         "library": "transformers",
@@ -6544,8 +6573,8 @@
         "rank": 12,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 323,
-        "likes": 344,
+        "trending_score": 327,
+        "likes": 348,
         "downloads": 1290080,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6561,8 +6590,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 310,
-        "likes": 4786,
+        "trending_score": 307,
+        "likes": 4791,
         "downloads": 2738344,
         "task": "text-to-image",
         "library": "gguf",
@@ -6578,9 +6607,9 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 295,
-        "likes": 18158,
-        "downloads": 7729432,
+        "trending_score": 294,
+        "likes": 18164,
+        "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-08-05T08:22:59.000Z",
@@ -6595,8 +6624,8 @@
         "rank": 15,
         "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
         "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 287,
-        "likes": 294,
+        "trending_score": 290,
+        "likes": 299,
         "downloads": 9340,
         "task": "image-text-to-text",
         "library": "Model Optimizer",
@@ -6612,8 +6641,8 @@
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 270,
-        "likes": 278,
+        "trending_score": 271,
+        "likes": 279,
         "downloads": 2682,
         "task": "text-generation",
         "library": "transformers",
@@ -6629,8 +6658,8 @@
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 258,
-        "likes": 345,
+        "trending_score": 262,
+        "likes": 350,
         "downloads": 3588,
         "task": "image-to-text",
         "library": "onnx",
@@ -6646,8 +6675,8 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 256,
-        "likes": 267,
+        "trending_score": 259,
+        "likes": 270,
         "downloads": 5488,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -6663,8 +6692,8 @@
         "rank": 19,
         "id": "reflection/Beam-1.0-501B-A23B",
         "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-        "trending_score": 205,
-        "likes": 212,
+        "trending_score": 209,
+        "likes": 216,
         "downloads": 3555,
         "task": "text-generation",
         "library": "未标注",
@@ -6680,8 +6709,8 @@
         "rank": 20,
         "id": "lodestones/Kromoss",
         "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 203,
-        "likes": 206,
+        "trending_score": 206,
+        "likes": 209,
         "downloads": 11608,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6696,7 +6725,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T07:20:16Z",
+      "last_checked_at": "2026-10-22T09:27:25Z",
       "web_status": "success",
       "api_status": "success"
     }
