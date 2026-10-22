@@ -39,7 +39,7 @@ const TK = (()=>{
   const t=tasks.get(g.id),opened=openIds.has(g.id)||read().tool===g.id;
   const doc=g.sources[0];
   return `<article class="tk-card ${opened?'is-open':''}" data-tk-id="${g.id}">
-   <div class="tk-cardtop"><div class="tk-identity"><span class="tk-mark" aria-hidden="true">${esc(t.mark||t.name.slice(0,2))}</span><div><strong>${esc(t.name)}</strong><span>${esc(g.publisher)}</span></div></div><span class="tk-mode" data-mode="${g.access}">${esc(label(data.access_modes,g.access))}</span></div>
+   <div class="tk-cardtop"><div class="tk-identity"><span class="tk-mark" aria-hidden="true">${esc(t.mark||t.name.slice(0,2))}</span><div><strong>${esc(t.name)}</strong><span>${esc(g.publisher)}</span></div></div><div class="tk-status"><span class="tk-mode" data-mode="${g.access}">${esc(label(data.access_modes,g.access))}</span><span class="tk-runtime">资料核验 · 本站未运行</span></div></div>
    <h2>${esc(g.headline)}</h2>
    <div class="tk-io"><dl><dt>输入</dt><dd>${esc(g.input)}</dd></dl><span aria-hidden="true">→</span><dl><dt>输出</dt><dd>${esc(g.output)}</dd></dl></div>
    <dl class="tk-conditions"><div><dt>先准备</dt><dd>${esc(g.requirements)}</dd></div><div><dt>最大限制</dt><dd>${esc(g.limitation)}</dd></div></dl>

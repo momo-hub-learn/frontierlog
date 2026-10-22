@@ -42,6 +42,58 @@
   ],
   "items": [
     {
+      "id": "agent4sci",
+      "publisher": "Agent4Sci authors",
+      "group": "research",
+      "access": "research",
+      "headline": "先用 dry-run 检查科研 Agent 评测接线，再决定是否投入真实 GPU 与 API 预算",
+      "input": "一个已公开的 Agent4Sci 科学机器学习任务、固定 Agent/模型版本、运行预算、随机种子和技能包配置",
+      "output": "可复核的运行轨迹、验证集选择、隐藏测试分数、资源消耗和独立轨迹审计记录",
+      "requirements": "Linux、Docker、NVIDIA Container Toolkit、GPU 与 Python 3.12；dry-run 不需要 API key，真实评测需要 Anthropic/OpenAI/Hugging Face 凭据。",
+      "limitation": "本站只核验论文、仓库和数据集，未执行 dry-run 或真实任务。公开相对改进来自作者实验，任务间方差很高；结果主要显示 ML 工程优化，不能推出 Agent 已能自主发现科学机制。",
+      "cost": "代码与数据可公开获取；真实运行会产生 GPU、容器存储、模型 API 和多次重复实验成本。先用 dry-run 检查接线不会验证模型能力。",
+      "steps": [
+        {
+          "title": "克隆并只跑 dry-run",
+          "body": "先检查依赖、任务发现、容器挂载和输出目录，不提供真实 API key，也不把 dry-run 成功写成 benchmark 通过。",
+          "command": "git clone https://github.com/maszhongming/agent4sci.git\ncd agent4sci\nuv sync\nuv run python -m bench.cli run --dry-run"
+        },
+        {
+          "title": "固定一个小任务和完整预算",
+          "body": "记录任务修订、Agent/模型、技能包、预算、容器镜像、GPU、种子与超时；确认训练/验证阶段无法读取隐藏测试标签。"
+        },
+        {
+          "title": "把得分、轨迹审计和方差一起验收",
+          "body": "至少重复多次，分别保留隐藏测试改进、运行成本、失败轨迹，以及对泄漏、取巧或不当操作的独立审计。"
+        }
+      ],
+      "troubleshooting": "dry-run 找不到任务时先核对仓库修订、uv 环境与数据目录；容器不可见 GPU 时检查 NVIDIA Container Toolkit；真实任务失败时先看预算、API 权限和输出轨迹，不通过提高重试次数掩盖确定性配置错误。",
+      "sources": [
+        {
+          "title": "Agent4Sci 作者预印本",
+          "url": "https://arxiv.org/abs/2610.28763",
+          "published_at": "2026-10-20",
+          "verified_at": "2026-10-23"
+        },
+        {
+          "title": "Agent4Sci 官方仓库与复现说明",
+          "url": "https://github.com/maszhongming/agent4sci",
+          "published_at": null,
+          "verified_at": "2026-10-23"
+        },
+        {
+          "title": "Agent4Sci 作者数据集",
+          "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+          "published_at": null,
+          "verified_at": "2026-10-23"
+        }
+      ],
+      "entry_url": "https://github.com/maszhongming/agent4sci",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-23T05:18:00+08:00"
+    },
+    {
       "id": "ibm-granite-timeseries-ensemble-r1",
       "publisher": "IBM Research",
       "group": "research",

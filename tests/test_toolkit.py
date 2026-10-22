@@ -39,21 +39,33 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(rows['nvidia-auto-ontology']['sources'][0]['url'].split('/')[2],'blogs.nvidia.com')
         validate_toolkit(self.data,self.catalog)
 
+    def test_reviewed_author_paper_is_accepted(self):
+        row=next(x for x in self.data['items'] if x['id']=='agent4sci')
+        self.assertEqual(row['sources'][0]['url'].split('/')[2],'arxiv.org')
+        validate_toolkit(self.data,self.catalog)
+
     def test_auto_ontology_preserves_credential_boundary(self):
         row=next(x for x in self.data['items'] if x['id']=='nvidia-auto-ontology')
         self.assertEqual(row['publisher'],'NVIDIA')
         self.assertFalse(row['runtime_tested'])
         self.assertIn('Vault',row['requirements'])
         self.assertIn('明文',row['limitation'])
+
+    def test_agent4sci_keeps_dry_run_separate_from_runtime_evidence(self):
+        row=next(x for x in self.data['items'] if x['id']=='agent4sci')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('--dry-run',row['steps'][0]['command'])
+        self.assertIn('GPU',row['requirements'])
+        self.assertIn('不能推出',row['limitation'])
     def test_verification_dates_use_beijing_calendar_day(self):
         data=copy.deepcopy(self.data)
-        data['items'][0]['sources'][0]['verified_at']='2026-10-22'
-        # The same instant is still October 21 in UTC, but already October 22 in Beijing.
-        validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-21T16:00:00+00:00'))
+        data['items'][0]['sources'][0]['verified_at']='2026-10-23'
+        # The same instant is still October 22 in UTC, but already October 23 in Beijing.
+        validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-22T16:00:00+00:00'))
         with self.assertRaisesRegex(ValueError,'timezone'):
-            validate_toolkit(data,self.catalog,now=datetime(2026,10,22))
+            validate_toolkit(data,self.catalog,now=datetime(2026,10,23))
         with self.assertRaisesRegex(ValueError,'Future toolkit'):
-            validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-21T15:59:59+00:00'))
+            validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-22T15:59:59+00:00'))
     def test_no_runtime_claim_without_logs(self):
         for key,value in [('runtime_tested',True),('evidence_level','onsite-test')]:
             data=copy.deepcopy(self.data);data['items'][0][key]=value
@@ -77,6 +89,7 @@ class ToolkitTests(unittest.TestCase):
             self.assertEqual(json.loads((Path(tmp)/'api/v1/toolkit.json').read_text()),self.data)
             html=(Path(tmp)/'index.html').read_text()
             self.assertIn("const TK =",html);self.assertIn('.tk-wrap',html)
+            self.assertIn('资料核验 · 本站未运行',html)
             self.assertEqual(html,(Path(tmp)/'404.html').read_text())
 
 if __name__=='__main__': unittest.main()

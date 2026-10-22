@@ -41,6 +41,13 @@ class BenchmarkTests(unittest.TestCase):
   self.assertTrue(all(by_id[x]['tested'] is False and by_id[x]['result_status']=='not_run' for x in ('automationbench','cwe-bench-v1')))
   event=next(x for x in self.data['changes'] if x['id']=='argon-agent-benchmarks-20261013')
   self.assertEqual(set(event['benchmarks']),{'automationbench','cwe-bench-v1'})
+ def test_agent4sci_keeps_hidden_test_and_audit_boundaries(self):
+  b=next(x for x in self.data['items'] if x['id']=='agent4sci')
+  self.assertFalse(b['tested'])
+  self.assertEqual(b['result_status'],'not_run')
+  self.assertIn('隐藏测试',b['protocol'])
+  self.assertIn('本站未运行',b['boundary'])
+  self.assertTrue(any(x['id']=='agent4sci-release' and b['id'] in x['benchmarks'] for x in self.data['changes']))
  def test_duplicate_item(self):self.reject(lambda d:d['items'].append(copy.deepcopy(d['items'][0])))
  def test_duplicate_source(self):self.reject(lambda d:d['sources'].append(copy.deepcopy(d['sources'][0])))
  def test_id_unsafe(self):self.reject(lambda d:d['items'][0].update(id='<script>'))
