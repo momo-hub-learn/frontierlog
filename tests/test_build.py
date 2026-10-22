@@ -245,6 +245,9 @@ class BuildTests(unittest.TestCase):
         caps=json.loads((ROOT/'data/capabilities.json').read_text())
         self.assertEqual(caps['boards']['coding']['checked'],'2026-09-22')
         self.assertEqual(caps['boards']['coding']['source_checked'],'2026-10-22')
+        self.assertEqual(caps['boards']['s2s']['checked'],'2026-10-22')
+        self.assertEqual(caps['boards']['s2s']['rows'][0]['name'],'Grok Voice 3.0')
+        self.assertEqual(caps['boards']['s2s']['rows'][0]['index'],86.9)
         self.assertEqual(caps['boards']['t2i']['checked'],'2026-10-22')
         self.assertEqual(caps['boards']['t2i']['rows'][0]['name'],'GPT Image 2.5 Sunburst (max)')
         self.assertEqual(caps['boards']['wbench']['rows'][0]['name'],'Alaya-EVOKE-Turbo · 3-step')
@@ -252,8 +255,10 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
-            self.assertIn("b.checked||CAP3.checked",html)
+            self.assertIn("function capFreshness",html)
             self.assertIn('榜单数据核对',html)
+            self.assertIn('分数快照',html)
+            self.assertIn('官方来源复核',html)
 
     def test_voxtral3_is_actionable_without_claiming_runtime_test(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())

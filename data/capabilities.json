@@ -721,12 +721,12 @@
       ]
     },
     "s2s": {
-      "checked": "2026-09-22",
+      "checked": "2026-10-22",
       "source_checked": "2026-10-22",
       "title": "实时语音 Agent",
       "source": "Artificial Analysis · Speech-to-Speech",
       "url": "https://artificialanalysis.ai/speech-to-speech",
-      "note": "综合语音推理、对话动态、Agentic、任务成功、延迟和成本；本轮官方页面可核验方法与样本覆盖，但动态榜值未提供可核对文本，表内保留 9 月 22 日快照。",
+      "note": "综合指数等权汇总语音推理、Agentic、Arena 偏好与任务成功；官方汇总表还列出对话动态与 TTFA。仅纳入四项指数分量齐全的模型，外部成绩不代表本站实测。",
       "primary": "index",
       "columns": [
         {
@@ -763,18 +763,40 @@
       ],
       "rows": [
         {
+          "name": "Grok Voice 3.0",
+          "maker": "SpaceXAI",
+          "detail": "Speech-to-Speech",
+          "index": 86.9,
+          "reasoning": 99,
+          "conversation": 97,
+          "agentic": 71.6,
+          "task": 94.8,
+          "ttfa": 0.81
+        },
+        {
           "name": "GPT-Live-1 (Astra, medium)",
           "maker": "OpenAI",
           "detail": "Speech-to-Speech",
-          "index": 81.5,
+          "index": 83.2,
           "reasoning": 90,
           "conversation": 94.9,
-          "agentic": 67.9,
+          "agentic": 74.5,
           "task": 87.4,
           "ttfa": 1.34
         },
         {
-          "name": "Grok Voice Think Fast 2.0 High",
+          "name": "Gemini 3.8 Live Extended Thinking (High)",
+          "maker": "Google",
+          "detail": "Speech-to-Speech",
+          "index": 82.6,
+          "reasoning": 98,
+          "conversation": 91.9,
+          "agentic": 68.6,
+          "task": 89.1,
+          "ttfa": 1.35
+        },
+        {
+          "name": "Grok Voice 2.0",
           "maker": "SpaceXAI",
           "detail": "Speech-to-Speech",
           "index": 81.3,
@@ -794,28 +816,6 @@
           "agentic": 59.3,
           "task": 90.9,
           "ttfa": 1.24
-        },
-        {
-          "name": "Gemini 3.8 Live",
-          "maker": "Google",
-          "detail": "Speech-to-Speech",
-          "index": 76,
-          "reasoning": 92,
-          "conversation": 96.1,
-          "agentic": 30.1,
-          "task": 93.2,
-          "ttfa": 1.18
-        },
-        {
-          "name": "GPT-Realtime-2.1 High",
-          "maker": "OpenAI",
-          "detail": "Speech-to-Speech",
-          "index": 73.9,
-          "reasoning": 96,
-          "conversation": 95.7,
-          "agentic": 45.7,
-          "task": 91.5,
-          "ttfa": 1.21
         }
       ]
     }

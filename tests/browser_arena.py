@@ -146,6 +146,9 @@ try:
         for route,selector in [('#/models?cap=coding','.v3-ranktable'),('#/models?cap=world','.v3-ranktable'),('#/activity','.ah-hero'),('#/hot?cat=product&pview=map&product=harvey','.pb-history-track')]:
             if MEMORY and 'cap=' in route: continue  # These pages load a relative HTTP JSON endpoint.
             go(route);expect(page.locator(selector)).to_be_visible()
+            if route=='#/models?cap=coding':
+                freshness=page.locator('.v3-cap-source small').inner_text()
+                assert '分数快照 2026-09-22' in freshness and '官方来源复核 2026-10-22' in freshness
         passed(('Activity header and horizontal product timeline smoke checks; capability HTTP loading deferred to CI' if MEMORY else 'Coding/world models, activity header and horizontal product timeline smoke checks'))
         assert not errors,errors
         passed('No JavaScript runtime errors')
