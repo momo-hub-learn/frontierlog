@@ -4225,7 +4225,7 @@ function ghFmt(n){
 function ghWhen(){
   const raw=String(GH.checked_at||'');
   if(!raw)return '待核验';
-  try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}
+  try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}
   catch{return raw}
 }
 function ghFreshness(){
@@ -4354,6 +4354,7 @@ feedPage=function(){
 
 if(state.view==='feed'){lastMain='';renderMain()}
 })();
+
 'use strict';
 (()=>{
 const HF=APP.huggingface_hot||{items:[],checked_at:'',source_url:'https://huggingface.co/models?sort=trending',api_url:'https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20'};
@@ -4362,7 +4363,7 @@ function hfActive(){
 }
 function hfWhen(value){
   const raw=String(value||'');if(!raw)return '待核验';
-  try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}
+  try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}
   catch{return raw}
 }
 function hfAge(raw){
