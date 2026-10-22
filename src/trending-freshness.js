@@ -26,13 +26,16 @@ function apply(){
       section.querySelectorAll('.gh-delta span').forEach(x=>x.textContent='核验时 Today Star');
     });
   }
-  if(stale(APP.huggingface_hot&&APP.huggingface_hot.checked_at)){
+  const hf=APP.huggingface_hot||{};
+  if(stale(hf.web_fetched_at||hf.checked_at)){
     document.querySelectorAll('.hf-inline').forEach(section=>{
       note(section,'快照已过期：以下仅保留上次核验结果，不代表当前 Hugging Face Trending。','trend-stale-banner');
       const title=section.querySelector('.hf-inline-head strong');
       if(title)title.textContent='Hugging Face Models · 上次核验快照';
-      section.querySelectorAll('.hf-score span').forEach(x=>x.textContent='核验时 Trending');
+      section.querySelectorAll('.hf-score span').forEach(x=>{if(x.textContent.startsWith('API Trending'))x.textContent='核验时 API Trending'});
     });
+  }else if(stale(hf.api_fetched_at||hf.checked_at)){
+    document.querySelectorAll('.hf-inline .hf-score span').forEach(x=>{if(x.textContent==='API Trending')x.textContent='API Trending（旧）'});
   }
 }
 const baseRenderMain=renderMain;

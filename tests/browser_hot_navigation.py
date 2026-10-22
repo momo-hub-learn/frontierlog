@@ -87,6 +87,21 @@ with sync_playwright() as pw:
     expect(page.locator('.intraday-title, .v10-story-title')).not_to_have_count(0)
     ok('Product tags, repository search and model search do not leak into other categories')
 
+    page.evaluate("""() => {
+      APP.huggingface_hot.web_fetched_at = new Date().toISOString();
+      APP.huggingface_hot.api_fetched_at = new Date(Date.now() - 7 * 3600 * 1000).toISOString();
+    }""")
+    route(page, '#/hot?tab=hf')
+    rendered = page.locator('.hf-model').evaluate_all("els => els.map(x => x.firstChild.nodeValue.trim())")
+    expected = page.evaluate('APP.huggingface_hot.web_order')
+    assert rendered == expected, (rendered, expected)
+    expect(page.locator('.h-head h1')).to_contain_text('HuggingFace 热榜')
+    expect(page.locator('.h-head .h-meta')).not_to_contain_text('待核验')
+    expect(page.locator('.ranking-stale strong')).to_have_text('网页榜位已核验；API 指标沿用旧快照')
+    expect(page.locator('.hf-score span', has_text='API Trending（旧）')).not_to_have_count(0)
+    expect(page.locator('.hf-row', has_text='RecursiveSI/flint').locator('.hf-score span')).to_have_text('API 未收录')
+    ok('HF web order stays current while older API metrics remain visibly time-separated')
+
     sizes = {}
     for width in [1440, 1180, 1100, 900, 760, 390, 360]:
         page.set_viewport_size({'width': width, 'height': 1050 if width > 760 else 844})
@@ -95,6 +110,9 @@ with sync_playwright() as pw:
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (width, view, 'page overflow')
             if width <= 760:
                 assert page.locator('.sidebar').evaluate('(el) => el.getBoundingClientRect().right <= 1'), (width, 'closed drawer obscures content')
+                expect(page.locator('#v2-tool-dock')).to_be_hidden()
+            else:
+                expect(page.locator('#v2-tool-dock')).to_be_visible()
             layout = page.evaluate("""() => {
               const nav = document.querySelector('.h-tabs');
               const search = document.querySelector('.h-search');

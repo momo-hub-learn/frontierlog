@@ -4,25 +4,35 @@ const HF=APP.huggingface_hot||{items:[],checked_at:'',source_url:'https://huggin
 function hfActive(){
   return state.view==='hot'&&new URLSearchParams(location.hash.split('?')[1]||'').get('tab')==='hf'
 }
-function hfWhen(){
-  const raw=String(HF.checked_at||'');if(!raw)return '待核验';
+function hfWhen(value){
+  const raw=String(value||'');if(!raw)return '待核验';
   try{return new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))}
   catch{return raw}
 }
-function hfFreshness(){
-  const t=Date.parse(String(HF.checked_at||''));
+function hfAge(raw){
+  const t=Date.parse(String(raw||''));
   if(!Number.isFinite(t))return {stale:true,ageHours:null};
   const ageHours=Math.max(0,(Date.now()-t)/36e5);
   return {stale:ageHours>6,ageHours}
 }
+function hfFreshness(){
+  return {
+    web:hfAge(HF.web_fetched_at||HF.checked_at),
+    api:hfAge(HF.api_fetched_at||HF.checked_at)
+  }
+}
 function hfStaleNotice(){
   const f=hfFreshness();
-  if(!f.stale)return '';
-  const age=f.ageHours==null?'更新时间不可核验':('已超过 '+Math.floor(f.ageHours)+' 小时未核验');
-  return '<div class="ranking-stale"><strong>数据已过期，暂不作为当前榜</strong><span>'+esc(age)+' · 下方仅保留 '+esc(hfWhen())+' 的历史快照，请以 Hugging Face 官方 Trending 为准。</span></div>'
+  if(f.web.stale){
+    const age=f.web.ageHours==null?'更新时间不可核验':('已超过 '+Math.floor(f.web.ageHours)+' 小时未核验');
+    return '<div class="ranking-stale"><strong>网页榜位已过期，暂不作为当前榜</strong><span>'+esc(age)+' · 下方仅保留 '+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+' 的历史快照，请以 Hugging Face 官方 Trending 为准。</span></div>'
+  }
+  if(f.api.stale)return '<div class="ranking-stale"><strong>网页榜位已核验；API 指标沿用旧快照</strong><span># 顺序来自 '+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+' 的官方网页；trendingScore、Likes 与 Downloads 来自 '+esc(hfWhen(HF.api_fetched_at||HF.checked_at))+' 的官方 API，不拼成伪精确同步榜。</span></div>';
+  return ''
 }
 function hfFmt(n){
-  const v=Number(n)||0;
+  if(n===null||n===undefined||n==='')return '—';
+  const v=Number(n);if(!Number.isFinite(v))return '—';
   if(v>=1000000)return (v/1000000).toFixed(v>=10000000?1:2)+'M';
   if(v>=1000)return (v/1000).toFixed(v>=100000?0:1)+'k';
   return v.toLocaleString('en-US')
@@ -44,12 +54,21 @@ function hfHref(type){
   if(type==='all')p.delete('hftype');else p.set('hftype',type);
   return '#/hot?'+p.toString()
 }
+function hfSourceRows(){
+  const api=new Map((HF.items||[]).map(x=>[x.id,x]));
+  const ids=Array.isArray(HF.web_order)&&HF.web_order.length?HF.web_order:[...(HF.items||[])].sort((a,b)=>a.rank-b.rank).map(x=>x.id);
+  return ids.map((id,index)=>{
+    const item=api.get(id);
+    if(item)return {...item,rank:index+1,web_rank:index+1,api_rank:item.rank,api_available:true};
+    return {id,url:'https://huggingface.co/'+id,rank:index+1,web_rank:index+1,api_rank:null,api_available:false,trending_score:null,likes:null,downloads:null,task:'未标注',library:'未标注',created_at:null,tags:[]}
+  })
+}
 function hfRows(){
   const q=hfQuery().toLowerCase(),type=hfType();
-  return (HF.items||[]).filter(x=>(type==='all'||hfGroup(x)===type)&&(!q||[x.id,x.task,x.library,...(x.tags||[])].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.rank-b.rank)
+  return hfSourceRows().filter(x=>(type==='all'||hfGroup(x)===type)&&(!q||[x.id,x.task,x.library,...(x.tags||[])].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.web_rank-b.web_rank)
 }
 function hfTabs(){
-  const active=hfType(),items=HF.items||[];
+  const active=hfType(),items=hfSourceRows();
   return '<nav class="hf-types" aria-label="Hugging Face 模型类型">'+HF_GROUPS.map(([id,title])=>{
     const count=id==='all'?items.length:items.filter(x=>hfGroup(x)===id).length;
     if(id!=='all'&&!count)return '';
@@ -57,18 +76,18 @@ function hfTabs(){
   }).join('')+'</nav>'
 }
 function hfInline(){
-  const rows=hfRows(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
+  const rows=hfRows(),fresh=hfFreshness(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
   return '<section class="hf-inline">'+
     hOpenTabs('hf')+
-    '<div class="hf-inline-head"><div><strong>'+(hfFreshness().stale?'Hugging Face · 历史快照':'Hugging Face Models · Trending')+'</strong><span>'+(hfFreshness().stale?'该快照已过期，不代表当前官方榜位。':'官方 trendingScore + Likes + Downloads，观察模型生态热度。')+'</span></div><div><span>核验 '+esc(hfWhen())+'</span><a href="'+safeLink(HF.source_url)+'" target="_blank" rel="noopener noreferrer">打开 Hugging Face 原榜 '+icon('external')+'</a></div></div>'+
+    '<div class="hf-inline-head"><div><strong>'+(fresh.web.stale?'Hugging Face · 历史快照':'Hugging Face Models · Trending')+'</strong><span>'+(fresh.web.stale?'该网页榜位快照已过期，不代表当前官方榜位。':'网页榜位与 API 指标分别保留来源时间；热度不等于模型能力。')+'</span></div><div><span>网页榜位 '+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+'</span><span>API 指标 '+esc(hfWhen(HF.api_fetched_at||HF.checked_at))+'</span><a href="'+safeLink(HF.source_url)+'" target="_blank" rel="noopener noreferrer">打开 Hugging Face 原榜 '+icon('external')+'</a></div></div>'+
     hfStaleNotice()+
-    '<div class="hf-method"><b>怎么看</b><span>左侧 # 保留 Hugging Face 官方 Trending 顺序；右侧 Trending 是官方 API 的 trendingScore。它只反映平台趋势信号，不代表模型质量、Benchmark 成绩或本站实测。Likes / Downloads 也只按 Hugging Face 官方字段展示。</span></div>'+
+    '<div class="hf-method"><b>怎么看</b><span>左侧 # 严格保留官方 Models Trending 网页顺序；右侧 API Trending 是官方 API 的 trendingScore。两个快照不同时时单独标注，不拼成伪精确榜。这些只是平台关注/使用信号，不是 Benchmark 或本站实测。</span></div>'+
     hfTabs()+
     (rows.length?'<div class="hf-list">'+rows.map(x=>
       '<a class="hf-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="hf-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+
-        '<div class="hf-main"><div class="hf-model">'+esc(x.id)+'<em>'+esc(x.task||'其他')+'</em></div><div class="hf-sub"><span>'+esc(x.library||'—')+'</span><span>♥ '+hfFmt(x.likes)+'</span><span>↓ '+hfFmt(x.downloads)+'</span><span>创建 '+esc(String(x.created_at||'').slice(0,10))+'</span></div><div class="hf-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
-        '<div class="hf-score"><strong>'+hfFmt(x.trending_score)+'</strong><span>Trending</span><i style="--hf-w:'+Math.max(4,Math.round((Number(x.trending_score)||0)/max*100))+'%"></i></div>'+
+        '<div class="hf-main"><div class="hf-model">'+esc(x.id)+'<em>'+esc(x.task||'其他')+'</em></div><div class="hf-sub"><span>'+esc(x.library||'—')+'</span><span>♥ '+hfFmt(x.likes)+'</span><span>↓ '+hfFmt(x.downloads)+'</span><span>创建 '+esc(x.created_at?String(x.created_at).slice(0,10):'未标注')+'</span></div><div class="hf-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
+        '<div class="hf-score"><strong>'+hfFmt(x.trending_score)+'</strong><span>'+(x.api_available?('API Trending'+(fresh.api.stale?'（旧）':'')):'API 未收录')+'</span><i style="--hf-w:'+(x.api_available?Math.max(4,Math.round((Number(x.trending_score)||0)/max*100)):0)+'%"></i></div>'+
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配模型</h3><p>换个关键词或类型继续看。</p></div>')+
     '<footer class="hf-note">'+esc(HF.note||'')+'</footer>'+
@@ -78,9 +97,9 @@ function hfInline(){
 const hfBaseHotPage=hotPage;
 hotPage=function(){
   if(!hfActive())return hfBaseHotPage();
-  const s=hState(),q=hfQuery(),stale=hfFreshness().stale;
+  const s=hState(),q=hfQuery(),fresh=hfFreshness(),stale=fresh.web.stale;
   return '<section class="h-wrap v10-hot hf-embedded">'+
-    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'MODEL ECOSYSTEM / TRENDING')+'</p><h1>'+(stale?'HuggingFace 历史快照':'HuggingFace 热榜')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再冒充当前 Trending；保留历史快照供追溯，并直接回到官方原榜。':'看开源模型生态正在关注什么；平台热度与模型能力严格分开。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'Hugging Face 官方 Trending')+'</span><span>'+esc(hfWhen())+'</span></div></header>'+
+    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'MODEL ECOSYSTEM / TRENDING')+'</p><h1>'+(stale?'HuggingFace 历史快照':'HuggingFace 热榜')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再冒充当前 Trending；保留历史快照供追溯，并直接回到官方原榜。':'看开源模型生态正在关注什么；平台热度与模型能力严格分开。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'Hugging Face 官方 Trending')+'</span><span>'+esc(hfWhen(HF.web_fetched_at||HF.checked_at))+'</span></div></header>'+
     '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="hf-search" type="search" value="'+esc(q)+'" placeholder="搜索模型、任务、标签…" aria-label="搜索 HuggingFace 热榜"><kbd>/</kbd></label></div>'+
     hfInline()+
   '</section>'

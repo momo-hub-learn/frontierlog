@@ -110,7 +110,7 @@ main{max-width:var(--v2-max-work)}
 .v2-tool-dock:hover .v2-tool-popover,.v2-tool-dock:focus-within .v2-tool-popover,.v2-tool-dock.open .v2-tool-popover{opacity:1;visibility:visible;pointer-events:auto;transform:none}
 .v2-tool-link{display:grid;grid-template-columns:28px minmax(0,1fr) 11px;align-items:center;gap:7px;padding:6px 7px;border-radius:8px;color:var(--sub);min-height:38px}.v2-tool-link:hover,.v2-tool-link.active{background:var(--hover);color:var(--text)}.v2-tool-link.active{background:var(--accent-bg)}
 .v2-tool-link-icon{width:28px;height:28px;border-radius:8px;background:var(--raised);display:grid;place-items:center;color:var(--accent)}.v2-tool-link-icon .ico{width:14px;height:14px}.v2-tool-link strong{font-size:.73rem;line-height:1.2;white-space:nowrap}.v2-tool-link>.ico{width:11px;height:11px;color:var(--muted)}
-@media(max-width:760px){.v2-tool-dock{left:auto;right:18px;bottom:82px}.v2-tool-orb{width:46px;height:46px}.v2-tool-popover{width:146px}}
+@media(max-width:760px){.v2-tool-dock{display:none}.v2-tool-orb{width:46px;height:46px}.v2-tool-popover{width:146px}}
 
 
 /* Activity radar: official keynotes + high-signal interviews + promise tracking. */

@@ -131,7 +131,10 @@ jobs:
           grep -q "href=\"#/hot?tab=hf\"" dist-ci/index.html
           ! grep -q "hfBaseFeedPage" src/huggingface-hot.js
           grep -q "Hugging Face Models · Trending" dist-ci/index.html
+          grep -q "网页榜位已核验；API 指标沿用旧快照" dist-ci/index.html
           grep -q "trending_score" data/huggingface-hot.json
+          grep -q "Kumo Relational" dist-ci/index.html
+          grep -q "DSX POD" dist-ci/index.html
           grep -q "gh-topic-chip" dist-ci/index.html
           grep -q "Agent Runtime" dist-ci/index.html
           grep -q "Agent Harness" dist-ci/index.html
