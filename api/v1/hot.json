@@ -36,6 +36,59 @@
   ],
   "items": [
     {
+      "id": "agent4sci-scientific-ml-benchmark-20261020",
+      "category": "research",
+      "title": "Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收",
+      "published": "2026-10-20",
+      "published_at": null,
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T05:18:00+08:00",
+      "first_seen_at": "2026-10-23T05:18:00+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 34,
+        "availability": 20,
+        "evidence": 24,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研能力、稳定性或本站实测分数。",
+      "trend": "up",
+      "summary": "Agent4Sci 开放 11 个科学领域、20 个 benchmark、25 个任务：Agent 先在训练/验证集上改进 ML 方案，再由隐藏测试独立评分，并审计完整轨迹中的泄漏、取巧或不当操作。",
+      "why": "这把科研 Agent 从“会写论文或代码”的展示推进到带预算、隐藏测试和过程审计的长程实验；更接近团队真正需要验收的可重复研发工作。",
+      "boundary": "作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不能推出 Agent 已能稳定自主研究或发现新的科学机制。",
+      "source": "Agent4Sci authors / arXiv",
+      "source_kind": "作者预印本、代码与数据集 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.28763",
+      "link": "#/toolkit?task=agent4sci&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "先跑官方 dry-run 检查接线",
+          "note": "dry-run 不需要 API key；成功不等于模型能力已验证",
+          "url": "https://github.com/maszhongming/agent4sci",
+          "kind": "repo"
+        }
+      ],
+      "related": [
+        {
+          "source": "Agent4Sci authors / arXiv",
+          "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+          "url": "https://arxiv.org/abs/2610.28763",
+          "date": "2026-10-20"
+        },
+        {
+          "source": "Agent4Sci authors",
+          "title": "Agent4Sci benchmark suite",
+          "url": "https://github.com/maszhongming/agent4sci"
+        },
+        {
+          "source": "Agent4Sci authors / Hugging Face",
+          "title": "MingZhong/agent4sci dataset",
+          "url": "https://huggingface.co/datasets/MingZhong/agent4sci"
+        }
+      ]
+    },
+    {
       "id": "nvidia-minerva-ai-factory-observability-20261022",
       "category": "industry",
       "title": "NVIDIA Minerva：把 AI 工厂的作业与基础设施告警串成一张图",

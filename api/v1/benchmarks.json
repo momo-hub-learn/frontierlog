@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-23",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,40 @@
     }
   ],
   "items": [
+    {
+      "id": "agent4sci",
+      "name": "Agent4Sci",
+      "group": "agent",
+      "edition": "20 benchmarks / 25 tasks / 11 domains · arXiv 2610.28763",
+      "subtitle": "科研 Agent 能否在固定预算和隐藏测试下改进真实科学 ML 基线？",
+      "summary": "Agent4Sci 把开放科学机器学习任务拆成训练/验证 hill-climbing、隐藏测试评分和独立轨迹审计三个阶段；公开结果比较 Claude Opus、Codex 及附加技能后的平均相对改进。",
+      "metric": "mean relative improvement ↑ / hidden-test score ↑ / audit findings ↓ / compute budget",
+      "metric_note": "相对改进必须保留任务基线、方向、预算和多次运行分布；不能把不同科学任务的原始指标拼成通用能力总分，也不能只报最好一次。",
+      "protocol": "固定仓库、任务与数据修订、Agent/模型、技能包、预算、容器镜像、GPU、种子与超时；训练/验证阶段不读取隐藏测试标签，提交后独立评分，再由另一流程审计完整轨迹。",
+      "boundary": "作者报告 Claude Opus 10.4%、Codex 4.4% 的平均相对改进，加入技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不代表新的科学机制、稳定自主研究或跨领域泛化。",
+      "business": "适合评估自动实验、调参和科学 ML 工程 Agent，但采购或部署前必须把 GPU/API 成本、失败轨迹、泄漏审计与人工复核计入完成质量。",
+      "setup": "先运行官方 dry-run 核对环境和任务接线；真实评测从一个公开任务开始，确认容器、输出、隐藏测试隔离与审计路径后再扩展。",
+      "topics": [],
+      "sources": [
+        "b-agent4sci-paper",
+        "b-agent4sci-repo",
+        "b-agent4sci-dataset"
+      ],
+      "result_url": "https://github.com/maszhongming/agent4sci",
+      "kind": "benchmark",
+      "flag": "作者公开结果 / 本站未运行",
+      "checked": "2026-10-23",
+      "tested": false,
+      "checks": [
+        "训练/验证与隐藏测试严格隔离",
+        "固定模型、技能、预算、容器、GPU 与种子",
+        "保存每次运行轨迹、失败与资源消耗",
+        "独立审计泄漏、取巧与不当操作"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "gift-eval-granite-ensemble-r1",
       "name": "GIFT-Eval · Granite Timeseries Ensemble R1",
@@ -1013,6 +1047,36 @@
   ],
   "sources": [
     {
+      "id": "b-agent4sci-paper",
+      "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+      "publisher": "Agent4Sci authors / arXiv",
+      "url": "https://arxiv.org/abs/2610.28763",
+      "published": "2026-10-20",
+      "checked": "2026-10-23",
+      "kind": "作者预印本与评测结果",
+      "note": "披露任务范围、三阶段协议、固定预算、模型比较、相对改进与边界。"
+    },
+    {
+      "id": "b-agent4sci-repo",
+      "title": "Agent4Sci benchmark suite",
+      "publisher": "Agent4Sci authors",
+      "url": "https://github.com/maszhongming/agent4sci",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者代码与复现说明",
+      "note": "提供 20 个 benchmark、25 个任务、Docker/NVIDIA 要求、dry-run 和运行入口。"
+    },
+    {
+      "id": "b-agent4sci-dataset",
+      "title": "MingZhong/agent4sci",
+      "publisher": "Agent4Sci authors / Hugging Face",
+      "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者公开数据集",
+      "note": "任务与结果数据入口；仍需锁定实际修订。"
+    },
+    {
       "id": "b-granite-timeseries-ensemble-release",
       "title": "Ensemble forecasting with IBM Granite time-series models",
       "publisher": "IBM Research / Hugging Face",
@@ -1399,6 +1463,22 @@
     }
   ],
   "changes": [
+    {
+      "id": "agent4sci-release",
+      "date": "2026-10-20",
+      "title": "Agent4Sci 把科研 ML Agent 接到隐藏测试与轨迹审计",
+      "summary": "作者开放 11 个领域、20 个 benchmark、25 个任务的长程评测，并在固定预算下比较 Claude Opus、Codex 及技能增强配置。",
+      "implication": "科研 Agent 的评估可以同时检查结果、成本与过程合规；作者报告的工程改进仍不能外推成自主科学发现。",
+      "benchmarks": [
+        "agent4sci"
+      ],
+      "sources": [
+        "b-agent4sci-paper",
+        "b-agent4sci-repo",
+        "b-agent4sci-dataset"
+      ],
+      "kind": "新公开评测套件"
+    },
     {
       "id": "granite-timeseries-ensemble-r1-release",
       "date": "2026-10-22",

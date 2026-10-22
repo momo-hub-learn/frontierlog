@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-23",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,43 @@
     }
   ],
   "items": [
+    {
+      "id": "agent4sci-scientific-ml-hill-climbing",
+      "lane": "science",
+      "title": "科研 Agent 开始接受隐藏测试与轨迹审计，而不只生成论文或代码",
+      "maker": "Ming Zhong、Stacy Li、Nicholas Carlini、Matthew Jagielski",
+      "date": "2026-10-20",
+      "verified_at": "2026-10-23T05:18:00+08:00",
+      "tags": [
+        "Agentic Science",
+        "ML Engineering",
+        "Auditable Evaluation"
+      ],
+      "fact": "Agent4Sci 收录 11 个科学领域、20 个 benchmark 和 25 个任务；Agent 先在训练/验证集上改进方案，提交后由隐藏测试集独立评分，并另行审计轨迹中的泄漏、取巧或不当操作。作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加入技能后分别为 20.1% 和 8.1%。",
+      "insight": "真正有用的信号不是单次高分，而是评测把长程实验、固定预算、隐藏测试和过程审计接到一起；这为科研 Agent 建立了比“会写论文摘要”更接近实际工作的验收框架。",
+      "boundary": "全部数值来自作者实验，本站未运行；任务间方差高，公开提升主要来自数据清洗、损失函数和训练流程等 ML 工程，不能推出 Agent 已具备新的领域洞察、稳定自主研究或通用科学发现能力。",
+      "next_watch": "关注独立团队在固定预算下的多次复现、不同模型/技能的成本—改进曲线、隐藏测试保密性，以及轨迹审计能否稳定识别更隐蔽的数据泄漏和 reward hacking。",
+      "sources": [
+        {
+          "label": "Agent4Sci 作者预印本",
+          "url": "https://arxiv.org/abs/2610.28763",
+          "kind": "作者论文、方法与结果",
+          "strength": "primary"
+        },
+        {
+          "label": "Agent4Sci 官方仓库",
+          "url": "https://github.com/maszhongming/agent4sci",
+          "kind": "作者代码、任务清单与复现说明",
+          "strength": "primary"
+        },
+        {
+          "label": "Agent4Sci 作者数据集",
+          "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+          "kind": "作者公开数据",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "granite-timeseries-probabilistic-ensemble",
       "lane": "paradigm",

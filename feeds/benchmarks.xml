@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较</title><guid isPermaLink="false">frontierlog:benchmark:granite-timeseries-ensemble-r1-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=gift-eval-granite-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较</title><guid isPermaLink="false">frontierlog:benchmark:granite-timeseries-ensemble-r1-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=gift-eval-granite-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。
 
 编辑解读：组合的主要价值是减少预先选错模型的风险，不应把约 0.002 的聚合 MASE 差异写成普遍领先；业务验证还要检查区间覆盖和四模型成本。
 
@@ -11,7 +11,14 @@ https://huggingface.co/spaces/Salesforce/GIFT-Eval</description></item><item><ti
 编辑解读：企业知识系统可以把解析、召回和重排拆开复现；厂商榜单和硬件吞吐仍需用自己的文档、权限和成本条件重测。
 
 来源：
-https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval</description></item><item><title>FairStress 公开 1,300 万以上公平性压力场景</title><guid isPermaLink="false">frontierlog:benchmark:fairstress-release-20261020</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>AllenAI 从 300 个两候选决策场景构造人口属性和对抗前缀变体，并提供 5 万条 Core 子集。
+https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval</description></item><item><title>Agent4Sci 把科研 ML Agent 接到隐藏测试与轨迹审计</title><guid isPermaLink="false">frontierlog:benchmark:agent4sci-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=agent4sci</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>作者开放 11 个领域、20 个 benchmark、25 个任务的长程评测，并在固定预算下比较 Claude Opus、Codex 及技能增强配置。
+
+编辑解读：科研 Agent 的评估可以同时检查结果、成本与过程合规；作者报告的工程改进仍不能外推成自主科学发现。
+
+来源：
+https://arxiv.org/abs/2610.28763
+https://github.com/maszhongming/agent4sci
+https://huggingface.co/datasets/MingZhong/agent4sci</description></item><item><title>FairStress 公开 1,300 万以上公平性压力场景</title><guid isPermaLink="false">frontierlog:benchmark:fairstress-release-20261020</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>AllenAI 从 300 个两候选决策场景构造人口属性和对抗前缀变体，并提供 5 万条 Core 子集。
 
 编辑解读：公平性评测开始从单次群体差异扩展到身份扰动、提示压力与解释稳定性；但定义、数据代表性和真实部署伤害仍需单独审查。
 

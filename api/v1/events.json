@@ -1,6 +1,21 @@
 {
-  "snapshot": "2026-10-22",
+  "snapshot": "2026-10-23",
   "events": [
+    {
+      "id": "agent4sci-release",
+      "task": "agent4sci",
+      "date": "2026-10-20",
+      "kind": "research",
+      "title": "Agent4Sci 开放 20 个科学机器学习 benchmark 的可审计长程评测",
+      "summary": "作者发布 25 个任务、11 个领域的开放套件，把训练/验证、隐藏测试评分和独立轨迹审计拆成三个阶段。",
+      "delta": "科研 Agent 的可验证边界从解题或论文生成扩到完整 ML 实验循环；公开改进仍主要反映工程优化，不应写成自主科学发现。",
+      "sources": [
+        "agent4sci-paper",
+        "agent4sci-repo",
+        "agent4sci-dataset"
+      ],
+      "reviewed": "2026-10-23"
+    },
     {
       "id": "ibm-granite-timeseries-ensemble-r1-release",
       "task": "ibm-granite-timeseries-ensemble-r1",
@@ -374,6 +389,36 @@
     }
   ],
   "sources": [
+    {
+      "id": "agent4sci-paper",
+      "publisher": "Agent4Sci authors / arXiv",
+      "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+      "url": "https://arxiv.org/abs/2610.28763",
+      "published": "2026-10-20",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T05:18:00+08:00",
+      "kind": "作者预印本与评测方法"
+    },
+    {
+      "id": "agent4sci-repo",
+      "publisher": "Agent4Sci authors",
+      "title": "Agent4Sci benchmark suite",
+      "url": "https://github.com/maszhongming/agent4sci",
+      "published": null,
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T05:18:00+08:00",
+      "kind": "作者代码、任务清单、dry-run 与复现说明"
+    },
+    {
+      "id": "agent4sci-dataset",
+      "publisher": "Agent4Sci authors / Hugging Face",
+      "title": "MingZhong/agent4sci",
+      "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+      "published": null,
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T05:18:00+08:00",
+      "kind": "作者公开数据集"
+    },
     {
       "id": "ibm-granite-timeseries-ensemble-release",
       "publisher": "IBM Research / Hugging Face",

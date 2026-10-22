@@ -37,6 +37,59 @@
     ],
     "items": [
       {
+        "id": "agent4sci-scientific-ml-benchmark-20261020",
+        "category": "research",
+        "title": "Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收",
+        "published": "2026-10-20",
+        "published_at": null,
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T05:18:00+08:00",
+        "first_seen_at": "2026-10-23T05:18:00+08:00",
+        "heat": 90,
+        "heat_components": {
+          "impact": 34,
+          "availability": 20,
+          "evidence": 24,
+          "recency": 12
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研能力、稳定性或本站实测分数。",
+        "trend": "up",
+        "summary": "Agent4Sci 开放 11 个科学领域、20 个 benchmark、25 个任务：Agent 先在训练/验证集上改进 ML 方案，再由隐藏测试独立评分，并审计完整轨迹中的泄漏、取巧或不当操作。",
+        "why": "这把科研 Agent 从“会写论文或代码”的展示推进到带预算、隐藏测试和过程审计的长程实验；更接近团队真正需要验收的可重复研发工作。",
+        "boundary": "作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不能推出 Agent 已能稳定自主研究或发现新的科学机制。",
+        "source": "Agent4Sci authors / arXiv",
+        "source_kind": "作者预印本、代码与数据集 / 本轮编辑核验",
+        "url": "https://arxiv.org/abs/2610.28763",
+        "link": "#/toolkit?task=agent4sci&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "先跑官方 dry-run 检查接线",
+            "note": "dry-run 不需要 API key；成功不等于模型能力已验证",
+            "url": "https://github.com/maszhongming/agent4sci",
+            "kind": "repo"
+          }
+        ],
+        "related": [
+          {
+            "source": "Agent4Sci authors / arXiv",
+            "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+            "url": "https://arxiv.org/abs/2610.28763",
+            "date": "2026-10-20"
+          },
+          {
+            "source": "Agent4Sci authors",
+            "title": "Agent4Sci benchmark suite",
+            "url": "https://github.com/maszhongming/agent4sci"
+          },
+          {
+            "source": "Agent4Sci authors / Hugging Face",
+            "title": "MingZhong/agent4sci dataset",
+            "url": "https://huggingface.co/datasets/MingZhong/agent4sci"
+          }
+        ]
+      },
+      {
         "id": "nvidia-minerva-ai-factory-observability-20261022",
         "category": "industry",
         "title": "NVIDIA Minerva：把 AI 工厂的作业与基础设施告警串成一张图",
@@ -2039,13 +2092,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T17:40:22Z",
+    "generated_at": "2026-10-22T21:24:29Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 42,
+      "merge": 44,
       "hold": 5
     },
     "candidates": [
@@ -3892,7 +3945,7 @@
   },
   "research_radar": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
     "lanes": [
       {
@@ -3912,6 +3965,43 @@
       }
     ],
     "items": [
+      {
+        "id": "agent4sci-scientific-ml-hill-climbing",
+        "lane": "science",
+        "title": "科研 Agent 开始接受隐藏测试与轨迹审计，而不只生成论文或代码",
+        "maker": "Ming Zhong、Stacy Li、Nicholas Carlini、Matthew Jagielski",
+        "date": "2026-10-20",
+        "verified_at": "2026-10-23T05:18:00+08:00",
+        "tags": [
+          "Agentic Science",
+          "ML Engineering",
+          "Auditable Evaluation"
+        ],
+        "fact": "Agent4Sci 收录 11 个科学领域、20 个 benchmark 和 25 个任务；Agent 先在训练/验证集上改进方案，提交后由隐藏测试集独立评分，并另行审计轨迹中的泄漏、取巧或不当操作。作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加入技能后分别为 20.1% 和 8.1%。",
+        "insight": "真正有用的信号不是单次高分，而是评测把长程实验、固定预算、隐藏测试和过程审计接到一起；这为科研 Agent 建立了比“会写论文摘要”更接近实际工作的验收框架。",
+        "boundary": "全部数值来自作者实验，本站未运行；任务间方差高，公开提升主要来自数据清洗、损失函数和训练流程等 ML 工程，不能推出 Agent 已具备新的领域洞察、稳定自主研究或通用科学发现能力。",
+        "next_watch": "关注独立团队在固定预算下的多次复现、不同模型/技能的成本—改进曲线、隐藏测试保密性，以及轨迹审计能否稳定识别更隐蔽的数据泄漏和 reward hacking。",
+        "sources": [
+          {
+            "label": "Agent4Sci 作者预印本",
+            "url": "https://arxiv.org/abs/2610.28763",
+            "kind": "作者论文、方法与结果",
+            "strength": "primary"
+          },
+          {
+            "label": "Agent4Sci 官方仓库",
+            "url": "https://github.com/maszhongming/agent4sci",
+            "kind": "作者代码、任务清单与复现说明",
+            "strength": "primary"
+          },
+          {
+            "label": "Agent4Sci 作者数据集",
+            "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+            "kind": "作者公开数据",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "granite-timeseries-probabilistic-ensemble",
         "lane": "paradigm",
@@ -5610,12 +5700,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T17:40:22Z",
+    "last_evaluated": "2026-10-22T21:24:29Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 47,
+      "candidate_count": 49,
       "publish_ready_count": 0,
-      "merge_count": 42,
+      "merge_count": 44,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
@@ -5636,7 +5726,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T19:20:43Z",
+    "checked_at": "2026-10-22T21:16:30Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -5647,10 +5737,10 @@
         "stars_today": 423,
         "description": "The PHP Interpreter",
         "language": "C",
-        "stars": 40995,
-        "forks": 8295,
+        "stars": 41095,
+        "forks": 8302,
         "repo_created_at": "2011-06-16T01:52:25Z",
-        "repo_pushed_at": "2026-10-22T17:11:42Z",
+        "repo_pushed_at": "2026-10-22T19:28:54Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -5658,7 +5748,7 @@
           "GitHub"
         ],
         "url": "https://github.com/php/php-src",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -5675,9 +5765,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 40995
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 41095
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "anthropics/knowledge-work-plugins",
@@ -5685,8 +5779,8 @@
         "stars_today": 303,
         "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
-        "stars": 31433,
-        "forks": 3520,
+        "stars": 31519,
+        "forks": 3528,
         "repo_created_at": "2026-01-23T20:11:54Z",
         "repo_pushed_at": "2026-10-22T07:39:25Z",
         "category": "other",
@@ -5696,7 +5790,7 @@
           "GitHub"
         ],
         "url": "https://github.com/anthropics/knowledge-work-plugins",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -5713,9 +5807,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 31433
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 31519
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "DietrichGebert/ponytail",
@@ -5723,8 +5821,8 @@
         "stars_today": 1949,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
-        "stars": 173013,
-        "forks": 9416,
+        "stars": 173278,
+        "forks": 9431,
         "repo_created_at": "2026-06-12T00:52:37Z",
         "repo_pushed_at": "2026-10-18T01:55:14Z",
         "category": "ai-tools",
@@ -5735,12 +5833,8 @@
           "GitHub"
         ],
         "url": "https://github.com/DietrichGebert/ponytail",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 171412
-          },
           {
             "at": "2026-10-21T23:21:00Z",
             "stars": 171534
@@ -5784,9 +5878,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 173013
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 173278
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "cloudflare/security-audit-skill",
@@ -5794,8 +5892,8 @@
         "stars_today": 2979,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 38757,
-        "forks": 2415,
+        "stars": 39269,
+        "forks": 2446,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -5806,12 +5904,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 35996
-          },
           {
             "at": "2026-10-21T23:21:00Z",
             "stars": 36324
@@ -5855,9 +5949,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 38757
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 39269
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "Graphify-Labs/graphify",
@@ -5865,8 +5963,8 @@
         "stars_today": 1407,
         "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
         "language": "Python",
-        "stars": 132643,
-        "forks": 12701,
+        "stars": 132826,
+        "forks": 12713,
         "repo_created_at": "2026-04-03T15:49:07Z",
         "repo_pushed_at": "2026-10-22T16:19:38Z",
         "category": "agent-skills",
@@ -5877,12 +5975,8 @@
           "Knowledge Graph"
         ],
         "url": "https://github.com/Graphify-Labs/graphify",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 131377
-          },
           {
             "at": "2026-10-21T23:21:00Z",
             "stars": 131576
@@ -5926,9 +6020,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 132643
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 132826
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "supabase/supabase",
@@ -5936,10 +6034,10 @@
         "stars_today": 683,
         "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
         "language": "TypeScript",
-        "stars": 113370,
-        "forks": 16986,
+        "stars": 113431,
+        "forks": 16994,
         "repo_created_at": "2019-10-12T05:56:49Z",
-        "repo_pushed_at": "2026-10-22T17:17:51Z",
+        "repo_pushed_at": "2026-10-22T21:11:20Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5948,12 +6046,8 @@
           "GitHub"
         ],
         "url": "https://github.com/supabase/supabase",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 112845
-          },
           {
             "at": "2026-10-21T23:21:00Z",
             "stars": 112971
@@ -5997,9 +6091,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 113370
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 113431
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "fastapi/fastapi",
@@ -6007,10 +6105,10 @@
         "stars_today": 96,
         "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
         "language": "Python",
-        "stars": 103570,
-        "forks": 10080,
+        "stars": 103664,
+        "forks": 10084,
         "repo_created_at": "2018-12-08T08:21:47Z",
-        "repo_pushed_at": "2026-10-22T16:54:30Z",
+        "repo_pushed_at": "2026-10-22T19:13:04Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6018,7 +6116,7 @@
           "GitHub"
         ],
         "url": "https://github.com/fastapi/fastapi",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6035,9 +6133,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 103570
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 103664
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "luongnv89/claude-howto",
@@ -6045,8 +6147,8 @@
         "stars_today": 370,
         "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
         "language": "Python",
-        "stars": 42880,
-        "forks": 5372,
+        "stars": 43060,
+        "forks": 5377,
         "repo_created_at": "2025-11-07T22:59:34Z",
         "repo_pushed_at": "2026-10-20T12:23:14Z",
         "category": "ai-tools",
@@ -6057,7 +6159,7 @@
           "GitHub"
         ],
         "url": "https://github.com/luongnv89/claude-howto",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6074,9 +6176,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 42880
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 43060
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       },
       {
         "repo": "Meloong-Git/PCL",
@@ -6084,8 +6190,8 @@
         "stars_today": 115,
         "description": "Minecraft 启动器 Plain Craft Launcher（PCL）。",
         "language": "Visual Basic .NET",
-        "stars": 8635,
-        "forks": 1193,
+        "stars": 8659,
+        "forks": 1197,
         "repo_created_at": "2022-07-26T15:43:26Z",
         "repo_pushed_at": "2026-10-20T07:01:33Z",
         "category": "other",
@@ -6095,7 +6201,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Meloong-Git/PCL",
-        "metadata_verified_at": "2026-10-22T17:21:29Z",
+        "metadata_verified_at": "2026-10-22T21:16:30Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6112,9 +6218,13 @@
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 8635
+          },
+          {
+            "at": "2026-10-22T21:16:30Z",
+            "stars": 8659
           }
         ],
-        "metadata_status": "stale"
+        "metadata_status": "fresh"
       }
     ],
     "categories": [
@@ -6192,26 +6302,17 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-22T19:20:43Z",
-      "last_success_at": "2026-10-22T19:20:43Z",
+      "last_checked_at": "2026-10-22T21:16:30Z",
+      "last_success_at": "2026-10-22T21:16:30Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-22T19:20:43Z",
-      "watchlist_errors": [
-        "morluto/rea: HTTP 403: GitHub Repository API rate limit exceeded"
-      ],
-      "watchlist_failed_count": 1,
+      "watchlist_checked_at": "2026-10-22T21:16:30Z",
+      "watchlist_errors": [],
+      "watchlist_failed_count": 0,
       "trending_count": 9,
-      "verified_count": 0,
-      "metadata_failed_count": 9,
-      "metadata_status": "partial",
-      "skipped": [
-        "php/php-src: HTTP 403: GitHub Repository API rate limit exceeded",
-        "anthropics/knowledge-work-plugins: HTTP 403: GitHub Repository API rate limit exceeded",
-        "DietrichGebert/ponytail: HTTP 403: GitHub Repository API rate limit exceeded",
-        "cloudflare/security-audit-skill: HTTP 403: GitHub Repository API rate limit exceeded",
-        "Graphify-Labs/graphify: HTTP 403: GitHub Repository API rate limit exceeded",
-        "supabase/supabase: HTTP 403: GitHub Repository API rate limit exceeded"
-      ]
+      "verified_count": 9,
+      "metadata_failed_count": 0,
+      "metadata_status": "success",
+      "skipped": []
     },
     "watchlist": [
       {
@@ -6225,37 +6326,37 @@
           "Agent",
           "MCP"
         ],
-        "stars": 364360,
-        "forks": 91358,
+        "stars": 365520,
+        "forks": 91623,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-22T17:19:06Z",
+        "repo_pushed_at": "2026-10-22T21:15:59Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-22T17:21:29Z",
+        "verified_at": "2026-10-22T21:16:30Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T19:20:43Z",
+    "checked_at": "2026-10-22T21:16:30Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T19:20:43Z",
-    "web_fetched_at": "2026-10-22T19:20:43Z",
+    "api_fetched_at": "2026-10-22T21:16:30Z",
+    "web_fetched_at": "2026-10-22T21:16:30Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "black-forest-labs/flux-3-image-klein-comfy",
       "OpenMOSS-Team/MOSS-Image-SFT",
       "RecursiveSI/flint",
-      "meta-models/Muse-Spark-Open-816B-A42B",
       "OpenMOSS-Team/MOSS-Image-Base",
       "fishaudio/drama-3",
       "Lightricks/LTX-2.5",
+      "meta-models/Muse-Spark-Open-816B-A42B",
       "black-forest-labs/flux-3-image-klein",
       "google/embeddinggemma-2",
       "Comfy-Org/MOSS-Image",
@@ -6274,8 +6375,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2027,
-        "likes": 2336,
+        "trending_score": 2032,
+        "likes": 2343,
         "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6291,8 +6392,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 828,
-        "likes": 1281,
+        "trending_score": 808,
+        "likes": 1287,
         "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6308,8 +6409,8 @@
         "rank": 3,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 526,
-        "likes": 569,
+        "trending_score": 527,
+        "likes": 570,
         "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6325,8 +6426,8 @@
         "rank": 4,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 479,
-        "likes": 486,
+        "trending_score": 497,
+        "likes": 505,
         "downloads": 420,
         "task": "text-generation",
         "library": "transformers",
@@ -6340,23 +6441,6 @@
       },
       {
         "rank": 5,
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 465,
-        "likes": 656,
-        "downloads": 3163,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-09-15T19:23:19.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "muse_spark",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
         "trending_score": 456,
@@ -6373,11 +6457,11 @@
         ]
       },
       {
-        "rank": 7,
+        "rank": 6,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 431,
-        "likes": 906,
+        "trending_score": 417,
+        "likes": 908,
         "downloads": 16305,
         "task": "text-to-speech",
         "library": "未标注",
@@ -6390,11 +6474,11 @@
         ]
       },
       {
-        "rank": 8,
+        "rank": 7,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
         "trending_score": 413,
-        "likes": 8864,
+        "likes": 8881,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6407,11 +6491,28 @@
         ]
       },
       {
+        "rank": 8,
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+        "trending_score": 413,
+        "likes": 659,
+        "downloads": 3163,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-15T19:23:19.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "muse_spark",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 9,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 408,
-        "likes": 631,
+        "trending_score": 389,
+        "likes": 634,
         "downloads": 102903,
         "task": "image-to-image",
         "library": "diffusers",
@@ -6427,7 +6528,7 @@
         "rank": 10,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 358,
+        "trending_score": 353,
         "likes": 2838,
         "downloads": 185259,
         "task": "feature-extraction",
@@ -6444,8 +6545,8 @@
         "rank": 11,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 336,
-        "likes": 358,
+        "trending_score": 338,
+        "likes": 360,
         "downloads": 1463386,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6461,8 +6562,8 @@
         "rank": 12,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 322,
-        "likes": 2089,
+        "trending_score": 320,
+        "likes": 2090,
         "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
@@ -6478,8 +6579,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 308,
-        "likes": 4821,
+        "trending_score": 306,
+        "likes": 4823,
         "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
@@ -6495,8 +6596,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 299,
-        "likes": 18192,
+        "trending_score": 304,
+        "likes": 18203,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6512,8 +6613,8 @@
         "rank": 15,
         "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
         "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 297,
-        "likes": 309,
+        "trending_score": 285,
+        "likes": 311,
         "downloads": 10519,
         "task": "image-text-to-text",
         "library": "Model Optimizer",
@@ -6529,8 +6630,8 @@
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 276,
-        "likes": 284,
+        "trending_score": 278,
+        "likes": 286,
         "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
@@ -6546,8 +6647,8 @@
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 252,
-        "likes": 362,
+        "trending_score": 254,
+        "likes": 364,
         "downloads": 3823,
         "task": "image-to-text",
         "library": "onnx",
@@ -6563,7 +6664,7 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 248,
+        "trending_score": 246,
         "likes": 284,
         "downloads": 6194,
         "task": "time-series-forecasting",
@@ -6580,8 +6681,8 @@
         "rank": 19,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 222,
-        "likes": 236,
+        "trending_score": 228,
+        "likes": 242,
         "downloads": 482,
         "task": "text-generation",
         "library": "transformers",
@@ -6597,8 +6698,8 @@
         "rank": 20,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 218,
-        "likes": 246,
+        "trending_score": 222,
+        "likes": 250,
         "downloads": 3808,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6613,7 +6714,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T19:20:43Z",
+      "last_checked_at": "2026-10-22T21:16:30Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -11351,7 +11452,7 @@
   },
   "benchmarks": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "title": "Benchmark 观察站",
     "sync": {
       "status": "manual",
@@ -11402,6 +11503,40 @@
       }
     ],
     "items": [
+      {
+        "id": "agent4sci",
+        "name": "Agent4Sci",
+        "group": "agent",
+        "edition": "20 benchmarks / 25 tasks / 11 domains · arXiv 2610.28763",
+        "subtitle": "科研 Agent 能否在固定预算和隐藏测试下改进真实科学 ML 基线？",
+        "summary": "Agent4Sci 把开放科学机器学习任务拆成训练/验证 hill-climbing、隐藏测试评分和独立轨迹审计三个阶段；公开结果比较 Claude Opus、Codex 及附加技能后的平均相对改进。",
+        "metric": "mean relative improvement ↑ / hidden-test score ↑ / audit findings ↓ / compute budget",
+        "metric_note": "相对改进必须保留任务基线、方向、预算和多次运行分布；不能把不同科学任务的原始指标拼成通用能力总分，也不能只报最好一次。",
+        "protocol": "固定仓库、任务与数据修订、Agent/模型、技能包、预算、容器镜像、GPU、种子与超时；训练/验证阶段不读取隐藏测试标签，提交后独立评分，再由另一流程审计完整轨迹。",
+        "boundary": "作者报告 Claude Opus 10.4%、Codex 4.4% 的平均相对改进，加入技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不代表新的科学机制、稳定自主研究或跨领域泛化。",
+        "business": "适合评估自动实验、调参和科学 ML 工程 Agent，但采购或部署前必须把 GPU/API 成本、失败轨迹、泄漏审计与人工复核计入完成质量。",
+        "setup": "先运行官方 dry-run 核对环境和任务接线；真实评测从一个公开任务开始，确认容器、输出、隐藏测试隔离与审计路径后再扩展。",
+        "topics": [],
+        "sources": [
+          "b-agent4sci-paper",
+          "b-agent4sci-repo",
+          "b-agent4sci-dataset"
+        ],
+        "result_url": "https://github.com/maszhongming/agent4sci",
+        "kind": "benchmark",
+        "flag": "作者公开结果 / 本站未运行",
+        "checked": "2026-10-23",
+        "tested": false,
+        "checks": [
+          "训练/验证与隐藏测试严格隔离",
+          "固定模型、技能、预算、容器、GPU 与种子",
+          "保存每次运行轨迹、失败与资源消耗",
+          "独立审计泄漏、取巧与不当操作"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
       {
         "id": "gift-eval-granite-ensemble-r1",
         "name": "GIFT-Eval · Granite Timeseries Ensemble R1",
@@ -12364,6 +12499,36 @@
     ],
     "sources": [
       {
+        "id": "b-agent4sci-paper",
+        "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+        "publisher": "Agent4Sci authors / arXiv",
+        "url": "https://arxiv.org/abs/2610.28763",
+        "published": "2026-10-20",
+        "checked": "2026-10-23",
+        "kind": "作者预印本与评测结果",
+        "note": "披露任务范围、三阶段协议、固定预算、模型比较、相对改进与边界。"
+      },
+      {
+        "id": "b-agent4sci-repo",
+        "title": "Agent4Sci benchmark suite",
+        "publisher": "Agent4Sci authors",
+        "url": "https://github.com/maszhongming/agent4sci",
+        "published": null,
+        "checked": "2026-10-23",
+        "kind": "作者代码与复现说明",
+        "note": "提供 20 个 benchmark、25 个任务、Docker/NVIDIA 要求、dry-run 和运行入口。"
+      },
+      {
+        "id": "b-agent4sci-dataset",
+        "title": "MingZhong/agent4sci",
+        "publisher": "Agent4Sci authors / Hugging Face",
+        "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+        "published": null,
+        "checked": "2026-10-23",
+        "kind": "作者公开数据集",
+        "note": "任务与结果数据入口；仍需锁定实际修订。"
+      },
+      {
         "id": "b-granite-timeseries-ensemble-release",
         "title": "Ensemble forecasting with IBM Granite time-series models",
         "publisher": "IBM Research / Hugging Face",
@@ -12750,6 +12915,22 @@
       }
     ],
     "changes": [
+      {
+        "id": "agent4sci-release",
+        "date": "2026-10-20",
+        "title": "Agent4Sci 把科研 ML Agent 接到隐藏测试与轨迹审计",
+        "summary": "作者开放 11 个领域、20 个 benchmark、25 个任务的长程评测，并在固定预算下比较 Claude Opus、Codex 及技能增强配置。",
+        "implication": "科研 Agent 的评估可以同时检查结果、成本与过程合规；作者报告的工程改进仍不能外推成自主科学发现。",
+        "benchmarks": [
+          "agent4sci"
+        ],
+        "sources": [
+          "b-agent4sci-paper",
+          "b-agent4sci-repo",
+          "b-agent4sci-dataset"
+        ],
+        "kind": "新公开评测套件"
+      },
       {
         "id": "granite-timeseries-ensemble-r1-release",
         "date": "2026-10-22",
@@ -14839,8 +15020,40 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-10-22",
+    "snapshot": "2026-10-23",
     "items": [
+      {
+        "id": "agent4sci",
+        "name": "Agent4Sci · ML 科研 Agent 评测套件",
+        "title": "在固定预算下复现科学机器学习改进",
+        "category": "科研与评测",
+        "mark": "A4",
+        "accent": "violet",
+        "summary": "把 11 个科学领域的 20 个 benchmark、25 个任务整理成可审计的长程实验：Agent 只能看训练/验证集，提交后由隐藏测试集评分，并由独立审计检查取巧或不当操作。",
+        "scope": "作者开放代码、任务数据、容器配置、dry-run 和轨迹审计入口；公开结果覆盖 Claude Opus 与 Codex，在固定计算预算下比较无技能与附加技能的相对改进。",
+        "boundary": "这是作者报告的科研机器学习任务结果，不是本站跑分，也不等于自动产生新的科学机制。作者分析称主要增益来自数据清洗、损失函数和训练流程等 ML 工程；真实评测需要 GPU、Docker、模型/API 凭据和可观预算，高方差任务还需要多次运行。",
+        "repo": "maszhongming/agent4sci",
+        "sources": [
+          "agent4sci-paper",
+          "agent4sci-repo",
+          "agent4sci-dataset"
+        ],
+        "requirements": "Linux、Docker、NVIDIA Container Toolkit、可用 GPU、Python 3.12；真实运行还需 Anthropic/OpenAI/Hugging Face 凭据，dry-run 不需要 API key。",
+        "test": "先运行 dry-run 验证容器、任务挂载和输出结构，再选一个公开任务，固定 Agent、预算、种子与技能包；保留完整轨迹、验证集选择、隐藏测试评分和独立审计结果。",
+        "checks": [
+          "训练/验证阶段不得读取隐藏测试标签",
+          "固定 Agent、预算、容器镜像、任务修订和随机种子",
+          "保存每次轨迹并单独审计取巧、泄漏和不当操作",
+          "报告多次运行分布，不用单次最好结果代表稳定能力"
+        ],
+        "command": "git clone https://github.com/maszhongming/agent4sci.git && cd agent4sci && uv sync && uv run python -m bench.cli run --dry-run",
+        "effort": "开放代码与数据 / dry-run 可检查接线 / 真实评测需 GPU、API 与预算",
+        "evidence": "作者预印本、NeurIPS 2026 E&D 接收说明、代码与公开数据集",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-23",
+        "verified_at": "2026-10-23T05:18:00+08:00"
+      },
       {
         "id": "ibm-granite-timeseries-ensemble-r1",
         "name": "IBM Granite · Timeseries Ensemble R1",
@@ -15606,6 +15819,36 @@
     ],
     "sources": [
       {
+        "id": "agent4sci-paper",
+        "publisher": "Agent4Sci authors / arXiv",
+        "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+        "url": "https://arxiv.org/abs/2610.28763",
+        "published": "2026-10-20",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T05:18:00+08:00",
+        "kind": "作者预印本与评测方法"
+      },
+      {
+        "id": "agent4sci-repo",
+        "publisher": "Agent4Sci authors",
+        "title": "Agent4Sci benchmark suite",
+        "url": "https://github.com/maszhongming/agent4sci",
+        "published": null,
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T05:18:00+08:00",
+        "kind": "作者代码、任务清单、dry-run 与复现说明"
+      },
+      {
+        "id": "agent4sci-dataset",
+        "publisher": "Agent4Sci authors / Hugging Face",
+        "title": "MingZhong/agent4sci",
+        "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+        "published": null,
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T05:18:00+08:00",
+        "kind": "作者公开数据集"
+      },
+      {
         "id": "ibm-granite-timeseries-ensemble-release",
         "publisher": "IBM Research / Hugging Face",
         "title": "Ensemble forecasting with IBM Granite time-series models",
@@ -16020,6 +16263,21 @@
       }
     ],
     "events": [
+      {
+        "id": "agent4sci-release",
+        "task": "agent4sci",
+        "date": "2026-10-20",
+        "kind": "research",
+        "title": "Agent4Sci 开放 20 个科学机器学习 benchmark 的可审计长程评测",
+        "summary": "作者发布 25 个任务、11 个领域的开放套件，把训练/验证、隐藏测试评分和独立轨迹审计拆成三个阶段。",
+        "delta": "科研 Agent 的可验证边界从解题或论文生成扩到完整 ML 实验循环；公开改进仍主要反映工程优化，不应写成自主科学发现。",
+        "sources": [
+          "agent4sci-paper",
+          "agent4sci-repo",
+          "agent4sci-dataset"
+        ],
+        "reviewed": "2026-10-23"
+      },
       {
         "id": "ibm-granite-timeseries-ensemble-r1-release",
         "task": "ibm-granite-timeseries-ensemble-r1",
@@ -18034,6 +18292,58 @@
       }
     ],
     "items": [
+      {
+        "id": "agent4sci",
+        "publisher": "Agent4Sci authors",
+        "group": "research",
+        "access": "research",
+        "headline": "先用 dry-run 检查科研 Agent 评测接线，再决定是否投入真实 GPU 与 API 预算",
+        "input": "一个已公开的 Agent4Sci 科学机器学习任务、固定 Agent/模型版本、运行预算、随机种子和技能包配置",
+        "output": "可复核的运行轨迹、验证集选择、隐藏测试分数、资源消耗和独立轨迹审计记录",
+        "requirements": "Linux、Docker、NVIDIA Container Toolkit、GPU 与 Python 3.12；dry-run 不需要 API key，真实评测需要 Anthropic/OpenAI/Hugging Face 凭据。",
+        "limitation": "本站只核验论文、仓库和数据集，未执行 dry-run 或真实任务。公开相对改进来自作者实验，任务间方差很高；结果主要显示 ML 工程优化，不能推出 Agent 已能自主发现科学机制。",
+        "cost": "代码与数据可公开获取；真实运行会产生 GPU、容器存储、模型 API 和多次重复实验成本。先用 dry-run 检查接线不会验证模型能力。",
+        "steps": [
+          {
+            "title": "克隆并只跑 dry-run",
+            "body": "先检查依赖、任务发现、容器挂载和输出目录，不提供真实 API key，也不把 dry-run 成功写成 benchmark 通过。",
+            "command": "git clone https://github.com/maszhongming/agent4sci.git\ncd agent4sci\nuv sync\nuv run python -m bench.cli run --dry-run"
+          },
+          {
+            "title": "固定一个小任务和完整预算",
+            "body": "记录任务修订、Agent/模型、技能包、预算、容器镜像、GPU、种子与超时；确认训练/验证阶段无法读取隐藏测试标签。"
+          },
+          {
+            "title": "把得分、轨迹审计和方差一起验收",
+            "body": "至少重复多次，分别保留隐藏测试改进、运行成本、失败轨迹，以及对泄漏、取巧或不当操作的独立审计。"
+          }
+        ],
+        "troubleshooting": "dry-run 找不到任务时先核对仓库修订、uv 环境与数据目录；容器不可见 GPU 时检查 NVIDIA Container Toolkit；真实任务失败时先看预算、API 权限和输出轨迹，不通过提高重试次数掩盖确定性配置错误。",
+        "sources": [
+          {
+            "title": "Agent4Sci 作者预印本",
+            "url": "https://arxiv.org/abs/2610.28763",
+            "published_at": "2026-10-20",
+            "verified_at": "2026-10-23"
+          },
+          {
+            "title": "Agent4Sci 官方仓库与复现说明",
+            "url": "https://github.com/maszhongming/agent4sci",
+            "published_at": null,
+            "verified_at": "2026-10-23"
+          },
+          {
+            "title": "Agent4Sci 作者数据集",
+            "url": "https://huggingface.co/datasets/MingZhong/agent4sci",
+            "published_at": null,
+            "verified_at": "2026-10-23"
+          }
+        ],
+        "entry_url": "https://github.com/maszhongming/agent4sci",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-23T05:18:00+08:00"
+      },
       {
         "id": "ibm-granite-timeseries-ensemble-r1",
         "publisher": "IBM Research",
