@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 装备运维与质检</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/equipment-maintenance.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 装备运维与质检</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/equipment-maintenance.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Granite 时间序列组合：先把产线概率预测做成可回测基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=ibm-granite-timeseries-ensemble-20261022</link><guid isPermaLink="false">frontierlog:topic:ibm-granite-timeseries-ensemble-20261022</guid><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。
+
+编辑解读：产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。
+
+边界：GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。
+资料核对：2026-10-22；本站未实测。
+原始来源：
+https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1</description><category>工艺控制 · FDC / APC</category><category>装备运维与质检</category></item><item><title>Kumo Anomaly：先把工艺与设备异常检测变成可复现基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=kumo-anomaly-manufacturing</link><guid isPermaLink="false">frontierlog:topic:kumo-anomaly-manufacturing</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。
 
 编辑解读：半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。
 

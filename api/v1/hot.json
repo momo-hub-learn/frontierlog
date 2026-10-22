@@ -36,6 +36,54 @@
   ],
   "items": [
     {
+      "id": "ibm-granite-timeseries-ensemble-r1-20261022",
+      "category": "model",
+      "title": "Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测",
+      "published": "2026-10-22",
+      "published_at": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "first_seen_at": "2026-10-22T19:20:00+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 31,
+        "availability": 24,
+        "evidence": 24,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是通用准确率、业务收益或本站实测。",
+      "trend": "up",
+      "summary": "IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。",
+      "why": "团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。",
+      "boundary": "IBM 在 97 个 GIFT-Eval 配置上的公开比较显示点预测增益很小，且最佳 CRPS 仍来自单个 PatchTST 成员；当前配方不利用跨通道关系，加载四个检查点会增加内存和时延，也不保证区间校准或分布漂移下稳健。本站未运行模型。",
+      "source": "IBM Research / Hugging Face",
+      "source_kind": "官方技术发布、模型卡、代码与公开评测口径 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "link": "#/toolkit?task=ibm-granite-timeseries-ensemble-r1&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "用历史滚动窗口复现概率预测",
+          "note": "同窗比较等权、IQR、最强单模型与季节性朴素基线",
+          "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+          "kind": "model"
+        }
+      ],
+      "related": [
+        {
+          "source": "IBM Research / Hugging Face",
+          "title": "Ensemble forecasting with IBM Granite time-series models",
+          "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+          "date": "2026-10-22"
+        },
+        {
+          "source": "IBM Granite",
+          "title": "Granite Timeseries Ensemble R1 model card",
+          "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1"
+        }
+      ]
+    },
+    {
       "id": "nvidia-agent-knowledge-foundation-20261021",
       "category": "product",
       "title": "Agent Knowledge Foundation：把企业数据接入 Agent 的语义层开放出来",
@@ -59,7 +107,7 @@
       "source": "NVIDIA",
       "source_kind": "官方平台发布与开源仓库 / 本轮编辑核验",
       "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
-      "link": "#/toolkit?id=nvidia-auto-ontology",
+      "link": "#/toolkit?task=nvidia-auto-ontology&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -107,7 +155,7 @@
       "source": "NVIDIA / Hugging Face",
       "source_kind": "官方技术发布、论文与代码入口 / 本轮编辑核验",
       "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-      "link": "#/toolkit?id=nvidia-kumo-relational",
+      "link": "#/toolkit?task=nvidia-kumo-relational&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -236,7 +284,7 @@
       "source": "NVIDIA / Hugging Face",
       "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
       "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
-      "link": "#/toolkit?id=nvidia-nemotron-3-5-retriever",
+      "link": "#/toolkit?task=nvidia-nemotron-3-5-retriever&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -365,7 +413,7 @@
       "source": "NVIDIA",
       "source_kind": "官方架构发布 / 本轮编辑核验",
       "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
-      "link": "#/toolkit?id=nvidia-openshell",
+      "link": "#/toolkit?task=nvidia-openshell&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -408,7 +456,7 @@
       "source": "Anthropic",
       "source_kind": "官方产品发布 / 本轮编辑核验",
       "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
-      "link": "#/toolkit?id=claude-security",
+      "link": "#/toolkit?task=anthropic-claude-security&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -451,7 +499,7 @@
       "source": "OpenAI / PHP maintainers / security partners",
       "source_kind": "官方安全披露与修复协调说明 / 本轮编辑核验",
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
-      "link": "#/toolkit?id=openai-patch-the-planet",
+      "link": "#/toolkit?task=openai-patch-the-planet&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -752,7 +800,7 @@
       "source": "IBM",
       "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
       "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
-      "link": "#/toolkit?id=ibm-granite-speech-5",
+      "link": "#/toolkit?task=ibm-granite-speech-5&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
@@ -881,7 +929,7 @@
       "source": "NVIDIA / Baker Lab",
       "source_kind": "官方模型卡与代码 / 本轮编辑核验",
       "url": "https://huggingface.co/nvidia/RFD4-Proteina",
-      "link": "#/toolkit?id=nvidia-rfd4-proteina",
+      "link": "#/toolkit?task=nvidia-rfd4-proteina&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {

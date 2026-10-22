@@ -37,6 +37,54 @@
     ],
     "items": [
       {
+        "id": "ibm-granite-timeseries-ensemble-r1-20261022",
+        "category": "model",
+        "title": "Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测",
+        "published": "2026-10-22",
+        "published_at": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "first_seen_at": "2026-10-22T19:20:00+08:00",
+        "heat": 92,
+        "heat_components": {
+          "impact": 31,
+          "availability": 24,
+          "evidence": 24,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是通用准确率、业务收益或本站实测。",
+        "trend": "up",
+        "summary": "IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。",
+        "why": "团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。",
+        "boundary": "IBM 在 97 个 GIFT-Eval 配置上的公开比较显示点预测增益很小，且最佳 CRPS 仍来自单个 PatchTST 成员；当前配方不利用跨通道关系，加载四个检查点会增加内存和时延，也不保证区间校准或分布漂移下稳健。本站未运行模型。",
+        "source": "IBM Research / Hugging Face",
+        "source_kind": "官方技术发布、模型卡、代码与公开评测口径 / 本轮编辑核验",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "link": "#/toolkit?task=ibm-granite-timeseries-ensemble-r1&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "用历史滚动窗口复现概率预测",
+            "note": "同窗比较等权、IQR、最强单模型与季节性朴素基线",
+            "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+            "kind": "model"
+          }
+        ],
+        "related": [
+          {
+            "source": "IBM Research / Hugging Face",
+            "title": "Ensemble forecasting with IBM Granite time-series models",
+            "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+            "date": "2026-10-22"
+          },
+          {
+            "source": "IBM Granite",
+            "title": "Granite Timeseries Ensemble R1 model card",
+            "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1"
+          }
+        ]
+      },
+      {
         "id": "nvidia-agent-knowledge-foundation-20261021",
         "category": "product",
         "title": "Agent Knowledge Foundation：把企业数据接入 Agent 的语义层开放出来",
@@ -60,7 +108,7 @@
         "source": "NVIDIA",
         "source_kind": "官方平台发布与开源仓库 / 本轮编辑核验",
         "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
-        "link": "#/toolkit?id=nvidia-auto-ontology",
+        "link": "#/toolkit?task=nvidia-auto-ontology&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -108,7 +156,7 @@
         "source": "NVIDIA / Hugging Face",
         "source_kind": "官方技术发布、论文与代码入口 / 本轮编辑核验",
         "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-        "link": "#/toolkit?id=nvidia-kumo-relational",
+        "link": "#/toolkit?task=nvidia-kumo-relational&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -237,7 +285,7 @@
         "source": "NVIDIA / Hugging Face",
         "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
         "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
-        "link": "#/toolkit?id=nvidia-nemotron-3-5-retriever",
+        "link": "#/toolkit?task=nvidia-nemotron-3-5-retriever&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -366,7 +414,7 @@
         "source": "NVIDIA",
         "source_kind": "官方架构发布 / 本轮编辑核验",
         "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
-        "link": "#/toolkit?id=nvidia-openshell",
+        "link": "#/toolkit?task=nvidia-openshell&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -409,7 +457,7 @@
         "source": "Anthropic",
         "source_kind": "官方产品发布 / 本轮编辑核验",
         "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
-        "link": "#/toolkit?id=claude-security",
+        "link": "#/toolkit?task=anthropic-claude-security&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -452,7 +500,7 @@
         "source": "OpenAI / PHP maintainers / security partners",
         "source_kind": "官方安全披露与修复协调说明 / 本轮编辑核验",
         "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
-        "link": "#/toolkit?id=openai-patch-the-planet",
+        "link": "#/toolkit?task=openai-patch-the-planet&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -753,7 +801,7 @@
         "source": "IBM",
         "source_kind": "官方技术发布与模型卡 / 本轮编辑核验",
         "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
-        "link": "#/toolkit?id=ibm-granite-speech-5",
+        "link": "#/toolkit?task=ibm-granite-speech-5&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -882,7 +930,7 @@
         "source": "NVIDIA / Baker Lab",
         "source_kind": "官方模型卡与代码 / 本轮编辑核验",
         "url": "https://huggingface.co/nvidia/RFD4-Proteina",
-        "link": "#/toolkit?id=nvidia-rfd4-proteina",
+        "link": "#/toolkit?task=nvidia-rfd4-proteina&tab=run",
         "evidence_level": "primary-source",
         "access": [
           {
@@ -1894,13 +1942,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-22T09:32:35Z",
+    "generated_at": "2026-10-22T11:33:11Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 39,
+      "merge": 42,
       "hold": 5
     },
     "candidates": [
@@ -1961,6 +2009,53 @@
           "Evaluation"
         ],
         "first_seen_at": "2026-10-22T03:33:57Z"
+      },
+      {
+        "id": "candidate-657add4de8695366",
+        "category": "industry",
+        "published": "2026-10-22",
+        "title": "Granite 时间序列组合：先把产线概率预测做成可回测基线",
+        "summary": "IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。",
+        "why": "产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。",
+        "boundary": "GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。",
+        "source": "IBM Research / Hugging Face",
+        "source_kind": "官方开放模型、代码、评测与部署限制",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-22T11:33:11Z"
+      },
+      {
+        "id": "candidate-f86089c70378a7ad",
+        "category": "product",
+        "published": "2026-10-22",
+        "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
+        "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
+        "why": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
+        "boundary": "公开 GIFT-Eval 结果是跨 97 个配置的聚合比较，不代表具体业务序列。当前实现逐通道预测、不利用跨通道关系；四模型增加时延和内存，IQR 权重还可能偏爱过度自信成员。本站未运行。",
+        "source": "IBM Research / Hugging Face",
+        "source_kind": "官方技术发布与使用说明",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "ibm-granite-timeseries-ensemble-r1",
+        "first_seen_at": "2026-10-22T11:33:11Z"
       },
       {
         "id": "candidate-2e1dbc4df560deae",
@@ -2191,6 +2286,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
+      },
+      {
+        "id": "candidate-c8fb8b8866630ceb",
+        "category": "research",
+        "published": "2026-10-22",
+        "title": "时间序列基础模型开始从选单模型转向可复现概率组合",
+        "summary": "Granite Timeseries Ensemble R1 以统一接口组合四个 Granite 检查点；默认等权概率池无需拟合组合权重，另提供按区间宽度加权的 IQR 配方，并输出中位数和多级分位数。",
+        "why": "开放配方把模型选择风险转成一个可直接回测的默认基线：团队可以先核验点预测、区间覆盖和资源成本，再决定是否需要为特定序列选模型或学习组合权重。",
+        "boundary": "IBM 在 97 个 GIFT-Eval 配置上的聚合点误差改进很小，且单个 PatchTST 成员仍有更低的 CRPS；当前实现逐通道预测、加载四个检查点，也不保证校准或分布漂移稳健。",
+        "source": "IBM Research",
+        "source_kind": "官方发布、用法、评测与限制",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "publishable": false,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.815,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "granite-timeseries-probabilistic-ensemble",
+        "topic_tags": [
+          "Time Series",
+          "Probabilistic Forecasting",
+          "Ensemble"
+        ],
+        "first_seen_at": "2026-10-22T11:33:11Z"
       },
       {
         "id": "candidate-02f1d79923b3f7ba",
@@ -2834,81 +2958,6 @@
           "Employment"
         ],
         "first_seen_at": "2026-10-20T12:44:41Z"
-      },
-      {
-        "id": "candidate-3298080199d6d527",
-        "category": "research",
-        "published": "2026-10-20",
-        "title": "AEON：视频潜空间连接显式4D世界",
-        "summary": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
-        "why": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
-        "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
-        "source": "AEON 作者团队",
-        "source_kind": "作者论文原文",
-        "url": "https://arxiv.org/abs/2610.28631",
-        "publishable": false,
-        "features": {
-          "freshness": 0.857,
-          "authority": 0.88,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.74,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "aeon-video-4d-world-model",
-        "topic_tags": [
-          "World Model",
-          "4D Gaussian Splatting",
-          "Video Generation"
-        ],
-        "first_seen_at": "2026-10-21T11:52:59Z"
-      },
-      {
-        "id": "candidate-0b44fe8cbd278171",
-        "category": "industry",
-        "published": "2026-10-15",
-        "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
-        "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
-        "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
-        "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
-        "source": "OpenAI",
-        "source_kind": "官方一手来源",
-        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T11:52:59Z"
-      },
-      {
-        "id": "candidate-d4630f9691a2082a",
-        "category": "industry",
-        "published": "2026-10-15",
-        "title": "Timestral：为传感器监测补一个概率预测基线",
-        "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
-        "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
-        "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
-        "source": "Mistral AI",
-        "source_kind": "官方一手来源",
-        "url": "https://mistral.ai/news/timestral",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T11:52:59Z"
       }
     ]
   },
@@ -3766,6 +3815,37 @@
       }
     ],
     "items": [
+      {
+        "id": "granite-timeseries-probabilistic-ensemble",
+        "lane": "paradigm",
+        "title": "时间序列基础模型开始从选单模型转向可复现概率组合",
+        "maker": "IBM Research",
+        "date": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "tags": [
+          "Time Series",
+          "Probabilistic Forecasting",
+          "Ensemble"
+        ],
+        "fact": "Granite Timeseries Ensemble R1 以统一接口组合四个 Granite 检查点；默认等权概率池无需拟合组合权重，另提供按区间宽度加权的 IQR 配方，并输出中位数和多级分位数。",
+        "insight": "开放配方把模型选择风险转成一个可直接回测的默认基线：团队可以先核验点预测、区间覆盖和资源成本，再决定是否需要为特定序列选模型或学习组合权重。",
+        "boundary": "IBM 在 97 个 GIFT-Eval 配置上的聚合点误差改进很小，且单个 PatchTST 成员仍有更低的 CRPS；当前实现逐通道预测、加载四个检查点，也不保证校准或分布漂移稳健。",
+        "next_watch": "关注独立业务序列上的经验覆盖、跨通道建模、四模型资源开销，以及等权组合能否在漂移和不同预测跨度下稳定优于最佳单成员。",
+        "sources": [
+          {
+            "label": "IBM Research 官方技术发布",
+            "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+            "kind": "官方发布、用法、评测与限制",
+            "strength": "primary"
+          },
+          {
+            "label": "Granite Timeseries Ensemble R1 模型卡",
+            "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+            "kind": "官方配方、许可与评测口径",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "event-transitions-world-model-return-error",
         "lane": "paradigm",
@@ -5409,12 +5489,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-22T09:32:35Z",
+    "last_evaluated": "2026-10-22T11:33:11Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 44,
+      "candidate_count": 47,
       "publish_ready_count": 0,
-      "merge_count": 39,
+      "merge_count": 42,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
@@ -5435,295 +5515,57 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T09:32:42Z",
+    "checked_at": "2026-10-22T11:19:40Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
     "items": [
       {
-        "repo": "cloudflare/security-audit-skill",
+        "repo": "php/php-src",
         "rank": 1,
-        "stars_today": 2012,
-        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
-        "language": "JavaScript",
-        "stars": 37753,
-        "forks": 2358,
-        "repo_created_at": "2026-06-18T14:08:44Z",
-        "repo_pushed_at": "2026-09-14T19:29:02Z",
-        "category": "agent-skills",
-        "ai_related": true,
+        "stars_today": 110,
+        "description": "The PHP Interpreter",
+        "language": "C",
+        "stars": null,
+        "forks": null,
+        "repo_created_at": null,
+        "repo_pushed_at": null,
+        "category": "other",
+        "ai_related": false,
         "tags": [
-          "Agent",
-          "Skills",
-          "Workflow"
-        ],
-        "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 35217
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 35462
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 35568
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 35610
-          },
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 35996
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 36324
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 36336
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 36837
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 37086
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 37436
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 37750
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 37753
-          }
-        ]
-      },
-      {
-        "repo": "vllm-project/vllm",
-        "rank": 2,
-        "stars_today": 441,
-        "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-        "language": "Python",
-        "stars": 95078,
-        "forks": 23788,
-        "repo_created_at": "2023-02-09T11:23:20Z",
-        "repo_pushed_at": "2026-10-22T09:00:22Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/vllm-project/vllm",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 94704
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 94763
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 94783
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 94790
-          },
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 94814
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 94845
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 94846
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 94938
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 94967
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 95019
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 95076
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 95078
-          }
-        ]
+        "url": "https://github.com/php/php-src",
+        "metadata_verified_at": null,
+        "metadata_status": "unavailable",
+        "star_history": []
       },
       {
-        "repo": "stablyai/orca",
-        "rank": 3,
-        "stars_today": 1541,
-        "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
-        "language": "TypeScript",
-        "stars": 101968,
-        "forks": 6443,
-        "repo_created_at": "2026-03-17T03:28:57Z",
-        "repo_pushed_at": "2026-10-22T09:32:37Z",
-        "category": "agent-runtime",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Runtime",
-          "AI"
-        ],
-        "url": "https://github.com/stablyai/orca",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 100645
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 100893
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 100972
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 101000
-          },
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 101099
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 101186
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 101191
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 101516
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 101630
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 101796
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 101965
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 101968
-          }
-        ]
-      },
-      {
-        "repo": "headroomlabs-ai/headroom",
-        "rank": 4,
-        "stars_today": 474,
-        "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+        "repo": "anthropics/knowledge-work-plugins",
+        "rank": 2,
+        "stars_today": 303,
+        "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
-        "stars": 77466,
-        "forks": 6016,
-        "repo_created_at": "2026-01-07T19:58:51Z",
-        "repo_pushed_at": "2026-10-22T07:28:37Z",
-        "category": "agent-interface",
-        "ai_related": true,
+        "stars": null,
+        "forks": null,
+        "repo_created_at": null,
+        "repo_pushed_at": null,
+        "category": "other",
+        "ai_related": false,
         "tags": [
-          "Agent",
-          "Tools",
-          "MCP"
+          "Open Source",
+          "GitHub"
         ],
-        "url": "https://github.com/headroomlabs-ai/headroom",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 77031
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 77115
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 77145
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 77156
-          },
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 77193
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 77231
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 77234
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 77322
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 77357
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 77407
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 77462
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 77466
-          }
-        ]
+        "url": "https://github.com/anthropics/knowledge-work-plugins",
+        "metadata_verified_at": null,
+        "metadata_status": "unavailable",
+        "star_history": []
       },
       {
         "repo": "DietrichGebert/ponytail",
-        "rank": 5,
-        "stars_today": 2079,
+        "rank": 3,
+        "stars_today": 1949,
         "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "language": "JavaScript",
         "stars": 172389,
@@ -5788,81 +5630,154 @@
             "at": "2026-10-22T09:32:42Z",
             "stars": 172389
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
-        "repo": "Comfy-Org/ComfyUI",
-        "rank": 6,
-        "stars_today": 939,
-        "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
-        "language": "Python",
-        "stars": 141811,
-        "forks": 16757,
-        "repo_created_at": "2023-01-17T03:15:56Z",
-        "repo_pushed_at": "2026-10-22T09:15:34Z",
-        "category": "ai-tools",
+        "repo": "cloudflare/security-audit-skill",
+        "rank": 4,
+        "stars_today": 2979,
+        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+        "language": "JavaScript",
+        "stars": 37753,
+        "forks": 2358,
+        "repo_created_at": "2026-06-18T14:08:44Z",
+        "repo_pushed_at": "2026-09-14T19:29:02Z",
+        "category": "agent-skills",
         "ai_related": true,
         "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
+          "Agent",
+          "Skills",
+          "Workflow"
         ],
-        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "url": "https://github.com/cloudflare/security-audit-skill",
         "metadata_verified_at": "2026-10-22T09:32:42Z",
         "star_history": [
           {
             "at": "2026-10-21T13:57:44Z",
-            "stars": 141250
+            "stars": 35217
           },
           {
             "at": "2026-10-21T17:19:46Z",
-            "stars": 141339
+            "stars": 35462
           },
           {
             "at": "2026-10-21T18:46:27Z",
-            "stars": 141370
+            "stars": 35568
           },
           {
             "at": "2026-10-21T19:17:09Z",
-            "stars": 141387
+            "stars": 35610
           },
           {
             "at": "2026-10-21T21:21:52Z",
-            "stars": 141438
+            "stars": 35996
           },
           {
             "at": "2026-10-21T23:21:00Z",
-            "stars": 141481
+            "stars": 36324
           },
           {
             "at": "2026-10-21T23:28:09Z",
-            "stars": 141484
+            "stars": 36336
           },
           {
             "at": "2026-10-22T03:21:03Z",
-            "stars": 141614
+            "stars": 36837
           },
           {
             "at": "2026-10-22T05:04:34Z",
-            "stars": 141657
+            "stars": 37086
           },
           {
             "at": "2026-10-22T07:19:30Z",
-            "stars": 141732
+            "stars": 37436
           },
           {
             "at": "2026-10-22T09:26:36Z",
-            "stars": 141808
+            "stars": 37750
           },
           {
             "at": "2026-10-22T09:32:42Z",
-            "stars": 141811
+            "stars": 37753
           }
-        ]
+        ],
+        "metadata_status": "stale"
+      },
+      {
+        "repo": "Graphify-Labs/graphify",
+        "rank": 5,
+        "stars_today": 1407,
+        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+        "language": "Python",
+        "stars": 132141,
+        "forks": 12673,
+        "repo_created_at": "2026-04-03T15:49:07Z",
+        "repo_pushed_at": "2026-10-21T15:23:36Z",
+        "category": "agent-skills",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Skills",
+          "Knowledge Graph"
+        ],
+        "url": "https://github.com/Graphify-Labs/graphify",
+        "metadata_verified_at": "2026-10-22T09:32:42Z",
+        "star_history": [
+          {
+            "at": "2026-10-21T13:21:32Z",
+            "stars": 130995
+          },
+          {
+            "at": "2026-10-21T13:57:44Z",
+            "stars": 131040
+          },
+          {
+            "at": "2026-10-21T17:19:46Z",
+            "stars": 131266
+          },
+          {
+            "at": "2026-10-21T18:46:27Z",
+            "stars": 131352
+          },
+          {
+            "at": "2026-10-21T19:17:09Z",
+            "stars": 131377
+          },
+          {
+            "at": "2026-10-21T23:21:00Z",
+            "stars": 131576
+          },
+          {
+            "at": "2026-10-21T23:28:09Z",
+            "stars": 131579
+          },
+          {
+            "at": "2026-10-22T03:21:03Z",
+            "stars": 131799
+          },
+          {
+            "at": "2026-10-22T05:04:34Z",
+            "stars": 131879
+          },
+          {
+            "at": "2026-10-22T07:19:30Z",
+            "stars": 132004
+          },
+          {
+            "at": "2026-10-22T09:26:36Z",
+            "stars": 132138
+          },
+          {
+            "at": "2026-10-22T09:32:42Z",
+            "stars": 132141
+          }
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "supabase/supabase",
-        "rank": 7,
+        "rank": 6,
         "stars_today": 504,
         "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
         "language": "TypeScript",
@@ -5928,18 +5843,40 @@
             "at": "2026-10-22T09:32:42Z",
             "stars": 113225
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
-        "repo": "twentyhq/twenty",
+        "repo": "fastapi/fastapi",
+        "rank": 7,
+        "stars_today": 96,
+        "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "language": "Python",
+        "stars": null,
+        "forks": null,
+        "repo_created_at": null,
+        "repo_pushed_at": null,
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/fastapi/fastapi",
+        "metadata_verified_at": null,
+        "metadata_status": "unavailable",
+        "star_history": []
+      },
+      {
+        "repo": "luongnv89/claude-howto",
         "rank": 8,
-        "stars_today": 112,
-        "description": "The open alternative to Salesforce, designed for AI.",
-        "language": "TypeScript",
-        "stars": 59453,
-        "forks": 9682,
-        "repo_created_at": "2022-12-01T13:04:40Z",
-        "repo_pushed_at": "2026-10-22T09:31:46Z",
+        "stars_today": 428,
+        "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
+        "language": "Python",
+        "stars": null,
+        "forks": null,
+        "repo_created_at": null,
+        "repo_pushed_at": null,
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -5947,309 +5884,31 @@
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/twentyhq/twenty",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:21:32Z",
-            "stars": 58831
-          },
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 58848
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 58961
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 59000
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 59016
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 59129
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 59133
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 59248
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 59312
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 59387
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 59451
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 59453
-          }
-        ]
+        "url": "https://github.com/luongnv89/claude-howto",
+        "metadata_verified_at": null,
+        "metadata_status": "unavailable",
+        "star_history": []
       },
       {
-        "repo": "shiyu-coder/Kronos",
+        "repo": "Meloong-Git/PCL",
         "rank": 9,
-        "stars_today": 575,
-        "description": "Kronos: A Foundation Model for the Language of Financial Markets",
-        "language": "Python",
-        "stars": 43037,
-        "forks": 7096,
-        "repo_created_at": "2025-07-01T02:54:32Z",
-        "repo_pushed_at": "2026-04-13T12:38:49Z",
-        "category": "vertical-agent",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Finance",
-          "Model"
-        ],
-        "url": "https://github.com/shiyu-coder/Kronos",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:21:32Z",
-            "stars": 42619
-          },
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 42630
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 42704
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 42723
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 42734
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 42805
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 42806
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 42891
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 42930
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 42988
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 43035
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 43037
-          }
-        ]
-      },
-      {
-        "repo": "strelov1/freehire",
-        "rank": 10,
-        "stars_today": 360,
-        "description": "freehire — the open-source search engine for job seekers",
-        "language": "Go",
-        "stars": 2647,
-        "forks": 263,
-        "repo_created_at": "2026-06-07T03:20:31Z",
-        "repo_pushed_at": "2026-10-22T05:09:30Z",
+        "stars_today": 115,
+        "description": "Minecraft 启动器 Plain Craft Launcher（PCL）。",
+        "language": "Visual Basic .NET",
+        "stars": null,
+        "forks": null,
+        "repo_created_at": null,
+        "repo_pushed_at": null,
         "category": "other",
         "ai_related": false,
         "tags": [
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/strelov1/freehire",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 2490
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 2519
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 2553
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 2645
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 2647
-          }
-        ]
-      },
-      {
-        "repo": "akitaonrails/ai-memory",
-        "rank": 11,
-        "stars_today": 286,
-        "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
-        "language": "Rust",
-        "stars": 12585,
-        "forks": 889,
-        "repo_created_at": "2026-05-21T23:23:51Z",
-        "repo_pushed_at": "2026-10-22T07:40:15Z",
-        "category": "agent-memory",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Memory",
-          "AI"
-        ],
-        "url": "https://github.com/akitaonrails/ai-memory",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 12061
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 12165
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 12192
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 12209
-          },
-          {
-            "at": "2026-10-21T21:21:52Z",
-            "stars": 12258
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 12300
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 12304
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 12415
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 12468
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 12532
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 12583
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 12585
-          }
-        ]
-      },
-      {
-        "repo": "Graphify-Labs/graphify",
-        "rank": 12,
-        "stars_today": 1433,
-        "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
-        "language": "Python",
-        "stars": 132141,
-        "forks": 12673,
-        "repo_created_at": "2026-04-03T15:49:07Z",
-        "repo_pushed_at": "2026-10-21T15:23:36Z",
-        "category": "agent-skills",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Skills",
-          "Knowledge Graph"
-        ],
-        "url": "https://github.com/Graphify-Labs/graphify",
-        "metadata_verified_at": "2026-10-22T09:32:42Z",
-        "star_history": [
-          {
-            "at": "2026-10-21T13:21:32Z",
-            "stars": 130995
-          },
-          {
-            "at": "2026-10-21T13:57:44Z",
-            "stars": 131040
-          },
-          {
-            "at": "2026-10-21T17:19:46Z",
-            "stars": 131266
-          },
-          {
-            "at": "2026-10-21T18:46:27Z",
-            "stars": 131352
-          },
-          {
-            "at": "2026-10-21T19:17:09Z",
-            "stars": 131377
-          },
-          {
-            "at": "2026-10-21T23:21:00Z",
-            "stars": 131576
-          },
-          {
-            "at": "2026-10-21T23:28:09Z",
-            "stars": 131579
-          },
-          {
-            "at": "2026-10-22T03:21:03Z",
-            "stars": 131799
-          },
-          {
-            "at": "2026-10-22T05:04:34Z",
-            "stars": 131879
-          },
-          {
-            "at": "2026-10-22T07:19:30Z",
-            "stars": 132004
-          },
-          {
-            "at": "2026-10-22T09:26:36Z",
-            "stars": 132138
-          },
-          {
-            "at": "2026-10-22T09:32:42Z",
-            "stars": 132141
-          }
-        ]
+        "url": "https://github.com/Meloong-Git/PCL",
+        "metadata_verified_at": null,
+        "metadata_status": "unavailable",
+        "star_history": []
       }
     ],
     "categories": [
@@ -6327,15 +5986,24 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-22T09:32:42Z",
-      "last_success_at": "2026-10-22T09:32:42Z",
+      "last_checked_at": "2026-10-22T11:19:40Z",
+      "last_success_at": "2026-10-22T11:19:40Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-22T09:32:42Z",
-      "watchlist_errors": [],
-      "trending_count": 12,
-      "verified_count": 12,
-      "metadata_status": "success",
-      "skipped": []
+      "watchlist_checked_at": "2026-10-22T11:19:40Z",
+      "watchlist_errors": [
+        "morluto/rea: HTTP Error 403: Forbidden"
+      ],
+      "trending_count": 9,
+      "verified_count": 0,
+      "metadata_status": "partial",
+      "skipped": [
+        "php/php-src: HTTP Error 403: Forbidden",
+        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+        "DietrichGebert/ponytail: HTTP Error 403: Forbidden",
+        "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+        "Graphify-Labs/graphify: HTTP Error 403: Forbidden",
+        "supabase/supabase: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -6361,15 +6029,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-22T09:27:25Z",
+    "checked_at": "2026-10-22T11:19:40Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-22T09:27:25Z",
-    "web_fetched_at": "2026-10-22T09:27:25Z",
+    "api_fetched_at": "2026-10-22T11:19:40Z",
+    "web_fetched_at": "2026-10-22T11:19:40Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6381,8 +6049,8 @@
       "OpenMOSS-Team/MOSS-Image-Base",
       "Lightricks/LTX-2.5",
       "google/embeddinggemma-2",
-      "jialinyyzz/humanizer",
       "RecursiveSI/flint",
+      "jialinyyzz/humanizer",
       "Comfy-Org/MOSS-Image",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
@@ -6398,9 +6066,9 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1963,
-        "likes": 2240,
-        "downloads": 42122,
+        "trending_score": 1979,
+        "likes": 2263,
+        "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-10-17T02:40:38.000Z",
@@ -6415,9 +6083,9 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 914,
-        "likes": 1226,
-        "downloads": 490447,
+        "trending_score": 917,
+        "likes": 1237,
+        "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
         "created_at": "2026-10-14T12:00:13.000Z",
@@ -6432,8 +6100,8 @@
         "rank": 3,
         "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 582,
-        "likes": 645,
+        "trending_score": 583,
+        "likes": 648,
         "downloads": 3163,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6449,9 +6117,9 @@
         "rank": 4,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 542,
-        "likes": 615,
-        "downloads": 92604,
+        "trending_score": 544,
+        "likes": 618,
+        "downloads": 102903,
         "task": "image-to-image",
         "library": "diffusers",
         "created_at": "2026-10-13T10:58:40.000Z",
@@ -6466,9 +6134,9 @@
         "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 505,
-        "likes": 545,
-        "downloads": 5840,
+        "trending_score": 506,
+        "likes": 546,
+        "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T07:01:17.000Z",
@@ -6483,9 +6151,9 @@
         "rank": 6,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 500,
-        "likes": 900,
-        "downloads": 15274,
+        "trending_score": 494,
+        "likes": 903,
+        "downloads": 16305,
         "task": "text-to-speech",
         "library": "未标注",
         "created_at": "2026-10-01T04:34:57.000Z",
@@ -6502,7 +6170,7 @@
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
         "trending_score": 449,
         "likes": 476,
-        "downloads": 4344,
+        "downloads": 5013,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T06:49:17.000Z",
@@ -6517,8 +6185,8 @@
         "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 419,
-        "likes": 8801,
+        "trending_score": 416,
+        "likes": 8812,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6534,8 +6202,8 @@
         "rank": 9,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 394,
-        "likes": 2823,
+        "trending_score": 386,
+        "likes": 2827,
         "downloads": 185259,
         "task": "feature-extraction",
         "library": "transformers",
@@ -6549,10 +6217,27 @@
       },
       {
         "rank": 10,
+        "id": "RecursiveSI/flint",
+        "url": "https://huggingface.co/RecursiveSI/flint",
+        "trending_score": 370,
+        "likes": 374,
+        "downloads": 420,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-21T14:20:58.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "flint",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 11,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 359,
-        "likes": 2077,
+        "trending_score": 353,
+        "likes": 2079,
         "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
@@ -6565,29 +6250,12 @@
         ]
       },
       {
-        "rank": 11,
-        "id": "RecursiveSI/flint",
-        "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 351,
-        "likes": 355,
-        "downloads": 0,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-21T14:20:58.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "flint",
-          "text-generation"
-        ]
-      },
-      {
         "rank": 12,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 327,
-        "likes": 348,
-        "downloads": 1290080,
+        "trending_score": 328,
+        "likes": 349,
+        "downloads": 1463386,
         "task": "未标注",
         "library": "diffusion-single-file",
         "created_at": "2026-10-16T12:42:32.000Z",
@@ -6602,9 +6270,9 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 307,
-        "likes": 4791,
-        "downloads": 2738344,
+        "trending_score": 308,
+        "likes": 4797,
+        "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
         "created_at": "2026-09-20T15:51:13.000Z",
@@ -6619,8 +6287,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 294,
-        "likes": 18164,
+        "trending_score": 297,
+        "likes": 18172,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6636,9 +6304,9 @@
         "rank": 15,
         "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
         "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-FP4-Local",
-        "trending_score": 290,
-        "likes": 299,
-        "downloads": 9340,
+        "trending_score": 291,
+        "likes": 301,
+        "downloads": 10519,
         "task": "image-text-to-text",
         "library": "Model Optimizer",
         "created_at": "2026-10-08T16:20:17.000Z",
@@ -6653,9 +6321,9 @@
         "rank": 16,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 271,
-        "likes": 279,
-        "downloads": 2682,
+        "trending_score": 272,
+        "likes": 280,
+        "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-15T09:52:00.000Z",
@@ -6671,8 +6339,8 @@
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
         "trending_score": 262,
-        "likes": 350,
-        "downloads": 3588,
+        "likes": 354,
+        "downloads": 3823,
         "task": "image-to-text",
         "library": "onnx",
         "created_at": "2026-10-10T14:12:33.000Z",
@@ -6687,9 +6355,9 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 259,
-        "likes": 270,
-        "downloads": 5488,
+        "trending_score": 262,
+        "likes": 273,
+        "downloads": 6194,
         "task": "time-series-forecasting",
         "library": "timestral",
         "created_at": "2026-10-14T08:52:36.000Z",
@@ -6704,9 +6372,9 @@
         "rank": 19,
         "id": "reflection/Beam-1.0-501B-A23B",
         "url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-        "trending_score": 209,
-        "likes": 216,
-        "downloads": 3555,
+        "trending_score": 212,
+        "likes": 219,
+        "downloads": 3984,
         "task": "text-generation",
         "library": "未标注",
         "created_at": "2026-10-07T19:52:01.000Z",
@@ -6721,9 +6389,9 @@
         "rank": 20,
         "id": "lodestones/Kromoss",
         "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 206,
-        "likes": 209,
-        "downloads": 11608,
+        "trending_score": 208,
+        "likes": 213,
+        "downloads": 14415,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-19T01:34:35.000Z",
@@ -6737,7 +6405,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-22T09:27:25Z",
+      "last_checked_at": "2026-10-22T11:19:40Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -11506,6 +11174,40 @@
     ],
     "items": [
       {
+        "id": "gift-eval-granite-ensemble-r1",
+        "name": "GIFT-Eval · Granite Timeseries Ensemble R1",
+        "group": "manufacturing",
+        "edition": "97 configurations / snapshot 2026-10-20",
+        "subtitle": "四个开放预测模型的组合，是否比单个成员更稳？",
+        "summary": "IBM Research 在 97 个 GIFT-Eval 数据配置上比较 Granite 四成员等权概率池、IQR 组合及单成员；公开结果同时给出点预测 MASE、概率预测 CRPS/MWQL 与跨配置平均排名。",
+        "metric": "MASE ↓ / CRPS(MWQL) ↓ / average rank ↓",
+        "metric_note": "MASE、概率损失和平均排名必须分列；过滤后的展示名次不能替代全榜 rank，也不能把四个指标合成综合分。",
+        "protocol": "固定 GIFT-Eval 快照、97 个配置、成员修订、context/horizon、预处理和评测脚本；用同一窗口运行季节性朴素、四个单成员、等权概率池与 IQR 配方，保存逐配置分数、资源与失败。",
+        "boundary": "结果来自 IBM/Hugging Face 官方发布与模型卡，本站未运行。两种组合的聚合 MASE 约 0.683，与最佳单成员 0.685 的差距很小；最佳 CRPS 仍来自 PatchTST-FM-r2。当前配方不使用跨通道关系，也不保证区间校准。",
+        "business": "适合为需求、能耗、设备或产能预测建立零样本概率基线，但上线判断必须使用自己的滚动窗口、成本和误差代价。",
+        "setup": "锁定 granite-tsfm、四个检查点和 GIFT-Eval 版本；先在小样本验证分位数方向与缺失值处理，再跑 97 配置或业务滚动窗口。",
+        "topics": [],
+        "sources": [
+          "b-granite-timeseries-ensemble-release",
+          "b-granite-timeseries-ensemble-model",
+          "b-gift-eval"
+        ],
+        "result_url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+        "kind": "benchmark",
+        "flag": "官方公开评测 / 本站未运行",
+        "checked": "2026-10-22",
+        "tested": false,
+        "checks": [
+          "固定数据、模型修订、context、horizon 和评分脚本",
+          "MASE、CRPS/MWQL 与平均排名分列报告",
+          "保留逐配置结果，不用聚合小差距宣传普遍领先",
+          "另测经验覆盖率、时延、内存和分布漂移"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
         "id": "vidore-v3-1-retrieval",
         "name": "ViDoRe v3.1 Retrieval / Reranking",
         "group": "knowledge",
@@ -12433,6 +12135,36 @@
     ],
     "sources": [
       {
+        "id": "b-granite-timeseries-ensemble-release",
+        "title": "Ensemble forecasting with IBM Granite time-series models",
+        "publisher": "IBM Research / Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "published": "2026-10-22",
+        "checked": "2026-10-22",
+        "kind": "官方技术发布与评测说明",
+        "note": "分别披露 97 个配置上的 MASE、CRPS/MWQL、平均排名、成员、过滤条件和限制。"
+      },
+      {
+        "id": "b-granite-timeseries-ensemble-model",
+        "title": "Granite Timeseries Ensemble R1 model card",
+        "publisher": "IBM Granite",
+        "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+        "published": null,
+        "checked": "2026-10-22",
+        "kind": "官方模型卡与评测表",
+        "note": "记录配方、检查点、许可、GIFT-Eval 口径、结果与部署限制。"
+      },
+      {
+        "id": "b-gift-eval",
+        "title": "GIFT-Eval",
+        "publisher": "Salesforce",
+        "url": "https://huggingface.co/spaces/Salesforce/GIFT-Eval",
+        "published": null,
+        "checked": "2026-10-22",
+        "kind": "官方公开评测空间",
+        "note": "时间序列基础模型公开评测入口；榜单会变化，必须固定快照和过滤条件。"
+      },
+      {
         "id": "b-nemotron-retriever-release",
         "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
         "publisher": "NVIDIA / Hugging Face",
@@ -12789,6 +12521,22 @@
       }
     ],
     "changes": [
+      {
+        "id": "granite-timeseries-ensemble-r1-release",
+        "date": "2026-10-22",
+        "title": "Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较",
+        "summary": "IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。",
+        "implication": "组合的主要价值是减少预先选错模型的风险，不应把约 0.002 的聚合 MASE 差异写成普遍领先；业务验证还要检查区间覆盖和四模型成本。",
+        "benchmarks": [
+          "gift-eval-granite-ensemble-r1"
+        ],
+        "sources": [
+          "b-granite-timeseries-ensemble-release",
+          "b-granite-timeseries-ensemble-model",
+          "b-gift-eval"
+        ],
+        "kind": "新公开结果"
+      },
       {
         "id": "nemotron-retriever-benchmarks-20261021",
         "date": "2026-10-21",
@@ -14817,6 +14565,38 @@
     "snapshot": "2026-10-22",
     "items": [
       {
+        "id": "ibm-granite-timeseries-ensemble-r1",
+        "name": "IBM Granite · Timeseries Ensemble R1",
+        "title": "用四个开放模型建立概率预测基线",
+        "category": "数据分析",
+        "mark": "GE",
+        "accent": "blue",
+        "summary": "以统一接口组合四个 Granite 时间序列检查点，输出中位数和多个分位数预测；默认等权概率池无需拟合组合权重。",
+        "scope": "官方提供 Apache 2.0 的 Granite TSFM 实现、模型配方、Hugging Face 检查点和入门代码；默认配方引用四个 Granite 开放模型。",
+        "boundary": "公开 GIFT-Eval 结果是跨 97 个配置的聚合比较，不代表具体业务序列。当前实现逐通道预测、不利用跨通道关系；四模型增加时延和内存，IQR 权重还可能偏爱过度自信成员。本站未运行。",
+        "repo": "ibm-granite/granite-tsfm",
+        "sources": [
+          "ibm-granite-timeseries-ensemble-release",
+          "ibm-granite-timeseries-ensemble-model",
+          "ibm-granite-tsfm-repo"
+        ],
+        "requirements": "Python、granite-tsfm>=0.3.11、四个成员检查点的下载与推理资源，以及带时间顺序的授权历史序列。",
+        "test": "固定滚动预测起点与跨度，同窗比较季节性朴素基线、PatchTST-FM-r2、等权概率池和 IQR 配方；记录 MASE、分位损失、80% 区间覆盖、运行时间和峰值内存。",
+        "checks": [
+          "训练与评测窗口严格按时间切开",
+          "分别报告点预测、分位损失与经验覆盖率",
+          "把四模型额外时延和内存计入决策",
+          "逐成员复核许可，不把可下载等同于任意商用"
+        ],
+        "command": "pip install \"granite-tsfm>=0.3.11\"",
+        "effort": "开放代码与配方 / 需下载四个成员检查点",
+        "evidence": "IBM Research 官方发布、模型卡、代码与 GIFT-Eval 公开结果",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00"
+      },
+      {
         "id": "nvidia-auto-ontology",
         "name": "NVIDIA · Auto Ontology",
         "title": "为企业 Agent 建立可认证的数据语义层",
@@ -15549,6 +15329,36 @@
     ],
     "sources": [
       {
+        "id": "ibm-granite-timeseries-ensemble-release",
+        "publisher": "IBM Research / Hugging Face",
+        "title": "Ensemble forecasting with IBM Granite time-series models",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "published": "2026-10-22",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "kind": "官方技术发布与使用说明"
+      },
+      {
+        "id": "ibm-granite-timeseries-ensemble-model",
+        "publisher": "IBM Granite",
+        "title": "Granite Timeseries Ensemble R1 model card",
+        "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+        "published": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "kind": "官方模型卡、许可、配方与评测"
+      },
+      {
+        "id": "ibm-granite-tsfm-repo",
+        "publisher": "IBM Granite",
+        "title": "Granite TSFM",
+        "url": "https://github.com/ibm-granite/granite-tsfm",
+        "published": null,
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "kind": "官方开源仓库"
+      },
+      {
         "id": "nvidia-agent-knowledge-foundation-release",
         "publisher": "NVIDIA",
         "title": "NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data",
@@ -15933,6 +15743,21 @@
       }
     ],
     "events": [
+      {
+        "id": "ibm-granite-timeseries-ensemble-r1-release",
+        "task": "ibm-granite-timeseries-ensemble-r1",
+        "date": "2026-10-22",
+        "kind": "release",
+        "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
+        "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
+        "delta": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
+        "sources": [
+          "ibm-granite-timeseries-ensemble-release",
+          "ibm-granite-timeseries-ensemble-model",
+          "ibm-granite-tsfm-repo"
+        ],
+        "reviewed": "2026-10-22"
+      },
       {
         "id": "nvidia-auto-ontology-release",
         "task": "nvidia-auto-ontology",
@@ -16482,6 +16307,16 @@
     ],
     "sources": [
       {
+        "id": "ibm-granite-timeseries-ensemble-20261022",
+        "title": "Ensemble forecasting with IBM Granite time-series models",
+        "publisher": "IBM Research / Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+        "published": "2026-10-22",
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "kind": "官方开放模型、代码、评测与部署限制"
+      },
+      {
         "id": "nvidia-dsx-pod-20261021",
         "title": "NVIDIA Introduces DSX POD AI Factories to Accelerate Europe’s Infrastructure Deployment",
         "publisher": "NVIDIA",
@@ -16832,6 +16667,40 @@
       }
     ],
     "articles": [
+      {
+        "id": "ibm-granite-timeseries-ensemble-20261022",
+        "sector": "manufacturing",
+        "topics": [
+          "fab-process",
+          "equipment-maintenance"
+        ],
+        "title": "Granite 时间序列组合：先把产线概率预测做成可回测基线",
+        "summary": "IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。",
+        "why": "产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。",
+        "boundary": "GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。",
+        "sources": [
+          "ibm-granite-timeseries-ensemble-20261022"
+        ],
+        "kind": "update",
+        "access": "开放模型配方与代码；需本地下载四个成员并在授权历史序列上回测",
+        "published": "2026-10-22",
+        "steps": [
+          "按真实排产或维护节奏建立多个滚动预测起点，锁定输入可见时间",
+          "同窗比较季节性朴素、现网模型、最强单成员、等权和 IQR 配方",
+          "分设备、工况和跨度记录误差、80% 区间覆盖、时延、内存与漏报代价"
+        ],
+        "metrics": [
+          "MASE 与业务加权绝对误差",
+          "分位损失与预测区间经验覆盖率",
+          "每批时延、峰值内存与漂移后退化"
+        ],
+        "checked": "2026-10-22",
+        "verified_at": "2026-10-22T19:20:00+08:00",
+        "first_seen_at": "2026-10-22T19:20:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "nvidia-dsx-pod-20261021",
         "sector": "manufacturing",
@@ -17877,6 +17746,51 @@
     ],
     "items": [
       {
+        "id": "ibm-granite-timeseries-ensemble-r1",
+        "publisher": "IBM Research",
+        "group": "research",
+        "access": "model",
+        "headline": "用滚动回测核验 Granite 四模型概率预测配方",
+        "input": "一组已授权、按时间排序的单变量或多变量序列，以及明确的预测起点、跨度和业务损失函数",
+        "output": "中位数点预测、0.1–0.9 分位数预测，以及与季节性朴素和单模型基线同口径的误差、覆盖率和资源记录",
+        "requirements": "Python、granite-tsfm>=0.3.11、四个默认 Granite 成员检查点与足够的内存；首次运行需下载模型。",
+        "limitation": "本站只核验官方发布、模型卡与代码，未运行配方。当前实现不建模跨通道依赖；公开 97 配置聚合结果不能替代本地滚动回测，等权或较窄区间也不保证校准。",
+        "cost": "默认配方与 Granite TSFM 为 Apache 2.0，但成员许可仍需逐一核对；四模型推理的下载、内存和延迟高于单模型。",
+        "steps": [
+          {
+            "title": "冻结预测窗口与基线",
+            "body": "按真实上线节奏建立多个滚动起点，固定 context_length、prediction_length，并保留季节性朴素与最强单成员。"
+          },
+          {
+            "title": "同窗运行两种组合",
+            "body": "先跑默认等权概率池，再用 recipes/granite-iqr 运行 IQR 配方；不要用测试窗口挑权重或成员。"
+          },
+          {
+            "title": "同时验收准确率、校准与成本",
+            "body": "记录 MASE、分位损失、0.1–0.9 区间经验覆盖率、峰值内存与运行时间，按序列和预测跨度查看失败。"
+          }
+        ],
+        "troubleshooting": "首次运行慢时先确认四个成员已缓存；区间过窄时检查 IQR 是否偏爱过度自信成员；多变量结果异常时记住当前成员逐通道预测，必要时保留能利用跨通道信息的现有模型。",
+        "sources": [
+          {
+            "title": "IBM Granite Timeseries Ensemble 官方发布",
+            "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+            "published_at": "2026-10-22",
+            "verified_at": "2026-10-22"
+          },
+          {
+            "title": "Granite Timeseries Ensemble R1 模型卡",
+            "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+            "published_at": null,
+            "verified_at": "2026-10-22"
+          }
+        ],
+        "entry_url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-22T19:20:00+08:00"
+      },
+      {
         "id": "nvidia-kumo-relational",
         "publisher": "NVIDIA",
         "group": "research",
@@ -18784,7 +18698,7 @@
   },
   "people": {
     "version": 1,
-    "checked": "2026-10-11",
+    "checked": "2026-10-22",
     "mode": "manual",
     "note": "首批人工整理的一手资料档案，不是人才排名；未接入自动人物动态采集。公开作品共同署名不代表相同贡献，也不自动推出师生关系。任职未逐项建档，不以旧头衔暗示现职。",
     "roles": [
@@ -18882,7 +18796,7 @@
         ],
         "related": [],
         "discovery": "editorial",
-        "checked": "2026-10-11"
+        "checked": "2026-10-22"
       },
       {
         "id": "tri-dao",
@@ -18919,7 +18833,7 @@
         ],
         "related": [],
         "discovery": "editorial",
-        "checked": "2026-10-11"
+        "checked": "2026-10-22"
       },
       {
         "id": "shreya-shankar",
@@ -20161,6 +20075,20 @@
       }
     ],
     "events": [
+      {
+        "id": "tri-dao-flat-tpu-kernels",
+        "date": "2026-10-13",
+        "title": "FLAT：为 Linear Attention 与 Mamba-2 开放 TPU 训练内核",
+        "people": [
+          "tri-dao"
+        ],
+        "kind": "release",
+        "summary": "Tri Dao 的个人主页记录 FLAT 发布：针对 TPU 与 GPU 不同的瓶颈，为 Linear Attention 和 Mamba-2 提供开放训练内核。",
+        "url": "https://tridao.me/",
+        "source": "Tri Dao 本人主页 · News",
+        "boundary": "主页新闻确认发布主题与日期，但本站本轮未定位到独立性能报告，也未运行 TPU 内核；不能由“fast”直接推出相对任意基线的加速倍数。",
+        "checked": "2026-10-22"
+      },
       {
         "id": "vista-paper",
         "date": "2026-10-01",

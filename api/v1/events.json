@@ -2,6 +2,21 @@
   "snapshot": "2026-10-22",
   "events": [
     {
+      "id": "ibm-granite-timeseries-ensemble-r1-release",
+      "task": "ibm-granite-timeseries-ensemble-r1",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
+      "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
+      "delta": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
+      "sources": [
+        "ibm-granite-timeseries-ensemble-release",
+        "ibm-granite-timeseries-ensemble-model",
+        "ibm-granite-tsfm-repo"
+      ],
+      "reviewed": "2026-10-22"
+    },
+    {
       "id": "nvidia-auto-ontology-release",
       "task": "nvidia-auto-ontology",
       "date": "2026-10-21",
@@ -359,6 +374,36 @@
     }
   ],
   "sources": [
+    {
+      "id": "ibm-granite-timeseries-ensemble-release",
+      "publisher": "IBM Research / Hugging Face",
+      "title": "Ensemble forecasting with IBM Granite time-series models",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "published": "2026-10-22",
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方技术发布与使用说明"
+    },
+    {
+      "id": "ibm-granite-timeseries-ensemble-model",
+      "publisher": "IBM Granite",
+      "title": "Granite Timeseries Ensemble R1 model card",
+      "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+      "published": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方模型卡、许可、配方与评测"
+    },
+    {
+      "id": "ibm-granite-tsfm-repo",
+      "publisher": "IBM Granite",
+      "title": "Granite TSFM",
+      "url": "https://github.com/ibm-granite/granite-tsfm",
+      "published": null,
+      "checked": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "kind": "官方开源仓库"
+    },
     {
       "id": "nvidia-agent-knowledge-foundation-release",
       "publisher": "NVIDIA",

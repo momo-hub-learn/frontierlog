@@ -21,6 +21,37 @@
   ],
   "items": [
     {
+      "id": "granite-timeseries-probabilistic-ensemble",
+      "lane": "paradigm",
+      "title": "时间序列基础模型开始从选单模型转向可复现概率组合",
+      "maker": "IBM Research",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-22T19:20:00+08:00",
+      "tags": [
+        "Time Series",
+        "Probabilistic Forecasting",
+        "Ensemble"
+      ],
+      "fact": "Granite Timeseries Ensemble R1 以统一接口组合四个 Granite 检查点；默认等权概率池无需拟合组合权重，另提供按区间宽度加权的 IQR 配方，并输出中位数和多级分位数。",
+      "insight": "开放配方把模型选择风险转成一个可直接回测的默认基线：团队可以先核验点预测、区间覆盖和资源成本，再决定是否需要为特定序列选模型或学习组合权重。",
+      "boundary": "IBM 在 97 个 GIFT-Eval 配置上的聚合点误差改进很小，且单个 PatchTST 成员仍有更低的 CRPS；当前实现逐通道预测、加载四个检查点，也不保证校准或分布漂移稳健。",
+      "next_watch": "关注独立业务序列上的经验覆盖、跨通道建模、四模型资源开销，以及等权组合能否在漂移和不同预测跨度下稳定优于最佳单成员。",
+      "sources": [
+        {
+          "label": "IBM Research 官方技术发布",
+          "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+          "kind": "官方发布、用法、评测与限制",
+          "strength": "primary"
+        },
+        {
+          "label": "Granite Timeseries Ensemble R1 模型卡",
+          "url": "https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1",
+          "kind": "官方配方、许可与评测口径",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "event-transitions-world-model-return-error",
       "lane": "paradigm",
       "title": "世界模型的关键误差不一定出现在最差画面，而在稀有事件",

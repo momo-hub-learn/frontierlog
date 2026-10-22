@@ -233,6 +233,12 @@
 
 边界：FairStress 采用以平等为中心的公平性定义，不覆盖所有规范立场；合成场景与模型解释、激活差异也不能证明真实部署无歧视。本站只登记协议，未运行或生成排行榜。
 
+站内热度 92；不是全网流量。</description></item><item><title>Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-timeseries-ensemble-r1-20261022</guid><link>https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。
+
+为什么值得看：团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。
+
+边界：IBM 在 97 个 GIFT-Eval 配置上的公开比较显示点预测增益很小，且最佳 CRPS 仍来自单个 PatchTST 成员；当前配方不利用跨通道关系，加载四个检查点会增加内存和时延，也不保证区间校准或分布漂移下稳健。本站未运行模型。
+
 站内热度 92；不是全网流量。</description></item><item><title>AEON：把视频生成连接到可渲染的4D世界表示</title><guid isPermaLink="false">frontierlog:hot:aeon-world-model-20261020</guid><link>https://arxiv.org/abs/2610.28631</link><pubDate>Tue, 20 Oct 2026 17:59:51 +0000</pubDate><description>论文提出在视频潜空间生成，再通过域适配与4D解码器输出动态高斯表示和相机位姿，连接视频外观与三维一致性。
 
 为什么值得看：世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。

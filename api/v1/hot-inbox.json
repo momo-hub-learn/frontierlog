@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-22T09:32:35Z",
+  "generated_at": "2026-10-22T11:33:11Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 39,
+    "merge": 42,
     "hold": 5
   },
   "candidates": [
@@ -67,6 +67,53 @@
         "Evaluation"
       ],
       "first_seen_at": "2026-10-22T03:33:57Z"
+    },
+    {
+      "id": "candidate-657add4de8695366",
+      "category": "industry",
+      "published": "2026-10-22",
+      "title": "Granite 时间序列组合：先把产线概率预测做成可回测基线",
+      "summary": "IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。",
+      "why": "产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。",
+      "boundary": "GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。",
+      "source": "IBM Research / Hugging Face",
+      "source_kind": "官方开放模型、代码、评测与部署限制",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-22T11:33:11Z"
+    },
+    {
+      "id": "candidate-f86089c70378a7ad",
+      "category": "product",
+      "published": "2026-10-22",
+      "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
+      "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
+      "why": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
+      "boundary": "公开 GIFT-Eval 结果是跨 97 个配置的聚合比较，不代表具体业务序列。当前实现逐通道预测、不利用跨通道关系；四模型增加时延和内存，IQR 权重还可能偏爱过度自信成员。本站未运行。",
+      "source": "IBM Research / Hugging Face",
+      "source_kind": "官方技术发布与使用说明",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "ibm-granite-timeseries-ensemble-r1",
+      "first_seen_at": "2026-10-22T11:33:11Z"
     },
     {
       "id": "candidate-2e1dbc4df560deae",
@@ -297,6 +344,35 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T15:29:58Z"
+    },
+    {
+      "id": "candidate-c8fb8b8866630ceb",
+      "category": "research",
+      "published": "2026-10-22",
+      "title": "时间序列基础模型开始从选单模型转向可复现概率组合",
+      "summary": "Granite Timeseries Ensemble R1 以统一接口组合四个 Granite 检查点；默认等权概率池无需拟合组合权重，另提供按区间宽度加权的 IQR 配方，并输出中位数和多级分位数。",
+      "why": "开放配方把模型选择风险转成一个可直接回测的默认基线：团队可以先核验点预测、区间覆盖和资源成本，再决定是否需要为特定序列选模型或学习组合权重。",
+      "boundary": "IBM 在 97 个 GIFT-Eval 配置上的聚合点误差改进很小，且单个 PatchTST 成员仍有更低的 CRPS；当前实现逐通道预测、加载四个检查点，也不保证校准或分布漂移稳健。",
+      "source": "IBM Research",
+      "source_kind": "官方发布、用法、评测与限制",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "granite-timeseries-probabilistic-ensemble",
+      "topic_tags": [
+        "Time Series",
+        "Probabilistic Forecasting",
+        "Ensemble"
+      ],
+      "first_seen_at": "2026-10-22T11:33:11Z"
     },
     {
       "id": "candidate-02f1d79923b3f7ba",
@@ -940,81 +1016,6 @@
         "Employment"
       ],
       "first_seen_at": "2026-10-20T12:44:41Z"
-    },
-    {
-      "id": "candidate-3298080199d6d527",
-      "category": "research",
-      "published": "2026-10-20",
-      "title": "AEON：视频潜空间连接显式4D世界",
-      "summary": "论文通过域适配把生成视频潜变量接到4D重建解码器，输出动态高斯表示和相机位姿。",
-      "why": "显式可渲染表示提供换视角与持久场景的新路径，可与仅输出视频的路线分开观察。",
-      "boundary": "作者报告不等于独立复现；视觉与几何一致性不能证明物理规律、可控交互或工业可靠性。",
-      "source": "AEON 作者团队",
-      "source_kind": "作者论文原文",
-      "url": "https://arxiv.org/abs/2610.28631",
-      "publishable": false,
-      "features": {
-        "freshness": 0.857,
-        "authority": 0.88,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "aeon-video-4d-world-model",
-      "topic_tags": [
-        "World Model",
-        "4D Gaussian Splatting",
-        "Video Generation"
-      ],
-      "first_seen_at": "2026-10-21T11:52:59Z"
-    },
-    {
-      "id": "candidate-0b44fe8cbd278171",
-      "category": "industry",
-      "published": "2026-10-15",
-      "title": "Rosalind 学术计划：先核对美国高校与可信访问资格",
-      "summary": "符合资格的美国高校实验室可申请最多30个免费席位、最长12个月；GPT-Rosalind 使用仍需审核。",
-      "why": "新增的是学术访问途径，适合先确认机构资格与研究数据治理，再规划试用。",
-      "boundary": "不包含 API；并非全球高校自动开放。已有学校 Enterprise 协议的团队应按学校流程申请，研究输出不替代实验。",
-      "source": "OpenAI",
-      "source_kind": "官方一手来源",
-      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T11:52:59Z"
-    },
-    {
-      "id": "candidate-d4630f9691a2082a",
-      "category": "industry",
-      "published": "2026-10-15",
-      "title": "Timestral：为传感器监测补一个概率预测基线",
-      "summary": "官方模型支持联合预测多个变量，并利用排产等已知未来协变量；推理代码支持 CPU/GPU。",
-      "why": "预测区间可用于评估漂移和维护风险，但应先在历史数据上建立可复现基线。",
-      "boundary": "厂商公开评测不是工厂验收；不等同故障因果识别或闭环控制，本站未运行模型。",
-      "source": "Mistral AI",
-      "source_kind": "官方一手来源",
-      "url": "https://mistral.ai/news/timestral",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T11:52:59Z"
     }
   ]
 }

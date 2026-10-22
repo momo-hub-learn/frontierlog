@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Nemotron 3.5 发布 ViDoRe v3.1 与 ParseBench 对照口径</title><guid isPermaLink="false">frontierlog:benchmark:nemotron-retriever-benchmarks-20261021</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=vidore-v3-1-retrieval</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>官方发布分别报告多模态检索/重排与文档解析的准确率、候选排序、pass 数和吞吐，不把它们合成通用 Agent 分数。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较</title><guid isPermaLink="false">frontierlog:benchmark:granite-timeseries-ensemble-r1-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=gift-eval-granite-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。
+
+编辑解读：组合的主要价值是减少预先选错模型的风险，不应把约 0.002 的聚合 MASE 差异写成普遍领先；业务验证还要检查区间覆盖和四模型成本。
+
+来源：
+https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1
+https://huggingface.co/ibm-granite/granite-timeseries-ensemble-r1
+https://huggingface.co/spaces/Salesforce/GIFT-Eval</description></item><item><title>Nemotron 3.5 发布 ViDoRe v3.1 与 ParseBench 对照口径</title><guid isPermaLink="false">frontierlog:benchmark:nemotron-retriever-benchmarks-20261021</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=vidore-v3-1-retrieval</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>官方发布分别报告多模态检索/重排与文档解析的准确率、候选排序、pass 数和吞吐，不把它们合成通用 Agent 分数。
 
 编辑解读：企业知识系统可以把解析、召回和重排拆开复现；厂商榜单和硬件吞吐仍需用自己的文档、权限和成本条件重测。
 
