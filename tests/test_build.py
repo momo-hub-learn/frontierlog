@@ -294,6 +294,13 @@ class BuildTests(unittest.TestCase):
             self.assertNotIn("{view:'benchmarks',href:'#/benchmarks'",html)
             self.assertIn('href="#/saved"',html)
 
+    def test_mobile_header_actions_keep_touch_targets(self):
+        css=(ROOT/'src/styles.css').read_text()
+        self.assertIn(
+            '.top-actions .button,.top-actions .iconbutton,.top-actions .command-trigger,.mobile-menu{min-width:44px;min-height:44px}',
+            css,
+        )
+
     def test_hot_tabs_are_compact_and_group_related_sources(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

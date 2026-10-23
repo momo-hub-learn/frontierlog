@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-23",
+  "checked": "2026-10-24",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,60 @@
     }
   ],
   "items": [
+    {
+      "id": "minimax-m31-flash-open-weights-20261023",
+      "category": "model",
+      "title": "MiniMax M3.1 Flash 权重上线：1M 上下文原生多模态 MoE",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T01:26:00+08:00",
+      "first_seen_at": "2026-10-24T01:26:00+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 31,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、官方 Benchmark 总分或本站实测分数。",
+      "trend": "up",
+      "summary": "MiniMax 在 Hugging Face 公开 M3.1 Flash 权重与模型卡：原生多模态 MoE 支持文本、图像和视频输入、最长 1M token 上下文，并给出 vLLM、SGLang 与本地下载路径；本轮进入 HF Models Trending 网页第 18 位。",
+      "why": "这把 10 月 19 日的 API 与产品发布推进到可下载权重阶段，开发者可以在固定 Harness 下复核其 Agent、编程、Computer Use 和网络安全能力，而不只依赖托管接口或发布稿。",
+      "boundary": "本站核验了 MiniMax 官方发布、官方 HF 模型卡与 HF Trending，未下载或运行约 428B 总参数、每 token 激活约 23B 的模型。模型卡基准均为厂商公开结果，评测 Harness 不一，不能跨榜拼总分；HF trendingScore、Likes、Downloads 和第 18 位只代表平台关注/使用信号，且当前无 HF Inference Provider 托管。",
+      "source": "MiniMax / Hugging Face",
+      "source_kind": "官方模型卡、官方发布与平台官方 Trending / 本轮编辑核验",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "link": "#/hot?tab=hf",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方权重、架构与部署说明",
+          "note": "先核对硬件、许可与 trust_remote_code，再用固定输入和固定 Harness 小规模复现",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+          "kind": "model"
+        },
+        {
+          "label": "查看 MiniMax 正式发布说明",
+          "note": "区分 10 月 19 日厂商性能与成本主张，以及 10 月 23 日可下载权重状态",
+          "url": "https://www.minimax.io/blog/minimax-m31f",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "MiniMax",
+          "title": "MiniMax M3.1 Flash: Redefining Agent Performance and Cost",
+          "url": "https://www.minimax.io/blog/minimax-m31f",
+          "date": "2026-10-19"
+        },
+        {
+          "source": "Hugging Face / MiniMaxAI",
+          "title": "MiniMaxAI/MiniMax-M3.1-Flash",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+          "date": "2026-10-23"
+        }
+      ]
+    },
     {
       "id": "microsoft-flint-interactive-20261022",
       "category": "product",
