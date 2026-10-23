@@ -407,11 +407,11 @@
       {
         "id": "tibo-reset-announced-20261022-day17",
         "category": "product",
-        "title": "Tibo 预告下一次 reset：北京时间 10 月 24 日 01:00 前落地",
-        "published": "2026-10-22",
-        "published_at": "2026-10-22T06:55:22.314Z",
-        "checked": "2026-10-22",
-        "verified_at": "2026-10-22T21:20:00+08:00",
+        "title": "Tibo 确认 Day 18 reset：预告已转为执行信号",
+        "published": "2026-10-23",
+        "published_at": "2026-10-23T04:46:19.007Z",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T17:22:00+08:00",
         "first_seen_at": "2026-10-22T21:20:00+08:00",
         "heat": 94,
         "heat_components": {
@@ -422,23 +422,29 @@
         },
         "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是全网热度、到账概率或本站实测。",
         "trend": "up",
-        "summary": "Tibo 本人原帖称 10 月 22 日是 reset day，并在本人回复中澄清会在次日上午 10 点（太平洋时间）前落地，对应北京时间 10 月 24 日 01:00 前。",
-        "why": "这是用户可以据此安排额度使用的明确时间边界；原帖和紧接的本人回复都可直接核验，比第三方追踪或单条模糊预告更强。",
-        "boundary": "这是最晚落地时间，不是已执行确认，也不是精确执行时刻；帖文未说明 banked / global 类型、适用套餐或账户范围，同段的 Daybreak Blue 提醒也不是 reset 资格条件。",
+        "summary": "Tibo 本人 Day 18 原帖在列出 Decisions API GA、OpenResponses、Codex 性能改进与 Uber 部署后明确写下“that's a reset”，将前一日的未来时态预告升级为第一方执行确认。",
+        "why": "这消除了“只是预告还是已经执行”的关键歧义；保留前一日最晚窗口作上下文，但不把截止时间伪装成精确到账时刻。",
+        "boundary": "原帖能确认 Tibo 宣布本次 reset 已发生，不能证明传播已覆盖每个账户；也未说明具体套餐、banked / global 后台机制、个人余额或精确到账时刻。",
         "source": "Tibo / X",
-        "source_kind": "本人原帖与本人回复 / 本轮编辑核验",
-        "url": "https://x.com/thsottiaux/status/2113162277688070445",
-        "link": "#/tibo?event=tibo-reset-announced-2026-10-22-day17",
+        "source_kind": "本人原帖 / 本轮编辑核验",
+        "url": "https://x.com/thsottiaux/status/2113492187770175603",
+        "link": "#/tibo?event=tibo-global-confirmed-2026-10-23-day18",
         "evidence_level": "primary-source",
         "access": [
           {
-            "label": "查看本人时间澄清回复",
-            "note": "次日上午 10 点（太平洋时间）前落地",
-            "url": "https://x.com/thsottiaux/status/2113162413008884099",
+            "label": "查看本人确认原帖",
+            "note": "Day 18 原文明确写下“that's a reset”",
+            "url": "https://x.com/thsottiaux/status/2113492187770175603",
             "kind": "source"
           }
         ],
         "related": [
+          {
+            "source": "Tibo / X",
+            "title": "Day 18 reset confirmation",
+            "url": "https://x.com/thsottiaux/status/2113492187770175603",
+            "date": "2026-10-23"
+          },
           {
             "source": "Tibo / X",
             "title": "Day 17 reset-day announcement",
@@ -2359,7 +2365,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-23T07:58:08Z",
+    "generated_at": "2026-10-23T09:36:26Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -5148,11 +5154,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-23T07:56:12Z",
+    "checked_at": "2026-10-23T09:18:59Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-23T07:56:12Z",
+      "last_success": "2026-10-23T09:18:59Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -6061,7 +6067,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-23T07:58:08Z",
+    "last_evaluated": "2026-10-23T09:36:26Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 52,
@@ -6087,7 +6093,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T07:43:19Z",
+    "checked_at": "2026-10-23T09:19:21Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -6151,7 +6157,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 41357
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "anthropics/knowledge-work-plugins",
@@ -6212,7 +6219,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 31805
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "DietrichGebert/ponytail",
@@ -6282,7 +6290,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 174029
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "cloudflare/security-audit-skill",
@@ -6352,7 +6361,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 40251
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Graphify-Labs/graphify",
@@ -6422,7 +6432,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 133356
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "supabase/supabase",
@@ -6492,7 +6503,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 113614
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "fastapi/fastapi",
@@ -6553,7 +6565,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 103957
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "luongnv89/claude-howto",
@@ -6615,7 +6628,8 @@
             "at": "2026-10-23T07:43:19Z",
             "stars": 43569
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Meloong-Git/PCL",
@@ -6623,8 +6637,8 @@
         "stars_today": 119,
         "description": "Minecraft 启动器 Plain Craft Launcher（PCL）。",
         "language": "Visual Basic .NET",
-        "stars": 8809,
-        "forks": 1226,
+        "stars": 8846,
+        "forks": 1232,
         "repo_created_at": "2022-07-26T15:43:26Z",
         "repo_pushed_at": "2026-10-20T07:01:33Z",
         "category": "other",
@@ -6634,7 +6648,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Meloong-Git/PCL",
-        "metadata_verified_at": "2026-10-23T07:43:19Z",
+        "metadata_verified_at": "2026-10-23T09:19:21Z",
         "star_history": [
           {
             "at": "2026-10-22T11:33:18Z",
@@ -6675,6 +6689,10 @@
           {
             "at": "2026-10-23T07:43:19Z",
             "stars": 8809
+          },
+          {
+            "at": "2026-10-23T09:19:21Z",
+            "stars": 8846
           }
         ]
       }
@@ -6754,17 +6772,26 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-23T07:43:19Z",
-      "last_success_at": "2026-10-23T07:43:19Z",
+      "last_checked_at": "2026-10-23T09:19:21Z",
+      "last_success_at": "2026-10-23T09:19:21Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-23T07:43:19Z",
-      "watchlist_errors": [],
-      "watchlist_failed_count": 0,
+      "watchlist_checked_at": "2026-10-23T09:19:21Z",
+      "watchlist_errors": [
+        "morluto/rea: HTTP Error 403: Forbidden"
+      ],
+      "watchlist_failed_count": 1,
       "trending_count": 9,
-      "verified_count": 9,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "skipped": []
+      "verified_count": 1,
+      "metadata_failed_count": 8,
+      "metadata_status": "partial",
+      "skipped": [
+        "php/php-src: HTTP Error 403: Forbidden",
+        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+        "DietrichGebert/ponytail: HTTP Error 403: Forbidden",
+        "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+        "Graphify-Labs/graphify: HTTP Error 403: Forbidden",
+        "supabase/supabase: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -6790,15 +6817,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T07:29:18Z",
+    "checked_at": "2026-10-23T09:19:56Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-23T07:29:18Z",
-    "web_fetched_at": "2026-10-23T07:29:18Z",
+    "api_fetched_at": "2026-10-23T09:19:56Z",
+    "web_fetched_at": "2026-10-23T09:19:56Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6813,9 +6840,9 @@
       "google/embeddinggemma-2",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
-      "meta-models/Muse-Spark-Open-816B-A42B",
       "jialinyyzz/humanizer",
       "tencent/Hy-Memory-30B-A3B",
+      "meta-models/Muse-Spark-Open-816B-A42B",
       "black-forest-labs/flux-3-image-klein",
       "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
@@ -6828,140 +6855,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 9,
-        "previous_rank": 17,
-        "rank_change": 8,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_rank": 9,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "google/embeddinggemma-2",
         "rank": 10,
-        "previous_rank": 9,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_rank": 10,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
-      },
-      {
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "rank": 13,
-        "previous_rank": 10,
-        "rank_change": -3,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "jialinyyzz/humanizer",
-        "rank": 14,
-        "previous_rank": 13,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "rank": 13,
+        "previous_rank": 14,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "tencent/Hy-Memory-30B-A3B",
-        "rank": 15,
+        "rank": 14,
         "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
+      },
+      {
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "rank": 15,
+        "previous_rank": 13,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein",
         "rank": 16,
-        "previous_rank": 14,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_rank": 16,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "datalab-to/indra-ocr",
         "rank": 17,
-        "previous_rank": 16,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "mistralai/Timestral-209M",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-23T05:17:16Z"
+        "previous_rank": 20,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T07:29:18Z"
       }
     ],
     "items": [
@@ -6969,8 +6996,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2091,
-        "likes": 2425,
+        "trending_score": 2104,
+        "likes": 2446,
         "downloads": 51911,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6986,8 +7013,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 725,
-        "likes": 1327,
+        "trending_score": 709,
+        "likes": 1331,
         "downloads": 512524,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -7003,8 +7030,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 577,
-        "likes": 588,
+        "trending_score": 585,
+        "likes": 596,
         "downloads": 420,
         "task": "text-generation",
         "library": "transformers",
@@ -7020,8 +7047,8 @@
         "rank": 4,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 547,
-        "likes": 602,
+        "trending_score": 542,
+        "likes": 610,
         "downloads": 6890,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7037,8 +7064,8 @@
         "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 463,
-        "likes": 500,
+        "trending_score": 457,
+        "likes": 507,
         "downloads": 5013,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7054,8 +7081,8 @@
         "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 414,
-        "likes": 8930,
+        "trending_score": 418,
+        "likes": 8944,
         "downloads": 2054990,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -7071,8 +7098,8 @@
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 399,
-        "likes": 926,
+        "trending_score": 397,
+        "likes": 929,
         "downloads": 16305,
         "task": "text-to-speech",
         "library": "未标注",
@@ -7088,8 +7115,8 @@
         "rank": 8,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 356,
-        "likes": 378,
+        "trending_score": 360,
+        "likes": 382,
         "downloads": 1463386,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -7105,8 +7132,8 @@
         "rank": 9,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 342,
-        "likes": 370,
+        "trending_score": 348,
+        "likes": 378,
         "downloads": 482,
         "task": "text-generation",
         "library": "transformers",
@@ -7122,8 +7149,8 @@
         "rank": 10,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 331,
-        "likes": 2855,
+        "trending_score": 324,
+        "likes": 2857,
         "downloads": 185259,
         "task": "feature-extraction",
         "library": "transformers",
@@ -7139,8 +7166,8 @@
         "rank": 11,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 309,
-        "likes": 4856,
+        "trending_score": 307,
+        "likes": 4860,
         "downloads": 2665585,
         "task": "text-to-image",
         "library": "gguf",
@@ -7156,8 +7183,8 @@
         "rank": 12,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 301,
-        "likes": 18232,
+        "trending_score": 306,
+        "likes": 18244,
         "downloads": 7758670,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7171,27 +7198,10 @@
       },
       {
         "rank": 13,
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 296,
-        "likes": 664,
-        "downloads": 3163,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-09-15T19:23:19.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "muse_spark",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 14,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 290,
-        "likes": 2103,
+        "trending_score": 285,
+        "likes": 2105,
         "downloads": 124773,
         "task": "text-generation",
         "library": "gguf",
@@ -7204,11 +7214,11 @@
         ]
       },
       {
-        "rank": 15,
+        "rank": 14,
         "id": "tencent/Hy-Memory-30B-A3B",
         "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 284,
-        "likes": 292,
+        "trending_score": 281,
+        "likes": 293,
         "downloads": 2966,
         "task": "text-generation",
         "library": "transformers",
@@ -7221,11 +7231,28 @@
         ]
       },
       {
+        "rank": 15,
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+        "trending_score": 271,
+        "likes": 666,
+        "downloads": 3163,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-15T19:23:19.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "muse_spark",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 16,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 276,
-        "likes": 638,
+        "trending_score": 265,
+        "likes": 641,
         "downloads": 102903,
         "task": "image-to-image",
         "library": "diffusers",
@@ -7242,7 +7269,7 @@
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
         "trending_score": 256,
-        "likes": 373,
+        "likes": 375,
         "downloads": 3823,
         "task": "image-to-text",
         "library": "onnx",
@@ -7259,7 +7286,7 @@
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
         "trending_score": 243,
-        "likes": 291,
+        "likes": 293,
         "downloads": 6194,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -7275,8 +7302,8 @@
         "rank": 19,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 239,
-        "likes": 274,
+        "trending_score": 240,
+        "likes": 276,
         "downloads": 3808,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7292,8 +7319,8 @@
         "rank": 20,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 234,
-        "likes": 237,
+        "trending_score": 236,
+        "likes": 239,
         "downloads": 396,
         "task": "text-generation",
         "library": "transformers",
@@ -7308,16 +7335,499 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-23T07:29:18Z",
+      "last_checked_at": "2026-10-23T09:19:56Z",
       "web_status": "success",
       "api_status": "success"
     }
   },
   "deep_dives": {
     "version": 1,
-    "checked": "2026-10-15",
+    "checked": "2026-10-23",
     "series": "拆一下",
     "articles": [
+      {
+        "id": "decisions-api-bounded-decision-layer",
+        "hot_ids": [
+          "openai-decisions-api-ga-20261022"
+        ],
+        "title": "拆一下 Decisions API：快 10 倍，不等于可以跳过评测",
+        "short_title": "Decisions API：什么时候该放进实时路径？",
+        "subtitle": "从有限答案、延迟预算和人工兜底，拆开一个面向高频小决策的专用接口。",
+        "dek": "Decisions API 把文本、图像或 JSON 变成 probability、choice 或 score。真正的产品问题不是它能否更快返回，而是边界清不清、阈值稳不稳、错误能否安全回退。",
+        "published": "2026-10-23",
+        "updated": "2026-10-23",
+        "read_minutes": 12,
+        "tags": [
+          "Decisions API",
+          "GPT-6 Luna",
+          "Agent 路由",
+          "评测"
+        ],
+        "thesis": "专用决策接口适合答案空间有限、错误成本可量化的高频判断；它缩短了模型输出路径，却没有替代数据集、阈值校准、失败回退与人工复核。",
+        "mini_flow": [
+          {
+            "label": "输入",
+            "detail": "文本 / 图像 / JSON"
+          },
+          {
+            "label": "有限问题",
+            "detail": "predicate / choice / score"
+          },
+          {
+            "label": "产品动作",
+            "detail": "执行 / 回退 / 人审"
+          }
+        ],
+        "layout": "standard",
+        "opening": [
+          "OpenAI 在 10 月 22 日宣布 Decisions API 正式可用：它由 GPT-6 Luna 驱动，面向分类、路由和下一步动作等有限答案问题。官方称相对同模型经 Responses API 可快至 10 倍；这是一项官方产品主张，不是 AI坐标的独立测速。",
+          "这类接口最容易被误解成“更便宜的通用推理”。实际上，它要求开发者先把问题、允许答案和输入证据收窄。答案空间若仍是开放创作、复杂规划或不可逆高风险行动，专用接口的低延迟不会自动带来可靠性。",
+          "本文基于 OpenAI 发布页、开发者指南和 API Changelog 拆解接口契约；本站没有调用该付费 API，也没有复现客户案例中的延迟、成本或准确率。"
+        ],
+        "sections": [
+          {
+            "key": "contract",
+            "eyebrow": "01",
+            "kicker": "先看契约",
+            "title": "它返回的是有限答案，不是另一份长回复",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "官方指南将输出限定为三类：predicate 给出条件为真的概率，choice 从预定义选项中选择并返回概率与置信信息，score 按有序等级给出概率加权分数。开发者必须先定义问题和允许答案。",
+                "refs": [
+                  "guide",
+                  "launch"
+                ]
+              },
+              {
+                "type": "table",
+                "title": "三种输出怎样落到产品动作",
+                "headers": [
+                  "类型",
+                  "合适的问题",
+                  "不能直接推出"
+                ],
+                "rows": [
+                  [
+                    "predicate",
+                    "是否满足条件",
+                    "概率不是已校准的业务风险"
+                  ],
+                  [
+                    "choice",
+                    "继续、重试或转人工",
+                    "最高概率不等于可以无审计执行"
+                  ],
+                  [
+                    "score",
+                    "按固定等级评估严重度",
+                    "分数不能跨不同 rubric 比较"
+                  ]
+                ]
+              },
+              {
+                "type": "note",
+                "title": "边界",
+                "text": "如果允许答案无法事先穷举，或行动后果不可逆，应先保留 Responses / Agent 流程与人工审批，而不是为了低延迟硬改成 choice。"
+              }
+            ],
+            "source_refs": [
+              "guide",
+              "launch"
+            ]
+          },
+          {
+            "key": "changes",
+            "eyebrow": "02",
+            "kicker": "GA 增量",
+            "title": "从 Beta 到 GA，变化集中在接线与吞吐",
+            "analysis": false,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "官方 Changelog 记录：GA 版本支持共享输入缓存、问题级图像、原生 JSON 输入，并把单次请求上限从 200 个问题提高到 400 个；发布页还说明可原生接入 GPT-Live。",
+                "refs": [
+                  "changelog",
+                  "launch",
+                  "guide"
+                ]
+              },
+              {
+                "type": "architecture",
+                "id": "decisions-runtime-boundary",
+                "version": "01",
+                "refs": [
+                  "guide",
+                  "launch",
+                  "changelog"
+                ],
+                "diagram": {
+                  "title": "Decisions API 在产品热路径中的责任边界",
+                  "intro": "专用接口只负责受约束判断；阈值、权限、回退和结果监控仍属于应用。",
+                  "width": 1040,
+                  "height": 360,
+                  "zones": [
+                    {
+                      "x": 16,
+                      "y": 16,
+                      "w": 236,
+                      "h": 324,
+                      "label": "01 · 输入"
+                    },
+                    {
+                      "x": 266,
+                      "y": 16,
+                      "w": 236,
+                      "h": 324,
+                      "label": "02 · 决策"
+                    },
+                    {
+                      "x": 516,
+                      "y": 16,
+                      "w": 508,
+                      "h": 324,
+                      "label": "03 · 产品控制"
+                    }
+                  ],
+                  "nodes": [
+                    {
+                      "id": "evidence",
+                      "x": 35,
+                      "y": 72,
+                      "w": 198,
+                      "h": 76,
+                      "label": "最小必要证据",
+                      "detail": "文本 / 图像 / JSON",
+                      "kind": "boundary"
+                    },
+                    {
+                      "id": "question",
+                      "x": 35,
+                      "y": 220,
+                      "w": 198,
+                      "h": 76,
+                      "label": "有限问题",
+                      "detail": "答案 / rubric 已定义"
+                    },
+                    {
+                      "id": "decision",
+                      "x": 285,
+                      "y": 145,
+                      "w": 198,
+                      "h": 76,
+                      "label": "Decisions API",
+                      "detail": "probability / choice / score"
+                    },
+                    {
+                      "id": "policy",
+                      "x": 550,
+                      "y": 72,
+                      "w": 205,
+                      "h": 76,
+                      "label": "策略与阈值",
+                      "detail": "权限 / 置信 / 风险"
+                    },
+                    {
+                      "id": "fallback",
+                      "x": 550,
+                      "y": 220,
+                      "w": 205,
+                      "h": 76,
+                      "label": "回退与人审",
+                      "detail": "异常 / 低置信 / 高风险",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "action",
+                      "x": 792,
+                      "y": 145,
+                      "w": 205,
+                      "h": 76,
+                      "label": "可追踪动作",
+                      "detail": "执行 / 记录 / 复盘",
+                      "kind": "verify"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "evidence",
+                      "to": "decision"
+                    },
+                    {
+                      "from": "question",
+                      "to": "decision"
+                    },
+                    {
+                      "from": "decision",
+                      "to": "policy"
+                    },
+                    {
+                      "from": "policy",
+                      "to": "action"
+                    },
+                    {
+                      "from": "policy",
+                      "to": "fallback",
+                      "dashed": true
+                    },
+                    {
+                      "from": "fallback",
+                      "to": "action"
+                    }
+                  ],
+                  "boundary": "依据 OpenAI 官方产品页、开发文档和 Changelog 归纳的逻辑拓扑；阈值、人工审批与审计层并非 Decisions API 自动提供。"
+                },
+                "annotations": [
+                  {
+                    "title": "接口输出不是业务授权",
+                    "detail": "应用仍要校验调用者、动作范围和错误成本。"
+                  },
+                  {
+                    "title": "低置信必须可回退",
+                    "detail": "不要用一次最高概率选择绕过人工审批。"
+                  }
+                ]
+              },
+              {
+                "type": "flow",
+                "title": "一条合理的实时决策链",
+                "nodes": [
+                  {
+                    "title": "冻结输入",
+                    "detail": "只提供当前判断需要的最小证据"
+                  },
+                  {
+                    "title": "请求决策",
+                    "detail": "固定问题、答案和 rubric"
+                  },
+                  {
+                    "title": "应用阈值",
+                    "detail": "低置信或异常样本进入回退"
+                  },
+                  {
+                    "title": "记录结果",
+                    "detail": "保存版本、决策与真实结果"
+                  }
+                ],
+                "caption": "这是 AI坐标建议的产品接线，不是 OpenAI 强制工作流。"
+              }
+            ],
+            "source_refs": [
+              "changelog",
+              "launch",
+              "guide"
+            ]
+          },
+          {
+            "key": "latency",
+            "eyebrow": "03",
+            "kicker": "性能主张",
+            "title": "“快至 10 倍”只回答延迟，不回答你的错误成本",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "OpenAI 的 10 倍表述是 Decisions API 与 GPT-6 Luna 经 Responses API 的对比范围。发布页中的 Box、Datadog、Ramp、Sierra 和 Speak 数字来自各客户场景，数据集、阈值和基线不同，不能拼成统一基准。",
+                "refs": [
+                  "launch"
+                ]
+              },
+              {
+                "type": "table",
+                "title": "上线前至少并列看的四个指标",
+                "headers": [
+                  "指标",
+                  "为什么重要"
+                ],
+                "rows": [
+                  [
+                    "任务正确率 / 校准误差",
+                    "防止更快地产生错误决定"
+                  ],
+                  [
+                    "P50 / P95 端到端延迟",
+                    "包含网络、排队和应用回退"
+                  ],
+                  [
+                    "每千次决策成本",
+                    "把缓存命中率与重试算进去"
+                  ],
+                  [
+                    "转人工率与高风险漏判",
+                    "衡量真实运营负担和最坏后果"
+                  ]
+                ]
+              }
+            ],
+            "source_refs": [
+              "launch"
+            ]
+          },
+          {
+            "key": "fit",
+            "eyebrow": "04",
+            "kicker": "适用范围",
+            "title": "先从可回放、可兜底的小决策开始",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "cards",
+                "title": "优先试的三类任务",
+                "items": [
+                  {
+                    "title": "内容路由",
+                    "detail": "将请求送到固定队列，失败时可转人工"
+                  },
+                  {
+                    "title": "Agent 下一步",
+                    "detail": "只在允许动作集合内继续、重试或澄清"
+                  },
+                  {
+                    "title": "实时交互",
+                    "detail": "在语音或 UI 中选择低风险反馈"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "不建议把第一版直接接到资金划拨、账号封禁、医疗处置或无人审批的生产命令执行。接口支持结构化答案，不等于业务政策、合规与权限边界已经被验证。",
+                "refs": [
+                  "guide"
+                ]
+              }
+            ],
+            "source_refs": [
+              "guide"
+            ]
+          },
+          {
+            "key": "operations",
+            "eyebrow": "05",
+            "kicker": "失败也要可读",
+            "title": "实时路径最怕静默降级和错误放大",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "生产接线应把超时、限流、无效输入、低置信和答案不在允许集合分开处理。历史结果可以帮助读者理解系统，但不能伪装成当前判断；高风险动作应默认停止或转人工，而不是为了保持吞吐继续执行。",
+                "refs": [
+                  "guide"
+                ]
+              },
+              {
+                "type": "table",
+                "title": "四种失败状态与诚实回退",
+                "headers": [
+                  "状态",
+                  "产品响应"
+                ],
+                "rows": [
+                  [
+                    "请求超时 / 服务不可达",
+                    "保留旧信息并标为历史；不自动重放高风险动作"
+                  ],
+                  [
+                    "低置信 / 选项接近",
+                    "转人工或请求更多证据"
+                  ],
+                  [
+                    "输入缺失 / 格式错误",
+                    "阻止执行并返回可修正字段"
+                  ],
+                  [
+                    "分布漂移 / 线上错误上升",
+                    "停用自动动作，回到基线流程并重做评测"
+                  ]
+                ]
+              }
+            ],
+            "source_refs": [
+              "guide"
+            ]
+          },
+          {
+            "key": "experiment",
+            "eyebrow": "06",
+            "kicker": "怎么验证",
+            "title": "用同一批真实样本，对照 Responses 基线",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "抽取近期真实分布中的固定样本，标注正确答案与错误成本；A 组使用当前 Responses 流程，B 组使用 Decisions。冻结模型、提示、缓存策略和区域，重复测量正确率、校准、P50/P95 延迟、成本与回退率。"
+              },
+              {
+                "type": "note",
+                "title": "不要只测容易样本",
+                "text": "测试集要包含缺字段、长尾类别、相似选项、图像质量差和输入分布漂移；否则低延迟会掩盖最需要人工兜底的样本。"
+              }
+            ],
+            "source_refs": [
+              "guide",
+              "launch"
+            ]
+          },
+          {
+            "key": "outlook",
+            "eyebrow": "07",
+            "kicker": "前瞻判断",
+            "title": "Agent 的下一层基础设施，可能是专用决策面",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "当 Agent 把开放式规划拆成大量有界选择，低延迟的决策层能减少每一步生成长文本的浪费。真正值得持续观察的是：不同业务分布下的校准稳定性、缓存对成本的真实贡献、GPT-Live 等实时接线，以及错误是否能被产品层及时截断。",
+                "refs": [
+                  "launch",
+                  "changelog"
+                ]
+              },
+              {
+                "type": "transition",
+                "text": "把 Decisions API 当成经过测量的路由器，会比把它当成更便宜的万能模型更接近它的产品价值。"
+              }
+            ],
+            "source_refs": [
+              "launch",
+              "changelog"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "launch",
+            "publisher": "OpenAI",
+            "title": "Build more responsive apps with the Decisions API",
+            "url": "https://openai.com/index/decisions-api/",
+            "published": "2026-10-22",
+            "checked": "2026-10-23",
+            "kind": "官方产品发布",
+            "note": "用于核验 GA、功能、价格和官方/客户性能主张；客户案例不视为本站实测。"
+          },
+          {
+            "id": "guide",
+            "publisher": "OpenAI Developers",
+            "title": "Decisions API guide",
+            "url": "https://developers.openai.com/api/docs/guides/decisions",
+            "published": null,
+            "checked": "2026-10-23",
+            "kind": "官方开发文档",
+            "note": "用于核验端点、支持模型、输入和三种输出类型。"
+          },
+          {
+            "id": "changelog",
+            "publisher": "OpenAI Developers",
+            "title": "API Changelog · October 22",
+            "url": "https://developers.openai.com/api/docs/changelog",
+            "published": "2026-10-22",
+            "checked": "2026-10-23",
+            "kind": "官方变更日志",
+            "note": "用于核验从 Beta 到 GA 的功能增量和 400 问题上限。"
+          }
+        ],
+        "revision_note": "2026-10-23 首次发布；基于 GA 公告与官方文档，未调用付费 API，未把客户案例数字写成本站实测。"
+      },
       {
         "id": "rea-agent-reverse-engineering",
         "hot_ids": [
@@ -14227,10 +14737,10 @@
         "publisher": "Artificial Analysis",
         "title": "LLM Leaderboard",
         "url": "https://artificialanalysis.ai/models",
-        "checked": "2026-10-21",
+        "checked": "2026-10-23",
         "published": null,
         "kind": "评测方公开榜单",
-        "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-21 复核官方榜首五个配置；其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
+        "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-23 复核官方榜首五个配置：Claude Opus 5.5 max 仍为 58，Sonnet 5.5 max、Opus 5.5 xhigh 与 Muse Wonder Full max 均为 56；其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
       },
       {
         "id": "aa-gpt6-sol",
@@ -15341,7 +15851,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "account": "thsottiaux",
     "events": [
       {
@@ -15746,6 +16256,37 @@
         "not_proves": "未证明 reset 已执行、已传播到每个账户，也未说明 banked / global 类型、适用套餐、个人余额或精确执行时刻。",
         "post_id": "2113162277688070445",
         "relation": "original"
+      },
+      {
+        "id": "tibo-global-confirmed-2026-10-23-day18",
+        "kind": "global",
+        "status": "confirmed",
+        "date": "2026-10-23",
+        "published_at": "2026-10-23T04:46:19.007Z",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 确认 Day 18 reset：预告已转为执行信号",
+        "summary": "Tibo 在本人 X 原帖列出 Decisions API GA、OpenResponses 加入 Linux Foundation、Codex 性能改进和 Uber 部署后，明确写下“that's a reset”；这是对前一日 reset 预告的第一方执行确认。",
+        "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖未列出套餐、账户或 banked reset 数量",
+        "boundary": "原帖可以确认 Tibo 宣布本次 reset 已发生，但不能证明传播已覆盖每个账户，也不能推出个人余额、额度恢复幅度、banked / global 后台机制或精确到账时刻。",
+        "sources": [
+          "tibo-post-2113492187770175603",
+          "tibo-post-2113492502355562875"
+        ],
+        "reviewed": "2026-10-23",
+        "verified_at": "2026-10-23T17:22:00+08:00",
+        "review_basis": "primary_source",
+        "related_ids": [
+          "tibo-reset-announced-2026-10-22-day17"
+        ],
+        "original_text": "Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, performance improvements and Uber is going all-in on codex & work. But yes… that's a reset!",
+        "conversation_context": "本人原帖把当日产品与生态发布列在一起，并用明确完成语气确认 reset；紧接的本人回复仍保留“tomorrow before 10am PST”这一最晚落地窗口。",
+        "interpretation": "相较前一日的未来时态预告，这是新的第一方完成信号，因此单独记录为已确认事件，并与预告关联，而不是覆盖或倒改预告的真实发布时间。",
+        "evidence_strength": "high",
+        "semantic_type": "global_reset_completion_claim",
+        "not_proves": "未证明所有账户已经完成传播、具体套餐和发放范围、banked reset 数量、个人剩余额度或后台执行的精确时刻。",
+        "post_id": "2113492187770175603",
+        "relation": "original"
       }
     ],
     "sources": [
@@ -15955,6 +16496,24 @@
         "checked": "2026-10-22",
         "kind": "官方原帖",
         "note": "本轮直接读取同一线程中的本人回复；“Lands tomorrow before 10am PST”提供最晚落地时间，不构成完成确认。"
+      },
+      {
+        "id": "tibo-post-2113492187770175603",
+        "publisher": "Tibo / X",
+        "title": "Day 18 reset confirmation",
+        "url": "https://x.com/thsottiaux/status/2113492187770175603",
+        "checked": "2026-10-23",
+        "kind": "官方原帖",
+        "note": "本人原帖明确写下“that's a reset”；状态 ID 的 Snowflake 时间对应 2026-10-23T04:46:19.007Z。"
+      },
+      {
+        "id": "tibo-post-2113492502355562875",
+        "publisher": "Tibo / X",
+        "title": "Day 18 timing follow-up",
+        "url": "https://x.com/thsottiaux/status/2113492502355562875",
+        "checked": "2026-10-23",
+        "kind": "官方原帖",
+        "note": "本人紧接回复再次说明最晚落地窗口；用于保留上下文，不把最晚时间误写成精确执行时刻。"
       }
     ],
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
@@ -19218,9 +19777,9 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-23T07:29:29.372174Z",
-    "last_success": "2026-10-23T07:29:29.372174Z",
-    "last_full_success": "2026-10-23T07:29:29.372174Z",
+    "last_attempt": "2026-10-23T09:20:02.281235Z",
+    "last_success": "2026-10-23T09:20:02.281235Z",
+    "last_full_success": "2026-10-23T09:20:02.281235Z",
     "items": [
       {
         "title": "Release Anomalib Library v2.7.0",
@@ -19237,7 +19796,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19257,7 +19816,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19277,7 +19836,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19297,7 +19856,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19317,7 +19876,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19337,7 +19896,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19357,7 +19916,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19377,7 +19936,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19397,7 +19956,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19417,7 +19976,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19437,7 +19996,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19457,7 +20016,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19477,7 +20036,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19497,7 +20056,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19517,7 +20076,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19537,7 +20096,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19556,7 +20115,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19576,7 +20135,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19596,7 +20155,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19615,7 +20174,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19635,7 +20194,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19654,7 +20213,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19673,7 +20232,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19692,7 +20251,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19711,7 +20270,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19730,7 +20289,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19749,7 +20308,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19769,7 +20328,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19789,7 +20348,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19808,7 +20367,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -19828,7 +20387,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19848,7 +20407,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19868,7 +20427,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19888,7 +20447,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19908,7 +20467,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19928,7 +20487,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19948,7 +20507,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -19968,7 +20527,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -19987,7 +20546,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20007,7 +20566,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20026,7 +20585,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20046,7 +20605,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20065,7 +20624,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20084,7 +20643,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20103,7 +20662,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20122,7 +20681,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20142,7 +20701,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20161,7 +20720,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20180,7 +20739,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20200,7 +20759,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20220,7 +20779,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-23T07:29:29.372174Z",
+        "last_seen": "2026-10-23T09:20:02.281235Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20231,7 +20790,7 @@
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
         "status": "success",
-        "checked_at": "2026-10-23T07:29:29.372174Z",
+        "checked_at": "2026-10-23T09:20:02.281235Z",
         "parsed": 14,
         "matched": 14
       },
@@ -20239,7 +20798,7 @@
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-23T07:29:29.372174Z",
+        "checked_at": "2026-10-23T09:20:02.281235Z",
         "parsed": 17,
         "matched": 17
       },
@@ -20247,7 +20806,7 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-23T07:29:29.372174Z",
+        "checked_at": "2026-10-23T09:20:02.281235Z",
         "parsed": 20,
         "matched": 20
       }
