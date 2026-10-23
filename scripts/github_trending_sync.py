@@ -32,7 +32,8 @@ STARS_TODAY_RE = re.compile(r"\b([\d,]+)\s+stars?\s+today\b", re.I)
 AI_TERMS = re.compile(
     r"\b(ai|llm|agents?|agentic|mcp|language models?|neural|machine learning|"
     r"deep learning|inference|diffusion|rag|transformers?|coding assistant|"
-    r"prompt engineering|generative)\b", re.I
+    r"prompt engineering|generative|claude|tts|text[- ]to[- ]speech|"
+    r"speech generation|voice cloning)\b", re.I
 )
 CATEGORIES = {
     "reverse-engineering": "AI 逆向工程",
@@ -154,9 +155,15 @@ def metadata(repo: str, token: str = "") -> dict:
 
 
 def classify(repo: str, description: str, old: dict | None = None) -> tuple[str, bool, list[str]]:
-    if old and old.get("category") and isinstance(old.get("ai_related"), bool) and old.get("tags"):
-        return old["category"], old["ai_related"], old["tags"]
     q = (repo + " " + description).lower()
+    detected_ai = bool(AI_TERMS.search(q))
+    # Preserve reviewed labels unless fresh official text provides a strong AI
+    # signal that corrects a previous false negative. This keeps editorial
+    # categories stable without leaving newly explicit Claude/TTS repos out of
+    # the site's AI-only subset.
+    if (old and old.get("category") and isinstance(old.get("ai_related"), bool)
+            and old.get("tags") and (old["ai_related"] or not detected_ai)):
+        return old["category"], old["ai_related"], old["tags"]
     if any(key in q for key in ("reverse engineer", "decompil", "ghidra", "binary analysis")):
         return "reverse-engineering", bool(AI_TERMS.search(q) or "morluto/rea" in repo.lower()), ["Reverse Engineering", "Agent", "MCP"]
     if "agent" in q and ("memory" in q or "memories" in q):
@@ -167,7 +174,7 @@ def classify(repo: str, description: str, old: dict | None = None) -> tuple[str,
         return "agent-runtime", True, ["Agent", "Runtime", "AI"]
     if "agent" in q and any(k in q for k in ("tool", "cli", "mcp", "interface")):
         return "agent-interface", True, ["Agent", "Tools", "MCP"]
-    if "agent" in q and "skill" in q:
+    if ("agent" in q or "claude" in q) and "skill" in q:
         return "agent-skills", True, ["Agent", "Skills", "Workflow"]
     if AI_TERMS.search(q):
         return "ai-tools", True, ["AI", "Open Source", "GitHub"]
@@ -269,8 +276,27 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
                     fallback["url"] = "https://github.com/" + x["repo"]
                     fallback["description"] = x.get("description") or old.get("description", "")
                     fallback["language"] = x.get("language") or old.get("language", "")
-                    fallback["metadata_verified_at"] = old.get("metadata_verified_at") or data.get("checked_at")
-                    fallback["metadata_status"] = "stale"
+                    category, related, tags = classify(
+                        x["repo"], fallback["description"], old
+                    )
+                    fallback["category"] = category
+                    fallback["ai_related"] = related
+                    fallback["tags"] = tags
+                    has_verified_metadata = (
+                        old.get("metadata_status") != "unavailable"
+                        and all(isinstance(old.get(k), int) for k in ("stars", "forks"))
+                        and all(old.get(k) for k in ("repo_created_at", "repo_pushed_at"))
+                    )
+                    if has_verified_metadata:
+                        fallback["metadata_verified_at"] = old.get("metadata_verified_at") or data.get("checked_at")
+                        fallback["metadata_status"] = "stale"
+                    else:
+                        # Repeated API limits must not promote a never-verified
+                        # placeholder into an apparent historical snapshot.
+                        for key in ("stars", "forks", "repo_created_at", "repo_pushed_at", "metadata_verified_at"):
+                            fallback[key] = None
+                        fallback["metadata_status"] = "unavailable"
+                        fallback["star_history"] = []
                     rows.append(fallback)
                 else:
                     # A new official Trending row is still valid evidence for

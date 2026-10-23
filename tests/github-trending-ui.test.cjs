@@ -36,11 +36,16 @@ assert.match(metadataView.__unknown,/API 元数据待核验/);
 assert.match(metadataView.__stale,/API 旧快照/);
 assert.match(metadataView.__stale,/2026-10-21/);
 
-const partialView={GH:{sync:{metadata_status:'partial',metadata_failed_count:8,watchlist_failed_count:1}},esc:x=>String(x)};
+const partialView={GH:{items:[
+  {metadata_status:'stale'},{metadata_status:'stale'},{metadata_status:'stale'},
+  {metadata_status:'unavailable'},{metadata_status:'unavailable'},{metadata_status:'unavailable'},
+  {metadata_status:'unavailable'},{metadata_status:'unavailable'}
+],sync:{metadata_status:'partial',metadata_failed_count:8,watchlist_failed_count:1}},esc:x=>String(x)};
 vm.createContext(partialView);
 vm.runInContext(partialPart+'\nthis.__partial=ghPartialNotice();',partialView);
 assert.match(partialView.__partial,/官方榜位与今日 Star 已更新/);
-assert.match(partialView.__partial,/8 个上榜仓库/);
+assert.match(partialView.__partial,/3 个上榜仓库/);
+assert.match(partialView.__partial,/5 个新上榜仓库/);
 assert.match(partialView.__partial,/1 个长期关注仓库/);
 
 const panel=extract(cockpit,'function fcGithubPanel(){','function fcCockpit(){');
