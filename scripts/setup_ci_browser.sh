@@ -22,6 +22,8 @@ echo "CHROMIUM_EXECUTABLE=$browser_bin" >> "$GITHUB_ENV"
 
 first_cjk_font="$(fc-list :lang=zh | sed -n '1p')"
 if [[ -z "$first_cjk_font" ]]; then
-  sudo timeout 120s apt-get update
-  sudo timeout 120s apt-get install -y --no-install-recommends fonts-wqy-zenhei
+  if ! sudo timeout 60s apt-get update \
+    || ! sudo timeout 60s apt-get install -y --no-install-recommends fonts-wqy-zenhei; then
+    echo "::warning title=CJK font unavailable::The runner package mirror did not provide the optional CJK font in time; browser regressions will continue with the browser's fallback fonts."
+  fi
 fi
