@@ -49,3 +49,8 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("icon(interactive?'zap':'book')",text)
   self.assertIn("r.kind==='product'",text)
   self.assertIn('当前入口是候补或产品资料页，尚不能直接体验',text)
+ def test_vertical_sector_has_one_topic_navigation(self):
+  legacy=(ROOT/'src/vertical.js').read_text()
+  current=(ROOT/'src/v2.js').read_text()
+  self.assertNotIn('v-topic-strip',legacy)
+  self.assertEqual(current.count('v2-business-chain'),1)

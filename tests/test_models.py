@@ -94,7 +94,7 @@ class ValidationTests(unittest.TestCase):
   a=ET.fromstring(model_rss(M,SITE));b=ET.fromstring(model_rss(M,SITE))
   self.assertEqual(len(a.findall('./channel/item')),2)
   self.assertEqual([x.text for x in a.findall('.//guid')],[x.text for x in b.findall('.//guid')])
- def test_aa_oct21_leaders_are_source_backed_and_missing_metrics_stay_null(self):
+ def test_aa_oct24_leaders_are_source_backed_and_missing_metrics_stay_null(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
   rows=sorted(board['rows'],key=lambda x:(-(x['intelligence'] or -1),x['source_order']))[:5]
   self.assertEqual([(x['name'],x['intelligence']) for x in rows],[
@@ -102,7 +102,7 @@ class ValidationTests(unittest.TestCase):
    ('Claude Sonnet 5.5 (Max, Default Fallback)',56),
    ('Claude Opus 5.5 (Xhigh, Default Fallback)',56),
    ('Muse Wonder Full (Max)',56),
-   ('Claude Opus 5.5 (High, Default Fallback)',54),
+   ('Kimi K3.1 Pro',55),
   ])
   self.assertTrue(all(x['source']=='aa-live' for x in rows))
   self.assertIsNone(rows[1]['speed'])

@@ -36,6 +36,48 @@
   ],
   "items": [
     {
+      "id": "google-tb-screening-foundations-20261023",
+      "category": "industry",
+      "title": "Google TB 筛查进入六国约 40 家机构：开放模型仍需本地验证",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T07:18:20+08:00",
+      "first_seen_at": "2026-10-24T07:18:20+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 31,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是诊断准确率、疗效、监管等级或本站实测分数。",
+      "trend": "up",
+      "summary": "Google Research 披露，Nexus AI 的胸片筛查工具已在六国约 40 家医疗机构部署，90 多名临床人员处理了 2.5 万余张胸片；系统最快约 45 秒给出筛查结果，最终临床决定仍由医务人员作出。",
+      "why": "这把基础模型从论文推进到前瞻性验证、医疗器械合规和一线工作流；HAI-DEF、MedSigLIP、MedGemma 与 HeAR 也给出了可本地适配的开放栈。",
+      "boundary": "这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，仍需按本地人群、设备和转诊流程验证误报漏报。",
+      "source": "Google Research",
+      "source_kind": "官方研究、监管状态与临床部署更新 / 本轮编辑核验",
+      "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+      "link": "#/pharma?article=google-tb-screening-foundations-20261023",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读官方部署与开放模型说明",
+          "note": "区分筛查、分诊和确诊；核对监管状态、本地验证与人工最终决定",
+          "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google Research",
+          "title": "Bringing foundational models to the front lines of TB screening",
+          "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
       "id": "openai-frontier-training-containment-20261023",
       "category": "research",
       "title": "OpenAI 公开前沿训练隔离方案：内部 RL 训练已恢复",
