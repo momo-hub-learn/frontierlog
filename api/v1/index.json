@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-23",
+    "checked": "2026-10-24",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,60 @@
       }
     ],
     "items": [
+      {
+        "id": "minimax-m31-flash-open-weights-20261023",
+        "category": "model",
+        "title": "MiniMax M3.1 Flash 权重上线：1M 上下文原生多模态 MoE",
+        "published": "2026-10-23",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T01:26:00+08:00",
+        "first_seen_at": "2026-10-24T01:26:00+08:00",
+        "heat": 93,
+        "heat_components": {
+          "impact": 31,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、官方 Benchmark 总分或本站实测分数。",
+        "trend": "up",
+        "summary": "MiniMax 在 Hugging Face 公开 M3.1 Flash 权重与模型卡：原生多模态 MoE 支持文本、图像和视频输入、最长 1M token 上下文，并给出 vLLM、SGLang 与本地下载路径；本轮进入 HF Models Trending 网页第 18 位。",
+        "why": "这把 10 月 19 日的 API 与产品发布推进到可下载权重阶段，开发者可以在固定 Harness 下复核其 Agent、编程、Computer Use 和网络安全能力，而不只依赖托管接口或发布稿。",
+        "boundary": "本站核验了 MiniMax 官方发布、官方 HF 模型卡与 HF Trending，未下载或运行约 428B 总参数、每 token 激活约 23B 的模型。模型卡基准均为厂商公开结果，评测 Harness 不一，不能跨榜拼总分；HF trendingScore、Likes、Downloads 和第 18 位只代表平台关注/使用信号，且当前无 HF Inference Provider 托管。",
+        "source": "MiniMax / Hugging Face",
+        "source_kind": "官方模型卡、官方发布与平台官方 Trending / 本轮编辑核验",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "link": "#/hot?tab=hf",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看官方权重、架构与部署说明",
+            "note": "先核对硬件、许可与 trust_remote_code，再用固定输入和固定 Harness 小规模复现",
+            "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+            "kind": "model"
+          },
+          {
+            "label": "查看 MiniMax 正式发布说明",
+            "note": "区分 10 月 19 日厂商性能与成本主张，以及 10 月 23 日可下载权重状态",
+            "url": "https://www.minimax.io/blog/minimax-m31f",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "MiniMax",
+            "title": "MiniMax M3.1 Flash: Redefining Agent Performance and Cost",
+            "url": "https://www.minimax.io/blog/minimax-m31f",
+            "date": "2026-10-19"
+          },
+          {
+            "source": "Hugging Face / MiniMaxAI",
+            "title": "MiniMaxAI/MiniMax-M3.1-Flash",
+            "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+            "date": "2026-10-23"
+          }
+        ]
+      },
       {
         "id": "microsoft-flint-interactive-20261022",
         "category": "product",
@@ -5265,11 +5319,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-23T15:26:31Z",
+    "checked_at": "2026-10-23T17:26:29Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-23T15:26:31Z",
+      "last_success": "2026-10-23T17:26:29Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -6206,7 +6260,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T15:16:03Z",
+    "checked_at": "2026-10-23T17:25:29Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -6217,8 +6271,8 @@
         "stars_today": 2706,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 41218,
-        "forks": 2574,
+        "stars": 41454,
+        "forks": 2589,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -6229,12 +6283,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
-          {
-            "at": "2026-10-22T13:32:32Z",
-            "stars": 38268
-          },
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 38757
@@ -6278,6 +6328,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 41218
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 41454
           }
         ]
       },
@@ -6287,10 +6341,10 @@
         "stars_today": 722,
         "description": "The PHP Interpreter",
         "language": "C",
-        "stars": 41483,
-        "forks": 8346,
+        "stars": 41503,
+        "forks": 8349,
         "repo_created_at": "2011-06-16T01:52:25Z",
-        "repo_pushed_at": "2026-10-23T06:29:33Z",
+        "repo_pushed_at": "2026-10-23T16:50:57Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6298,12 +6352,8 @@
           "GitHub"
         ],
         "url": "https://github.com/php/php-src",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
-          {
-            "at": "2026-10-22T13:32:32Z",
-            "stars": 40839
-          },
           {
             "at": "2026-10-22T17:21:29Z",
             "stars": 40995
@@ -6347,6 +6397,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 41483
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 41503
           }
         ]
       },
@@ -6356,8 +6410,8 @@
         "stars_today": 643,
         "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
-        "stars": 32016,
-        "forks": 3559,
+        "stars": 32071,
+        "forks": 3562,
         "repo_created_at": "2026-01-23T20:11:54Z",
         "repo_pushed_at": "2026-10-23T07:38:30Z",
         "category": "ai-tools",
@@ -6368,12 +6422,8 @@
           "GitHub"
         ],
         "url": "https://github.com/anthropics/knowledge-work-plugins",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
-          {
-            "at": "2026-10-22T17:21:29Z",
-            "stars": 31433
-          },
           {
             "at": "2026-10-22T21:16:30Z",
             "stars": 31519
@@ -6417,6 +6467,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 32016
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 32071
           }
         ]
       },
@@ -6426,10 +6480,10 @@
         "stars_today": 1240,
         "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "language": "Rust",
-        "stars": 18433,
-        "forks": 1861,
+        "stars": 18545,
+        "forks": 1864,
         "repo_created_at": "2026-02-24T22:52:22Z",
-        "repo_pushed_at": "2026-10-23T14:54:37Z",
+        "repo_pushed_at": "2026-10-23T17:11:22Z",
         "category": "agent-runtime",
         "ai_related": true,
         "tags": [
@@ -6438,7 +6492,7 @@
           "AI"
         ],
         "url": "https://github.com/NVIDIA/OpenShell",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6455,6 +6509,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 18433
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 18545
           }
         ]
       },
@@ -6464,8 +6522,8 @@
         "stars_today": 547,
         "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
         "language": "TypeScript",
-        "stars": 6701,
-        "forks": 1373,
+        "stars": 6774,
+        "forks": 1390,
         "repo_created_at": "2026-05-01T05:09:59Z",
         "repo_pushed_at": "2026-10-20T08:20:05Z",
         "category": "other",
@@ -6475,7 +6533,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Renhuai123/ziwei-doushu",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6492,6 +6550,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 6701
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 6774
           }
         ]
       },
@@ -6501,8 +6563,8 @@
         "stars_today": 209,
         "description": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
         "language": "Python",
-        "stars": 8156,
-        "forks": 1077,
+        "stars": 8239,
+        "forks": 1081,
         "repo_created_at": "2026-03-04T05:52:35Z",
         "repo_pushed_at": "2026-10-12T15:02:40Z",
         "category": "agent-skills",
@@ -6513,7 +6575,7 @@
           "Workflow"
         ],
         "url": "https://github.com/SnailSploit/Claude-Red",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6530,6 +6592,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 8156
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 8239
           }
         ]
       },
@@ -6539,8 +6605,8 @@
         "stars_today": 144,
         "description": "VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning",
         "language": "Python",
-        "stars": 40085,
-        "forks": 4558,
+        "stars": 40125,
+        "forks": 4561,
         "repo_created_at": "2025-09-16T03:41:49Z",
         "repo_pushed_at": "2026-10-08T03:26:41Z",
         "category": "ai-tools",
@@ -6551,7 +6617,7 @@
           "GitHub"
         ],
         "url": "https://github.com/OpenBMB/VoxCPM",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6568,6 +6634,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 40085
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 40125
           }
         ]
       },
@@ -6577,10 +6647,10 @@
         "stars_today": 93,
         "description": "Node.js JavaScript runtime ✨🐢🚀✨",
         "language": "JavaScript",
-        "stars": 122663,
-        "forks": 39939,
+        "stars": 122712,
+        "forks": 39944,
         "repo_created_at": "2014-11-26T19:57:11Z",
-        "repo_pushed_at": "2026-10-23T14:30:01Z",
+        "repo_pushed_at": "2026-10-23T17:20:07Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6588,7 +6658,7 @@
           "GitHub"
         ],
         "url": "https://github.com/nodejs/node",
-        "metadata_verified_at": "2026-10-23T15:16:03Z",
+        "metadata_verified_at": "2026-10-23T17:25:29Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6605,6 +6675,10 @@
           {
             "at": "2026-10-23T15:16:03Z",
             "stars": 122663
+          },
+          {
+            "at": "2026-10-23T17:25:29Z",
+            "stars": 122712
           }
         ]
       }
@@ -6684,10 +6758,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-23T15:16:03Z",
-      "last_success_at": "2026-10-23T15:16:03Z",
+      "last_checked_at": "2026-10-23T17:25:29Z",
+      "last_success_at": "2026-10-23T17:25:29Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-23T15:16:03Z",
+      "watchlist_checked_at": "2026-10-23T17:25:29Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 8,
@@ -6708,35 +6782,35 @@
           "Agent",
           "MCP"
         ],
-        "stars": 371141,
-        "forks": 92947,
+        "stars": 371819,
+        "forks": 93110,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-23T15:15:51Z",
+        "repo_pushed_at": "2026-10-23T17:21:58Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-23T15:16:03Z",
+        "verified_at": "2026-10-23T17:25:29Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T15:16:03Z",
+    "checked_at": "2026-10-23T17:26:39Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-23T15:16:03Z",
-    "web_fetched_at": "2026-10-23T15:16:03Z",
+    "api_fetched_at": "2026-10-23T17:26:39Z",
+    "web_fetched_at": "2026-10-23T17:26:39Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "black-forest-labs/flux-3-image-klein-comfy",
       "RecursiveSI/flint",
       "OpenMOSS-Team/MOSS-Image-SFT",
-      "OpenMOSS-Team/MOSS-Image-Base",
       "Lightricks/LTX-2.5",
+      "OpenMOSS-Team/MOSS-Image-Base",
       "fishaudio/drama-3",
       "XHToken/Spark-X2.6-4B",
       "Comfy-Org/MOSS-Image",
@@ -6748,9 +6822,9 @@
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
       "InternScience/Sage-A1.5",
       "mistralai/Timestral-209M",
-      "meta-models/Muse-Spark-Open-816B-A42B",
-      "black-forest-labs/flux-3-image-klein",
-      "lodestones/Kromoss"
+      "MiniMaxAI/MiniMax-M3.1-Flash",
+      "lodestones/Kromoss",
+      "meta-models/Muse-Spark-Open-816B-A42B"
     ],
     "web_rank_changes": [
       {
@@ -6758,140 +6832,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
-      },
-      {
-        "id": "OpenMOSS-Team/MOSS-Image-Base",
-        "rank": 5,
-        "previous_rank": 5,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
-        "rank": 6,
+        "rank": 5,
         "previous_rank": 6,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
+      },
+      {
+        "id": "OpenMOSS-Team/MOSS-Image-Base",
+        "rank": 6,
+        "previous_rank": 5,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 8,
-        "previous_rank": 9,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 8,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 9,
-        "previous_rank": 8,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 9,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 10,
-        "previous_rank": 11,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 10,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 11,
-        "previous_rank": 12,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 11,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "google/embeddinggemma-2",
         "rank": 12,
-        "previous_rank": 10,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "jialinyyzz/humanizer",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "datalab-to/indra-ocr",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 15,
-        "previous_rank": 16,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 15,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 16,
-        "previous_rank": 17,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 16,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "mistralai/Timestral-209M",
         "rank": 17,
-        "previous_rank": 19,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 18,
-        "previous_rank": 15,
-        "rank_change": -3,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
-      },
-      {
-        "id": "black-forest-labs/flux-3-image-klein",
-        "rank": 19,
-        "previous_rank": 18,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       },
       {
         "id": "lodestones/Kromoss",
+        "rank": 19,
+        "previous_rank": 20,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
+      },
+      {
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-23T13:17:12Z"
+        "previous_rank": 18,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-23T15:16:03Z"
       }
     ],
     "items": [
@@ -6899,8 +6973,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2147,
-        "likes": 2508,
+        "trending_score": 2162,
+        "likes": 2532,
         "downloads": 57715,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6916,8 +6990,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 666,
-        "likes": 1368,
+        "trending_score": 663,
+        "likes": 1387,
         "downloads": 534837,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6933,8 +7007,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 622,
-        "likes": 635,
+        "trending_score": 634,
+        "likes": 650,
         "downloads": 1904,
         "task": "text-generation",
         "library": "transformers",
@@ -6950,8 +7024,8 @@
         "rank": 4,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 509,
-        "likes": 626,
+        "trending_score": 503,
+        "likes": 638,
         "downloads": 7658,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6965,27 +7039,10 @@
       },
       {
         "rank": 5,
-        "id": "OpenMOSS-Team/MOSS-Image-Base",
-        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 420,
-        "likes": 512,
-        "downloads": 5618,
-        "task": "text-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-11T06:49:17.000Z",
-        "tags": [
-          "diffusers",
-          "safetensors",
-          "moss-image",
-          "text-to-image"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 412,
-        "likes": 8978,
+        "trending_score": 408,
+        "likes": 8986,
         "downloads": 2026951,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6998,11 +7055,28 @@
         ]
       },
       {
+        "rank": 6,
+        "id": "OpenMOSS-Team/MOSS-Image-Base",
+        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
+        "trending_score": 408,
+        "likes": 514,
+        "downloads": 5618,
+        "task": "text-to-image",
+        "library": "diffusers",
+        "created_at": "2026-10-11T06:49:17.000Z",
+        "tags": [
+          "diffusers",
+          "safetensors",
+          "moss-image",
+          "text-to-image"
+        ]
+      },
+      {
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 385,
-        "likes": 938,
+        "trending_score": 381,
+        "likes": 941,
         "downloads": 17017,
         "task": "text-to-speech",
         "library": "未标注",
@@ -7018,8 +7092,8 @@
         "rank": 8,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 361,
-        "likes": 393,
+        "trending_score": 369,
+        "likes": 401,
         "downloads": 1060,
         "task": "text-generation",
         "library": "transformers",
@@ -7035,8 +7109,8 @@
         "rank": 9,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 350,
-        "likes": 388,
+        "trending_score": 348,
+        "likes": 390,
         "downloads": 1606363,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -7052,8 +7126,8 @@
         "rank": 10,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 320,
-        "likes": 4889,
+        "trending_score": 326,
+        "likes": 4895,
         "downloads": 2398071,
         "task": "text-to-image",
         "library": "gguf",
@@ -7070,7 +7144,7 @@
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
         "trending_score": 317,
-        "likes": 18270,
+        "likes": 18277,
         "downloads": 7710011,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7086,8 +7160,8 @@
         "rank": 12,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 304,
-        "likes": 2860,
+        "trending_score": 299,
+        "likes": 2863,
         "downloads": 192741,
         "task": "feature-extraction",
         "library": "transformers",
@@ -7103,8 +7177,8 @@
         "rank": 13,
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 272,
-        "likes": 2109,
+        "trending_score": 268,
+        "likes": 2111,
         "downloads": 129025,
         "task": "text-generation",
         "library": "gguf",
@@ -7121,7 +7195,7 @@
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
         "trending_score": 262,
-        "likes": 385,
+        "likes": 387,
         "downloads": 4033,
         "task": "image-to-text",
         "library": "onnx",
@@ -7137,8 +7211,8 @@
         "rank": 15,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 251,
-        "likes": 287,
+        "trending_score": 253,
+        "likes": 291,
         "downloads": 4141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7154,8 +7228,8 @@
         "rank": 16,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 240,
-        "likes": 245,
+        "trending_score": 241,
+        "likes": 246,
         "downloads": 924,
         "task": "text-generation",
         "library": "transformers",
@@ -7171,8 +7245,8 @@
         "rank": 17,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 236,
-        "likes": 302,
+        "trending_score": 235,
+        "likes": 304,
         "downloads": 6815,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -7186,44 +7260,27 @@
       },
       {
         "rank": 18,
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 229,
-        "likes": 671,
-        "downloads": 5196,
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "trending_score": 226,
+        "likes": 232,
+        "downloads": 1096,
         "task": "image-text-to-text",
         "library": "transformers",
-        "created_at": "2026-09-15T19:23:19.000Z",
+        "created_at": "2026-10-17T06:37:50.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "muse_spark",
+          "minimax_m3_vl",
           "image-text-to-text"
         ]
       },
       {
         "rank": 19,
-        "id": "black-forest-labs/flux-3-image-klein",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 224,
-        "likes": 648,
-        "downloads": 105768,
-        "task": "image-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-13T10:58:40.000Z",
-        "tags": [
-          "diffusers",
-          "safetensors",
-          "image-generation",
-          "image-editing"
-        ]
-      },
-      {
-        "rank": 20,
         "id": "lodestones/Kromoss",
         "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 224,
-        "likes": 229,
+        "trending_score": 225,
+        "likes": 230,
         "downloads": 16365,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7234,11 +7291,28 @@
           "moss-image",
           "text-to-image"
         ]
+      },
+      {
+        "rank": 20,
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+        "trending_score": 212,
+        "likes": 673,
+        "downloads": 5196,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-15T19:23:19.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "muse_spark",
+          "image-text-to-text"
+        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-23T15:16:03Z",
+      "last_checked_at": "2026-10-23T17:26:39Z",
       "web_status": "success",
       "api_status": "success"
     }
