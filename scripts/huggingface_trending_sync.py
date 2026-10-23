@@ -90,12 +90,36 @@ def stamp(now: datetime) -> str:
     return now.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def web_rank_changes(previous_order: object, current_order: list[str], previous_fetched_at: object) -> list[dict]:
+    """Compare two real saved web snapshots without inventing missing history."""
+    old = {
+        model_id: rank
+        for rank, model_id in enumerate(previous_order if isinstance(previous_order, list) else [], 1)
+        if isinstance(model_id, str)
+    }
+    previous_time = previous_fetched_at if isinstance(previous_fetched_at, str) and previous_fetched_at else None
+    return [
+        {
+            "id": model_id,
+            "rank": rank,
+            "previous_rank": old.get(model_id),
+            "rank_change": old[model_id] - rank if model_id in old else None,
+            "previous_fetched_at": previous_time,
+        }
+        for rank, model_id in enumerate(current_order, 1)
+    ]
+
+
 def update_state(data: dict, now: datetime, web_page: str | None, api_payload: object | None) -> dict:
     out = copy.deepcopy(data)
     now_text = stamp(now)
     web_ok = api_ok = False
     if web_page is not None:
-        out["web_order"] = parse_web_order(web_page)
+        current_order = parse_web_order(web_page)
+        out["web_rank_changes"] = web_rank_changes(
+            data.get("web_order"), current_order, data.get("web_fetched_at")
+        )
+        out["web_order"] = current_order
         out["web_fetched_at"] = now_text
         web_ok = True
     if api_payload is not None:
@@ -114,7 +138,8 @@ def update_state(data: dict, now: datetime, web_page: str | None, api_payload: o
     out["note"] = (
         "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、"
         "task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；"
-        "平台指标只是热度/使用信号，不是能力成绩或本站实测。"
+        "榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，"
+        "不是能力成绩或本站实测。"
     )
     return out
 

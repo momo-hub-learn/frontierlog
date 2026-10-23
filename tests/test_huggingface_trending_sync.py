@@ -33,6 +33,31 @@ class HuggingFaceTrendingSyncTests(unittest.TestCase):
         self.assertEqual(out["api_fetched_at"], old_api_time)
         self.assertEqual(out["sync"]["api_status"], "preserved")
 
+    def test_web_rank_changes_only_compare_real_saved_snapshots(self):
+        old_order = [f"org/model-{i}" for i in range(20)]
+        self.base["web_order"] = old_order
+        self.base["web_fetched_at"] = "2026-10-22T01:00:00Z"
+        current = [old_order[1], old_order[0], *old_order[2:19], "org/new-model"]
+        page = ''.join(
+            f'<article class="overview-card-wrapper"><a href="/{model_id}"></a></article>'
+            for model_id in current
+        )
+        out = sync.update_state(self.base, self.now, page, None)
+        changes = {row["id"]: row for row in out["web_rank_changes"]}
+        self.assertEqual(changes[old_order[1]]["rank_change"], 1)
+        self.assertEqual(changes[old_order[0]]["rank_change"], -1)
+        self.assertIsNone(changes["org/new-model"]["previous_rank"])
+        self.assertIsNone(changes["org/new-model"]["rank_change"])
+        self.assertEqual(changes[old_order[1]]["previous_fetched_at"], "2026-10-22T01:00:00Z")
+
+    def test_web_failure_preserves_existing_rank_changes(self):
+        before = self.base.get("web_rank_changes")
+        out = sync.update_state(self.base, self.now, None, [
+            {"id": f"api/model-{i}", "trendingScore": 20-i, "tags": []}
+            for i in range(20)
+        ])
+        self.assertEqual(out.get("web_rank_changes"), before)
+
     def test_api_metrics_do_not_rewrite_web_order(self):
         payload = [{"id": f"api/model-{i}", "trendingScore": 20-i, "likes": i,
                     "downloads": i*10, "tags": [], "pipeline_tag": "text-generation"}
