@@ -95,6 +95,16 @@ class ValidationTests(unittest.TestCase):
   ])
   self.assertTrue(all(x['source']=='aa-live' for x in rows))
   self.assertIsNone(rows[1]['speed'])
+ def test_arena_oct22_excerpt_preserves_official_rank_uncertainty_and_preliminary(self):
+  board=next(x for x in M['boards'] if x['id']=='arena')
+  self.assertEqual((board['as_of'],board['checked']),('2026-10-22','2026-10-23'))
+  self.assertEqual([x['source_rank'] for x in board['rows']],[1,2,3,4,5,18,21,26])
+  leader=board['rows'][0]
+  self.assertEqual((leader['name'],leader['preference'],leader['score_error'],leader['votes']),
+                   ('Gemini 4 Argon (High)',1517,7,10083))
+  self.assertEqual(leader['rank_spread'],[1,3])
+  self.assertTrue(leader['preliminary'])
+  self.assertTrue(all(x['source']=='arena-text' for x in board['rows']))
 class AATests(unittest.TestCase):
  def test_no_opt_in_no_network(self):
   self.assertEqual(collect_aa(M,{'enabled':False},'secret',NOW,lambda *_:self.fail('network')),M)
