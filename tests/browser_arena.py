@@ -11,6 +11,8 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'test-results/arena'
 OUT.mkdir(parents=True,exist_ok=True)
 MODEL_DATA=json.loads((ROOT/'data/models.json').read_text())
+# Derive volatile ranks, labels and dates from the committed dataset so this
+# check protects the rendering contract without freezing a news snapshot.
 ARENA=next(board for board in MODEL_DATA['boards'] if board['id']=='arena')
 ARENA_ROWS=ARENA['rows']
 MEMORY=os.environ.get('BROWSER_TEST_MODE')=='memory'
