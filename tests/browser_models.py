@@ -45,7 +45,10 @@ with sync_playwright() as p:
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')
  assert '不代表综合能力或任务正确率' in page.locator('#vertical-root').inner_text()
  ok('model methodology keeps preference scope separate from general capability')
+ page.evaluate("window.twttr={widgets:{createTweet:()=>new Promise(()=>{})}}")
  route(page,'#/tibo');expect(page.locator('.tibo-featured')).to_have_count(1)
+ expect(page.locator('.tibo-x-fallback').first).to_be_visible(timeout=7000)
+ expect(page.locator('.tibo-x-loading')).to_have_count(0, timeout=7000)
  expect(page.locator('.tibo-evidence-card')).not_to_have_count(0)
  tibo=page.locator('#vertical-root').inner_text()
  assert '待核验' in tibo and 'X 当前无法直连' in tibo and '不模拟 X 界面' in tibo
@@ -53,7 +56,7 @@ with sync_playwright() as p:
  assert page.locator('.tibo-featured a[href*="x.com"],.tibo-evidence-card a[href*="x.com"]').count()>=1
  assert page.locator('.tibo-x-fallback').count()>=1
  shot(page,'tibo-first-screen.png');shot(page,'tibo-full.png',True)
- ok('Tibo page separates original evidence, editorial inference and explicit X access limits without fake screenshots')
+ ok('Tibo page times out stalled X embeds, then separates original evidence, editorial inference and explicit access limits without fake screenshots')
  route(page,'#/tibo?event=tibo-reset-announced-2026-10-22-day17');expect(page.locator('dialog[open]')).to_have_count(1)
  assert '太平洋时间 10 月 23 日上午 10 点前' in page.locator('dialog[open]').inner_text();page.keyboard.press('Escape')
  ok('Tibo announcement deep link opens the exact reviewed record')
