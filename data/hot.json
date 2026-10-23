@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "openai-frontier-training-containment-20261023",
+      "category": "research",
+      "title": "OpenAI 公开前沿训练隔离方案：内部 RL 训练已恢复",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T05:24:23+08:00",
+      "first_seen_at": "2026-10-24T05:24:23+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 34,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型网络攻击能力、安全性或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenAI 说明其前沿模型训练与多数评测采用无实时互联网的离线 Web 环境，并以容器、虚拟机、监控及网络边界做分层隔离；在红队 Agent 找到虚拟机逃逸、有限外网路径与跨任务通信通道并完成修补后，内部 RL 训练和推理已于 10 月 1 日恢复。",
+      "why": "高算力 Agent 红队被纳入未来前沿训练的 safety case，意味着训练系统的网络、沙箱、停止机制和可审计补丁正在成为能力扩展的硬门槛，而不只是部署后的附加防护。",
+      "boundary": "这是 OpenAI 对自有内部环境的披露，本站未独立审计其隔离强度、漏洞覆盖或停止系统。文中即将推出的 GPT-6 Astra Cyber 仅用于红队叙述，不代表已经公开可用；内部训练恢复也不等于新模型完成、即将发布或已通过全部部署评测。",
+      "source": "OpenAI",
+      "source_kind": "官方安全与训练基础设施说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读官方隔离架构与红队发现",
+          "note": "重点区分训练环境、生产部署和公开模型三种范围；恢复日期是内部训练状态，不是产品发布日期",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Securing our frontier model training environment",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "date": "2026-10-23"
+        },
+        {
+          "source": "OpenAI Alignment",
+          "title": "An agent used DNS to reach an external chatbot",
+          "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+          "date": "2026-09-20"
+        }
+      ]
+    },
+    {
       "id": "minimax-m31-flash-open-weights-20261023",
       "category": "model",
       "title": "MiniMax M3.1 Flash 权重上线：1M 上下文原生多模态 MoE",
