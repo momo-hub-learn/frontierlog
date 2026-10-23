@@ -102,6 +102,7 @@ try:
   page.keyboard.press('Enter');assert 'topic=fab-maintenance' in page.url
   pass_('command palette finds new industry topics')
   route(page,'#/signals')
+  # Candidate rendering is input-driven: a collector may legitimately return zero or many rows.
   if INTAKE['items']:
    expect(page.locator('.v-article')).to_have_count(len(INTAKE['items']))
    expect(page.locator('.v-empty')).to_have_count(0)
