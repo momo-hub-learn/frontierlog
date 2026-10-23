@@ -130,6 +130,15 @@ try:
         )
         mobile.on("pageerror", lambda e: errors.append(str(e)))
         mobile.set_content(HTML, wait_until="load") if MEMORY else mobile.goto(url)
+        for selector in (
+            '[data-action="menu"]',
+            '.top-actions [data-action="command"]',
+            '.top-actions a[href="#/saved"]',
+            '.top-actions .brand-github',
+        ):
+            box = mobile.locator(selector).bounding_box()
+            assert box and box["width"] >= 44 and box["height"] >= 44, (selector, box)
+        passed("mobile header actions expose 44px touch targets")
         for route in ("#/feed", "#/progress", "#/hot", "#/hot?tab=hf", "#/toolkit", "#/manufacturing"):
             mobile.evaluate("route => location.hash = route", route)
             mobile.wait_for_timeout(120)
