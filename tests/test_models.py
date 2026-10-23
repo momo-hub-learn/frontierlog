@@ -50,8 +50,19 @@ class ValidationTests(unittest.TestCase):
   self.assertEqual(datetime.fromisoformat(row['deadline_at'].replace('Z','+00:00')).astimezone(timezone(timedelta(hours=8))).isoformat(),'2026-10-24T01:00:00+08:00')
   d=copy.deepcopy(E);next(x for x in d['events'] if x['id']==row['id'])['deadline_at']='2026-10-23T17:00:00'
   with self.assertRaises(ValueError):validate_resets(d)
+ def test_oct23_reset_confirmation_keeps_announcement_separate(self):
+  rows={x['id']:x for x in E['events']}
+  announcement=rows['tibo-reset-announced-2026-10-22-day17']
+  confirmed=rows['tibo-global-confirmed-2026-10-23-day18']
+  self.assertEqual(announcement['status'],'announced')
+  self.assertEqual(confirmed['status'],'confirmed')
+  self.assertEqual(confirmed['review_basis'],'primary_source')
+  self.assertIn(announcement['id'],confirmed['related_ids'])
+  self.assertEqual(confirmed['published_at'],'2026-10-23T04:46:19.007Z')
+  self.assertIn("that's a reset",confirmed['original_text'])
+  validate_resets(E)
  def test_pending_not_confirmed(self):
-  d=copy.deepcopy(E);d['events'][-1]['status']='confirmed'
+  d=copy.deepcopy(E);next(x for x in d['events'] if x['review_basis']=='secondary_lead')['status']='confirmed'
   with self.assertRaises(ValueError):validate_resets(d)
  def test_announcement_never_completed(self):
   d=copy.deepcopy(E);e=d['events'][0];e['kind']='announcement'

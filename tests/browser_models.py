@@ -52,7 +52,7 @@ with sync_playwright() as p:
  expect(page.locator('.tibo-evidence-card')).not_to_have_count(0)
  tibo=page.locator('#vertical-root').inner_text()
  assert '待核验' in tibo and 'X 当前无法直连' in tibo and '不模拟 X 界面' in tibo
- assert '明确预告 · 尚未执行确认' in tibo and '预计落地' in tibo and '10月24日 01:00 前' in tibo
+ assert '已执行表述 · 已确认' in tibo and 'Tibo：reset 已执行' in tibo and '不能证明传播已覆盖每个账户' in tibo
  assert page.locator('.tibo-featured a[href*="x.com"],.tibo-evidence-card a[href*="x.com"]').count()>=1
  assert page.locator('.tibo-x-fallback').count()>=1
  shot(page,'tibo-first-screen.png');shot(page,'tibo-full.png',True)

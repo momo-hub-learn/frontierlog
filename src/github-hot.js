@@ -88,6 +88,14 @@ function ghStaleNotice(){
   const failed=GH.sync?.status==='error'?' · 最近一次同步失败，已进入维护提醒':'';
   return '<div class="ranking-stale"><strong>数据已过期，暂不作为当前榜</strong><span>'+esc(age+failed)+' · 下方仅保留 '+esc(ghWhen())+' 的历史快照，请以 GitHub 官方 Trending 为准。</span></div>'
 }
+function ghPartialNotice(){
+  const sync=GH.sync||{},metadataFailures=Number(sync.metadata_failed_count)||0,watchFailures=Number(sync.watchlist_failed_count)||0;
+  if(sync.metadata_status!=='partial'&&!metadataFailures&&!watchFailures)return '';
+  const details=[];
+  if(metadataFailures)details.push(metadataFailures+' 个上榜仓库的总 Star / Fork / 推送时间沿用旧快照');
+  if(watchFailures)details.push(watchFailures+' 个长期关注仓库本轮 API 核验失败');
+  return '<div class="ranking-partial"><strong>官方榜位与今日 Star 已更新；部分仓库 API 指标未同步</strong><span>'+esc(details.join('；')||'部分仓库 API 元数据待核验')+'。下方逐行标出旧快照，不影响 GitHub Trending 官方顺序。</span></div>'
+}
 function ghWatchPanel(){
  const q=ghQuery().toLowerCase();
  const cat=ghTopic();
@@ -147,6 +155,7 @@ function ghInline(){
     hOpenTabs('github')+
     '<div class="gh-inline-head"><div><strong>'+(ghFreshness().stale?'GitHub Trending · 历史快照':'GitHub Trending · Today')+'</strong><span>'+(ghFreshness().stale?'该快照已过期，不代表当前榜位。':'官方榜位 + 今日新增 Star，作为开发者采用信号。')+'</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
     ghStaleNotice()+
+    ghPartialNotice()+
     ghWatchPanel()+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
