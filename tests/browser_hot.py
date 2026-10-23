@@ -20,7 +20,7 @@ with sync_playwright() as pw:
  shot(p,'hot-first-screen.png');ok('hot ranking, six categories, latest day expanded, older days collapsed, no desktop overflow')
  p.locator('[data-ha="cat"][data-id="model"]').click();assert p.locator('.intraday-row').count()==sum(x['category']=='model' for x in HOT_DATA['items'])
  p.locator('#h-search').fill('Gemini');assert p.locator('.intraday-row').count()==sum('gemini' in ' '.join([x['title'],x['source'],x['summary']]).lower() for x in HOT_DATA['items'] if x['category']=='model')
- p.locator('#h-search').fill('not-found-xyz');assert p.locator('.h-empty').count()>=1
+ p.locator('#h-search').fill('not-found-xyz');expect(p.locator('.h-empty')).to_have_count(1);expect(p.locator('[data-ha="hot-clear-search"]')).to_be_visible();p.locator('[data-ha="hot-clear-search"]').click();expect(p.locator('#h-search')).to_have_value('');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']))
  route(p,'#/hot');ok('category and search filters preserve compact ranking')
  p.locator('.intraday-row [data-ha="detail"]').first.click();assert 'item=' in p.evaluate('location.hash');expect(p.locator('dialog[open]')).to_have_count(1);assert '为什么值得看' in p.locator('#modal-body').inner_text();assert '不要过度解读' in p.locator('#modal-body').inner_text();p.keyboard.press('Escape');p.wait_for_function("!location.hash.includes('item=')");ok('deep-linked evidence drawer keeps rationale and boundary separate and clears its route when closed')
  route(p,'#/hot');p.locator('[data-ha="method"]').click();status=p.locator('#modal-body').inner_text();assert 'Shadow / 不自动发布' in status;assert '人工核对快照' in status;p.keyboard.press('Escape')

@@ -89,7 +89,7 @@ function hfInline(){
         '<div class="hf-main"><div class="hf-model">'+esc(x.id)+'<em>'+esc(x.task||'其他')+'</em></div><div class="hf-sub"><span>'+esc(x.library||'—')+'</span><span>♥ '+hfFmt(x.likes)+'</span><span>↓ '+hfFmt(x.downloads)+'</span><span>创建 '+esc(x.created_at?String(x.created_at).slice(0,10):'未标注')+'</span></div><div class="hf-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
         '<div class="hf-score"><strong>'+hfFmt(x.trending_score)+'</strong><span>'+(x.api_available?('API Trending'+(fresh.api.stale?'（旧）':'')):'API 未收录')+'</span><i style="--hf-w:'+(x.api_available?Math.max(4,Math.round((Number(x.trending_score)||0)/max*100)):0)+'%"></i></div>'+
       '</a>'
-    ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配模型</h3><p>换个关键词或类型继续看。</p></div>')+
+    ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配模型</h3><p>换个关键词或类型继续看。</p><button class="button" data-hf-clear>清除搜索与筛选</button></div>')+
     '<footer class="hf-note">'+esc(HF.note||'')+'</footer>'+
   '</section>'
 }
@@ -112,6 +112,7 @@ document.addEventListener('input',e=>{
   history.replaceState(null,'','#/hot?'+p.toString());parseRoute();
   const n=document.getElementById('hf-search');if(n){n.focus({preventScroll:true});try{n.setSelectionRange(pos,pos)}catch{}}
 });
+document.addEventListener('click',e=>{if(!e.target.closest('[data-hf-clear]'))return;e.preventDefault();history.replaceState(null,'','#/hot?tab=hf');parseRoute()});
 
 if(state.view==='feed'){lastMain='';renderMain()}
 })();
