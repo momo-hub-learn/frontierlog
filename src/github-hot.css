@@ -79,6 +79,9 @@
 .ranking-stale{display:grid;gap:4px;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--orange,#d97706) 35%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--orange,#d97706) 7%,var(--panel));line-height:1.55}
 .ranking-stale strong{font-size:.9rem;color:var(--text)}
 .ranking-stale span{font-size:.8125rem;color:var(--sub)}
+.ranking-partial{display:grid;gap:4px;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--blue,#2563eb) 28%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--blue,#2563eb) 6%,var(--panel));line-height:1.55}
+.ranking-partial strong{font-size:.9rem;color:var(--text)}
+.ranking-partial span{font-size:.8125rem;color:var(--sub)}
 /* Curated watchlist: verified GitHub API totals, never a made-up Trending position. */
 .gh-watch{margin:16px 0 21px;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:16px}
 .gh-watch-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 3px 12px}.gh-watch-title h3{font-size:1.09rem}.gh-watch-title p{color:var(--sub);font-size:.8rem;margin-top:5px}.gh-watch-title>small{color:var(--muted)}

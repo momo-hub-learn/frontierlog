@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-23",
   "account": "thsottiaux",
   "events": [
     {
@@ -405,6 +405,37 @@
       "not_proves": "未证明 reset 已执行、已传播到每个账户，也未说明 banked / global 类型、适用套餐、个人余额或精确执行时刻。",
       "post_id": "2113162277688070445",
       "relation": "original"
+    },
+    {
+      "id": "tibo-global-confirmed-2026-10-23-day18",
+      "kind": "global",
+      "status": "confirmed",
+      "date": "2026-10-23",
+      "published_at": "2026-10-23T04:46:19.007Z",
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 确认 Day 18 reset：预告已转为执行信号",
+      "summary": "Tibo 在本人 X 原帖列出 Decisions API GA、OpenResponses 加入 Linux Foundation、Codex 性能改进和 Uber 部署后，明确写下“that's a reset”；这是对前一日 reset 预告的第一方执行确认。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖未列出套餐、账户或 banked reset 数量",
+      "boundary": "原帖可以确认 Tibo 宣布本次 reset 已发生，但不能证明传播已覆盖每个账户，也不能推出个人余额、额度恢复幅度、banked / global 后台机制或精确到账时刻。",
+      "sources": [
+        "tibo-post-2113492187770175603",
+        "tibo-post-2113492502355562875"
+      ],
+      "reviewed": "2026-10-23",
+      "verified_at": "2026-10-23T17:22:00+08:00",
+      "review_basis": "primary_source",
+      "related_ids": [
+        "tibo-reset-announced-2026-10-22-day17"
+      ],
+      "original_text": "Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, performance improvements and Uber is going all-in on codex & work. But yes… that's a reset!",
+      "conversation_context": "本人原帖把当日产品与生态发布列在一起，并用明确完成语气确认 reset；紧接的本人回复仍保留“tomorrow before 10am PST”这一最晚落地窗口。",
+      "interpretation": "相较前一日的未来时态预告，这是新的第一方完成信号，因此单独记录为已确认事件，并与预告关联，而不是覆盖或倒改预告的真实发布时间。",
+      "evidence_strength": "high",
+      "semantic_type": "global_reset_completion_claim",
+      "not_proves": "未证明所有账户已经完成传播、具体套餐和发放范围、banked reset 数量、个人剩余额度或后台执行的精确时刻。",
+      "post_id": "2113492187770175603",
+      "relation": "original"
     }
   ],
   "sources": [
@@ -614,6 +645,24 @@
       "checked": "2026-10-22",
       "kind": "官方原帖",
       "note": "本轮直接读取同一线程中的本人回复；“Lands tomorrow before 10am PST”提供最晚落地时间，不构成完成确认。"
+    },
+    {
+      "id": "tibo-post-2113492187770175603",
+      "publisher": "Tibo / X",
+      "title": "Day 18 reset confirmation",
+      "url": "https://x.com/thsottiaux/status/2113492187770175603",
+      "checked": "2026-10-23",
+      "kind": "官方原帖",
+      "note": "本人原帖明确写下“that's a reset”；状态 ID 的 Snowflake 时间对应 2026-10-23T04:46:19.007Z。"
+    },
+    {
+      "id": "tibo-post-2113492502355562875",
+      "publisher": "Tibo / X",
+      "title": "Day 18 timing follow-up",
+      "url": "https://x.com/thsottiaux/status/2113492502355562875",
+      "checked": "2026-10-23",
+      "kind": "官方原帖",
+      "note": "本人紧接回复再次说明最晚落地窗口；用于保留上下文，不把最晚时间误写成精确执行时刻。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

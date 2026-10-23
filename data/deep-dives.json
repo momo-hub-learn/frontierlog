@@ -1,8 +1,133 @@
 {
   "version": 1,
-  "checked": "2026-10-15",
+  "checked": "2026-10-23",
   "series": "拆一下",
   "articles": [
+    {
+      "id": "decisions-api-bounded-decision-layer",
+      "hot_ids": [
+        "openai-decisions-api-ga-20261022"
+      ],
+      "title": "拆一下 Decisions API：快 10 倍，不等于可以跳过评测",
+      "short_title": "Decisions API：什么时候该放进实时路径？",
+      "subtitle": "从有限答案、延迟预算和人工兜底，拆开一个面向高频小决策的专用接口。",
+      "dek": "Decisions API 把文本、图像或 JSON 变成 probability、choice 或 score。真正的产品问题不是它能否更快返回，而是边界清不清、阈值稳不稳、错误能否安全回退。",
+      "published": "2026-10-23",
+      "updated": "2026-10-23",
+      "read_minutes": 12,
+      "tags": [
+        "Decisions API",
+        "GPT-6 Luna",
+        "Agent 路由",
+        "评测"
+      ],
+      "thesis": "专用决策接口适合答案空间有限、错误成本可量化的高频判断；它缩短了模型输出路径，却没有替代数据集、阈值校准、失败回退与人工复核。",
+      "mini_flow": [
+        {"label": "输入", "detail": "文本 / 图像 / JSON"},
+        {"label": "有限问题", "detail": "predicate / choice / score"},
+        {"label": "产品动作", "detail": "执行 / 回退 / 人审"}
+      ],
+      "layout": "standard",
+      "opening": [
+        "OpenAI 在 10 月 22 日宣布 Decisions API 正式可用：它由 GPT-6 Luna 驱动，面向分类、路由和下一步动作等有限答案问题。官方称相对同模型经 Responses API 可快至 10 倍；这是一项官方产品主张，不是 AI坐标的独立测速。",
+        "这类接口最容易被误解成“更便宜的通用推理”。实际上，它要求开发者先把问题、允许答案和输入证据收窄。答案空间若仍是开放创作、复杂规划或不可逆高风险行动，专用接口的低延迟不会自动带来可靠性。",
+        "本文基于 OpenAI 发布页、开发者指南和 API Changelog 拆解接口契约；本站没有调用该付费 API，也没有复现客户案例中的延迟、成本或准确率。"
+      ],
+      "sections": [
+        {
+          "key": "contract",
+          "eyebrow": "01",
+          "kicker": "先看契约",
+          "title": "它返回的是有限答案，不是另一份长回复",
+          "analysis": true,
+          "blocks": [
+            {"type": "text", "text": "官方指南将输出限定为三类：predicate 给出条件为真的概率，choice 从预定义选项中选择并返回概率与置信信息，score 按有序等级给出概率加权分数。开发者必须先定义问题和允许答案。", "refs": ["guide", "launch"]},
+            {"type": "table", "title": "三种输出怎样落到产品动作", "headers": ["类型", "合适的问题", "不能直接推出"], "rows": [["predicate", "是否满足条件", "概率不是已校准的业务风险"], ["choice", "继续、重试或转人工", "最高概率不等于可以无审计执行"], ["score", "按固定等级评估严重度", "分数不能跨不同 rubric 比较"]]},
+            {"type": "note", "title": "边界", "text": "如果允许答案无法事先穷举，或行动后果不可逆，应先保留 Responses / Agent 流程与人工审批，而不是为了低延迟硬改成 choice。"}
+          ],
+          "source_refs": ["guide", "launch"]
+        },
+        {
+          "key": "changes",
+          "eyebrow": "02",
+          "kicker": "GA 增量",
+          "title": "从 Beta 到 GA，变化集中在接线与吞吐",
+          "analysis": false,
+          "blocks": [
+            {"type": "text", "text": "官方 Changelog 记录：GA 版本支持共享输入缓存、问题级图像、原生 JSON 输入，并把单次请求上限从 200 个问题提高到 400 个；发布页还说明可原生接入 GPT-Live。", "refs": ["changelog", "launch", "guide"]},
+            {"type": "architecture", "id": "decisions-runtime-boundary", "version": "01", "refs": ["guide", "launch", "changelog"], "diagram": {"title": "Decisions API 在产品热路径中的责任边界", "intro": "专用接口只负责受约束判断；阈值、权限、回退和结果监控仍属于应用。", "width": 1040, "height": 360, "zones": [{"x": 16, "y": 16, "w": 236, "h": 324, "label": "01 · 输入"}, {"x": 266, "y": 16, "w": 236, "h": 324, "label": "02 · 决策"}, {"x": 516, "y": 16, "w": 508, "h": 324, "label": "03 · 产品控制"}], "nodes": [{"id": "evidence", "x": 35, "y": 72, "w": 198, "h": 76, "label": "最小必要证据", "detail": "文本 / 图像 / JSON", "kind": "boundary"}, {"id": "question", "x": 35, "y": 220, "w": 198, "h": 76, "label": "有限问题", "detail": "答案 / rubric 已定义"}, {"id": "decision", "x": 285, "y": 145, "w": 198, "h": 76, "label": "Decisions API", "detail": "probability / choice / score"}, {"id": "policy", "x": 550, "y": 72, "w": 205, "h": 76, "label": "策略与阈值", "detail": "权限 / 置信 / 风险"}, {"id": "fallback", "x": 550, "y": 220, "w": 205, "h": 76, "label": "回退与人审", "detail": "异常 / 低置信 / 高风险", "kind": "verify"}, {"id": "action", "x": 792, "y": 145, "w": 205, "h": 76, "label": "可追踪动作", "detail": "执行 / 记录 / 复盘", "kind": "verify"}], "edges": [{"from": "evidence", "to": "decision"}, {"from": "question", "to": "decision"}, {"from": "decision", "to": "policy"}, {"from": "policy", "to": "action"}, {"from": "policy", "to": "fallback", "dashed": true}, {"from": "fallback", "to": "action"}], "boundary": "依据 OpenAI 官方产品页、开发文档和 Changelog 归纳的逻辑拓扑；阈值、人工审批与审计层并非 Decisions API 自动提供。"}, "annotations": [{"title": "接口输出不是业务授权", "detail": "应用仍要校验调用者、动作范围和错误成本。"}, {"title": "低置信必须可回退", "detail": "不要用一次最高概率选择绕过人工审批。"}]},
+            {"type": "flow", "title": "一条合理的实时决策链", "nodes": [{"title": "冻结输入", "detail": "只提供当前判断需要的最小证据"}, {"title": "请求决策", "detail": "固定问题、答案和 rubric"}, {"title": "应用阈值", "detail": "低置信或异常样本进入回退"}, {"title": "记录结果", "detail": "保存版本、决策与真实结果"}], "caption": "这是 AI坐标建议的产品接线，不是 OpenAI 强制工作流。"}
+          ],
+          "source_refs": ["changelog", "launch", "guide"]
+        },
+        {
+          "key": "latency",
+          "eyebrow": "03",
+          "kicker": "性能主张",
+          "title": "“快至 10 倍”只回答延迟，不回答你的错误成本",
+          "analysis": true,
+          "blocks": [
+            {"type": "text", "text": "OpenAI 的 10 倍表述是 Decisions API 与 GPT-6 Luna 经 Responses API 的对比范围。发布页中的 Box、Datadog、Ramp、Sierra 和 Speak 数字来自各客户场景，数据集、阈值和基线不同，不能拼成统一基准。", "refs": ["launch"]},
+            {"type": "table", "title": "上线前至少并列看的四个指标", "headers": ["指标", "为什么重要"], "rows": [["任务正确率 / 校准误差", "防止更快地产生错误决定"], ["P50 / P95 端到端延迟", "包含网络、排队和应用回退"], ["每千次决策成本", "把缓存命中率与重试算进去"], ["转人工率与高风险漏判", "衡量真实运营负担和最坏后果"]]}
+          ],
+          "source_refs": ["launch"]
+        },
+        {
+          "key": "fit",
+          "eyebrow": "04",
+          "kicker": "适用范围",
+          "title": "先从可回放、可兜底的小决策开始",
+          "analysis": true,
+          "blocks": [
+            {"type": "cards", "title": "优先试的三类任务", "items": [{"title": "内容路由", "detail": "将请求送到固定队列，失败时可转人工"}, {"title": "Agent 下一步", "detail": "只在允许动作集合内继续、重试或澄清"}, {"title": "实时交互", "detail": "在语音或 UI 中选择低风险反馈"}]},
+            {"type": "text", "text": "不建议把第一版直接接到资金划拨、账号封禁、医疗处置或无人审批的生产命令执行。接口支持结构化答案，不等于业务政策、合规与权限边界已经被验证。", "refs": ["guide"]}
+          ],
+          "source_refs": ["guide"]
+        },
+        {
+          "key": "operations",
+          "eyebrow": "05",
+          "kicker": "失败也要可读",
+          "title": "实时路径最怕静默降级和错误放大",
+          "analysis": true,
+          "blocks": [
+            {"type": "text", "text": "生产接线应把超时、限流、无效输入、低置信和答案不在允许集合分开处理。历史结果可以帮助读者理解系统，但不能伪装成当前判断；高风险动作应默认停止或转人工，而不是为了保持吞吐继续执行。", "refs": ["guide"]},
+            {"type": "table", "title": "四种失败状态与诚实回退", "headers": ["状态", "产品响应"], "rows": [["请求超时 / 服务不可达", "保留旧信息并标为历史；不自动重放高风险动作"], ["低置信 / 选项接近", "转人工或请求更多证据"], ["输入缺失 / 格式错误", "阻止执行并返回可修正字段"], ["分布漂移 / 线上错误上升", "停用自动动作，回到基线流程并重做评测"]]}
+          ],
+          "source_refs": ["guide"]
+        },
+        {
+          "key": "experiment",
+          "eyebrow": "06",
+          "kicker": "怎么验证",
+          "title": "用同一批真实样本，对照 Responses 基线",
+          "analysis": true,
+          "blocks": [
+            {"type": "text", "text": "抽取近期真实分布中的固定样本，标注正确答案与错误成本；A 组使用当前 Responses 流程，B 组使用 Decisions。冻结模型、提示、缓存策略和区域，重复测量正确率、校准、P50/P95 延迟、成本与回退率。"},
+            {"type": "note", "title": "不要只测容易样本", "text": "测试集要包含缺字段、长尾类别、相似选项、图像质量差和输入分布漂移；否则低延迟会掩盖最需要人工兜底的样本。"}
+          ],
+          "source_refs": ["guide", "launch"]
+        },
+        {
+          "key": "outlook",
+          "eyebrow": "07",
+          "kicker": "前瞻判断",
+          "title": "Agent 的下一层基础设施，可能是专用决策面",
+          "analysis": true,
+          "blocks": [
+            {"type": "text", "text": "当 Agent 把开放式规划拆成大量有界选择，低延迟的决策层能减少每一步生成长文本的浪费。真正值得持续观察的是：不同业务分布下的校准稳定性、缓存对成本的真实贡献、GPT-Live 等实时接线，以及错误是否能被产品层及时截断。", "refs": ["launch", "changelog"]},
+            {"type": "transition", "text": "把 Decisions API 当成经过测量的路由器，会比把它当成更便宜的万能模型更接近它的产品价值。"}
+          ],
+          "source_refs": ["launch", "changelog"]
+        }
+      ],
+      "sources": [
+        {"id": "launch", "publisher": "OpenAI", "title": "Build more responsive apps with the Decisions API", "url": "https://openai.com/index/decisions-api/", "published": "2026-10-22", "checked": "2026-10-23", "kind": "官方产品发布", "note": "用于核验 GA、功能、价格和官方/客户性能主张；客户案例不视为本站实测。"},
+        {"id": "guide", "publisher": "OpenAI Developers", "title": "Decisions API guide", "url": "https://developers.openai.com/api/docs/guides/decisions", "published": null, "checked": "2026-10-23", "kind": "官方开发文档", "note": "用于核验端点、支持模型、输入和三种输出类型。"},
+        {"id": "changelog", "publisher": "OpenAI Developers", "title": "API Changelog · October 22", "url": "https://developers.openai.com/api/docs/changelog", "published": "2026-10-22", "checked": "2026-10-23", "kind": "官方变更日志", "note": "用于核验从 Beta 到 GA 的功能增量和 400 问题上限。"}
+      ],
+      "revision_note": "2026-10-23 首次发布；基于 GA 公告与官方文档，未调用付费 API，未把客户案例数字写成本站实测。"
+    },
     {
       "id": "rea-agent-reverse-engineering",
       "hot_ids": [

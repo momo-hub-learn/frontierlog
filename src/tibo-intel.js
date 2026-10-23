@@ -3,7 +3,7 @@
 let loading=false,xWidgetsPromise=null;
 const X_EMBED_TIMEOUT_MS=5000;
 const strengthLabel={high:'强',medium:'中',low:'低'};
-const semanticLabel={timing_hint:'时间暗示',explicit_announcement:'明确预告',reset_executed:'已执行表述',propagation_complete:'传播完成',banked_delivery:'重置卡发放',banked_announcement:'重置卡预告',usage_explanation:'用量/修复解释',denial:'否认/纠正',reset_related:'重置相关',non_reset_context:'无关 / 误读纠正'};
+const semanticLabel={timing_hint:'时间暗示',explicit_announcement:'明确预告',reset_executed:'已执行表述',global_reset_completion_claim:'已执行表述',propagation_complete:'传播完成',banked_delivery:'重置卡发放',banked_announcement:'重置卡预告',usage_explanation:'用量/修复解释',denial:'否认/纠正',reset_related:'重置相关',non_reset_context:'无关 / 误读纠正'};
 function when(x){const raw=x.published_at||x.observed_at||'';if(raw){try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw))+' 北京时间'}catch{}}return x.date||'时间未核验'}
 function signalRows(){const events=RESET_DATA.events.filter(x=>x.interpretation||x.original_text).map(x=>({...x,_source:'event'}));const inbox=(RESET_DATA.inbox||[]).filter(x=>x.interpretation).map(x=>({...x,_source:'inbox',title:x.title||'Tibo 新帖候选',original_text:x.excerpt,not_proves:x.not_proves||x.reason}));return [...events,...inbox].sort((a,b)=>String(b.published_at||b.date||'').localeCompare(String(a.published_at||a.date||''))).slice(0,8)}
 function sourceFor(x){const ids=Array.isArray(x.sources)?x.sources:[];const candidates=ids.map(id=>RESET_DATA.sources.find(s=>s.id===id)).filter(Boolean);return candidates.find(s=>/x\.com\/thsottiaux\/status\//.test(s.url||''))||candidates.find(s=>/Tibo\s*\/\s*X/i.test(s.publisher||''))||candidates[0]||null}
@@ -46,7 +46,7 @@ function heroReviewState(x){
 function heroStateLabel(x){
   const type=semanticLabel[x.semantic_type]||RESET_KINDS[x.kind]||'重置相关';
   if(x.semantic_type==='explicit_announcement')return type+' · 尚未执行确认';
-  if(x.semantic_type==='propagation_complete'||x.semantic_type==='reset_executed'||x.semantic_type==='banked_delivery')return type+' · '+(x.status==='confirmed'?'已确认':'待核验');
+  if(['propagation_complete','reset_executed','global_reset_completion_claim','banked_delivery'].includes(x.semantic_type))return type+' · '+(x.status==='confirmed'?'已确认':'待核验');
   return type+' · '+(RESET_STATUS[x.status]||'待核验')
 }
 function officialSyncLabel(){
@@ -60,7 +60,7 @@ function heroHeadline(x){
   const raw=String(x.original_text||x.title||x.summary||'');
   if(x.semantic_type==='explicit_announcement')return /Tuesday|周二/i.test(raw)?'Tibo 预告：周二会有一次 reset':'Tibo：明确预告一次 reset';
   if(x.semantic_type==='propagation_complete')return 'Tibo：reset 已完成传播';
-  if(x.semantic_type==='reset_executed')return 'Tibo：reset 已执行';
+  if(x.semantic_type==='reset_executed'||x.semantic_type==='global_reset_completion_claim')return 'Tibo：reset 已执行';
   if(x.semantic_type==='banked_delivery')return 'Tibo：banked reset 已发放';
   if(x.semantic_type==='usage_explanation')return 'Tibo：说明 reset 修复与补偿';
   if(x.semantic_type==='denial')return 'Tibo：纠正 reset 相关说法';
