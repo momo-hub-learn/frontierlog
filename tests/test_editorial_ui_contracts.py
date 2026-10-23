@@ -47,3 +47,5 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)
   self.assertIn("icon(interactive?'zap':'book')",text)
+  self.assertIn("r.kind==='product'",text)
+  self.assertIn('当前入口是候补或产品资料页，尚不能直接体验',text)
