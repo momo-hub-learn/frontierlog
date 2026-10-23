@@ -22,19 +22,19 @@ check('single company column and seven semantic table headers',()=>{
 });
 check('official ranks are preserved, including gaps and equal scores',()=>{
  const html=render(''),ranks=Array.from(html.matchAll(/<td class="ar-rank">(.*?)<\/td>/g),x=>Number(x[1]));
- assert.deepEqual(ranks,[1,2,3,4,5,17,18,19]);assert(!html.includes('#1 当前样本'));
+ assert.deepEqual(ranks,[1,2,3,4,5,18,21,26]);assert(!html.includes('#1 当前样本'));
 });
-check('OpenAI filtering retains #18 rather than manufacturing #1',()=>{
- const html=render('&maker=OpenAI');assert(html.includes('<td class="ar-rank">18</td>'));assert(!html.includes('class="ar-leading"'));assert(html.includes('显示 1 / 8 条'));
- assert(html.includes('1,483'));assert(html.includes('± 5'));assert(html.includes('非完整榜'));
+check('OpenAI filtering retains #21 rather than manufacturing #1',()=>{
+ const html=render('&maker=OpenAI');assert(html.includes('<td class="ar-rank">21</td>'));assert(!html.includes('class="ar-leading"'));assert(html.includes('显示 1 / 8 条'));
+ assert(html.includes('1,485'));assert(html.includes('± 4'));assert(html.includes('非完整榜'));
 });
 check('search and saved-only filtering share the real model state',()=>{
  api.saved.add('arena-18');assert(render('&stars=1').includes('显示 1 / 8 条'));api.saved.clear();
- assert(render('&q=not-a-model').includes('没有匹配的模型'));assert(render('&q=Claude').includes('显示 4 / 8 条'));
+ assert(render('&q=not-a-model').includes('没有匹配的模型'));assert(render('&q=Claude').includes('显示 3 / 8 条'));
 });
 check('provenance has separate original/verified dates and honest coverage',()=>{
- const html=render('');assert(html.includes('最近核验 <time datetime="2026-09-22"'));assert(html.includes('来源日期 <time datetime="2026-09-13"'));
- assert(html.includes('人工摘录 8 条 · 非完整榜'));assert(!html.includes('2026.09.25'));assert(!html.includes('实时全量'));
+ const html=render('');assert(html.includes('最近核验 <time datetime="2026-10-23"'));assert(html.includes('来源日期 <time datetime="2026-10-22"'));
+ assert(html.includes('人工摘录 8 条 · 非完整榜'));assert(!html.includes('实时全量'));
 });
 check('missing uncertainty and dates are not manufactured',()=>{
  assert(api.score({preference:0,score_error:0}).includes('± 0'));assert(api.score({preference:null}).includes('误差未提供'));assert(!api.score({}).includes('± 0'));
