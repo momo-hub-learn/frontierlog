@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "microsoft-flint-interactive",
+      "publisher": "Microsoft",
+      "group": "agents",
+      "access": "local",
+      "headline": "先用固定小数据验证一张联动图，再把 Flint Interactive 接进应用",
+      "input": "一个已核对的小型表格、字段语义、目标图形编码，以及需要验证的点击、筛选、缩放或跨视图联动",
+      "output": "Flint 图表规范、interaction_spec、可复核的交互状态，以及静态基线和异常状态截图",
+      "requirements": "可运行 npx 的 MCP 客户端，或 Node.js 项目与 flint-chart；开发者模式还需所选渲染后端和真实目标浏览器。",
+      "limitation": "本站只核验 Microsoft 官方发布、仓库与接入说明，未运行 Flint。官方关于更可靠和减少开发工作量的表述不能替代数据正确性、交互状态、无障碍、性能及依赖安全测试。",
+      "cost": "Flint 仓库采用 MIT 许可；本地 MCP 与 npm 库仍会产生模型调用、运行环境、渲染后端和维护成本，托管服务的可用性与条款需接入时另行核对。",
+      "steps": [
+        {
+          "title": "先固定数据与静态基线",
+          "body": "选一份可人工复算的小数据，写清字段类型、聚合与排序；先生成静态图，逐项核对数值、单位、图例和缺失值。"
+        },
+        {
+          "title": "只增加一个可观察交互",
+          "body": "通过本地 MCP 让 Agent 添加筛选或联动高亮，保存生成的 chart_spec 与 interaction_spec，并记录操作前后的状态。",
+          "command": "npx -y flint-chart-mcp"
+        },
+        {
+          "title": "跨输入方式回归",
+          "body": "分别检查鼠标、键盘、触摸、窄屏、空数据、缩放恢复和导出；确认图表变化有文字或状态反馈，不只依赖颜色。"
+        }
+      ],
+      "troubleshooting": "图表数值不对时先回到字段语义、聚合和排序，不用交互掩盖错误；联动失效时对照语义事件与更新算子检查状态；渲染异常时记录 Flint、后端和浏览器版本，并缩到最小可复现规范。",
+      "sources": [
+        {
+          "title": "Microsoft Research Flint-interactive 官方发布",
+          "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-23"
+        },
+        {
+          "title": "Microsoft Flint 官方仓库与 Flint 1.0 入门说明",
+          "url": "https://github.com/microsoft/flint-chart",
+          "published_at": "2026-10-19",
+          "verified_at": "2026-10-23"
+        }
+      ],
+      "entry_url": "https://microsoft.github.io/flint-chart/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-23T21:21:00+08:00"
+    },
+    {
       "id": "openai-decisions-api",
       "publisher": "OpenAI",
       "group": "agents",

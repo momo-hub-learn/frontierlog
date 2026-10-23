@@ -43,7 +43,7 @@ const TK = (()=>{
    <h2>${esc(g.headline)}</h2>
    <div class="tk-io"><dl><dt>输入</dt><dd>${esc(g.input)}</dd></dl><span aria-hidden="true">→</span><dl><dt>输出</dt><dd>${esc(g.output)}</dd></dl></div>
    <dl class="tk-conditions"><div><dt>先准备</dt><dd>${esc(g.requirements)}</dd></div><div><dt>最大限制</dt><dd>${esc(g.limitation)}</dd></div></dl>
-   <div class="tk-actions">${external(doc.url,'官方上手文档')}${g.entry_url?external(g.entry_url,'打开入口'):''}<button type="button" class="save ${saved.has(g.id)?'active':''}" data-tk-save="${g.id}" aria-label="${saved.has(g.id)?'取消关注':'关注'} ${esc(t.name)}" aria-pressed="${saved.has(g.id)}">${icon('bookmark')}</button></div>
+   <div class="tk-actions">${external(doc.url,'官方上手文档')}${g.entry_url&&g.entry_url!==doc.url?external(g.entry_url,'打开入口'):''}<button type="button" class="save ${saved.has(g.id)?'active':''}" data-tk-save="${g.id}" aria-label="${saved.has(g.id)?'取消关注':'关注'} ${esc(t.name)}" aria-pressed="${saved.has(g.id)}">${icon('bookmark')}</button></div>
    <details class="tk-guide" data-tk-guide="${g.id}" ${opened?'open':''}>
     <summary><span>${icon('code')} 步骤与验收</span><span class="tk-expand" aria-hidden="true">＋</span></summary>
     <div class="tk-guide-content"><div><h3>从一个小任务开始</h3><ol class="tk-steps">${g.steps.map((step,i)=>`<li><h4>${esc(step.title)}</h4><p>${esc(step.body)}</p>${step.command?`<div class="tk-command"><div><span>示例命令 · 未在本站执行</span><button type="button" data-tk-copy="${i}" data-tk-tool="${g.id}" aria-label="复制 ${esc(t.name)} 第 ${i+1} 步完整命令">${icon('copy')} 复制全部</button></div><pre><code>${esc(step.command)}</code></pre><p class="tk-copy-status" role="status"></p></div>`:''}</li>`).join('')}</ol></div>

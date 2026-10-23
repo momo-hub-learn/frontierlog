@@ -37,7 +37,15 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(rows['anthropic-claude-security']['sources'][0]['url'].split('/')[2],'claude.com')
         self.assertEqual(rows['nvidia-openshell']['sources'][0]['url'].split('/')[2],'nvidianews.nvidia.com')
         self.assertEqual(rows['nvidia-auto-ontology']['sources'][0]['url'].split('/')[2],'blogs.nvidia.com')
+        self.assertEqual(rows['microsoft-flint-interactive']['sources'][0]['url'].split('/')[2],'www.microsoft.com')
         validate_toolkit(self.data,self.catalog)
+
+    def test_flint_guide_separates_official_claims_from_local_evidence(self):
+        row=next(x for x in self.data['items'] if x['id']=='microsoft-flint-interactive')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('未运行',row['limitation'])
+        self.assertIn('键盘、触摸',row['steps'][-1]['body'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-22')
 
     def test_reviewed_author_paper_is_accepted(self):
         row=next(x for x in self.data['items'] if x['id']=='agent4sci')

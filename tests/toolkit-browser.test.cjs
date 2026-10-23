@@ -31,6 +31,14 @@ test('bookmarks use shared catalogue IDs',()=>{ctx.saved.add('docling');assert.d
 test('route serialization retains independent filters',()=>{const s=read('group=audio&access=local&q=录音&saved=1');const next=tk.read(tk.href(s,{access:'all'}));assert.equal(next.group,'audio');assert.equal(next.access,'all');assert.equal(next.q,'录音');assert.equal(next.only,true)});
 test('legacy task route identifies guide not old modal',()=>{assert.equal(read('task=docling&tab=run').tool,'docling');assert.equal(read('tool=not-real').tool,'')});
 test('true publisher no arbitrary fallback',()=>{const html=tk.card(data.items.find(x=>x.id==='chatgpt-voice-work'));assert(html.includes('OpenAI'));assert(!html.includes('Google DeepMind'))});
+test('duplicate source and entry links collapse to one action',()=>{
+ const same=tk.card(data.items.find(x=>x.id==='openai-decisions-api'));
+ const actions=same.match(/<div class="tk-actions">([\s\S]*?)<\/div>/)[1];
+ assert.equal((actions.match(/openai\.com\/index\/decisions-api\//g)||[]).length,1);
+ assert(!actions.includes('打开入口'));
+ const distinct=tk.card(data.items.find(x=>x.id==='microsoft-flint-interactive'));
+ assert(distinct.includes('官方上手文档'));assert(distinct.includes('打开入口'));
+});
 test('complete commands, not fake run/copy buttons',()=>{const html=tk.card(data.items.find(x=>x.id==='docling'));assert(html.includes('docling ./sample.pdf'));assert(html.includes('data-tk-copy="1"'));assert(!html.includes('data-action="run"'));assert(html.includes('运行未实测'))});
 test('cards escape editorial strings and never create fake proof',()=>{const row={...data.items.find(x=>x.id==='docling'),headline:'<img src=x onerror=alert(1)>'};const html=tk.card(row);assert(!html.includes('<img src=x'));assert(html.includes('&lt;img'));assert(html.includes('data-check-task="docling"'));assert(html.includes('资料核验'))});
 (async()=>{

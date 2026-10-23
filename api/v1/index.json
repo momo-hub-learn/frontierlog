@@ -37,6 +37,60 @@
     ],
     "items": [
       {
+        "id": "microsoft-flint-interactive-20261022",
+        "category": "product",
+        "title": "Microsoft Flint 1.0：Agent 开始直接生成可交互图表",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T21:21:00+08:00",
+        "first_seen_at": "2026-10-23T21:21:00+08:00",
+        "heat": 91,
+        "heat_components": {
+          "impact": 31,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 12
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是图表质量、可靠性或本站实测分数。",
+        "trend": "up",
+        "summary": "Microsoft Research 发布 Flint-interactive：用交互预设、语义事件和更新算子，让 Agent 生成可点击、筛选、缩放、联动高亮并连接表格或应用状态的图表；Flint 1.0 已开放 MCP 与 npm 接入。",
+        "why": "Agent 生成可视化正在从一次性图片或反复拼底层前端代码，转向可读、可组合的交互规范；这为聊天内探索、仪表板和数据故事提供了更容易审计的中间层。",
+        "boundary": "本站核验了官方发布和代码说明，但未运行 Flint。官方关于提高可靠性、降低开发成本的表述是产品方主张；真实数据正确性、交互状态、无障碍、性能和安全边界仍需项目内测试。",
+        "source": "Microsoft Research / Microsoft",
+        "source_kind": "官方研究发布与代码仓库 / 本轮编辑核验",
+        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+        "link": "#/toolkit?task=microsoft-flint-interactive&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "按核验清单试跑 Flint",
+            "note": "先用固定小数据核对静态结果，再增加一个交互并回归键盘、触摸和窄屏",
+            "url": "https://microsoft.github.io/flint-chart/",
+            "kind": "tool"
+          },
+          {
+            "label": "查看官方代码与 Flint 1.0 说明",
+            "note": "仓库列出 MCP、npm、交互预设和编程 API；本站未执行",
+            "url": "https://github.com/microsoft/flint-chart",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Microsoft Research",
+            "title": "Flint-interactive: A language for creating interactive data visualizations",
+            "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+            "date": "2026-10-22"
+          },
+          {
+            "source": "Microsoft",
+            "title": "microsoft/flint-chart",
+            "url": "https://github.com/microsoft/flint-chart",
+            "date": "2026-10-19"
+          }
+        ]
+      },
+      {
         "id": "openai-nask-ai-safety-partnership-20261023",
         "category": "research",
         "title": "OpenAI 与波兰 NASK 启动 AI 安全评测合作",
@@ -4233,6 +4287,37 @@
     ],
     "items": [
       {
+        "id": "flint-semantic-interaction-language",
+        "lane": "paradigm",
+        "title": "Agent 生成交互界面开始转向语义事件，而不只是拼前端代码",
+        "maker": "Microsoft Research / Microsoft",
+        "date": "2026-10-22",
+        "verified_at": "2026-10-23T21:21:00+08:00",
+        "tags": [
+          "Generative UI",
+          "Data Visualization",
+          "Semantic Interaction"
+        ],
+        "fact": "Microsoft 发布 Flint-interactive 与 Flint 1.0：交互规范用语义事件和高层更新算子描述点击、刷选、缩放、联动高亮及外部应用状态，底层命中测试、依赖和渲染更新由编译器处理；官方仓库提供 23 个交互预设、MCP 服务和编程 API。",
+        "insight": "如果 Agent 输出的是可读、可组合的交互规范，评测可以从“截图像不像”前移到数据编码、事件状态和更新结果；这可能成为聊天内生成式 UI 与现有应用状态之间更稳定的接口层。",
+        "boundary": "这是 Microsoft 的官方发布与开源实现，本站未运行。更可靠、降低成本属于产品方主张；一套图表语言不能自动保证数据正确、交互可达、响应性能、跨后端一致或生产安全。",
+        "next_watch": "关注独立项目对 23 个预设和自定义交互的复现、键盘与触摸可达性、不同渲染后端的一致性，以及 Agent 修改 interaction_spec 时能否保持数据与状态约束。",
+        "sources": [
+          {
+            "label": "Microsoft Research Flint-interactive 官方发布",
+            "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+            "kind": "官方发布、工作原理与使用路径",
+            "strength": "primary"
+          },
+          {
+            "label": "Microsoft Flint 官方仓库",
+            "url": "https://github.com/microsoft/flint-chart",
+            "kind": "官方代码、Flint 1.0 更新与接入说明",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "openai-nask-public-ai-safety-evaluations",
         "lane": "science",
         "title": "前沿 AI 安全评测正在接入国家级公共研究机构",
@@ -6093,7 +6178,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T11:35:38Z",
+    "checked_at": "2026-10-23T13:17:12Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -6166,7 +6251,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 40705
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "php/php-src",
@@ -6235,7 +6321,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 41443
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "anthropics/knowledge-work-plugins",
@@ -6305,7 +6392,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 31908
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "NVIDIA/OpenShell",
@@ -6335,7 +6423,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 18225
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Renhuai123/ziwei-doushu",
@@ -6364,7 +6453,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 6552
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "SnailSploit/Claude-Red",
@@ -6394,7 +6484,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 8009
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "OpenBMB/VoxCPM",
@@ -6424,7 +6515,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 39993
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "nodejs/node",
@@ -6453,7 +6545,8 @@
             "at": "2026-10-23T11:35:38Z",
             "stars": 122594
           }
-        ]
+        ],
+        "metadata_status": "stale"
       }
     ],
     "categories": [
@@ -6531,17 +6624,26 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-23T11:35:38Z",
-      "last_success_at": "2026-10-23T11:35:38Z",
+      "last_checked_at": "2026-10-23T13:17:12Z",
+      "last_success_at": "2026-10-23T13:17:12Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-23T11:35:38Z",
-      "watchlist_errors": [],
-      "watchlist_failed_count": 0,
+      "watchlist_checked_at": "2026-10-23T13:17:12Z",
+      "watchlist_errors": [
+        "morluto/rea: HTTP Error 403: Forbidden"
+      ],
+      "watchlist_failed_count": 1,
       "trending_count": 8,
-      "verified_count": 8,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "skipped": []
+      "verified_count": 0,
+      "metadata_failed_count": 8,
+      "metadata_status": "partial",
+      "skipped": [
+        "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+        "php/php-src: HTTP Error 403: Forbidden",
+        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+        "NVIDIA/OpenShell: HTTP Error 403: Forbidden",
+        "Renhuai123/ziwei-doushu: HTTP Error 403: Forbidden",
+        "SnailSploit/Claude-Red: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -6567,15 +6669,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-23T11:26:21Z",
+    "checked_at": "2026-10-23T13:17:12Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-23T11:26:21Z",
-    "web_fetched_at": "2026-10-23T11:26:21Z",
+    "api_fetched_at": "2026-10-23T13:17:12Z",
+    "web_fetched_at": "2026-10-23T13:17:12Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -6591,13 +6693,13 @@
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
       "jialinyyzz/humanizer",
-      "meta-models/Muse-Spark-Open-816B-A42B",
       "datalab-to/indra-ocr",
-      "tencent/Hy-Memory-30B-A3B",
+      "meta-models/Muse-Spark-Open-816B-A42B",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "black-forest-labs/flux-3-image-klein",
       "InternScience/Sage-A1.5",
-      "mistralai/Timestral-209M"
+      "black-forest-labs/flux-3-image-klein",
+      "mistralai/Timestral-209M",
+      "tencent/Hy-Memory-30B-A3B"
     ],
     "web_rank_changes": [
       {
@@ -6605,140 +6707,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "google/embeddinggemma-2",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
-        "previous_rank": 12,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_rank": 11,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 12,
-        "previous_rank": 11,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "jialinyyzz/humanizer",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
-      },
-      {
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "rank": 14,
-        "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "datalab-to/indra-ocr",
-        "rank": 15,
+        "rank": 14,
         "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
-        "id": "tencent/Hy-Memory-30B-A3B",
-        "rank": 16,
-        "previous_rank": 16,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "rank": 15,
+        "previous_rank": 14,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "rank": 17,
-        "previous_rank": 18,
+        "rank": 16,
+        "previous_rank": 17,
         "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
+      },
+      {
+        "id": "InternScience/Sage-A1.5",
+        "rank": 17,
+        "previous_rank": 19,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein",
         "rank": 18,
-        "previous_rank": 17,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
-      },
-      {
-        "id": "InternScience/Sage-A1.5",
-        "rank": 19,
-        "previous_rank": 19,
+        "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       },
       {
         "id": "mistralai/Timestral-209M",
-        "rank": 20,
+        "rank": 19,
         "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T11:21:15Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
+      },
+      {
+        "id": "tencent/Hy-Memory-30B-A3B",
+        "rank": 20,
+        "previous_rank": 16,
+        "rank_change": -4,
+        "previous_fetched_at": "2026-10-23T11:26:21Z"
       }
     ],
     "items": [
@@ -6746,8 +6848,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2119,
-        "likes": 2466,
+        "trending_score": 2131,
+        "likes": 2483,
         "downloads": 57715,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6763,8 +6865,8 @@
         "rank": 2,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 684,
-        "likes": 1342,
+        "trending_score": 671,
+        "likes": 1349,
         "downloads": 534837,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -6780,8 +6882,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 594,
-        "likes": 606,
+        "trending_score": 604,
+        "likes": 616,
         "downloads": 1904,
         "task": "text-generation",
         "library": "transformers",
@@ -6797,8 +6899,8 @@
         "rank": 4,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 536,
-        "likes": 615,
+        "trending_score": 526,
+        "likes": 619,
         "downloads": 7658,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6814,8 +6916,8 @@
         "rank": 5,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 444,
-        "likes": 508,
+        "trending_score": 434,
+        "likes": 510,
         "downloads": 5618,
         "task": "text-to-image",
         "library": "diffusers",
@@ -6831,8 +6933,8 @@
         "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 413,
-        "likes": 8956,
+        "trending_score": 416,
+        "likes": 8969,
         "downloads": 2026951,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -6848,8 +6950,8 @@
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 393,
-        "likes": 932,
+        "trending_score": 392,
+        "likes": 934,
         "downloads": 17017,
         "task": "text-to-speech",
         "library": "未标注",
@@ -6865,8 +6967,8 @@
         "rank": 8,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 360,
-        "likes": 383,
+        "trending_score": 361,
+        "likes": 385,
         "downloads": 1606363,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -6882,8 +6984,8 @@
         "rank": 9,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 352,
-        "likes": 384,
+        "trending_score": 358,
+        "likes": 390,
         "downloads": 1060,
         "task": "text-generation",
         "library": "transformers",
@@ -6899,7 +7001,7 @@
         "rank": 10,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 323,
+        "trending_score": 317,
         "likes": 2859,
         "downloads": 192741,
         "task": "feature-extraction",
@@ -6916,8 +7018,8 @@
         "rank": 11,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 313,
-        "likes": 4871,
+        "trending_score": 317,
+        "likes": 4883,
         "downloads": 2398071,
         "task": "text-to-image",
         "library": "gguf",
@@ -6933,8 +7035,8 @@
         "rank": 12,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 311,
-        "likes": 18254,
+        "trending_score": 312,
+        "likes": 18259,
         "downloads": 7710011,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -6951,7 +7053,7 @@
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
         "trending_score": 281,
-        "likes": 2107,
+        "likes": 2109,
         "downloads": 129025,
         "task": "text-generation",
         "library": "gguf",
@@ -6965,27 +7067,10 @@
       },
       {
         "rank": 14,
-        "id": "meta-models/Muse-Spark-Open-816B-A42B",
-        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-        "trending_score": 259,
-        "likes": 669,
-        "downloads": 5196,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-09-15T19:23:19.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "muse_spark",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 15,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 259,
-        "likes": 380,
+        "trending_score": 260,
+        "likes": 382,
         "downloads": 4033,
         "task": "image-to-text",
         "library": "onnx",
@@ -6998,28 +7083,28 @@
         ]
       },
       {
-        "rank": 16,
-        "id": "tencent/Hy-Memory-30B-A3B",
-        "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-        "trending_score": 250,
-        "likes": 297,
-        "downloads": 3270,
-        "task": "text-generation",
+        "rank": 15,
+        "id": "meta-models/Muse-Spark-Open-816B-A42B",
+        "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+        "trending_score": 248,
+        "likes": 670,
+        "downloads": 5196,
+        "task": "image-text-to-text",
         "library": "transformers",
-        "created_at": "2026-10-15T09:52:00.000Z",
+        "created_at": "2026-09-15T19:23:19.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "hy_v3",
-          "text-generation"
+          "muse_spark",
+          "image-text-to-text"
         ]
       },
       {
-        "rank": 17,
+        "rank": 16,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 245,
-        "likes": 281,
+        "trending_score": 246,
+        "likes": 282,
         "downloads": 4141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7032,10 +7117,27 @@
         ]
       },
       {
+        "rank": 17,
+        "id": "InternScience/Sage-A1.5",
+        "url": "https://huggingface.co/InternScience/Sage-A1.5",
+        "trending_score": 239,
+        "likes": 244,
+        "downloads": 924,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-15T08:34:39.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3_5_moe",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 18,
         "id": "black-forest-labs/flux-3-image-klein",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-        "trending_score": 244,
+        "trending_score": 237,
         "likes": 645,
         "downloads": 105768,
         "task": "image-to-image",
@@ -7050,27 +7152,10 @@
       },
       {
         "rank": 19,
-        "id": "InternScience/Sage-A1.5",
-        "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 239,
-        "likes": 243,
-        "downloads": 924,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-15T08:34:39.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "qwen3_5_moe",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 20,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
         "trending_score": 236,
-        "likes": 294,
+        "likes": 295,
         "downloads": 6815,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -7081,11 +7166,28 @@
           "time-series",
           "forecasting"
         ]
+      },
+      {
+        "rank": 20,
+        "id": "tencent/Hy-Memory-30B-A3B",
+        "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
+        "trending_score": 225,
+        "likes": 297,
+        "downloads": 3270,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-15T09:52:00.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "hy_v3",
+          "text-generation"
+        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-23T11:26:21Z",
+      "last_checked_at": "2026-10-23T13:17:12Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -16283,6 +16385,37 @@
     "snapshot": "2026-10-23",
     "items": [
       {
+        "id": "microsoft-flint-interactive",
+        "name": "Microsoft Flint · Interactive",
+        "title": "让 Agent 用语义事件生成可交互图表",
+        "category": "Agent 与自动化",
+        "mark": "FI",
+        "accent": "blue",
+        "summary": "用高层交互预设、语义事件和更新算子描述筛选、缩放、联动高亮与跨视图状态变化，再由 Flint 编译器处理底层渲染依赖。",
+        "scope": "Microsoft Research 2026-10-22 发布 Flint-interactive；Flint 1.0 已提供 MCP 服务、npm 库、23 个交互预设和编程 API，可连接图表、表格、文本与应用状态。",
+        "boundary": "官方关于更可靠、减少开发工作量的表述是产品方主张，不是本站实测。生产使用仍需核验数据正确性、交互状态、无障碍、性能、依赖许可与用户输入边界。",
+        "repo": "microsoft/flint-chart",
+        "sources": [
+          "microsoft-flint-interactive-release",
+          "microsoft-flint-chart-repo"
+        ],
+        "requirements": "可运行 npx 的 MCP 客户端，或支持 React/原生 JavaScript 的项目；开发者接入需 Node.js、flint-chart 和所选渲染后端。",
+        "test": "从一个含筛选字段的固定小数据集开始，生成一张静态基线和一张带联动筛选的 Flint 图；逐项核对数据、事件状态、键盘与触摸操作、缩放后恢复、窄屏布局和导出结果。",
+        "checks": [
+          "先核对图表编码和聚合结果，再检查交互",
+          "把 hover、点击、刷选、缩放和外部状态逐项验收",
+          "在键盘、触摸、窄屏和空数据状态下保留可理解反馈",
+          "记录 Flint、渲染后端和数据修订，不把示例演示当作生产可靠性"
+        ],
+        "command": "npx -y flint-chart-mcp",
+        "effort": "MIT 开源 / 可用托管或本地 MCP / 应用接入需前端与渲染后端",
+        "evidence": "Microsoft Research 官方发布、官方仓库与入门说明",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-23",
+        "verified_at": "2026-10-23T21:21:00+08:00"
+      },
+      {
         "id": "openai-decisions-api",
         "name": "OpenAI · Decisions API",
         "title": "把分类、路由和下一动作选择拆成可评测的有界决策",
@@ -17109,6 +17242,26 @@
     ],
     "sources": [
       {
+        "id": "microsoft-flint-interactive-release",
+        "publisher": "Microsoft Research",
+        "title": "Flint-interactive: A language for creating interactive data visualizations",
+        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+        "published": "2026-10-22",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T21:21:00+08:00",
+        "kind": "官方研究产品发布、工作原理与使用路径"
+      },
+      {
+        "id": "microsoft-flint-chart-repo",
+        "publisher": "Microsoft",
+        "title": "microsoft/flint-chart",
+        "url": "https://github.com/microsoft/flint-chart",
+        "published": "2026-10-19",
+        "checked": "2026-10-23",
+        "verified_at": "2026-10-23T21:21:00+08:00",
+        "kind": "官方代码、Flint 1.0 更新与接入说明"
+      },
+      {
         "id": "openai-decisions-api-ga",
         "publisher": "OpenAI",
         "title": "Build more responsive apps with the Decisions API",
@@ -17563,6 +17716,20 @@
       }
     ],
     "events": [
+      {
+        "id": "microsoft-flint-interactive-release",
+        "task": "microsoft-flint-interactive",
+        "date": "2026-10-22",
+        "kind": "release",
+        "title": "Microsoft 发布 Flint-interactive",
+        "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
+        "delta": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
+        "sources": [
+          "microsoft-flint-interactive-release",
+          "microsoft-flint-chart-repo"
+        ],
+        "reviewed": "2026-10-23"
+      },
       {
         "id": "openai-decisions-api-ga",
         "task": "openai-decisions-api",
@@ -19527,7 +19694,7 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-23T12:12:13.574814Z",
+    "last_attempt": "2026-10-23T13:17:12.454118Z",
     "last_success": "2026-10-23T12:12:13.574814Z",
     "last_full_success": "2026-10-23T12:12:13.574814Z",
     "items": [
@@ -20539,29 +20706,39 @@
       {
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
-        "status": "success",
-        "checked_at": "2026-10-23T12:12:13.574814Z",
-        "parsed": 14,
-        "matched": 14
+        "status": "failed",
+        "checked_at": "2026-10-23T13:17:12.454118Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-boltz",
         "name": "Boltz releases",
-        "status": "success",
-        "checked_at": "2026-10-23T12:12:13.574814Z",
-        "parsed": 17,
-        "matched": 17
+        "status": "failed",
+        "checked_at": "2026-10-23T13:17:12.454118Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
-        "status": "success",
-        "checked_at": "2026-10-23T12:12:13.574814Z",
-        "parsed": 20,
-        "matched": 20
+        "status": "failed",
+        "checked_at": "2026-10-23T13:17:12.454118Z",
+        "error": "HTTP 403"
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "source_id": "github-bionemo-framework",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-boltz",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-anomalib",
+        "error": "HTTP 403"
+      }
+    ],
     "note": "自动候选资料，未核验。机器分类不等于疗效、良率、可用性或监管结论。",
     "version": 1
   },
@@ -20680,6 +20857,52 @@
       }
     ],
     "items": [
+      {
+        "id": "microsoft-flint-interactive",
+        "publisher": "Microsoft",
+        "group": "agents",
+        "access": "local",
+        "headline": "先用固定小数据验证一张联动图，再把 Flint Interactive 接进应用",
+        "input": "一个已核对的小型表格、字段语义、目标图形编码，以及需要验证的点击、筛选、缩放或跨视图联动",
+        "output": "Flint 图表规范、interaction_spec、可复核的交互状态，以及静态基线和异常状态截图",
+        "requirements": "可运行 npx 的 MCP 客户端，或 Node.js 项目与 flint-chart；开发者模式还需所选渲染后端和真实目标浏览器。",
+        "limitation": "本站只核验 Microsoft 官方发布、仓库与接入说明，未运行 Flint。官方关于更可靠和减少开发工作量的表述不能替代数据正确性、交互状态、无障碍、性能及依赖安全测试。",
+        "cost": "Flint 仓库采用 MIT 许可；本地 MCP 与 npm 库仍会产生模型调用、运行环境、渲染后端和维护成本，托管服务的可用性与条款需接入时另行核对。",
+        "steps": [
+          {
+            "title": "先固定数据与静态基线",
+            "body": "选一份可人工复算的小数据，写清字段类型、聚合与排序；先生成静态图，逐项核对数值、单位、图例和缺失值。"
+          },
+          {
+            "title": "只增加一个可观察交互",
+            "body": "通过本地 MCP 让 Agent 添加筛选或联动高亮，保存生成的 chart_spec 与 interaction_spec，并记录操作前后的状态。",
+            "command": "npx -y flint-chart-mcp"
+          },
+          {
+            "title": "跨输入方式回归",
+            "body": "分别检查鼠标、键盘、触摸、窄屏、空数据、缩放恢复和导出；确认图表变化有文字或状态反馈，不只依赖颜色。"
+          }
+        ],
+        "troubleshooting": "图表数值不对时先回到字段语义、聚合和排序，不用交互掩盖错误；联动失效时对照语义事件与更新算子检查状态；渲染异常时记录 Flint、后端和浏览器版本，并缩到最小可复现规范。",
+        "sources": [
+          {
+            "title": "Microsoft Research Flint-interactive 官方发布",
+            "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+            "published_at": "2026-10-22",
+            "verified_at": "2026-10-23"
+          },
+          {
+            "title": "Microsoft Flint 官方仓库与 Flint 1.0 入门说明",
+            "url": "https://github.com/microsoft/flint-chart",
+            "published_at": "2026-10-19",
+            "verified_at": "2026-10-23"
+          }
+        ],
+        "entry_url": "https://microsoft.github.io/flint-chart/",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-23T21:21:00+08:00"
+      },
       {
         "id": "openai-decisions-api",
         "publisher": "OpenAI",

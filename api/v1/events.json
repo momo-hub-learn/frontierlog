@@ -2,6 +2,20 @@
   "snapshot": "2026-10-23",
   "events": [
     {
+      "id": "microsoft-flint-interactive-release",
+      "task": "microsoft-flint-interactive",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Microsoft 发布 Flint-interactive",
+      "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
+      "delta": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
+      "sources": [
+        "microsoft-flint-interactive-release",
+        "microsoft-flint-chart-repo"
+      ],
+      "reviewed": "2026-10-23"
+    },
+    {
       "id": "openai-decisions-api-ga",
       "task": "openai-decisions-api",
       "date": "2026-10-22",
@@ -402,6 +416,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "microsoft-flint-interactive-release",
+      "publisher": "Microsoft Research",
+      "title": "Flint-interactive: A language for creating interactive data visualizations",
+      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "kind": "官方研究产品发布、工作原理与使用路径"
+    },
+    {
+      "id": "microsoft-flint-chart-repo",
+      "publisher": "Microsoft",
+      "title": "microsoft/flint-chart",
+      "url": "https://github.com/microsoft/flint-chart",
+      "published": "2026-10-19",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "kind": "官方代码、Flint 1.0 更新与接入说明"
+    },
     {
       "id": "openai-decisions-api-ga",
       "publisher": "OpenAI",
