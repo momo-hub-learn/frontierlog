@@ -36,6 +36,54 @@
   ],
   "items": [
     {
+      "id": "proactegomem-proactive-memory-20261021",
+      "category": "benchmark",
+      "title": "ProactEgoMem：主动记忆 Agent 最佳表现仍远离可靠",
+      "published": "2026-10-21",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T09:28:03+08:00",
+      "first_seen_at": "2026-10-23T09:28:03+08:00",
+      "heat": 88,
+      "heat_components": {
+        "impact": 32,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、准确率或本站实测分数。",
+      "trend": "up",
+      "summary": "作者发布 ProactEgoMem：用 300 个日常第一视角片段、100 个实验室片段和 1,500 道后续问题，评测 Agent 能否在没有提示时主动开始、维持并结束记忆工具；公开协议覆盖信息捕获、状态跟踪和位置跟踪。",
+      "why": "它把“记住什么、何时开始、何时停止、留下的记忆能否回答后续问题”接成一个可复现生命周期，比事后把整段视频交给模型问答更接近常驻眼镜或实验室助手。",
+      "boundary": "这是作者预印本、项目页和公开评测，本站未运行。13 个基线在不同任务和指标上各有取舍，不能把单列最优值拼成综合能力；原始视频获取、模型成本、隐私与长期误报也未由这套分数解决。",
+      "source": "ProactEgoMem authors",
+      "source_kind": "作者预印本、项目页与评测代码 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.30089",
+      "link": "#/benchmarks?bench=proactegomem-proactive-memory",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看项目页与公开结果",
+          "note": "先区分 Notification、Intervention 和 QA，再固定轨迹、评分器与视频数据修订",
+          "url": "https://proactegomem.github.io/",
+          "kind": "source"
+        },
+        {
+          "label": "查看官方评测代码",
+          "note": "代码公开了 trace、timing 与 QA 三阶段评测流程",
+          "url": "https://github.com/mayhugotong/ProactEgoMem",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "ProactEgoMem authors",
+          "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video",
+          "url": "https://arxiv.org/abs/2610.30089",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "openai-decisions-api-ga-20261022",
       "category": "product",
       "title": "OpenAI Decisions API 正式开放：把高频小决策放进低时延路径",

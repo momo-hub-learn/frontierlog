@@ -52,6 +52,41 @@
   ],
   "items": [
     {
+      "id": "proactegomem-proactive-memory",
+      "name": "ProactEgoMem · Proactive Memory",
+      "group": "agent",
+      "edition": "v1 · 400 clips / 1,500 QA / 13 baselines",
+      "subtitle": "流式第一视角 Agent 能否在无人提问时及时开始、维持并结束有用记忆？",
+      "summary": "作者把信息捕获、状态跟踪和位置跟踪放进日常与实验室第一视角视频；Notification 只要求及时提示，Intervention 还要求管理 start–maintain–stop 工具生命周期，随后用 QA 检查留下的记忆是否可用。",
+      "metric": "Notification F1 ↑ / Intervention mIoU ↑ / start@0.2 ↑ / memory QA accuracy ↑",
+      "metric_note": "时间与语义、工具生命周期和后续 QA 必须分列；不同任务、轨道与层级的单列最优值不能拼成综合分。",
+      "protocol": "固定 Daily/Sci 轨道、任务、proactivity level、视频与标注修订、模型和提示；模型只能按时间顺序接收帧，保存完整 trace，再按官方 timing、semantic matching 与 QA 三阶段评分。",
+      "boundary": "作者比较 13 个专有、开源、视频语言和流式基线，并指出主动获取正确记忆仍是瓶颈；这些是作者公开结果，本站未运行。视频分布、评测提示、LLM Judge、资源预算和隐私边界都会影响可外推性。",
+      "business": "适合为穿戴式助手、实验室副驾和常驻视觉 Agent 建立门禁：分别验收该沉默时是否沉默、启动是否及时、工具是否正确结束，以及记忆能否支持后续任务。",
+      "setup": "从官方仓库固定代码、配置、数据和评分阈值；先用 demo 检查 trace 结构，再按 track × task × level 分层运行，保留错误 trace、Judge 缓存、QA 结果和每次调用成本。",
+      "topics": [],
+      "sources": [
+        "b-proactegomem-paper",
+        "b-proactegomem-project",
+        "b-proactegomem-code",
+        "b-proactegomem-data"
+      ],
+      "result_url": "https://proactegomem.github.io/",
+      "kind": "benchmark",
+      "flag": "作者公开评测 / 本站未运行",
+      "checked": "2026-10-23",
+      "tested": false,
+      "checks": [
+        "按 Daily/Sci、IC/ST/LT 和 Notification/Intervention 分层",
+        "分开报告 timing、semantic match、tool lifecycle 和 QA",
+        "固定视频、标注、提示、模型配置、Judge 与代码修订",
+        "保留完整 trace、失败调用、成本、误报和漏报"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "verifierbench-agent-verifiers",
       "name": "VerifierBench · Agent-generated Verifiers",
       "group": "agent",
@@ -1082,6 +1117,46 @@
   ],
   "sources": [
     {
+      "id": "b-proactegomem-paper",
+      "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video",
+      "publisher": "ProactEgoMem authors",
+      "url": "https://arxiv.org/abs/2610.30089",
+      "published": "2026-10-21",
+      "checked": "2026-10-23",
+      "kind": "作者预印本",
+      "note": "v1 提交于 2026-10-21；规模、协议与模型结果均按作者论文记录。"
+    },
+    {
+      "id": "b-proactegomem-project",
+      "title": "ProactEgoMem project page",
+      "publisher": "ProactEgoMem authors",
+      "url": "https://proactegomem.github.io/",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者项目页",
+      "note": "提供任务、数据规模、公开结果和论文、代码、数据、排行榜入口。"
+    },
+    {
+      "id": "b-proactegomem-code",
+      "title": "ProactEgoMem evaluation code",
+      "publisher": "ProactEgoMem authors",
+      "url": "https://github.com/mayhugotong/ProactEgoMem",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者评测代码",
+      "note": "官方仓库只标注 2026-10 发布，未提供精确日期；本站于 2026-10-23 首次核验。公开 trace 生成、timing/semantic 指标、QA 评测、配置与 dry-run 流程。"
+    },
+    {
+      "id": "b-proactegomem-data",
+      "title": "ProactEgoMem dataset",
+      "publisher": "ProactEgoMem authors",
+      "url": "https://huggingface.co/datasets/Meikel/ProactEgoMem",
+      "published": null,
+      "checked": "2026-10-23",
+      "kind": "作者数据集",
+      "note": "复现时需核对视频访问条件，并锁定数据与标注修订。"
+    },
+    {
       "id": "b-verifierbench-paper",
       "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
       "publisher": "VerifierBench authors",
@@ -1538,6 +1613,23 @@
     }
   ],
   "changes": [
+    {
+      "id": "proactegomem-release-20261021",
+      "date": "2026-10-21",
+      "title": "ProactEgoMem 公开主动记忆生命周期评测",
+      "summary": "作者开放 400 个日常与实验室第一视角片段、1,500 道 QA、两级主动性和三类环境记忆任务的评测协议与代码。",
+      "implication": "流式视觉 Agent 的验收可以把及时性、语义、工具生命周期和后续记忆效用分开；公开结果仍不能替代隐私、能耗和长期误报验证。",
+      "benchmarks": [
+        "proactegomem-proactive-memory"
+      ],
+      "sources": [
+        "b-proactegomem-paper",
+        "b-proactegomem-project",
+        "b-proactegomem-code",
+        "b-proactegomem-data"
+      ],
+      "kind": "新公开评测套件"
+    },
     {
       "id": "verifierbench-release-20261019",
       "date": "2026-10-19",

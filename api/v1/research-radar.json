@@ -21,6 +21,43 @@
   ],
   "items": [
     {
+      "id": "proactive-memory-lifecycle-benchmark",
+      "lane": "paradigm",
+      "title": "主动视觉助手开始按完整记忆生命周期评测，而不是等用户提问",
+      "maker": "ProactEgoMem authors",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-23T09:28:03+08:00",
+      "tags": [
+        "Proactive Agent",
+        "Egocentric Video",
+        "Memory"
+      ],
+      "fact": "ProactEgoMem 提供日常与实验室两条评测轨：300/100 个第一视角片段和 1,000/500 道后续问题，覆盖信息捕获、状态跟踪、位置跟踪，以及通知和主动干预两个层级；模型只能按时间顺序观看，不能回看或预知未来。",
+      "insight": "评测焦点从“看完视频能否回答”前移到“无人提问时能否判断何时开始、持续多久、何时停止，并留下可用记忆”。这为常驻视觉 Agent 建立了感知、主动性、工具状态和后续效用的联合验收路径。",
+      "boundary": "全部结论来自作者论文、项目页与公开代码，本站未运行。13 个基线仍依赖特定视频来源、提示、工具接口和评分器；公开分数不能推出长期部署的隐私安全、低误报、能耗或跨场景可靠性。",
+      "next_watch": "关注独立团队在固定视频与评分器修订上的复现、长期流式输入的误报和资源成本、离线数据授权，以及 Notification 与 Intervention 的可校准人工接管阈值。",
+      "sources": [
+        {
+          "label": "ProactEgoMem 作者预印本",
+          "url": "https://arxiv.org/abs/2610.30089",
+          "kind": "作者论文、协议与结果",
+          "strength": "primary"
+        },
+        {
+          "label": "ProactEgoMem 作者项目页",
+          "url": "https://proactegomem.github.io/",
+          "kind": "项目、数据与结果入口",
+          "strength": "primary"
+        },
+        {
+          "label": "ProactEgoMem 官方评测代码",
+          "url": "https://github.com/mayhugotong/ProactEgoMem",
+          "kind": "公开评测流程与配置",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "agent-written-verifier-overconstraint",
       "lane": "paradigm",
       "title": "Agent 自写验证器的主要风险，可能是把正确解也全部拒绝",
