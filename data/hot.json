@@ -36,6 +36,60 @@
   ],
   "items": [
     {
+      "id": "microsoft-flint-interactive-20261022",
+      "category": "product",
+      "title": "Microsoft Flint 1.0：Agent 开始直接生成可交互图表",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "first_seen_at": "2026-10-23T21:21:00+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 31,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是图表质量、可靠性或本站实测分数。",
+      "trend": "up",
+      "summary": "Microsoft Research 发布 Flint-interactive：用交互预设、语义事件和更新算子，让 Agent 生成可点击、筛选、缩放、联动高亮并连接表格或应用状态的图表；Flint 1.0 已开放 MCP 与 npm 接入。",
+      "why": "Agent 生成可视化正在从一次性图片或反复拼底层前端代码，转向可读、可组合的交互规范；这为聊天内探索、仪表板和数据故事提供了更容易审计的中间层。",
+      "boundary": "本站核验了官方发布和代码说明，但未运行 Flint。官方关于提高可靠性、降低开发成本的表述是产品方主张；真实数据正确性、交互状态、无障碍、性能和安全边界仍需项目内测试。",
+      "source": "Microsoft Research / Microsoft",
+      "source_kind": "官方研究发布与代码仓库 / 本轮编辑核验",
+      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "link": "#/toolkit?task=microsoft-flint-interactive&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "按核验清单试跑 Flint",
+          "note": "先用固定小数据核对静态结果，再增加一个交互并回归键盘、触摸和窄屏",
+          "url": "https://microsoft.github.io/flint-chart/",
+          "kind": "tool"
+        },
+        {
+          "label": "查看官方代码与 Flint 1.0 说明",
+          "note": "仓库列出 MCP、npm、交互预设和编程 API；本站未执行",
+          "url": "https://github.com/microsoft/flint-chart",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Microsoft Research",
+          "title": "Flint-interactive: A language for creating interactive data visualizations",
+          "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+          "date": "2026-10-22"
+        },
+        {
+          "source": "Microsoft",
+          "title": "microsoft/flint-chart",
+          "url": "https://github.com/microsoft/flint-chart",
+          "date": "2026-10-19"
+        }
+      ]
+    },
+    {
       "id": "openai-nask-ai-safety-partnership-20261023",
       "category": "research",
       "title": "OpenAI 与波兰 NASK 启动 AI 安全评测合作",

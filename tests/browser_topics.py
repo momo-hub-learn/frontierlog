@@ -9,6 +9,7 @@ from playwright.sync_api import sync_playwright,expect
 R=Path(__file__).resolve().parents[1];OUT=R/'screenshots';OUT.mkdir(exist_ok=True)
 HTML=(R/'dist/index.html').read_text()
 VERT=json.loads((R/'data/industry.json').read_text());ARTICLES=VERT['articles']
+INTAKE=json.loads((R/'data/topic-intake.json').read_text())
 SECTOR_COUNTS={s:sum(x['sector']==s for x in ARTICLES) for s in ('pharma','manufacturing')}
 TOPIC_COUNTS={t['id']:sum(t['id'] in x['topics'] for x in ARTICLES) for t in VERT['topics']}
 MODE=os.getenv('BROWSER_TEST_MODE','memory')
@@ -91,19 +92,29 @@ try:
   payload=json.loads(file.read_text());assert 'csr' in payload['topics'] and 'yseop-csr' in payload['articles']
   page.locator('[data-va="follow"][data-id="csr"]').click()
   page.locator('#vertical-import').set_input_files(str(file))
-  assert page.locator('[data-va="follow"][data-id="csr"]').get_attribute('aria-pressed')=='true'
+  expect(page.locator('[data-va="follow"][data-id="csr"]')).to_have_attribute('aria-pressed','true')
   bad=OUT/'bad-topic-test.json';bad.write_text('{"version":1,"topics":"bad"}')
   page.locator('#vertical-import').set_input_files(str(bad))
-  assert page.locator('[data-va="follow"][data-id="csr"]').get_attribute('aria-pressed')=='true'
+  expect(page.locator('[data-va="follow"][data-id="csr"]')).to_have_attribute('aria-pressed','true')
   pass_('personal export/import and malformed import rejection preserve topic state')
   page.keyboard.press('Escape')
   page.keyboard.press('Control+k');page.locator('#palette-input').fill('晶圆设备')
   page.keyboard.press('Enter');assert 'topic=fab-maintenance' in page.url
   pass_('command palette finds new industry topics')
-  route(page,'#/signals');expect(page.locator('.v-empty')).to_have_count(1)
-  assert '首次采集尚未执行' in page.locator('.v-empty').inner_text()
-  page.locator('[data-va="sync"]').first.click();assert '尚未执行' in page.locator('#modal').inner_text();page.keyboard.press('Escape')
-  pass_('collector health shows pending state; no fictitious live queue')
+  route(page,'#/signals')
+  if INTAKE['items']:
+   expect(page.locator('.v-article')).to_have_count(len(INTAKE['items']))
+   expect(page.locator('.v-empty')).to_have_count(0)
+   assert all('自动收录 · 待核验' in text for text in page.locator('.v-article').all_inner_texts())
+  else:
+   expect(page.locator('.v-empty')).to_have_count(1)
+   assert '首次采集尚未执行' in page.locator('.v-empty').inner_text()
+  page.locator('[data-va="sync"]').first.click()
+  status=page.locator('#modal').inner_text()
+  assert (INTAKE['last_attempt'] in status) if INTAKE['last_attempt'] else ('尚未执行' in status)
+  assert all(source['status'] in status for source in INTAKE['sources'])
+  page.keyboard.press('Escape')
+  pass_('collector health and candidate count follow the current input without upgrading evidence')
   route(page,'#/pharma');page.locator('[data-action="theme"]').click()
   assert page.locator('html').get_attribute('data-theme')=='dark'
   assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
@@ -132,6 +143,7 @@ try:
   assert not errors,errors
   report={'passed':True,'checks':checks,'count':len(checks),'javascript_errors':errors,'browser':'Chromium',
           'mode':MODE,'unverified':['Public deployment','External collection first run','Third-party AI tools / clinical or manufacturing results']+(['Real-origin reload persistence (environment blocks HTTP/file navigation)'] if MODE=='memory' else [])}
-  (R/'docs/topic-ui-tests.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+  report_dir=R/'docs';report_dir.mkdir(exist_ok=True)
+  (report_dir/'topic-ui-tests.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
   file.unlink(missing_ok=True);bad.unlink(missing_ok=True);b.close()
 finally:server.shutdown();server.server_close()

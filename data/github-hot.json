@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-23T11:35:38Z",
+  "checked_at": "2026-10-23T13:17:12Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -73,7 +73,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 40705
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "php/php-src",
@@ -142,7 +143,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 41443
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "anthropics/knowledge-work-plugins",
@@ -212,7 +214,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 31908
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "NVIDIA/OpenShell",
@@ -242,7 +245,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 18225
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Renhuai123/ziwei-doushu",
@@ -271,7 +275,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 6552
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "SnailSploit/Claude-Red",
@@ -301,7 +306,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 8009
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "OpenBMB/VoxCPM",
@@ -331,7 +337,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 39993
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "nodejs/node",
@@ -360,7 +367,8 @@
           "at": "2026-10-23T11:35:38Z",
           "stars": 122594
         }
-      ]
+      ],
+      "metadata_status": "stale"
     }
   ],
   "categories": [
@@ -438,17 +446,26 @@
   "sync": {
     "mode": "official_trending_plus_repository_api",
     "status": "success",
-    "last_checked_at": "2026-10-23T11:35:38Z",
-    "last_success_at": "2026-10-23T11:35:38Z",
+    "last_checked_at": "2026-10-23T13:17:12Z",
+    "last_success_at": "2026-10-23T13:17:12Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-23T11:35:38Z",
-    "watchlist_errors": [],
-    "watchlist_failed_count": 0,
+    "watchlist_checked_at": "2026-10-23T13:17:12Z",
+    "watchlist_errors": [
+      "morluto/rea: HTTP Error 403: Forbidden"
+    ],
+    "watchlist_failed_count": 1,
     "trending_count": 8,
-    "verified_count": 8,
-    "metadata_failed_count": 0,
-    "metadata_status": "success",
-    "skipped": []
+    "verified_count": 0,
+    "metadata_failed_count": 8,
+    "metadata_status": "partial",
+    "skipped": [
+      "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
+      "php/php-src: HTTP Error 403: Forbidden",
+      "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
+      "NVIDIA/OpenShell: HTTP Error 403: Forbidden",
+      "Renhuai123/ziwei-doushu: HTTP Error 403: Forbidden",
+      "SnailSploit/Claude-Red: HTTP Error 403: Forbidden"
+    ]
   },
   "watchlist": [
     {

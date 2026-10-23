@@ -21,6 +21,37 @@
   ],
   "items": [
     {
+      "id": "flint-semantic-interaction-language",
+      "lane": "paradigm",
+      "title": "Agent 生成交互界面开始转向语义事件，而不只是拼前端代码",
+      "maker": "Microsoft Research / Microsoft",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "tags": [
+        "Generative UI",
+        "Data Visualization",
+        "Semantic Interaction"
+      ],
+      "fact": "Microsoft 发布 Flint-interactive 与 Flint 1.0：交互规范用语义事件和高层更新算子描述点击、刷选、缩放、联动高亮及外部应用状态，底层命中测试、依赖和渲染更新由编译器处理；官方仓库提供 23 个交互预设、MCP 服务和编程 API。",
+      "insight": "如果 Agent 输出的是可读、可组合的交互规范，评测可以从“截图像不像”前移到数据编码、事件状态和更新结果；这可能成为聊天内生成式 UI 与现有应用状态之间更稳定的接口层。",
+      "boundary": "这是 Microsoft 的官方发布与开源实现，本站未运行。更可靠、降低成本属于产品方主张；一套图表语言不能自动保证数据正确、交互可达、响应性能、跨后端一致或生产安全。",
+      "next_watch": "关注独立项目对 23 个预设和自定义交互的复现、键盘与触摸可达性、不同渲染后端的一致性，以及 Agent 修改 interaction_spec 时能否保持数据与状态约束。",
+      "sources": [
+        {
+          "label": "Microsoft Research Flint-interactive 官方发布",
+          "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+          "kind": "官方发布、工作原理与使用路径",
+          "strength": "primary"
+        },
+        {
+          "label": "Microsoft Flint 官方仓库",
+          "url": "https://github.com/microsoft/flint-chart",
+          "kind": "官方代码、Flint 1.0 更新与接入说明",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "openai-nask-public-ai-safety-evaluations",
       "lane": "science",
       "title": "前沿 AI 安全评测正在接入国家级公共研究机构",

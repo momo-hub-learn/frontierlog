@@ -3,6 +3,34 @@
   "snapshot": "2026-10-23",
   "items": [
     {
+      "id": "microsoft-flint-interactive",
+      "name": "Microsoft Flint · Interactive",
+      "title": "让 Agent 用语义事件生成可交互图表",
+      "category": "Agent 与自动化",
+      "mark": "FI",
+      "accent": "blue",
+      "summary": "用高层交互预设、语义事件和更新算子描述筛选、缩放、联动高亮与跨视图状态变化，再由 Flint 编译器处理底层渲染依赖。",
+      "scope": "Microsoft Research 2026-10-22 发布 Flint-interactive；Flint 1.0 已提供 MCP 服务、npm 库、23 个交互预设和编程 API，可连接图表、表格、文本与应用状态。",
+      "boundary": "官方关于更可靠、减少开发工作量的表述是产品方主张，不是本站实测。生产使用仍需核验数据正确性、交互状态、无障碍、性能、依赖许可与用户输入边界。",
+      "repo": "microsoft/flint-chart",
+      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo"],
+      "requirements": "可运行 npx 的 MCP 客户端，或支持 React/原生 JavaScript 的项目；开发者接入需 Node.js、flint-chart 和所选渲染后端。",
+      "test": "从一个含筛选字段的固定小数据集开始，生成一张静态基线和一张带联动筛选的 Flint 图；逐项核对数据、事件状态、键盘与触摸操作、缩放后恢复、窄屏布局和导出结果。",
+      "checks": [
+        "先核对图表编码和聚合结果，再检查交互",
+        "把 hover、点击、刷选、缩放和外部状态逐项验收",
+        "在键盘、触摸、窄屏和空数据状态下保留可理解反馈",
+        "记录 Flint、渲染后端和数据修订，不把示例演示当作生产可靠性"
+      ],
+      "command": "npx -y flint-chart-mcp",
+      "effort": "MIT 开源 / 可用托管或本地 MCP / 应用接入需前端与渲染后端",
+      "evidence": "Microsoft Research 官方发布、官方仓库与入门说明",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00"
+    },
+    {
       "id": "openai-decisions-api",
       "name": "OpenAI · Decisions API",
       "title": "把分类、路由和下一动作选择拆成可评测的有界决策",
@@ -751,6 +779,26 @@
   ],
   "sources": [
     {
+      "id": "microsoft-flint-interactive-release",
+      "publisher": "Microsoft Research",
+      "title": "Flint-interactive: A language for creating interactive data visualizations",
+      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "published": "2026-10-22",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "kind": "官方研究产品发布、工作原理与使用路径"
+    },
+    {
+      "id": "microsoft-flint-chart-repo",
+      "publisher": "Microsoft",
+      "title": "microsoft/flint-chart",
+      "url": "https://github.com/microsoft/flint-chart",
+      "published": "2026-10-19",
+      "checked": "2026-10-23",
+      "verified_at": "2026-10-23T21:21:00+08:00",
+      "kind": "官方代码、Flint 1.0 更新与接入说明"
+    },
+    {
       "id": "openai-decisions-api-ga",
       "publisher": "OpenAI",
       "title": "Build more responsive apps with the Decisions API",
@@ -1205,6 +1253,17 @@
     }
   ],
   "events": [
+    {
+      "id": "microsoft-flint-interactive-release",
+      "task": "microsoft-flint-interactive",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Microsoft 发布 Flint-interactive",
+      "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
+      "delta": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
+      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo"],
+      "reviewed": "2026-10-23"
+    },
     {
       "id": "openai-decisions-api-ga",
       "task": "openai-decisions-api",
