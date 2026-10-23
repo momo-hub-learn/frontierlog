@@ -50,6 +50,14 @@ class HotDataTests(unittest.TestCase):
     params=dict(part.split('=',1) for part in query.split('&'))
     self.assertIn(params.get('task'),tasks)
     self.assertEqual(params.get('tab'),'run')
+ def test_benchmark_links_use_supported_deep_link_contract(self):
+  benchmarks={x['id'] for x in json.loads((R/'data/benchmarks.json').read_text())['items']}
+  links=[x['link'] for x in self.data['items'] if x.get('link','').startswith('#/benchmarks?')]
+  self.assertTrue(links)
+  for link in links:
+   with self.subTest(link=link):
+    params=dict(part.split('=',1) for part in link.split('?',1)[1].split('&'))
+    self.assertIn(params.get('bench'),benchmarks)
  def test_precise_timestamp_optional(self):
   d=copy.deepcopy(self.data);d['items'][0]['published_at']='2026-09-10T16:10:00+08:00';validate_hot(d)
  def test_precise_timestamp_requires_timezone(self):self.reject(lambda d:d['items'][0].update(published_at='2026-09-10T16:10:00'))

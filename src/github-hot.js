@@ -156,7 +156,7 @@ function ghInline(){
         '<div class="gh-main"><div class="gh-repo">'+esc(x.repo)+'<em class="gh-type">'+esc(ghCategory(x))+'</em></div><p>'+esc(x.description||'')+'</p><div class="gh-sub"><span>'+esc(x.language||'—')+'</span><span>'+esc(ghApiMetric('★',x.stars))+'</span><span>'+esc(ghApiMetric('⑂',x.forks))+'</span><span>创建 '+esc(ghRepoMonth(x.repo_created_at))+'</span><span title="北京时间">推送 '+esc(ghRepoPush(x.repo_pushed_at))+'</span>'+ghMetadataNote(x)+'</div><div class="gh-tags">'+(x.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div></div>'+
         '<div class="gh-delta"><strong>+'+ghFmt(x.stars_today)+'</strong><span>今日 Star</span><i style="--gh-w:'+ghBarWidth(x.stars_today,max)+'%"></i>'+ghSpark(x)+'<small class="gh-velocity">'+esc(ghTrendLabel(x))+'</small></div>'+
       '</a>'
-    ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词继续看。</p></div>')+
+    ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词或主题继续看。</p><button class="button" data-gh-clear>清除搜索与筛选</button></div>')+
     '<footer class="gh-note">'+esc(GH.note||'')+'</footer>'+
   '</section>'
 }
@@ -181,6 +181,7 @@ document.addEventListener('input',e=>{
   parseRoute();
   const n=document.getElementById('gh-search');if(n){n.focus({preventScroll:true});try{n.setSelectionRange(pos,pos)}catch{}}
 });
+document.addEventListener('click',e=>{if(!e.target.closest('[data-gh-clear]'))return;e.preventDefault();history.replaceState(null,'','#/hot?tab=github');parseRoute()});
 
 const ghBaseRenderMain=renderMain;
 renderMain=function(){
