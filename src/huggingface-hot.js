@@ -83,7 +83,7 @@ function hfTabs(){
   }).join('')+'</nav>'
 }
 function hfInline(){
-  const rows=hfRows(),fresh=hfFreshness(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
+  const rows=hfRows(),all=hfSourceRows(),fresh=hfFreshness(),max=Math.max(...rows.map(x=>Number(x.trending_score)||0),1);
   const previous=(HF.web_rank_changes||[]).find(x=>x&&x.previous_fetched_at)?.previous_fetched_at;
   return '<section class="hf-inline">'+
     hOpenTabs('hf')+
@@ -91,6 +91,7 @@ function hfInline(){
     hfStaleNotice()+
     '<div class="hf-method"><b>怎么看</b><span>左侧 # 严格保留官方 Models Trending 网页顺序；升降箭头只比较'+(previous?' '+esc(hfWhen(previous))+' ':'本站上一次成功保存的')+'官方网页快照。右侧 API Trending 是官方 API 的 trendingScore；不同来源时间单独标注，不拼成伪精确榜。这些只是平台关注/使用信号，不是 Benchmark 或本站实测。</span></div>'+
     hfTabs()+
+    '<p class="hf-resultline" role="status" aria-live="polite">显示 '+rows.length+' / '+all.length+' 个模型 · 保留官方网页名次</p>'+
     (rows.length?'<div class="hf-list">'+rows.map(x=>
       '<a class="hf-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="hf-rank"><span>#'+String(x.rank).padStart(2,'0')+'</span>'+hfDelta(x)+'</div>'+
