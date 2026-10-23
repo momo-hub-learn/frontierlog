@@ -2,7 +2,7 @@
 // Exercise actual render functions and shared filtering; do not change source data.
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),read=name=>fs.readFileSync(path.join(root,name),'utf8');
-const models=JSON.parse(read('data/models.json')),original=JSON.stringify(models);
+const models=JSON.parse(read('data/models.json')),original=JSON.stringify(models),arena=models.boards.find(board=>board.id==='arena');
 const ctx={APP:{models,resets:{}},window:{},URLSearchParams,URL,Date,console,readStore:()=>[],
  location:{hash:'#/models?board=arena'},modelHubTabs:()=>'<nav>Capabilities</nav>',
  esc:v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
@@ -18,23 +18,27 @@ let count=0;
 function check(name,fn){fn();count++;console.log('PASS',name)}
 check('single company column and seven semantic table headers',()=>{
  const html=render('');assert.equal((html.match(/<th scope=/g)||[]).length,7);assert.equal((html.match(/>公司<\/th>/g)||[]).length,1);
- assert.equal((html.match(/data-model-row=/g)||[]).length,8);assert(!html.includes('来源日期</th>'));
+ assert.equal((html.match(/data-model-row=/g)||[]).length,arena.rows.length);assert(!html.includes('来源日期</th>'));
 });
 check('official ranks are preserved, including gaps and equal scores',()=>{
  const html=render(''),ranks=Array.from(html.matchAll(/<td class="ar-rank">(.*?)<\/td>/g),x=>Number(x[1]));
- assert.deepEqual(ranks,[1,2,3,4,5,18,21,26]);assert(!html.includes('#1 当前样本'));
+ assert.deepEqual(ranks,arena.rows.map(row=>row.source_rank));assert(!html.includes('#1 当前样本'));
 });
-check('OpenAI filtering retains #21 rather than manufacturing #1',()=>{
- const html=render('&maker=OpenAI');assert(html.includes('<td class="ar-rank">21</td>'));assert(!html.includes('class="ar-leading"'));assert(html.includes('显示 1 / 8 条'));
- assert(html.includes('1,485'));assert(html.includes('± 4'));assert(html.includes('非完整榜'));
+check('maker filtering retains source ranks rather than manufacturing #1',()=>{
+ const maker=arena.rows.some(row=>row.maker==='OpenAI')?'OpenAI':arena.rows.at(-1).maker;
+ const selected=arena.rows.filter(row=>row.maker===maker),html=render('&maker='+encodeURIComponent(maker));
+ assert.equal((html.match(/data-model-row=/g)||[]).length,selected.length);assert(html.includes('<td class="ar-rank">'+selected[0].source_rank+'</td>'));
+ assert.equal(html.includes('class="ar-leading"'),selected.some(row=>row.source_rank===1));assert(html.includes('显示 '+selected.length+' / '+arena.rows.length+' 条'));assert(html.includes('非完整榜'));
 });
 check('search and saved-only filtering share the real model state',()=>{
- api.saved.add('arena-18');assert(render('&stars=1').includes('显示 1 / 8 条'));api.saved.clear();
- assert(render('&q=not-a-model').includes('没有匹配的模型'));assert(render('&q=Claude').includes('显示 3 / 8 条'));
+ api.saved.add(arena.rows[0].id);assert(render('&stars=1').includes('显示 1 / '+arena.rows.length+' 条'));api.saved.clear();
+ assert(render('&q=not-a-model').includes('没有匹配的模型'));
+ const claude=arena.rows.filter(row=>(row.name+' '+row.maker).toLowerCase().includes('claude')).length;
+ assert(render('&q=Claude').includes('显示 '+claude+' / '+arena.rows.length+' 条'));
 });
 check('provenance has separate original/verified dates and honest coverage',()=>{
- const html=render('');assert(html.includes('最近核验 <time datetime="2026-10-23"'));assert(html.includes('来源日期 <time datetime="2026-10-22"'));
- assert(html.includes('人工摘录 8 条 · 非完整榜'));assert(!html.includes('实时全量'));
+ const html=render('');assert(html.includes('最近核验 <time datetime="'+arena.checked+'"'));assert(html.includes('来源日期 <time datetime="'+arena.as_of+'"'));
+ assert(html.includes('人工摘录 '+arena.rows.length+' 条 · 非完整榜'));assert(!html.includes('实时全量'));
 });
 check('missing uncertainty and dates are not manufactured',()=>{
  assert(api.score({preference:0,score_error:0}).includes('± 0'));assert(api.score({preference:null}).includes('误差未提供'));assert(!api.score({}).includes('± 0'));
@@ -49,7 +53,7 @@ check('HTML inputs, model names and company names are escaped',()=>{
  assert(!api.company({maker:'<img src=x>'}).includes('<img src=x>'));
 });
 check('preliminary source flag and source score precision survive rendering',()=>{
- assert(api.name({id:'x',name:'candidate',preliminary:true}).includes('Preliminary'));assert(!api.name({id:'x',name:'candidate'}).includes('Preliminary'));
+ assert(api.name({id:'x',name:'candidate',preliminary:true}).includes('初步结果'));assert(!api.name({id:'x',name:'candidate'}).includes('Preliminary'));
  assert(api.score({preference:1506,score_error:5}).includes('<strong>1,506</strong>'));
 });
 check('table and mobile view expose the same records and unique search controls',()=>{
