@@ -20,7 +20,8 @@ test -x "$browser_bin"
 echo "CHROMIUM_EXECUTABLE=$browser_bin" >> "$GITHUB_ENV"
 "$browser_bin" --version
 
-if ! fc-list :lang=zh | grep -q .; then
-  sudo apt-get update
-  sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+first_cjk_font="$(fc-list :lang=zh | sed -n '1p')"
+if [[ -z "$first_cjk_font" ]]; then
+  sudo timeout 120s apt-get update
+  sudo timeout 120s apt-get install -y --no-install-recommends fonts-wqy-zenhei
 fi
