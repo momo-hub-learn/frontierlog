@@ -96,6 +96,21 @@ with sync_playwright() as pw:
     expect(page.locator('.intraday-title, .v10-story-title')).not_to_have_count(0)
     ok('Product tags, repository search and model search do not leak into other categories')
 
+    original_changes = page.evaluate('structuredClone(APP.huggingface_hot.web_rank_changes || [])')
+    page.evaluate("""() => {
+      const first = APP.huggingface_hot.web_order[0];
+      APP.huggingface_hot.web_rank_changes = [{id:first,rank:1,previous_rank:3,rank_change:2,previous_fetched_at:'2026-10-23T01:00:00Z'}];
+    }""")
+    route(page, '#/hot?tab=hf')
+    expect(page.locator('.hf-row').first.locator('.hf-delta')).to_have_text('↑2')
+    expect(page.locator('.hf-row').first.locator('.hf-delta')).to_have_attribute('aria-label', '较上次官方网页快照上升 2 位')
+    expect(page.locator('.hf-method')).to_contain_text('只比较')
+    expect(page.locator('.hf-method')).to_contain_text('官方网页快照')
+    page.evaluate('(value) => { APP.huggingface_hot.web_rank_changes = value; }', original_changes)
+    route(page, '#/hot?tab=hf')
+    ok('HF rank movement uses a truthful previous-snapshot label and non-color arrow')
+
+    original_hf_state = page.evaluate('structuredClone(APP.huggingface_hot)')
     page.evaluate("""() => {
       APP.huggingface_hot.web_fetched_at = new Date().toISOString();
       APP.huggingface_hot.api_fetched_at = new Date(Date.now() - 7 * 3600 * 1000).toISOString();
@@ -114,6 +129,8 @@ with sync_playwright() as pw:
     expect(page.locator('.hf-score span', has_text='API Trending（旧）')).not_to_have_count(0)
     expect(page.locator('.hf-row', has_text='example/web-only-model').locator('.hf-score span')).to_have_text('API 未收录')
     ok('HF web order stays current while older API metrics remain visibly time-separated')
+    page.evaluate('(value) => { Object.keys(APP.huggingface_hot).forEach(k => delete APP.huggingface_hot[k]); Object.assign(APP.huggingface_hot,value); }', original_hf_state)
+    route(page, '#/hot?tab=hf')
 
     sizes = {}
     for width in [1440, 1180, 1100, 900, 760, 390, 360]:
