@@ -2318,7 +2318,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-23T01:32:14Z",
+    "generated_at": "2026-10-23T05:30:27Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -5995,7 +5995,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-23T01:32:14Z",
+    "last_evaluated": "2026-10-23T05:30:27Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 51,
@@ -9569,10 +9569,183 @@
   },
   "frontier_candidates": {
     "version": 1,
-    "checked": "2026-10-22",
+    "checked": "2026-10-23",
     "source": "arXiv Atom API",
     "note": "未审查的论文元数据队列。收录由编辑复核决定；队列位置与候选数量不代表世界模型能力或实测结果。",
     "items": [
+      {
+        "arxiv_id": "2610.31617",
+        "title": "DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control",
+        "date": "2026-10-22",
+        "authors": [
+          "Fanxing Li",
+          "Yuxiang Huang",
+          "Shengyang Wang",
+          "Fangyu Sun",
+          "Shuyu Wu",
+          "Tianbao Zhang",
+          "Dexin Zuo",
+          "Yan Yufei"
+        ],
+        "url": "https://arxiv.org/abs/2610.31617",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.31474",
+        "title": "Skeleton-Grounded Latent Action Model for Robot World Models",
+        "date": "2026-10-22",
+        "authors": [
+          "Qi Lv",
+          "Jiayi Lin",
+          "Yuxin Jiang",
+          "Jianzong Wang",
+          "Xiang Deng",
+          "Mike Shou Zheng"
+        ],
+        "url": "https://arxiv.org/abs/2610.31474",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.31194",
+        "title": "Inside-JEPA: From Prediction to Relational Grounding in Latent World Models",
+        "date": "2026-10-22",
+        "authors": [
+          "Hossein Resani",
+          "Javen Qinfeng Shi"
+        ],
+        "url": "https://arxiv.org/abs/2610.31194",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.31066",
+        "title": "Dual Exam: Controlled Evaluation of Multimodal Agents and World Models",
+        "date": "2026-10-22",
+        "authors": [
+          "Zhefan Rao",
+          "Meng Chu",
+          "Xuan Zhang",
+          "Jingfan Chen",
+          "Guohao Cai",
+          "Runyi Li",
+          "Shiyi Du",
+          "Ning Lu"
+        ],
+        "url": "https://arxiv.org/abs/2610.31066",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30988",
+        "title": "In-Context Learning World Models for Robot Dual-Arm Manipulation of Soft Garment with Partial Observations",
+        "date": "2026-10-22",
+        "authors": [
+          "Hengyi Sim",
+          "Quentin Rouxel",
+          "Dennis Hong",
+          "Darwin Caldwell",
+          "Fei Chen"
+        ],
+        "url": "https://arxiv.org/abs/2610.30988",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30814",
+        "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels",
+        "date": "2026-10-22",
+        "authors": [
+          "Zhaolu Kang",
+          "Tailong Luo",
+          "Lei Wei",
+          "Guangyuan Dong",
+          "Sihan Liu",
+          "Yingjie He",
+          "Siheng Wang",
+          "Shuaibo Li"
+        ],
+        "url": "https://arxiv.org/abs/2610.30814",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30789",
+        "title": "An Introduction to World Models for Generalist Agents",
+        "date": "2026-10-22",
+        "authors": [
+          "Zhihui Zhu"
+        ],
+        "url": "https://arxiv.org/abs/2610.30789",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30781",
+        "title": "DeXplicit: Making Physical State Explicit in Dexterous Manipulation World Models",
+        "date": "2026-10-22",
+        "authors": [
+          "Adam Lee",
+          "Mutian Xu",
+          "Yukang Cao",
+          "Shulin Tian",
+          "Ziwei Liu"
+        ],
+        "url": "https://arxiv.org/abs/2610.30781",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30657",
+        "title": "Anticipating Social Consequences with Distributional World Models",
+        "date": "2026-10-22",
+        "authors": [
+          "Viet-Thanh Pham",
+          "Thuy-Trang Vu",
+          "Zhuang Li",
+          "Lizhen Qu",
+          "Gholamreza Haffari"
+        ],
+        "url": "https://arxiv.org/abs/2610.30657",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
+      {
+        "arxiv_id": "2610.30488",
+        "title": "From Single-Actor Environments to Multi-Actor Event Worlds: Can LLMs Be Event World Models?",
+        "date": "2026-10-21",
+        "authors": [
+          "Juntong Ni",
+          "Zewen Liu",
+          "Bohan Wang",
+          "Lige Zhang",
+          "Wei Jin"
+        ],
+        "url": "https://arxiv.org/abs/2610.30488",
+        "first_seen_on": "2026-10-23",
+        "status": "pending",
+        "discovery_source": "arXiv Atom API",
+        "source_issue": "https://github.com/momo-hub-learn/frontierlog/issues/35"
+      },
       {
         "arxiv_id": "2610.30129",
         "title": "Rethinking Video Autoencoders for Interactive World Models",
@@ -13959,7 +14132,7 @@
   },
   "models": {
     "version": 1,
-    "checked": "2026-10-21",
+    "checked": "2026-10-23",
     "sources": [
       {
         "id": "aa-live",
@@ -14025,11 +14198,11 @@
         "id": "arena-text",
         "publisher": "Arena",
         "title": "Text Arena · Overall",
-        "url": "https://arena.ai/leaderboard/text",
-        "checked": "2026-09-22",
-        "published": "2026-09-13",
+        "url": "https://arena.ai/leaderboard/chat/text",
+        "checked": "2026-10-23",
+        "published": "2026-10-22",
         "kind": "评测方公开榜单",
-        "note": "页面标示 2026-09-13。保留来源名次、误差范围与票数；摘录不是完整榜单。"
+        "note": "页面标示 2026-10-22，共 8,946,356 票、418 个模型。本站保留来源名次、误差范围与票数；8 条摘录不是完整榜单，Preliminary 也不等于稳定领先。"
       },
       {
         "id": "aa-api",
@@ -14621,36 +14794,36 @@
         "title": "对话偏好",
         "provider": "Arena",
         "metric": "preference",
-        "as_of": "2026-09-13",
-        "checked": "2026-09-22",
+        "as_of": "2026-10-22",
+        "checked": "2026-10-23",
         "methodology": "Text Arena · Overall",
         "mode": "manual_excerpt",
         "source": "arena-text",
         "scope": "8 条精选记录，保留来源名次；分数区间重叠不代表有显著差异。",
         "rows": [
           {
-            "id": "arena-1",
-            "name": "claude-fable-5-high",
-            "maker": "Anthropic",
-            "preference": 1506,
-            "score_error": 5,
-            "votes": 30057,
+            "id": "arena-gemini-4-argon-high",
+            "name": "Gemini 4 Argon (High)",
+            "maker": "Google",
+            "preference": 1517,
+            "score_error": 7,
+            "votes": 10083,
             "rank_spread": [
               1,
-              7
+              3
             ],
             "source_rank": 1,
             "source_order": 1,
             "source": "arena-text",
-            "preliminary": false
+            "preliminary": true
           },
           {
-            "id": "arena-2",
-            "name": "claude-opus-4-6-high",
+            "id": "arena-claude-opus-5-5-high",
+            "name": "Claude Opus 5.5 (High)",
             "maker": "Anthropic",
-            "preference": 1505,
-            "score_error": 4,
-            "votes": 71993,
+            "preference": 1509,
+            "score_error": 7,
+            "votes": 10322,
             "rank_spread": [
               1,
               7
@@ -14661,15 +14834,15 @@
             "preliminary": false
           },
           {
-            "id": "arena-3",
-            "name": "claude-opus-4-7-high",
-            "maker": "Anthropic",
-            "preference": 1502,
-            "score_error": 4,
-            "votes": 60002,
+            "id": "arena-muse-wonder-max",
+            "name": "Muse Wonder (Max)",
+            "maker": "Meta",
+            "preference": 1509,
+            "score_error": 8,
+            "votes": 6001,
             "rank_spread": [
               1,
-              10
+              8
             ],
             "source_rank": 3,
             "source_order": 3,
@@ -14677,15 +14850,15 @@
             "preliminary": false
           },
           {
-            "id": "arena-4",
-            "name": "muse-spark-1.2 (xHigh)",
-            "maker": "Meta",
-            "preference": 1500,
-            "score_error": 11,
-            "votes": 3227,
+            "id": "arena-1",
+            "name": "Claude Fable 5 (High)",
+            "maker": "Anthropic",
+            "preference": 1503,
+            "score_error": 4,
+            "votes": 44253,
             "rank_spread": [
-              1,
-              19
+              2,
+              10
             ],
             "source_rank": 4,
             "source_order": 4,
@@ -14694,14 +14867,14 @@
           },
           {
             "id": "arena-5",
-            "name": "claude-fable-5.1-max",
+            "name": "Claude Fable 5.1 (Max)",
             "maker": "Anthropic",
-            "preference": 1498,
-            "score_error": 8,
-            "votes": 5783,
+            "preference": 1503,
+            "score_error": 6,
+            "votes": 16343,
             "rank_spread": [
-              1,
-              15
+              2,
+              12
             ],
             "source_rank": 5,
             "source_order": 5,
@@ -14710,30 +14883,14 @@
           },
           {
             "id": "arena-17",
-            "name": "kimi-k3-max",
+            "name": "Kimi K3 (Max)",
             "maker": "Moonshot",
-            "preference": 1485,
-            "score_error": 5,
-            "votes": 20987,
-            "rank_spread": [
-              7,
-              30
-            ],
-            "source_rank": 17,
-            "source_order": 17,
-            "source": "arena-text",
-            "preliminary": false
-          },
-          {
-            "id": "arena-18",
-            "name": "gpt-5.6-sol-xhigh",
-            "maker": "OpenAI",
-            "preference": 1483,
-            "score_error": 5,
-            "votes": 27069,
+            "preference": 1487,
+            "score_error": 4,
+            "votes": 35379,
             "rank_spread": [
               9,
-              32
+              30
             ],
             "source_rank": 18,
             "source_order": 18,
@@ -14741,18 +14898,34 @@
             "preliminary": false
           },
           {
-            "id": "arena-19",
-            "name": "glm-5.3-max",
-            "maker": "Z.ai",
-            "preference": 1483,
-            "score_error": 6,
-            "votes": 10960,
+            "id": "arena-18",
+            "name": "GPT-5.6 Sol (xHigh)",
+            "maker": "OpenAI",
+            "preference": 1485,
+            "score_error": 4,
+            "votes": 42713,
             "rank_spread": [
-              7,
-              37
+              12,
+              33
             ],
-            "source_rank": 19,
-            "source_order": 19,
+            "source_rank": 21,
+            "source_order": 21,
+            "source": "arena-text",
+            "preliminary": false
+          },
+          {
+            "id": "arena-19",
+            "name": "GLM-5.3 (Max)",
+            "maker": "Z.ai",
+            "preference": 1481,
+            "score_error": 5,
+            "votes": 25144,
+            "rank_spread": [
+              14,
+              44
+            ],
+            "source_rank": 26,
+            "source_order": 26,
             "source": "arena-text",
             "preliminary": false
           }
