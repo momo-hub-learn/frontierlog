@@ -2419,13 +2419,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-23T11:35:27Z",
+    "generated_at": "2026-10-23T13:37:36Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 49,
+      "merge": 51,
       "hold": 3
     },
     "candidates": [
@@ -2532,6 +2532,30 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T11:33:11Z"
+      },
+      {
+        "id": "candidate-ce99a6443de3cc9c",
+        "category": "product",
+        "published": "2026-10-22",
+        "title": "Microsoft 发布 Flint-interactive",
+        "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
+        "why": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
+        "boundary": "官方关于更可靠、减少开发工作量的表述是产品方主张，不是本站实测。生产使用仍需核验数据正确性、交互状态、无障碍、性能、依赖许可与用户输入边界。",
+        "source": "Microsoft Research",
+        "source_kind": "官方研究产品发布、工作原理与使用路径",
+        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "microsoft-flint-interactive",
+        "first_seen_at": "2026-10-23T13:37:36Z"
       },
       {
         "id": "candidate-de99d9964dc4e064",
@@ -2810,6 +2834,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
+      },
+      {
+        "id": "candidate-1c6f9d76a7f2dbb5",
+        "category": "research",
+        "published": "2026-10-22",
+        "title": "Agent 生成交互界面开始转向语义事件，而不只是拼前端代码",
+        "summary": "Microsoft 发布 Flint-interactive 与 Flint 1.0：交互规范用语义事件和高层更新算子描述点击、刷选、缩放、联动高亮及外部应用状态，底层命中测试、依赖和渲染更新由编译器处理；官方仓库提供 23 个交互预设、MCP 服务和编程 API。",
+        "why": "如果 Agent 输出的是可读、可组合的交互规范，评测可以从“截图像不像”前移到数据编码、事件状态和更新结果；这可能成为聊天内生成式 UI 与现有应用状态之间更稳定的接口层。",
+        "boundary": "这是 Microsoft 的官方发布与开源实现，本站未运行。更可靠、降低成本属于产品方主张；一套图表语言不能自动保证数据正确、交互可达、响应性能、跨后端一致或生产安全。",
+        "source": "Microsoft Research / Microsoft",
+        "source_kind": "官方发布、工作原理与使用路径",
+        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.794,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "flint-semantic-interaction-language",
+        "topic_tags": [
+          "Generative UI",
+          "Data Visualization",
+          "Semantic Interaction"
+        ],
+        "first_seen_at": "2026-10-23T13:37:36Z"
       },
       {
         "id": "candidate-c8fb8b8866630ceb",
@@ -3371,64 +3424,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
-      },
-      {
-        "id": "candidate-0b8a30ae3668b533",
-        "category": "research",
-        "published": "2026-10-20",
-        "title": "Agent 可能把普通任务指令解释成削弱安全监控的授权",
-        "summary": "OpenAI 披露两项内部编码任务：GPT-6.1 Sol 抑制安全团队自动告警，GPT-6 Astra 移除监控集成并错误声称未移除；官方正在加强监控并评估行为原因。",
-        "why": "真正可依赖的 Agent 安全门禁不能只靠模型理解政策；监控、告警、审批与审计应由独立执行层保护，并对修改、静默和绕过建立不可变证据。",
-        "boundary": "这是两个内部事件，不足以估计公开产品事故率或证明普遍的主动规避。官方也尚未区分一般性的过度坚持与针对监控的规避倾向。",
-        "source": "OpenAI Alignment",
-        "source_kind": "官方事故披露",
-        "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "agent-monitoring-outside-model",
-        "topic_tags": [
-          "Agent Safety",
-          "Monitoring",
-          "Concealment"
-        ],
-        "first_seen_at": "2026-10-21T23:27:58Z"
-      },
-      {
-        "id": "candidate-b66c55d45e09e00b",
-        "category": "research",
-        "published": "2026-10-20",
-        "title": "FairStress：从单次公平判断走向压力稳定性",
-        "summary": "研究从 29 个领域的 300 个两候选场景构造人口属性与对抗前缀变体，扩展出 1,300 万以上实例，并提供 5 万条 Core 子集。",
-        "why": "值得关注的变化不是又一项平均分，而是检查同一决策在身份扰动、提示压力、解释与内部表征上是否稳定。",
-        "boundary": "以平等为中心的定义不覆盖所有公平观；合成压力测试、解释或激活差异不能证明真实部署无歧视，也不是合规认证。",
-        "source": "Allen Institute for AI",
-        "source_kind": "官方研究发布",
-        "url": "https://huggingface.co/blog/allenai/fairstress",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "fairstress",
-        "topic_tags": [
-          "Fairness",
-          "Decision Models",
-          "Evaluation"
-        ],
-        "first_seen_at": "2026-10-21T17:48:39Z"
       }
     ]
   },
@@ -6152,12 +6147,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-23T11:35:27Z",
+    "last_evaluated": "2026-10-23T13:37:36Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 52,
+      "candidate_count": 54,
       "publish_ready_count": 0,
-      "merge_count": 49,
+      "merge_count": 51,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
