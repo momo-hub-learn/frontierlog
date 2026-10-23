@@ -52,6 +52,31 @@
       ]
     },
     {
+      "id": "inside-jepa-relational-grounding",
+      "lane": "paradigm",
+      "title": "JEPA 的潜在状态需要显式关系通道，预测本身不会自动长出关系理解",
+      "maker": "Hossein Resani / Javen Qinfeng Shi",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-23T23:19:23+08:00",
+      "tags": [
+        "JEPA",
+        "World Model",
+        "Relational Grounding"
+      ],
+      "fact": "Inside-JEPA 在潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从通道变化恢复动作。作者报告：只做潜在预测的关系探针不优于随机头；加入逆动力学后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。",
+      "insight": "世界模型能预测未来，不等于其内部状态已经编码可读、可用于规划的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。",
+      "boundary": "结果来自作者预印本，本站未运行；主要证据来自 Something-Something V2、RH20T 和一步关系目标，不能外推为长程规划、真实机器人可靠性或通用物理理解。43% 的 top-5 动作召回也不是任务成功率。",
+      "next_watch": "关注代码与标注协议是否开放、独立复现、长时多步关系目标，以及在检测/跟踪噪声和真实机器人闭环中的规划收益。",
+      "sources": [
+        {
+          "label": "Inside-JEPA 作者预印本",
+          "url": "https://arxiv.org/abs/2610.31194",
+          "kind": "作者论文、方法与实验结果",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "openai-nask-public-ai-safety-evaluations",
       "lane": "science",
       "title": "前沿 AI 安全评测正在接入国家级公共研究机构",

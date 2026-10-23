@@ -129,7 +129,9 @@ function hRelatedRows(x){
 function hAccessCards(x){
  const rows=hAccessRows(x);
  const hasTry=rows.some(r=>['try','demo','gateway'].includes(r.kind));
- return '<section class="h-detail-panel"><div class="h-detail-panel-head"><span>体验 / 查看入口</span><small>'+rows.length+' 个</small></div><div class="h-access-list">'+rows.map((r,i)=>'<a class="h-access-card '+(i===0?'primary':'')+'" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer"><span class="h-access-icon">'+icon(r.kind==='try'?'zap':r.kind==='docs'?'book':r.kind==='gateway'?'box':'external')+'</span><span><strong>'+esc(r.label)+'</strong><small>'+esc(r.note)+'</small></span>'+icon('external')+'</a>').join('')+'</div>'+(!hasTry?'<div class="h-access-status">当前没有独立可体验入口，先提供官方材料 / 代码 / 论文。</div>':'')+'</section>'
+ const hasProductGate=rows.some(r=>r.kind==='product');
+ const status=hasTry?'':hasProductGate?'当前入口是候补或产品资料页，尚不能直接体验；开放范围以官方页面为准。':'当前没有独立可体验入口，先提供官方材料 / 代码 / 论文。';
+ return '<section class="h-detail-panel"><div class="h-detail-panel-head"><span>体验 / 查看入口</span><small>'+rows.length+' 个</small></div><div class="h-access-list">'+rows.map((r,i)=>'<a class="h-access-card '+(i===0?'primary':'')+'" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer"><span class="h-access-icon">'+icon(r.kind==='try'?'zap':r.kind==='docs'?'book':r.kind==='gateway'?'box':'external')+'</span><span><strong>'+esc(r.label)+'</strong><small>'+esc(r.note)+'</small></span>'+icon('external')+'</a>').join('')+'</div>'+(status?'<div class="h-access-status">'+status+'</div>':'')+'</section>'
 }
 function hPrimaryCta(r){
  if(!r)return '';
