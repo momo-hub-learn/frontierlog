@@ -35,6 +35,8 @@ try:
   assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
   shot(page,'home.png');pass_('current cockpit and both sector gateways render')
   route(page,'#/pharma');expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['pharma'])
+  expect(page.locator('.v-topic-strip')).to_have_count(0)
+  expect(page.locator('.v2-business-chain')).to_have_count(1)
   assert float(page.locator('.v-summary').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
   shot(page,'pharma.png');pass_('pharma page, large reading typography, dated and evergreen records separate')
   route(page,'#/pharma?topic=csr');expect(page.locator('.v-article')).to_have_count(TOPIC_COUNTS['csr'])
@@ -46,7 +48,7 @@ try:
   route(page,'#/manufacturing');expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['manufacturing'])
   shot(page,'manufacturing.png')
   route(page,'#/manufacturing?topic=fab-maintenance');expect(page.locator('.v-article')).to_have_count(2)
-  route(page,'#/manufacturing?topic=csr');assert page.locator('.v-topic-strip a.active').inner_text()=='全部主题'
+  route(page,'#/manufacturing?topic=csr');assert page.locator('.v2-business-chain a.active').inner_text()=='全部'
   pass_('manufacturing and fab filtering; invalid cross-sector filter is rejected')
   page.locator('#v-search').fill('not-any-topic-zzzx');expect(page.locator('.v-empty')).to_have_count(1)
   page.locator('[data-va="reset"]').click();expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['manufacturing'])
