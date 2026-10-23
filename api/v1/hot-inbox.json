@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-23T13:51:38Z",
+  "generated_at": "2026-10-23T15:26:16Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
     "merge": 51,
-    "hold": 3
+    "hold": 4
   },
   "candidates": [
     {
@@ -38,6 +38,35 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
+    },
+    {
+      "id": "candidate-70c4362aedbb25ec",
+      "category": "research",
+      "published": "2026-10-22",
+      "title": "JEPA 的潜在状态需要显式关系通道，预测本身不会自动长出关系理解",
+      "summary": "Inside-JEPA 在潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从通道变化恢复动作。作者报告：只做潜在预测的关系探针不优于随机头；加入逆动力学后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。",
+      "why": "世界模型能预测未来，不等于其内部状态已经编码可读、可用于规划的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。",
+      "boundary": "结果来自作者预印本，本站未运行；主要证据来自 Something-Something V2、RH20T 和一步关系目标，不能外推为长程规划、真实机器人可靠性或通用物理理解。43% 的 top-5 动作召回也不是任务成功率。",
+      "source": "Hossein Resani / Javen Qinfeng Shi",
+      "source_kind": "作者论文、方法与实验结果",
+      "url": "https://arxiv.org/abs/2610.31194",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.898,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "inside-jepa-relational-grounding",
+      "topic_tags": [
+        "JEPA",
+        "World Model",
+        "Relational Grounding"
+      ],
+      "first_seen_at": "2026-10-23T15:26:16Z"
     },
     {
       "id": "candidate-92ca2707f4cec9ad",
@@ -982,29 +1011,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "voxtral-3-voice-agents",
       "first_seen_at": "2026-10-21T13:33:09Z"
-    },
-    {
-      "id": "candidate-2894c9471b45dfc8",
-      "category": "industry",
-      "published": "2026-10-19",
-      "title": "RFD4-Proteína：计算生成之后仍要过湿实验",
-      "summary": "模型联合生成蛋白质序列与全原子结构，可按结合靶点、酶基序、配体或指定结构特征做条件设计；官方提供代码、权重、容器与 Space。",
-      "why": "它把条件准备、生成和结构产物放进可复现入口，适合建立计算候选的固定版本基线。",
-      "boundary": "计算生成与作者指标不证明结合、活性、安全性或临床价值；本站未运行模型。外部评分器、训练数据、权重及可选 AlphaFold/OpenFold 资产的条款需分别审查。",
-      "source": "NVIDIA / Baker Lab",
-      "source_kind": "官方模型卡与运行文档",
-      "url": "https://huggingface.co/nvidia/RFD4-Proteina",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T15:29:58Z"
     }
   ]
 }
