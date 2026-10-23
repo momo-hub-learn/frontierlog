@@ -10,6 +10,9 @@ from playwright.sync_api import sync_playwright, expect
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'test-results/arena'
 OUT.mkdir(parents=True,exist_ok=True)
+MODEL_DATA=json.loads((ROOT/'data/models.json').read_text())
+ARENA=next(board for board in MODEL_DATA['boards'] if board['id']=='arena')
+ARENA_ROWS=ARENA['rows']
 MEMORY=os.environ.get('BROWSER_TEST_MODE')=='memory'
 class Quiet(SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -39,29 +42,32 @@ try:
         go('#/models?board=arena')
         expect(page.locator('.ar-table th')).to_have_count(7)
         assert page.locator('.ar-table th').all_text_contents().count('公司')==1
-        expect(page.locator('.ar-table tbody tr')).to_have_count(8)
+        expect(page.locator('.ar-table tbody tr')).to_have_count(len(ARENA_ROWS))
         for row in page.locator('.ar-table tbody tr').all():
             expect(row.locator('td')).to_have_count(7)
             assert '±' not in row.locator('td').nth(2).inner_text()
             expect(row.locator('td').nth(3)).to_contain_text('±')
             expect(row.locator('td').nth(2).locator('a')).to_have_count(1)
-        expect(page.locator('.ar-table td').nth(3)).to_contain_text('1,506')
+        expect(page.locator('.ar-table td').nth(3)).to_contain_text(f"{ARENA_ROWS[0]['preference']:,}")
         assert page.locator('.ar-table td:nth-child(2)').first.bounding_box()['width']>=240
         passed('Exactly one company column/link, inline score uncertainty and readable model width')
-        expect(page.locator('.ar-provenance')).to_contain_text('人工摘录 8 条 · 非完整榜')
-        assert page.locator('.ar-provenance time').evaluate_all('(els)=>els.map(e=>e.dateTime)')==['2026-09-13','2026-09-22']
+        expect(page.locator('.ar-provenance')).to_contain_text(f"人工摘录 {len(ARENA_ROWS)} 条 · 非完整榜")
+        assert page.locator('.ar-provenance time').evaluate_all('(els)=>els.map(e=>e.dateTime)')==[ARENA['as_of'],ARENA['checked']]
+        assert set(page.locator('.ar-preliminary').all_text_contents())=={'初步结果'}
         assert not page.locator('.v2-current-first').count()
         assert '速度、成本' not in page.locator('.ar-wrap').inner_text()
         passed('Coverage and two date meanings are explicit; generic/champion clutter is removed')
-        page.locator('#m-maker').select_option('OpenAI')
-        expect(page.locator('.ar-table tbody tr')).to_have_count(1)
-        expect(page.locator('.ar-table .ar-rank')).to_have_text('18')
-        expect(page.locator('.ar-table .ar-leading')).to_have_count(0)
-        expect(page.locator('.ar-resultline [role=status]')).to_contain_text('1 / 8')
+        maker='OpenAI' if any(row['maker']=='OpenAI' for row in ARENA_ROWS) else ARENA_ROWS[-1]['maker']
+        maker_rows=[row for row in ARENA_ROWS if row['maker']==maker]
+        page.locator('#m-maker').select_option(maker)
+        expect(page.locator('.ar-table tbody tr')).to_have_count(len(maker_rows))
+        expect(page.locator('.ar-table .ar-rank').first).to_have_text(str(maker_rows[0]['source_rank']))
+        expect(page.locator('.ar-table .ar-leading')).to_have_count(sum(row['source_rank']==1 for row in maker_rows))
+        expect(page.locator('.ar-resultline [role=status]')).to_contain_text(f"{len(maker_rows)} / {len(ARENA_ROWS)}")
         page.locator('.ar-clear').click()
-        expect(page.locator('.ar-table tbody tr')).to_have_count(8)
+        expect(page.locator('.ar-table tbody tr')).to_have_count(len(ARENA_ROWS))
         page.locator('#m-search').fill('Claude')
-        expect(page.locator('.ar-table tbody tr')).to_have_count(4)
+        expect(page.locator('.ar-table tbody tr')).to_have_count(sum('claude' in row['name'].lower() or 'claude' in row['maker'].lower() for row in ARENA_ROWS))
         expect(page.locator('#m-search')).to_be_focused()
         page.locator('#m-search').fill('<img src=x onerror=alert(1)>')
         expect(page.locator('.ar-empty')).to_be_visible()
@@ -74,7 +80,7 @@ try:
             expect(page.locator('dialog[open]')).to_contain_text(expected)
             page.keyboard.press('Escape')
         page.locator('.ar-table .ar-model-name').first.click()
-        expect(page.locator('dialog[open]')).to_contain_text('claude-fable-5-high')
+        expect(page.locator('dialog[open]')).to_contain_text(ARENA_ROWS[0]['name'])
         page.keyboard.press('Escape')
         passed('Keyboard-accessible score/vote/rank explanations and model source drawer')
         for width in [1920,1440,1280,1100,1024,820,620,390,360,320]:
@@ -106,18 +112,19 @@ try:
         page.evaluate("document.documentElement.style.fontSize=''")
         passed('200 percent text size switches to readable cards without horizontal page overflow')
         page.set_viewport_size({'width':390,'height':844});go('#/models?board=arena')
-        first=page.locator('[data-ar-model="arena-1"]')
+        first_row,second_row=ARENA_ROWS[:2]
+        first=page.locator(f'[data-ar-model="{first_row["id"]}"]')
         first.locator('summary').click()
         first.locator('[data-ma=star]').click()
         expect(first.locator('details')).to_have_attribute('open','')
         expect(first.locator('[data-ma=star]')).to_have_attribute('aria-pressed','true')
         expect(first.locator('[data-ma=star]')).to_be_focused()
         first.locator('[data-ma=select]').click()
-        second=page.locator('[data-ar-model="arena-2"]')
+        second=page.locator(f'[data-ar-model="{second_row["id"]}"]')
         second.locator('summary').click();second.locator('[data-ma=select]').click()
         page.locator('.m-comparebar [data-ma=compare]').click()
         expect(page.locator('dialog[open]')).to_contain_text('同源比较')
-        expect(page.locator('dialog[open]')).to_contain_text('±5')
+        expect(page.locator('dialog[open]')).to_contain_text(f"±{first_row['score_error']}")
         page.keyboard.press('Escape')
         page.locator('.m-comparebar [data-ma=compare-clear]').click()
         page.locator('#m-only').check()
@@ -136,12 +143,12 @@ try:
         expect(page.locator('.v2-model-table table th')).to_have_count(8)
         page.locator('[data-ma=board][data-id=arena]').click()
         expect(page.locator('.ar-table th')).to_have_count(7)
-        page.locator('#m-maker').select_option('OpenAI')
+        page.locator('#m-maker').select_option(maker)
         page.screenshot(path=str(OUT/'arena-openai.png'))
         passed('AA and Arena switch without duplicate company columns or stale compare state')
         if not MEMORY:
             page.go_back(wait_until='domcontentloaded')
-            expect(page.locator('.ar-table tbody tr')).to_have_count(8)
+            expect(page.locator('.ar-table tbody tr')).to_have_count(len(ARENA_ROWS))
             passed('Browser Back restores the previous filter state')
         for route,selector in [('#/models?cap=coding','.v3-ranktable'),('#/models?cap=world','.v3-ranktable'),('#/activity','.ah-hero'),('#/hot?cat=product&pview=map&product=harvey','.pb-history-track')]:
             if MEMORY and 'cap=' in route: continue  # These pages load a relative HTTP JSON endpoint.
