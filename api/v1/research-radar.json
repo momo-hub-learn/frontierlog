@@ -21,6 +21,31 @@
   ],
   "items": [
     {
+      "id": "openai-nask-public-ai-safety-evaluations",
+      "lane": "science",
+      "title": "前沿 AI 安全评测正在接入国家级公共研究机构",
+      "maker": "OpenAI / NASK",
+      "date": "2026-10-23",
+      "verified_at": "2026-10-23T15:27:55+08:00",
+      "tags": [
+        "AI Safety",
+        "Evaluation",
+        "Public Research"
+      ],
+      "fact": "OpenAI 与波兰国家研究院 NASK 签署合作协议，计划由 NASK 的 AI Safety Research Center 与 OpenAI 共同评估更强 AI 系统、识别潜在漏洞并强化防护。官方同时把能力评测、风险评估、安全测试和事故报告列为跨国共同技术口径的重点。",
+      "insight": "安全评测若要形成可比较、可问责的公共证据，需要厂商以外的国家研究机构参与定义测试和报告流程；这项合作是评测治理从公司内部向跨机构协作扩展的信号。",
+      "boundary": "协议没有公开评测集、模型范围、时间表、独立审计安排或新结果。CERT Polska 此前借助 OpenAI 模型发现六个 RouterOS 漏洞只是背景案例，不能证明本合作已经提高了任何模型的安全性。",
+      "next_watch": "关注双方是否公开评测协议、覆盖的能力与威胁模型、漏洞披露和事故报告规则，以及结果能否被其他安全研究机构复核。",
+      "sources": [
+        {
+          "label": "OpenAI 与 NASK 官方合作公告",
+          "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership/",
+          "kind": "合作范围、既有案例与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "proactive-memory-lifecycle-benchmark",
       "lane": "paradigm",
       "title": "主动视觉助手开始按完整记忆生命周期评测，而不是等用户提问",
