@@ -58,6 +58,12 @@ class HotDataTests(unittest.TestCase):
    with self.subTest(link=link):
     params=dict(part.split('=',1) for part in link.split('?',1)[1].split('&'))
     self.assertIn(params.get('bench'),benchmarks)
+ def test_historical_trending_rank_is_not_presented_as_current(self):
+  item=next(x for x in self.data['items'] if x['id']=='minimax-m31-flash-open-weights-20261023')
+  self.assertIn('首次收录时',item['summary'])
+  self.assertIn('当前榜位以热榜页最新官方快照为准',item['summary'])
+  self.assertIn('会随平台快照变化',item['boundary'])
+  self.assertEqual(item['link'],'#/hot?tab=hf')
  def test_precise_timestamp_optional(self):
   d=copy.deepcopy(self.data);d['items'][0]['published_at']='2026-09-10T16:10:00+08:00';validate_hot(d)
  def test_precise_timestamp_requires_timezone(self):self.reject(lambda d:d['items'][0].update(published_at='2026-09-10T16:10:00'))
