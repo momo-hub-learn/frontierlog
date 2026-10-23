@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-23T21:44:21Z",
+  "generated_at": "2026-10-23T23:24:48Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 51,
+    "merge": 52,
     "hold": 4
   },
   "candidates": [
@@ -96,6 +96,29 @@
         "Evaluation"
       ],
       "first_seen_at": "2026-10-22T03:33:57Z"
+    },
+    {
+      "id": "candidate-43e740d17aae603a",
+      "category": "industry",
+      "published": "2026-10-23",
+      "title": "TB 筛查进入六国约 40 家机构：开放模型仍需本地验证",
+      "summary": "Google Research 披露，Nexus AI 的胸片筛查工具已在六国约 40 家医疗机构部署，90 多名临床人员处理了 2.5 万余张胸片；系统最快约 45 秒给出筛查结果，最终临床决定仍由医务人员作出。",
+      "why": "这把基础模型从论文和开放权重推进到前瞻性验证、医疗器械合规与一线流程；HAI-DEF、MedSigLIP、MedGemma 和 HeAR 也提供了可在本地继续适配的开放组件。",
+      "boundary": "这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，必须核对本地人群、设备、转诊闭环与误报漏报。",
+      "source": "Google Research",
+      "source_kind": "官方研究、监管状态与临床部署更新",
+      "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-23T23:24:48Z"
     },
     {
       "id": "candidate-5b6012e7e08daff6",
@@ -987,30 +1010,6 @@
         "Document Parsing"
       ],
       "first_seen_at": "2026-10-21T23:27:58Z"
-    },
-    {
-      "id": "candidate-31d8648ef450c276",
-      "category": "product",
-      "published": "2026-10-20",
-      "title": "Voxtral 3 与实时语音 Agent SDK 开放",
-      "summary": "Mistral 发布语音转写、TTS 模型和实时 Agent SDK，并提供 API、Studio 与自部署路径。",
-      "why": "语音能力从单接口扩展到可打断、可调用业务工具的流式链路；评估时需要把转写、轮次检测、工具执行和人工接管分开验收。",
-      "boundary": "Public Preview 与厂商评测不等于独立任务成功率；各模型的语言、上下文、延迟与价格不同。语音克隆、录音保存和外呼必须处理同意、身份冒用、隐私与人工接管。",
-      "source": "Mistral AI",
-      "source_kind": "官方模型与产品发布",
-      "url": "https://mistral.ai/news/voxtral-3",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.762,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "voxtral-3-voice-agents",
-      "first_seen_at": "2026-10-21T13:33:09Z"
     }
   ]
 }

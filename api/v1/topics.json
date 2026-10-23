@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-23",
+  "checked": "2026-10-24",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "google-tb-screening-foundations-20261023",
+      "title": "Bringing foundational models to the front lines of TB screening",
+      "publisher": "Google Research",
+      "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T07:18:20+08:00",
+      "kind": "官方研究、监管状态与临床部署更新"
+    },
     {
       "id": "anthropic-life-sciences-guest-investigators-20261022",
       "title": "Open call for guest investigators in the life sciences",
@@ -544,6 +554,39 @@
     }
   ],
   "articles": [
+    {
+      "id": "google-tb-screening-foundations-20261023",
+      "sector": "pharma",
+      "topics": [
+        "clinical"
+      ],
+      "title": "TB 筛查进入六国约 40 家机构：开放模型仍需本地验证",
+      "summary": "Google Research 披露，Nexus AI 的胸片筛查工具已在六国约 40 家医疗机构部署，90 多名临床人员处理了 2.5 万余张胸片；系统最快约 45 秒给出筛查结果，最终临床决定仍由医务人员作出。",
+      "why": "这把基础模型从论文和开放权重推进到前瞻性验证、医疗器械合规与一线流程；HAI-DEF、MedSigLIP、MedGemma 和 HeAR 也提供了可在本地继续适配的开放组件。",
+      "boundary": "这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，必须核对本地人群、设备、转诊闭环与误报漏报。",
+      "sources": [
+        "google-tb-screening-foundations-20261023"
+      ],
+      "kind": "update",
+      "access": "六国临床伙伴部署；开放胸片、视觉语言与咳嗽音频模型可本地适配",
+      "published": "2026-10-23",
+      "steps": [
+        "先把胸片筛查、临床分诊与分子确诊拆成不同终点和责任边界",
+        "在本地设备、人群与离线网络条件下做前瞻验证，保留人工复核和回退路径",
+        "独立审计敏感度、特异度、转诊完成率、误报漏报及数据主权"
+      ],
+      "metrics": [
+        "分人群敏感度、特异度与阳性预测值",
+        "从筛查到确诊的时间与转诊完成率",
+        "误报漏报、人工复核量与离线可用性"
+      ],
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T07:18:20+08:00",
+      "first_seen_at": "2026-10-24T07:18:20+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "anthropic-life-sciences-guest-investigators-20261022",
       "sector": "pharma",
