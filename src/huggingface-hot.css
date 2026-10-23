@@ -17,6 +17,7 @@
 .hf-type-chip:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));color:var(--text)}
 .hf-type-chip.active{background:var(--ink);border-color:var(--ink);color:white}
 .hf-type-chip small{font:600 .75rem var(--mono);opacity:.65}
+.hf-resultline{color:var(--muted);font-size:.8125rem;line-height:1.6;margin:-3px 0 10px}
 .hf-list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
 .hf-row{display:grid;grid-template-columns:48px minmax(0,1fr) 190px;gap:18px;align-items:center;padding:20px;border-bottom:1px solid var(--line)}
 .hf-row:last-child{border-bottom:0}
