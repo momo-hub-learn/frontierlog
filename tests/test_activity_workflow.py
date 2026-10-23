@@ -23,7 +23,9 @@ class ActivityWorkflowContractTests(unittest.TestCase):
         self.assertIn('echo "CHROMIUM_EXECUTABLE=$browser_bin" >> "$GITHUB_ENV"', text)
         self.assertIn('if [[ -z "$browser_bin" ]]; then', text)
         self.assertIn("fonts-wqy-zenhei", text)
-        self.assertIn("timeout 120s apt-get", text)
+        self.assertIn("timeout 60s apt-get", text)
+        self.assertIn("CJK font unavailable", text)
+        self.assertIn("browser regressions will continue", text)
         self.assertNotIn("fonts-noto-cjk", text)
         self.assertNotIn("playwright install --with-deps chromium", text)
 
