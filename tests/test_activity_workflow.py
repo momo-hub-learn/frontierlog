@@ -22,6 +22,9 @@ class ActivityWorkflowContractTests(unittest.TestCase):
         self.assertIn('command -v "$candidate"', text)
         self.assertIn('echo "CHROMIUM_EXECUTABLE=$browser_bin" >> "$GITHUB_ENV"', text)
         self.assertIn('if [[ -z "$browser_bin" ]]; then', text)
+        self.assertIn("fonts-wqy-zenhei", text)
+        self.assertIn("timeout 120s apt-get", text)
+        self.assertNotIn("fonts-noto-cjk", text)
         self.assertNotIn("playwright install --with-deps chromium", text)
 
     def test_browser_workflows_share_the_bounded_setup(self):
