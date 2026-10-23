@@ -10,6 +10,7 @@ on:
       - 'tests/product-browser.test.cjs'
       - 'tests/test_*.py'
       - 'tests/browser_product_timeline.py'
+      - 'scripts/setup_ci_browser.sh'
       - '.github/workflows/product-timeline.yml'
   workflow_dispatch:
 
@@ -39,9 +40,7 @@ jobs:
           node tests/product-browser.test.cjs
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Install browser dependencies
-        run: |
-          python -m pip install playwright==1.55.0
-          python -m playwright install --with-deps chromium
+        run: bash scripts/setup_ci_browser.sh
       - name: Timeline interaction and responsive regression
         run: python tests/browser_product_timeline.py
       - name: Record tested source

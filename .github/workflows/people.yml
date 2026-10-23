@@ -9,6 +9,7 @@ on:
       - 'data/people.json'
       - 'scripts/people_data.py'
       - 'scripts/build.py'
+      - 'scripts/setup_ci_browser.sh'
       - 'tests/*people*'
       - 'tests/browser_product_timeline.py'
   workflow_dispatch:
@@ -48,9 +49,7 @@ jobs:
           node tests/people.test.cjs
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Browser dependencies
-        run: |
-          python -m pip install playwright==1.55.0
-          python -m playwright install --with-deps chromium
+        run: bash scripts/setup_ci_browser.sh
       - name: People and existing product browser regressions
         run: |
           python tests/browser_people.py
