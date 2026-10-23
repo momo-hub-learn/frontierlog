@@ -14,6 +14,7 @@ on:
       - 'tests/rea-editorial-quality.test.cjs'
       - 'tests/deep-cadence-ui.test.cjs'
       - 'scripts/deep_revision_guard.py'
+      - 'scripts/setup_ci_browser.sh'
       - 'tests/test_deep_revision_guard.py'
       - '.github/workflows/deep-guide.yml'
   workflow_dispatch:
@@ -49,9 +50,7 @@ jobs:
           python examples/jev/jev_knowledge_demo.py
           python scripts/build.py --out dist --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Install browser test dependencies
-        run: |
-          python -m pip install playwright==1.55.0
-          python -m playwright install --with-deps chromium
+        run: bash scripts/setup_ci_browser.sh
       - name: Browser interaction and responsive checks
         run: |
           python tests/browser_deep_visual.py

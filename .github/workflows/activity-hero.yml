@@ -10,6 +10,7 @@ on:
       - 'assets/activity/**'
       - 'tests/activity-hero.test.cjs'
       - 'tests/browser_activity_hero.py'
+      - 'scripts/setup_ci_browser.sh'
       - '.github/workflows/activity-hero.yml'
   workflow_dispatch:
 permissions:
@@ -49,28 +50,7 @@ jobs:
               assert (Path('dist')/path).read_bytes()==data
           PY
       - name: Install Chromium and Chinese fonts
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install playwright==1.55.0
-          browser_bin=''
-          for candidate in google-chrome-stable google-chrome chromium chromium-browser; do
-            if command -v "$candidate" >/dev/null 2>&1; then
-              browser_bin="$(command -v "$candidate")"
-              break
-            fi
-          done
-          if [[ -z "$browser_bin" ]]; then
-            python -m playwright install chromium
-            browser_bin="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux*/chrome' -print -quit)"
-          fi
-          test -x "$browser_bin"
-          echo "CHROMIUM_EXECUTABLE=$browser_bin" >> "$GITHUB_ENV"
-          "$browser_bin" --version
-          if ! fc-list :lang=zh | grep -q .; then
-            sudo apt-get update
-            sudo apt-get install -y --no-install-recommends fonts-noto-cjk
-          fi
+        run: bash scripts/setup_ci_browser.sh
       - name: Browser interactions and responsive layouts
         run: |
           python tests/browser_activity_hero.py
