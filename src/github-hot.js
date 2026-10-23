@@ -92,7 +92,11 @@ function ghPartialNotice(){
   const sync=GH.sync||{},metadataFailures=Number(sync.metadata_failed_count)||0,watchFailures=Number(sync.watchlist_failed_count)||0;
   if(sync.metadata_status!=='partial'&&!metadataFailures&&!watchFailures)return '';
   const details=[];
-  if(metadataFailures)details.push(metadataFailures+' 个上榜仓库的总 Star / Fork / 推送时间沿用旧快照');
+  const stale=(GH.items||[]).filter(x=>x.metadata_status==='stale').length;
+  const unavailable=(GH.items||[]).filter(x=>x.metadata_status==='unavailable').length;
+  if(stale)details.push(stale+' 个上榜仓库的总 Star / Fork / 推送时间沿用旧快照');
+  if(unavailable)details.push(unavailable+' 个新上榜仓库的 API 元数据待首次核验');
+  if(metadataFailures&&!stale&&!unavailable)details.push(metadataFailures+' 个上榜仓库的 API 指标未同步');
   if(watchFailures)details.push(watchFailures+' 个长期关注仓库本轮 API 核验失败');
   return '<div class="ranking-partial"><strong>官方榜位与今日 Star 已更新；部分仓库 API 指标未同步</strong><span>'+esc(details.join('；')||'部分仓库 API 元数据待核验')+'。下方逐行标出旧快照，不影响 GitHub Trending 官方顺序。</span></div>'
 }

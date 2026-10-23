@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "checked_at": "2026-10-23T09:19:56Z",
+  "checked_at": "2026-10-23T11:26:21Z",
   "source_url": "https://huggingface.co/models?sort=trending",
   "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
   "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
   "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
   "rank_source": "official_web_models_trending_order",
   "api_rank_source": "official_api_trendingScore_desc",
-  "api_fetched_at": "2026-10-23T09:19:56Z",
-  "web_fetched_at": "2026-10-23T09:19:56Z",
+  "api_fetched_at": "2026-10-23T11:26:21Z",
+  "web_fetched_at": "2026-10-23T11:26:21Z",
   "web_order_matches_api": true,
   "web_order": [
     "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -24,13 +24,13 @@
     "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
     "Qwen/Qwen3.8-27B",
     "jialinyyzz/humanizer",
-    "tencent/Hy-Memory-30B-A3B",
     "meta-models/Muse-Spark-Open-816B-A42B",
-    "black-forest-labs/flux-3-image-klein",
     "datalab-to/indra-ocr",
-    "mistralai/Timestral-209M",
+    "tencent/Hy-Memory-30B-A3B",
     "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-    "InternScience/Sage-A1.5"
+    "black-forest-labs/flux-3-image-klein",
+    "InternScience/Sage-A1.5",
+    "mistralai/Timestral-209M"
   ],
   "web_rank_changes": [
     {
@@ -38,140 +38,140 @@
       "rank": 1,
       "previous_rank": 1,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "black-forest-labs/flux-3-image-klein-comfy",
       "rank": 2,
       "previous_rank": 2,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "RecursiveSI/flint",
       "rank": 3,
       "previous_rank": 3,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "OpenMOSS-Team/MOSS-Image-SFT",
       "rank": 4,
       "previous_rank": 4,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "OpenMOSS-Team/MOSS-Image-Base",
       "rank": 5,
       "previous_rank": 5,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "Lightricks/LTX-2.5",
       "rank": 6,
       "previous_rank": 6,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "fishaudio/drama-3",
       "rank": 7,
       "previous_rank": 7,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "Comfy-Org/MOSS-Image",
       "rank": 8,
       "previous_rank": 8,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "XHToken/Spark-X2.6-4B",
       "rank": 9,
       "previous_rank": 9,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "google/embeddinggemma-2",
       "rank": 10,
       "previous_rank": 10,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "rank": 11,
-      "previous_rank": 11,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_rank": 12,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "Qwen/Qwen3.8-27B",
       "rank": 12,
-      "previous_rank": 12,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_rank": 11,
+      "rank_change": -1,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "jialinyyzz/humanizer",
       "rank": 13,
-      "previous_rank": 14,
-      "rank_change": 1,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
-    },
-    {
-      "id": "tencent/Hy-Memory-30B-A3B",
-      "rank": 14,
-      "previous_rank": 15,
-      "rank_change": 1,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_rank": 13,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "meta-models/Muse-Spark-Open-816B-A42B",
-      "rank": 15,
-      "previous_rank": 13,
-      "rank_change": -2,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
-    },
-    {
-      "id": "black-forest-labs/flux-3-image-klein",
-      "rank": 16,
-      "previous_rank": 16,
+      "rank": 14,
+      "previous_rank": 14,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "datalab-to/indra-ocr",
-      "rank": 17,
-      "previous_rank": 17,
+      "rank": 15,
+      "previous_rank": 15,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
-      "id": "mistralai/Timestral-209M",
-      "rank": 18,
-      "previous_rank": 18,
+      "id": "tencent/Hy-Memory-30B-A3B",
+      "rank": 16,
+      "previous_rank": 16,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "rank": 19,
-      "previous_rank": 19,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "rank": 17,
+      "previous_rank": 18,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
+    },
+    {
+      "id": "black-forest-labs/flux-3-image-klein",
+      "rank": 18,
+      "previous_rank": 17,
+      "rank_change": -1,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     },
     {
       "id": "InternScience/Sage-A1.5",
+      "rank": 19,
+      "previous_rank": 19,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
+    },
+    {
+      "id": "mistralai/Timestral-209M",
       "rank": 20,
       "previous_rank": 20,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-23T07:29:18Z"
+      "previous_fetched_at": "2026-10-23T11:21:15Z"
     }
   ],
   "items": [
@@ -179,9 +179,9 @@
       "rank": 1,
       "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "trending_score": 2104,
-      "likes": 2446,
-      "downloads": 51911,
+      "trending_score": 2119,
+      "likes": 2466,
+      "downloads": 57715,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-10-17T02:40:38.000Z",
@@ -196,9 +196,9 @@
       "rank": 2,
       "id": "black-forest-labs/flux-3-image-klein-comfy",
       "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-      "trending_score": 709,
-      "likes": 1331,
-      "downloads": 512524,
+      "trending_score": 684,
+      "likes": 1342,
+      "downloads": 534837,
       "task": "image-to-image",
       "library": "diffusion-single-file",
       "created_at": "2026-10-14T12:00:13.000Z",
@@ -213,9 +213,9 @@
       "rank": 3,
       "id": "RecursiveSI/flint",
       "url": "https://huggingface.co/RecursiveSI/flint",
-      "trending_score": 585,
-      "likes": 596,
-      "downloads": 420,
+      "trending_score": 594,
+      "likes": 606,
+      "downloads": 1904,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-10-21T14:20:58.000Z",
@@ -230,9 +230,9 @@
       "rank": 4,
       "id": "OpenMOSS-Team/MOSS-Image-SFT",
       "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-      "trending_score": 542,
-      "likes": 610,
-      "downloads": 6890,
+      "trending_score": 536,
+      "likes": 615,
+      "downloads": 7658,
       "task": "text-to-image",
       "library": "diffusers",
       "created_at": "2026-10-11T07:01:17.000Z",
@@ -247,9 +247,9 @@
       "rank": 5,
       "id": "OpenMOSS-Team/MOSS-Image-Base",
       "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-      "trending_score": 457,
-      "likes": 507,
-      "downloads": 5013,
+      "trending_score": 444,
+      "likes": 508,
+      "downloads": 5618,
       "task": "text-to-image",
       "library": "diffusers",
       "created_at": "2026-10-11T06:49:17.000Z",
@@ -264,9 +264,9 @@
       "rank": 6,
       "id": "Lightricks/LTX-2.5",
       "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "trending_score": 418,
-      "likes": 8944,
-      "downloads": 2054990,
+      "trending_score": 413,
+      "likes": 8956,
+      "downloads": 2026951,
       "task": "image-to-video",
       "library": "diffusion-single-file",
       "created_at": "2026-07-23T07:55:24.000Z",
@@ -281,9 +281,9 @@
       "rank": 7,
       "id": "fishaudio/drama-3",
       "url": "https://huggingface.co/fishaudio/drama-3",
-      "trending_score": 397,
-      "likes": 929,
-      "downloads": 16305,
+      "trending_score": 393,
+      "likes": 932,
+      "downloads": 17017,
       "task": "text-to-speech",
       "library": "未标注",
       "created_at": "2026-10-01T04:34:57.000Z",
@@ -299,8 +299,8 @@
       "id": "Comfy-Org/MOSS-Image",
       "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
       "trending_score": 360,
-      "likes": 382,
-      "downloads": 1463386,
+      "likes": 383,
+      "downloads": 1606363,
       "task": "未标注",
       "library": "diffusion-single-file",
       "created_at": "2026-10-16T12:42:32.000Z",
@@ -315,9 +315,9 @@
       "rank": 9,
       "id": "XHToken/Spark-X2.6-4B",
       "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-      "trending_score": 348,
-      "likes": 378,
-      "downloads": 482,
+      "trending_score": 352,
+      "likes": 384,
+      "downloads": 1060,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-10-19T03:19:51.000Z",
@@ -332,9 +332,9 @@
       "rank": 10,
       "id": "google/embeddinggemma-2",
       "url": "https://huggingface.co/google/embeddinggemma-2",
-      "trending_score": 324,
-      "likes": 2857,
-      "downloads": 185259,
+      "trending_score": 323,
+      "likes": 2859,
+      "downloads": 192741,
       "task": "feature-extraction",
       "library": "transformers",
       "created_at": "2026-09-14T14:53:42.000Z",
@@ -349,9 +349,9 @@
       "rank": 11,
       "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "trending_score": 307,
-      "likes": 4860,
-      "downloads": 2665585,
+      "trending_score": 313,
+      "likes": 4871,
+      "downloads": 2398071,
       "task": "text-to-image",
       "library": "gguf",
       "created_at": "2026-09-20T15:51:13.000Z",
@@ -366,9 +366,9 @@
       "rank": 12,
       "id": "Qwen/Qwen3.8-27B",
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "trending_score": 306,
-      "likes": 18244,
-      "downloads": 7758670,
+      "trending_score": 311,
+      "likes": 18254,
+      "downloads": 7710011,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-08-05T08:22:59.000Z",
@@ -383,9 +383,9 @@
       "rank": 13,
       "id": "jialinyyzz/humanizer",
       "url": "https://huggingface.co/jialinyyzz/humanizer",
-      "trending_score": 285,
-      "likes": 2105,
-      "downloads": 124773,
+      "trending_score": 281,
+      "likes": 2107,
+      "downloads": 129025,
       "task": "text-generation",
       "library": "gguf",
       "created_at": "2026-09-11T05:00:16.000Z",
@@ -398,28 +398,11 @@
     },
     {
       "rank": 14,
-      "id": "tencent/Hy-Memory-30B-A3B",
-      "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
-      "trending_score": 281,
-      "likes": 293,
-      "downloads": 2966,
-      "task": "text-generation",
-      "library": "transformers",
-      "created_at": "2026-10-15T09:52:00.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "hy_v3",
-        "text-generation"
-      ]
-    },
-    {
-      "rank": 15,
       "id": "meta-models/Muse-Spark-Open-816B-A42B",
       "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
-      "trending_score": 271,
-      "likes": 666,
-      "downloads": 3163,
+      "trending_score": 259,
+      "likes": 669,
+      "downloads": 5196,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-09-15T19:23:19.000Z",
@@ -431,29 +414,12 @@
       ]
     },
     {
-      "rank": 16,
-      "id": "black-forest-labs/flux-3-image-klein",
-      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
-      "trending_score": 265,
-      "likes": 641,
-      "downloads": 102903,
-      "task": "image-to-image",
-      "library": "diffusers",
-      "created_at": "2026-10-13T10:58:40.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "image-generation",
-        "image-editing"
-      ]
-    },
-    {
-      "rank": 17,
+      "rank": 15,
       "id": "datalab-to/indra-ocr",
       "url": "https://huggingface.co/datalab-to/indra-ocr",
-      "trending_score": 256,
-      "likes": 375,
-      "downloads": 3823,
+      "trending_score": 259,
+      "likes": 380,
+      "downloads": 4033,
       "task": "image-to-text",
       "library": "onnx",
       "created_at": "2026-10-10T14:12:33.000Z",
@@ -465,29 +431,29 @@
       ]
     },
     {
-      "rank": 18,
-      "id": "mistralai/Timestral-209M",
-      "url": "https://huggingface.co/mistralai/Timestral-209M",
-      "trending_score": 243,
-      "likes": 293,
-      "downloads": 6194,
-      "task": "time-series-forecasting",
-      "library": "timestral",
-      "created_at": "2026-10-14T08:52:36.000Z",
+      "rank": 16,
+      "id": "tencent/Hy-Memory-30B-A3B",
+      "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B",
+      "trending_score": 250,
+      "likes": 297,
+      "downloads": 3270,
+      "task": "text-generation",
+      "library": "transformers",
+      "created_at": "2026-10-15T09:52:00.000Z",
       "tags": [
-        "timestral",
+        "transformers",
         "safetensors",
-        "time-series",
-        "forecasting"
+        "hy_v3",
+        "text-generation"
       ]
     },
     {
-      "rank": 19,
+      "rank": 17,
       "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
       "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "trending_score": 240,
-      "likes": 276,
-      "downloads": 3808,
+      "trending_score": 245,
+      "likes": 281,
+      "downloads": 4141,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-10-18T04:11:31.000Z",
@@ -499,12 +465,29 @@
       ]
     },
     {
-      "rank": 20,
+      "rank": 18,
+      "id": "black-forest-labs/flux-3-image-klein",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
+      "trending_score": 244,
+      "likes": 645,
+      "downloads": 105768,
+      "task": "image-to-image",
+      "library": "diffusers",
+      "created_at": "2026-10-13T10:58:40.000Z",
+      "tags": [
+        "diffusers",
+        "safetensors",
+        "image-generation",
+        "image-editing"
+      ]
+    },
+    {
+      "rank": 19,
       "id": "InternScience/Sage-A1.5",
       "url": "https://huggingface.co/InternScience/Sage-A1.5",
-      "trending_score": 236,
-      "likes": 239,
-      "downloads": 396,
+      "trending_score": 239,
+      "likes": 243,
+      "downloads": 924,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-10-15T08:34:39.000Z",
@@ -514,11 +497,28 @@
         "qwen3_5_moe",
         "image-text-to-text"
       ]
+    },
+    {
+      "rank": 20,
+      "id": "mistralai/Timestral-209M",
+      "url": "https://huggingface.co/mistralai/Timestral-209M",
+      "trending_score": 236,
+      "likes": 294,
+      "downloads": 6815,
+      "task": "time-series-forecasting",
+      "library": "timestral",
+      "created_at": "2026-10-14T08:52:36.000Z",
+      "tags": [
+        "timestral",
+        "safetensors",
+        "time-series",
+        "forecasting"
+      ]
     }
   ],
   "sync": {
     "status": "success",
-    "last_checked_at": "2026-10-23T09:19:56Z",
+    "last_checked_at": "2026-10-23T11:26:21Z",
     "web_status": "success",
     "api_status": "success"
   }

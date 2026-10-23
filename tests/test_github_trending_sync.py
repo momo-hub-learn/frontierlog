@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
-from github_trending_sync import parse_trending, update_state, history_for
+from github_trending_sync import classify, parse_trending, update_state, history_for
 
 def page(n=8):
     out=[]
@@ -106,6 +106,22 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertIsNone(row['metadata_verified_at'])
         self.assertEqual(row['metadata_status'],'unavailable')
 
+    def test_repeated_api_limit_does_not_promote_unknown_metadata_to_stale(self):
+        def limited(repo):
+            if repo=='example/repo-7':
+                raise HTTPError('https://api.github.com/repos/'+repo,403,'Forbidden',{},None)
+            return api(repo)
+        first=update_state(self.data,self.now,fetch_page=page,fetch_metadata=limited)
+        second=update_state(
+            first,datetime(2026,10,13,9,15,tzinfo=timezone.utc),
+            fetch_page=page,fetch_metadata=limited)
+        row=second['items'][-1]
+        self.assertEqual(row['metadata_status'],'unavailable')
+        self.assertIsNone(row['stars'])
+        self.assertIsNone(row['forks'])
+        self.assertIsNone(row['metadata_verified_at'])
+        self.assertEqual(row['star_history'],[])
+
     def test_failed_trending_does_not_advance_verified_date_or_old_rank(self):
         original=json.dumps(self.data['items'],sort_keys=True)
         out=update_state(self.data,self.now,fetch_page=lambda:"<html>blocked</html>",fetch_metadata=api)
@@ -125,5 +141,38 @@ class GitHubSyncTests(unittest.TestCase):
     def test_no_utc_naive_clock(self):
         with self.assertRaises(ValueError):
             update_state(self.data,datetime(2026,10,13,8,15),fetch_page=page,fetch_metadata=api)
+
+    def test_explicit_claude_and_tts_signals_correct_old_non_ai_labels(self):
+        old={'category':'other','ai_related':False,'tags':['Open Source','GitHub']}
+        category,related,tags=classify(
+            'anthropics/knowledge-work-plugins',
+            'Open source plugins for knowledge workers to use in Claude Cowork',old)
+        self.assertEqual((category,related),('ai-tools',True))
+        category,related,tags=classify(
+            'SnailSploit/Claude-Red','Offensive security skills for the Claude skills system')
+        self.assertEqual((category,related),('agent-skills',True))
+        category,related,tags=classify(
+            'OpenBMB/VoxCPM','Tokenizer-Free TTS for Multilingual Speech Generation')
+        self.assertEqual((category,related),('ai-tools',True))
+
+    def test_stale_api_fallback_can_correct_an_old_non_ai_false_negative(self):
+        old={
+            'repo':'anthropics/knowledge-work-plugins','rank':1,'stars_today':1,
+            'description':'old description','language':'Python','stars':100,'forks':10,
+            'repo_created_at':'2026-01-01T00:00:00Z','repo_pushed_at':'2026-10-01T00:00:00Z',
+            'category':'other','ai_related':False,'tags':['Open Source','GitHub'],
+            'url':'https://github.com/anthropics/knowledge-work-plugins',
+            'metadata_verified_at':'2026-10-12T00:00:00Z','star_history':[]}
+        state={**self.data,'items':[old]}
+        html=page().replace('/morluto/rea','/anthropics/knowledge-work-plugins',1).replace(
+            'AI Agent harness 0','Plugins for knowledge workers to use in Claude Cowork',1)
+        def limited(repo):
+            if repo=='anthropics/knowledge-work-plugins':
+                raise HTTPError('https://api.github.com/repos/'+repo,403,'Forbidden',{},None)
+            return api(repo)
+        out=update_state(state,self.now,fetch_page=lambda:html,fetch_metadata=limited)
+        self.assertEqual(out['items'][0]['metadata_status'],'stale')
+        self.assertEqual(out['items'][0]['category'],'ai-tools')
+        self.assertTrue(out['items'][0]['ai_related'])
 
 if __name__=="__main__":unittest.main()
