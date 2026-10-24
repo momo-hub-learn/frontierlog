@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-23",
+  "checked": "2026-10-24",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,36 @@
     }
   ],
   "items": [
+    {
+      "id": "dual-exam-controlled-agent-world-model",
+      "name": "Dual Exam · Agent / World Model",
+      "group": "agent",
+      "edition": "v1 · 1,088 Agent items / 400 World Model cases",
+      "subtitle": "在同一交互环境中，模型是不会选动作，还是不会预测动作后果？",
+      "summary": "评测用固定环境回复隔离多模态 Agent 的行动选择，用固定动作干预隔离世界模型的后果预测；作者另以 150 个案例尝试把两条轨道耦合，作为端到端诊断。",
+      "metric": "case-weighted Agent Index ↑ / WM Overall ↑ / coverage ↑",
+      "metric_note": "Agent 与 World Model 轨道的任务、覆盖条件和指标不同，必须分列；不能把 31.3 与 21.7 拼成综合分或跨轨排名。",
+      "protocol": "固定 Dual Exam 版本、交互场景、题目、环境回复、动作干预、模型版本、提示、工具与预算；分别保存 Agent 行动轨迹和世界模型预测，再按轨道、类别、场景与覆盖率报告。",
+      "boundary": "作者预印本报告 10 个 Agent 配置和 15 个全覆盖世界模型配置的结果，本站未运行。150 例耦合试验为零成功，只说明该设置下仍有明显缺口，不代表所有模型、真实产品或开放环境的普遍失败率。",
+      "business": "适合评估需要看图、操作界面并预判后果的 Agent：先用两条受控轨道定位决策或动力学问题，再用私有流程验证端到端成功、成本、安全与恢复能力。",
+      "setup": "先固定作者公开版本与覆盖条件；Agent 轨道锁定环境回复，World Model 轨道锁定动作干预，记录缺失输出与覆盖率；最后才运行耦合任务，禁止用单一端到端分数替代分轨诊断。",
+      "topics": [],
+      "sources": ["b-dual-exam-paper"],
+      "result_url": "https://arxiv.org/abs/2610.31066",
+      "kind": "benchmark",
+      "flag": "作者公开评测 / 本站未运行",
+      "checked": "2026-10-24",
+      "tested": false,
+      "checks": [
+        "Agent 与 World Model 轨道、指标和覆盖率分列",
+        "固定环境回复、动作干预、模型版本、提示与预算",
+        "保留完整行动轨迹、预测输出、缺失输出与失败案例",
+        "耦合任务单列，不把诊断分数写成真实产品成功率"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "proactegomem-proactive-memory",
       "name": "ProactEgoMem · Proactive Memory",
@@ -1090,6 +1120,16 @@
   ],
   "sources": [
     {
+      "id": "b-dual-exam-paper",
+      "title": "Dual Exam: Evaluating Multimodal Agents and World Models in Interactive Environments",
+      "publisher": "Dual Exam authors",
+      "url": "https://arxiv.org/abs/2610.31066",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "kind": "作者预印本",
+      "note": "v1 提交于 2026-10-22；规模、双轨协议、覆盖条件和公开结果均按作者论文记录，本站未运行。"
+    },
+    {
       "id": "b-proactegomem-paper",
       "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video",
       "publisher": "ProactEgoMem authors",
@@ -1586,6 +1626,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "dual-exam-release-20261022",
+      "date": "2026-10-22",
+      "title": "Dual Exam 把 Agent 行动与世界模型预测分轨评估",
+      "summary": "作者公开 1,088 道 Agent 题和 400 个世界模型案例，用固定环境回复与固定动作干预分别隔离行动选择和后果预测。",
+      "implication": "交互智能评估可以先定位决策与动力学建模的不同缺口；两轨任务和指标不可跨轨拼分，耦合试验也不能直接外推为产品失败率。",
+      "benchmarks": ["dual-exam-controlled-agent-world-model"],
+      "sources": ["b-dual-exam-paper"],
+      "kind": "新公开评测套件"
+    },
     {
       "id": "proactegomem-release-20261021",
       "date": "2026-10-21",
