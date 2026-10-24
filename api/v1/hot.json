@@ -36,6 +36,47 @@
   ],
   "items": [
     {
+      "id": "drill-policy-useful-world-models-20261022",
+      "category": "research",
+      "title": "DRILL：更低像素误差可能训练出更差策略",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T19:25:13+08:00",
+      "first_seen_at": "2026-10-24T19:25:13+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 34,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型画质、机器人成功率或本站实测分数。",
+      "trend": "up",
+      "summary": "DRILL 把世界模型的训练目标从下一帧像素预测转向“想象 rollout 是否真正提升策略”。作者在 5 个操作仿真器、2 个 VLA backbone 上报告，DRILL-IMG 相比 WMPO 的平均成功率提高 13.1 个百分点，相比 RLVR-World 提高 7.9 个百分点；一个策略更好的模型，下一帧像素 MSE 反而高 17%。",
+      "why": "这把世界模型验收从“画面更像”拉回“是否产生有用的策略梯度”。如果独立复现成立，机器人团队需要同时记录预测误差和下游策略收益，不能再把更低像素损失直接当作更好的控制模型。",
+      "boundary": "结果来自作者预印本，本站未运行；证据覆盖 5 个操作仿真器与 2 个 VLA backbone，不是真实机器人、长时域生产任务或通用世界模型证明。13.1 和 7.9 是成功率百分点差，不是相对百分比；元梯度训练的计算、稳定性与失败案例仍待独立复核。",
+      "source": "Zhaolu Kang et al.",
+      "source_kind": "作者预印本、方法与跨基线仿真实验 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.30814",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "核对方法、像素误差反例与策略成功率",
+          "note": "重点区分下一帧预测质量、策略梯度质量与仿真成功率，不外推为真实机器人表现",
+          "url": "https://arxiv.org/abs/2610.30814",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels",
+          "url": "https://arxiv.org/abs/2610.30814",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "inside-jepa-relational-grounding-20261022",
       "category": "research",
       "title": "Inside-JEPA：预测本身不会自动长出关系理解",

@@ -293,6 +293,12 @@
 
 边界：这是研究团队拆分后的简化评测，不是观察到真实 AI 蠕虫。研究主要评估推理环境搭建，弱化了发现目标、取得执行和真实网络传播；对小模型能力时间表的判断是趋势外推，不是确定发布日期，也不能推出当前模型可在开放互联网稳定自我复制。
 
+站内热度 91；不是全网流量。</description></item><item><title>DRILL：更低像素误差可能训练出更差策略</title><guid isPermaLink="false">frontierlog:hot:drill-policy-useful-world-models-20261022</guid><link>https://arxiv.org/abs/2610.30814</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>DRILL 把世界模型的训练目标从下一帧像素预测转向“想象 rollout 是否真正提升策略”。作者在 5 个操作仿真器、2 个 VLA backbone 上报告，DRILL-IMG 相比 WMPO 的平均成功率提高 13.1 个百分点，相比 RLVR-World 提高 7.9 个百分点；一个策略更好的模型，下一帧像素 MSE 反而高 17%。
+
+为什么值得看：这把世界模型验收从“画面更像”拉回“是否产生有用的策略梯度”。如果独立复现成立，机器人团队需要同时记录预测误差和下游策略收益，不能再把更低像素损失直接当作更好的控制模型。
+
+边界：结果来自作者预印本，本站未运行；证据覆盖 5 个操作仿真器与 2 个 VLA backbone，不是真实机器人、长时域生产任务或通用世界模型证明。13.1 和 7.9 是成功率百分点差，不是相对百分比；元梯度训练的计算、稳定性与失败案例仍待独立复核。
+
 站内热度 91；不是全网流量。</description></item><item><title>Microsoft Flint 1.0：Agent 开始直接生成可交互图表</title><guid isPermaLink="false">frontierlog:hot:microsoft-flint-interactive-20261022</guid><link>https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Microsoft Research 发布 Flint-interactive：用交互预设、语义事件和更新算子，让 Agent 生成可点击、筛选、缩放、联动高亮并连接表格或应用状态的图表；Flint 1.0 已开放 MCP 与 npm 接入。
 
 为什么值得看：Agent 生成可视化正在从一次性图片或反复拼底层前端代码，转向可读、可组合的交互规范；这为聊天内探索、仪表板和数据故事提供了更容易审计的中间层。
