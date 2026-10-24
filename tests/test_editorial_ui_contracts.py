@@ -26,23 +26,30 @@ class EditorialContracts(unittest.TestCase):
   rows=ET.fromstring(topic_rss(d,{'base_url':'https://example.org/'})).findall('./channel/item')
   self.assertIsNone(rows[0].find('pubDate'));self.assertIsNotNone(rows[1].find('pubDate'))
  def test_homepage_heat_band_thresholds(self):
-  text=(ROOT/'src/feed-cockpit.js').read_text()
-  fn=text[text.index('function fcHeatBand('):text.index('function fcHotPanel(')]
-  code=fn+"console.log(JSON.stringify([99,98,97,96,95,94,90,89].map(fcHeatBand)));"
+  text=(ROOT/'src/hot.js').read_text()
+  fn=text[text.index('function hHeatBand('):text.index('const H_ICON=')]
+  code=fn+"console.log(JSON.stringify([99,98,97,96,95,94,90,89].map(hHeatBand)));"
   rows=json.loads(subprocess.check_output(['node','-e',code],text=True))
   self.assertEqual([r['key'] for r in rows],['extreme','extreme','high','high','high','rising','rising','watch'])
   self.assertEqual([r['label'] for r in rows],['爆热','爆热','高热','高热','高热','升温','升温','关注'])
  def test_homepage_heat_has_text_and_accessible_numeric_label(self):
   text=(ROOT/'src/feed-cockpit.js').read_text()
   self.assertIn('aria-label="编辑热度 ',text)
-  self.assertIn("fcHeatBand(x.heat).label+'</small>'",text)
+  self.assertIn("hHeatBand(x.heat).label+'</small>'",text)
   css=(ROOT/'src/feed-cockpit.css').read_text()
   for band in ('extreme','high','rising','watch'):self.assertIn('.fc-heat-'+band,css)
+ def test_timeline_heat_has_text_tiers_and_non_color_shapes(self):
+  timeline=(ROOT/'src/intraday.js').read_text()
+  self.assertIn('class="intraday-score is-${band.key}"',timeline)
+  self.assertIn('<span>${band.label}</span>',timeline)
+  css=(ROOT/'src/v10.css').read_text()
+  self.assertIn('.intraday-score.is-extreme',css)
+  self.assertIn('border-left:3px solid',css)
+  self.assertIn('border-style:dashed',css)
  def test_intraday_heat_is_not_mislabelled_as_an_ai_score(self):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertNotIn('AI 评分',text)
-  self.assertIn('本站热度',text)
-  self.assertIn('aria-label="本站编辑热度 ${x.heat} 分"',text)
+  self.assertIn('aria-label="本站编辑热度 ${x.heat} 分，${band.label}"',text)
  def test_hot_primary_cta_does_not_call_documents_an_experience(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)

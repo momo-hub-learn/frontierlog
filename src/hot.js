@@ -7,6 +7,10 @@ const HOT_ITEMS=new Map(HOT.items.map(x=>[x.id,x]));
 const HOT_CATS=new Map(HOT.categories.map(x=>[x.id,x]));
 PATHS.fire='<path d="M13 2s1 4-2 6c-1-3-4-3-4-6-3 3-4 7-2 11 2 5 6 8 7 8s6-2 7-7c1-5-2-8-4-10 0 3-1 5-3 6 1-4-1-6 1-8z"/>';
 const H_TREND={up:['↗','上升'],flat:['—','持平'],down:['↘','回落']};
+function hHeatBand(score){
+ const n=Number(score);
+ return n>=98?{key:'extreme',label:'爆热'}:n>=95?{key:'high',label:'高热'}:n>=90?{key:'rising',label:'升温'}:{key:'watch',label:'关注'};
+}
 const H_ICON={all:'sparkles',model:'cpu',product:'box',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
 const H_PRIMARY_TABS=[
  {id:'all',title:'全部',icon:'sparkles'},
