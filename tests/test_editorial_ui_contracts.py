@@ -54,3 +54,7 @@ class EditorialContracts(unittest.TestCase):
   current=(ROOT/'src/v2.js').read_text()
   self.assertNotIn('v-topic-strip',legacy)
   self.assertEqual(current.count('v2-business-chain'),1)
+ def test_saved_page_separates_global_index_from_project_watchlist(self):
+  text=(ROOT/'src/app.js').read_text()
+  self.assertIn("saved:['PROJECT WATCHLIST','已关注项目','bookmark']",text)
+  self.assertNotIn("saved:['YOUR PERSONAL INDEX','我的关注','bookmark']",text)
