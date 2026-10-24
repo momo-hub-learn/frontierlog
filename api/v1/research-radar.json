@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-23",
+  "checked": "2026-10-24",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,81 @@
     }
   ],
   "items": [
+    {
+      "id": "anthropic-formal-verification-production-binaries",
+      "lane": "paradigm",
+      "title": "Coding Agent 开始把生产二进制的安全属性交给证明检查器验收",
+      "maker": "Anthropic / Theorem",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "tags": [
+        "Formal Verification",
+        "Coding Agent",
+        "Software Security"
+      ],
+      "fact": "Anthropic 与 Theorem 把 OSS-Fuzz 入口编译为 RISC-V 规格，让 Claude 为 123 个开源库的 239 个入口生成约 1.8 亿行 Rocq 证明：在单线程、静态二进制、固定内存预算和建模的 Linux 响应等假设下，所有小于 64MB 的输入都不会触发目标崩溃。官方公开了部分证明、规格和语义组件。",
+      "insight": "Agent 的可验证产物不必局限于补丁或测试通过；当规格、受信组件和机器检查器都明确时，长程代码生成可以收束为可独立重跑的证明对象。这可能改变高风险依赖的验收接口。",
+      "boundary": "本站未重跑证明。机械检查只说明指定定理成立，不能保证测试转成的规格覆盖业务意图，也不能排除定理范围外的 bug；Rocq、RISC-V/Linux 语义及定理陈述仍是受信边界。",
+      "next_watch": "关注独立重跑、证明组件的供应链审计、x86/ARM 与并发程序覆盖，以及真实项目中证明生成成本、维护成本和漏洞率是否优于持续模糊测试。",
+      "sources": [
+        {
+          "label": "Anthropic 形式化验证官方研究",
+          "url": "https://www.anthropic.com/research/formal-verification",
+          "kind": "官方方法、数据、公开产物与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-scorpion-toxin-binders",
+      "lane": "science",
+      "title": "蛋白设计 Agent 的证据链开始包含失败样本与合同实验室湿实验",
+      "maker": "Anthropic / Adaptyv Bio / Twist Bioscience",
+      "date": "2026-10-20",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "tags": [
+        "Protein Design",
+        "Wet Lab",
+        "Drug Discovery"
+      ],
+      "fact": "Anthropic 的内部研究模型在 64 小时内生成 318,484 个蛋白设计并筛选候选；两家合同研究组织测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到该研究的结合标准。官方公开全部 211 个设计及结果数据。",
+      "insight": "比“模型生成了多少序列”更有用的信号，是可审计的生成→筛选→实验漏斗和失败样本。开放全部候选与数据，使后续团队能检查筛选偏差并建立更现实的命中率基线。",
+      "boundary": "结合不等于中和。团队未确认候选能在细胞环境中中和毒液，因此这不是抗毒血清、药物或疗效证据；独立复现、稳定性、安全性、动物研究和临床验证均未完成。",
+      "next_watch": "关注独立实验室复现、细胞中和与多毒素覆盖、脱靶和免疫原性，以及公开失败样本能否改善下一轮候选筛选。",
+      "sources": [
+        {
+          "label": "Anthropic 蝎神经毒素 binder 官方研究",
+          "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+          "kind": "官方设计流程、湿实验结果与开放数据",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-iot-self-replication-risk",
+      "lane": "paradigm",
+      "title": "权重型 Agent 的复制风险开始下沉到廉价 IoT 与分布式推理",
+      "maker": "Anthropic Frontier Red Team",
+      "date": "2026-10-12",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "tags": [
+        "Autonomous Replication",
+        "IoT Security",
+        "Distributed Inference"
+      ],
+      "fact": "Anthropic 报告称，9B 模型可在 9 类硬件中的 8 类建立推理环境；30B 以下模型已能完成许多复制单步，但组合成稳定端到端链仍会出错。团队还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。",
+      "insight": "风险评估要把模型权重、推理运行时和异构边缘硬件一起看：即便单机很慢，跨设备适配和分布式运行也可能让去中心化持久性成为新的蓝队问题。",
+      "boundary": "这不是在开放互联网观察到的自主蠕虫。评测拆分并简化了复制链，研究重点是推理环境建立而非取得初始执行；小模型的能力时间表来自历史趋势外推，不能当作确定预测。",
+      "next_watch": "关注小模型在真实异构网络中的端到端重复成功率、凭据和权重传播检测、运行时完整性、网络分段及设备级缓解是否经独立红蓝队复现。",
+      "sources": [
+        {
+          "label": "Anthropic 自我复制与 IoT 推理官方研究",
+          "url": "https://www.anthropic.com/research/self-replicating-ai",
+          "kind": "官方威胁模型、硬件实验与缓解建议",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "flint-semantic-interaction-language",
       "lane": "paradigm",

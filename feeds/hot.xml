@@ -257,6 +257,12 @@
 
 边界：“70 多个平台集成、100 万技能、近 2.8 亿次安装”来自 Anthropic 官方统计，本站未独立审计；捐赠治理资产不等于所有实现立即兼容，也不代表第三方技能安全。
 
+站内热度 92；不是全网流量。</description></item><item><title>Claude 把 123 个开源库的模糊测试入口转成机器检查的证明</title><guid isPermaLink="false">frontierlog:hot:anthropic-formal-verification-20261022</guid><link>https://www.anthropic.com/research/formal-verification</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 与 Theorem 把 OSS-Fuzz 的模糊测试入口编译为 RISC-V 规格，让 Claude 为 123 个库的 239 个入口生成约 1.8 亿行 Rocq 证明，覆盖在给定假设下所有小于 64MB 的输入；官方已公开部分证明与语义组件。
+
+为什么值得看：Coding Agent 的边界开始从“找 bug、写补丁”推进到由证明检查器验收的安全属性；如果可复用证明继续降低成本，生产依赖的验证方式可能从抽样测试扩展为明确规格下的穷尽保证。
+
+边界：这是 Anthropic 与合作方的官方研究，本站未复跑证明。结论只覆盖具体定理与受信组件，并假设单线程、静态二进制、固定内存预算、RISC-V 和建模的 Linux 响应；不代表 123 个库没有其他 bug，也不证明 Claude 生成的规格或 ISA/OS 语义必然正确。
+
 站内热度 92；不是全网流量。</description></item><item><title>Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-timeseries-ensemble-r1-20261022</guid><link>https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。
 
 为什么值得看：团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。
@@ -268,6 +274,12 @@
 为什么值得看：世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。
 
 边界：研究结果及领先性能为作者报告，本站未复现；可渲染不代表物理定律、可控交互或工业数字孪生已经可靠。
+
+站内热度 91；不是全网流量。</description></item><item><title>小模型复制风险转向 IoT：难点已从单步能力变成端到端稳定性</title><guid isPermaLink="false">frontierlog:hot:anthropic-self-replicating-ai-20261012</guid><link>https://www.anthropic.com/research/self-replicating-ai</link><pubDate>Mon, 12 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic Frontier Red Team 报告称，9B 模型可在 9 类硬件中的 8 类上建立推理环境；30B 以下模型已能完成许多复制单步，但端到端组合仍会出错。研究还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。
+
+为什么值得看：权重型 Agent 的风险评估不能只盯数据中心 GPU：低成本边缘硬件、分布式推理和对陌生设备的适配，可能让“模型能否在失陷设备上继续运行”成为新的防御边界。
+
+边界：这是研究团队拆分后的简化评测，不是观察到真实 AI 蠕虫。研究主要评估推理环境搭建，弱化了发现目标、取得执行和真实网络传播；对小模型能力时间表的判断是趋势外推，不是确定发布日期，也不能推出当前模型可在开放互联网稳定自我复制。
 
 站内热度 91；不是全网流量。</description></item><item><title>Microsoft Flint 1.0：Agent 开始直接生成可交互图表</title><guid isPermaLink="false">frontierlog:hot:microsoft-flint-interactive-20261022</guid><link>https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Microsoft Research 发布 Flint-interactive：用交互预设、语义事件和更新算子，让 Agent 生成可点击、筛选、缩放、联动高亮并连接表格或应用状态的图表；Flint 1.0 已开放 MCP 与 npm 接入。
 
@@ -305,7 +317,13 @@
 
 边界：这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，仍需按本地人群、设备和转诊流程验证误报漏报。
 
-站内热度 90；不是全网流量。</description></item><item><title>Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集</title><guid isPermaLink="false">frontierlog:hot:mistral-nvidia-engineering-ai-20261021</guid><link>https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。
+站内热度 90；不是全网流量。</description></item><item><title>Claude 设计的蝎毒蛋白 binder：211 个进湿实验，17 个达到结合标准</title><guid isPermaLink="false">frontierlog:hot:anthropic-scorpion-binders-20261020</guid><link>https://www.anthropic.com/research/claude-scorpion-toxin-binder-design</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 披露，内部研究模型在 64 小时内生成 318,484 个设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 实验测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准，全部设计与数据公开。
+
+为什么值得看：这条记录把“模型提出分子”推进到可下载设计、合同研究组织湿实验和失败样本公开；它更适合用来评估候选生成到真实实验的漏斗，而不是只看计算打分。
+
+边界：17 个候选只证明达到该研究的体外结合标准；团队尚未确认它们能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。结果来自 Anthropic 与合作方，仍需独立复现、功能、安全性和动物/临床验证。
+
+站内热度 89；不是全网流量。</description></item><item><title>Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集</title><guid isPermaLink="false">frontierlog:hot:mistral-nvidia-engineering-ai-20261021</guid><link>https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。
 
 为什么值得看：工程 Agent 的评价开始从通用问答转向工具调用、多步仿真、技术正确性、执行时间与算力成本；公开口径若落地，能提高跨方案可比性。
 

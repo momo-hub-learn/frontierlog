@@ -65,7 +65,7 @@ function hfSourceRows(){
   })
 }
 function hfDelta(x){
-  if(!Number.isInteger(x.previous_rank))return '<span class="hf-delta is-new" aria-label="较上次官方网页快照新入榜">新</span>';
+  if(!Number.isInteger(x.previous_rank))return '<span class="hf-delta is-new" aria-label="较上次官方网页快照新入榜">新上榜</span>';
   const d=Number(x.rank_change)||0;if(!d)return '';
   const up=d>0,label=up?'上升':'下降';
   return '<span class="hf-delta '+(up?'is-up':'is-down')+'" aria-label="较上次官方网页快照'+label+' '+Math.abs(d)+' 位">'+(up?'↑':'↓')+Math.abs(d)+'</span>'

@@ -36,6 +36,130 @@
   ],
   "items": [
     {
+      "id": "anthropic-formal-verification-20261022",
+      "category": "research",
+      "title": "Claude 把 123 个开源库的模糊测试入口转成机器检查的证明",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "first_seen_at": "2026-10-24T11:19:20+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 34,
+        "availability": 22,
+        "evidence": 24,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是软件正确率、安全等级、漏洞数量或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic 与 Theorem 把 OSS-Fuzz 的模糊测试入口编译为 RISC-V 规格，让 Claude 为 123 个库的 239 个入口生成约 1.8 亿行 Rocq 证明，覆盖在给定假设下所有小于 64MB 的输入；官方已公开部分证明与语义组件。",
+      "why": "Coding Agent 的边界开始从“找 bug、写补丁”推进到由证明检查器验收的安全属性；如果可复用证明继续降低成本，生产依赖的验证方式可能从抽样测试扩展为明确规格下的穷尽保证。",
+      "boundary": "这是 Anthropic 与合作方的官方研究，本站未复跑证明。结论只覆盖具体定理与受信组件，并假设单线程、静态二进制、固定内存预算、RISC-V 和建模的 Linux 响应；不代表 123 个库没有其他 bug，也不证明 Claude 生成的规格或 ISA/OS 语义必然正确。",
+      "source": "Anthropic / Theorem",
+      "source_kind": "官方研究、可检查证明与公开方法边界 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/research/formal-verification",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读方法、证明范围与限制",
+          "note": "重点核对已证明的定理、RISC-V/Linux 假设与仍需信任的组件",
+          "url": "https://www.anthropic.com/research/formal-verification",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "LLMs are making formal software verification feasible at a much larger scale",
+          "url": "https://www.anthropic.com/research/formal-verification",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-scorpion-binders-20261020",
+      "category": "industry",
+      "title": "Claude 设计的蝎毒蛋白 binder：211 个进湿实验，17 个达到结合标准",
+      "published": "2026-10-20",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "first_seen_at": "2026-10-24T11:19:20+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 31,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是结合强度、抗毒效果、临床价值或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic 披露，内部研究模型在 64 小时内生成 318,484 个设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 实验测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准，全部设计与数据公开。",
+      "why": "这条记录把“模型提出分子”推进到可下载设计、合同研究组织湿实验和失败样本公开；它更适合用来评估候选生成到真实实验的漏斗，而不是只看计算打分。",
+      "boundary": "17 个候选只证明达到该研究的体外结合标准；团队尚未确认它们能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。结果来自 Anthropic 与合作方，仍需独立复现、功能、安全性和动物/临床验证。",
+      "source": "Anthropic / Adaptyv Bio / Twist Bioscience",
+      "source_kind": "官方研究、开放设计数据与湿实验结果 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+      "link": "#/pharma?article=anthropic-scorpion-binders-20261020",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看设计漏斗与湿实验边界",
+          "note": "区分结合、毒素中和、抗毒血清与临床疗效",
+          "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "How Claude designed protein binders against scorpion neurotoxins",
+          "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+          "date": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-self-replicating-ai-20261012",
+      "category": "research",
+      "title": "小模型复制风险转向 IoT：难点已从单步能力变成端到端稳定性",
+      "published": "2026-10-12",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T11:19:20+08:00",
+      "first_seen_at": "2026-10-24T11:19:20+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 35,
+        "availability": 16,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是攻击成功率、传播速度、风险概率或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic Frontier Red Team 报告称，9B 模型可在 9 类硬件中的 8 类上建立推理环境；30B 以下模型已能完成许多复制单步，但端到端组合仍会出错。研究还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。",
+      "why": "权重型 Agent 的风险评估不能只盯数据中心 GPU：低成本边缘硬件、分布式推理和对陌生设备的适配，可能让“模型能否在失陷设备上继续运行”成为新的防御边界。",
+      "boundary": "这是研究团队拆分后的简化评测，不是观察到真实 AI 蠕虫。研究主要评估推理环境搭建，弱化了发现目标、取得执行和真实网络传播；对小模型能力时间表的判断是趋势外推，不是确定发布日期，也不能推出当前模型可在开放互联网稳定自我复制。",
+      "source": "Anthropic Frontier Red Team",
+      "source_kind": "官方安全研究、硬件实验与威胁建模 / 本轮编辑补档",
+      "url": "https://www.anthropic.com/research/self-replicating-ai",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读复制链、硬件实验与蓝队缓解措施",
+          "note": "区分单步能力、简化端到端评测和真实网络传播",
+          "url": "https://www.anthropic.com/research/self-replicating-ai",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "AI models may be capable of self-replicating without access to a datacenter",
+          "url": "https://www.anthropic.com/research/self-replicating-ai",
+          "date": "2026-10-12"
+        }
+      ]
+    },
+    {
       "id": "openai-habitat-storage-scale-20261023",
       "category": "product",
       "title": "OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户",
