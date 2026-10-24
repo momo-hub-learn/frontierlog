@@ -21,6 +21,8 @@
 #tk-count{font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
 .tk-order{margin-right:auto}
 .tk-resultline button{font-size:.8125rem;text-decoration:underline;text-underline-offset:3px;color:var(--accent);min-height:36px}
+.tk-provenance{margin:10px 0 0!important;font:.75rem/1.6 var(--mono)!important;color:var(--muted)!important}
+.tk-provenance time{color:var(--sub)}
 .tk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:18px}
 .tk-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 0;min-width:0;overflow-wrap:anywhere}
 .tk-card.is-open{grid-column:1/-1;border-color:var(--accent)}

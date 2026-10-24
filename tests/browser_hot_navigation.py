@@ -28,7 +28,9 @@ with sync_playwright() as pw:
         options['executable_path'] = os.environ['CHROMIUM_EXECUTABLE']
     browser = pw.chromium.launch(**options)
     page = browser.new_page(viewport={'width': 1440, 'height': 1050})
-    page.set_default_timeout(5000)
+    # The production document is intentionally self-contained and now exceeds 1.5 MB;
+    # leave enough time for Chromium to parse it before applying interaction assertions.
+    page.set_default_timeout(15000)
     page.route('**/*', lambda request: request.abort())
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.set_content(HTML, wait_until='domcontentloaded')

@@ -38,6 +38,8 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(rows['nvidia-openshell']['sources'][0]['url'].split('/')[2],'nvidianews.nvidia.com')
         self.assertEqual(rows['nvidia-auto-ontology']['sources'][0]['url'].split('/')[2],'blogs.nvidia.com')
         self.assertEqual(rows['microsoft-flint-interactive']['sources'][0]['url'].split('/')[2],'www.microsoft.com')
+        self.assertEqual(rows['allenai-olmoearth-v1-3']['entry_url'].split('/')[2],'olmoearth.allenai.org')
+        self.assertTrue(any(source['url'].split('/')[2]=='allenai.org' for source in rows['allenai-olmoearth-v1-3']['sources']))
         validate_toolkit(self.data,self.catalog)
 
     def test_flint_guide_separates_official_claims_from_local_evidence(self):

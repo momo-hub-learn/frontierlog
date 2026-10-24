@@ -38,11 +38,14 @@ const TK = (()=>{
  function card(g){
   const t=tasks.get(g.id),opened=openIds.has(g.id)||read().tool===g.id;
   const doc=g.sources[0];
+  const published=g.sources.map(x=>x.published_at).filter(Boolean).sort().at(-1)||'';
+  const verified=g.sources.map(x=>x.verified_at).filter(Boolean).sort().at(-1)||g.verified_at.slice(0,10);
   return `<article class="tk-card ${opened?'is-open':''}" data-tk-id="${g.id}">
    <div class="tk-cardtop"><div class="tk-identity"><span class="tk-mark" aria-hidden="true">${esc(t.mark||t.name.slice(0,2))}</span><div><strong>${esc(t.name)}</strong><span>${esc(g.publisher)}</span></div></div><div class="tk-status"><span class="tk-mode" data-mode="${g.access}">${esc(label(data.access_modes,g.access))}</span><span class="tk-runtime">资料核验 · 本站未运行</span></div></div>
    <h2>${esc(g.headline)}</h2>
    <div class="tk-io"><dl><dt>输入</dt><dd>${esc(g.input)}</dd></dl><span aria-hidden="true">→</span><dl><dt>输出</dt><dd>${esc(g.output)}</dd></dl></div>
    <dl class="tk-conditions"><div><dt>先准备</dt><dd>${esc(g.requirements)}</dd></div><div><dt>最大限制</dt><dd>${esc(g.limitation)}</dd></div></dl>
+   <p class="tk-provenance">${published?`原文 <time datetime="${esc(published)}">${esc(published)}</time> · `:''}资料核验 <time datetime="${esc(verified)}">${esc(verified)}</time></p>
    <div class="tk-actions">${external(doc.url,'官方上手文档')}${g.entry_url&&g.entry_url!==doc.url?external(g.entry_url,'打开入口'):''}<button type="button" class="save ${saved.has(g.id)?'active':''}" data-tk-save="${g.id}" aria-label="${saved.has(g.id)?'取消关注':'关注'} ${esc(t.name)}" aria-pressed="${saved.has(g.id)}">${icon('bookmark')}</button></div>
    <details class="tk-guide" data-tk-guide="${g.id}" ${opened?'open':''}>
     <summary><span>${icon('code')} 步骤与验收</span><span class="tk-expand" aria-hidden="true">＋</span></summary>
