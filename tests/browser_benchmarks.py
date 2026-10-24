@@ -15,7 +15,7 @@ with sync_playwright() as pw:
  opts={'headless':True}
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
  browser=pw.chromium.launch(**opts);p=browser.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1)
- p.set_default_timeout(5000);p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(HTML)
+ p.set_default_timeout(15000);p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/*',lambda r:r.abort());p.set_content(HTML,wait_until='domcontentloaded');p.set_default_timeout(5000)
  assert p.locator('.brand strong').inner_text()=='AI坐标'
  assert not p.locator('.brand-resources').get_attribute('open')
  repo=p.locator('[data-repo-link]')
