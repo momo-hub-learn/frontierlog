@@ -48,6 +48,13 @@ class BenchmarkTests(unittest.TestCase):
   self.assertIn('隐藏测试',b['protocol'])
   self.assertIn('本站未运行',b['boundary'])
   self.assertTrue(any(x['id']=='agent4sci-release' and b['id'] in x['benchmarks'] for x in self.data['changes']))
+ def test_dual_exam_keeps_tracks_and_results_separate(self):
+  b=next(x for x in self.data['items'] if x['id']=='dual-exam-controlled-agent-world-model')
+  self.assertFalse(b['tested'])
+  self.assertEqual(b['result_status'],'not_run')
+  self.assertIn('不能把 31.3 与 21.7 拼成综合分',b['metric_note'])
+  self.assertIn('本站未运行',b['boundary'])
+  self.assertTrue(any(x['id']=='dual-exam-release-20261022' and b['id'] in x['benchmarks'] for x in self.data['changes']))
  def test_duplicate_item(self):self.reject(lambda d:d['items'].append(copy.deepcopy(d['items'][0])))
  def test_duplicate_source(self):self.reject(lambda d:d['sources'].append(copy.deepcopy(d['sources'][0])))
  def test_id_unsafe(self):self.reject(lambda d:d['items'][0].update(id='<script>'))
