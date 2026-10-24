@@ -3162,13 +3162,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-24T21:44:02Z",
+    "generated_at": "2026-10-24T23:39:02Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 66,
+      "merge": 67,
       "hold": 3
     },
     "candidates": [
@@ -3299,6 +3299,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "hf-trainium-model-support",
         "first_seen_at": "2026-10-24T05:36:52Z"
+      },
+      {
+        "id": "candidate-992c25b561cbf0fc",
+        "category": "product",
+        "published": "2026-10-23",
+        "title": "Docling 收紧归档、图片与复杂格式输入边界",
+        "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
+        "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
+        "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查。",
+        "source": "Docling project",
+        "source_kind": "官方发布",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "docling",
+        "first_seen_at": "2026-10-24T23:39:02Z"
       },
       {
         "id": "candidate-5b6012e7e08daff6",
@@ -4131,35 +4155,6 @@
           "Structured Data"
         ],
         "first_seen_at": "2026-10-22T01:32:24Z"
-      },
-      {
-        "id": "candidate-5c070fe36400c5b3",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "分布式生物推理：把大规模扰动图谱拆给数千个 Agent",
-        "summary": "团队让数千个 GPT‑Rosalind Agent 分别调查全脑 CRISPR 图谱中的基因扰动并连接文献，再合并为推理图谱；官方报告最大负载耗时 32 分钟、分布式报告在盲评中 75% 获专家偏好。",
-        "why": "前瞻信号不只是并行数量，而是将每条候选机制保留为可回查的数据、引用和下一步实验，使 Agent 参与研究设计而非只生成综述。",
-        "boundary": "现有结果主要来自小鼠脑细胞和作者给出的评估；时间、引用数量和专家偏好都不能证明生物机制、人类适用性或治疗有效性，论文与图谱仍需独立复核。",
-        "source": "OpenAI / PerturbAI / Scripps Research",
-        "source_kind": "官方研究发布与作者论文入口",
-        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "distributed-biological-reasoning",
-        "topic_tags": [
-          "Agentic Science",
-          "CRISPR Atlas",
-          "Neurobiology"
-        ],
-        "first_seen_at": "2026-10-21T17:48:39Z"
       }
     ]
   },
@@ -7156,12 +7151,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-24T21:44:02Z",
+    "last_evaluated": "2026-10-24T23:39:02Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 69,
+      "candidate_count": 70,
       "publish_ready_count": 0,
-      "merge_count": 66,
+      "merge_count": 67,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
