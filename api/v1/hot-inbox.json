@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T17:40:22Z",
+  "generated_at": "2026-10-24T19:34:33Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 65,
+    "merge": 66,
     "hold": 3
   },
   "candidates": [
@@ -90,6 +90,29 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-23T23:24:48Z"
+    },
+    {
+      "id": "candidate-8ce9ea326f41a742",
+      "category": "industry",
+      "published": "2026-10-23",
+      "title": "神经疾病数据进入五年合作：用 Agent 假设连接试验设计",
+      "summary": "Pathos 宣布与 BMS、Tempus 建立多年合作：Tempus 将构建覆盖数十万神经疾病患者的去标识化纵向数据集，Pathos 以五年 5,500 万美元协议许可数据，并用 Foundry 分析疾病进展、生成与检验疾病生物学假设、辅助更有针对性的自适应试验设计。",
+      "why": "医药 Agent 的落点从单次文献问答推进到“纵向患者数据→疾病假设→临床试验设计”的持续工作流；协议金额、数据规模、平台权限和独占期都提供了后续可跟踪的交付节点。",
+      "boundary": "这是三家公司的一手合作公告，不是阿尔茨海默病疗效、获批产品或临床终点结果。患者规模、去标识化流程及 Foundry 的既有验证由合作方披露，本站未独立审计；五年数据许可和三年独家支持也不能证明模型能提高试验成功率，仍需看数据治理、方案注册、外部验证与真实试验结果。",
+      "source": "Pathos AI / Bristol Myers Squibb / Tempus AI",
+      "source_kind": "三家公司官方合作公告、数据许可与神经科学项目范围",
+      "url": "https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.816,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-24T19:34:33Z"
     },
     {
       "id": "candidate-0beb57c28961763f",
@@ -975,30 +998,6 @@
         "Neurobiology"
       ],
       "first_seen_at": "2026-10-21T17:48:39Z"
-    },
-    {
-      "id": "candidate-5cedc277db895f25",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "Claude Duet 研究预览开放候补",
-      "summary": "主动 Agent 可定期检查连接应用、发送晨间简报，并在独立虚拟机中后台执行任务。",
-      "why": "把 Agent 从按需对话推进到后台持续工作，同时以关键动作批准和禁区保留人工边界。",
-      "boundary": "官方明确早期版本可能误读线程或误判紧急程度，个人事务较弱且暂不能显示浏览器。后台检查会消耗套餐额度；接入真实账户前必须收窄权限并复核每个外部动作。",
-      "source": "Anthropic",
-      "source_kind": "官方产品发布",
-      "url": "https://claude.com/resources/articles/claude-duet",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "anthropic-claude-duet",
-      "first_seen_at": "2026-10-21T21:30:26Z"
     }
   ]
 }
