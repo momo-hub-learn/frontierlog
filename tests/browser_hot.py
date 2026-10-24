@@ -14,7 +14,8 @@ with sync_playwright() as pw:
  b=pw.chromium.launch(**opts);p=b.new_page(viewport={'width':1512,'height':1050});p.set_default_timeout(45000);p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/*',lambda r:r.abort());p.set_content(HTML,wait_until='domcontentloaded');p.set_default_timeout(5000)
  route(p,'#/hot');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']));expect(p.locator('.h-tab')).to_have_count(6)
  assert p.locator('.intraday-score').first.get_attribute('aria-label').startswith('本站编辑热度 ')
- assert '本站热度' in p.locator('.intraday-score').first.inner_text() and 'AI 评分' not in p.locator('.intraday-score').first.inner_text()
+ assert any(label in p.locator('.intraday-score').first.inner_text() for label in ('爆热','高热','升温','关注')) and 'AI 评分' not in p.locator('.intraday-score').first.inner_text()
+ assert p.locator('.intraday-score.is-extreme,.intraday-score.is-high,.intraday-score.is-rising,.intraday-score.is-watch').count()==len(HOT_DATA['items'])
  assert p.locator('.intraday-day').count()>1 and p.locator('.intraday-day[open]').count()==1
  assert p.locator('#nav a.active').inner_text().startswith('热点榜');assert '热度只表示信号强度' in p.locator('.h-head').inner_text();assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
  shot(p,'hot-first-screen.png');ok('hot ranking, six categories, latest day expanded, older days collapsed, no desktop overflow')
