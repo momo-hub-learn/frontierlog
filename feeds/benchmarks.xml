@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较</title><guid isPermaLink="false">frontierlog:benchmark:granite-timeseries-ensemble-r1-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=gift-eval-granite-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Dual Exam 把 Agent 行动与世界模型预测分轨评估</title><guid isPermaLink="false">frontierlog:benchmark:dual-exam-release-20261022</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dual-exam-controlled-agent-world-model</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 1,088 道 Agent 题和 400 个世界模型案例，用固定环境回复与固定动作干预分别隔离行动选择和后果预测。
+
+编辑解读：交互智能评估可以先定位决策与动力学建模的不同缺口；两轨任务和指标不可跨轨拼分，耦合试验也不能直接外推为产品失败率。
+
+来源：
+https://arxiv.org/abs/2610.31066</description></item><item><title>Granite Ensemble R1 把四模型概率组合加入 GIFT-Eval 比较</title><guid isPermaLink="false">frontierlog:benchmark:granite-timeseries-ensemble-r1-release</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=gift-eval-granite-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM 发布等权概率池与 IQR 两种开放配方，并分列 MASE、CRPS/MWQL 与跨配置平均排名。
 
 编辑解读：组合的主要价值是减少预先选错模型的风险，不应把约 0.002 的聚合 MASE 差异写成普遍领先；业务验证还要检查区间覆盖和四模型成本。
 

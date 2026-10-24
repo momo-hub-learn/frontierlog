@@ -21,6 +21,31 @@
   ],
   "items": [
     {
+      "id": "dual-exam-controlled-agent-world-model",
+      "lane": "paradigm",
+      "title": "交互智能开始把“会行动”和“会预测后果”分轨诊断",
+      "maker": "Dual Exam authors",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-24T21:23:50+08:00",
+      "tags": [
+        "Multimodal Agents",
+        "World Models",
+        "Evaluation"
+      ],
+      "fact": "Dual Exam 用固定环境回复评估 10 个 Agent 配置的 1,088 道题、15 个报告类别，并用固定动作干预评估 400 个世界模型案例、8 个场景。作者报告 GPT 6 Astra 的 case-weighted Agent Index 为 31.3；15 个全覆盖世界模型配置中，GPT-Image-2 的 WM Overall 为 21.7。",
+      "insight": "端到端交互失败不再只能归咎于“模型不够强”。固定环境回复与固定动作干预把行动选择和后果预测拆开，使团队能分别追踪决策、状态理解与动力学建模的缺口。",
+      "boundary": "本站未运行评测。两条轨道的任务、覆盖条件和指标不同，不能用 31.3 与 21.7 横向排名；作者的 150 例耦合试验为零成功，只覆盖该实验设置，不能推出所有模型或真实产品都会失败。",
+      "next_watch": "关注代码与交互环境是否开放、不同模型的完整覆盖率、耦合试验的独立复现，以及轨道诊断能否预测真实长程任务成功率。",
+      "sources": [
+        {
+          "label": "Dual Exam 作者预印本",
+          "url": "https://arxiv.org/abs/2610.31066",
+          "kind": "作者评测协议、公开结果与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "drill-policy-useful-world-models",
       "lane": "paradigm",
       "title": "世界模型开始按“能否改善策略”而不是像素误差训练",

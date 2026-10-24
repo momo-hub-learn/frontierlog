@@ -329,6 +329,12 @@
 
 边界：作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不能推出 Agent 已能稳定自主研究或发现新的科学机制。
 
+站内热度 90；不是全网流量。</description></item><item><title>Dual Exam：把 Agent 行动与世界模型预测放进同一受控考场</title><guid isPermaLink="false">frontierlog:hot:dual-exam-controlled-agent-world-model-20261022</guid><link>https://arxiv.org/abs/2610.31066</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Dual Exam 用固定环境回复测试多模态 Agent，用固定动作干预测试世界模型，分别覆盖 1,088 道 Agent 题和 400 个世界模型案例。作者报告 GPT 6 Astra 的 Agent Index 为 31.3，GPT-Image-2 的全覆盖 WM Overall 为 21.7；两条轨道的任务和指标不同，不能横向比较。
+
+为什么值得看：同一个交互环境里，能选择动作与能预测动作后果是两种不同能力。把两者用固定输入分别测量，可以更快定位失败来自决策、状态理解还是后果建模，而不是只看一个端到端成功率。
+
+边界：结果来自作者预印本，本站未运行；Agent 与 World Model 轨道的样本、覆盖条件和指标不同，31.3 与 21.7 不能拼成排名。作者的 150 例耦合试验未成功完成任务，只说明该设置下存在诊断缺口，不能外推为模型普遍失效。
+
 站内热度 90；不是全网流量。</description></item><item><title>Google TB 筛查进入六国约 40 家机构：开放模型仍需本地验证</title><guid isPermaLink="false">frontierlog:hot:google-tb-screening-foundations-20261023</guid><link>https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Google Research 披露，Nexus AI 的胸片筛查工具已在六国约 40 家医疗机构部署，90 多名临床人员处理了 2.5 万余张胸片；系统最快约 45 秒给出筛查结果，最终临床决定仍由医务人员作出。
 
 为什么值得看：这把基础模型从论文推进到前瞻性验证、医疗器械合规和一线工作流；HAI-DEF、MedSigLIP、MedGemma 与 HeAR 也给出了可本地适配的开放栈。
