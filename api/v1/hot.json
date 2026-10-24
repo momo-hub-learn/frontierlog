@@ -36,6 +36,47 @@
   ],
   "items": [
     {
+      "id": "mundo-custom-interactive-world-20261023",
+      "category": "research",
+      "title": "Mundo：几张照片变成可编辑、可模拟的专属世界",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T23:21:12+08:00",
+      "first_seen_at": "2026-10-24T23:21:12+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 33,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型能力、物理真实性或本站实测分数。",
+      "trend": "up",
+      "summary": "Mundo 从少量场景照片建立显式 3D 代理，再用场景程序和 MuJoCo 承接编辑与物理模拟，最后由视频渲染器生成观察结果。作者报告训练使用约 4 万组数据，当前能做场景探索、对象编辑和短时交互模拟。",
+      "why": "它把几何、物理和外观渲染拆成可检查链路：照片不只生成一段视频，而是先变成可编辑的场景表示，再把动作和接触结果交给模拟器。这为机器人 real-to-sim、空间规划和个性化环境建模提供了更具体的系统原型。",
+      "boundary": "证据来自作者团队项目说明与演示，本站未运行；重建一个场景约需 10–20 分钟，作者报告在 8 张 A800、20 步采样下渲染约 1.5 fps。小物体仍可能漂浮或被幻觉补全，系统没有长时记忆，因此不能外推为实时、通用或高保真物理世界模型。",
+      "source": "Mundo authors / Hugging Face",
+      "source_kind": "作者团队项目说明与 Hugging Face 社区文章 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/Luo-Yihang/mundo-world-model",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看方法、演示与限制",
+          "note": "重点区分显式 3D、MuJoCo 模拟与视频渲染，不把演示写成独立 Benchmark",
+          "url": "https://mundo-world-model.github.io/",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "Mundo: From seeing a place to simulating what happens there",
+          "url": "https://huggingface.co/blog/Luo-Yihang/mundo-world-model",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
       "id": "dual-exam-controlled-agent-world-model-20261022",
       "category": "benchmark",
       "title": "Dual Exam：把 Agent 行动与世界模型预测放进同一受控考场",
