@@ -11,7 +11,7 @@ def shot(p,n,full=False):p.evaluate("scrollTo(0,0);document.querySelector('#toas
 with sync_playwright() as pw:
  opts={'headless':True};
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
- b=pw.chromium.launch(**opts);p=b.new_page(viewport={'width':1512,'height':1050});p.set_default_timeout(5000);p.on('pageerror',lambda e:errors.append(str(e)));p.set_content(HTML)
+ b=pw.chromium.launch(**opts);p=b.new_page(viewport={'width':1512,'height':1050});p.set_default_timeout(45000);p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/*',lambda r:r.abort());p.set_content(HTML,wait_until='domcontentloaded');p.set_default_timeout(5000)
  route(p,'#/hot');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']));expect(p.locator('.h-tab')).to_have_count(6)
  assert p.locator('.intraday-score').first.get_attribute('aria-label').startswith('本站编辑热度 ')
  assert '本站热度' in p.locator('.intraday-score').first.inner_text() and 'AI 评分' not in p.locator('.intraday-score').first.inner_text()

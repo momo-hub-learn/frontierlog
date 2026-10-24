@@ -21,6 +21,33 @@
   ],
   "items": [
     {
+      "id": "mundo-custom-interactive-world",
+      "lane": "paradigm",
+      "title": "个性化世界模型开始把照片、显式 3D 与物理模拟串成一条链",
+      "maker": "Mundo authors",
+      "date": "2026-10-23",
+      "verified_at": "2026-10-24T23:21:12+08:00",
+      "tags": ["World Models", "3D Reconstruction", "Real-to-Sim"],
+      "fact": "Mundo 从少量场景照片生成显式 3D 代理和可编辑场景程序，用 MuJoCo 执行动作与接触模拟，再由视频渲染器生成观察结果。作者说明训练数据约为 4 万组，在 8 张 A800、20 步采样下渲染约 1.5 fps，单场景重建约需 10–20 分钟。",
+      "insight": "这条显式表示路线把几何、物理状态和外观渲染分开，因而比单纯视频预测更容易编辑、检查和接入机器人任务。值得关注的不是演示画面本身，而是这种可追踪链路能否在 real-to-sim 与空间规划中降低数据采集成本。",
+      "boundary": "本站未运行项目。证据来自作者团队项目说明与演示，不是独立 Benchmark；小物体可能漂浮或被幻觉补全，系统没有长时记忆，当前速度也不支持把它写成实时、通用或高保真物理世界模型。",
+      "next_watch": "关注代码和模型是否开放、相机位姿与几何误差的独立复现、真实机器人迁移、长时记忆，以及减少多卡渲染成本后的实时性。",
+      "sources": [
+        {
+          "label": "Mundo 作者项目说明",
+          "url": "https://mundo-world-model.github.io/",
+          "kind": "作者系统架构、演示、性能数据与限制",
+          "strength": "primary"
+        },
+        {
+          "label": "Hugging Face 作者文章",
+          "url": "https://huggingface.co/blog/Luo-Yihang/mundo-world-model",
+          "kind": "作者工作流、训练规模与限制说明",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "dual-exam-controlled-agent-world-model",
       "lane": "paradigm",
       "title": "交互智能开始把“会行动”和“会预测后果”分轨诊断",

@@ -27,8 +27,10 @@ try:
   opts={'headless':True}
   if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
   b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1040},device_scale_factor=1)
-  page.set_default_timeout(5000);page.on('pageerror',lambda e:errors.append(str(e)))
-  page.set_content(HTML) if MODE=='memory' else page.goto(URL)
+  page.set_default_timeout(45000);page.on('pageerror',lambda e:errors.append(str(e)))
+  if MODE=='memory':page.route('**/*',lambda r:r.abort());page.set_content(HTML,wait_until='domcontentloaded')
+  else:page.goto(URL)
+  page.set_default_timeout(5000)
   expect(page.locator('.fc-cockpit')).to_have_count(1)
   assert page.locator('#nav .active').inner_text().startswith('精选')
   assert page.locator('#nav a[href="#/pharma"]').count()==1 and page.locator('#nav a[href="#/manufacturing"]').count()==1
@@ -128,8 +130,10 @@ try:
   # In-memory navigation tests don't establish cross-origin/reload persistence.
   for width in [1024,790,390,360]:
    mobile=b.new_page(viewport={'width':width,'height':880},device_scale_factor=1)
-   mobile.set_default_timeout(5000);mobile.on('pageerror',lambda e:errors.append(str(e)))
-   mobile.set_content(HTML) if MODE=='memory' else mobile.goto(URL)
+   mobile.set_default_timeout(45000);mobile.on('pageerror',lambda e:errors.append(str(e)))
+   if MODE=='memory':mobile.route('**/*',lambda r:r.abort());mobile.set_content(HTML,wait_until='domcontentloaded')
+   else:mobile.goto(URL)
+   mobile.set_default_timeout(5000)
    for path in ['#/feed','#/topics','#/pharma','#/manufacturing','#/signals','#/pharma?topic=csr']:
     route(mobile,path)
     assert mobile.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,path)

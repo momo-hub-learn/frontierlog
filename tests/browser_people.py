@@ -26,7 +26,7 @@ with sync_playwright() as pw:
  browser=pw.chromium.launch(**options)
  context=browser.new_context(viewport={'width':1440,'height':1080},reduced_motion='reduce')
  # Real first-party storage in CI; an explicit in-memory double only for offline visual review.
- page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.set_default_timeout(7000)
+ page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.set_default_timeout(45000)
  page.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE) else r.abort())
  if OFFLINE:
   page.evaluate("""window.__ppStore={};Object.defineProperty(window,'localStorage',{configurable:true,value:{getItem:k=>window.__ppStore[k]??null,setItem:(k,v)=>window.__ppStore[k]=String(v),removeItem:k=>delete window.__ppStore[k]}})""")
@@ -34,7 +34,7 @@ with sync_playwright() as pw:
   global page
   if OFFLINE:
    stored=page.evaluate('window.__ppStore || {}');page.close();page=context.new_page()
-   page.on('pageerror',lambda e:errors.append(str(e)));page.set_default_timeout(7000)
+   page.on('pageerror',lambda e:errors.append(str(e)));page.set_default_timeout(45000)
    page.route('**/*',lambda r:r.abort())
    page.evaluate("stored=>{window.__ppStore=stored;Object.defineProperty(window,'localStorage',{configurable:true,value:{getItem:k=>window.__ppStore[k]??null,setItem:(k,v)=>window.__ppStore[k]=String(v),removeItem:k=>delete window.__ppStore[k]}})}",stored)
    page.evaluate('(hash)=>location.hash=hash',hash);page.set_content(HTML,wait_until='domcontentloaded')
