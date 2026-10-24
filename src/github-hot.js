@@ -180,7 +180,7 @@ hotPage=function(){
   if(!ghActive())return ghBaseHotPage();
   const s=hState(),q=ghQuery(),stale=ghFreshness().stale;
   return '<section class="h-wrap v10-hot gh-embedded">'+
-    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'HOT SIGNALS / NEWEST FIRST')+'</p><h1>'+(stale?'GitHub 历史快照':'热点时间线')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再占据“当前”位置；先保留可追溯快照，并引导回官方原榜。':'新闻热点看时间，GitHub 热榜看开发者采用信号；两种口径不混排行。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'GitHub Trending')+'</span><span>'+esc(ghWhen())+'</span></div></header>'+
+    '<header class="h-head"><div><p class="eyebrow"><span class="accent">●</span> '+(stale?'HISTORICAL SNAPSHOT / STALE':'DEVELOPER SIGNALS / OFFICIAL ORDER')+'</p><h1>'+(stale?'GitHub 历史快照':'GitHub 热榜')+'<span class="accent">.</span></h1><p>'+(stale?'旧数据不再占据“当前”位置；先保留可追溯快照，并引导回官方原榜。':'看官方 Trending Today 的榜位与今日 Star；它们是开发者关注信号，不和新闻热度混排。')+'</p></div><div class="h-meta"><span><i class="state-dot"></i> '+(stale?'非当前榜':'GitHub Trending')+'</span><span>'+esc(ghWhen())+'</span></div></header>'+
     '<div class="h-filterbar">'+hTabs(s)+'<label class="h-search">'+icon('search')+'<input id="gh-search" type="search" value="'+esc(q)+'" placeholder="搜索仓库、类型、标签…" aria-label="搜索 GitHub 热榜"><kbd>/</kbd></label></div>'+
     ghInline()+
   '</section>'
