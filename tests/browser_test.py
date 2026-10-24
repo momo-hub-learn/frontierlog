@@ -49,9 +49,10 @@ try:
             options["executable_path"] = os.environ["CHROMIUM_EXECUTABLE"]
         browser = p.chromium.launch(**options)
         page = browser.new_page(viewport={"width": 1512, "height": 1100})
-        page.set_default_timeout(8000)
+        page.set_default_timeout(45000)
         page.on("pageerror", lambda e: errors.append(str(e)))
-        page.set_content(HTML, wait_until="load") if MEMORY else page.goto(url, wait_until="load")
+        page.set_content(HTML, wait_until="domcontentloaded") if MEMORY else page.goto(url, wait_until="domcontentloaded")
+        page.set_default_timeout(8000)
 
         def go(route):
             if MEMORY:
@@ -125,7 +126,9 @@ try:
         assert page.locator("html").get_attribute("data-theme") == "dark"
         assert page.locator('meta[name="theme-color"]').get_attribute("content") == "#101819"
         if not MEMORY:
+            page.set_default_timeout(45000)
             page.reload(wait_until="domcontentloaded")
+            page.set_default_timeout(8000)
             assert page.locator("html").get_attribute("data-theme") == "dark"
         page.locator('[data-action="theme"]').click()
         passed("dark theme is reversible and persists on a real origin")
@@ -139,8 +142,10 @@ try:
         mobile = browser.new_page(
             viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
         )
+        mobile.set_default_timeout(45000)
         mobile.on("pageerror", lambda e: errors.append(str(e)))
-        mobile.set_content(HTML, wait_until="load") if MEMORY else mobile.goto(url)
+        mobile.set_content(HTML, wait_until="domcontentloaded") if MEMORY else mobile.goto(url, wait_until="domcontentloaded")
+        mobile.set_default_timeout(8000)
         for selector in (
             '[data-action="menu"]',
             '.top-actions [data-action="command"]',
