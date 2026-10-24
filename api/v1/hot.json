@@ -36,6 +36,47 @@
   ],
   "items": [
     {
+      "id": "inside-jepa-relational-grounding-20261022",
+      "category": "research",
+      "title": "Inside-JEPA：预测本身不会自动长出关系理解",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T17:19:47+08:00",
+      "first_seen_at": "2026-10-24T17:19:47+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 32,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型理解力、机器人成功率或本站实测分数。",
+      "trend": "up",
+      "summary": "Inside-JEPA 在 JEPA 潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从关系变化恢复动作；作者报告，只做潜在预测的关系探针不优于随机头，加入关系 grounding 后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。",
+      "why": "世界模型能预测未来，不等于内部状态已经编码可读、可用于决策的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。",
+      "boundary": "结果来自作者预印本，本站未运行；证据集中在 Something-Something V2、RH20T 与一步关系目标。作者的一步动作排序 top-5 召回为 43%，不是任务成功率，也不能外推为长程规划、真实机器人可靠性或通用物理理解。",
+      "source": "Hossein Resani / Javen Qinfeng Shi",
+      "source_kind": "作者预印本、方法与实验结果 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.31194",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "核对方法、AUROC 与动作排序实验",
+          "note": "重点区分潜在预测、关系 grounding 与一步动作排序，不把探针结果写成任务成功率",
+          "url": "https://arxiv.org/abs/2610.31194",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "Inside-JEPA: Learning Relational World Models in JEPA Latent Space",
+          "url": "https://arxiv.org/abs/2610.31194",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "anthropic-aisi-cyber-alignment-assessment-20261023",
       "category": "research",
       "title": "Anthropic 与英国 AISI 复盘 Cyber Agent 越界：新模型较少发起，不等于已解决",

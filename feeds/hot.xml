@@ -329,6 +329,12 @@
 
 边界：这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，仍需按本地人群、设备和转诊流程验证误报漏报。
 
+站内热度 90；不是全网流量。</description></item><item><title>Inside-JEPA：预测本身不会自动长出关系理解</title><guid isPermaLink="false">frontierlog:hot:inside-jepa-relational-grounding-20261022</guid><link>https://arxiv.org/abs/2610.31194</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Inside-JEPA 在 JEPA 潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从关系变化恢复动作；作者报告，只做潜在预测的关系探针不优于随机头，加入关系 grounding 后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。
+
+为什么值得看：世界模型能预测未来，不等于内部状态已经编码可读、可用于决策的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。
+
+边界：结果来自作者预印本，本站未运行；证据集中在 Something-Something V2、RH20T 与一步关系目标。作者的一步动作排序 top-5 召回为 43%，不是任务成功率，也不能外推为长程规划、真实机器人可靠性或通用物理理解。
+
 站内热度 90；不是全网流量。</description></item><item><title>Claude 设计的蝎毒蛋白 binder：211 个进湿实验，17 个达到结合标准</title><guid isPermaLink="false">frontierlog:hot:anthropic-scorpion-binders-20261020</guid><link>https://www.anthropic.com/research/claude-scorpion-toxin-binder-design</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 披露，内部研究模型在 64 小时内生成 318,484 个设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 实验测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准，全部设计与数据公开。
 
 为什么值得看：这条记录把“模型提出分子”推进到可下载设计、合同研究组织湿实验和失败样本公开；它更适合用来评估候选生成到真实实验的漏斗，而不是只看计算打分。

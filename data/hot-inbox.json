@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T07:37:51Z",
+  "generated_at": "2026-10-24T09:30:47Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 59,
-    "hold": 4
+    "merge": 60,
+    "hold": 3
   },
   "candidates": [
     {
@@ -38,35 +38,6 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
-    },
-    {
-      "id": "candidate-70c4362aedbb25ec",
-      "category": "research",
-      "published": "2026-10-22",
-      "title": "JEPA 的潜在状态需要显式关系通道，预测本身不会自动长出关系理解",
-      "summary": "Inside-JEPA 在潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从通道变化恢复动作。作者报告：只做潜在预测的关系探针不优于随机头；加入逆动力学后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。",
-      "why": "世界模型能预测未来，不等于其内部状态已经编码可读、可用于规划的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。",
-      "boundary": "结果来自作者预印本，本站未运行；主要证据来自 Something-Something V2、RH20T 和一步关系目标，不能外推为长程规划、真实机器人可靠性或通用物理理解。43% 的 top-5 动作召回也不是任务成功率。",
-      "source": "Hossein Resani / Javen Qinfeng Shi",
-      "source_kind": "作者论文、方法与实验结果",
-      "url": "https://arxiv.org/abs/2610.31194",
-      "publishable": false,
-      "features": {
-        "freshness": 0.857,
-        "authority": 0.88,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.876,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "research_id": "inside-jepa-relational-grounding",
-      "topic_tags": [
-        "JEPA",
-        "World Model",
-        "Relational Grounding"
-      ],
-      "first_seen_at": "2026-10-23T15:26:16Z"
     },
     {
       "id": "candidate-92ca2707f4cec9ad",
@@ -1004,6 +975,35 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "anthropic-claude-duet",
       "first_seen_at": "2026-10-21T21:30:26Z"
+    },
+    {
+      "id": "candidate-65ea4d777c048e98",
+      "category": "research",
+      "published": "2026-10-21",
+      "title": "Agent 安全边界下沉到模型之外的策略执行层",
+      "summary": "NVIDIA 发布 OpenShell 参考架构，将 Agent 的隔离、观察和策略执行放在模型与工具调用之外，并说明与 Vera、BlueField-4/Sentry 等组件的组合路径。",
+      "why": "前瞻信号是 Agent 安全从提示词与模型自律转向独立、可审计、可强制执行的运行基础设施；这更适合约束高权限和长时运行任务。",
+      "boundary": "参考架构不等于安全认证；策略遗漏、旁路和底层配置错误仍可能导致越权。厂商性能与容量数字需要在相同硬件、任务和策略下独立复验。",
+      "source": "NVIDIA",
+      "source_kind": "官方参考架构发布",
+      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+      "publishable": false,
+      "features": {
+        "freshness": 0.786,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.751,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "external-agent-policy-enforcement",
+      "topic_tags": [
+        "Agent Runtime",
+        "Policy Enforcement",
+        "Observability"
+      ],
+      "first_seen_at": "2026-10-24T09:30:47Z"
     }
   ]
 }
