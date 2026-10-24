@@ -136,7 +136,7 @@ if(!window.__AIC_V2_TOOL_DOCK_BOUND){
 
 
 function v2Count(key){
- const counts={benchmarks:BENCH.items.length,models:MODEL_DATA.boards.reduce((n,b)=>n+b.rows.length,0),tibo:RESET_DATA.events.length,hot:HOT.items.length,feed:typeof aicCuratedRows==='function'?aicCuratedRows().length:HOT.items.length,progress:DATA.items.length,activity:DATA.events.length+(UP.releases||[]).length+(ACTIVITY_RADAR.events||[]).length+(ACTIVITY_RADAR.media_items||[]).length,toolkit:DATA.items.filter(t=>t.status==='code').length,topics:VERT.topics.length,pharma:VERT.articles.filter(a=>a.sector==='pharma').length,manufacturing:VERT.articles.filter(a=>a.sector==='manufacturing').length,saved:saved.size+articleSaved.size+msaved.size+bSaved.size};
+ const counts={benchmarks:BENCH.items.length,models:MODEL_DATA.boards.reduce((n,b)=>n+b.rows.length,0),tibo:RESET_DATA.events.length,hot:HOT.items.length,feed:typeof aicCuratedRows==='function'?aicCuratedRows().length:HOT.items.length,progress:DATA.items.length,activity:(ACTIVITY_RADAR.events||[]).length+(ACTIVITY_RADAR.media_items||[]).length,toolkit:DATA.items.filter(t=>t.status==='code').length,topics:VERT.topics.length,pharma:VERT.articles.filter(a=>a.sector==='pharma').length,manufacturing:VERT.articles.filter(a=>a.sector==='manufacturing').length,saved:saved.size+articleSaved.size+msaved.size+bSaved.size};
  return counts[key]??0;
 }
 renderNav=function(){

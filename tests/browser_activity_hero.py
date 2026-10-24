@@ -59,6 +59,9 @@ try:
             else: page.goto(url+route,wait_until='domcontentloaded')
             page.wait_for_timeout(100)
         go('#/activity')
+        nav_count = page.locator('#nav a[href="#/activity"] small').inner_text().strip()
+        tab_count = page.locator('.v2-radar-tabs a[href="#/activity"]').inner_text().strip().split()[-1]
+        assert nav_count.lstrip('0') == tab_count.lstrip('0'), (nav_count, tab_count)
         expect(page.locator('.ah-hero')).to_have_count(1)
         expect(page.locator('.ah-feature')).to_have_count(1)
         expect(page.locator('.ah-event')).to_have_count(len(EVENT_IDS))
