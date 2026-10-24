@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-24",
+  "checked": "2026-10-25",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,43 @@
     }
   ],
   "items": [
+    {
+      "id": "olmoearth-v1-3-global-embeddings",
+      "lane": "science",
+      "title": "地球观测基础模型开始把全球嵌入作为可复用公共底座",
+      "maker": "Ai2",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "tags": [
+        "Earth Observation",
+        "Geospatial AI",
+        "Embeddings"
+      ],
+      "fact": "OlmoEarth v1.3 Base 读取 Sentinel-1、Sentinel-2 与 Landsat 的年度时间序列，为每个 10 米像素生成 128 维表示；Ai2 同时发布 64/128 维全球年度嵌入、浏览器 Explorer、模型与代码。全球数据覆盖 2023–2025 年，部分国家另含 2017–2022 年。",
+      "insight": "这条路线把昂贵的卫星时间序列预处理变成可重复使用的公共特征层。未来数月更值得看的是，研究者能否用少量标签在灾害、农业、生态与城市变化任务上稳定复用同一底座，而不是每个任务重新训练完整视觉模型。",
+      "boundary": "作者报告 128 维版本在 27 项评测中的 20 项领先 AlphaEarth Foundations 与 Tessera，64 维版本为 18 项；本站未独立复跑，不能据此推出所有地区、年份或下游任务都更准。完整档案约 150 TB/年，历史年份覆盖不完整，Artifact License、云存储与出口成本也需单独审查。",
+      "next_watch": "关注独立区域与跨年份复现、标签极少时的样本效率、云平台分块访问成本、2017–2022 年覆盖扩展，以及许可是否适合具体商业或公共部门工作流。",
+      "sources": [
+        {
+          "label": "Ai2 官方发布",
+          "url": "https://allenai.org/blog/olmoearth-v1-3",
+          "kind": "模型、全球嵌入、Explorer、作者评测与限制",
+          "strength": "primary"
+        },
+        {
+          "label": "OlmoEarth v1 Base 模型卡",
+          "url": "https://huggingface.co/allenai/OlmoEarth-v1_3-Base",
+          "kind": "架构、模态、权重与许可",
+          "strength": "primary"
+        },
+        {
+          "label": "Ai2 OlmoEarth 仓库",
+          "url": "https://github.com/allenai/olmoearth_pretrain",
+          "kind": "安装、推理、数据与评测代码",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "mundo-custom-interactive-world",
       "lane": "paradigm",

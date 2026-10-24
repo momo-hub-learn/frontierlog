@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-24",
+  "checked": "2026-10-25",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,53 @@
     }
   ],
   "items": [
+    {
+      "id": "allenai-olmoearth-v1-3-20261022",
+      "category": "research",
+      "title": "OlmoEarth v1.3：全球 10 米卫星嵌入可直接浏览和下载",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "first_seen_at": "2026-10-25T01:20:14+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 32,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 11
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是地球观测精度、Benchmark 总分或本站实测分数。",
+      "trend": "up",
+      "summary": "Ai2 发布 OlmoEarth v1.3 Base、64/128 维全球年度嵌入与无需登录的 Embeddings Explorer。数据以 10 米像素为单位，全球覆盖 2023–2025 年，部分国家另含 2017–2022 年，可先在线检查区域变化再按需导出。",
+      "why": "地球观测基础模型开始从单个任务权重，走向可以复用的全球特征底座。土地覆盖、灾害变化、农业与生态团队可先用同一份时空嵌入做相似性检索、变化检测或小样本分类，再决定是否训练专用模型。",
+      "boundary": "作者报告 128 维版本在 27 项评测中的 20 项领先 AlphaEarth Foundations 与 Tessera，64 维版本为 18 项；这是一手作者结果，本站未独立复跑。完整档案约 150 TB/年，早期年份只覆盖部分国家，模型与数据受 OlmoEarth Artifact License 约束，浏览器演示也不能替代本地区域、时间和标签质量验证。",
+      "source": "Ai2",
+      "source_kind": "官方发布、模型卡与开源仓库 / 本轮编辑核验",
+      "url": "https://allenai.org/blog/olmoearth-v1-3",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开 Embeddings Explorer",
+          "note": "先选一个熟悉区域和年份，核对变化与地面事实，再导出小范围数据",
+          "url": "https://olmoearth.allenai.org/embeddings",
+          "kind": "tool"
+        },
+        {
+          "label": "查看代码与本地推理说明",
+          "note": "记录模型、影像来源、年份与导出范围；不要把作者榜单写成本站实测",
+          "url": "https://github.com/allenai/olmoearth_pretrain",
+          "kind": "code"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "allenai/OlmoEarth-v1_3-Base 模型卡",
+          "url": "https://huggingface.co/allenai/OlmoEarth-v1_3-Base",
+          "date": "2026-10-22"
+        }
+      ]
+    },
     {
       "id": "mundo-custom-interactive-world-20261023",
       "category": "research",

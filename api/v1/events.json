@@ -1,6 +1,21 @@
 {
-  "snapshot": "2026-10-24",
+  "snapshot": "2026-10-25",
   "events": [
+    {
+      "id": "olmoearth-v1-3-release",
+      "task": "allenai-olmoearth-v1-3",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Ai2 发布 OlmoEarth v1.3 与全球卫星嵌入",
+      "summary": "公开模型、代码、无需登录的 Explorer，以及全球 2023–2025 年 10 米级 64/128 维年度嵌入；部分国家另含 2017–2022 年。",
+      "delta": "地球观测特征从单任务模型变成可直接浏览、导出和复用的公共底座；作者评测仍需在目标区域与下游任务上独立验证。",
+      "sources": [
+        "olmoearth-v1-3-blog",
+        "olmoearth-v1-base-model-card",
+        "olmoearth-repo"
+      ],
+      "reviewed": "2026-10-25"
+    },
     {
       "id": "hf-trainium-model-support-release",
       "task": "hf-trainium-model-support",
@@ -430,6 +445,36 @@
     }
   ],
   "sources": [
+    {
+      "id": "olmoearth-v1-3-blog",
+      "publisher": "Ai2",
+      "title": "OlmoEarth v1.3: Open Global Satellite Embeddings",
+      "url": "https://allenai.org/blog/olmoearth-v1-3",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方模型、全球嵌入、Explorer、作者评测与限制"
+    },
+    {
+      "id": "olmoearth-v1-base-model-card",
+      "publisher": "Ai2 / Hugging Face",
+      "title": "allenai/OlmoEarth-v1_3-Base",
+      "url": "https://huggingface.co/allenai/OlmoEarth-v1_3-Base",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方模型卡、架构、模态、权重与许可"
+    },
+    {
+      "id": "olmoearth-repo",
+      "publisher": "Ai2",
+      "title": "allenai/olmoearth_pretrain",
+      "url": "https://github.com/allenai/olmoearth_pretrain",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方安装、推理、数据与评测代码"
+    },
     {
       "id": "hf-trainium-support-blog",
       "publisher": "Hugging Face",

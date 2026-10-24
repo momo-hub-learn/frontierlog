@@ -3074,13 +3074,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-24T15:51:36Z",
+    "generated_at": "2026-10-24T17:33:29Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 63,
+      "merge": 65,
       "hold": 3
     },
     "candidates": [
@@ -3263,6 +3263,30 @@
           "Alignment Evaluation"
         ],
         "first_seen_at": "2026-10-24T07:30:22Z"
+      },
+      {
+        "id": "candidate-39f4fa1717215181",
+        "category": "product",
+        "published": "2026-10-22",
+        "title": "Ai2 发布 OlmoEarth v1.3 与全球卫星嵌入",
+        "summary": "公开模型、代码、无需登录的 Explorer，以及全球 2023–2025 年 10 米级 64/128 维年度嵌入；部分国家另含 2017–2022 年。",
+        "why": "地球观测特征从单任务模型变成可直接浏览、导出和复用的公共底座；作者评测仍需在目标区域与下游任务上独立验证。",
+        "boundary": "作者评测领先项数不是本站实测或跨地区通用精度；完整档案约 150 TB/年，历史覆盖、Artifact License、存储与数据出口均需按任务核验。",
+        "source": "Ai2",
+        "source_kind": "官方模型、全球嵌入、Explorer、作者评测与限制",
+        "url": "https://allenai.org/blog/olmoearth-v1-3",
+        "publishable": true,
+        "features": {
+          "freshness": 0.857,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.783,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "allenai-olmoearth-v1-3",
+        "first_seen_at": "2026-10-24T17:33:29Z"
       },
       {
         "id": "candidate-ce99a6443de3cc9c",
@@ -4049,35 +4073,6 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "anthropic-claude-duet",
         "first_seen_at": "2026-10-21T21:30:26Z"
-      },
-      {
-        "id": "candidate-65ea4d777c048e98",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "Agent 安全边界下沉到模型之外的策略执行层",
-        "summary": "NVIDIA 发布 OpenShell 参考架构，将 Agent 的隔离、观察和策略执行放在模型与工具调用之外，并说明与 Vera、BlueField-4/Sentry 等组件的组合路径。",
-        "why": "前瞻信号是 Agent 安全从提示词与模型自律转向独立、可审计、可强制执行的运行基础设施；这更适合约束高权限和长时运行任务。",
-        "boundary": "参考架构不等于安全认证；策略遗漏、旁路和底层配置错误仍可能导致越权。厂商性能与容量数字需要在相同硬件、任务和策略下独立复验。",
-        "source": "NVIDIA",
-        "source_kind": "官方参考架构发布",
-        "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "external-agent-policy-enforcement",
-        "topic_tags": [
-          "Agent Runtime",
-          "Policy Enforcement",
-          "Observability"
-        ],
-        "first_seen_at": "2026-10-24T09:30:47Z"
       }
     ]
   },
@@ -7074,12 +7069,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-24T15:51:36Z",
+    "last_evaluated": "2026-10-24T17:33:29Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 66,
+      "candidate_count": 68,
       "publish_ready_count": 0,
-      "merge_count": 63,
+      "merge_count": 65,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },

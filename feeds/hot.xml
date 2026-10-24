@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
 
 为什么值得看：主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。
 
@@ -286,6 +286,12 @@
 为什么值得看：世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。
 
 边界：研究结果及领先性能为作者报告，本站未复现；可渲染不代表物理定律、可控交互或工业数字孪生已经可靠。
+
+站内热度 91；不是全网流量。</description></item><item><title>OlmoEarth v1.3：全球 10 米卫星嵌入可直接浏览和下载</title><guid isPermaLink="false">frontierlog:hot:allenai-olmoearth-v1-3-20261022</guid><link>https://allenai.org/blog/olmoearth-v1-3</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Ai2 发布 OlmoEarth v1.3 Base、64/128 维全球年度嵌入与无需登录的 Embeddings Explorer。数据以 10 米像素为单位，全球覆盖 2023–2025 年，部分国家另含 2017–2022 年，可先在线检查区域变化再按需导出。
+
+为什么值得看：地球观测基础模型开始从单个任务权重，走向可以复用的全球特征底座。土地覆盖、灾害变化、农业与生态团队可先用同一份时空嵌入做相似性检索、变化检测或小样本分类，再决定是否训练专用模型。
+
+边界：作者报告 128 维版本在 27 项评测中的 20 项领先 AlphaEarth Foundations 与 Tessera，64 维版本为 18 项；这是一手作者结果，本站未独立复跑。完整档案约 150 TB/年，早期年份只覆盖部分国家，模型与数据受 OlmoEarth Artifact License 约束，浏览器演示也不能替代本地区域、时间和标签质量验证。
 
 站内热度 91；不是全网流量。</description></item><item><title>小模型复制风险转向 IoT：难点已从单步能力变成端到端稳定性</title><guid isPermaLink="false">frontierlog:hot:anthropic-self-replicating-ai-20261012</guid><link>https://www.anthropic.com/research/self-replicating-ai</link><pubDate>Mon, 12 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic Frontier Red Team 报告称，9B 模型可在 9 类硬件中的 8 类上建立推理环境；30B 以下模型已能完成许多复制单步，但端到端组合仍会出错。研究还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。
 

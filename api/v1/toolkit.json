@@ -42,6 +42,57 @@
   ],
   "items": [
     {
+      "id": "allenai-olmoearth-v1-3",
+      "publisher": "Ai2",
+      "group": "research",
+      "access": "web",
+      "headline": "先用 Explorer 核对一个熟悉区域，再决定是否下载全球卫星嵌入",
+      "input": "一个熟悉的地理区域、目标年份与可以交叉核对的地面事实；进阶任务再准备少量标签或对照样本",
+      "output": "10 米级 64/128 维嵌入的可视化、相似区域或变化线索，以及可导出的小范围 GeoTIFF",
+      "requirements": "浏览器 Explorer 无需登录；本地推理需要 Python 3.12、uv、官方代码与对应卫星输入。大范围下载前先确认对象存储、网络和许可条件。",
+      "limitation": "本站只核验 Ai2 官方发布、模型卡与代码，未运行模型。作者在 27 项评测上的领先项数不是跨地区通用精度；完整档案约 150 TB/年，早期年份只覆盖部分国家，Artifact License 也需按用途审查。",
+      "cost": "Explorer 可直接浏览；全球嵌入、影像与本地推理会产生显著的存储、出口、计算和数据工程成本，实际费用取决于区域、年份与云平台。",
+      "steps": [
+        {
+          "title": "锁定区域、年份与证据",
+          "body": "选择一个你熟悉且有地面事实的区域，记录影像年份、边界和预期变化，避免先看结果再改判断标准。"
+        },
+        {
+          "title": "在 Explorer 对照两种信号",
+          "body": "分别检查相似性或变化图与一个公开底图、调查记录或已有标签；保存失败例和不确定区域，不只截图最好看的结果。"
+        },
+        {
+          "title": "只导出小范围并做下游基线",
+          "body": "先导出一个可管理的 GeoTIFF，用固定训练/验证划分比较简单分类器与现有特征；记录覆盖、许可、存储和出口成本后再扩区。"
+        }
+      ],
+      "troubleshooting": "区域显示异常时先核对年份、云层与传感器覆盖；结果与地面事实冲突时保留样本并检查输入时序和投影。下载过慢或体积超预算时缩小区域、分块和年份，不要先同步整年全球档案。",
+      "sources": [
+        {
+          "title": "Ai2 OlmoEarth 开源仓库",
+          "url": "https://github.com/allenai/olmoearth_pretrain",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-25"
+        },
+        {
+          "title": "Ai2 OlmoEarth v1.3 官方发布",
+          "url": "https://allenai.org/blog/olmoearth-v1-3",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-25"
+        },
+        {
+          "title": "OlmoEarth v1 Base 模型卡",
+          "url": "https://huggingface.co/allenai/OlmoEarth-v1_3-Base",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-25"
+        }
+      ],
+      "entry_url": "https://olmoearth.allenai.org/embeddings",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-25T01:20:14+08:00"
+    },
+    {
       "id": "hf-trainium-model-support",
       "publisher": "Hugging Face / AWS Neuron",
       "group": "research",
