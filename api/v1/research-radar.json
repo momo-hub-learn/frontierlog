@@ -21,6 +21,37 @@
   ],
   "items": [
     {
+      "id": "thinkingbox-executable-rewards",
+      "lane": "paradigm",
+      "title": "Agent 后训练开始把最终数据库状态直接变成奖励",
+      "maker": "Microsoft / Hugging Face",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-24T13:26:32+08:00",
+      "tags": [
+        "Agent Reliability",
+        "Executable Rewards",
+        "RL Post-training"
+      ],
+      "fact": "ThinkingBox Training 用任务结束后的数据库记录与副作用检查产生二元奖励。Qwen3.8-27B 经 50 步 GRPO 后，在训练集之外的 507 个任务、每题 20 次评测中，pass@1 从 51.70% 升至 60.78%，Observed 20/20 从 38 个任务升至 107 个；pass@20 则从 89.35% 降到 87.97%。",
+      "insight": "把终态业务约束写成可执行检查，既能做 benchmark，也能直接成为训练奖励；同时记录一次成功、平均成功和重复全对，能显露“能力覆盖”与“稳定性”之间的真实权衡。",
+      "boundary": "本站未复跑训练或评测。公开任务是合成业务流程，参考全参数训练使用三台、每台 8 张 H100；结果只对应指定模型、任务选择、检查器与 50 步训练，不能外推为所有 Agent 或真实企业流程的可靠性。",
+      "next_watch": "关注独立复现、不同模型与任务选择下的稳定性/覆盖权衡、检查器错误对奖励的影响，以及更低算力配置能否保留收益。",
+      "sources": [
+        {
+          "label": "Hugging Face / Microsoft ThinkingBox Training 官方研究",
+          "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+          "kind": "官方方法、507×20 结果与限制",
+          "strength": "primary"
+        },
+        {
+          "label": "Microsoft ThinkingBox Training 官方仓库",
+          "url": "https://github.com/microsoft/thinkingbox-training",
+          "kind": "公开训练、检查与参考配置",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "anthropic-formal-verification-production-binaries",
       "lane": "paradigm",
       "title": "Coding Agent 开始把生产二进制的安全属性交给证明检查器验收",

@@ -245,6 +245,12 @@
 
 边界：API 不包含在计划内；不是全球高校自动开放。已有学校 Enterprise 协议的团队应走学校流程；研究结果仍需实验验证。
 
+站内热度 93；不是全网流量。</description></item><item><title>ThinkingBox：可执行数据库验收把 Agent 重复全对任务从 38 提到 107</title><guid isPermaLink="false">frontierlog:hot:thinkingbox-agent-rl-20261022</guid><link>https://huggingface.co/blog/microsoft/thinkingbox-training</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Microsoft 与 Hugging Face 用 ThinkingBox 的终态数据库检查作为训练奖励，对 Qwen3.8-27B 做 50 步 GRPO；在未参与训练的 507 个任务、每题 20 次评测中，平均成功率由 51.70% 升至 60.78%，20 次全对的任务由 38 增至 107。
+
+为什么值得看：Agent 后训练开始把“最终业务状态是否正确”直接做成可执行奖励，并把一次成功与重复可靠性分开；这比只奖励工具调用轨迹或模型自评更接近生产验收。
+
+边界：这是 Microsoft 与 Hugging Face 的官方实验，本站未复跑。训练需要三台、每台 8 张 H100 的参考配置；公开任务是合成业务流程。pass@20 从 89.35% 降至 87.97%，说明重复性提升没有同时扩大至少成功一次的覆盖，不能外推为真实企业部署成功率。
+
 站内热度 93；不是全网流量。</description></item><item><title>FairStress：把公平性评测扩展到 1,300 万种决策压力场景</title><guid isPermaLink="false">frontierlog:hot:allenai-fairstress-20261020</guid><link>https://huggingface.co/blog/allenai/fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><description>Allen Institute for AI 发布 FairStress：从 29 个领域的 300 个现实两候选决策场景出发，组合人口属性和对抗前缀，扩展出 1,300 万以上压力测试实例，并提供 5 万条 Core 子集。
 
 为什么值得看：它不只问一次选择是否公平，而是检查同一决策在身份变化、提示压力和解释层面是否稳定，可作为招聘、金融、医疗等高影响流程的补充压力测试。
@@ -353,7 +359,13 @@
 
 边界：这是约 14 天申请窗口和 8–12 周合作计划，不是研究结果、临床验证或产品发布；申请材料只能包含公开信息，初步发现仍需独立实验和同行评议。
 
-站内热度 86；不是全网流量。</description></item><item><title>OpenAI 与波兰 NASK 启动 AI 安全评测合作</title><guid isPermaLink="false">frontierlog:hot:openai-nask-ai-safety-partnership-20261023</guid><link>https://openai.com/index/openai-nask-ai-safety-security-partnership/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 与波兰国家研究院 NASK 签署协议，计划共同评估更强 AI 系统、识别潜在漏洞并改进安全防护；合作方包括 NASK 的 AI Safety Research Center。
+站内热度 86；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
+
+为什么值得看：硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。
+
+边界：官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不说明吞吐、长文本稳定性、业务质量或成本。当前只覆盖 Transformers 的 text-generation 与 image-text-to-text，本站未复跑。
+
+站内热度 84；不是全网流量。</description></item><item><title>OpenAI 与波兰 NASK 启动 AI 安全评测合作</title><guid isPermaLink="false">frontierlog:hot:openai-nask-ai-safety-partnership-20261023</guid><link>https://openai.com/index/openai-nask-ai-safety-security-partnership/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 与波兰国家研究院 NASK 签署协议，计划共同评估更强 AI 系统、识别潜在漏洞并改进安全防护；合作方包括 NASK 的 AI Safety Research Center。
 
 为什么值得看：前沿模型的能力评测、风险测试与事故报告正在从单个厂商内部流程扩展到国家级公共研究机构；这可能影响跨国安全测试与技术标准的共同口径。
 

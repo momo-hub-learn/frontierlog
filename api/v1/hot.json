@@ -36,6 +36,89 @@
   ],
   "items": [
     {
+      "id": "thinkingbox-agent-rl-20261022",
+      "category": "benchmark",
+      "title": "ThinkingBox：可执行数据库验收把 Agent 重复全对任务从 38 提到 107",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T13:26:32+08:00",
+      "first_seen_at": "2026-10-24T13:26:32+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 34,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 11
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Agent 可靠性、生产成功率、模型能力或本站实测分数。",
+      "trend": "up",
+      "summary": "Microsoft 与 Hugging Face 用 ThinkingBox 的终态数据库检查作为训练奖励，对 Qwen3.8-27B 做 50 步 GRPO；在未参与训练的 507 个任务、每题 20 次评测中，平均成功率由 51.70% 升至 60.78%，20 次全对的任务由 38 增至 107。",
+      "why": "Agent 后训练开始把“最终业务状态是否正确”直接做成可执行奖励，并把一次成功与重复可靠性分开；这比只奖励工具调用轨迹或模型自评更接近生产验收。",
+      "boundary": "这是 Microsoft 与 Hugging Face 的官方实验，本站未复跑。训练需要三台、每台 8 张 H100 的参考配置；公开任务是合成业务流程。pass@20 从 89.35% 降至 87.97%，说明重复性提升没有同时扩大至少成功一次的覆盖，不能外推为真实企业部署成功率。",
+      "source": "Microsoft / Hugging Face",
+      "source_kind": "官方联合研究、公开训练代码与评测口径 / 本轮编辑补档",
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "核对 507×20 评测与训练实现",
+          "note": "同时看 pass@1、Observed 20/20 与 pass@20，不把单一指标当作完整可靠性",
+          "url": "https://github.com/microsoft/thinkingbox-training",
+          "kind": "code"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face / Microsoft",
+          "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
+          "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "hf-trainium-model-support-20261023",
+      "category": "product",
+      "title": "Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T13:26:32+08:00",
+      "first_seen_at": "2026-10-24T13:26:32+08:00",
+      "heat": 84,
+      "heat_components": {
+        "impact": 28,
+        "availability": 22,
+        "evidence": 24,
+        "recency": 10
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是吞吐、生成质量、硬件性价比或本站实测分数。",
+      "trend": "up",
+      "summary": "Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。",
+      "why": "硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。",
+      "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不说明吞吐、长文本稳定性、业务质量或成本。当前只覆盖 Transformers 的 text-generation 与 image-text-to-text，本站未复跑。",
+      "source": "Hugging Face / AWS Neuron",
+      "source_kind": "官方博客、公开 Space 与数据集 / 本轮编辑补档",
+      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+      "link": "#/toolkit?task=hf-trainium-model-support&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查询模型与精确运行脚本",
+          "note": "按 neuronx-cc 与 Transformers 版本核对结果，再在自己的负载上复验",
+          "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+          "kind": "tool"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "Does Your Model Run on AWS Trainium? Look It Up",
+          "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
       "id": "anthropic-formal-verification-20261022",
       "category": "research",
       "title": "Claude 把 123 个开源库的模糊测试入口转成机器检查的证明",

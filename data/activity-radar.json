@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-10-24T05:02:17Z",
+  "checked_at": "2026-10-24T05:30:52Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-10-24T05:02:17Z",
+    "last_success": "2026-10-24T05:30:52Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -348,6 +348,41 @@
   ],
   "media_items": [
     {
+      "id": "latent-space-ddc20d7cc9e3",
+      "source_id": "latent-space",
+      "published": "2026-10-23",
+      "title": "AI Is Getting Good at Math. Here’s Why.",
+      "summary": "AI models are solving more mathematical problems. A pattern is emerging in their successes that could help us predict which problems they’ll solve next.",
+      "url": "https://latent.space/p/ai-is-getting-good-at-math/",
+      "tags": [
+        "Models"
+      ],
+      "origin": "rss"
+    },
+    {
+      "id": "latent-space-d39e297946eb",
+      "source_id": "latent-space",
+      "published": "2026-10-23",
+      "title": "[AINews] Black October",
+      "summary": "the Cyber onslaught continues.",
+      "url": "https://latent.space/p/ainews-black-october/",
+      "tags": [],
+      "origin": "rss"
+    },
+    {
+      "id": "latent-space-4bbb0219edc5",
+      "source_id": "latent-space",
+      "published": "2026-10-22",
+      "title": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal CEO",
+      "summary": "Elastic GPUs, sandbox growth, and the economics of the agent cloud",
+      "url": "https://latent.space/p/modal-d/",
+      "tags": [
+        "Agents",
+        "AI Infra"
+      ],
+      "origin": "rss"
+    },
+    {
       "id": "dwarkesh-1aa10672a913",
       "source_id": "dwarkesh",
       "published": "2026-10-22",
@@ -563,27 +598,6 @@
         "机器人 in-context learning 被视为观察具身 Scaling Law 的重要信号。",
         "真正的泛化依赖数据闭环，而不只是扩大模型参数。",
         "World Model、VLA 与机器人数据正在逐渐汇成一套系统问题。"
-      ]
-    },
-    {
-      "id": "no-priors-stefano-20260918",
-      "source_id": "no-priors",
-      "published": "2026-09-18",
-      "title": "Why Diffusion Will Win AI Inference — Stefano Ermon",
-      "summary": "讨论 diffusion text/code model、推理效率、GPU 利用率与下一代 inference stack。",
-      "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
-      "tags": [
-        "Diffusion",
-        "Inference",
-        "AI Infra"
-      ],
-      "origin": "verified-manual",
-      "editor_pick": true,
-      "value_hint": "推理栈前沿 · 适合完整听",
-      "highlights": [
-        "Diffusion 路线正在尝试进入文本与代码推理，而不只做图像。",
-        "核心变量包括吞吐、GPU 利用率和推理并行方式。",
-        "如果成立，下一代 inference stack 可能不再围绕传统自回归解码设计。"
       ]
     },
     {
