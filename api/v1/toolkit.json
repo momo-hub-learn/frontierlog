@@ -42,6 +42,51 @@
   ],
   "items": [
     {
+      "id": "hf-trainium-model-support",
+      "publisher": "Hugging Face / AWS Neuron",
+      "group": "research",
+      "access": "web",
+      "headline": "先查模型与软件栈是否通过 Trainium 短测，再跑自己的吞吐和长文本基线",
+      "input": "一个 Hugging Face Transformers 模型 ID，以及准备使用的 neuronx-cc、Transformers、实例和任务版本",
+      "output": "公开兼容性结果、失败原因、核心数、峰值设备内存、运行时长、完整软件版本与可复跑的 run.py",
+      "requirements": "查询只需访问公开 Space 或数据集；复跑需要 Trainium2 实例、对应 AWS Neuron 深度学习容器与页面列出的依赖版本。",
+      "limitation": "本站只核验官方博客、Space 与数据集，未租用 Trainium2 复跑。PASS 只代表最多 16 核上成功生成并检查 32 个 token，不代表吞吐、长上下文稳定性、生成质量或成本；当前仅测 text-generation 与 image-text-to-text。",
+      "cost": "Space 和结果数据公开可查；实际复跑会产生 Trainium2 实例、存储、编译与工程维护成本，价格和区域需以接入时 AWS 条款为准。",
+      "steps": [
+        {
+          "title": "锁定模型与软件版本",
+          "body": "在 Space 里按模型 ID 查询，记录 neuronx-cc、Transformers、核心数、结果与失败原因；不要只抄当前 PASS 标签。"
+        },
+        {
+          "title": "复跑官方 32-token 检查",
+          "body": "在匹配的 Trainium2 容器中使用页面生成的 run.py；先确认编译、分片、输出检查和峰值内存与公开记录一致。"
+        },
+        {
+          "title": "另建真实负载基线",
+          "body": "用目标上下文长度、批量、生成长度和质量样本测 p50/p95 时延、吞吐、内存、失败率与成本，并与现有硬件基线同口径比较。"
+        }
+      ],
+      "troubleshooting": "找不到模型时切到 Trending 或 Downloads 视图并核对任务类型；编译失败时先比对 compiler、Transformers 与 Neuron 栈版本；PASS 后长文本或吞吐不达标不应归因于目录错误，而要单独记录真实负载差异。",
+      "sources": [
+        {
+          "title": "Hugging Face Trainium 模型支持官方说明",
+          "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+          "published_at": "2026-10-23",
+          "verified_at": "2026-10-24"
+        },
+        {
+          "title": "AWS Neuron / Hugging Face 模型支持查询 Space",
+          "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+          "published_at": null,
+          "verified_at": "2026-10-24"
+        }
+      ],
+      "entry_url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-24T13:26:32+08:00"
+    },
+    {
       "id": "microsoft-flint-interactive",
       "publisher": "Microsoft",
       "group": "agents",

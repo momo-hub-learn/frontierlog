@@ -1,6 +1,20 @@
 {
-  "snapshot": "2026-10-23",
+  "snapshot": "2026-10-24",
   "events": [
+    {
+      "id": "hf-trainium-model-support-release",
+      "task": "hf-trainium-model-support",
+      "date": "2026-10-23",
+      "kind": "release",
+      "title": "Hugging Face 发布 Trainium 模型兼容性目录",
+      "summary": "公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。",
+      "delta": "硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。",
+      "sources": [
+        "hf-trainium-support-blog",
+        "hf-trainium-support-space"
+      ],
+      "reviewed": "2026-10-24"
+    },
     {
       "id": "microsoft-flint-interactive-release",
       "task": "microsoft-flint-interactive",
@@ -416,6 +430,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "hf-trainium-support-blog",
+      "publisher": "Hugging Face",
+      "title": "Does Your Model Run on AWS Trainium? Look It Up",
+      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T13:26:32+08:00",
+      "kind": "官方兼容性目录说明、测试口径与限制"
+    },
+    {
+      "id": "hf-trainium-support-space",
+      "publisher": "AWS Neuron / Hugging Face",
+      "title": "torch-neuronx model support",
+      "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+      "published": null,
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T13:26:32+08:00",
+      "kind": "公开查询 Space、运行脚本与版本化结果"
+    },
     {
       "id": "microsoft-flint-interactive-release",
       "publisher": "Microsoft Research",

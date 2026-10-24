@@ -1,7 +1,7 @@
 """Guard the evidence and build contract for task-first toolkit guides."""
 import copy
 import json
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import sys
 import tempfile
@@ -73,13 +73,15 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(row['sources'][0]['published_at'],'2026-10-22')
     def test_verification_dates_use_beijing_calendar_day(self):
         data=copy.deepcopy(self.data)
-        data['items'][0]['sources'][0]['verified_at']='2026-10-23'
-        # The same instant is still October 22 in UTC, but already October 23 in Beijing.
-        validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-22T16:00:00+00:00'))
+        target=max(s['verified_at'] for row in data['items'] for s in row['sources'])
+        target_start=datetime.fromisoformat(target+'T00:00:00+08:00').astimezone(timezone.utc)
+        data['items'][0]['sources'][0]['verified_at']=target
+        # The same instant is still the previous UTC day, but already the target day in Beijing.
+        validate_toolkit(data,self.catalog,now=target_start)
         with self.assertRaisesRegex(ValueError,'timezone'):
-            validate_toolkit(data,self.catalog,now=datetime(2026,10,23))
+            validate_toolkit(data,self.catalog,now=datetime.fromisoformat(target+'T00:00:00'))
         with self.assertRaisesRegex(ValueError,'Future toolkit'):
-            validate_toolkit(data,self.catalog,now=datetime.fromisoformat('2026-10-22T15:59:59+00:00'))
+            validate_toolkit(data,self.catalog,now=target_start-timedelta(seconds=1))
     def test_no_runtime_claim_without_logs(self):
         for key,value in [('runtime_tested',True),('evidence_level','onsite-test')]:
             data=copy.deepcopy(self.data);data['items'][0][key]=value

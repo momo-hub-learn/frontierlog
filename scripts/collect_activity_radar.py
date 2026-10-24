@@ -62,10 +62,41 @@ def tags(s):
         if k in q and v not in out:out.append(v)
     return out[:4]
 
+def merge_media_items(existing, discovered, limit=36):
+    """Keep verified history while adding the newest feed discoveries.
+
+    A feed can temporarily fail, shorten its window, or yield no rows after
+    editorial keyword filtering.  None of those conditions is evidence that a
+    previously collected item stopped existing, so synchronization must not
+    delete it.  The global recency limit still bounds the published snapshot.
+    """
+    manual=[]; seen_ids=set(); seen_titles=set(); seen_urls=set()
+    for x in (row for row in existing if row.get('origin')!='rss'):
+        title_key=(x.get('source_id'),x.get('title','').strip().lower())
+        url=x.get('url'); item_id=x.get('id')
+        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles:continue
+        manual.append(x);seen_ids.add(item_id);seen_titles.add(title_key)
+        if url:seen_urls.add(url)
+    feed=[x for x in existing if x.get('origin')=='rss']+discovered
+    merged_feed=[]
+    rows=sorted(feed,key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
+    for x in rows:
+        title_key=(x.get('source_id'),x.get('title','').strip().lower())
+        url=x.get('url')
+        item_id=x.get('id')
+        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles:continue
+        seen_ids.add(item_id);seen_titles.add(title_key)
+        if url:seen_urls.add(url)
+        merged_feed.append(x)
+        if len(merged_feed)>=max(limit-len(manual),0):break
+    merged=manual+merged_feed
+    merged.sort(key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
+    return merged
+
 def main():
     d=json.loads(DATA.read_text())
     sources={x['id']:x for x in d['sources']}
-    manual=[x for x in d.get('media_items',[]) if x.get('origin')!='rss']
+    existing_items=d.get('media_items',[])
     auto=[]; ok=0
     for sid,s in sources.items():
         url=s.get('feed_url')
@@ -85,17 +116,7 @@ def main():
             kept+=1
             if kept>=3:break
     if not ok:raise SystemExit('no public feeds fetched successfully')
-    existing={(x['source_id'],x['title'].strip().lower()) for x in manual}
-    existing_urls={x.get('url') for x in manual if x.get('url')}
-    unique=[];seen_ids=set();seen_titles=set();seen_urls=set()
-    for x in auto:
-        title_key=(x['source_id'],x['title'].strip().lower())
-        if x.get('url') in existing_urls or x.get('url') in seen_urls or title_key in existing or title_key in seen_titles or x['id'] in seen_ids:continue
-        seen_titles.add(title_key);seen_ids.add(x['id']);seen_urls.add(x.get('url'));unique.append(x)
-    auto=unique
-    merged=manual+auto
-    merged.sort(key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
-    d['media_items']=merged[:36]
+    d['media_items']=merge_media_items(existing_items,auto)
     now=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
     d['checked_at']=now;d['sync']['last_success']=now
     text_out=json.dumps(d,ensure_ascii=False,indent=2)+'\n'
