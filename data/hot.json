@@ -36,6 +36,47 @@
   ],
   "items": [
     {
+      "id": "dual-exam-controlled-agent-world-model-20261022",
+      "category": "benchmark",
+      "title": "Dual Exam：把 Agent 行动与世界模型预测放进同一受控考场",
+      "published": "2026-10-22",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T21:23:50+08:00",
+      "first_seen_at": "2026-10-24T21:23:50+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 33,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Agent 能力、世界模型质量或本站实测分数。",
+      "trend": "up",
+      "summary": "Dual Exam 用固定环境回复测试多模态 Agent，用固定动作干预测试世界模型，分别覆盖 1,088 道 Agent 题和 400 个世界模型案例。作者报告 GPT 6 Astra 的 Agent Index 为 31.3，GPT-Image-2 的全覆盖 WM Overall 为 21.7；两条轨道的任务和指标不同，不能横向比较。",
+      "why": "同一个交互环境里，能选择动作与能预测动作后果是两种不同能力。把两者用固定输入分别测量，可以更快定位失败来自决策、状态理解还是后果建模，而不是只看一个端到端成功率。",
+      "boundary": "结果来自作者预印本，本站未运行；Agent 与 World Model 轨道的样本、覆盖条件和指标不同，31.3 与 21.7 不能拼成排名。作者的 150 例耦合试验未成功完成任务，只说明该设置下存在诊断缺口，不能外推为模型普遍失效。",
+      "source": "Dual Exam authors",
+      "source_kind": "作者预印本、评测协议与公开结果 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.31066",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "核对双轨协议、覆盖范围与分列结果",
+          "note": "重点区分固定环境回复、固定动作干预与耦合试验，不跨轨拼分",
+          "url": "https://arxiv.org/abs/2610.31066",
+          "kind": "benchmark"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "Dual Exam: Evaluating Multimodal Agents and World Models in Interactive Environments",
+          "url": "https://arxiv.org/abs/2610.31066",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "drill-policy-useful-world-models-20261022",
       "category": "research",
       "title": "DRILL：更低像素误差可能训练出更差策略",

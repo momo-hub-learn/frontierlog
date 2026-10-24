@@ -70,6 +70,8 @@ with sync_playwright() as pw:
  route(p,'#/models');expect(p.locator('dialog[open]')).to_have_count(0);expect(p.locator('[data-model-row]')).not_to_have_count(0)
  ok('version-aware source drawer, checklist, exported card, deep link and route exit cleanup')
  route(p,'#/benchmarks?mode=changes');expect(p.locator('.b-event')).to_have_count(len(DATA['changes']))
+ assert p.locator('.b-tab.active').inner_text()=='口径变化'
+ assert p.locator('.b-section-title').inner_text()=='分数之外，口径也在变化。'
  assert '2026-02-23' in p.locator('.b-changes').inner_text()
  with p.expect_download() as d:p.locator('[data-ba="template"]').click()
  data=json.loads(Path(d.value.path()).read_text());assert data['status']=='draft_not_executed'
