@@ -17,7 +17,7 @@ let bNotes=readStore('frontierlog.benchmarks.notes',{});
 if(!bNotes||Array.isArray(bNotes)||typeof bNotes!=='object')bNotes={};
 bNotes={title:typeof bNotes.title==='string'?bNotes.title.slice(0,80):'AI Benchmark 观察简报',question:typeof bNotes.question==='string'?bNotes.question.slice(0,600):''};
 PATHS.benchmark='<path d="M5 3h14v18H5zM8 7h3m-3 5h3m-3 5h3M14 7l1 1 2-2M14 12l1 1 2-2M14 17l1 1 2-2"/>';
-const BMODES={catalog:'基准目录',datasets:'评测集',changes:'值得关注',suites:'业务评估',report:'汇报清单'};
+const BMODES={catalog:'基准目录',datasets:'评测集',changes:'口径变化',suites:'业务评估',report:'汇报清单'};
 function bParams(){return new URLSearchParams(location.hash.split('?')[1]||'')}
 function bState(){const p=bParams();return {mode:Object.hasOwn(BMODES,p.get('mode'))?p.get('mode'):'catalog',group:BGROUPS.has(p.get('group'))?p.get('group'):'all',q:(p.get('q')||'').slice(0,300),sort:['name','group'].includes(p.get('order'))?p.get('order'):'curated',layout:p.get('layout')==='matrix'?'matrix':'cards',stars:p.get('stars')==='1',bench:BENCHES.has(p.get('bench'))?p.get('bench'):null,suite:BSUITES.has(p.get('suite'))?p.get('suite'):null}}
 function bPicked(){const p=bParams();return p.has('pick')?new Set(bIds((p.get('pick')||'').split(','),6)):new Set(bPlan)}
