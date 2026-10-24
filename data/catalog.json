@@ -1,7 +1,35 @@
 {
   "version": 2,
-  "snapshot": "2026-10-24",
+  "snapshot": "2026-10-25",
   "items": [
+    {
+      "id": "allenai-olmoearth-v1-3",
+      "name": "Ai2 · OlmoEarth v1.3",
+      "title": "浏览和复用全球 10 米卫星嵌入",
+      "category": "科研与评测",
+      "mark": "OE",
+      "accent": "lime",
+      "summary": "用无需登录的 Explorer 检查 64/128 维年度卫星嵌入，或用开源模型在 Sentinel-1、Sentinel-2 与 Landsat 时间序列上生成区域特征。",
+      "scope": "Ai2 2026-10-22 发布 v1.3 Base、全球 2023–2025 年嵌入与部分国家 2017–2022 年数据；每个 10 米像素对应一个可复用向量。",
+      "boundary": "作者评测领先项数不是本站实测或跨地区通用精度；完整档案约 150 TB/年，历史覆盖、Artifact License、存储与数据出口均需按任务核验。",
+      "repo": "allenai/olmoearth_pretrain",
+      "sources": ["olmoearth-v1-3-blog", "olmoearth-v1-base-model-card", "olmoearth-repo"],
+      "requirements": "浏览器 Explorer 无需登录；本地推理需 Python 3.12、uv、官方代码与卫星输入，大范围使用另需对象存储和分块流程。",
+      "test": "先在熟悉区域用独立地面事实核对一个年份，再导出小范围 GeoTIFF；固定训练/验证划分，与现有特征同口径比较准确率、空间偏差、失败例和成本。",
+      "checks": [
+        "记录区域、年份、影像来源与投影，不只保存演示截图",
+        "用地面事实或现有标签检查变化、相似区域与失败例",
+        "先导出小范围，再评估存储、出口和完整全球档案成本",
+        "把作者 Benchmark、本站资料核验和自己的下游验证分开记录"
+      ],
+      "command": "先打开 Embeddings Explorer 选择熟悉区域与年份；本地复跑再按官方仓库用 uv 建立 Python 3.12 环境。",
+      "effort": "Explorer 可直接浏览 / 大范围嵌入与本地推理需存储、网络、计算和数据工程预算",
+      "evidence": "Ai2 官方发布、Hugging Face 模型卡与开源仓库",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00"
+    },
     {
       "id": "hf-trainium-model-support",
       "name": "Hugging Face · Trainium Model Support",
@@ -810,6 +838,36 @@
   ],
   "sources": [
     {
+      "id": "olmoearth-v1-3-blog",
+      "publisher": "Ai2",
+      "title": "OlmoEarth v1.3: Open Global Satellite Embeddings",
+      "url": "https://allenai.org/blog/olmoearth-v1-3",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方模型、全球嵌入、Explorer、作者评测与限制"
+    },
+    {
+      "id": "olmoearth-v1-base-model-card",
+      "publisher": "Ai2 / Hugging Face",
+      "title": "allenai/OlmoEarth-v1_3-Base",
+      "url": "https://huggingface.co/allenai/OlmoEarth-v1_3-Base",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方模型卡、架构、模态、权重与许可"
+    },
+    {
+      "id": "olmoearth-repo",
+      "publisher": "Ai2",
+      "title": "allenai/olmoearth_pretrain",
+      "url": "https://github.com/allenai/olmoearth_pretrain",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T01:20:14+08:00",
+      "kind": "官方安装、推理、数据与评测代码"
+    },
+    {
       "id": "hf-trainium-support-blog",
       "publisher": "Hugging Face",
       "title": "Does Your Model Run on AWS Trainium? Look It Up",
@@ -1304,6 +1362,17 @@
     }
   ],
   "events": [
+    {
+      "id": "olmoearth-v1-3-release",
+      "task": "allenai-olmoearth-v1-3",
+      "date": "2026-10-22",
+      "kind": "release",
+      "title": "Ai2 发布 OlmoEarth v1.3 与全球卫星嵌入",
+      "summary": "公开模型、代码、无需登录的 Explorer，以及全球 2023–2025 年 10 米级 64/128 维年度嵌入；部分国家另含 2017–2022 年。",
+      "delta": "地球观测特征从单任务模型变成可直接浏览、导出和复用的公共底座；作者评测仍需在目标区域与下游任务上独立验证。",
+      "sources": ["olmoearth-v1-3-blog", "olmoearth-v1-base-model-card", "olmoearth-repo"],
+      "reviewed": "2026-10-25"
+    },
     {
       "id": "hf-trainium-model-support-release",
       "task": "hf-trainium-model-support",

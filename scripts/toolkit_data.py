@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 # Explicit primary-source hosts, reviewed alongside each guide. No arbitrary redirects.
 HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com',
-    'www.microsoft.com',
+    'www.microsoft.com','allenai.org','olmoearth.allenai.org',
     'blog.google','aistudio.google.com','gemini.google.com','help.openai.com',
     'chatgpt.com','openai.com','docs.openhands.dev','docs.browser-use.com',
     'leanprover-community.github.io','live.lean-lang.org','mistral.ai','docs.mistral.ai',
