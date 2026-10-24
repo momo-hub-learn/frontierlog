@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T01:24:22Z",
+  "generated_at": "2026-10-24T03:26:29Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 52,
+    "merge": 56,
     "hold": 4
   },
   "candidates": [
@@ -498,6 +498,35 @@
       "first_seen_at": "2026-10-23T13:37:36Z"
     },
     {
+      "id": "candidate-740dc512ba53ba2f",
+      "category": "research",
+      "published": "2026-10-22",
+      "title": "Coding Agent 开始把生产二进制的安全属性交给证明检查器验收",
+      "summary": "Anthropic 与 Theorem 把 OSS-Fuzz 入口编译为 RISC-V 规格，让 Claude 为 123 个开源库的 239 个入口生成约 1.8 亿行 Rocq 证明：在单线程、静态二进制、固定内存预算和建模的 Linux 响应等假设下，所有小于 64MB 的输入都不会触发目标崩溃。官方公开了部分证明、规格和语义组件。",
+      "why": "Agent 的可验证产物不必局限于补丁或测试通过；当规格、受信组件和机器检查器都明确时，长程代码生成可以收束为可独立重跑的证明对象。这可能改变高风险依赖的验收接口。",
+      "boundary": "本站未重跑证明。机械检查只说明指定定理成立，不能保证测试转成的规格覆盖业务意图，也不能排除定理范围外的 bug；Rocq、RISC-V/Linux 语义及定理陈述仍是受信边界。",
+      "source": "Anthropic / Theorem",
+      "source_kind": "官方方法、数据、公开产物与限制",
+      "url": "https://www.anthropic.com/research/formal-verification",
+      "publishable": false,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.773,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "anthropic-formal-verification-production-binaries",
+      "topic_tags": [
+        "Formal Verification",
+        "Coding Agent",
+        "Software Security"
+      ],
+      "first_seen_at": "2026-10-24T03:26:29Z"
+    },
+    {
       "id": "candidate-c8fb8b8866630ceb",
       "category": "research",
       "published": "2026-10-22",
@@ -767,6 +796,29 @@
       "first_seen_at": "2026-10-21T21:30:26Z"
     },
     {
+      "id": "candidate-4e6d08498ee7886a",
+      "category": "industry",
+      "published": "2026-10-20",
+      "title": "蝎毒 binder 进入湿实验：211 个候选中 17 个达到结合标准",
+      "summary": "Anthropic 的内部研究模型生成 318,484 个蛋白设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准。",
+      "why": "公开全部设计、成功和失败数据后，团队可以审计从计算生成到湿实验的真实漏斗，而不是把模型评分或少数最佳样本当作药物发现成功。",
+      "boundary": "结合不等于毒素中和；研究尚未确认候选能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。本站未复现实验，仍需独立复现、功能、安全性和动物/临床验证。",
+      "source": "Anthropic",
+      "source_kind": "官方蛋白设计、开放数据与合同研究组织湿实验结果",
+      "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+      "publishable": true,
+      "features": {
+        "freshness": 0.714,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.751,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-24T03:26:29Z"
+    },
+    {
       "id": "candidate-ec0bbb16557febcb",
       "category": "industry",
       "published": "2026-10-20",
@@ -952,64 +1004,6 @@
         "Human Approval"
       ],
       "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-a0182d1af9c28496",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "安全 Agent：从发现漏洞走向可审计的协同修补",
-      "summary": "OpenAI 披露 GPT‑5.6 Sol 协助识别一个 PHP 严重漏洞，随后由维护者、安全伙伴和平台方协调验证、补丁、升级与通知；Patch the Planet 汇总受影响范围和指导。",
-      "why": "前瞻信号在于安全 Agent 的价值不只来自发现速度，而在于能否把证据、权限边界、维护者确认、修补和复验串成可审计流程。",
-      "boundary": "一次官方披露不能证明模型能独立发现或修复任意漏洞；不得外推到未授权测试，也不能用厂商叙述替代维护者公告和独立复验。",
-      "source": "OpenAI / PHP 维护者与安全伙伴",
-      "source_kind": "官方披露与联合响应说明",
-      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "agent-assisted-vulnerability-response",
-      "topic_tags": [
-        "Security Agent",
-        "Vulnerability Response",
-        "Human Oversight"
-      ],
-      "first_seen_at": "2026-10-21T19:23:10Z"
-    },
-    {
-      "id": "candidate-bb78463577263d16",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "Agent 知识链拆成解析、召回与重排三个可替换组件",
-      "summary": "NVIDIA 开放 Nemotron 3.5 Embed、Rerank 与 Parse，覆盖文本和图像证据检索、二阶段重排，以及表格、图表和阅读顺序保留的结构化文档解析。",
-      "why": "开放组件让 RAG/Agent 团队可以定位错误究竟来自解析、召回、排序还是生成，而不是只用最终回答分掩盖链路问题。",
-      "boundary": "官方和合作方评测依赖指定数据、硬件与配置；单榜领先、吞吐或相对增益不能外推到所有语言、文档、生产成本和最终回答质量。",
-      "source": "NVIDIA / Hugging Face",
-      "source_kind": "官方技术发布与模型入口",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "multimodal-retrieval-pipeline-components",
-      "topic_tags": [
-        "Multimodal Retrieval",
-        "Reranking",
-        "Document Parsing"
-      ],
-      "first_seen_at": "2026-10-21T23:27:58Z"
     }
   ]
 }
