@@ -113,6 +113,21 @@ with sync_playwright() as pw:
     route(page, '#/hot?tab=hf')
     ok('HF rank movement uses a truthful previous-snapshot label and non-color arrow')
 
+    original_changes = page.evaluate('structuredClone(APP.huggingface_hot.web_rank_changes || [])')
+    page.evaluate("""() => {
+      const first = APP.huggingface_hot.web_order[0];
+      APP.huggingface_hot.web_rank_changes = [{id:first,rank:1,previous_rank:null,rank_change:null,previous_fetched_at:'2026-10-24T01:16:11Z'}];
+    }""")
+    route(page, '#/hot?tab=hf')
+    expect(page.locator('.hf-row').first.locator('.hf-delta')).to_have_text('新上榜')
+    expect(page.locator('.hf-row').first.locator('.hf-delta')).to_have_attribute('aria-label', '较上次官方网页快照新入榜')
+    page.evaluate('(value) => { APP.huggingface_hot.web_rank_changes = value; }', original_changes)
+    route(page, '#/hot?tab=hf')
+    current_new_ids = page.evaluate('(APP.huggingface_hot.web_rank_changes || []).filter(x => !Number.isInteger(x.previous_rank)).map(x => x.id)')
+    for model_id in current_new_ids:
+        expect(page.locator('.hf-row', has_text=model_id).locator('.hf-delta')).to_have_text('新上榜')
+    ok('HF first-time entrants use an explicit new-entry label instead of an ambiguous single character')
+
     original_hf_state = page.evaluate('structuredClone(APP.huggingface_hot)')
     page.evaluate("""() => {
       APP.huggingface_hot.web_fetched_at = new Date().toISOString();
@@ -176,6 +191,8 @@ with sync_playwright() as pw:
             page.evaluate('scrollTo(0,0)')
             page.wait_for_timeout(300)
             page.screenshot(path=str(OUT / f'{platform}-{name}.png'))
+            if platform == 'hf' and name == 'mobile' and current_new_ids:
+                page.locator('.hf-row', has_text=current_new_ids[0]).screenshot(path=str(OUT / 'hf-new-entry-mobile.png'))
     assert not errors, errors
     ok('Zero JavaScript page errors')
     browser.close()

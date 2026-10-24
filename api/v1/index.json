@@ -37,6 +37,130 @@
     ],
     "items": [
       {
+        "id": "anthropic-formal-verification-20261022",
+        "category": "research",
+        "title": "Claude 把 123 个开源库的模糊测试入口转成机器检查的证明",
+        "published": "2026-10-22",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "first_seen_at": "2026-10-24T11:19:20+08:00",
+        "heat": 92,
+        "heat_components": {
+          "impact": 34,
+          "availability": 22,
+          "evidence": 24,
+          "recency": 12
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是软件正确率、安全等级、漏洞数量或本站实测分数。",
+        "trend": "up",
+        "summary": "Anthropic 与 Theorem 把 OSS-Fuzz 的模糊测试入口编译为 RISC-V 规格，让 Claude 为 123 个库的 239 个入口生成约 1.8 亿行 Rocq 证明，覆盖在给定假设下所有小于 64MB 的输入；官方已公开部分证明与语义组件。",
+        "why": "Coding Agent 的边界开始从“找 bug、写补丁”推进到由证明检查器验收的安全属性；如果可复用证明继续降低成本，生产依赖的验证方式可能从抽样测试扩展为明确规格下的穷尽保证。",
+        "boundary": "这是 Anthropic 与合作方的官方研究，本站未复跑证明。结论只覆盖具体定理与受信组件，并假设单线程、静态二进制、固定内存预算、RISC-V 和建模的 Linux 响应；不代表 123 个库没有其他 bug，也不证明 Claude 生成的规格或 ISA/OS 语义必然正确。",
+        "source": "Anthropic / Theorem",
+        "source_kind": "官方研究、可检查证明与公开方法边界 / 本轮编辑核验",
+        "url": "https://www.anthropic.com/research/formal-verification",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读方法、证明范围与限制",
+            "note": "重点核对已证明的定理、RISC-V/Linux 假设与仍需信任的组件",
+            "url": "https://www.anthropic.com/research/formal-verification",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Anthropic",
+            "title": "LLMs are making formal software verification feasible at a much larger scale",
+            "url": "https://www.anthropic.com/research/formal-verification",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-scorpion-binders-20261020",
+        "category": "industry",
+        "title": "Claude 设计的蝎毒蛋白 binder：211 个进湿实验，17 个达到结合标准",
+        "published": "2026-10-20",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "first_seen_at": "2026-10-24T11:19:20+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 31,
+          "availability": 20,
+          "evidence": 25,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是结合强度、抗毒效果、临床价值或本站实测分数。",
+        "trend": "up",
+        "summary": "Anthropic 披露，内部研究模型在 64 小时内生成 318,484 个设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 实验测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准，全部设计与数据公开。",
+        "why": "这条记录把“模型提出分子”推进到可下载设计、合同研究组织湿实验和失败样本公开；它更适合用来评估候选生成到真实实验的漏斗，而不是只看计算打分。",
+        "boundary": "17 个候选只证明达到该研究的体外结合标准；团队尚未确认它们能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。结果来自 Anthropic 与合作方，仍需独立复现、功能、安全性和动物/临床验证。",
+        "source": "Anthropic / Adaptyv Bio / Twist Bioscience",
+        "source_kind": "官方研究、开放设计数据与湿实验结果 / 本轮编辑核验",
+        "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+        "link": "#/pharma?article=anthropic-scorpion-binders-20261020",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看设计漏斗与湿实验边界",
+            "note": "区分结合、毒素中和、抗毒血清与临床疗效",
+            "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Anthropic",
+            "title": "How Claude designed protein binders against scorpion neurotoxins",
+            "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+            "date": "2026-10-20"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-self-replicating-ai-20261012",
+        "category": "research",
+        "title": "小模型复制风险转向 IoT：难点已从单步能力变成端到端稳定性",
+        "published": "2026-10-12",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "first_seen_at": "2026-10-24T11:19:20+08:00",
+        "heat": 91,
+        "heat_components": {
+          "impact": 35,
+          "availability": 16,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是攻击成功率、传播速度、风险概率或本站实测分数。",
+        "trend": "up",
+        "summary": "Anthropic Frontier Red Team 报告称，9B 模型可在 9 类硬件中的 8 类上建立推理环境；30B 以下模型已能完成许多复制单步，但端到端组合仍会出错。研究还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。",
+        "why": "权重型 Agent 的风险评估不能只盯数据中心 GPU：低成本边缘硬件、分布式推理和对陌生设备的适配，可能让“模型能否在失陷设备上继续运行”成为新的防御边界。",
+        "boundary": "这是研究团队拆分后的简化评测，不是观察到真实 AI 蠕虫。研究主要评估推理环境搭建，弱化了发现目标、取得执行和真实网络传播；对小模型能力时间表的判断是趋势外推，不是确定发布日期，也不能推出当前模型可在开放互联网稳定自我复制。",
+        "source": "Anthropic Frontier Red Team",
+        "source_kind": "官方安全研究、硬件实验与威胁建模 / 本轮编辑补档",
+        "url": "https://www.anthropic.com/research/self-replicating-ai",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读复制链、硬件实验与蓝队缓解措施",
+            "note": "区分单步能力、简化端到端评测和真实网络传播",
+            "url": "https://www.anthropic.com/research/self-replicating-ai",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Anthropic",
+            "title": "AI models may be capable of self-replicating without access to a datacenter",
+            "url": "https://www.anthropic.com/research/self-replicating-ai",
+            "date": "2026-10-12"
+          }
+        ]
+      },
+      {
         "id": "openai-habitat-storage-scale-20261023",
         "category": "product",
         "title": "OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户",
@@ -4456,7 +4580,7 @@
   },
   "research_radar": {
     "version": 1,
-    "checked": "2026-10-23",
+    "checked": "2026-10-24",
     "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
     "lanes": [
       {
@@ -4476,6 +4600,81 @@
       }
     ],
     "items": [
+      {
+        "id": "anthropic-formal-verification-production-binaries",
+        "lane": "paradigm",
+        "title": "Coding Agent 开始把生产二进制的安全属性交给证明检查器验收",
+        "maker": "Anthropic / Theorem",
+        "date": "2026-10-22",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "tags": [
+          "Formal Verification",
+          "Coding Agent",
+          "Software Security"
+        ],
+        "fact": "Anthropic 与 Theorem 把 OSS-Fuzz 入口编译为 RISC-V 规格，让 Claude 为 123 个开源库的 239 个入口生成约 1.8 亿行 Rocq 证明：在单线程、静态二进制、固定内存预算和建模的 Linux 响应等假设下，所有小于 64MB 的输入都不会触发目标崩溃。官方公开了部分证明、规格和语义组件。",
+        "insight": "Agent 的可验证产物不必局限于补丁或测试通过；当规格、受信组件和机器检查器都明确时，长程代码生成可以收束为可独立重跑的证明对象。这可能改变高风险依赖的验收接口。",
+        "boundary": "本站未重跑证明。机械检查只说明指定定理成立，不能保证测试转成的规格覆盖业务意图，也不能排除定理范围外的 bug；Rocq、RISC-V/Linux 语义及定理陈述仍是受信边界。",
+        "next_watch": "关注独立重跑、证明组件的供应链审计、x86/ARM 与并发程序覆盖，以及真实项目中证明生成成本、维护成本和漏洞率是否优于持续模糊测试。",
+        "sources": [
+          {
+            "label": "Anthropic 形式化验证官方研究",
+            "url": "https://www.anthropic.com/research/formal-verification",
+            "kind": "官方方法、数据、公开产物与限制",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-scorpion-toxin-binders",
+        "lane": "science",
+        "title": "蛋白设计 Agent 的证据链开始包含失败样本与合同实验室湿实验",
+        "maker": "Anthropic / Adaptyv Bio / Twist Bioscience",
+        "date": "2026-10-20",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "tags": [
+          "Protein Design",
+          "Wet Lab",
+          "Drug Discovery"
+        ],
+        "fact": "Anthropic 的内部研究模型在 64 小时内生成 318,484 个蛋白设计并筛选候选；两家合同研究组织测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到该研究的结合标准。官方公开全部 211 个设计及结果数据。",
+        "insight": "比“模型生成了多少序列”更有用的信号，是可审计的生成→筛选→实验漏斗和失败样本。开放全部候选与数据，使后续团队能检查筛选偏差并建立更现实的命中率基线。",
+        "boundary": "结合不等于中和。团队未确认候选能在细胞环境中中和毒液，因此这不是抗毒血清、药物或疗效证据；独立复现、稳定性、安全性、动物研究和临床验证均未完成。",
+        "next_watch": "关注独立实验室复现、细胞中和与多毒素覆盖、脱靶和免疫原性，以及公开失败样本能否改善下一轮候选筛选。",
+        "sources": [
+          {
+            "label": "Anthropic 蝎神经毒素 binder 官方研究",
+            "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+            "kind": "官方设计流程、湿实验结果与开放数据",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-iot-self-replication-risk",
+        "lane": "paradigm",
+        "title": "权重型 Agent 的复制风险开始下沉到廉价 IoT 与分布式推理",
+        "maker": "Anthropic Frontier Red Team",
+        "date": "2026-10-12",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "tags": [
+          "Autonomous Replication",
+          "IoT Security",
+          "Distributed Inference"
+        ],
+        "fact": "Anthropic 报告称，9B 模型可在 9 类硬件中的 8 类建立推理环境；30B 以下模型已能完成许多复制单步，但组合成稳定端到端链仍会出错。团队还在 15 台廉价 Android TV 盒上以 0.39 token/s 运行分布式 Gemma4-26B-A4B。",
+        "insight": "风险评估要把模型权重、推理运行时和异构边缘硬件一起看：即便单机很慢，跨设备适配和分布式运行也可能让去中心化持久性成为新的蓝队问题。",
+        "boundary": "这不是在开放互联网观察到的自主蠕虫。评测拆分并简化了复制链，研究重点是推理环境建立而非取得初始执行；小模型的能力时间表来自历史趋势外推，不能当作确定预测。",
+        "next_watch": "关注小模型在真实异构网络中的端到端重复成功率、凭据和权重传播检测、运行时完整性、网络分段及设备级缓解是否经独立红蓝队复现。",
+        "sources": [
+          {
+            "label": "Anthropic 自我复制与 IoT 推理官方研究",
+            "url": "https://www.anthropic.com/research/self-replicating-ai",
+            "kind": "官方威胁模型、硬件实验与缓解建议",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "flint-semantic-interaction-language",
         "lane": "paradigm",
@@ -5454,11 +5653,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-24T01:24:17Z",
+    "checked_at": "2026-10-24T03:16:08Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-24T01:24:17Z",
+      "last_success": "2026-10-24T03:16:08Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -6395,7 +6594,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T01:15:20Z",
+    "checked_at": "2026-10-24T03:15:45Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -6406,8 +6605,8 @@
         "stars_today": 2716,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 42055,
-        "forks": 2629,
+        "stars": 42314,
+        "forks": 2643,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -6418,12 +6617,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-23T23:14:33Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
-          {
-            "at": "2026-10-23T00:44:57Z",
-            "stars": 39570
-          },
           {
             "at": "2026-10-23T07:28:16Z",
             "stars": 40223
@@ -6467,9 +6662,12 @@
           {
             "at": "2026-10-23T23:14:33Z",
             "stars": 42055
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 42314
           }
-        ],
-        "metadata_status": "stale"
+        ]
       },
       {
         "repo": "php/php-src",
@@ -6477,10 +6675,10 @@
         "stars_today": 716,
         "description": "The PHP Interpreter",
         "language": "C",
-        "stars": 41550,
-        "forks": 8357,
+        "stars": 41585,
+        "forks": 8363,
         "repo_created_at": "2011-06-16T01:52:25Z",
-        "repo_pushed_at": "2026-10-23T22:42:32Z",
+        "repo_pushed_at": "2026-10-24T01:28:33Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6488,12 +6686,8 @@
           "GitHub"
         ],
         "url": "https://github.com/php/php-src",
-        "metadata_verified_at": "2026-10-23T23:14:33Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
-          {
-            "at": "2026-10-23T00:44:57Z",
-            "stars": 41154
-          },
           {
             "at": "2026-10-23T07:28:16Z",
             "stars": 41357
@@ -6537,9 +6731,12 @@
           {
             "at": "2026-10-23T23:14:33Z",
             "stars": 41550
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 41585
           }
-        ],
-        "metadata_status": "stale"
+        ]
       },
       {
         "repo": "anthropics/knowledge-work-plugins",
@@ -6547,8 +6744,8 @@
         "stars_today": 635,
         "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
-        "stars": 32188,
-        "forks": 3570,
+        "stars": 32280,
+        "forks": 3576,
         "repo_created_at": "2026-01-23T20:11:54Z",
         "repo_pushed_at": "2026-10-23T07:38:30Z",
         "category": "ai-tools",
@@ -6559,12 +6756,8 @@
           "GitHub"
         ],
         "url": "https://github.com/anthropics/knowledge-work-plugins",
-        "metadata_verified_at": "2026-10-23T23:14:33Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
-          {
-            "at": "2026-10-23T07:28:16Z",
-            "stars": 31796
-          },
           {
             "at": "2026-10-23T07:43:19Z",
             "stars": 31805
@@ -6608,9 +6801,12 @@
           {
             "at": "2026-10-23T23:14:33Z",
             "stars": 32188
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 32280
           }
-        ],
-        "metadata_status": "stale"
+        ]
       },
       {
         "repo": "NVIDIA/OpenShell",
@@ -6618,10 +6814,10 @@
         "stars_today": 1119,
         "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "language": "Rust",
-        "stars": 18750,
-        "forks": 1881,
+        "stars": 18869,
+        "forks": 1887,
         "repo_created_at": "2026-02-24T22:52:22Z",
-        "repo_pushed_at": "2026-10-23T23:04:24Z",
+        "repo_pushed_at": "2026-10-24T02:12:45Z",
         "category": "agent-runtime",
         "ai_related": true,
         "tags": [
@@ -6630,7 +6826,7 @@
           "AI"
         ],
         "url": "https://github.com/NVIDIA/OpenShell",
-        "metadata_verified_at": "2026-10-23T23:14:33Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6667,9 +6863,12 @@
           {
             "at": "2026-10-23T23:14:33Z",
             "stars": 18750
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 18869
           }
-        ],
-        "metadata_status": "stale"
+        ]
       },
       {
         "repo": "Renhuai123/ziwei-doushu",
@@ -6677,10 +6876,10 @@
         "stars_today": 546,
         "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
         "language": "TypeScript",
-        "stars": 6867,
-        "forks": 1410,
+        "stars": 6943,
+        "forks": 1420,
         "repo_created_at": "2026-05-01T05:09:59Z",
-        "repo_pushed_at": "2026-10-20T08:20:05Z",
+        "repo_pushed_at": "2026-10-24T02:34:09Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -6688,7 +6887,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Renhuai123/ziwei-doushu",
-        "metadata_verified_at": "2026-10-24T01:15:20Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6729,6 +6928,10 @@
           {
             "at": "2026-10-24T01:15:20Z",
             "stars": 6867
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 6943
           }
         ]
       },
@@ -6738,8 +6941,8 @@
         "stars_today": 226,
         "description": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
         "language": "Python",
-        "stars": 8502,
-        "forks": 1103,
+        "stars": 8555,
+        "forks": 1105,
         "repo_created_at": "2026-03-04T05:52:35Z",
         "repo_pushed_at": "2026-10-12T15:02:40Z",
         "category": "agent-skills",
@@ -6750,7 +6953,7 @@
           "Workflow"
         ],
         "url": "https://github.com/SnailSploit/Claude-Red",
-        "metadata_verified_at": "2026-10-24T01:15:20Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6791,6 +6994,10 @@
           {
             "at": "2026-10-24T01:15:20Z",
             "stars": 8502
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 8555
           }
         ]
       },
@@ -6800,8 +7007,8 @@
         "stars_today": 150,
         "description": "VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning",
         "language": "Python",
-        "stars": 40267,
-        "forks": 4579,
+        "stars": 40308,
+        "forks": 4582,
         "repo_created_at": "2025-09-16T03:41:49Z",
         "repo_pushed_at": "2026-10-08T03:26:41Z",
         "category": "ai-tools",
@@ -6812,7 +7019,7 @@
           "GitHub"
         ],
         "url": "https://github.com/OpenBMB/VoxCPM",
-        "metadata_verified_at": "2026-10-24T01:15:20Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6853,6 +7060,10 @@
           {
             "at": "2026-10-24T01:15:20Z",
             "stars": 40267
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 40308
           }
         ]
       },
@@ -6862,8 +7073,8 @@
         "stars_today": 66,
         "description": "Node.js JavaScript runtime ✨🐢🚀✨",
         "language": "JavaScript",
-        "stars": 122873,
-        "forks": 39832,
+        "stars": 122910,
+        "forks": 39834,
         "repo_created_at": "2014-11-26T19:57:11Z",
         "repo_pushed_at": "2026-10-24T00:09:23Z",
         "category": "other",
@@ -6873,7 +7084,7 @@
           "GitHub"
         ],
         "url": "https://github.com/nodejs/node",
-        "metadata_verified_at": "2026-10-24T01:15:20Z",
+        "metadata_verified_at": "2026-10-24T03:15:45Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6914,6 +7125,10 @@
           {
             "at": "2026-10-24T01:15:20Z",
             "stars": 122873
+          },
+          {
+            "at": "2026-10-24T03:15:45Z",
+            "stars": 122910
           }
         ]
       }
@@ -6993,24 +7208,17 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-24T01:15:20Z",
-      "last_success_at": "2026-10-24T01:15:20Z",
+      "last_checked_at": "2026-10-24T03:15:45Z",
+      "last_success_at": "2026-10-24T03:15:45Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-24T01:15:20Z",
-      "watchlist_errors": [
-        "morluto/rea: HTTP Error 403: Forbidden"
-      ],
-      "watchlist_failed_count": 1,
+      "watchlist_checked_at": "2026-10-24T03:15:45Z",
+      "watchlist_errors": [],
+      "watchlist_failed_count": 0,
       "trending_count": 8,
-      "verified_count": 4,
-      "metadata_failed_count": 4,
-      "metadata_status": "partial",
-      "skipped": [
-        "cloudflare/security-audit-skill: HTTP Error 403: Forbidden",
-        "php/php-src: HTTP Error 403: Forbidden",
-        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden",
-        "NVIDIA/OpenShell: HTTP Error 403: Forbidden"
-      ]
+      "verified_count": 8,
+      "metadata_failed_count": 0,
+      "metadata_status": "success",
+      "skipped": []
     },
     "watchlist": [
       {
@@ -7024,27 +7232,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 372992,
-        "forks": 93318,
+        "stars": 373678,
+        "forks": 93470,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-23T23:14:20Z",
+        "repo_pushed_at": "2026-10-24T03:14:25Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-23T23:14:33Z",
+        "verified_at": "2026-10-24T03:15:45Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T01:16:11Z",
+    "checked_at": "2026-10-24T03:15:45Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-24T01:16:11Z",
-    "web_fetched_at": "2026-10-24T01:16:11Z",
+    "api_fetched_at": "2026-10-24T03:15:45Z",
+    "web_fetched_at": "2026-10-24T03:15:45Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -7060,13 +7268,13 @@
       "Qwen/Qwen3.8-27B",
       "google/embeddinggemma-2",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "jialinyyzz/humanizer",
       "MiniMaxAI/MiniMax-M3.1-Flash",
       "InternScience/Sage-A1.5",
+      "jialinyyzz/humanizer",
       "datalab-to/indra-ocr",
       "mistralai/Timestral-209M",
       "lodestones/Kromoss",
-      "black-forest-labs/flux-3-image-klein"
+      "orcarouter/OrcaCyber-Nano-1.0"
     ],
     "web_rank_changes": [
       {
@@ -7074,140 +7282,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
-        "previous_rank": 8,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": 7,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 8,
-        "previous_rank": 7,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": 8,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 9,
-        "previous_rank": 10,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": 9,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 10,
-        "previous_rank": 9,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": 10,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "google/embeddinggemma-2",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
-      },
-      {
-        "id": "jialinyyzz/humanizer",
-        "rank": 14,
-        "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "rank": 15,
-        "previous_rank": 17,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "rank": 14,
+        "previous_rank": 15,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
-        "rank": 16,
+        "rank": 15,
         "previous_rank": 16,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
+      },
+      {
+        "id": "jialinyyzz/humanizer",
+        "rank": 16,
+        "previous_rank": 14,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "datalab-to/indra-ocr",
         "rank": 17,
-        "previous_rank": 15,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "mistralai/Timestral-209M",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
         "id": "lodestones/Kromoss",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       },
       {
-        "id": "black-forest-labs/flux-3-image-klein",
+        "id": "orcarouter/OrcaCyber-Nano-1.0",
         "rank": 20,
-        "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-23T23:13:53Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-24T01:16:11Z"
       }
     ],
     "items": [
@@ -7215,8 +7423,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2201,
-        "likes": 2589,
+        "trending_score": 2207,
+        "likes": 2598,
         "downloads": 57715,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7232,8 +7440,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 669,
-        "likes": 689,
+        "trending_score": 670,
+        "likes": 690,
         "downloads": 1904,
         "task": "text-generation",
         "library": "transformers",
@@ -7249,8 +7457,8 @@
         "rank": 3,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 634,
-        "likes": 1406,
+        "trending_score": 630,
+        "likes": 1412,
         "downloads": 534837,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -7266,8 +7474,8 @@
         "rank": 4,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 465,
-        "likes": 652,
+        "trending_score": 464,
+        "likes": 656,
         "downloads": 7658,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7283,8 +7491,8 @@
         "rank": 5,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 405,
-        "likes": 9035,
+        "trending_score": 406,
+        "likes": 9042,
         "downloads": 2026951,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -7300,8 +7508,8 @@
         "rank": 6,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 379,
-        "likes": 413,
+        "trending_score": 384,
+        "likes": 418,
         "downloads": 1060,
         "task": "text-generation",
         "library": "transformers",
@@ -7317,8 +7525,8 @@
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 364,
-        "likes": 947,
+        "trending_score": 361,
+        "likes": 948,
         "downloads": 17017,
         "task": "text-to-speech",
         "library": "未标注",
@@ -7334,8 +7542,8 @@
         "rank": 8,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 361,
-        "likes": 520,
+        "trending_score": 346,
+        "likes": 522,
         "downloads": 5618,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7351,8 +7559,8 @@
         "rank": 9,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 324,
-        "likes": 4908,
+        "trending_score": 323,
+        "likes": 4909,
         "downloads": 2398071,
         "task": "text-to-image",
         "library": "gguf",
@@ -7368,8 +7576,8 @@
         "rank": 10,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 324,
-        "likes": 395,
+        "trending_score": 315,
+        "likes": 400,
         "downloads": 1606363,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -7385,7 +7593,7 @@
         "rank": 11,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 317,
+        "trending_score": 314,
         "likes": 18295,
         "downloads": 7710011,
         "task": "image-text-to-text",
@@ -7402,8 +7610,8 @@
         "rank": 12,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 288,
-        "likes": 2873,
+        "trending_score": 286,
+        "likes": 2874,
         "downloads": 192741,
         "task": "feature-extraction",
         "library": "transformers",
@@ -7419,8 +7627,8 @@
         "rank": 13,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 258,
-        "likes": 297,
+        "trending_score": 262,
+        "likes": 301,
         "downloads": 4141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7434,23 +7642,6 @@
       },
       {
         "rank": 14,
-        "id": "jialinyyzz/humanizer",
-        "url": "https://huggingface.co/jialinyyzz/humanizer",
-        "trending_score": 254,
-        "likes": 2116,
-        "downloads": 129025,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-09-11T05:00:16.000Z",
-        "tags": [
-          "gguf",
-          "safetensors",
-          "gemma4_unified",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 15,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
         "trending_score": 253,
@@ -7467,11 +7658,11 @@
         ]
       },
       {
-        "rank": 16,
+        "rank": 15,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 248,
-        "likes": 253,
+        "trending_score": 249,
+        "likes": 254,
         "downloads": 924,
         "task": "text-generation",
         "library": "transformers",
@@ -7484,11 +7675,28 @@
         ]
       },
       {
+        "rank": 16,
+        "id": "jialinyyzz/humanizer",
+        "url": "https://huggingface.co/jialinyyzz/humanizer",
+        "trending_score": 248,
+        "likes": 2117,
+        "downloads": 129025,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-09-11T05:00:16.000Z",
+        "tags": [
+          "gguf",
+          "safetensors",
+          "gemma4_unified",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 17,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 246,
-        "likes": 391,
+        "trending_score": 241,
+        "likes": 392,
         "downloads": 4033,
         "task": "image-to-text",
         "library": "onnx",
@@ -7504,7 +7712,7 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 235,
+        "trending_score": 232,
         "likes": 316,
         "downloads": 6815,
         "task": "time-series-forecasting",
@@ -7536,25 +7744,25 @@
       },
       {
         "rank": 20,
-        "id": "black-forest-labs/flux-3-image-klein",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
+        "id": "orcarouter/OrcaCyber-Nano-1.0",
+        "url": "https://huggingface.co/orcarouter/OrcaCyber-Nano-1.0",
         "trending_score": 197,
-        "likes": 657,
-        "downloads": 105768,
-        "task": "image-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-13T10:58:40.000Z",
+        "likes": 212,
+        "downloads": 22314,
+        "task": "image-text-to-text",
+        "library": "gguf",
+        "created_at": "2026-10-16T10:04:56.000Z",
         "tags": [
-          "diffusers",
-          "safetensors",
-          "image-generation",
-          "image-editing"
+          "gguf",
+          "cybersecurity",
+          "security",
+          "reverse-engineering"
         ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-24T01:16:11Z",
+      "last_checked_at": "2026-10-24T03:15:45Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -18708,6 +18916,16 @@
     ],
     "sources": [
       {
+        "id": "anthropic-scorpion-binders-20261020",
+        "title": "How Claude designed protein binders against scorpion neurotoxins",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+        "published": "2026-10-20",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "kind": "官方蛋白设计、开放数据与合同研究组织湿实验结果"
+      },
+      {
         "id": "google-tb-screening-foundations-20261023",
         "title": "Bringing foundational models to the front lines of TB screening",
         "publisher": "Google Research",
@@ -19088,6 +19306,39 @@
       }
     ],
     "articles": [
+      {
+        "id": "anthropic-scorpion-binders-20261020",
+        "sector": "pharma",
+        "topics": [
+          "molecules"
+        ],
+        "title": "蝎毒 binder 进入湿实验：211 个候选中 17 个达到结合标准",
+        "summary": "Anthropic 的内部研究模型生成 318,484 个蛋白设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准。",
+        "why": "公开全部设计、成功和失败数据后，团队可以审计从计算生成到湿实验的真实漏斗，而不是把模型评分或少数最佳样本当作药物发现成功。",
+        "boundary": "结合不等于毒素中和；研究尚未确认候选能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。本站未复现实验，仍需独立复现、功能、安全性和动物/临床验证。",
+        "sources": [
+          "anthropic-scorpion-binders-20261020"
+        ],
+        "kind": "update",
+        "access": "官方发布全部 211 个设计及实验数据；技术报告可追溯设计与筛选过程",
+        "published": "2026-10-20",
+        "steps": [
+          "下载全部候选与结果，固定数据版本并区分模型筛选、人工补充与实验结果",
+          "按毒素、设计来源和筛选阶段计算命中率，保留未结合候选作为失败样本",
+          "在独立实验室验证结合后，再逐步检查细胞中和、脱靶、稳定性和安全性"
+        ],
+        "metrics": [
+          "318,484 个生成设计→211 个实验候选→17 个达到结合标准",
+          "按毒素与设计来源分组的独立复现实验命中率",
+          "细胞中和、脱靶、稳定性、免疫原性与安全性"
+        ],
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T11:19:20+08:00",
+        "first_seen_at": "2026-10-24T11:19:20+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "google-tb-screening-foundations-20261023",
         "sector": "pharma",
@@ -20123,9 +20374,9 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-24T01:11:55.183591Z",
-    "last_success": "2026-10-24T01:11:55.183591Z",
-    "last_full_success": "2026-10-24T01:11:55.183591Z",
+    "last_attempt": "2026-10-24T03:16:35.110974Z",
+    "last_success": "2026-10-24T03:16:35.110974Z",
+    "last_full_success": "2026-10-24T03:16:35.110974Z",
     "items": [
       {
         "title": "Release Anomalib Library v2.7.0",
@@ -20142,7 +20393,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20162,7 +20413,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20182,7 +20433,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20202,7 +20453,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20222,7 +20473,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20242,7 +20493,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20262,7 +20513,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20282,7 +20533,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20302,7 +20553,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20322,7 +20573,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20342,7 +20593,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20362,7 +20613,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20382,7 +20633,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20402,7 +20653,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20422,7 +20673,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20442,7 +20693,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20461,7 +20712,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20481,7 +20732,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20501,7 +20752,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20520,7 +20771,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20540,7 +20791,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20559,7 +20810,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20578,7 +20829,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20597,7 +20848,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20616,7 +20867,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20635,7 +20886,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20654,7 +20905,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20674,7 +20925,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20694,7 +20945,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20713,7 +20964,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20733,7 +20984,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20753,7 +21004,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20773,7 +21024,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20793,7 +21044,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20813,7 +21064,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20833,7 +21084,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20853,7 +21104,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20873,7 +21124,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20892,7 +21143,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20912,7 +21163,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20931,7 +21182,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20951,7 +21202,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -20970,7 +21221,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20989,7 +21240,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21008,7 +21259,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21027,7 +21278,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21047,7 +21298,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -21066,7 +21317,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21085,7 +21336,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21105,7 +21356,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -21125,7 +21376,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T01:11:55.183591Z",
+        "last_seen": "2026-10-24T03:16:35.110974Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -21136,7 +21387,7 @@
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
         "status": "success",
-        "checked_at": "2026-10-24T01:11:55.183591Z",
+        "checked_at": "2026-10-24T03:16:35.110974Z",
         "parsed": 14,
         "matched": 14
       },
@@ -21144,7 +21395,7 @@
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-24T01:11:55.183591Z",
+        "checked_at": "2026-10-24T03:16:35.110974Z",
         "parsed": 17,
         "matched": 17
       },
@@ -21152,7 +21403,7 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-24T01:11:55.183591Z",
+        "checked_at": "2026-10-24T03:16:35.110974Z",
         "parsed": 20,
         "matched": 20
       }
