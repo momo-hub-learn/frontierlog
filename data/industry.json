@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-24",
+  "checked": "2026-10-25",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "pathos-bms-tempus-neuroscience-20261023",
+      "title": "Pathos AI announces strategic collaborations with Bristol Myers Squibb and Tempus AI",
+      "publisher": "Pathos AI / Bristol Myers Squibb / Tempus AI",
+      "url": "https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions",
+      "published": "2026-10-23",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T03:25:44+08:00",
+      "kind": "三家公司官方合作公告、数据许可与神经科学项目范围"
+    },
     {
       "id": "anthropic-scorpion-binders-20261020",
       "title": "How Claude designed protein binders against scorpion neurotoxins",
@@ -564,6 +574,40 @@
     }
   ],
   "articles": [
+    {
+      "id": "pathos-bms-tempus-neuroscience-20261023",
+      "sector": "pharma",
+      "topics": [
+        "targets",
+        "clinical"
+      ],
+      "title": "神经疾病数据进入五年合作：用 Agent 假设连接试验设计",
+      "summary": "Pathos 宣布与 BMS、Tempus 建立多年合作：Tempus 将构建覆盖数十万神经疾病患者的去标识化纵向数据集，Pathos 以五年 5,500 万美元协议许可数据，并用 Foundry 分析疾病进展、生成与检验疾病生物学假设、辅助更有针对性的自适应试验设计。",
+      "why": "医药 Agent 的落点从单次文献问答推进到“纵向患者数据→疾病假设→临床试验设计”的持续工作流；协议金额、数据规模、平台权限和独占期都提供了后续可跟踪的交付节点。",
+      "boundary": "这是三家公司的一手合作公告，不是阿尔茨海默病疗效、获批产品或临床终点结果。患者规模、去标识化流程及 Foundry 的既有验证由合作方披露，本站未独立审计；五年数据许可和三年独家支持也不能证明模型能提高试验成功率，仍需看数据治理、方案注册、外部验证与真实试验结果。",
+      "sources": [
+        "pathos-bms-tempus-neuroscience-20261023"
+      ],
+      "kind": "update",
+      "access": "多年神经科学合作；数据集、Foundry 分析与试验设计支持按后续交付验证",
+      "published": "2026-10-23",
+      "steps": [
+        "固定数据来源、去标识化、患者同意与用途、时间跨度和缺失机制",
+        "把疾病假设、患者分层与试验适应性调整拆成预注册决策点",
+        "用外部队列和真实试验结果复核 Foundry 建议，保留专家审批与审计日志"
+      ],
+      "metrics": [
+        "队列代表性、缺失机制与机构偏差",
+        "疾病假设的复现率和外部验证结果",
+        "入组效率、方案变更、偏离情况与临床终点"
+      ],
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T03:25:44+08:00",
+      "first_seen_at": "2026-10-25T03:25:44+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "anthropic-scorpion-binders-20261020",
       "sector": "pharma",
