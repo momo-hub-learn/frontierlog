@@ -317,7 +317,13 @@
 
 边界：规模与分数来自作者论文，本站未运行。六个来源 benchmark、统一 Harness 和隐藏用例不能外推到全部企业流程或真实事故率，也不能与其他 Agent 榜单拼成综合分。
 
-站内热度 89；不是全网流量。</description></item><item><title>ProactEgoMem：主动记忆 Agent 最佳表现仍远离可靠</title><guid isPermaLink="false">frontierlog:hot:proactegomem-proactive-memory-20261021</guid><link>https://arxiv.org/abs/2610.30089</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>作者发布 ProactEgoMem：用 300 个日常第一视角片段、100 个实验室片段和 1,500 道后续问题，评测 Agent 能否在没有提示时主动开始、维持并结束记忆工具；公开协议覆盖信息捕获、状态跟踪和位置跟踪。
+站内热度 89；不是全网流量。</description></item><item><title>OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户</title><guid isPermaLink="false">frontierlog:hot:openai-habitat-storage-scale-20261023</guid><link>https://openai.com/index/scaling-storage-one-billion-users-part-two/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 披露，Habitat 为超过 10 亿用户、40 个地理区域提供在线存储，平台管理的数据超过 500PB；其最大的 Azure Cosmos DB 账户存储数十 PB 数据并承载超过 2000 万 QPS。
+
+为什么值得看：Agent 与全球 AI 产品的可靠性不只取决于模型：热键限流、请求优先级、数据迁移、缓存失效和跨区域放置，已经成为规模化产品能否稳定上线的共同底座。
+
+边界：这是 OpenAI 对自有基础设施的官方工程披露，本站未独立压测 Habitat、Azure Cosmos DB、缓存命中率或故障恢复。文中的规模、性能和数月无相关事故均为厂商口径；Habitat 不是对外开放的数据库产品，也不能由此推出所有 ChatGPT 请求都经过同一账户或具备相同延迟。
+
+站内热度 88；不是全网流量。</description></item><item><title>ProactEgoMem：主动记忆 Agent 最佳表现仍远离可靠</title><guid isPermaLink="false">frontierlog:hot:proactegomem-proactive-memory-20261021</guid><link>https://arxiv.org/abs/2610.30089</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>作者发布 ProactEgoMem：用 300 个日常第一视角片段、100 个实验室片段和 1,500 道后续问题，评测 Agent 能否在没有提示时主动开始、维持并结束记忆工具；公开协议覆盖信息捕获、状态跟踪和位置跟踪。
 
 为什么值得看：它把“记住什么、何时开始、何时停止、留下的记忆能否回答后续问题”接成一个可复现生命周期，比事后把整段视频交给模型问答更接近常驻眼镜或实验室助手。
 
