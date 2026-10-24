@@ -37,17 +37,24 @@ try:
   assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
   shot(page,'home.png');pass_('current cockpit and both sector gateways render')
   route(page,'#/pharma');expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['pharma'])
+  latest_pharma=max((x for x in ARTICLES if x['sector']=='pharma' and x.get('published')),key=lambda x:(x['published'],x.get('verified_at','')))
+  expect(page.locator('.v-latest')).to_have_count(1)
+  assert page.locator('.v-latest').get_attribute('data-latest-id')==latest_pharma['id']
+  assert latest_pharma['title'] in page.locator('.v-latest').inner_text()
   expect(page.locator('.v-topic-strip')).to_have_count(0)
   expect(page.locator('.v2-business-chain')).to_have_count(1)
   assert float(page.locator('.v-summary').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
   shot(page,'pharma.png');pass_('pharma page, large reading typography, dated and evergreen records separate')
   route(page,'#/pharma?topic=csr');expect(page.locator('.v-article')).to_have_count(TOPIC_COUNTS['csr'])
+  expect(page.locator('.v-latest')).to_have_count(0)
   assert '临床研究报告' in page.locator('body').inner_text()
   page.locator('[data-va="format"][data-id="tool"]').click();expect(page.locator('.v-article')).to_have_count(sum('csr' in x['topics'] and x['kind']=='tool' for x in ARTICLES))
   page.locator('[data-va="format"][data-id="reference"]').click();expect(page.locator('.v-article')).to_have_count(sum('csr' in x['topics'] and x['kind']=='reference' for x in ARTICLES))
   assert 'ICH E3' in page.locator('.v-article').inner_text()
   pass_('CSR meaning, subtype filter, historical E3 kept as reference')
   route(page,'#/manufacturing');expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['manufacturing'])
+  latest_manufacturing=max((x for x in ARTICLES if x['sector']=='manufacturing' and x.get('published')),key=lambda x:(x['published'],x.get('verified_at','')))
+  assert page.locator('.v-latest').get_attribute('data-latest-id')==latest_manufacturing['id']
   shot(page,'manufacturing.png')
   route(page,'#/manufacturing?topic=fab-maintenance');expect(page.locator('.v-article')).to_have_count(2)
   route(page,'#/manufacturing?topic=csr');assert page.locator('.v2-business-chain a.active').inner_text()=='全部'

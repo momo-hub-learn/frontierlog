@@ -54,6 +54,14 @@ class EditorialContracts(unittest.TestCase):
   current=(ROOT/'src/v2.js').read_text()
   self.assertNotIn('v-topic-strip',legacy)
   self.assertEqual(current.count('v2-business-chain'),1)
+ def test_sector_default_exposes_latest_dated_record_without_rewriting_curated_order(self):
+  text=(ROOT/'src/vertical.js').read_text()
+  current=(ROOT/'src/v2.js').read_text()
+  self.assertIn('function latestSectorArticle(sector)',text)
+  self.assertIn('b.published.localeCompare(a.published)',text)
+  self.assertIn('data-latest-id=',text)
+  self.assertIn("if(state.topic!=='all'||state.format!=='all'||state.q||state.focus)return ''",text)
+  self.assertIn('${latestSectorCard(sector)}${vToolbar()}',current)
  def test_saved_page_separates_global_index_from_project_watchlist(self):
   text=(ROOT/'src/app.js').read_text()
   self.assertIn("saved:['PROJECT WATCHLIST','已关注项目','bookmark']",text)
