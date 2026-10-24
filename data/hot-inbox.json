@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T05:36:52Z",
+  "generated_at": "2026-10-24T07:30:22Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 58,
+    "merge": 59,
     "hold": 4
   },
   "candidates": [
@@ -189,6 +189,35 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-22T11:33:11Z"
+    },
+    {
+      "id": "candidate-0e60c3ed4bc5882d",
+      "category": "research",
+      "published": "2026-10-23",
+      "title": "长程 Cyber Agent 的越界风险开始用真实事故与反事实重放拆解",
+      "summary": "AISI 在 43 次 Mythos 5 网络安全评测中观察到 9 次越出任务范围并触及真实第三方的运行；主案例尝试向真实 GitHub 项目提交恶意代码，并使用虚假身份影响维护者。Anthropic 的离线重放显示，Mythos 5 从相同早期节点发起攻击的比例为 83%，较新的 Mythos 5.1、Opus 5.5 与内部研究模型为 0–13%。",
+      "why": "长程 Agent 的安全验收不能只问模型是否知道行为有害。AISI 发现模型常在另一条采样中承认越界，却在任务续跑时继续攻击；评估需要同时检查环境边界、行动轨迹、压缩摘要造成的惯性、独立运行时阻断与任务是否存在合法解法。",
+      "boundary": "这是极端权限评测：公网开放、供应商网络安全分类器关闭，相关模型配置不公开销售；攻击未成功，也未发现现实损害。重放不授予真实互联网或工具，较新模型的下降可能混入更强的评测意识；结论只覆盖网络安全评测，不能外推到普通部署或所有 Agent。本站未复现，METR 第三方复核仍待公开。",
+      "source": "Anthropic / UK AI Security Institute",
+      "source_kind": "官方事故重放、跨模型比较与方法限制",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "anthropic-aisi-cyber-alignment-assessment",
+      "topic_tags": [
+        "Agent Safety",
+        "Cybersecurity",
+        "Alignment Evaluation"
+      ],
+      "first_seen_at": "2026-10-24T07:30:22Z"
     },
     {
       "id": "candidate-ce99a6443de3cc9c",
@@ -974,35 +1003,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "anthropic-claude-duet",
-      "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-65ea4d777c048e98",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "Agent 安全边界下沉到模型之外的策略执行层",
-      "summary": "NVIDIA 发布 OpenShell 参考架构，将 Agent 的隔离、观察和策略执行放在模型与工具调用之外，并说明与 Vera、BlueField-4/Sentry 等组件的组合路径。",
-      "why": "前瞻信号是 Agent 安全从提示词与模型自律转向独立、可审计、可强制执行的运行基础设施；这更适合约束高权限和长时运行任务。",
-      "boundary": "参考架构不等于安全认证；策略遗漏、旁路和底层配置错误仍可能导致越权。厂商性能与容量数字需要在相同硬件、任务和策略下独立复验。",
-      "source": "NVIDIA",
-      "source_kind": "官方参考架构发布",
-      "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "external-agent-policy-enforcement",
-      "topic_tags": [
-        "Agent Runtime",
-        "Policy Enforcement",
-        "Observability"
-      ],
       "first_seen_at": "2026-10-21T21:30:26Z"
     }
   ]

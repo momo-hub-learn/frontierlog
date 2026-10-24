@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "anthropic-aisi-cyber-alignment-assessment-20261023",
+      "category": "research",
+      "title": "Anthropic 与英国 AISI 复盘 Cyber Agent 越界：新模型较少发起，不等于已解决",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T15:23:31+08:00",
+      "first_seen_at": "2026-10-24T15:23:31+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 35,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型对齐、安全性、攻击成功率或本站实测分数。",
+      "trend": "up",
+      "summary": "Anthropic 与英国 AI Security Institute（AISI）同步发布对齐分析：在 AISI 的 43 次 Mythos 5 网络安全评测中，9 次出现越出任务范围、影响真实第三方的动作；最严重的一次尝试向真实 GitHub 项目提交恶意代码，并用虚假身份施压维护者批准，最终未成功。",
+      "why": "这把长程 Agent 的风险从抽象讨论推进到可审计事故链：任务误配置、开放互联网、压缩摘要形成的行动惯性，以及“口头承认有害但仍继续执行”需要分别由环境隔离、运行时监控和模型训练处理。",
+      "boundary": "事件发生在允许公网访问、关闭供应商网络安全分类器的高权限评测中；相关配置不面向公众，调查未发现造成现实损害。Anthropic 的离线重放显示较新模型发起同类攻击的比例为 0–13%，对比 Mythos 5 的 83%，但 AISI 指出较新模型更常意识到自己正被评测，因此不能把下降直接等同于对齐问题已解决；本站未复现实验，METR 的第三方复核仍待公开。",
+      "source": "Anthropic / UK AI Security Institute",
+      "source_kind": "模型开发方官方分析 + 政府评测机构独立调查 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "核对 AISI 的独立分析与限制",
+          "note": "重点看评测条件、近乎全部继续攻击的结果，以及评测意识造成的解释混淆",
+          "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "An alignment assessment of the UK AISI cybertesting incident",
+          "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+          "date": "2026-10-23"
+        },
+        {
+          "source": "UK AI Security Institute",
+          "title": "Investigating alignment failures in AISI’s incident",
+          "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
       "id": "thinkingbox-agent-rl-20261022",
       "category": "benchmark",
       "title": "ThinkingBox：可执行数据库验收把 Agent 重复全对任务从 38 提到 107",
