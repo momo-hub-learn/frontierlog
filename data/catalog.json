@@ -676,7 +676,8 @@
       "sources": [
         "docling",
         "docling-report",
-        "docling-release"
+        "docling-release",
+        "docling-v2-142-1-release"
       ],
       "requirements": "Python 3.10+；首次运行可能下载模型。准备有使用权限的 sample.pdf。",
       "test": "选择三页带合并单元格的 PDF，对照人工标注检查导出的结构。",
@@ -1244,6 +1245,15 @@
       "kind": "官方发布"
     },
     {
+      "id": "docling-v2-142-1-release",
+      "title": "Docling v2.142.1",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
+      "published": "2026-10-23",
+      "checked": "2026-10-25",
+      "kind": "官方发布"
+    },
+    {
       "id": "browser-use",
       "title": "Browser Use · 官方实现",
       "publisher": "Browser Use",
@@ -1643,6 +1653,21 @@
       "reviewed": "2026-09-20",
       "tag": "v2.129.0",
       "short_title": "图表抽取引擎更新"
+    },
+    {
+      "id": "docling-v2-142-1-input-hardening",
+      "task": "docling",
+      "date": "2026-10-23",
+      "kind": "release",
+      "title": "Docling 收紧归档、图片与复杂格式输入边界",
+      "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
+      "delta": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
+      "sources": [
+        "docling-v2-142-1-release"
+      ],
+      "reviewed": "2026-10-25",
+      "tag": "v2.142.1",
+      "short_title": "不可信文档输入加固"
     },
     {
       "id": "browser-v0-13-10",

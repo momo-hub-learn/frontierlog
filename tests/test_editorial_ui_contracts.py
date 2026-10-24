@@ -50,6 +50,12 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertNotIn('AI 评分',text)
   self.assertIn('aria-label="本站编辑热度 ${x.heat} 分，${band.label}"',text)
+
+ def test_platform_switch_exposes_current_page_to_assistive_technology(self):
+  text=(ROOT/'src/hot.js').read_text()
+  self.assertIn("const current=id=>active===id?' aria-current=\"page\"':'';",text)
+  self.assertIn("current('github')",text)
+  self.assertIn("current('hf')",text)
  def test_hot_primary_cta_does_not_call_documents_an_experience(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)

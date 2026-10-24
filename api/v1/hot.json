@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "docling-v2-142-1-input-hardening-20261023",
+      "category": "product",
+      "title": "Docling v2.142.1 收紧不可信文档输入边界",
+      "published": "2026-10-23",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T07:32:12+08:00",
+      "first_seen_at": "2026-10-25T07:32:12+08:00",
+      "heat": 86,
+      "heat_components": {
+        "impact": 29,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是漏洞严重度、修复覆盖率或本站安全实测分数。",
+      "trend": "up",
+      "summary": "Docling v2.142.1 为 DOCX、XLSX、EPUB 与 ODF 归档成员增加解压大小边界，限制图片解码像素、合并单元格与超链接范围，并要求 LaTeX Tectonic TikZ 渲染只接受受信输入。",
+      "why": "文档解析常处在 AI 知识库和 Agent 的上传入口。此次改动把资源消耗与复杂格式边界前移到解析层；处理外部文件的团队应核对版本并用恶意或异常样本回归，而不是只测试正常 PDF。",
+      "boundary": "这是 Docling 官方 Release 的修复清单，不是 CVE 公告，也不证明 v2.142.1 消除了所有解析风险。本站未对补丁做渗透测试；生产环境仍需文件大小、类型、执行路径、超时和隔离层限制。",
+      "source": "Docling Project",
+      "source_kind": "官方 GitHub Release / 本轮编辑核验",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 v2.142.1 修复清单",
+          "note": "先核对归档、图片、表格与 TikZ 边界，再用异常文档做隔离环境回归",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
+          "kind": "code"
+        },
+        {
+          "label": "查看官方安装要求",
+          "note": "确认 Python、PyTorch 与当前平台兼容性；不要在生产环境直接处理未知文件",
+          "url": "https://docling-project.github.io/docling/getting_started/installation/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Docling Project",
+          "title": "Docling v2.142.0：前一版本发布",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.142.0",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "pathos-bms-tempus-neuroscience-20261023",
       "category": "industry",
       "title": "Pathos × BMS × Tempus：神经疾病数据与 Agent 平台进入五年合作",

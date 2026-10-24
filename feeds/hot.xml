@@ -401,6 +401,12 @@
 
 边界：这是约 14 天申请窗口和 8–12 周合作计划，不是研究结果、临床验证或产品发布；申请材料只能包含公开信息，初步发现仍需独立实验和同行评议。
 
+站内热度 86；不是全网流量。</description></item><item><title>Docling v2.142.1 收紧不可信文档输入边界</title><guid isPermaLink="false">frontierlog:hot:docling-v2-142-1-input-hardening-20261023</guid><link>https://github.com/docling-project/docling/releases/tag/v2.142.1</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Docling v2.142.1 为 DOCX、XLSX、EPUB 与 ODF 归档成员增加解压大小边界，限制图片解码像素、合并单元格与超链接范围，并要求 LaTeX Tectonic TikZ 渲染只接受受信输入。
+
+为什么值得看：文档解析常处在 AI 知识库和 Agent 的上传入口。此次改动把资源消耗与复杂格式边界前移到解析层；处理外部文件的团队应核对版本并用恶意或异常样本回归，而不是只测试正常 PDF。
+
+边界：这是 Docling 官方 Release 的修复清单，不是 CVE 公告，也不证明 v2.142.1 消除了所有解析风险。本站未对补丁做渗透测试；生产环境仍需文件大小、类型、执行路径、超时和隔离层限制。
+
 站内热度 86；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
 
 为什么值得看：硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。

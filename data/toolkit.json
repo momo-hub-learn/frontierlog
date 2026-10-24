@@ -672,7 +672,7 @@
       "input": "一份获授权的 PDF",
       "output": "结构化文档 / Markdown",
       "requirements": "独立 Python 环境；初次运行需下载模型。",
-      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。",
+      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。处理外部归档、图片或含 TikZ 的文档时，应使用 v2.142.1 或更新版本，并继续设置文件大小、类型、超时和隔离边界。",
       "cost": "本地计算；预留模型下载与存储空间。",
       "steps": [
         {
@@ -702,11 +702,18 @@
           "url": "https://docling-project.github.io/docling/getting_started/installation/",
           "published_at": null,
           "verified_at": "2026-09-26"
+        },
+        {
+          "title": "Docling v2.142.1：输入边界修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
+          "published_at": "2026-10-23",
+          "verified_at": "2026-10-25"
         }
       ],
       "entry_url": null,
       "evidence_level": "primary-docs",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "verified_at": "2026-10-25T07:32:12+08:00"
     },
     {
       "id": "whisper",

@@ -58,9 +58,10 @@ function hTabs(s){
 }
 function hOpenTabs(active){
  const gh=(APP.github_hot?.items||[]).length,hf=(APP.huggingface_hot?.items||[]).length;
+ const current=id=>active===id?' aria-current="page"':'';
  return '<nav class="h-open-tabs" aria-label="平台热榜">'+
-  '<a class="'+(active==='github'?'active':'')+'" href="#/hot?tab=github">'+icon('github')+'GitHub<small>'+gh+'</small></a>'+
-  '<a class="'+(active==='hf'?'active':'')+'" href="#/hot?tab=hf">'+icon('layers')+'Hugging Face<small>'+hf+'</small></a>'+
+  '<a class="'+(active==='github'?'active':'')+'" href="#/hot?tab=github"'+current('github')+'>'+icon('github')+'GitHub<small>'+gh+'</small></a>'+
+  '<a class="'+(active==='hf'?'active':'')+'" href="#/hot?tab=hf"'+current('hf')+'>'+icon('layers')+'Hugging Face<small>'+hf+'</small></a>'+
  '</nav>'
 }
 function hProductLatest(x){return Array.isArray(x.timeline)&&x.timeline.length?x.timeline[0]:null}
