@@ -130,6 +130,12 @@ try:
         page.locator('[data-action="theme"]').click()
         passed("dark theme is reversible and persists on a real origin")
 
+        go("#/saved")
+        expect(page.locator("#legacy-saved .v2-saved-head h1")).to_have_text("我的关注")
+        expect(page.locator("#section-title")).to_contain_text("已关注项目")
+        expect(page.locator("#section-eyebrow")).to_have_text("PROJECT WATCHLIST")
+        passed("saved page distinguishes the global personal index from the project watchlist")
+
         mobile = browser.new_page(
             viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
         )

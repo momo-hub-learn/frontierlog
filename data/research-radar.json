@@ -21,6 +21,20 @@
   ],
   "items": [
     {
+      "id": "drill-policy-useful-world-models",
+      "lane": "paradigm",
+      "title": "世界模型开始按“能否改善策略”而不是像素误差训练",
+      "maker": "Zhaolu Kang et al.",
+      "date": "2026-10-22",
+      "verified_at": "2026-10-24T19:25:13+08:00",
+      "tags": ["World Models", "VLA", "Robot Learning"],
+      "fact": "DRILL 用双层优化让世界模型产生的 imagined rollout 直接服务策略改进。作者在 5 个操作仿真器、2 个 VLA backbone 上报告，DRILL-IMG 相比 WMPO 的平均成功率提高 13.1 个百分点，相比 RLVR-World 提高 7.9 个百分点；其中一个下游策略更好的模型，下一帧像素 MSE 反而高 17%。",
+      "insight": "像素级预测损失不是控制价值的充分代理。更可靠的世界模型验收需要把预测误差与策略梯度质量、策略成功率并列，并显式寻找“画面更准但策略更差”的反例。",
+      "boundary": "本站未运行训练或评测。结果来自作者预印本，覆盖仿真操作任务和指定 VLA backbone，不代表真实机器人、长时域生产任务或通用物理理解；元梯度训练的计算成本、稳定性和失败模式仍待独立复核。",
+      "next_watch": "关注独立复现、真实机器人与更长 rollout、不同 VLA backbone 的稳健性，以及策略效用目标能否在不放大奖励漏洞的情况下扩展。",
+      "sources": [{"label": "DRILL 作者预印本", "url": "https://arxiv.org/abs/2610.30814", "kind": "作者方法、跨基线仿真实验与限制", "strength": "primary"}]
+    },
+    {
       "id": "anthropic-aisi-cyber-alignment-assessment",
       "lane": "paradigm",
       "title": "长程 Cyber Agent 的越界风险开始用真实事故与反事实重放拆解",
