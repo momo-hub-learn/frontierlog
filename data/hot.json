@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "openai-habitat-storage-scale-20261023",
+      "category": "product",
+      "title": "OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户",
+      "published": "2026-10-23",
+      "checked": "2026-10-24",
+      "verified_at": "2026-10-24T09:18:08+08:00",
+      "first_seen_at": "2026-10-24T09:18:08+08:00",
+      "heat": 88,
+      "heat_components": {
+        "impact": 30,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是数据库性能、可用性、用户量或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenAI 披露，Habitat 为超过 10 亿用户、40 个地理区域提供在线存储，平台管理的数据超过 500PB；其最大的 Azure Cosmos DB 账户存储数十 PB 数据并承载超过 2000 万 QPS。",
+      "why": "Agent 与全球 AI 产品的可靠性不只取决于模型：热键限流、请求优先级、数据迁移、缓存失效和跨区域放置，已经成为规模化产品能否稳定上线的共同底座。",
+      "boundary": "这是 OpenAI 对自有基础设施的官方工程披露，本站未独立压测 Habitat、Azure Cosmos DB、缓存命中率或故障恢复。文中的规模、性能和数月无相关事故均为厂商口径；Habitat 不是对外开放的数据库产品，也不能由此推出所有 ChatGPT 请求都经过同一账户或具备相同延迟。",
+      "source": "OpenAI",
+      "source_kind": "官方工程与存储基础设施说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Habitat 多租户与全球缓存方案",
+          "note": "重点区分平台总规模、单账户指标和面向用户的产品体验；本站未独立复测",
+          "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+          "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+          "date": "2026-10-23"
+        },
+        {
+          "source": "OpenAI",
+          "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part I)",
+          "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+          "date": "2026-09-11"
+        }
+      ]
+    },
+    {
       "id": "google-tb-screening-foundations-20261023",
       "category": "industry",
       "title": "Google TB 筛查进入六国约 40 家机构：开放模型仍需本地验证",

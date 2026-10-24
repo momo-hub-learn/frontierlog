@@ -163,6 +163,7 @@ function ghInline(){
     ghWatchPanel()+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
+    '<p class="gh-resultline" role="status" aria-live="polite">显示 '+rows.length+' / '+(GH.items||[]).length+' 个仓库 · 保留 GitHub 官方榜位</p>'+
     (rows.length?'<div class="gh-list">'+rows.map(x=>
       '<a class="gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
         '<div class="gh-rank">#'+String(x.rank).padStart(2,'0')+'</div>'+

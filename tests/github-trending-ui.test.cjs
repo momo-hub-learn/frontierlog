@@ -16,6 +16,7 @@ function extract(s,start,end){
 const watchPart=extract(gh,'function ghWatchPanel(){','function ghActive(){');
 const metadataPart=extract(gh,'function ghFmt(n){','function ghWhen(){');
 const partialPart=extract(gh,'function ghPartialNotice(){','function ghWatchPanel(){');
+const inlinePart=extract(gh,'function ghInline(){','const ghBaseHotPage=hotPage;');
 const app={
  GH:data,ghQuery:()=>'',ghTopic:()=> 'all',
  ghFreshness:()=>({stale:true}),ghFmt:v=>String(v),
@@ -47,6 +48,10 @@ assert.match(partialView.__partial,/官方榜位与今日 Star 已更新/);
 assert.match(partialView.__partial,/3 个上榜仓库/);
 assert.match(partialView.__partial,/5 个新上榜仓库/);
 assert.match(partialView.__partial,/1 个长期关注仓库/);
+
+assert.match(inlinePart,/role="status" aria-live="polite"/);
+assert.match(inlinePart,/显示 '\+rows\.length\+' \/ '\+\(GH\.items\|\|\[\]\)\.length\+' 个仓库/);
+assert.match(inlinePart,/保留 GitHub 官方榜位/);
 
 const panel=extract(cockpit,'function fcGithubPanel(){','function fcCockpit(){');
 const historical={...data,checked_at:'2026-09-25T23:16:36Z',sync:{...data.sync,status:'error'}};
