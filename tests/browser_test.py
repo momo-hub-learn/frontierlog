@@ -83,6 +83,11 @@ try:
         body = page.locator(".p5-progress").inner_text()
         assert "我们的解读" in body and "现在还不能推出" in body
         assert "世界模型的关键误差不一定出现在最差画面，而在稀有事件" in body
+        page.locator("#p5-search").fill("no-such-research-xyz")
+        expect(page.locator(".p5-research-empty")).to_contain_text("没有匹配的研究档案")
+        expect(page.get_by_role("textbox", name="搜索研究档案")).to_have_value("no-such-research-xyz")
+        page.get_by_role("link", name="清除搜索").click()
+        expect(page.locator(".p5-research-card")).to_have_count(len(RESEARCH["items"]))
         passed("research radar keeps fact, interpretation and boundary visibly separate")
 
         go("#/toolkit")

@@ -57,7 +57,7 @@ function p5Tabs(s){
 function p5Filters(s){
  if(s.view==='research')return '';
  const cats=p5Categories();
- return '<div class="p5-tools"><div class="p5-chips">'+cats.map(c=>'<a class="'+(s.cat===c?'active':'')+'" href="'+p5Href({cat:c})+'">'+esc(c==='all'?'全部能力':c)+'</a>').join('')+'</div><label class="p5-search">'+icon('search')+'<input id="p5-search" value="'+esc(s.q)+'" placeholder="搜索能力、限制、验收方法…"></label></div>'
+ return '<div class="p5-tools"><div class="p5-chips">'+cats.map(c=>'<a class="'+(s.cat===c?'active':'')+'" href="'+p5Href({cat:c})+'">'+esc(c==='all'?'全部能力':c)+'</a>').join('')+'</div><label class="p5-search">'+icon('search')+'<input id="p5-search" aria-label="搜索能力" value="'+esc(s.q)+'" placeholder="搜索能力、限制、验收方法…"></label></div>'
 }
 function p5Changes(){
  return (DATA.events||[]).map(e=>{
@@ -96,8 +96,9 @@ function p5ResearchCard(x){
 }
 function p5Research(s){
  const q=s.q.toLowerCase(),lanes=P5_RESEARCH.lanes||[],items=(P5_RESEARCH.items||[]).filter(x=>!q||[x.title,x.maker,x.fact,x.insight,x.next_watch,...(x.tags||[])].join(' ').toLowerCase().includes(q));
- return '<section class="p5-view"><div class="p5-view-head"><div><p class="eyebrow">RESEARCH RADAR / INDEPENDENT ARCHIVE</p><h2>研究雷达</h2><p>长期研究档案不再依赖热点榜；热点只负责给这些档案增加新节点。第三方线索明确标记为待核验。</p></div><b>'+items.length+' 个研究档案</b></div><label class="p5-search research">'+icon('search')+'<input id="p5-search" value="'+esc(s.q)+'" placeholder="搜索范式、实验室、跨学科方向…"></label>'+
+ return '<section class="p5-view"><div class="p5-view-head"><div><p class="eyebrow">RESEARCH RADAR / INDEPENDENT ARCHIVE</p><h2>研究雷达</h2><p>长期研究档案不再依赖热点榜；热点只负责给这些档案增加新节点。第三方线索明确标记为待核验。</p></div><b>'+items.length+' 个研究档案</b></div><label class="p5-search research">'+icon('search')+'<input id="p5-search" aria-label="搜索研究档案" value="'+esc(s.q)+'" placeholder="搜索范式、实验室、跨学科方向…"></label>'+
  lanes.map(l=>{const rows=items.filter(x=>x.lane===l.id);return rows.length?'<section class="p5-research-group"><div class="p5-group-head"><div><h3>'+esc(l.title)+'</h3><p>'+esc(l.description)+'</p></div><span>'+rows.length+'</span></div><div class="p5-research-grid">'+rows.map(p5ResearchCard).join('')+'</div></section>':''}).join('')+
+ (!items.length?'<div class="p5-empty p5-research-empty"><strong>没有匹配的研究档案</strong><span>换个关键词，或清除搜索查看全部已核验记录。</span><a href="'+p5Href({q:''})+'">清除搜索</a></div>':'')+
  '<p class="p5-research-note">'+esc(P5_RESEARCH.note||'')+' · 核对 '+esc(P5_RESEARCH.checked||'—')+'</p></section>'
 }
 function p5Progress(){
