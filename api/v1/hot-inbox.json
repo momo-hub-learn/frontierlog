@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-24T03:26:29Z",
+  "generated_at": "2026-10-24T05:36:52Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 56,
+    "merge": 58,
     "hold": 4
   },
   "candidates": [
@@ -119,6 +119,30 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-23T23:24:48Z"
+    },
+    {
+      "id": "candidate-0beb57c28961763f",
+      "category": "product",
+      "published": "2026-10-23",
+      "title": "Hugging Face 发布 Trainium 模型兼容性目录",
+      "summary": "公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。",
+      "why": "硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。",
+      "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不代表吞吐、长文本稳定性、生成质量或成本，本站未复跑。",
+      "source": "Hugging Face",
+      "source_kind": "官方兼容性目录说明、测试口径与限制",
+      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "hf-trainium-model-support",
+      "first_seen_at": "2026-10-24T05:36:52Z"
     },
     {
       "id": "candidate-5b6012e7e08daff6",
@@ -496,6 +520,35 @@
         "Semantic Interaction"
       ],
       "first_seen_at": "2026-10-23T13:37:36Z"
+    },
+    {
+      "id": "candidate-6f26386697f2d785",
+      "category": "research",
+      "published": "2026-10-22",
+      "title": "Agent 后训练开始把最终数据库状态直接变成奖励",
+      "summary": "ThinkingBox Training 用任务结束后的数据库记录与副作用检查产生二元奖励。Qwen3.8-27B 经 50 步 GRPO 后，在训练集之外的 507 个任务、每题 20 次评测中，pass@1 从 51.70% 升至 60.78%，Observed 20/20 从 38 个任务升至 107 个；pass@20 则从 89.35% 降到 87.97%。",
+      "why": "把终态业务约束写成可执行检查，既能做 benchmark，也能直接成为训练奖励；同时记录一次成功、平均成功和重复全对，能显露“能力覆盖”与“稳定性”之间的真实权衡。",
+      "boundary": "本站未复跑训练或评测。公开任务是合成业务流程，参考全参数训练使用三台、每台 8 张 H100；结果只对应指定模型、任务选择、检查器与 50 步训练，不能外推为所有 Agent 或真实企业流程的可靠性。",
+      "source": "Microsoft / Hugging Face",
+      "source_kind": "官方方法、507×20 结果与限制",
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+      "publishable": false,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.773,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "thinkingbox-executable-rewards",
+      "topic_tags": [
+        "Agent Reliability",
+        "Executable Rewards",
+        "RL Post-training"
+      ],
+      "first_seen_at": "2026-10-24T05:36:52Z"
     },
     {
       "id": "candidate-740dc512ba53ba2f",
@@ -949,59 +1002,6 @@
         "Agent Runtime",
         "Policy Enforcement",
         "Observability"
-      ],
-      "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-74819f0dd4ea64ce",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "Kumo Forecast 开放检索增强时序预测代码与权重",
-      "summary": "NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。",
-      "why": "工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。",
-      "boundary": "检索上下文维度需相近，且 DARR 不保证优于直接预测；必须在相同留出窗口与工况下比较。预测与解释都不等于故障因果，本站未运行。",
-      "source": "NVIDIA",
-      "source_kind": "官方技术发布",
-      "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-kumo-forecast",
-      "first_seen_at": "2026-10-21T15:29:58Z"
-    },
-    {
-      "id": "candidate-7b8d231ce78e3335",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "主动 Agent：从等待指令转向周期检查与按需打断",
-      "summary": "Claude Duet 研究预览可每隔数小时检查连接账户、生成晨间简报，在独立虚拟机与浏览器中后台执行，并在发送、付款、签署和删除前等待批准。",
-      "why": "主动 Agent 的研究问题从单次任务成功转向何时观察、何时打断、如何控制额度、如何证明外部动作遵循了用户意图。",
-      "boundary": "这是厂商早期预览；官方承认可能误读线程或误判紧急程度。产品审批设计不等于安全性、隐私或任务质量已经得到独立验证。",
-      "source": "Anthropic",
-      "source_kind": "官方产品与安全说明",
-      "url": "https://claude.com/resources/articles/claude-duet",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "proactive-background-agent-governance",
-      "topic_tags": [
-        "Proactive Agent",
-        "Background Work",
-        "Human Approval"
       ],
       "first_seen_at": "2026-10-21T21:30:26Z"
     }

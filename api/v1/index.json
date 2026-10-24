@@ -37,6 +37,89 @@
     ],
     "items": [
       {
+        "id": "thinkingbox-agent-rl-20261022",
+        "category": "benchmark",
+        "title": "ThinkingBox：可执行数据库验收把 Agent 重复全对任务从 38 提到 107",
+        "published": "2026-10-22",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T13:26:32+08:00",
+        "first_seen_at": "2026-10-24T13:26:32+08:00",
+        "heat": 93,
+        "heat_components": {
+          "impact": 34,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 11
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Agent 可靠性、生产成功率、模型能力或本站实测分数。",
+        "trend": "up",
+        "summary": "Microsoft 与 Hugging Face 用 ThinkingBox 的终态数据库检查作为训练奖励，对 Qwen3.8-27B 做 50 步 GRPO；在未参与训练的 507 个任务、每题 20 次评测中，平均成功率由 51.70% 升至 60.78%，20 次全对的任务由 38 增至 107。",
+        "why": "Agent 后训练开始把“最终业务状态是否正确”直接做成可执行奖励，并把一次成功与重复可靠性分开；这比只奖励工具调用轨迹或模型自评更接近生产验收。",
+        "boundary": "这是 Microsoft 与 Hugging Face 的官方实验，本站未复跑。训练需要三台、每台 8 张 H100 的参考配置；公开任务是合成业务流程。pass@20 从 89.35% 降至 87.97%，说明重复性提升没有同时扩大至少成功一次的覆盖，不能外推为真实企业部署成功率。",
+        "source": "Microsoft / Hugging Face",
+        "source_kind": "官方联合研究、公开训练代码与评测口径 / 本轮编辑补档",
+        "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "核对 507×20 评测与训练实现",
+            "note": "同时看 pass@1、Observed 20/20 与 pass@20，不把单一指标当作完整可靠性",
+            "url": "https://github.com/microsoft/thinkingbox-training",
+            "kind": "code"
+          }
+        ],
+        "related": [
+          {
+            "source": "Hugging Face / Microsoft",
+            "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
+            "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+            "date": "2026-10-22"
+          }
+        ]
+      },
+      {
+        "id": "hf-trainium-model-support-20261023",
+        "category": "product",
+        "title": "Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过",
+        "published": "2026-10-23",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T13:26:32+08:00",
+        "first_seen_at": "2026-10-24T13:26:32+08:00",
+        "heat": 84,
+        "heat_components": {
+          "impact": 28,
+          "availability": 22,
+          "evidence": 24,
+          "recency": 10
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是吞吐、生成质量、硬件性价比或本站实测分数。",
+        "trend": "up",
+        "summary": "Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。",
+        "why": "硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。",
+        "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不说明吞吐、长文本稳定性、业务质量或成本。当前只覆盖 Transformers 的 text-generation 与 image-text-to-text，本站未复跑。",
+        "source": "Hugging Face / AWS Neuron",
+        "source_kind": "官方博客、公开 Space 与数据集 / 本轮编辑补档",
+        "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+        "link": "#/toolkit?task=hf-trainium-model-support&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查询模型与精确运行脚本",
+            "note": "按 neuronx-cc 与 Transformers 版本核对结果，再在自己的负载上复验",
+            "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+            "kind": "tool"
+          }
+        ],
+        "related": [
+          {
+            "source": "Hugging Face",
+            "title": "Does Your Model Run on AWS Trainium? Look It Up",
+            "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+            "date": "2026-10-23"
+          }
+        ]
+      },
+      {
         "id": "anthropic-formal-verification-20261022",
         "category": "research",
         "title": "Claude 把 123 个开源库的模糊测试入口转成机器检查的证明",
@@ -2733,13 +2816,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-24T03:26:29Z",
+    "generated_at": "2026-10-24T05:36:52Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 56,
+      "merge": 58,
       "hold": 4
     },
     "candidates": [
@@ -2852,6 +2935,30 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-23T23:24:48Z"
+      },
+      {
+        "id": "candidate-0beb57c28961763f",
+        "category": "product",
+        "published": "2026-10-23",
+        "title": "Hugging Face 发布 Trainium 模型兼容性目录",
+        "summary": "公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。",
+        "why": "硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。",
+        "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不代表吞吐、长文本稳定性、生成质量或成本，本站未复跑。",
+        "source": "Hugging Face",
+        "source_kind": "官方兼容性目录说明、测试口径与限制",
+        "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "hf-trainium-model-support",
+        "first_seen_at": "2026-10-24T05:36:52Z"
       },
       {
         "id": "candidate-5b6012e7e08daff6",
@@ -3229,6 +3336,35 @@
           "Semantic Interaction"
         ],
         "first_seen_at": "2026-10-23T13:37:36Z"
+      },
+      {
+        "id": "candidate-6f26386697f2d785",
+        "category": "research",
+        "published": "2026-10-22",
+        "title": "Agent 后训练开始把最终数据库状态直接变成奖励",
+        "summary": "ThinkingBox Training 用任务结束后的数据库记录与副作用检查产生二元奖励。Qwen3.8-27B 经 50 步 GRPO 后，在训练集之外的 507 个任务、每题 20 次评测中，pass@1 从 51.70% 升至 60.78%，Observed 20/20 从 38 个任务升至 107 个；pass@20 则从 89.35% 降到 87.97%。",
+        "why": "把终态业务约束写成可执行检查，既能做 benchmark，也能直接成为训练奖励；同时记录一次成功、平均成功和重复全对，能显露“能力覆盖”与“稳定性”之间的真实权衡。",
+        "boundary": "本站未复跑训练或评测。公开任务是合成业务流程，参考全参数训练使用三台、每台 8 张 H100；结果只对应指定模型、任务选择、检查器与 50 步训练，不能外推为所有 Agent 或真实企业流程的可靠性。",
+        "source": "Microsoft / Hugging Face",
+        "source_kind": "官方方法、507×20 结果与限制",
+        "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+        "publishable": false,
+        "features": {
+          "freshness": 0.857,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.773,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "thinkingbox-executable-rewards",
+        "topic_tags": [
+          "Agent Reliability",
+          "Executable Rewards",
+          "RL Post-training"
+        ],
+        "first_seen_at": "2026-10-24T05:36:52Z"
       },
       {
         "id": "candidate-740dc512ba53ba2f",
@@ -3682,59 +3818,6 @@
           "Agent Runtime",
           "Policy Enforcement",
           "Observability"
-        ],
-        "first_seen_at": "2026-10-21T21:30:26Z"
-      },
-      {
-        "id": "candidate-74819f0dd4ea64ce",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "Kumo Forecast 开放检索增强时序预测代码与权重",
-        "summary": "NVIDIA 发布基于预训练时序表示、可选历史片段检索并提供跨度解释的多变量预测模型。",
-        "why": "工程评估应把直接模式与 DARR 放在同一留出窗口比较，不能把检索解释当成故障因果。",
-        "boundary": "检索上下文维度需相近，且 DARR 不保证优于直接预测；必须在相同留出窗口与工况下比较。预测与解释都不等于故障因果，本站未运行。",
-        "source": "NVIDIA",
-        "source_kind": "官方技术发布",
-        "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "nvidia-kumo-forecast",
-        "first_seen_at": "2026-10-21T15:29:58Z"
-      },
-      {
-        "id": "candidate-7b8d231ce78e3335",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "主动 Agent：从等待指令转向周期检查与按需打断",
-        "summary": "Claude Duet 研究预览可每隔数小时检查连接账户、生成晨间简报，在独立虚拟机与浏览器中后台执行，并在发送、付款、签署和删除前等待批准。",
-        "why": "主动 Agent 的研究问题从单次任务成功转向何时观察、何时打断、如何控制额度、如何证明外部动作遵循了用户意图。",
-        "boundary": "这是厂商早期预览；官方承认可能误读线程或误判紧急程度。产品审批设计不等于安全性、隐私或任务质量已经得到独立验证。",
-        "source": "Anthropic",
-        "source_kind": "官方产品与安全说明",
-        "url": "https://claude.com/resources/articles/claude-duet",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "proactive-background-agent-governance",
-        "topic_tags": [
-          "Proactive Agent",
-          "Background Work",
-          "Human Approval"
         ],
         "first_seen_at": "2026-10-21T21:30:26Z"
       }
@@ -4594,6 +4677,37 @@
       }
     ],
     "items": [
+      {
+        "id": "thinkingbox-executable-rewards",
+        "lane": "paradigm",
+        "title": "Agent 后训练开始把最终数据库状态直接变成奖励",
+        "maker": "Microsoft / Hugging Face",
+        "date": "2026-10-22",
+        "verified_at": "2026-10-24T13:26:32+08:00",
+        "tags": [
+          "Agent Reliability",
+          "Executable Rewards",
+          "RL Post-training"
+        ],
+        "fact": "ThinkingBox Training 用任务结束后的数据库记录与副作用检查产生二元奖励。Qwen3.8-27B 经 50 步 GRPO 后，在训练集之外的 507 个任务、每题 20 次评测中，pass@1 从 51.70% 升至 60.78%，Observed 20/20 从 38 个任务升至 107 个；pass@20 则从 89.35% 降到 87.97%。",
+        "insight": "把终态业务约束写成可执行检查，既能做 benchmark，也能直接成为训练奖励；同时记录一次成功、平均成功和重复全对，能显露“能力覆盖”与“稳定性”之间的真实权衡。",
+        "boundary": "本站未复跑训练或评测。公开任务是合成业务流程，参考全参数训练使用三台、每台 8 张 H100；结果只对应指定模型、任务选择、检查器与 50 步训练，不能外推为所有 Agent 或真实企业流程的可靠性。",
+        "next_watch": "关注独立复现、不同模型与任务选择下的稳定性/覆盖权衡、检查器错误对奖励的影响，以及更低算力配置能否保留收益。",
+        "sources": [
+          {
+            "label": "Hugging Face / Microsoft ThinkingBox Training 官方研究",
+            "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+            "kind": "官方方法、507×20 结果与限制",
+            "strength": "primary"
+          },
+          {
+            "label": "Microsoft ThinkingBox Training 官方仓库",
+            "url": "https://github.com/microsoft/thinkingbox-training",
+            "kind": "公开训练、检查与参考配置",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "anthropic-formal-verification-production-binaries",
         "lane": "paradigm",
@@ -5647,11 +5761,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-24T05:02:17Z",
+    "checked_at": "2026-10-24T05:30:52Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-24T05:02:17Z",
+      "last_success": "2026-10-24T05:30:52Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -5995,6 +6109,41 @@
     ],
     "media_items": [
       {
+        "id": "latent-space-ddc20d7cc9e3",
+        "source_id": "latent-space",
+        "published": "2026-10-23",
+        "title": "AI Is Getting Good at Math. Here’s Why.",
+        "summary": "AI models are solving more mathematical problems. A pattern is emerging in their successes that could help us predict which problems they’ll solve next.",
+        "url": "https://latent.space/p/ai-is-getting-good-at-math/",
+        "tags": [
+          "Models"
+        ],
+        "origin": "rss"
+      },
+      {
+        "id": "latent-space-d39e297946eb",
+        "source_id": "latent-space",
+        "published": "2026-10-23",
+        "title": "[AINews] Black October",
+        "summary": "the Cyber onslaught continues.",
+        "url": "https://latent.space/p/ainews-black-october/",
+        "tags": [],
+        "origin": "rss"
+      },
+      {
+        "id": "latent-space-4bbb0219edc5",
+        "source_id": "latent-space",
+        "published": "2026-10-22",
+        "title": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal CEO",
+        "summary": "Elastic GPUs, sandbox growth, and the economics of the agent cloud",
+        "url": "https://latent.space/p/modal-d/",
+        "tags": [
+          "Agents",
+          "AI Infra"
+        ],
+        "origin": "rss"
+      },
+      {
         "id": "dwarkesh-1aa10672a913",
         "source_id": "dwarkesh",
         "published": "2026-10-22",
@@ -6210,27 +6359,6 @@
           "机器人 in-context learning 被视为观察具身 Scaling Law 的重要信号。",
           "真正的泛化依赖数据闭环，而不只是扩大模型参数。",
           "World Model、VLA 与机器人数据正在逐渐汇成一套系统问题。"
-        ]
-      },
-      {
-        "id": "no-priors-stefano-20260918",
-        "source_id": "no-priors",
-        "published": "2026-09-18",
-        "title": "Why Diffusion Will Win AI Inference — Stefano Ermon",
-        "summary": "讨论 diffusion text/code model、推理效率、GPU 利用率与下一代 inference stack。",
-        "url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
-        "tags": [
-          "Diffusion",
-          "Inference",
-          "AI Infra"
-        ],
-        "origin": "verified-manual",
-        "editor_pick": true,
-        "value_hint": "推理栈前沿 · 适合完整听",
-        "highlights": [
-          "Diffusion 路线正在尝试进入文本与代码推理，而不只做图像。",
-          "核心变量包括吞吐、GPU 利用率和推理并行方式。",
-          "如果成立，下一代 inference stack 可能不再围绕传统自回归解码设计。"
         ]
       },
       {
@@ -6527,12 +6655,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-24T03:26:29Z",
+    "last_evaluated": "2026-10-24T05:36:52Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 60,
+      "candidate_count": 62,
       "publish_ready_count": 0,
-      "merge_count": 56,
+      "merge_count": 58,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
@@ -6553,7 +6681,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T04:49:04Z",
+    "checked_at": "2026-10-24T05:22:26Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -6564,8 +6692,8 @@
         "stars_today": 2716,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 42440,
-        "forks": 2652,
+        "stars": 42486,
+        "forks": 2656,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -6576,12 +6704,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T07:43:19Z",
-            "stars": 40251
-          },
           {
             "at": "2026-10-23T11:29:13Z",
             "stars": 40691
@@ -6625,6 +6749,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 42440
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 42486
           }
         ]
       },
@@ -6634,7 +6762,7 @@
         "stars_today": 716,
         "description": "The PHP Interpreter",
         "language": "C",
-        "stars": 41594,
+        "stars": 41597,
         "forks": 8362,
         "repo_created_at": "2011-06-16T01:52:25Z",
         "repo_pushed_at": "2026-10-24T03:34:53Z",
@@ -6645,12 +6773,8 @@
           "GitHub"
         ],
         "url": "https://github.com/php/php-src",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T07:43:19Z",
-            "stars": 41357
-          },
           {
             "at": "2026-10-23T11:29:13Z",
             "stars": 41442
@@ -6694,6 +6818,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 41594
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 41597
           }
         ]
       },
@@ -6765,7 +6893,8 @@
             "at": "2026-10-24T04:49:04Z",
             "stars": 32318
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "NVIDIA/OpenShell",
@@ -6773,8 +6902,8 @@
         "stars_today": 1119,
         "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "language": "Rust",
-        "stars": 18908,
-        "forks": 1888,
+        "stars": 18922,
+        "forks": 1891,
         "repo_created_at": "2026-02-24T22:52:22Z",
         "repo_pushed_at": "2026-10-24T02:12:45Z",
         "category": "agent-runtime",
@@ -6785,7 +6914,7 @@
           "AI"
         ],
         "url": "https://github.com/NVIDIA/OpenShell",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
           {
             "at": "2026-10-23T11:29:13Z",
@@ -6830,6 +6959,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 18908
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 18922
           }
         ]
       },
@@ -6839,7 +6972,7 @@
         "stars_today": 546,
         "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
         "language": "TypeScript",
-        "stars": 6991,
+        "stars": 7002,
         "forks": 1428,
         "repo_created_at": "2026-05-01T05:09:59Z",
         "repo_pushed_at": "2026-10-24T02:34:09Z",
@@ -6850,12 +6983,8 @@
           "GitHub"
         ],
         "url": "https://github.com/Renhuai123/ziwei-doushu",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T11:29:13Z",
-            "stars": 6551
-          },
           {
             "at": "2026-10-23T11:35:38Z",
             "stars": 6552
@@ -6899,6 +7028,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 6991
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 7002
           }
         ]
       },
@@ -6908,8 +7041,8 @@
         "stars_today": 226,
         "description": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
         "language": "Python",
-        "stars": 8604,
-        "forks": 1106,
+        "stars": 8611,
+        "forks": 1108,
         "repo_created_at": "2026-03-04T05:52:35Z",
         "repo_pushed_at": "2026-10-12T15:02:40Z",
         "category": "agent-skills",
@@ -6920,12 +7053,8 @@
           "Workflow"
         ],
         "url": "https://github.com/SnailSploit/Claude-Red",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T11:29:13Z",
-            "stars": 8008
-          },
           {
             "at": "2026-10-23T11:35:38Z",
             "stars": 8009
@@ -6969,6 +7098,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 8604
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 8611
           }
         ]
       },
@@ -6978,8 +7111,8 @@
         "stars_today": 150,
         "description": "VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning",
         "language": "Python",
-        "stars": 40340,
-        "forks": 4583,
+        "stars": 40349,
+        "forks": 4584,
         "repo_created_at": "2025-09-16T03:41:49Z",
         "repo_pushed_at": "2026-10-08T03:26:41Z",
         "category": "ai-tools",
@@ -6990,12 +7123,8 @@
           "GitHub"
         ],
         "url": "https://github.com/OpenBMB/VoxCPM",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T11:29:13Z",
-            "stars": 39991
-          },
           {
             "at": "2026-10-23T11:35:38Z",
             "stars": 39993
@@ -7039,6 +7168,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 40340
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 40349
           }
         ]
       },
@@ -7048,8 +7181,8 @@
         "stars_today": 66,
         "description": "Node.js JavaScript runtime ✨🐢🚀✨",
         "language": "JavaScript",
-        "stars": 122935,
-        "forks": 39837,
+        "stars": 122941,
+        "forks": 39838,
         "repo_created_at": "2014-11-26T19:57:11Z",
         "repo_pushed_at": "2026-10-24T03:55:51Z",
         "category": "other",
@@ -7059,12 +7192,8 @@
           "GitHub"
         ],
         "url": "https://github.com/nodejs/node",
-        "metadata_verified_at": "2026-10-24T04:49:04Z",
+        "metadata_verified_at": "2026-10-24T05:22:26Z",
         "star_history": [
-          {
-            "at": "2026-10-23T11:29:13Z",
-            "stars": 122591
-          },
           {
             "at": "2026-10-23T11:35:38Z",
             "stars": 122594
@@ -7108,6 +7237,10 @@
           {
             "at": "2026-10-24T04:49:04Z",
             "stars": 122935
+          },
+          {
+            "at": "2026-10-24T05:22:26Z",
+            "stars": 122941
           }
         ]
       }
@@ -7187,17 +7320,19 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-24T04:49:04Z",
-      "last_success_at": "2026-10-24T04:49:04Z",
+      "last_checked_at": "2026-10-24T05:22:26Z",
+      "last_success_at": "2026-10-24T05:22:26Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-24T04:49:04Z",
+      "watchlist_checked_at": "2026-10-24T05:22:26Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 8,
-      "verified_count": 8,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "skipped": []
+      "verified_count": 7,
+      "metadata_failed_count": 1,
+      "metadata_status": "partial",
+      "skipped": [
+        "anthropics/knowledge-work-plugins: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -7211,27 +7346,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 374002,
-        "forks": 93539,
+        "stars": 374099,
+        "forks": 93565,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-24T04:46:49Z",
+        "repo_pushed_at": "2026-10-24T05:19:03Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-24T04:49:04Z",
+        "verified_at": "2026-10-24T05:22:26Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T03:15:45Z",
+    "checked_at": "2026-10-24T05:22:26Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-24T03:15:45Z",
-    "web_fetched_at": "2026-10-24T03:15:45Z",
+    "api_fetched_at": "2026-10-24T05:22:26Z",
+    "web_fetched_at": "2026-10-24T05:22:26Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -7243,8 +7378,8 @@
       "fishaudio/drama-3",
       "OpenMOSS-Team/MOSS-Image-Base",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "Comfy-Org/MOSS-Image",
       "Qwen/Qwen3.8-27B",
+      "Comfy-Org/MOSS-Image",
       "google/embeddinggemma-2",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
       "MiniMaxAI/MiniMax-M3.1-Flash",
@@ -7261,140 +7396,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
-      },
-      {
-        "id": "Comfy-Org/MOSS-Image",
-        "rank": 10,
-        "previous_rank": 10,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
-        "rank": 11,
+        "rank": 10,
         "previous_rank": 11,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
+      },
+      {
+        "id": "Comfy-Org/MOSS-Image",
+        "rank": 11,
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "google/embeddinggemma-2",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 14,
-        "previous_rank": 15,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_rank": 14,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 15,
-        "previous_rank": 16,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_rank": 15,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "jialinyyzz/humanizer",
         "rank": 16,
-        "previous_rank": 14,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_rank": 16,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "datalab-to/indra-ocr",
         "rank": 17,
         "previous_rank": 17,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "mistralai/Timestral-209M",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "lodestones/Kromoss",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       },
       {
         "id": "orcarouter/OrcaCyber-Nano-1.0",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-24T01:16:11Z"
+        "previous_rank": 20,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T03:15:45Z"
       }
     ],
     "items": [
@@ -7402,8 +7537,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 2207,
-        "likes": 2598,
+        "trending_score": 2215,
+        "likes": 2607,
         "downloads": 57715,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7419,8 +7554,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 670,
-        "likes": 690,
+        "trending_score": 675,
+        "likes": 696,
         "downloads": 1904,
         "task": "text-generation",
         "library": "transformers",
@@ -7436,8 +7571,8 @@
         "rank": 3,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 630,
-        "likes": 1412,
+        "trending_score": 621,
+        "likes": 1420,
         "downloads": 534837,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -7453,8 +7588,8 @@
         "rank": 4,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 464,
-        "likes": 656,
+        "trending_score": 457,
+        "likes": 659,
         "downloads": 7658,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7470,8 +7605,8 @@
         "rank": 5,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 406,
-        "likes": 9042,
+        "trending_score": 407,
+        "likes": 9055,
         "downloads": 2026951,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -7487,8 +7622,8 @@
         "rank": 6,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 384,
-        "likes": 418,
+        "trending_score": 387,
+        "likes": 421,
         "downloads": 1060,
         "task": "text-generation",
         "library": "transformers",
@@ -7504,8 +7639,8 @@
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 361,
-        "likes": 948,
+        "trending_score": 363,
+        "likes": 952,
         "downloads": 17017,
         "task": "text-to-speech",
         "library": "未标注",
@@ -7521,8 +7656,8 @@
         "rank": 8,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 346,
-        "likes": 522,
+        "trending_score": 336,
+        "likes": 523,
         "downloads": 5618,
         "task": "text-to-image",
         "library": "diffusers",
@@ -7538,8 +7673,8 @@
         "rank": 9,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 323,
-        "likes": 4909,
+        "trending_score": 320,
+        "likes": 4914,
         "downloads": 2398071,
         "task": "text-to-image",
         "library": "gguf",
@@ -7553,27 +7688,10 @@
       },
       {
         "rank": 10,
-        "id": "Comfy-Org/MOSS-Image",
-        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 315,
-        "likes": 400,
-        "downloads": 1606363,
-        "task": "未标注",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-16T12:42:32.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "comfyui",
-          "base_model:OpenMOSS-Team/MOSS-Image-Base",
-          "license:apache-2.0"
-        ]
-      },
-      {
-        "rank": 11,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 314,
-        "likes": 18295,
+        "trending_score": 313,
+        "likes": 18299,
         "downloads": 7710011,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7586,11 +7704,28 @@
         ]
       },
       {
+        "rank": 11,
+        "id": "Comfy-Org/MOSS-Image",
+        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
+        "trending_score": 311,
+        "likes": 402,
+        "downloads": 1606363,
+        "task": "未标注",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-16T12:42:32.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "comfyui",
+          "base_model:OpenMOSS-Team/MOSS-Image-Base",
+          "license:apache-2.0"
+        ]
+      },
+      {
         "rank": 12,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
         "trending_score": 286,
-        "likes": 2874,
+        "likes": 2876,
         "downloads": 192741,
         "task": "feature-extraction",
         "library": "transformers",
@@ -7606,8 +7741,8 @@
         "rank": 13,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 262,
-        "likes": 301,
+        "trending_score": 263,
+        "likes": 302,
         "downloads": 4141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7623,8 +7758,8 @@
         "rank": 14,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 253,
-        "likes": 259,
+        "trending_score": 259,
+        "likes": 265,
         "downloads": 1096,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -7658,7 +7793,7 @@
         "id": "jialinyyzz/humanizer",
         "url": "https://huggingface.co/jialinyyzz/humanizer",
         "trending_score": 248,
-        "likes": 2117,
+        "likes": 2119,
         "downloads": 129025,
         "task": "text-generation",
         "library": "gguf",
@@ -7675,7 +7810,7 @@
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
         "trending_score": 241,
-        "likes": 392,
+        "likes": 393,
         "downloads": 4033,
         "task": "image-to-text",
         "library": "onnx",
@@ -7691,8 +7826,8 @@
         "rank": 18,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 232,
-        "likes": 316,
+        "trending_score": 233,
+        "likes": 318,
         "downloads": 6815,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -7725,8 +7860,8 @@
         "rank": 20,
         "id": "orcarouter/OrcaCyber-Nano-1.0",
         "url": "https://huggingface.co/orcarouter/OrcaCyber-Nano-1.0",
-        "trending_score": 197,
-        "likes": 212,
+        "trending_score": 198,
+        "likes": 213,
         "downloads": 22314,
         "task": "image-text-to-text",
         "library": "gguf",
@@ -7741,7 +7876,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-24T03:15:45Z",
+      "last_checked_at": "2026-10-24T05:22:26Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -16955,8 +17090,39 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-10-23",
+    "snapshot": "2026-10-24",
     "items": [
+      {
+        "id": "hf-trainium-model-support",
+        "name": "Hugging Face · Trainium Model Support",
+        "title": "查询热门模型能否在 Trainium2 上无改动运行",
+        "category": "科研与评测",
+        "mark": "TR",
+        "accent": "orange",
+        "summary": "按模型与软件栈查询 Transformers 文本生成、图文模型在 Trainium2 上的短测结果、失败原因、分片核心数、峰值内存和可复跑脚本。",
+        "scope": "Hugging Face 2026-10-23 发布公开 Space 与数据集；结果记录 neuronx-cc、Transformers 等完整版本，并可下载实际运行的 run.py。",
+        "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不代表吞吐、长文本稳定性、生成质量或成本，本站未复跑。",
+        "repo": null,
+        "sources": [
+          "hf-trainium-support-blog",
+          "hf-trainium-support-space"
+        ],
+        "requirements": "公开查询无需账户；复跑需要 Trainium2 实例、匹配的 AWS Neuron 深度学习容器，以及结果页列出的 compiler、Transformers 与依赖版本。",
+        "test": "先锁定模型与软件版本，复跑官方 32-token 兼容性检查；再用目标上下文、批量和生成长度测 p50/p95 时延、吞吐、内存、失败率、质量与成本。",
+        "checks": [
+          "记录模型、compiler、库、实例和核心数，不只抄 PASS",
+          "先复跑短测，再单独验收真实上下文与生成长度",
+          "把吞吐、质量、稳定性和成本与现有硬件同口径比较",
+          "保留失败原因和软件版本，不把单次兼容性当作长期支持承诺"
+        ],
+        "command": "在官方 Space 按模型 ID 查询并下载对应 run.py；在匹配的 Trainium2 容器中复跑后，再加入真实负载基线。",
+        "effort": "查询与数据集公开 / 实际复跑需 Trainium2、编译时间与工程预算",
+        "evidence": "Hugging Face 官方说明、AWS Neuron / Hugging Face 公开 Space 与数据集",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-24",
+        "verified_at": "2026-10-24T13:26:32+08:00"
+      },
       {
         "id": "microsoft-flint-interactive",
         "name": "Microsoft Flint · Interactive",
@@ -17815,6 +17981,26 @@
     ],
     "sources": [
       {
+        "id": "hf-trainium-support-blog",
+        "publisher": "Hugging Face",
+        "title": "Does Your Model Run on AWS Trainium? Look It Up",
+        "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+        "published": "2026-10-23",
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T13:26:32+08:00",
+        "kind": "官方兼容性目录说明、测试口径与限制"
+      },
+      {
+        "id": "hf-trainium-support-space",
+        "publisher": "AWS Neuron / Hugging Face",
+        "title": "torch-neuronx model support",
+        "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+        "published": null,
+        "checked": "2026-10-24",
+        "verified_at": "2026-10-24T13:26:32+08:00",
+        "kind": "公开查询 Space、运行脚本与版本化结果"
+      },
+      {
         "id": "microsoft-flint-interactive-release",
         "publisher": "Microsoft Research",
         "title": "Flint-interactive: A language for creating interactive data visualizations",
@@ -18289,6 +18475,20 @@
       }
     ],
     "events": [
+      {
+        "id": "hf-trainium-model-support-release",
+        "task": "hf-trainium-model-support",
+        "date": "2026-10-23",
+        "kind": "release",
+        "title": "Hugging Face 发布 Trainium 模型兼容性目录",
+        "summary": "公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。",
+        "delta": "硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。",
+        "sources": [
+          "hf-trainium-support-blog",
+          "hf-trainium-support-space"
+        ],
+        "reviewed": "2026-10-24"
+      },
       {
         "id": "microsoft-flint-interactive-release",
         "task": "microsoft-flint-interactive",
@@ -20353,8 +20553,8 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-24T03:26:35.214354Z",
-    "last_success": "2026-10-24T03:26:35.214354Z",
+    "last_attempt": "2026-10-24T05:22:26.159486Z",
+    "last_success": "2026-10-24T05:22:26.159486Z",
     "last_full_success": "2026-10-24T03:26:35.214354Z",
     "items": [
       {
@@ -20372,7 +20572,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20392,7 +20592,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20412,7 +20612,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20432,7 +20632,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20452,7 +20652,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20492,7 +20692,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20512,7 +20712,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20532,7 +20732,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20552,7 +20752,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20572,7 +20772,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20592,7 +20792,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20612,7 +20812,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20632,7 +20832,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20652,7 +20852,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20691,7 +20891,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20711,7 +20911,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -20750,7 +20950,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20789,7 +20989,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20808,7 +21008,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20827,7 +21027,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20846,7 +21046,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20865,7 +21065,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20884,7 +21084,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20943,7 +21143,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -20963,7 +21163,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -21043,7 +21243,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -21063,7 +21263,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -21083,7 +21283,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -21122,7 +21322,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21142,7 +21342,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -21161,7 +21361,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21200,7 +21400,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21219,7 +21419,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21238,7 +21438,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21257,7 +21457,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21296,7 +21496,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21315,7 +21515,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-24T03:26:35.214354Z",
+        "last_seen": "2026-10-24T05:22:26.159486Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -21365,16 +21565,15 @@
       {
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
-        "status": "success",
-        "checked_at": "2026-10-24T03:26:35.214354Z",
-        "parsed": 14,
-        "matched": 14
+        "status": "failed",
+        "checked_at": "2026-10-24T05:22:26.159486Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-24T03:26:35.214354Z",
+        "checked_at": "2026-10-24T05:22:26.159486Z",
         "parsed": 17,
         "matched": 17
       },
@@ -21382,12 +21581,17 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-24T03:26:35.214354Z",
+        "checked_at": "2026-10-24T05:22:26.159486Z",
         "parsed": 20,
         "matched": 20
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "source_id": "github-bionemo-framework",
+        "error": "HTTP 403"
+      }
+    ],
     "note": "自动候选资料，未核验。机器分类不等于疗效、良率、可用性或监管结论。",
     "version": 1
   },
@@ -21506,6 +21710,51 @@
       }
     ],
     "items": [
+      {
+        "id": "hf-trainium-model-support",
+        "publisher": "Hugging Face / AWS Neuron",
+        "group": "research",
+        "access": "web",
+        "headline": "先查模型与软件栈是否通过 Trainium 短测，再跑自己的吞吐和长文本基线",
+        "input": "一个 Hugging Face Transformers 模型 ID，以及准备使用的 neuronx-cc、Transformers、实例和任务版本",
+        "output": "公开兼容性结果、失败原因、核心数、峰值设备内存、运行时长、完整软件版本与可复跑的 run.py",
+        "requirements": "查询只需访问公开 Space 或数据集；复跑需要 Trainium2 实例、对应 AWS Neuron 深度学习容器与页面列出的依赖版本。",
+        "limitation": "本站只核验官方博客、Space 与数据集，未租用 Trainium2 复跑。PASS 只代表最多 16 核上成功生成并检查 32 个 token，不代表吞吐、长上下文稳定性、生成质量或成本；当前仅测 text-generation 与 image-text-to-text。",
+        "cost": "Space 和结果数据公开可查；实际复跑会产生 Trainium2 实例、存储、编译与工程维护成本，价格和区域需以接入时 AWS 条款为准。",
+        "steps": [
+          {
+            "title": "锁定模型与软件版本",
+            "body": "在 Space 里按模型 ID 查询，记录 neuronx-cc、Transformers、核心数、结果与失败原因；不要只抄当前 PASS 标签。"
+          },
+          {
+            "title": "复跑官方 32-token 检查",
+            "body": "在匹配的 Trainium2 容器中使用页面生成的 run.py；先确认编译、分片、输出检查和峰值内存与公开记录一致。"
+          },
+          {
+            "title": "另建真实负载基线",
+            "body": "用目标上下文长度、批量、生成长度和质量样本测 p50/p95 时延、吞吐、内存、失败率与成本，并与现有硬件基线同口径比较。"
+          }
+        ],
+        "troubleshooting": "找不到模型时切到 Trending 或 Downloads 视图并核对任务类型；编译失败时先比对 compiler、Transformers 与 Neuron 栈版本；PASS 后长文本或吞吐不达标不应归因于目录错误，而要单独记录真实负载差异。",
+        "sources": [
+          {
+            "title": "Hugging Face Trainium 模型支持官方说明",
+            "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+            "published_at": "2026-10-23",
+            "verified_at": "2026-10-24"
+          },
+          {
+            "title": "AWS Neuron / Hugging Face 模型支持查询 Space",
+            "url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+            "published_at": null,
+            "verified_at": "2026-10-24"
+          }
+        ],
+        "entry_url": "https://huggingface.co/spaces/aws-neuron/torch-neuronx-model-support",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-24T13:26:32+08:00"
+      },
       {
         "id": "microsoft-flint-interactive",
         "publisher": "Microsoft",
