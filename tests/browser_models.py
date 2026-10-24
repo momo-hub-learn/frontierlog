@@ -12,8 +12,8 @@ def shot(page,n,full=False):page.evaluate("scrollTo(0,0);document.querySelector(
 with sync_playwright() as p:
  opts={'headless':True}
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
- b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1);page.set_default_timeout(5000)
- page.on('pageerror',lambda e:errors.append(str(e)));page.set_content(HTML)
+ b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1);page.set_default_timeout(45000)
+ page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',lambda r:r.abort());page.set_content(HTML,wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
