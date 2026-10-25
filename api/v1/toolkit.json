@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemo-automodel-0-7",
+      "publisher": "NVIDIA NeMo",
+      "group": "research",
+      "access": "local",
+      "headline": "先跑 2-GPU、10-step Qwen3 小配方，再决定是否迁移真实训练",
+      "input": "NVIDIA 26.10 AutoModel 容器、两张受支持 GPU、公开 Qwen3-0.6B 与 HellaSwag，以及一个准备迁移的目标模型和小数据集",
+      "output": "可复核的容器、配置、日志、峰值显存和 10-step 训练结果，以及目标模型并行与检查点限制清单",
+      "requirements": "Linux、Docker、NVIDIA Container Toolkit、至少两张受支持 NVIDIA GPU，以及 nvcr.io/nvidia/nemo-automodel:26.10.00。真实模型另需相应权重权限与存储。",
+      "limitation": "本站核验官方 Release 与文档，但未运行容器。快速入门只验证一个 2-GPU、10-step 小配方，不代表吞吐、收敛或目标模型可用；部分新路径缺少 TP、PP、CP、packing 或发布 CI 覆盖。",
+      "cost": "代码公开；本地复跑会产生 GPU、容器镜像、权重下载、存储与训练时间成本。GLM 医学视觉示例使用 72 张 H100，不应从快速入门推断其资源门槛。",
+      "steps": [
+        {
+          "title": "固定官方容器与快速入门",
+          "body": "记录 26.10.00 容器、GPU、驱动和配置修订，只跑官方 Qwen3-0.6B / HellaSwag、2 GPU、10 step 配方。",
+          "command": "docker run --gpus all --rm -it nvcr.io/nvidia/nemo-automodel:26.10.00"
+        },
+        {
+          "title": "核对接线与资源",
+          "body": "保存完整日志、峰值显存、检查点输出和退出状态；把容器可启动、数据可读与训练真正完成分开记录。"
+        },
+        {
+          "title": "再迁移一个目标模型",
+          "body": "逐项核对模型的 TP、PP、CP、packing、MTP、remote code 和 CI 状态；用小数据和短程运行验证后再扩大预算。"
+        }
+      ],
+      "troubleshooting": "容器起不来先核对驱动、Container Toolkit 和镜像标签；配置加载失败时检查模型修订、remote code 与文档版本；显存不足先缩小批量和序列长度，不假设尚未支持的并行方式可用。",
+      "sources": [
+        {
+          "title": "NeMo AutoModel v0.7.0 官方 Release",
+          "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-25"
+        },
+        {
+          "title": "NeMo AutoModel 0.7 官方快速入门",
+          "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+          "published_at": null,
+          "verified_at": "2026-10-25"
+        }
+      ],
+      "entry_url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-25T09:21:40+08:00"
+    },
+    {
       "id": "allenai-olmoearth-v1-3",
       "publisher": "Ai2",
       "group": "research",

@@ -37,6 +37,53 @@
     ],
     "items": [
       {
+        "id": "nvidia-nemo-automodel-0-7-20261021",
+        "category": "product",
+        "title": "NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径",
+        "published": "2026-10-21",
+        "checked": "2026-10-25",
+        "verified_at": "2026-10-25T09:21:40+08:00",
+        "first_seen_at": "2026-10-25T09:21:40+08:00",
+        "heat": 87,
+        "heat_components": {
+          "impact": 31,
+          "availability": 18,
+          "evidence": 25,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是训练性能、模型能力或本站实测分数。",
+        "trend": "up",
+        "summary": "NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。",
+        "why": "同一套 PyTorch 原生训练接口开始覆盖更分散的后训练与生成范式。做模型适配的团队可先用官方小配方验证配置、并行策略和显存，再决定是否迁移真实训练任务。",
+        "boundary": "这是 NVIDIA 官方 Release 与文档，不是本站训练实测。部分配方仍冻结索引器或缺少 TP、PP、CP、packing 等路径；GLM 医学视觉示例使用 72 张 H100，Cohere 预览依赖 remote code 且未纳入本次发布 CI，不能把版本覆盖写成所有模型与规模均已稳定。",
+        "source": "NVIDIA NeMo",
+        "source_kind": "官方 GitHub Release 与文档 / 本轮编辑核验",
+        "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看 v0.7.0 Release",
+            "note": "先核对目标模型的已知限制、并行支持与发布 CI 范围",
+            "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+            "kind": "code"
+          },
+          {
+            "label": "运行官方 2-GPU 快速入门",
+            "note": "用 10-step Qwen3-0.6B / HellaSwag 配方验证容器与训练接线",
+            "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA Documentation",
+            "title": "NeMo AutoModel 0.7 快速入门",
+            "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+            "date": "2026-10-21"
+          }
+        ]
+      },
+      {
         "id": "docling-v2-142-1-input-hardening-20261023",
         "category": "product",
         "title": "Docling v2.142.1 收紧不可信文档输入边界",
@@ -3162,13 +3209,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-25T00:35:54Z",
+    "generated_at": "2026-10-25T01:28:29Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 67,
+      "merge": 68,
       "hold": 3
     },
     "candidates": [
@@ -4010,6 +4057,30 @@
         "first_seen_at": "2026-10-22T05:26:27Z"
       },
       {
+        "id": "candidate-bb0bc414c62e4fca",
+        "category": "product",
+        "published": "2026-10-21",
+        "title": "NVIDIA 发布 NeMo AutoModel 0.7",
+        "summary": "训练栈扩大模型与 MoE 覆盖，加入推测解码、离散扩散、图像微调、FlashAttention-4 和低内存加载路径。",
+        "why": "更多训练范式被收进同一套 PyTorch 原生接口；能否用于目标模型仍取决于对应并行路径、检查点、显存和发布 CI 覆盖。",
+        "boundary": "版本清单不是本站训练实测，也不代表所有组合都支持。部分新配方缺少 TP、PP、CP 或 packing，GLM 医学视觉示例使用 72 张 H100；Cohere 预览依赖 remote code 且未纳入本次发布 CI。",
+        "source": "NVIDIA NeMo",
+        "source_kind": "官方版本发布、能力清单、已知限制与 CI 范围",
+        "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+        "publishable": true,
+        "features": {
+          "freshness": 0.714,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.74,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "nvidia-nemo-automodel-0-7",
+        "first_seen_at": "2026-10-25T01:28:29Z"
+      },
+      {
         "id": "candidate-c21212465f6f4674",
         "category": "product",
         "published": "2026-10-21",
@@ -4126,35 +4197,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T11:52:59Z"
-      },
-      {
-        "id": "candidate-1a8825c7fc7b6d70",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "关系数据预测从任务级训练转向少样本上下文学习",
-        "summary": "Kumo Relational 直接在表、外键和时间戳上运行，以最多 10,000 个历史样例作为上下文；作者报告其在 15 个数据库的 41 个任务上超过多种监督关系模型与特征工程基线。",
-        "why": "如果独立复现成立，企业表数据的新预测任务可以更像声明一个查询，而不是每次重建特征、训练与部署流水线；这也给 Agent 增加了“预测下一步”的结构化数据工具。",
-        "boundary": "不同榜单的 AUROC、MRR 和 Elo 不能合并成综合分。报告来自作者；官方也明确大训练集下专用监督模型可能更强，且预测信号必须在有限关系跳数内可达。",
-        "source": "NVIDIA / Kumo",
-        "source_kind": "官方发布、论文、文档与代码入口",
-        "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-        "publishable": false,
-        "features": {
-          "freshness": 0.714,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.73,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "relational-foundation-models-in-context-prediction",
-        "topic_tags": [
-          "Relational Foundation Model",
-          "In-Context Learning",
-          "Structured Data"
-        ],
-        "first_seen_at": "2026-10-22T01:32:24Z"
       }
     ]
   },
@@ -7151,12 +7193,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-25T00:35:54Z",
+    "last_evaluated": "2026-10-25T01:28:29Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 70,
+      "candidate_count": 71,
       "publish_ready_count": 0,
-      "merge_count": 67,
+      "merge_count": 68,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },
@@ -7177,7 +7219,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T23:22:39Z",
+    "checked_at": "2026-10-25T01:17:59Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -7185,11 +7227,11 @@
       {
         "repo": "cloudflare/security-audit-skill",
         "rank": 1,
-        "stars_today": 2271,
+        "stars_today": 2264,
         "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
-        "stars": 44464,
-        "forks": 2765,
+        "stars": 44596,
+        "forks": 2769,
         "repo_created_at": "2026-06-18T14:08:44Z",
         "repo_pushed_at": "2026-09-14T19:29:02Z",
         "category": "agent-skills",
@@ -7200,12 +7242,8 @@
           "Workflow"
         ],
         "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-24T23:22:39Z",
+        "metadata_verified_at": "2026-10-25T01:17:59Z",
         "star_history": [
-          {
-            "at": "2026-10-24T07:20:57Z",
-            "stars": 42638
-          },
           {
             "at": "2026-10-24T09:14:52Z",
             "stars": 42758
@@ -7249,13 +7287,17 @@
           {
             "at": "2026-10-24T23:22:39Z",
             "stars": 44464
+          },
+          {
+            "at": "2026-10-25T01:17:59Z",
+            "stars": 44596
           }
         ]
       },
       {
         "repo": "NVIDIA/OpenShell",
         "rank": 2,
-        "stars_today": 893,
+        "stars_today": 896,
         "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "language": "Rust",
         "stars": 19459,
@@ -7320,12 +7362,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 19459
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "aws/agent-toolkit-for-aws",
         "rank": 3,
-        "stars_today": 11,
+        "stars_today": 13,
         "description": "Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS",
         "language": "Python",
         "stars": 3118,
@@ -7374,12 +7417,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 3118
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Nutlope/hallmark",
         "rank": 4,
-        "stars_today": 570,
+        "stars_today": 455,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
         "stars": 32099,
@@ -7428,12 +7472,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 32099
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "luongnv89/claude-howto",
         "rank": 5,
-        "stars_today": 442,
+        "stars_today": 392,
         "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
         "language": "Python",
         "stars": 44522,
@@ -7482,12 +7527,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 44522
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "pbakaus/impeccable",
         "rank": 6,
-        "stars_today": 733,
+        "stars_today": 619,
         "description": "The design language that makes your AI harness better at design.",
         "language": "Rust",
         "stars": 86365,
@@ -7536,12 +7582,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 86365
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "pollen-robotics/microduck",
         "rank": 7,
-        "stars_today": 381,
+        "stars_today": 319,
         "description": "A Tiny biped duck robot 🦆",
         "language": "Rust",
         "stars": 10962,
@@ -7585,12 +7632,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 10962
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "google-gemini/gemini-cli",
         "rank": 8,
-        "stars_today": 38,
+        "stars_today": 44,
         "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
         "language": "TypeScript",
         "stars": 108025,
@@ -7635,12 +7683,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 108025
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "jbiaojerry/ebook-treasure-chest",
         "rank": 9,
-        "stars_today": 220,
+        "stars_today": 227,
         "description": "欢迎来到电子书下载宝库，一个汇聚了各类电子书下载链接的地方。无论你是喜欢阅读经典文学、经管励志、终身学习、职场创业、技术手册还是其他类型的书籍，这里都能满足你的需求。 该库涵盖了帆书app(原樊登读书)、微信读书、京东读书、喜马拉雅等读书app的大部分电子书。",
         "language": "Python",
         "stars": 22579,
@@ -7684,12 +7733,13 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 22579
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "makecindy/cindy",
         "rank": 10,
-        "stars_today": 471,
+        "stars_today": 477,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
         "stars": 4070,
@@ -7734,7 +7784,8 @@
             "at": "2026-10-24T23:22:39Z",
             "stars": 4070
           }
-        ]
+        ],
+        "metadata_status": "stale"
       }
     ],
     "categories": [
@@ -7812,17 +7863,24 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-24T23:22:39Z",
-      "last_success_at": "2026-10-24T23:22:39Z",
+      "last_checked_at": "2026-10-25T01:17:59Z",
+      "last_success_at": "2026-10-25T01:17:59Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-24T23:22:39Z",
+      "watchlist_checked_at": "2026-10-25T01:17:59Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 10,
-      "verified_count": 10,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "skipped": []
+      "verified_count": 1,
+      "metadata_failed_count": 9,
+      "metadata_status": "partial",
+      "skipped": [
+        "NVIDIA/OpenShell: HTTP Error 403: Forbidden",
+        "aws/agent-toolkit-for-aws: HTTP Error 403: Forbidden",
+        "Nutlope/hallmark: HTTP Error 403: Forbidden",
+        "luongnv89/claude-howto: HTTP Error 403: Forbidden",
+        "pbakaus/impeccable: HTTP Error 403: Forbidden",
+        "pollen-robotics/microduck: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -7836,46 +7894,46 @@
           "Agent",
           "MCP"
         ],
-        "stars": 378544,
-        "forks": 94563,
+        "stars": 378857,
+        "forks": 94667,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-24T22:54:48Z",
+        "repo_pushed_at": "2026-10-25T01:15:19Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-24T23:22:39Z",
+        "verified_at": "2026-10-25T01:17:59Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-24T23:23:42Z",
+    "checked_at": "2026-10-25T01:17:59Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-24T23:23:42Z",
-    "web_fetched_at": "2026-10-24T23:23:42Z",
+    "api_fetched_at": "2026-10-25T01:17:59Z",
+    "web_fetched_at": "2026-10-25T01:17:59Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "RecursiveSI/flint",
       "black-forest-labs/flux-3-image-klein-comfy",
       "Lightricks/LTX-2.5",
-      "OpenMOSS-Team/MOSS-Image-SFT",
       "XHToken/Spark-X2.6-4B",
+      "OpenMOSS-Team/MOSS-Image-SFT",
       "fishaudio/drama-3",
-      "Qwen/Qwen3.8-27B",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "Qwen/Qwen3.8-27B",
       "MiniMaxAI/MiniMax-M3.1-Flash",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
       "OpenMOSS-Team/MOSS-Image-Base",
       "Comfy-Org/MOSS-Image",
       "InternScience/Sage-A1.5",
-      "google/embeddinggemma-2",
       "lodestones/Kromoss",
       "mistralai/Timestral-209M",
+      "google/embeddinggemma-2",
       "datalab-to/indra-ocr",
       "unsloth/flint-GGUF",
       "orcarouter/OrcaCyber-Nano-1.0"
@@ -7886,140 +7944,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
-      },
-      {
-        "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "rank": 5,
-        "previous_rank": 5,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
-        "rank": 6,
+        "rank": 5,
         "previous_rank": 6,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
+      },
+      {
+        "id": "OpenMOSS-Team/MOSS-Image-SFT",
+        "rank": 6,
+        "previous_rank": 5,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
-      },
-      {
-        "id": "Qwen/Qwen3.8-27B",
-        "rank": 8,
-        "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 9,
+        "rank": 8,
         "previous_rank": 9,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
+      },
+      {
+        "id": "Qwen/Qwen3.8-27B",
+        "rank": 9,
+        "previous_rank": 8,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 11,
-        "previous_rank": 12,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_rank": 11,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 12,
-        "previous_rank": 11,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
-      },
-      {
-        "id": "google/embeddinggemma-2",
-        "rank": 15,
-        "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "lodestones/Kromoss",
-        "rank": 16,
-        "previous_rank": 17,
+        "rank": 15,
+        "previous_rank": 16,
         "rank_change": 1,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "mistralai/Timestral-209M",
+        "rank": 16,
+        "previous_rank": 17,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
+      },
+      {
+        "id": "google/embeddinggemma-2",
         "rank": 17,
-        "previous_rank": 16,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_rank": 15,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "datalab-to/indra-ocr",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       },
       {
         "id": "orcarouter/OrcaCyber-Nano-1.0",
         "rank": 20,
         "previous_rank": 20,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-24T21:20:11Z"
+        "previous_fetched_at": "2026-10-24T23:23:42Z"
       }
     ],
     "items": [
@@ -8027,8 +8085,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1460,
-        "likes": 2766,
+        "trending_score": 1441,
+        "likes": 2788,
         "downloads": 73215,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8044,8 +8102,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 744,
-        "likes": 770,
+        "trending_score": 754,
+        "likes": 780,
         "downloads": 4795,
         "task": "text-generation",
         "library": "transformers",
@@ -8061,8 +8119,8 @@
         "rank": 3,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 549,
-        "likes": 1495,
+        "trending_score": 558,
+        "likes": 1506,
         "downloads": 590742,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -8079,7 +8137,7 @@
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
         "trending_score": 415,
-        "likes": 9172,
+        "likes": 9189,
         "downloads": 2087721,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -8093,27 +8151,10 @@
       },
       {
         "rank": 5,
-        "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 408,
-        "likes": 687,
-        "downloads": 9717,
-        "task": "text-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-11T07:01:17.000Z",
-        "tags": [
-          "diffusers",
-          "safetensors",
-          "moss-image",
-          "text-to-image"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 405,
-        "likes": 443,
+        "trending_score": 415,
+        "likes": 454,
         "downloads": 2537,
         "task": "text-generation",
         "library": "transformers",
@@ -8126,11 +8167,28 @@
         ]
       },
       {
+        "rank": 6,
+        "id": "OpenMOSS-Team/MOSS-Image-SFT",
+        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
+        "trending_score": 409,
+        "likes": 697,
+        "downloads": 9717,
+        "task": "text-to-image",
+        "library": "diffusers",
+        "created_at": "2026-10-11T07:01:17.000Z",
+        "tags": [
+          "diffusers",
+          "safetensors",
+          "moss-image",
+          "text-to-image"
+        ]
+      },
+      {
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 340,
-        "likes": 979,
+        "trending_score": 347,
+        "likes": 989,
         "downloads": 19831,
         "task": "text-to-speech",
         "library": "未标注",
@@ -8144,27 +8202,10 @@
       },
       {
         "rank": 8,
-        "id": "Qwen/Qwen3.8-27B",
-        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 315,
-        "likes": 18339,
-        "downloads": 7851161,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-08-05T08:22:59.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "qwen3_5",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 9,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 314,
-        "likes": 4963,
+        "trending_score": 316,
+        "likes": 4975,
         "downloads": 2303585,
         "task": "text-to-image",
         "library": "gguf",
@@ -8177,11 +8218,28 @@
         ]
       },
       {
+        "rank": 9,
+        "id": "Qwen/Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "trending_score": 314,
+        "likes": 18349,
+        "downloads": 7851161,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-08-05T08:22:59.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3_5",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 10,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 297,
-        "likes": 307,
+        "trending_score": 307,
+        "likes": 317,
         "downloads": 5789,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8197,8 +8255,8 @@
         "rank": 11,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 290,
-        "likes": 332,
+        "trending_score": 298,
+        "likes": 341,
         "downloads": 5583,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8215,7 +8273,7 @@
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
         "trending_score": 288,
-        "likes": 533,
+        "likes": 542,
         "downloads": 6943,
         "task": "text-to-image",
         "library": "diffusers",
@@ -8231,8 +8289,8 @@
         "rank": 13,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 265,
-        "likes": 424,
+        "trending_score": 272,
+        "likes": 434,
         "downloads": 1944278,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -8248,8 +8306,8 @@
         "rank": 14,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 262,
-        "likes": 267,
+        "trending_score": 271,
+        "likes": 276,
         "downloads": 2033,
         "task": "text-generation",
         "library": "transformers",
@@ -8263,27 +8321,10 @@
       },
       {
         "rank": 15,
-        "id": "google/embeddinggemma-2",
-        "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 243,
-        "likes": 2893,
-        "downloads": 206909,
-        "task": "feature-extraction",
-        "library": "transformers",
-        "created_at": "2026-09-14T14:53:42.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "embedding_gemma2",
-          "feature-extraction"
-        ]
-      },
-      {
-        "rank": 16,
         "id": "lodestones/Kromoss",
         "url": "https://huggingface.co/lodestones/Kromoss",
-        "trending_score": 241,
-        "likes": 246,
+        "trending_score": 249,
+        "likes": 254,
         "downloads": 21143,
         "task": "text-to-image",
         "library": "diffusers",
@@ -8296,11 +8337,11 @@
         ]
       },
       {
-        "rank": 17,
+        "rank": 16,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 237,
-        "likes": 338,
+        "trending_score": 245,
+        "likes": 346,
         "downloads": 8731,
         "task": "time-series-forecasting",
         "library": "timestral",
@@ -8313,11 +8354,28 @@
         ]
       },
       {
+        "rank": 17,
+        "id": "google/embeddinggemma-2",
+        "url": "https://huggingface.co/google/embeddinggemma-2",
+        "trending_score": 241,
+        "likes": 2902,
+        "downloads": 206909,
+        "task": "feature-extraction",
+        "library": "transformers",
+        "created_at": "2026-09-14T14:53:42.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "embedding_gemma2",
+          "feature-extraction"
+        ]
+      },
+      {
         "rank": 18,
         "id": "datalab-to/indra-ocr",
         "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 218,
-        "likes": 401,
+        "trending_score": 226,
+        "likes": 409,
         "downloads": 4436,
         "task": "image-to-text",
         "library": "onnx",
@@ -8333,8 +8391,8 @@
         "rank": 19,
         "id": "unsloth/flint-GGUF",
         "url": "https://huggingface.co/unsloth/flint-GGUF",
-        "trending_score": 213,
-        "likes": 218,
+        "trending_score": 222,
+        "likes": 228,
         "downloads": 78891,
         "task": "text-generation",
         "library": "未标注",
@@ -8350,8 +8408,8 @@
         "rank": 20,
         "id": "orcarouter/OrcaCyber-Nano-1.0",
         "url": "https://huggingface.co/orcarouter/OrcaCyber-Nano-1.0",
-        "trending_score": 211,
-        "likes": 227,
+        "trending_score": 218,
+        "likes": 235,
         "downloads": 27054,
         "task": "image-text-to-text",
         "library": "gguf",
@@ -8366,7 +8424,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-24T23:23:42Z",
+      "last_checked_at": "2026-10-25T01:17:59Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -17639,6 +17697,37 @@
     "snapshot": "2026-10-25",
     "items": [
       {
+        "id": "nvidia-nemo-automodel-0-7",
+        "name": "NVIDIA · NeMo AutoModel 0.7",
+        "title": "用一套 PyTorch 原生配置训练更多 LLM、VLM 与扩散模型",
+        "category": "模型训练",
+        "mark": "NA",
+        "accent": "lime",
+        "summary": "扩展 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，加入更多 MoE、推测解码、离散扩散、图像微调和 FlashAttention-4 路径。",
+        "scope": "NVIDIA 2026-10-21 发布 v0.7.0；官方文档提供 26.10 容器与 Qwen3-0.6B、HellaSwag、2 GPU、10 step 的快速入门。",
+        "boundary": "版本清单不是本站训练实测，也不代表所有组合都支持。部分新配方缺少 TP、PP、CP 或 packing，GLM 医学视觉示例使用 72 张 H100；Cohere 预览依赖 remote code 且未纳入本次发布 CI。",
+        "repo": "NVIDIA-NeMo/Automodel",
+        "sources": [
+          "nvidia-nemo-automodel-0-7-release",
+          "nvidia-nemo-automodel-0-7-docs"
+        ],
+        "requirements": "Linux、Docker、NVIDIA Container Toolkit、受支持的 NVIDIA GPU，以及 nvcr.io/nvidia/nemo-automodel:26.10.00 容器；真实模型还需相应权重访问和存储。",
+        "test": "先复跑官方 Qwen3-0.6B / HellaSwag 2-GPU、10-step 配方，记录容器、配置、GPU、峰值显存与日志；再用一个目标模型做小数据训练并核对其并行与检查点限制。",
+        "checks": [
+          "固定容器、配置、模型修订、GPU 和随机种子",
+          "逐项核对目标模型的 TP、PP、CP、packing 与 MTP 支持",
+          "remote code 只在隔离环境审查后启用，不把未进 CI 的预览当稳定路径",
+          "把配置可运行、吞吐、收敛与任务质量分开报告"
+        ],
+        "command": "docker run --gpus all --rm -it nvcr.io/nvidia/nemo-automodel:26.10.00",
+        "effort": "开源代码 / 需 NVIDIA GPU、容器、模型权重与训练预算",
+        "evidence": "NVIDIA 官方 GitHub Release 与 NeMo AutoModel 0.7 文档",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-25",
+        "verified_at": "2026-10-25T09:21:40+08:00"
+      },
+      {
         "id": "allenai-olmoearth-v1-3",
         "name": "Ai2 · OlmoEarth v1.3",
         "title": "浏览和复用全球 10 米卫星嵌入",
@@ -18560,6 +18649,26 @@
     ],
     "sources": [
       {
+        "id": "nvidia-nemo-automodel-0-7-release",
+        "publisher": "NVIDIA NeMo",
+        "title": "NeMo AutoModel v0.7.0",
+        "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+        "published": "2026-10-21",
+        "checked": "2026-10-25",
+        "verified_at": "2026-10-25T09:21:40+08:00",
+        "kind": "官方版本发布、能力清单、已知限制与 CI 范围"
+      },
+      {
+        "id": "nvidia-nemo-automodel-0-7-docs",
+        "publisher": "NVIDIA",
+        "title": "NeMo AutoModel 0.7 documentation and quickstart",
+        "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+        "published": null,
+        "checked": "2026-10-25",
+        "verified_at": "2026-10-25T09:21:40+08:00",
+        "kind": "官方安装、容器与 2-GPU 快速入门"
+      },
+      {
         "id": "olmoearth-v1-3-blog",
         "publisher": "Ai2",
         "title": "OlmoEarth v1.3: Open Global Satellite Embeddings",
@@ -19093,6 +19202,20 @@
       }
     ],
     "events": [
+      {
+        "id": "nvidia-nemo-automodel-0-7-release",
+        "task": "nvidia-nemo-automodel-0-7",
+        "date": "2026-10-21",
+        "kind": "release",
+        "title": "NVIDIA 发布 NeMo AutoModel 0.7",
+        "summary": "训练栈扩大模型与 MoE 覆盖，加入推测解码、离散扩散、图像微调、FlashAttention-4 和低内存加载路径。",
+        "delta": "更多训练范式被收进同一套 PyTorch 原生接口；能否用于目标模型仍取决于对应并行路径、检查点、显存和发布 CI 覆盖。",
+        "sources": [
+          "nvidia-nemo-automodel-0-7-release",
+          "nvidia-nemo-automodel-0-7-docs"
+        ],
+        "reviewed": "2026-10-25"
+      },
       {
         "id": "olmoearth-v1-3-release",
         "task": "allenai-olmoearth-v1-3",
@@ -22398,6 +22521,52 @@
       }
     ],
     "items": [
+      {
+        "id": "nvidia-nemo-automodel-0-7",
+        "publisher": "NVIDIA NeMo",
+        "group": "research",
+        "access": "local",
+        "headline": "先跑 2-GPU、10-step Qwen3 小配方，再决定是否迁移真实训练",
+        "input": "NVIDIA 26.10 AutoModel 容器、两张受支持 GPU、公开 Qwen3-0.6B 与 HellaSwag，以及一个准备迁移的目标模型和小数据集",
+        "output": "可复核的容器、配置、日志、峰值显存和 10-step 训练结果，以及目标模型并行与检查点限制清单",
+        "requirements": "Linux、Docker、NVIDIA Container Toolkit、至少两张受支持 NVIDIA GPU，以及 nvcr.io/nvidia/nemo-automodel:26.10.00。真实模型另需相应权重权限与存储。",
+        "limitation": "本站核验官方 Release 与文档，但未运行容器。快速入门只验证一个 2-GPU、10-step 小配方，不代表吞吐、收敛或目标模型可用；部分新路径缺少 TP、PP、CP、packing 或发布 CI 覆盖。",
+        "cost": "代码公开；本地复跑会产生 GPU、容器镜像、权重下载、存储与训练时间成本。GLM 医学视觉示例使用 72 张 H100，不应从快速入门推断其资源门槛。",
+        "steps": [
+          {
+            "title": "固定官方容器与快速入门",
+            "body": "记录 26.10.00 容器、GPU、驱动和配置修订，只跑官方 Qwen3-0.6B / HellaSwag、2 GPU、10 step 配方。",
+            "command": "docker run --gpus all --rm -it nvcr.io/nvidia/nemo-automodel:26.10.00"
+          },
+          {
+            "title": "核对接线与资源",
+            "body": "保存完整日志、峰值显存、检查点输出和退出状态；把容器可启动、数据可读与训练真正完成分开记录。"
+          },
+          {
+            "title": "再迁移一个目标模型",
+            "body": "逐项核对模型的 TP、PP、CP、packing、MTP、remote code 和 CI 状态；用小数据和短程运行验证后再扩大预算。"
+          }
+        ],
+        "troubleshooting": "容器起不来先核对驱动、Container Toolkit 和镜像标签；配置加载失败时检查模型修订、remote code 与文档版本；显存不足先缩小批量和序列长度，不假设尚未支持的并行方式可用。",
+        "sources": [
+          {
+            "title": "NeMo AutoModel v0.7.0 官方 Release",
+            "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+            "published_at": "2026-10-21",
+            "verified_at": "2026-10-25"
+          },
+          {
+            "title": "NeMo AutoModel 0.7 官方快速入门",
+            "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+            "published_at": null,
+            "verified_at": "2026-10-25"
+          }
+        ],
+        "entry_url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-25T09:21:40+08:00"
+      },
       {
         "id": "allenai-olmoearth-v1-3",
         "publisher": "Ai2",

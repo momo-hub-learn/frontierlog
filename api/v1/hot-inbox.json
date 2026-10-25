@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-25T00:35:54Z",
+  "generated_at": "2026-10-25T01:28:29Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 67,
+    "merge": 68,
     "hold": 3
   },
   "candidates": [
@@ -848,6 +848,30 @@
       "first_seen_at": "2026-10-22T05:26:27Z"
     },
     {
+      "id": "candidate-bb0bc414c62e4fca",
+      "category": "product",
+      "published": "2026-10-21",
+      "title": "NVIDIA 发布 NeMo AutoModel 0.7",
+      "summary": "训练栈扩大模型与 MoE 覆盖，加入推测解码、离散扩散、图像微调、FlashAttention-4 和低内存加载路径。",
+      "why": "更多训练范式被收进同一套 PyTorch 原生接口；能否用于目标模型仍取决于对应并行路径、检查点、显存和发布 CI 覆盖。",
+      "boundary": "版本清单不是本站训练实测，也不代表所有组合都支持。部分新配方缺少 TP、PP、CP 或 packing，GLM 医学视觉示例使用 72 张 H100；Cohere 预览依赖 remote code 且未纳入本次发布 CI。",
+      "source": "NVIDIA NeMo",
+      "source_kind": "官方版本发布、能力清单、已知限制与 CI 范围",
+      "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+      "publishable": true,
+      "features": {
+        "freshness": 0.714,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.74,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-nemo-automodel-0-7",
+      "first_seen_at": "2026-10-25T01:28:29Z"
+    },
+    {
       "id": "candidate-c21212465f6f4674",
       "category": "product",
       "published": "2026-10-21",
@@ -964,35 +988,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T11:52:59Z"
-    },
-    {
-      "id": "candidate-1a8825c7fc7b6d70",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "关系数据预测从任务级训练转向少样本上下文学习",
-      "summary": "Kumo Relational 直接在表、外键和时间戳上运行，以最多 10,000 个历史样例作为上下文；作者报告其在 15 个数据库的 41 个任务上超过多种监督关系模型与特征工程基线。",
-      "why": "如果独立复现成立，企业表数据的新预测任务可以更像声明一个查询，而不是每次重建特征、训练与部署流水线；这也给 Agent 增加了“预测下一步”的结构化数据工具。",
-      "boundary": "不同榜单的 AUROC、MRR 和 Elo 不能合并成综合分。报告来自作者；官方也明确大训练集下专用监督模型可能更强，且预测信号必须在有限关系跳数内可达。",
-      "source": "NVIDIA / Kumo",
-      "source_kind": "官方发布、论文、文档与代码入口",
-      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-      "publishable": false,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.73,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "relational-foundation-models-in-context-prediction",
-      "topic_tags": [
-        "Relational Foundation Model",
-        "In-Context Learning",
-        "Structured Data"
-      ],
-      "first_seen_at": "2026-10-22T01:32:24Z"
     }
   ]
 }

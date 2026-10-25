@@ -395,7 +395,13 @@
 
 边界：这是作者预印本、项目页和公开评测，本站未运行。13 个基线在不同任务和指标上各有取舍，不能把单列最优值拼成综合能力；原始视频获取、模型成本、隐私与长期误报也未由这套分数解决。
 
-站内热度 88；不是全网流量。</description></item><item><title>Anthropic 征集生命科学客座研究者：8–12 周共建公开成果</title><guid isPermaLink="false">frontierlog:hot:anthropic-life-sciences-guest-investigators-20261022</guid><link>https://www.anthropic.com/news/open-call-guest-investigators-life-sciences</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。
+站内热度 88；不是全网流量。</description></item><item><title>NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径</title><guid isPermaLink="false">frontierlog:hot:nvidia-nemo-automodel-0-7-20261021</guid><link>https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。
+
+为什么值得看：同一套 PyTorch 原生训练接口开始覆盖更分散的后训练与生成范式。做模型适配的团队可先用官方小配方验证配置、并行策略和显存，再决定是否迁移真实训练任务。
+
+边界：这是 NVIDIA 官方 Release 与文档，不是本站训练实测。部分配方仍冻结索引器或缺少 TP、PP、CP、packing 等路径；GLM 医学视觉示例使用 72 张 H100，Cohere 预览依赖 remote code 且未纳入本次发布 CI，不能把版本覆盖写成所有模型与规模均已稳定。
+
+站内热度 87；不是全网流量。</description></item><item><title>Anthropic 征集生命科学客座研究者：8–12 周共建公开成果</title><guid isPermaLink="false">frontierlog:hot:anthropic-life-sciences-guest-investigators-20261022</guid><link>https://www.anthropic.com/news/open-call-guest-investigators-life-sciences</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。
 
 为什么值得看：项目承诺由 Anthropic 免费运行模型与 Harness，并计划公开分析、工具、数据和代码，为观察 AI 科研流程能否形成可复核公共产物提供近期窗口。
 

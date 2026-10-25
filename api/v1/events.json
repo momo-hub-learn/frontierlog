@@ -2,6 +2,20 @@
   "snapshot": "2026-10-25",
   "events": [
     {
+      "id": "nvidia-nemo-automodel-0-7-release",
+      "task": "nvidia-nemo-automodel-0-7",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "NVIDIA 发布 NeMo AutoModel 0.7",
+      "summary": "训练栈扩大模型与 MoE 覆盖，加入推测解码、离散扩散、图像微调、FlashAttention-4 和低内存加载路径。",
+      "delta": "更多训练范式被收进同一套 PyTorch 原生接口；能否用于目标模型仍取决于对应并行路径、检查点、显存和发布 CI 覆盖。",
+      "sources": [
+        "nvidia-nemo-automodel-0-7-release",
+        "nvidia-nemo-automodel-0-7-docs"
+      ],
+      "reviewed": "2026-10-25"
+    },
+    {
       "id": "olmoearth-v1-3-release",
       "task": "allenai-olmoearth-v1-3",
       "date": "2026-10-22",
@@ -460,6 +474,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-nemo-automodel-0-7-release",
+      "publisher": "NVIDIA NeMo",
+      "title": "NeMo AutoModel v0.7.0",
+      "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+      "published": "2026-10-21",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T09:21:40+08:00",
+      "kind": "官方版本发布、能力清单、已知限制与 CI 范围"
+    },
+    {
+      "id": "nvidia-nemo-automodel-0-7-docs",
+      "publisher": "NVIDIA",
+      "title": "NeMo AutoModel 0.7 documentation and quickstart",
+      "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+      "published": null,
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T09:21:40+08:00",
+      "kind": "官方安装、容器与 2-GPU 快速入门"
+    },
     {
       "id": "olmoearth-v1-3-blog",
       "publisher": "Ai2",
