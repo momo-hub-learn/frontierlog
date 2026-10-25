@@ -43,11 +43,12 @@ class CollectorTests(unittest.TestCase):
         calls=[]
         def fetch(repo,**kwargs):calls.append(repo);return [R]
         secondary={'id':'secondary','repo':'owner/project','release_tracking':False}
-        old={'releases':[{'id':'upstream-9','task':'secondary','repo':'owner/project','published_at':'2026-09-17T00:00:00Z'}]}
+        old={'releases':[{'id':'upstream-1','task':'secondary','repo':'owner/project','published_at':'2026-09-18T12:00:00Z','observed_at':'2026-09-19T00:00:00Z'}]}
         data=collect({'items':[T,secondary]},old,fetch,NOW)
         self.assertEqual(calls,['owner/project'])
         self.assertEqual(data['repositories_total'],1)
         self.assertEqual([r['task'] for r in data['releases']],['project'])
+        self.assertEqual(data['releases'][0]['observed_at'],'2026-09-19T00:00:00Z')
     def test_unsafe_repo_does_not_fetch(self):
         with self.assertRaises(FetchError):fetch_releases('../../example.com')
     def test_retries_transient_errors(self):

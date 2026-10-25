@@ -74,7 +74,8 @@ def collect(catalog:dict,previous:dict,fetcher=fetch_releases,now:str|None=None,
     # opting out of release ingestion with ``release_tracking: false``.
     tasks=[t for t in catalog['items'] if t.get('repo') and t.get('release_tracking',True)]
     valid={t['id'] for t in tasks}
-    records={r['id']:dict(r) for r in previous.get('releases',[]) if r.get('task') in valid}
+    previous_by_id={r['id']:dict(r) for r in previous.get('releases',[]) if isinstance(r,dict) and r.get('id')}
+    records={rid:dict(r) for rid,r in previous_by_id.items() if r.get('task') in valid}
     errors=[];succeeded=0
     for t in tasks:
         try:
@@ -82,7 +83,7 @@ def collect(catalog:dict,previous:dict,fetcher=fetch_releases,now:str|None=None,
             normalized=normalize(rows,t,now)
             for row in normalized:
                 # Preserve original first observation to avoid changing old items on every run.
-                if row['id'] in records:row['observed_at']=records[row['id']]['observed_at']
+                if row['id'] in previous_by_id:row['observed_at']=previous_by_id[row['id']]['observed_at']
                 records[row['id']]=row
             succeeded+=1
         except (FetchError,ValueError) as e:
