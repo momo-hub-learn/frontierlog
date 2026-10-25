@@ -62,17 +62,21 @@ function ghFmt(n){
 function ghApiMetric(symbol,value){
   return Number.isInteger(value)?symbol+' '+ghFmt(value):symbol+' 待核验';
 }
+function ghMoment(raw){
+  if(!raw)return '';
+  try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}
+  catch{return String(raw)}
+}
 function ghMetadataNote(x){
   if(x.metadata_status==='unavailable')return '<span class="gh-metadata-warning">仓库 API 元数据待核验</span>';
   if(x.metadata_status!=='stale')return '';
-  const at=String(x.metadata_verified_at||'').slice(0,10);
+  const at=ghMoment(x.metadata_verified_at);
   return '<span class="gh-metadata-warning">仓库 API 旧快照'+(at?' · '+esc(at):'')+'</span>';
 }
 function ghWhen(){
   const raw=String(GH.checked_at||'');
   if(!raw)return '待核验';
-  try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}
-  catch{return raw}
+  return ghMoment(raw)
 }
 function ghFreshness(){
   const t=Date.parse(String(GH.checked_at||''));

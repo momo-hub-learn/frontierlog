@@ -36,7 +36,7 @@ vm.runInContext(metadataPart+'\nthis.__unknown=ghApiMetric("★",null)+ghMetadat
 assert.match(metadataView.__unknown,/★ 待核验/);
 assert.match(metadataView.__unknown,/API 元数据待核验/);
 assert.match(metadataView.__stale,/API 旧快照/);
-assert.match(metadataView.__stale,/2026-10-21/);
+assert.match(metadataView.__stale,/10\.21 16:00 北京时间/);
 
 const partialView={GH:{items:[
   {metadata_status:'stale'},{metadata_status:'stale'},{metadata_status:'stale'},

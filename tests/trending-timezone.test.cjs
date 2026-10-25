@@ -21,7 +21,7 @@ assert.match(hfContext.result,/10\.22.*08:30.*北京时间/);
 const gh=fs.readFileSync(path.join(ROOT,'src/github-hot.js'),'utf8');
 const ghContext={Intl,Date,GH:{checked_at:'2026-10-22T00:30:00Z'}};
 vm.createContext(ghContext);
-vm.runInContext(functionBlock(gh,'ghWhen','ghFreshness')+'\nthis.result=ghWhen()',ghContext);
+vm.runInContext(functionBlock(gh,'ghMoment','ghFreshness')+'\nthis.result=ghWhen()',ghContext);
 assert.match(ghContext.result,/10\.22.*08:30.*北京时间/);
 
 console.log('PASS Trending timestamps use explicit Asia/Shanghai semantics');
