@@ -16,7 +16,9 @@ with sync_playwright() as p:
  opts={'headless':True}
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
  b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1);page.set_default_timeout(45000)
- page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',intercept);page.set_content(HTML.replace('<head>','<head><base href="https://frontierlog.test/">',1),wait_until='domcontentloaded');page.set_default_timeout(5000)
+ page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',intercept)
+ test_html=HTML.replace("fetch('./api/v1/capabilities.json'","fetch('https://frontierlog.test/api/v1/capabilities.json'")
+ page.set_content(test_html,wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
