@@ -47,7 +47,9 @@ with sync_playwright() as p:
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')
  assert '不代表综合能力或任务正确率' in page.locator('#vertical-root').inner_text()
  ok('model methodology keeps preference scope separate from general capability')
- page.evaluate('(data)=>{CAP3=data;location.hash="#/models?cap=coding";document.querySelector("#vertical-root").innerHTML=modelPage()}',CAP_DATA)
+ page.evaluate('(data)=>{CAP3=data}',CAP_DATA)
+ page.evaluate('location.hash="#/models?cap=coding"');page.wait_for_timeout(100)
+ page.evaluate('document.querySelector("#vertical-root").innerHTML=capPage()')
  expect(page.locator('.v3-capnav a.active')).to_have_attribute('aria-current','page')
  expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
  for button in page.locator('.v3-metric-tabs button').all():
