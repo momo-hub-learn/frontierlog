@@ -58,7 +58,7 @@ function timelineCard(x){
       </div>
       <button class="intraday-title" data-ha="detail" data-id="${x.id}">${esc(x.title)}</button>
       <p class="intraday-summary">${esc(x.summary)}</p>
-      <div class="intraday-actions"><button data-ha="detail" data-id="${x.id}">为什么值得看 ${icon('arrow')}</button><a href="${safeLink(x.url)}" target="_blank" rel="noopener noreferrer">原始来源 ${icon('external')}</a></div>
+      <div class="intraday-actions"><button data-ha="detail" data-id="${x.id}">为什么值得看 ${icon('arrow')}</button><a href="${safeLink(x.url)}" target="_blank" rel="noopener noreferrer" aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）">原始来源 ${icon('external')}</a></div>
     </div>
   </article>`;
 }

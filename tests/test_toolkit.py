@@ -18,6 +18,8 @@ class ToolkitTests(unittest.TestCase):
     def test_eligible_tasks_once(self):
         validate_toolkit(self.data,self.catalog)
         self.assertEqual(len(self.data['items']),sum(x['status']=='code' for x in self.catalog['items']))
+        nemo=next(x for x in self.data['items'] if x['id']=='nvidia-nemo-automodel-0-7')
+        self.assertEqual(nemo['entry_url'].split('/')[2],'docs.nvidia.com')
         self.assertNotIn('alphaevolve',{x['id'] for x in self.data['items']})
     def test_intelligent_ui_guide(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-gpt6-intelligent-ui')

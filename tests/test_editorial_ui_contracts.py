@@ -51,6 +51,10 @@ class EditorialContracts(unittest.TestCase):
   self.assertNotIn('AI 评分',text)
   self.assertIn('aria-label="本站编辑热度 ${x.heat} 分，${band.label}"',text)
 
+ def test_each_intraday_source_link_has_a_unique_accessible_name(self):
+  text=(ROOT/'src/intraday.js').read_text()
+  self.assertIn('aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）"',text)
+
  def test_platform_switch_exposes_current_page_to_assistive_technology(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const current=id=>active===id?' aria-current=\"page\"':'';",text)

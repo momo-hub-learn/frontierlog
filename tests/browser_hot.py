@@ -17,8 +17,11 @@ with sync_playwright() as pw:
  assert any(label in p.locator('.intraday-score').first.inner_text() for label in ('爆热','高热','升温','关注')) and 'AI 评分' not in p.locator('.intraday-score').first.inner_text()
  assert p.locator('.intraday-score.is-extreme,.intraday-score.is-high,.intraday-score.is-rising,.intraday-score.is-watch').count()==len(HOT_DATA['items'])
  assert p.locator('.intraday-day').count()>1 and p.locator('.intraday-day[open]').count()==1
+ source_links=p.locator('.intraday-actions a');assert source_links.count()>1
+ source_names=source_links.evaluate_all("els=>els.map(x=>x.getAttribute('aria-label'))")
+ assert all(source_names) and len(source_names)==len(set(source_names)) and all('新窗口打开' in x for x in source_names)
  assert p.locator('#nav a.active').inner_text().startswith('热点榜');assert '热度只表示信号强度' in p.locator('.h-head').inner_text();assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
- shot(p,'hot-first-screen.png');ok('hot ranking, six categories, latest day expanded, older days collapsed, no desktop overflow')
+ shot(p,'hot-first-screen.png');ok('hot ranking, unique source-link labels, six categories, latest day expanded, older days collapsed, no desktop overflow')
  p.locator('[data-ha="cat"][data-id="model"]').click();assert p.locator('.intraday-row').count()==sum(x['category']=='model' for x in HOT_DATA['items'])
  p.locator('#h-search').fill('Gemini');assert p.locator('.intraday-row').count()==sum('gemini' in ' '.join([x['title'],x['source'],x['summary']]).lower() for x in HOT_DATA['items'] if x['category']=='model')
  p.locator('#h-search').fill('not-found-xyz');expect(p.locator('.h-empty')).to_have_count(1);expect(p.locator('[data-ha="hot-clear-search"]')).to_be_visible();p.locator('[data-ha="hot-clear-search"]').click();expect(p.locator('#h-search')).to_have_value('');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']))

@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemo-automodel-0-7-20261021",
+      "category": "product",
+      "title": "NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径",
+      "published": "2026-10-21",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T09:21:40+08:00",
+      "first_seen_at": "2026-10-25T09:21:40+08:00",
+      "heat": 87,
+      "heat_components": {
+        "impact": 31,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是训练性能、模型能力或本站实测分数。",
+      "trend": "up",
+      "summary": "NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。",
+      "why": "同一套 PyTorch 原生训练接口开始覆盖更分散的后训练与生成范式。做模型适配的团队可先用官方小配方验证配置、并行策略和显存，再决定是否迁移真实训练任务。",
+      "boundary": "这是 NVIDIA 官方 Release 与文档，不是本站训练实测。部分配方仍冻结索引器或缺少 TP、PP、CP、packing 等路径；GLM 医学视觉示例使用 72 张 H100，Cohere 预览依赖 remote code 且未纳入本次发布 CI，不能把版本覆盖写成所有模型与规模均已稳定。",
+      "source": "NVIDIA NeMo",
+      "source_kind": "官方 GitHub Release 与文档 / 本轮编辑核验",
+      "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 v0.7.0 Release",
+          "note": "先核对目标模型的已知限制、并行支持与发布 CI 范围",
+          "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
+          "kind": "code"
+        },
+        {
+          "label": "运行官方 2-GPU 快速入门",
+          "note": "用 10-step Qwen3-0.6B / HellaSwag 配方验证容器与训练接线",
+          "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA Documentation",
+          "title": "NeMo AutoModel 0.7 快速入门",
+          "url": "https://docs.nvidia.com/nemo/automodel/latest/guides/quickstart.html",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
       "id": "docling-v2-142-1-input-hardening-20261023",
       "category": "product",
       "title": "Docling v2.142.1 收紧不可信文档输入边界",
