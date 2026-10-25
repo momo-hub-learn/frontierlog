@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-25",
+    "checked": "2026-10-26",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,55 @@
       }
     ],
     "items": [
+      {
+        "id": "tibo-reset-propagated-20261025-day20",
+        "category": "product",
+        "title": "Tibo：Day 20 reset 已完成传播",
+        "published": "2026-10-25",
+        "published_at": "2026-10-25T06:06:16.025Z",
+        "checked": "2026-10-26",
+        "verified_at": "2026-10-26T07:27:14+08:00",
+        "first_seen_at": "2026-10-26T07:27:14+08:00",
+        "heat": 94,
+        "heat_components": {
+          "impact": 32,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是全网热度、到账概率或本站实测。",
+        "trend": "up",
+        "summary": "Tibo 本人先写下“Day 20/ Rest and reset”，并把目标窗口限定为太平洋时间午夜前；约两小时后，他又明确表示“It is all propagated”，将本轮信号升级为传播完成声明。",
+        "why": "这是继 Day 18 后新的第一方 reset 完成信号；用户可以据此区分“当日安排”“目标窗口”和“传播完成”，但仍应到自己的 Codex 用量页核对实际余额。",
+        "boundary": "“all propagated”能确认 Tibo 宣布本轮传播完成，不能证明每个账户已显示新额度，也未说明适用套餐、恢复幅度、banked / global 后台机制或个人余额。",
+        "source": "Tibo / X",
+        "source_kind": "本人原帖 / 本轮编辑核验",
+        "url": "https://x.com/thsottiaux/status/2114237083652882932",
+        "link": "#/tibo?event=tibo-global-confirmed-2026-10-25-day20",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看本人完成原帖",
+            "note": "原文明确写下“It is all propagated”",
+            "url": "https://x.com/thsottiaux/status/2114237083652882932",
+            "kind": "source"
+          }
+        ],
+        "related": [
+          {
+            "source": "Tibo / X",
+            "title": "Day 20 rest and reset",
+            "url": "https://x.com/thsottiaux/status/2114200152701575656",
+            "date": "2026-10-25"
+          },
+          {
+            "source": "Tibo / X",
+            "title": "Day 20 propagation completion",
+            "url": "https://x.com/thsottiaux/status/2114237083652882932",
+            "date": "2026-10-25"
+          }
+        ]
+      },
       {
         "id": "openhands-v1-33-secret-masking-20261023",
         "category": "product",
@@ -17714,7 +17763,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-23",
+    "checked": "2026-10-26",
     "account": "thsottiaux",
     "events": [
       {
@@ -18150,6 +18199,36 @@
         "not_proves": "未证明所有账户已经完成传播、具体套餐和发放范围、banked reset 数量、个人剩余额度或后台执行的精确时刻。",
         "post_id": "2113492187770175603",
         "relation": "original"
+      },
+      {
+        "id": "tibo-global-confirmed-2026-10-25-day20",
+        "kind": "global",
+        "status": "confirmed",
+        "date": "2026-10-25",
+        "published_at": "2026-10-25T06:06:16.025Z",
+        "precision": "instant",
+        "source_timezone": "UTC",
+        "title": "Tibo 确认 Day 20 reset 已完成传播",
+        "summary": "Tibo 先在本人 X 原帖写下“Day 20/ Rest and reset”，回复将目标时间限定为太平洋时间午夜前；约两小时后，他又明确写下“It is all propagated”，把本轮信号从预告升级为传播完成声明。",
+        "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖未列出套餐、账户范围或后台 reset 类型",
+        "boundary": "“all propagated”可以确认 Tibo 宣布本轮传播完成，但不能证明每个账户已经显示新额度，也不能推出具体套餐、恢复幅度、banked / global 后台机制或个人余额。",
+        "sources": [
+          "tibo-post-2114200152701575656",
+          "tibo-reply-2114200291319124163",
+          "tibo-post-2114237083652882932"
+        ],
+        "reviewed": "2026-10-26",
+        "verified_at": "2026-10-26T07:27:14+08:00",
+        "review_basis": "primary_source",
+        "related_ids": [],
+        "original_text": "It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.",
+        "conversation_context": "本人当日先发“Day 20/ Rest and reset”，随后回复“By midnight PST”；完成帖把前述未来时态更新为传播完成语义。",
+        "interpretation": "这是一条可直接核验的一手完成信号；本站记录完成声明的真实发布时间，并保留此前预告与截止窗口作为上下文，不把截止时间伪装成到账时刻。",
+        "evidence_strength": "high",
+        "semantic_type": "global_reset_completion_claim",
+        "not_proves": "未证明每个账户的界面或余额已经更新、适用套餐与额度恢复幅度，也未说明 banked / global 的后台实现。",
+        "post_id": "2114237083652882932",
+        "relation": "original"
       }
     ],
     "sources": [
@@ -18377,6 +18456,33 @@
         "checked": "2026-10-23",
         "kind": "官方原帖",
         "note": "本人紧接回复再次说明最晚落地窗口；用于保留上下文，不把最晚时间误写成精确执行时刻。"
+      },
+      {
+        "id": "tibo-post-2114200152701575656",
+        "publisher": "Tibo / X",
+        "title": "Day 20 rest and reset announcement",
+        "url": "https://x.com/thsottiaux/status/2114200152701575656",
+        "checked": "2026-10-26",
+        "kind": "官方原帖",
+        "note": "本人原帖写下“Day 20/ Rest and reset”；单独看这条仍是当日 reset 信号，不证明传播已经完成。"
+      },
+      {
+        "id": "tibo-reply-2114200291319124163",
+        "publisher": "Tibo / X",
+        "title": "Day 20 reset timing reply",
+        "url": "https://x.com/thsottiaux/status/2114200291319124163",
+        "checked": "2026-10-26",
+        "kind": "官方原帖",
+        "note": "本人回复“By midnight PST”只给出目标截止边界，不作为精确执行时刻或完成证明。"
+      },
+      {
+        "id": "tibo-post-2114237083652882932",
+        "publisher": "Tibo / X",
+        "title": "Day 20 propagation completion",
+        "url": "https://x.com/thsottiaux/status/2114237083652882932",
+        "checked": "2026-10-26",
+        "kind": "官方原帖",
+        "note": "本人原帖明确写下“It is all propagated”；状态 ID 的 Snowflake 时间对应 2026-10-25T06:06:16.025Z。"
       }
     ],
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
