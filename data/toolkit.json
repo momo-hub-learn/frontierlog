@@ -996,11 +996,11 @@
       "publisher": "OpenHands",
       "group": "agents",
       "access": "model",
-      "headline": "让 Coding Agent 修一个小问题",
+      "headline": "在隔离仓库复跑 OpenHands 1.33，并核对验证与机密边界",
       "input": "隔离仓库 + 问题描述 + 测试",
       "output": "代码变更与可检查的执行记录",
-      "requirements": "Agent Canvas、可用后端 / 模型；隔离测试仓库。",
-      "limitation": "非沙箱后端可能直接访问本机文件；补丁通过测试也需人工审阅。",
+      "requirements": "OpenHands v1.33.0、Agent Canvas、可用后端 / 模型与隔离测试仓库；不要挂载主目录或生产凭据。",
+      "limitation": "本站只核验官方 Release 与文档，未运行软件。表单遮蔽不能证明机密未进入请求、日志、存储或后端；补丁通过也需人工审阅，macOS 构建仍未签名和公证。",
       "cost": "模型调用与后端运行可能分别产生费用。",
       "steps": [
         {
@@ -1013,11 +1013,17 @@
         },
         {
           "title": "检查代码与日志",
-          "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；未经检查不要自动合入主分支。"
+          "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；同时检查请求表单、Settings、网络请求和日志，不要把 UI 遮蔽当作机密已隔离的证明。"
         }
       ],
-      "troubleshooting": "界面启动但任务不运行时检查后端与模型配置；沙箱找不到文件时核对允许访问的目录；不要用扩大全盘权限解决路径问题。",
+      "troubleshooting": "界面启动但任务不运行时检查后端与模型配置；验证接线可核对 --mars-web / --lock-to-cloud；沙箱找不到文件时核对允许目录，不要扩大全盘权限。macOS 若被标记为损坏，先确认来源和版本，再按 v1.33.0 Release 的未签名说明处理。",
       "sources": [
+        {
+          "title": "OpenHands v1.33.0 官方 Release",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+          "published_at": "2026-10-23",
+          "verified_at": "2026-10-25"
+        },
         {
           "title": "Agent Canvas 官方 Quickstart",
           "url": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
@@ -1033,7 +1039,8 @@
       ],
       "entry_url": null,
       "evidence_level": "primary-docs",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "verified_at": "2026-10-25T11:26:01+08:00"
     },
     {
       "id": "browser-use",

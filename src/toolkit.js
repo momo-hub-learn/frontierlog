@@ -32,8 +32,8 @@ const TK = (()=>{
   if(location.hash!==hash)history[replace?'replaceState':'pushState'](null,'',hash);
   if(resultsOnly){state.q=read().q;renderResults()}else{lastMain='';parseRoute()}
  }
- function external(url,text,cls='tk-link'){
-  return `<a class="${cls}" href="${safeLink(url)}" target="_blank" rel="noopener noreferrer">${esc(text)} ${icon('external')}</a>`;
+ function external(url,text,cls='tk-link',ariaLabel=''){
+  return `<a class="${cls}" href="${safeLink(url)}" target="_blank" rel="noopener noreferrer"${ariaLabel?` aria-label="${esc(ariaLabel)}"`:''}>${esc(text)} ${icon('external')}</a>`;
  }
  function card(g){
   const t=tasks.get(g.id),opened=openIds.has(g.id)||read().tool===g.id;
@@ -46,14 +46,14 @@ const TK = (()=>{
    <div class="tk-io"><dl><dt>输入</dt><dd>${esc(g.input)}</dd></dl><span aria-hidden="true">→</span><dl><dt>输出</dt><dd>${esc(g.output)}</dd></dl></div>
    <dl class="tk-conditions"><div><dt>先准备</dt><dd>${esc(g.requirements)}</dd></div><div><dt>最大限制</dt><dd>${esc(g.limitation)}</dd></div></dl>
    <p class="tk-provenance">${published?`原文 <time datetime="${esc(published)}">${esc(published)}</time> · `:''}资料核验 <time datetime="${esc(verified)}">${esc(verified)}</time></p>
-   <div class="tk-actions">${external(doc.url,'官方上手文档')}${g.entry_url&&g.entry_url!==doc.url?external(g.entry_url,'打开入口'):''}<button type="button" class="save ${saved.has(g.id)?'active':''}" data-tk-save="${g.id}" aria-label="${saved.has(g.id)?'取消关注':'关注'} ${esc(t.name)}" aria-pressed="${saved.has(g.id)}">${icon('bookmark')}</button></div>
+   <div class="tk-actions">${external(doc.url,'官方上手文档','tk-link',`${t.name} 官方上手文档（新窗口打开）`)}${g.entry_url&&g.entry_url!==doc.url?external(g.entry_url,'打开入口','tk-link',`${t.name} 打开入口（新窗口打开）`):''}<button type="button" class="save ${saved.has(g.id)?'active':''}" data-tk-save="${g.id}" aria-label="${saved.has(g.id)?'取消关注':'关注'} ${esc(t.name)}" aria-pressed="${saved.has(g.id)}">${icon('bookmark')}</button></div>
    <details class="tk-guide" data-tk-guide="${g.id}" ${opened?'open':''}>
     <summary><span>${icon('code')} 步骤与验收</span><span class="tk-expand" aria-hidden="true">＋</span></summary>
     <div class="tk-guide-content"><div><h3>从一个小任务开始</h3><ol class="tk-steps">${g.steps.map((step,i)=>`<li><h4>${esc(step.title)}</h4><p>${esc(step.body)}</p>${step.command?`<div class="tk-command"><div><span>示例命令 · 未在本站执行</span><button type="button" data-tk-copy="${i}" data-tk-tool="${g.id}" aria-label="复制 ${esc(t.name)} 第 ${i+1} 步完整命令">${icon('copy')} 复制全部</button></div><pre><code>${esc(step.command)}</code></pre><p class="tk-copy-status" role="status"></p></div>`:''}</li>`).join('')}</ol></div>
      <aside class="tk-validation"><h3>怎样算跑通</h3><p class="tk-note">以下为你的本机验收清单，不是本站测试结果。</p><div class="checklist">${t.checks.map((text,i)=>`<label class="${checks[g.id]?.includes(i)?'done':''}"><input type="checkbox" data-check-task="${g.id}" data-check-index="${i}" ${checks[g.id]?.includes(i)?'checked':''}><span>${esc(text)}</span></label>`).join('')}</div>
      <h4>成本与运行条件</h4><p>${esc(g.cost)}</p><h4>卡住时先检查</h4><p>${esc(g.troubleshooting)}</p></aside>
     </div>
-    <section class="tk-evidence" aria-label="${esc(t.name)} 的证据与核验日期"><h3>原始来源 <span>资料已核验 · 运行未实测</span></h3>${g.sources.map(s=>`<div>${external(s.url,s.title)}<span>${s.published_at?'原文发布 <time datetime="'+s.published_at+'">'+s.published_at+'</time> · ':''}资料核验 <time datetime="${s.verified_at}">${s.verified_at}</time></span></div>`).join('')}<p>未提供可复现运行日志，不标记为“本站已实测”；核验日期不是软件发布日期。安装页随版本变化，请记录实际版本与环境。</p></section>
+    <section class="tk-evidence" aria-label="${esc(t.name)} 的证据与核验日期"><h3>原始来源 <span>资料已核验 · 运行未实测</span></h3>${g.sources.map(s=>`<div>${external(s.url,s.title,'tk-link',`${t.name}：${s.title}（新窗口打开）`)}<span>${s.published_at?'原文发布 <time datetime="'+s.published_at+'">'+s.published_at+'</time> · ':''}资料核验 <time datetime="${s.verified_at}">${s.verified_at}</time></span></div>`).join('')}<p>未提供可复现运行日志，不标记为“本站已实测”；核验日期不是软件发布日期。安装页随版本变化，请记录实际版本与环境。</p></section>
    </details></article>`;
  }
  function renderResults(){

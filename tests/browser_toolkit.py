@@ -52,6 +52,13 @@ try:
         expect(page.locator('[data-tk-id=chatgpt-voice-work] .tk-identity')).to_contain_text('OpenAI')
         assert 'Google DeepMind' not in page.locator('.tk-wrap').inner_text()
         expect(page.locator('.v2-tool')).to_have_count(0)
+        action_links=page.locator('.tk-actions a')
+        action_labels=action_links.evaluate_all("els=>els.map(x=>x.getAttribute('aria-label'))")
+        assert all(action_labels) and len(action_labels)==len(set(action_labels))
+        assert all('新窗口打开' in name for name in action_labels)
+        for link in action_links.all():
+            card_name=link.locator('xpath=ancestor::article[1]').locator('.tk-identity strong').inner_text()
+            assert card_name in link.get_attribute('aria-label')
         passed('Eligible guides expose publisher, source date and verification date without opening every card')
         document_count=sum(x['group']=='documents' for x in TOOLKIT_DATA['items'])
         local_document_count=sum(x['group']=='documents' and x['access']=='local' for x in TOOLKIT_DATA['items'])

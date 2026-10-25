@@ -36,6 +36,53 @@
   ],
   "items": [
     {
+      "id": "openhands-v1-33-secret-masking-20261023",
+      "category": "product",
+      "title": "OpenHands 1.33：表单机密遮蔽与验证模式同步收紧",
+      "published": "2026-10-23",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T11:26:01+08:00",
+      "first_seen_at": "2026-10-25T11:26:01+08:00",
+      "heat": 85,
+      "heat_components": {
+        "impact": 28,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是安全评级、Agent 能力或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenHands v1.33.0 为 verify-openhands 增加 --mars-web 与 --lock-to-cloud 模式，让 Web 构建在重启后保留登录，并在请求与 Settings 表单中遮蔽机密值，同时包含多项缺陷修复。",
+      "why": "Coding Agent 的验证接线、登录连续性和机密展示边界同时变化。已经在本地或云端运行 OpenHands 的团队应锁定版本，用隔离仓库复跑任务，并检查请求表单、设置页、日志与后端是否符合自己的凭据策略。",
+      "boundary": "这是 OpenHands 官方 Release 的改动清单，不是本站安全审计。表单遮蔽不能证明机密未进入请求、日志、存储或后端；macOS 应用仍未签名和公证，官方说明可能被系统标记为损坏并提供 xattr 临时处理，不能写成已消除安装风险。",
+      "source": "OpenHands",
+      "source_kind": "官方 GitHub Release / 本轮编辑核验",
+      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 v1.33.0 Release",
+          "note": "先核对验证参数、登录持久化、机密遮蔽和 macOS 未签名限制",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+          "kind": "code"
+        },
+        {
+          "label": "查看 Agent Canvas Quickstart",
+          "note": "只在隔离项目中接入后端与模型，保留版本、日志和人工审阅",
+          "url": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenHands",
+          "title": "OpenHands v1.32.0：Pinned Automations 与 MCP 安装流程",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.32.0",
+          "date": "2026-10-16"
+        }
+      ]
+    },
+    {
       "id": "nvidia-nemo-automodel-0-7-20261021",
       "category": "product",
       "title": "NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径",

@@ -55,6 +55,12 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertIn('aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）"',text)
 
+ def test_toolkit_repeated_actions_include_tool_specific_accessible_names(self):
+  text=(ROOT/'src/toolkit.js').read_text()
+  self.assertIn('`${t.name} 官方上手文档（新窗口打开）`',text)
+  self.assertIn('`${t.name} 打开入口（新窗口打开）`',text)
+  self.assertIn('`${t.name}：${s.title}（新窗口打开）`',text)
+
  def test_platform_switch_exposes_current_page_to_assistive_technology(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const current=id=>active===id?' aria-current=\"page\"':'';",text)

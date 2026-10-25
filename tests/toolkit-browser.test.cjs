@@ -39,6 +39,12 @@ test('duplicate source and entry links collapse to one action',()=>{
  const distinct=tk.card(data.items.find(x=>x.id==='microsoft-flint-interactive'));
  assert(distinct.includes('官方上手文档'));assert(distinct.includes('打开入口'));
 });
+test('repeated visible actions have tool-specific accessible names',()=>{
+ const html=tk.card(data.items.find(x=>x.id==='microsoft-flint-interactive'));
+ assert(html.includes('aria-label="Microsoft Flint · Interactive 官方上手文档（新窗口打开）"'));
+ assert(html.includes('aria-label="Microsoft Flint · Interactive 打开入口（新窗口打开）"'));
+ assert(html.includes('aria-label="Microsoft Flint · Interactive：'));
+});
 test('complete commands, not fake run/copy buttons',()=>{const html=tk.card(data.items.find(x=>x.id==='docling'));assert(html.includes('docling ./sample.pdf'));assert(html.includes('data-tk-copy="1"'));assert(!html.includes('data-action="run"'));assert(html.includes('运行未实测'))});
 test('cards escape editorial strings and never create fake proof',()=>{const row={...data.items.find(x=>x.id==='docling'),headline:'<img src=x onerror=alert(1)>'};const html=tk.card(row);assert(!html.includes('<img src=x'));assert(html.includes('&lt;img'));assert(html.includes('data-check-task="docling"'));assert(html.includes('资料核验'))});
 (async()=>{
