@@ -73,6 +73,14 @@
 .ar-footnote{margin:12px 0 0;font-size:.8125rem;line-height:1.75;color:var(--sub)}
 .ar-empty{border:1px solid var(--line);border-radius:12px;background:var(--panel)}
 .ar-empty h2{font-size:1.125rem;margin:0 0 8px;color:var(--text)}
+
+/* Keep every capability metric visible on desktop; use a deliberate scroll rail only on narrow screens. */
+@media(min-width:761px){
+ .v3-metric-tabs{flex-wrap:wrap;justify-content:flex-end;max-width:480px;overflow-x:visible}
+}
+@media(max-width:760px){
+ .v3-metric-tabs{flex-wrap:nowrap;justify-content:flex-start;max-width:none;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+}
 @container arena (max-width:53.75rem){
  .ar-desktop{display:none}.ar-mobile-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .ar-header{align-items:flex-start}.ar-header h1{font-size:1.5rem}

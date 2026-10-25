@@ -113,6 +113,10 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('current(active===g.id&&!bench)',text)
   self.assertIn('aria-pressed="\'+(id===b.id)+\'"',text)
   self.assertIn('aria-pressed="\'+(c.key===metric)+\'"',text)
+  css=(ROOT/'src/product-v3.css').read_text()
+  self.assertIn('@media(min-width:761px)',css)
+  self.assertIn('.v3-metric-tabs{flex-wrap:wrap;justify-content:flex-end;max-width:480px;overflow-x:visible}',css)
+  self.assertIn('.v3-metric-tabs{flex-wrap:nowrap;justify-content:flex-start;max-width:none;overflow-x:auto',css)
  def test_hot_primary_cta_does_not_call_documents_an_experience(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)

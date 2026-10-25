@@ -57,7 +57,8 @@ with sync_playwright() as p:
  expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
  for button in page.locator('.v3-metric-tabs button').all():
   expect(button).to_have_attribute('aria-pressed','true' if 'active' in (button.get_attribute('class') or '') else 'false')
- ok('capability navigation and metric controls expose their selected state without relying on color')
+ assert page.locator('.v3-metric-tabs').evaluate('e=>e.scrollWidth<=e.clientWidth+1')
+ ok('desktop capability metrics stay fully visible and expose their selected state without relying on color')
  page.evaluate("window.twttr={widgets:{createTweet:()=>new Promise(()=>{})}}")
  route(page,'#/tibo');expect(page.locator('.tibo-featured')).to_have_count(1)
  expect(page.locator('.tibo-x-fallback').first).to_be_visible(timeout=7000)
@@ -83,6 +84,9 @@ with sync_playwright() as p:
   page.set_viewport_size({'width':width,'height':900})
   for path in ['#/models','#/tibo']:
    route(page,path);assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),f'{width}:{path} overflow'
+  route(page,'#/models?cap=coding')
+  metrics=page.locator('.v3-metric-tabs')
+  if width<=760:assert metrics.evaluate("e=>getComputedStyle(e).overflowX==='auto'")
   if width==390:
    shot(page,'tibo-mobile.png',True);route(page,'#/models');shot(page,'models-mobile.png',True)
  route(page,'#/models?model=aa-astra-max');expect(page.locator('dialog[open]')).to_have_count(1)
