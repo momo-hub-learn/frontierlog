@@ -61,6 +61,15 @@ class ValidationTests(unittest.TestCase):
   self.assertEqual(confirmed['published_at'],'2026-10-23T04:46:19.007Z')
   self.assertIn("that's a reset",confirmed['original_text'])
   validate_resets(E)
+ def test_oct25_day20_propagation_is_primary_completion_evidence(self):
+  row=next(x for x in E['events'] if x['id']=='tibo-global-confirmed-2026-10-25-day20')
+  self.assertEqual((row['kind'],row['status'],row['review_basis']),('global','confirmed','primary_source'))
+  self.assertEqual(row['published_at'],'2026-10-25T06:06:16.025Z')
+  self.assertTrue(row['verified_at'].endswith('+08:00'))
+  self.assertIn('all propagated',row['original_text'])
+  self.assertIn('不能证明每个账户',row['boundary'])
+  self.assertEqual(len(row['sources']),3)
+  validate_resets(E)
  def test_pending_not_confirmed(self):
   d=copy.deepcopy(E);next(x for x in d['events'] if x['review_basis']=='secondary_lead')['status']='confirmed'
   with self.assertRaises(ValueError):validate_resets(d)
