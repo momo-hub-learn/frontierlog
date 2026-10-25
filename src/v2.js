@@ -245,7 +245,9 @@ function v2Activity(){
  const talkSection=section('TECH TALKS','技术演讲','Conference talk / Lab seminar / 技术分享',talkRows,'talks');
  const demoSection=section('HANDS-ON / DEMO','实战 Demo','真实产品、Agent、机器人或工作流演示',demoRows,'demo');
 
- const groups={}; DATA.events.forEach(e=>(groups[e.task]??=[]).push(e)); (UP.releases||[]).forEach(e=>(groups[e.task]??=[]).push({...e,kind:'upstream',date:(e.published_at||'').slice(0,10),summary:e.name||'上游版本发布',delta:'机器收录，尚未人工核验。'}));
+ const upstreamMode=state.kind==='upstream',groups={};
+ if(upstreamMode)(UP.releases||[]).forEach(e=>(groups[e.task]??=[]).push({...e,kind:'upstream',date:(e.published_at||'').slice(0,10),summary:e.name||'上游版本发布',delta:'机器收录，尚未人工核验。'}));
+ else DATA.events.forEach(e=>(groups[e.task]??=[]).push(e));
  const rows=Object.entries(groups).map(([id,ev])=>({task:tasks.get(id),events:ev.sort((a,b)=>b.date.localeCompare(a.date))})).filter(x=>x.task).sort((a,b)=>(b.events[0]?.date||'').localeCompare(a.events[0]?.date||''));
  const publicationBadge=e=>{
   const p=e.publication;if(!p)return '';
@@ -254,7 +256,8 @@ function v2Activity(){
   return '<a class="v2-pub-badge '+cls+'" href="'+safeLink(p.url)+'" target="_blank" rel="noopener noreferrer" title="论文收录状态已核验">'+esc(prefix+' · '+p.venue)+icon('external')+'</a>'
  };
  const status=e=>e.publication?[e.publication.status==='preprint'?'预印本':e.publication.status==='accepted'?'录用':'发表','publication']:e.kind==='research'?['研究','research']:e.kind==='upstream'?['待核验','pending']:['公开发布','release'];
- const lifecycleSection=activeType==='all'&&activeSource==='all'?`<section class="v2-radar-section"><header><div><p class="eyebrow">PROMISE → REALITY</p><h2>发布后兑现</h2></div><small>宣布、研究、落地分开记</small></header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><div class="v2-life-labels"><span class="v2-life-chip">${label}</span>${publicationBadge(e)}</div><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`:'';
+ const queueLink=upstreamMode?'<a class="textlink" href="#/activity">返回已核验进展 '+icon('arrow')+'</a>':`<a class="textlink" href="#/activity?kind=upstream">上游候选 ${(UP.releases||[]).length} 条 ${icon('arrow')}</a>`;
+ const lifecycleSection=activeType==='all'&&activeSource==='all'?`<section class="v2-radar-section"><header><div><p class="eyebrow">${upstreamMode?'REVIEW QUEUE':'PROMISE → REALITY'}</p><h2>${upstreamMode?'上游候选':'发布后兑现'}</h2></div><small>${upstreamMode?'机器收录，进入正文前仍需人工核验':'宣布、研究、落地分开记'}</small>${queueLink}</header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><div class="v2-life-labels"><span class="v2-life-chip">${label}</span>${publicationBadge(e)}</div><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`:'';
 
  const visibleCount=eventRows.length+technicalRows.length+conversationRows.length+talkRows.length+demoRows.length;
  const activeTypeTitle=V2_ACTIVITY_TYPES.find(x=>x.id===activeType)?.title||'全部';

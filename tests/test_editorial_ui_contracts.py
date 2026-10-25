@@ -51,6 +51,16 @@ class EditorialContracts(unittest.TestCase):
   self.assertNotIn('AI 评分',text)
   self.assertIn('aria-label="本站编辑热度 ${x.heat} 分，${band.label}"',text)
 
+ def test_unreviewed_upstream_releases_require_an_explicit_queue_view(self):
+  legacy=(ROOT/'src/app.js').read_text()
+  current=(ROOT/'src/v2.js').read_text()
+  self.assertIn("activity:DATA.events.length,",legacy)
+  self.assertNotIn("activity:DATA.events.length+UP.releases.length",legacy)
+  self.assertIn("const pool=state.kind==='upstream'?raw:DATA.events",legacy)
+  self.assertIn("const upstreamMode=state.kind==='upstream'",current)
+  self.assertIn('机器收录，进入正文前仍需人工核验',current)
+  self.assertIn('#/activity?kind=upstream',current)
+
  def test_each_intraday_source_link_has_a_unique_accessible_name(self):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertIn('aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）"',text)
