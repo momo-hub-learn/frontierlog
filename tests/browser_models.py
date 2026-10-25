@@ -15,6 +15,8 @@ with sync_playwright() as p:
  b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1);page.set_default_timeout(45000)
  page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',lambda r:r.abort());page.set_content(HTML,wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
+ expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
+ expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
  shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, preserved theme')
@@ -26,7 +28,7 @@ with sync_playwright() as p:
  page.locator('#m-search').fill('Sol');expect(page.locator('[data-model-row]')).to_have_count(sum(x['maker']=='OpenAI' and 'sol' in x['name'].lower() for x in AA['rows']))
  page.locator('#m-search').fill('no-matching-model');expect(page.locator('.m-empty')).to_have_count(1)
  page.locator('#m-search').fill('');page.locator('#m-maker').select_option('all');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
- ok('metric numeric sorting, provider filter, incremental search and empty-state reset')
+ ok('named search and provider controls, numeric sorting, incremental search and empty-state reset')
  page.locator('[data-ma="star"]').first.click();page.locator('#m-only').check();expect(page.locator('[data-model-row]')).to_have_count(1)
  page.locator('#m-only').uncheck();page.locator('[data-ma="metric"][data-id="intelligence"]').click()
  for x in range(4):page.locator('[data-ma="select"]').nth(x).click()

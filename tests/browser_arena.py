@@ -158,6 +158,8 @@ try:
             if route=='#/models?cap=coding':
                 freshness=page.locator('.v3-cap-source small').inner_text()
                 assert '分数快照 2026-09-22' in freshness and '官方来源复核 2026-10-22' in freshness
+                expect(page.locator('#v3-cap-search')).to_have_attribute('aria-label','搜索Coding Agent模型、厂商或 Harness')
+                expect(page.locator('#v3-cap-maker')).to_have_attribute('aria-label','筛选Coding Agent模型厂商')
         passed(('Activity header and horizontal product timeline smoke checks; capability HTTP loading deferred to CI' if MEMORY else 'Coding/world models, activity header and horizontal product timeline smoke checks'))
         assert not errors,errors
         passed('No JavaScript runtime errors')
