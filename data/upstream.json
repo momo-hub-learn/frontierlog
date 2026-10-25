@@ -1,8 +1,8 @@
 {
-  "last_attempt": "2026-10-25T09:22:43Z",
-  "last_success": "2026-10-25T09:22:43Z",
-  "repositories_succeeded": 19,
-  "repositories_total": 19,
+  "last_attempt": "2026-10-25T11:27:00Z",
+  "last_success": "2026-10-25T11:22:30Z",
+  "repositories_succeeded": 8,
+  "repositories_total": 17,
   "releases": [
     {
       "id": "upstream-421895037",
@@ -995,6 +995,61 @@
       "review_status": "unreviewed"
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "task": "nvidia-kumo-forecast",
+      "repo": "NVIDIA/Kumo-TS",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "timestral",
+      "repo": "mistralai/timestral",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "openhands",
+      "repo": "OpenHands/OpenHands",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "graphrag",
+      "repo": "microsoft/graphrag",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "docling",
+      "repo": "docling-project/docling",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "browser-use",
+      "repo": "browser-use/browser-use",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "whisper",
+      "repo": "openai/whisper",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "ai-scientist",
+      "repo": "SakanaAI/AI-Scientist",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "mathlib",
+      "repo": "leanprover-community/mathlib4",
+      "at": "2026-10-25T11:27:00Z",
+      "message": "GitHub HTTP 403"
+    }
+  ],
   "note": "Official release metadata only. Capability assessments require editorial review."
 }

@@ -68,6 +68,11 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('pendingUpstream=pendingUpstreamReleases()',current)
   self.assertIn('上游候选 ${pendingUpstream.length} 条',current)
   self.assertIn('机器收录，进入正文前仍需人工核验',current)
+  self.assertIn('function v2UpstreamHealth(count)',current)
+  self.assertIn('最近完整成功 ${success} 北京时间',current)
+  self.assertIn('${succeeded}/${total||\'—\'} 源成功',current)
+  self.assertIn('${failed} 源失败',current)
+  self.assertIn('role="status"',current)
   self.assertIn('#/activity?kind=upstream',current)
   for url in (
    'https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0',

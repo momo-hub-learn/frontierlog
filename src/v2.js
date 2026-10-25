@@ -203,6 +203,14 @@ function v2ActivitySourceHref(type,id){
  if(id!=='all')p.set('source',id);
  return '#/activity'+(p.size?'?'+p.toString():'')
 }
+function v2UpstreamHealth(count){
+ const total=Number(UP.repositories_total)||0,succeeded=Number(UP.repositories_succeeded)||0,failed=Array.isArray(UP.errors)?UP.errors.length:0;
+ const success=v10FormatShanghai(UP.last_success),attempt=v10FormatShanghai(UP.last_attempt),complete=total>0&&succeeded===total&&!failed;
+ if(complete&&success)return `完整采集 ${success} 北京时间 · ${succeeded}/${total} 源成功 · 候选 ${count} 条`;
+ const last=success?`最近完整成功 ${success} 北京时间`:'尚无完整成功记录';
+ const latest=attempt?`最新尝试 ${attempt}：${succeeded}/${total||'—'} 源成功`:`最新尝试：${succeeded}/${total||'—'} 源成功`;
+ return `${last} · ${latest}${failed?` · ${failed} 源失败`:''} · 候选 ${count} 条`;
+}
 function v2Activity(){
  $('#hero').hidden=true; $('#stats').hidden=true; $('.workspace').hidden=false; $('#vertical-root').hidden=true; $('.section-head').hidden=true;
  $('#section-eyebrow').textContent='FRONTIER LIVE / FIRST-PARTY SIGNALS'; $('#section-title').innerHTML=`<span class="mini-icon">${icon('history')}</span><span>前沿现场</span>`;
@@ -257,7 +265,8 @@ function v2Activity(){
  };
  const status=e=>e.publication?[e.publication.status==='preprint'?'预印本':e.publication.status==='accepted'?'录用':'发表','publication']:e.kind==='research'?['研究','research']:e.kind==='upstream'?['待核验','pending']:['公开发布','release'];
  const queueLink=upstreamMode?'<a class="textlink" href="#/activity">返回已核验进展 '+icon('arrow')+'</a>':`<a class="textlink" href="#/activity?kind=upstream">上游候选 ${pendingUpstream.length} 条 ${icon('arrow')}</a>`;
- const lifecycleSection=activeType==='all'&&activeSource==='all'?`<section class="v2-radar-section"><header><div><p class="eyebrow">${upstreamMode?'REVIEW QUEUE':'PROMISE → REALITY'}</p><h2>${upstreamMode?'上游候选':'发布后兑现'}</h2></div><small>${upstreamMode?'机器收录，进入正文前仍需人工核验':'宣布、研究、落地分开记'}</small>${queueLink}</header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><div class="v2-life-labels"><span class="v2-life-chip">${label}</span>${publicationBadge(e)}</div><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`:'';
+ const queueSummary=upstreamMode?`<div class="v2-queue-summary"><small role="status">机器收录，进入正文前仍需人工核验 · ${esc(v2UpstreamHealth(pendingUpstream.length))}</small>${queueLink}</div>`:`<small>宣布、研究、落地分开记</small>${queueLink}`;
+ const lifecycleSection=activeType==='all'&&activeSource==='all'?`<section class="v2-radar-section"><header><div><p class="eyebrow">${upstreamMode?'REVIEW QUEUE':'PROMISE → REALITY'}</p><h2>${upstreamMode?'上游候选':'发布后兑现'}</h2></div>${queueSummary}</header><div class="v2-lifecycle-list">${rows.map(({task,events})=>`<article class="v2-lifecycle"><header><div>${identity(task)}<h2>${esc(task.title)}</h2></div><button class="textlink" data-action="task" data-id="${task.id}">打开档案 ${icon('arrow')}</button></header><div class="v2-life-track">${events.map(e=>{const [label,cls]=status(e);return `<div class="v2-life-node ${cls}"><time>${esc(e.date)}</time><i></i><div><div class="v2-life-labels"><span class="v2-life-chip">${label}</span>${publicationBadge(e)}</div><strong>${esc(e.title||e.short_title||e.tag||'版本变化')}</strong><p>${esc(e.summary||'')}</p><small>${esc(e.delta||'')}</small></div></div>`}).join('')}</div></article>`).join('')}</div></section>`:'';
 
  const visibleCount=eventRows.length+technicalRows.length+conversationRows.length+talkRows.length+demoRows.length;
  const activeTypeTitle=V2_ACTIVITY_TYPES.find(x=>x.id===activeType)?.title||'全部';

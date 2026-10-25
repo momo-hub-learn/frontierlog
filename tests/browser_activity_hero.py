@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'test-results/activity-hero'
 OUT.mkdir(parents=True, exist_ok=True)
 RADAR = json.loads((ROOT/'data/activity-radar.json').read_text(encoding='utf-8'))
+UPSTREAM = json.loads((ROOT/'data/upstream.json').read_text(encoding='utf-8'))
 FEATURES = json.loads((ROOT/'data/activity-feature.json').read_text(encoding='utf-8'))['events']
 EVENT_IDS = [event['id'] for event in RADAR['events']]
 assert len(EVENT_IDS) == len(set(EVENT_IDS))
@@ -126,6 +127,22 @@ try:
         dates=cards.locator('time').all_text_contents()
         assert dates==sorted(dates,reverse=True)
         passed('editor/time sorting changes the actual visible cards')
+        go('#/activity?kind=upstream')
+        summary=page.locator('.v2-queue-summary')
+        expect(summary).to_contain_text(f"{UPSTREAM['repositories_succeeded']}/{UPSTREAM['repositories_total']} 源成功")
+        expect(summary).to_contain_text(f"候选 {page.locator('.v2-life-node').count()} 条")
+        if UPSTREAM['errors']:
+            expect(summary).to_contain_text(f"{len(UPSTREAM['errors'])} 源失败")
+            expect(summary).to_contain_text('最近完整成功')
+        for width in [360,768,1640]:
+            page.set_viewport_size({'width':width,'height':1000})
+            page.wait_for_timeout(200)
+            assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'), ('upstream',width)
+            rect=summary.bounding_box()
+            assert rect['x']>=0 and rect['x']+rect['width']<=width+1,('upstream',width,rect)
+            summary.scroll_into_view_if_needed()
+            page.screenshot(path=str(OUT/f'{width}-upstream-health.png'))
+        passed('upstream queue exposes complete-success time, latest attempt coverage, failures and candidate count')
         go('#/activity')
         for width in [320,360,390,768,1024,1280,1640]:
             page.set_viewport_size({'width':width,'height':1000})
