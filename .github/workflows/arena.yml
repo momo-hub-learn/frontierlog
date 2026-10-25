@@ -11,6 +11,7 @@ on:
       - 'data/models.json'
       - 'tests/arena-browser.test.cjs'
       - 'tests/browser_arena.py'
+      - 'tests/browser_models.py'
       - 'scripts/setup_ci_browser.sh'
       - '.github/workflows/arena.yml'
   workflow_dispatch:
@@ -46,7 +47,9 @@ jobs:
       - name: Install browser test dependencies
         run: bash scripts/setup_ci_browser.sh
       - name: HTTP interaction and responsive checks
-        run: python tests/browser_arena.py
+        run: |
+          python tests/browser_arena.py
+          python tests/browser_models.py
       - name: Record tested source
         run: git rev-parse HEAD > source-sha.txt
       - uses: actions/upload-artifact@v4
@@ -57,6 +60,7 @@ jobs:
             source-sha.txt
             dist
             test-results/arena
+            test-results/models
           retention-days: 7
 
   preview-snapshot:
