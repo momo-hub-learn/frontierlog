@@ -9,11 +9,14 @@ BOARD_COUNTS={b['id']:len(b['rows']) for b in MODEL_DATA['boards']};AA=next(b fo
 def ok(s):checks.append(s);print('PASS',s,flush=True)
 def route(page,s):page.evaluate('(s)=>location.hash=s',s);page.wait_for_timeout(80)
 def shot(page,n,full=False):page.evaluate("scrollTo(0,0);document.querySelector('#toast').classList.remove('active')");page.wait_for_timeout(100);page.screenshot(path=str(OUT/n),full_page=full)
+def intercept(route):
+ if route.request.url.endswith('/api/v1/capabilities.json'):route.fulfill(status=200,content_type='application/json',body=json.dumps(CAP_DATA))
+ else:route.abort()
 with sync_playwright() as p:
  opts={'headless':True}
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
  b=p.chromium.launch(**opts);page=b.new_page(viewport={'width':1512,'height':1050},device_scale_factor=1);page.set_default_timeout(45000)
- page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',lambda r:r.abort());page.set_content(HTML,wait_until='domcontentloaded');page.set_default_timeout(5000)
+ page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',intercept);page.set_content(HTML.replace('<head>','<head><base href="https://frontierlog.test/">',1),wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
@@ -47,9 +50,7 @@ with sync_playwright() as p:
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')
  assert '不代表综合能力或任务正确率' in page.locator('#vertical-root').inner_text()
  ok('model methodology keeps preference scope separate from general capability')
- page.evaluate('(data)=>{CAP3=data}',CAP_DATA)
- page.evaluate('location.hash="#/models?cap=coding"');page.wait_for_timeout(100)
- page.evaluate('document.querySelector("#vertical-root").innerHTML=capPage()')
+ route(page,'#/models?cap=coding')
  expect(page.locator('.v3-capnav a.active')).to_have_attribute('aria-current','page')
  expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
  for button in page.locator('.v3-metric-tabs button').all():
