@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 装备运维与质检</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/equipment-maintenance.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>Granite 时间序列组合：先把产线概率预测做成可回测基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=ibm-granite-timeseries-ensemble-20261022</link><guid isPermaLink="false">frontierlog:topic:ibm-granite-timeseries-ensemble-20261022</guid><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 装备运维与质检</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/equipment-maintenance.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>排产 Agent 与虚拟质检进入真实工厂：先分清试点、目标和产品化</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=siemens-nvidia-industrial-ai-20261022</link><guid isPermaLink="false">frontierlog:topic:siemens-nvidia-industrial-ai-20261022</guid><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成方案并在数字孪生中验证；Process Preparation X 与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并将试点应用推进到市场。
+
+编辑解读：工业 Agent 的验证链开始覆盖真实排产、质检准备和工厂仿真，而不只是离线问答。团队可据此把数据上下文、建议生成、仿真验证、人工放行和上线后指标拆成可审计步骤。
+
+边界：这是 Siemens 官方项目披露，不是本站或独立第三方实测。成本最多降低 20%、上市时间最多缩短 40%、吞吐提升 20%分别来自目标、试点或初始客户场景，不能外推到其他工厂，也不能据此称为全自主工厂；产品版本、价格、部署条件和长期稳定性仍需逐项核对。
+资料核对：2026-10-25；本站未实测。
+原始来源：
+https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai</description><category>装备研发与工程</category><category>装备运维与质检</category><category>数字孪生与产线仿真</category></item><item><title>Granite 时间序列组合：先把产线概率预测做成可回测基线</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=ibm-granite-timeseries-ensemble-20261022</link><guid isPermaLink="false">frontierlog:topic:ibm-granite-timeseries-ensemble-20261022</guid><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。
 
 编辑解读：产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。
 

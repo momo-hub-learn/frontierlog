@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-25T12:08:14Z",
+  "generated_at": "2026-10-25T13:23:40Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 69,
+    "merge": 70,
     "hold": 3
   },
   "candidates": [
@@ -231,6 +231,29 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-22T11:33:11Z"
+    },
+    {
+      "id": "candidate-f5b6d03d9bc31e1d",
+      "category": "industry",
+      "published": "2026-10-22",
+      "title": "排产 Agent 与虚拟质检进入真实工厂：先分清试点、目标和产品化",
+      "summary": "Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成方案并在数字孪生中验证；Process Preparation X 与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并将试点应用推进到市场。",
+      "why": "工业 Agent 的验证链开始覆盖真实排产、质检准备和工厂仿真，而不只是离线问答。团队可据此把数据上下文、建议生成、仿真验证、人工放行和上线后指标拆成可审计步骤。",
+      "boundary": "这是 Siemens 官方项目披露，不是本站或独立第三方实测。成本最多降低 20%、上市时间最多缩短 40%、吞吐提升 20%分别来自目标、试点或初始客户场景，不能外推到其他工厂，也不能据此称为全自主工厂；产品版本、价格、部署条件和长期稳定性仍需逐项核对。",
+      "source": "Siemens / NVIDIA",
+      "source_kind": "Siemens 官方工业 AI 发布、Erlangen 工厂试点与产品化范围",
+      "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
+      "publishable": true,
+      "features": {
+        "freshness": 0.786,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.773,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-25T13:23:40Z"
     },
     {
       "id": "candidate-0e60c3ed4bc5882d",
@@ -966,29 +989,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "claude-duet",
       "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-4e6d08498ee7886a",
-      "category": "industry",
-      "published": "2026-10-20",
-      "title": "蝎毒 binder 进入湿实验：211 个候选中 17 个达到结合标准",
-      "summary": "Anthropic 的内部研究模型生成 318,484 个蛋白设计并筛选候选；Adaptyv Bio 与 Twist Bioscience 测试 211 个设计，其中 17 个针对四种危险蝎神经毒素达到官方设定的结合标准。",
-      "why": "公开全部设计、成功和失败数据后，团队可以审计从计算生成到湿实验的真实漏斗，而不是把模型评分或少数最佳样本当作药物发现成功。",
-      "boundary": "结合不等于毒素中和；研究尚未确认候选能在细胞环境中中和毒液，因此不能称为抗毒血清、药物或临床疗法。本站未复现实验，仍需独立复现、功能、安全性和动物/临床验证。",
-      "source": "Anthropic",
-      "source_kind": "官方蛋白设计、开放数据与合同研究组织湿实验结果",
-      "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.73,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-24T03:26:29Z"
     }
   ]
 }

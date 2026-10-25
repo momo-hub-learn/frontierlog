@@ -83,6 +83,47 @@
       ]
     },
     {
+      "id": "siemens-nvidia-industrial-ai-20261022",
+      "category": "industry",
+      "title": "Siemens × NVIDIA：排产 Agent 与虚拟质检进入真实工厂",
+      "published": "2026-10-22",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T21:15:47+08:00",
+      "first_seen_at": "2026-10-25T21:15:47+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 32,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是工厂自动化程度、节省成本或本站实测分数。",
+      "trend": "up",
+      "summary": "Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成并验证生产方案，数字孪生与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并把相关应用从试点推进到产品化。",
+      "why": "工业 Agent 不再只停留在问答或演示，而是接入排产、检验准备和工厂数字孪生。制造团队可以据此建立从数据上下文、建议生成、仿真验证到人工放行的完整验收链路。",
+      "boundary": "这是 Siemens 的官方项目披露，不是本站或独立第三方实测。成本最多降低 20%、上市时间最多缩短 40%、吞吐提升 20%分别来自目标、试点或初始客户场景，不能外推到其他工厂，也不能据此称为全自主工厂；产品版本、价格、部署条件和长期稳定性仍需逐项核对。",
+      "source": "Siemens / NVIDIA",
+      "source_kind": "Siemens 官方工业 AI 发布 / 本轮编辑核验",
+      "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Siemens 官方发布",
+          "note": "区分产品化、试点、目标值与初始客户结果，不把单厂指标外推为行业结论",
+          "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Siemens",
+          "title": "Erlangen 工厂的自适应制造与 PCB 虚拟质检试点",
+          "url": "https://press.siemens.com/global/en/pressrelease/siemens-partners-nvidia-advance-ai-driven-autonomous-factories",
+          "date": "2026-10-19"
+        }
+      ]
+    },
+    {
       "id": "nvidia-nemo-automodel-0-7-20261021",
       "category": "product",
       "title": "NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径",
