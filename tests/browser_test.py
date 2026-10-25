@@ -55,10 +55,9 @@ try:
         page.set_default_timeout(8000)
 
         def go(route):
-            if MEMORY:
-                page.evaluate("route => location.hash = route", route)
-            else:
-                page.goto(url + route, wait_until="domcontentloaded")
+            # Routes are hash-only SPA transitions; keep the loaded document
+            # and exercise the same hashchange path as an in-product click.
+            page.evaluate("route => location.hash = route", route)
             page.wait_for_timeout(150)
 
         expect(page.locator(".fc-cockpit")).to_have_count(1)
@@ -70,7 +69,9 @@ try:
         go("#/progress")
         expect(page.locator(".p5-progress")).to_have_count(1)
         expect(page.locator(".p5-change-card")).not_to_have_count(0)
-        page.locator('.p5-tabs a[href*="view=map"]').click()
+        # This is an in-page hash route. Trigger the real DOM click without
+        # asking Playwright to wait for a document navigation that never occurs.
+        page.locator('.p5-tabs a[href*="view=map"]').evaluate("el => el.click()")
         expect(page.locator(".p5-map-card")).to_have_count(
             sum(item.get("status") == "code" for item in CATALOG["items"])
         )
