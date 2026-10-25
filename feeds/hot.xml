@@ -413,7 +413,13 @@
 
 边界：这是 Docling 官方 Release 的修复清单，不是 CVE 公告，也不证明 v2.142.1 消除了所有解析风险。本站未对补丁做渗透测试；生产环境仍需文件大小、类型、执行路径、超时和隔离层限制。
 
-站内热度 86；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
+站内热度 86；不是全网流量。</description></item><item><title>OpenHands 1.33：表单机密遮蔽与验证模式同步收紧</title><guid isPermaLink="false">frontierlog:hot:openhands-v1-33-secret-masking-20261023</guid><link>https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenHands v1.33.0 为 verify-openhands 增加 --mars-web 与 --lock-to-cloud 模式，让 Web 构建在重启后保留登录，并在请求与 Settings 表单中遮蔽机密值，同时包含多项缺陷修复。
+
+为什么值得看：Coding Agent 的验证接线、登录连续性和机密展示边界同时变化。已经在本地或云端运行 OpenHands 的团队应锁定版本，用隔离仓库复跑任务，并检查请求表单、设置页、日志与后端是否符合自己的凭据策略。
+
+边界：这是 OpenHands 官方 Release 的改动清单，不是本站安全审计。表单遮蔽不能证明机密未进入请求、日志、存储或后端；macOS 应用仍未签名和公证，官方说明可能被系统标记为损坏并提供 xattr 临时处理，不能写成已消除安装风险。
+
+站内热度 85；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
 
 为什么值得看：硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。
 

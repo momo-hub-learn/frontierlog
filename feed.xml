@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Hugging Face 发布 Trainium 模型兼容性目录</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=hf-trainium-model-support&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:hf-trainium-model-support-release</guid><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>OpenHands v1.33.0 收紧验证与机密展示边界</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-33-release</guid><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。
+
+编辑解读：验证接线和 UI 机密展示更可控；表单遮蔽仍不能替代日志、请求、存储与后端的凭据审计，macOS 构建也仍未签名和公证。
+
+公开资料，本站未复测。
+来源：https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0</description></item><item><title>Hugging Face 发布 Trainium 模型兼容性目录</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=hf-trainium-model-support&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:hf-trainium-model-support-release</guid><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。
 
 编辑解读：硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。
 

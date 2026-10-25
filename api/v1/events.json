@@ -2,6 +2,21 @@
   "snapshot": "2026-10-25",
   "events": [
     {
+      "id": "openhands-1-33-release",
+      "task": "openhands",
+      "date": "2026-10-23",
+      "kind": "release",
+      "title": "OpenHands v1.33.0 收紧验证与机密展示边界",
+      "summary": "新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。",
+      "delta": "验证接线和 UI 机密展示更可控；表单遮蔽仍不能替代日志、请求、存储与后端的凭据审计，macOS 构建也仍未签名和公证。",
+      "sources": [
+        "openhands-1-33-release"
+      ],
+      "reviewed": "2026-10-25",
+      "tag": "v1.33.0",
+      "short_title": "验证模式与机密遮蔽"
+    },
+    {
       "id": "nvidia-nemo-automodel-0-7-release",
       "task": "nvidia-nemo-automodel-0-7",
       "date": "2026-10-21",
@@ -474,6 +489,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "openhands-1-33-release",
+      "title": "OpenHands v1.33.0",
+      "publisher": "OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+      "published": "2026-10-23",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T11:26:01+08:00",
+      "kind": "官方 GitHub Release"
+    },
     {
       "id": "nvidia-nemo-automodel-0-7-release",
       "publisher": "NVIDIA NeMo",
