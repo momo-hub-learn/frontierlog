@@ -4,7 +4,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 R=Path(__file__).resolve().parents[1];OUT=R/'screenshots';OUT.mkdir(exist_ok=True)
 HTML=(R/'dist/index.html').read_text();checks=[];errors=[]
-MODEL_DATA=json.loads((R/'data/models.json').read_text());RESET_DATA=json.loads((R/'data/resets.json').read_text())
+MODEL_DATA=json.loads((R/'data/models.json').read_text());RESET_DATA=json.loads((R/'data/resets.json').read_text());CAP_DATA=json.loads((R/'data/capabilities.json').read_text())
 BOARD_COUNTS={b['id']:len(b['rows']) for b in MODEL_DATA['boards']};AA=next(b for b in MODEL_DATA['boards'] if b['id']=='aa');ARENA=next(b for b in MODEL_DATA['boards'] if b['id']=='arena')
 def ok(s):checks.append(s);print('PASS',s,flush=True)
 def route(page,s):page.evaluate('(s)=>location.hash=s',s);page.wait_for_timeout(80)
@@ -47,6 +47,7 @@ with sync_playwright() as p:
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')
  assert '不代表综合能力或任务正确率' in page.locator('#vertical-root').inner_text()
  ok('model methodology keeps preference scope separate from general capability')
+ page.evaluate('(data)=>{CAP3=data}',CAP_DATA)
  route(page,'#/models?cap=coding')
  expect(page.locator('.v3-capnav a.active')).to_have_attribute('aria-current','page')
  expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
