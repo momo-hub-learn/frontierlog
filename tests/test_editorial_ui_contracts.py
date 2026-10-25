@@ -54,12 +54,29 @@ class EditorialContracts(unittest.TestCase):
  def test_unreviewed_upstream_releases_require_an_explicit_queue_view(self):
   legacy=(ROOT/'src/app.js').read_text()
   current=(ROOT/'src/v2.js').read_text()
+  catalog=json.loads((ROOT/'data/catalog.json').read_text())
+  upstream=json.loads((ROOT/'data/upstream.json').read_text())
+  sources={s['id']:s['url'].rstrip('/') for s in catalog['sources']}
+  verified={sources[sid] for event in catalog['events'] for sid in event.get('sources',[]) if sid in sources}
+  pending={r['url'].rstrip('/') for r in upstream['releases'] if r['url'].rstrip('/') not in verified}
   self.assertIn("activity:DATA.events.length,",legacy)
   self.assertNotIn("activity:DATA.events.length+UP.releases.length",legacy)
   self.assertIn("const pool=state.kind==='upstream'?raw:DATA.events",legacy)
+  self.assertIn('function pendingUpstreamReleases()',legacy)
+  self.assertIn('verifiedEventSourceUrls.has(normalizedSourceUrl(e.url))',legacy)
   self.assertIn("const upstreamMode=state.kind==='upstream'",current)
+  self.assertIn('pendingUpstream=pendingUpstreamReleases()',current)
+  self.assertIn('上游候选 ${pendingUpstream.length} 条',current)
   self.assertIn('机器收录，进入正文前仍需人工核验',current)
   self.assertIn('#/activity?kind=upstream',current)
+  for url in (
+   'https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0',
+   'https://github.com/docling-project/docling/releases/tag/v2.142.1',
+   'https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0',
+   'https://github.com/microsoft/flint-chart/releases/tag/1.0',
+  ):self.assertNotIn(url,pending)
+  automodel=[r for r in upstream['releases'] if r['url'].endswith('/v0.7.0') and r['repo']=='NVIDIA-NeMo/Automodel']
+  self.assertEqual([r['task'] for r in automodel],['nvidia-nemo-automodel-0-7'])
 
  def test_each_intraday_source_link_has_a_unique_accessible_name(self):
   text=(ROOT/'src/intraday.js').read_text()

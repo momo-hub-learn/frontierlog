@@ -100,7 +100,7 @@
       "scope": "Microsoft Research 2026-10-22 发布 Flint-interactive；Flint 1.0 已提供 MCP 服务、npm 库、23 个交互预设和编程 API，可连接图表、表格、文本与应用状态。",
       "boundary": "官方关于更可靠、减少开发工作量的表述是产品方主张，不是本站实测。生产使用仍需核验数据正确性、交互状态、无障碍、性能、依赖许可与用户输入边界。",
       "repo": "microsoft/flint-chart",
-      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo"],
+      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo", "microsoft-flint-chart-v1-release"],
       "requirements": "可运行 npx 的 MCP 客户端，或支持 React/原生 JavaScript 的项目；开发者接入需 Node.js、flint-chart 和所选渲染后端。",
       "test": "从一个含筛选字段的固定小数据集开始，生成一张静态基线和一张带联动筛选的 Flint 图；逐项核对数据、事件状态、键盘与触摸操作、缩放后恢复、窄屏布局和导出结果。",
       "checks": [
@@ -266,6 +266,7 @@
       "scope": "官方开放 8B/1B Embed、8B Rerank 和 631M Parse 权重，并提供 NIM、合作方推理入口及多模态微调配方。",
       "boundary": "厂商公布的 ViDoRe、ParseBench、吞吐和错误率依赖指定数据、硬件与配置。本站未运行模型；开放权重不代表所有部署路径免费，也不能保证特定企业文档、语言或 RAG 答案质量。",
       "repo": "NVIDIA-NeMo/Automodel",
+      "release_tracking": false,
       "sources": ["nvidia-nemotron-3-5-retriever-release"],
       "requirements": "Python 推理环境、相应模型权重和显存；生产前需自建带相关性标签的多模态文档评测集。",
       "test": "固定 50–200 个获授权文档与查询，分别记录解析结构、Recall@k、nDCG@10、重排增益、延迟和显存；与文本抽取、旧 Embed 及不开 Rerank 的基线同窗比较。",
@@ -404,6 +405,7 @@
       "scope": "约 800 万参数、Apache 2.0；官方代码和权重公开，输入输出保留原始 DataFrame 列。",
       "boundary": "异常不是故障根因；阈值决定误报与漏报。厂商半导体案例只是一种设备和数据分布，不能直接外推到生产线，本站未运行。",
       "repo": "NVIDIA/Kumo-TS",
+      "release_tracking": false,
       "sources": ["nvidia-kumo-anomaly-release", "nvidia-kumo-anomaly-model", "nvidia-kumo-forecast-code"],
       "requirements": "Python 与官方 Kumo-TS 环境；只准备经过授权、去标识且保留时间顺序的数值传感器数据。",
       "test": "先冻结不含未来信息的时间留出集，对比 SCS、MACS 和简单统计基线；按机台、批次、工况报告 PR-AUC、误报、漏报和检测延迟。",
@@ -969,6 +971,16 @@
       "kind": "官方代码、Flint 1.0 更新与接入说明"
     },
     {
+      "id": "microsoft-flint-chart-v1-release",
+      "publisher": "Microsoft",
+      "title": "Flint 1.0",
+      "url": "https://github.com/microsoft/flint-chart/releases/tag/1.0",
+      "published": "2026-10-21",
+      "checked": "2026-10-25",
+      "verified_at": "2026-10-25T17:20:51+08:00",
+      "kind": "官方 GitHub Release 与版本产物"
+    },
+    {
       "id": "openai-decisions-api-ga",
       "publisher": "OpenAI",
       "title": "Build more responsive apps with the Decisions API",
@@ -1489,7 +1501,7 @@
       "title": "Microsoft 发布 Flint-interactive",
       "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
       "delta": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
-      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo"],
+      "sources": ["microsoft-flint-interactive-release", "microsoft-flint-chart-repo", "microsoft-flint-chart-v1-release"],
       "reviewed": "2026-10-23"
     },
     {

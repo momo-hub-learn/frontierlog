@@ -69,7 +69,10 @@ def normalize(rows: list, task:dict, now:str) -> list:
 
 def collect(catalog:dict,previous:dict,fetcher=fetch_releases,now:str|None=None,token:str='') -> dict:
     now=now or datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00','Z')
-    tasks=[t for t in catalog['items'] if t.get('repo')]
+    # A repository may support several editorial tasks, but its release feed must
+    # have one explicit owner.  Non-owners remain valid catalog entries while
+    # opting out of release ingestion with ``release_tracking: false``.
+    tasks=[t for t in catalog['items'] if t.get('repo') and t.get('release_tracking',True)]
     valid={t['id'] for t in tasks}
     records={r['id']:dict(r) for r in previous.get('releases',[]) if r.get('task') in valid}
     errors=[];succeeded=0
