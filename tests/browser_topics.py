@@ -55,6 +55,10 @@ try:
   route(page,'#/manufacturing');expect(page.locator('.v-article')).to_have_count(SECTOR_COUNTS['manufacturing'])
   latest_manufacturing=max((x for x in ARTICLES if x['sector']=='manufacturing' and x.get('published')),key=lambda x:(x['published'],x.get('verified_at','')))
   assert page.locator('.v-latest').get_attribute('data-latest-id')==latest_manufacturing['id']
+  source_links=page.locator('.v-article-actions a[target="_blank"], .v-latest-actions a[target="_blank"]')
+  source_names=source_links.evaluate_all("els=>els.map(x=>x.getAttribute('aria-label'))")
+  assert all(source_names) and len(source_names)==len(set(source_names))
+  assert all('新窗口打开' in name for name in source_names)
   shot(page,'manufacturing.png')
   route(page,'#/manufacturing?topic=fab-maintenance');expect(page.locator('.v-article')).to_have_count(2)
   route(page,'#/manufacturing?topic=csr');assert page.locator('.v2-business-chain a.active').inner_text()=='全部'

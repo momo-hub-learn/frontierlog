@@ -87,6 +87,11 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertIn('aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）"',text)
 
+ def test_each_vertical_source_link_has_a_record_specific_accessible_name(self):
+  text=(ROOT/'src/vertical.js').read_text()
+  self.assertIn('aria-label="查看「${esc(a.title)}」原始来源（新窗口打开）"',text)
+  self.assertIn('aria-label="查看最新进展「${esc(a.title)}」原始来源（新窗口打开）"',text)
+
  def test_toolkit_repeated_actions_include_tool_specific_accessible_names(self):
   text=(ROOT/'src/toolkit.js').read_text()
   self.assertIn('`${t.name} 官方上手文档（新窗口打开）`',text)
