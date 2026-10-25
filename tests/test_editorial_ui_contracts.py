@@ -107,6 +107,12 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/v2.js').read_text()
   self.assertIn('aria-pressed="${x.id===b.id}"',text)
   self.assertIn('aria-pressed="${metric===k}"',text)
+ def test_capability_model_navigation_and_metrics_expose_current_state(self):
+  text=(ROOT/'src/product-v3.js').read_text()
+  self.assertIn("current=selected=>selected?' aria-current=\"page\"':''",text)
+  self.assertIn('current(active===g.id&&!bench)',text)
+  self.assertIn('aria-pressed="\'+(id===b.id)+\'"',text)
+  self.assertIn('aria-pressed="\'+(c.key===metric)+\'"',text)
  def test_hot_primary_cta_does_not_call_documents_an_experience(self):
   text=(ROOT/'src/hot.js').read_text()
   self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)

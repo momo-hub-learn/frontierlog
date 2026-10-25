@@ -47,6 +47,12 @@ with sync_playwright() as p:
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')
  assert '不代表综合能力或任务正确率' in page.locator('#vertical-root').inner_text()
  ok('model methodology keeps preference scope separate from general capability')
+ route(page,'#/models?cap=coding')
+ expect(page.locator('.v3-capnav a.active')).to_have_attribute('aria-current','page')
+ expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
+ for button in page.locator('.v3-metric-tabs button').all():
+  expect(button).to_have_attribute('aria-pressed','true' if 'active' in (button.get_attribute('class') or '') else 'false')
+ ok('capability navigation and metric controls expose their selected state without relying on color')
  page.evaluate("window.twttr={widgets:{createTweet:()=>new Promise(()=>{})}}")
  route(page,'#/tibo');expect(page.locator('.tibo-featured')).to_have_count(1)
  expect(page.locator('.tibo-x-fallback').first).to_be_visible(timeout=7000)
