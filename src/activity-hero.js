@@ -162,8 +162,9 @@ if (typeof document !== 'undefined' && typeof APP !== 'undefined') (() => {
  function refreshTemporalState(){refreshFeature();refreshEventCards()}
  function enhance() {
   const host=root();if(!host)return;
-  host.classList.toggle('ah-page',state.view==='activity');
-  if(state.view!=='activity'){delete host.dataset.ahLayout;return}
+  const queueMode=state.view==='activity'&&state.kind==='upstream';
+  host.classList.toggle('ah-page',state.view==='activity'&&!queueMode);
+  if(state.view!=='activity'||queueMode){delete host.dataset.ahLayout;return}
   const intro=host.querySelector('.v2-activity-intro');
   if(intro){
    currentFeature=ActivityHero.select(radar,config);

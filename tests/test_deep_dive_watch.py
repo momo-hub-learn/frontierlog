@@ -14,7 +14,8 @@ class DeepDiveFreshnessTests(unittest.TestCase):
     def setUpClass(cls):
         cls.deep=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
         cls.hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
-        cls.legacy=dict(cls.deep,articles=[a for a in cls.deep['articles'] if a['id']!='decisions-api-bounded-decision-layer'])
+        cls.before_containment=dict(cls.deep,articles=[a for a in cls.deep['articles'] if a['id']!='frontier-training-containment'])
+        cls.legacy=dict(cls.deep,articles=[a for a in cls.before_containment['articles'] if a['id']!='decisions-api-bounded-decision-layer'])
 
     def test_three_day_cycle_in_beijing_calendar_days(self):
         self.assertEqual(DEFAULT_CADENCE_DAYS,3)
@@ -60,7 +61,7 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         self.assertIn('只改 updated',x['note'])
 
     def test_new_article_resets_cadence_without_rewriting_prior_dates(self):
-        x=report(self.deep,self.hot,date(2026,10,23))
+        x=report(self.before_containment,self.hot,date(2026,10,23))
         self.assertEqual(x['latest_id'],'decisions-api-bounded-decision-layer')
         self.assertEqual(x['latest_published'],'2026-10-23')
         self.assertEqual(x['next_due'],'2026-10-26')
@@ -68,6 +69,13 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         prior=next(a for a in self.deep['articles'] if a['id']=='rea-agent-reverse-engineering')
         self.assertEqual(prior['published'],'2026-10-13')
         self.assertEqual(prior['updated'],'2026-10-15')
+
+    def test_current_article_resets_due_date_on_beijing_calendar(self):
+        x=report(self.deep,self.hot,date(2026,10,26))
+        self.assertEqual(x['latest_id'],'frontier-training-containment')
+        self.assertEqual(x['latest_published'],'2026-10-26')
+        self.assertEqual(x['next_due'],'2026-10-29')
+        self.assertFalse(x['stale'])
 
     def test_empty_archive_remains_overdue(self):
         x=report({'articles':[]},self.hot,date(2026,10,19))

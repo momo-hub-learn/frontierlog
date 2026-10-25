@@ -74,6 +74,13 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('${failed} 源失败',current)
   self.assertIn('role="status"',current)
   self.assertIn('#/activity?kind=upstream',current)
+  self.assertIn('const upstreamIntro=',current)
+  self.assertIn("$('#content').innerHTML=upstreamMode",current)
+  self.assertIn("classList.toggle('is-upstream-queue',upstreamMode)",current)
+  self.assertIn('?`${upstreamIntro}${lifecycleSection}`',current)
+  enhanced=(ROOT/'src/activity-hero.js').read_text()
+  self.assertIn("const queueMode=state.view==='activity'&&state.kind==='upstream'",enhanced)
+  self.assertIn("state.view!=='activity'||queueMode",enhanced)
   for url in (
    'https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0',
    'https://github.com/docling-project/docling/releases/tag/v2.142.1',
