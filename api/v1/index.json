@@ -3256,7 +3256,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-25T09:33:33Z",
+    "generated_at": "2026-10-25T11:37:22Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -6335,11 +6335,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-25T09:33:28Z",
+    "checked_at": "2026-10-25T11:22:16Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-25T09:33:28Z",
+      "last_success": "2026-10-25T11:22:16Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -7241,7 +7241,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-25T09:33:33Z",
+    "last_evaluated": "2026-10-25T11:37:22Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 72,
@@ -7267,625 +7267,21 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-25T09:22:43Z",
+    "checked_at": "2026-10-25T11:26:06Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
     "items": [
       {
-        "repo": "cloudflare/security-audit-skill",
-        "rank": 1,
-        "stars_today": 2264,
-        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
-        "language": "JavaScript",
-        "stars": 45498,
-        "forks": 2821,
-        "repo_created_at": "2026-06-18T14:08:44Z",
-        "repo_pushed_at": "2026-09-14T19:29:02Z",
-        "category": "agent-skills",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Skills",
-          "Workflow"
-        ],
-        "url": "https://github.com/cloudflare/security-audit-skill",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 43155
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 43399
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 43508
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 43696
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 43921
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 44008
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 44394
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 44464
-          },
-          {
-            "at": "2026-10-25T01:17:59Z",
-            "stars": 44596
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 44984
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 45228
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 45498
-          }
-        ]
-      },
-      {
-        "repo": "NVIDIA/OpenShell",
-        "rank": 2,
-        "stars_today": 896,
-        "description": "OpenShell is the safe, private runtime for autonomous AI agents.",
-        "language": "Rust",
-        "stars": 19681,
-        "forks": 1944,
-        "repo_created_at": "2026-02-24T22:52:22Z",
-        "repo_pushed_at": "2026-10-24T23:55:12Z",
-        "category": "agent-runtime",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Runtime",
-          "AI"
-        ],
-        "url": "https://github.com/NVIDIA/OpenShell",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T11:22:25Z",
-            "stars": 19100
-          },
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 19161
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 19218
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 19246
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 19286
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 19337
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 19357
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 19435
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 19459
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 19579
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 19636
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 19681
-          }
-        ]
-      },
-      {
-        "repo": "aws/agent-toolkit-for-aws",
-        "rank": 3,
-        "stars_today": 13,
-        "description": "Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS",
-        "language": "Python",
-        "stars": 3243,
-        "forks": 403,
-        "repo_created_at": "2026-04-23T12:44:08Z",
-        "repo_pushed_at": "2026-10-23T15:00:22Z",
-        "category": "agent-interface",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Tools",
-          "MCP"
-        ],
-        "url": "https://github.com/aws/agent-toolkit-for-aws",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 2988
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 3014
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 3020
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 3035
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 3057
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 3069
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 3102
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 3118
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 3183
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 3215
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 3243
-          }
-        ]
-      },
-      {
-        "repo": "Nutlope/hallmark",
-        "rank": 4,
-        "stars_today": 455,
-        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
-        "language": "CSS",
-        "stars": 32646,
-        "forks": 1683,
-        "repo_created_at": "2026-04-27T20:47:10Z",
-        "repo_pushed_at": "2026-10-22T17:20:32Z",
-        "category": "agent-skills",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Skills",
-          "Workflow"
-        ],
-        "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 31568
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 31679
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 31709
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 31804
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 31898
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 31930
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 32063
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 32099
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 32356
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 32512
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 32646
-          }
-        ]
-      },
-      {
-        "repo": "luongnv89/claude-howto",
-        "rank": 5,
-        "stars_today": 392,
-        "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
-        "language": "Python",
-        "stars": 44808,
-        "forks": 5511,
-        "repo_created_at": "2025-11-07T22:59:34Z",
-        "repo_pushed_at": "2026-10-20T12:23:14Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/luongnv89/claude-howto",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 44199
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 44273
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 44296
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 44335
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 44380
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 44398
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 44499
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 44522
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 44670
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 44746
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 44808
-          }
-        ]
-      },
-      {
-        "repo": "pbakaus/impeccable",
-        "rank": 6,
-        "stars_today": 619,
-        "description": "The design language that makes your AI harness better at design.",
-        "language": "Rust",
-        "stars": 86782,
-        "forks": 5180,
-        "repo_created_at": "2025-11-16T01:52:04Z",
-        "repo_pushed_at": "2026-10-24T06:29:27Z",
-        "category": "agent-harness",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Harness",
-          "Tools"
-        ],
-        "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 85913
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 86006
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 86051
-          },
-          {
-            "at": "2026-10-24T17:17:37Z",
-            "stars": 86118
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 86198
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 86227
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 86337
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 86365
-          },
-          {
-            "at": "2026-10-25T03:22:22Z",
-            "stars": 86515
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 86576
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 86671
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 86782
-          }
-        ]
-      },
-      {
-        "repo": "pollen-robotics/microduck",
-        "rank": 7,
-        "stars_today": 319,
-        "description": "A Tiny biped duck robot 🦆",
-        "language": "Rust",
-        "stars": 11220,
-        "forks": 1434,
-        "repo_created_at": "2026-07-29T07:52:16Z",
-        "repo_pushed_at": "2026-10-24T09:37:44Z",
-        "category": "other",
-        "ai_related": false,
-        "tags": [
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/pollen-robotics/microduck",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 10668
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 10743
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 10766
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 10840
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 10858
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 10940
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 10962
-          },
-          {
-            "at": "2026-10-25T03:22:22Z",
-            "stars": 11059
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 11093
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 11159
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 11220
-          }
-        ]
-      },
-      {
-        "repo": "google-gemini/gemini-cli",
-        "rank": 8,
-        "stars_today": 44,
-        "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-        "language": "TypeScript",
-        "stars": 108318,
-        "forks": 14826,
-        "repo_created_at": "2025-04-17T17:04:31Z",
-        "repo_pushed_at": "2026-10-25T01:31:54Z",
-        "category": "agent-interface",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Tools",
-          "MCP"
-        ],
-        "url": "https://github.com/google-gemini/gemini-cli",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 107647
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 107738
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 107763
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 107878
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 107902
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 108003
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 108025
-          },
-          {
-            "at": "2026-10-25T03:22:22Z",
-            "stars": 108125
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 108174
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 108244
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 108318
-          }
-        ]
-      },
-      {
-        "repo": "jbiaojerry/ebook-treasure-chest",
-        "rank": 9,
-        "stars_today": 227,
-        "description": "欢迎来到电子书下载宝库，一个汇聚了各类电子书下载链接的地方。无论你是喜欢阅读经典文学、经管励志、终身学习、职场创业、技术手册还是其他类型的书籍，这里都能满足你的需求。 该库涵盖了帆书app(原樊登读书)、微信读书、京东读书、喜马拉雅等读书app的大部分电子书。",
-        "language": "Python",
-        "stars": 22958,
-        "forks": 3214,
-        "repo_created_at": "2023-09-13T12:22:09Z",
-        "repo_pushed_at": "2026-01-13T00:59:23Z",
-        "category": "other",
-        "ai_related": false,
-        "tags": [
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/jbiaojerry/ebook-treasure-chest",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
-        "star_history": [
-          {
-            "at": "2026-10-24T13:25:13Z",
-            "stars": 22339
-          },
-          {
-            "at": "2026-10-24T15:21:51Z",
-            "stars": 22421
-          },
-          {
-            "at": "2026-10-24T16:05:40Z",
-            "stars": 22452
-          },
-          {
-            "at": "2026-10-24T18:51:46Z",
-            "stars": 22517
-          },
-          {
-            "at": "2026-10-24T19:28:07Z",
-            "stars": 22523
-          },
-          {
-            "at": "2026-10-24T22:35:12Z",
-            "stars": 22565
-          },
-          {
-            "at": "2026-10-24T23:22:39Z",
-            "stars": 22579
-          },
-          {
-            "at": "2026-10-25T03:22:22Z",
-            "stars": 22725
-          },
-          {
-            "at": "2026-10-25T04:57:57Z",
-            "stars": 22780
-          },
-          {
-            "at": "2026-10-25T07:15:26Z",
-            "stars": 22872
-          },
-          {
-            "at": "2026-10-25T09:22:43Z",
-            "stars": 22958
-          }
-        ]
-      },
-      {
         "repo": "makecindy/cindy",
-        "rank": 10,
+        "rank": 1,
         "stars_today": 477,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 4346,
-        "forks": 619,
+        "stars": 4400,
+        "forks": 624,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-25T09:19:40Z",
+        "repo_pushed_at": "2026-10-25T11:18:04Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -7894,7 +7290,7 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-25T09:22:43Z",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
         "star_history": [
           {
             "at": "2026-10-24T13:25:13Z",
@@ -7939,6 +7335,442 @@
           {
             "at": "2026-10-25T09:22:43Z",
             "stars": 4346
+          },
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 4400
+          }
+        ]
+      },
+      {
+        "repo": "Nutlope/hallmark",
+        "rank": 2,
+        "stars_today": 455,
+        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+        "language": "CSS",
+        "stars": 32796,
+        "forks": 1697,
+        "repo_created_at": "2026-04-27T20:47:10Z",
+        "repo_pushed_at": "2026-10-22T17:20:32Z",
+        "category": "agent-skills",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Skills",
+          "Workflow"
+        ],
+        "url": "https://github.com/Nutlope/hallmark",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-24T13:25:13Z",
+            "stars": 31568
+          },
+          {
+            "at": "2026-10-24T15:21:51Z",
+            "stars": 31679
+          },
+          {
+            "at": "2026-10-24T16:05:40Z",
+            "stars": 31709
+          },
+          {
+            "at": "2026-10-24T17:17:37Z",
+            "stars": 31804
+          },
+          {
+            "at": "2026-10-24T18:51:46Z",
+            "stars": 31898
+          },
+          {
+            "at": "2026-10-24T19:28:07Z",
+            "stars": 31930
+          },
+          {
+            "at": "2026-10-24T22:35:12Z",
+            "stars": 32063
+          },
+          {
+            "at": "2026-10-24T23:22:39Z",
+            "stars": 32099
+          },
+          {
+            "at": "2026-10-25T04:57:57Z",
+            "stars": 32356
+          },
+          {
+            "at": "2026-10-25T07:15:26Z",
+            "stars": 32512
+          },
+          {
+            "at": "2026-10-25T09:22:43Z",
+            "stars": 32646
+          },
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 32796
+          }
+        ]
+      },
+      {
+        "repo": "debpalash/VoiceStudio",
+        "rank": 3,
+        "stars_today": 1588,
+        "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+        "language": "Python",
+        "stars": 85617,
+        "forks": 9491,
+        "repo_created_at": "2026-04-09T21:40:26Z",
+        "repo_pushed_at": "2026-10-25T11:20:14Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 85617
+          }
+        ]
+      },
+      {
+        "repo": "pbakaus/impeccable",
+        "rank": 4,
+        "stars_today": 619,
+        "description": "The design language that makes your AI harness better at design.",
+        "language": "Rust",
+        "stars": 86913,
+        "forks": 5188,
+        "repo_created_at": "2025-11-16T01:52:04Z",
+        "repo_pushed_at": "2026-10-24T06:29:27Z",
+        "category": "agent-harness",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Harness",
+          "Tools"
+        ],
+        "url": "https://github.com/pbakaus/impeccable",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-24T15:21:51Z",
+            "stars": 86006
+          },
+          {
+            "at": "2026-10-24T16:05:40Z",
+            "stars": 86051
+          },
+          {
+            "at": "2026-10-24T17:17:37Z",
+            "stars": 86118
+          },
+          {
+            "at": "2026-10-24T18:51:46Z",
+            "stars": 86198
+          },
+          {
+            "at": "2026-10-24T19:28:07Z",
+            "stars": 86227
+          },
+          {
+            "at": "2026-10-24T22:35:12Z",
+            "stars": 86337
+          },
+          {
+            "at": "2026-10-24T23:22:39Z",
+            "stars": 86365
+          },
+          {
+            "at": "2026-10-25T03:22:22Z",
+            "stars": 86515
+          },
+          {
+            "at": "2026-10-25T04:57:57Z",
+            "stars": 86576
+          },
+          {
+            "at": "2026-10-25T07:15:26Z",
+            "stars": 86671
+          },
+          {
+            "at": "2026-10-25T09:22:43Z",
+            "stars": 86782
+          },
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 86913
+          }
+        ]
+      },
+      {
+        "repo": "pollen-robotics/microduck",
+        "rank": 5,
+        "stars_today": 319,
+        "description": "A Tiny biped duck robot 🦆",
+        "language": "Rust",
+        "stars": 11274,
+        "forks": 1442,
+        "repo_created_at": "2026-07-29T07:52:16Z",
+        "repo_pushed_at": "2026-10-24T09:37:44Z",
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/pollen-robotics/microduck",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-24T13:25:13Z",
+            "stars": 10668
+          },
+          {
+            "at": "2026-10-24T15:21:51Z",
+            "stars": 10743
+          },
+          {
+            "at": "2026-10-24T16:05:40Z",
+            "stars": 10766
+          },
+          {
+            "at": "2026-10-24T18:51:46Z",
+            "stars": 10840
+          },
+          {
+            "at": "2026-10-24T19:28:07Z",
+            "stars": 10858
+          },
+          {
+            "at": "2026-10-24T22:35:12Z",
+            "stars": 10940
+          },
+          {
+            "at": "2026-10-24T23:22:39Z",
+            "stars": 10962
+          },
+          {
+            "at": "2026-10-25T03:22:22Z",
+            "stars": 11059
+          },
+          {
+            "at": "2026-10-25T04:57:57Z",
+            "stars": 11093
+          },
+          {
+            "at": "2026-10-25T07:15:26Z",
+            "stars": 11159
+          },
+          {
+            "at": "2026-10-25T09:22:43Z",
+            "stars": 11220
+          },
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 11274
+          }
+        ]
+      },
+      {
+        "repo": "TauricResearch/TradingAgents",
+        "rank": 6,
+        "stars_today": 309,
+        "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+        "language": "Python",
+        "stars": 113887,
+        "forks": 22056,
+        "repo_created_at": "2024-12-28T03:31:08Z",
+        "repo_pushed_at": "2026-10-16T21:38:46Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/TauricResearch/TradingAgents",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 113887
+          }
+        ]
+      },
+      {
+        "repo": "Renhuai123/ziwei-doushu",
+        "rank": 7,
+        "stars_today": 489,
+        "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
+        "language": "TypeScript",
+        "stars": 7363,
+        "forks": 1509,
+        "repo_created_at": "2026-05-01T05:09:59Z",
+        "repo_pushed_at": "2026-10-24T02:34:09Z",
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/Renhuai123/ziwei-doushu",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 7363
+          }
+        ]
+      },
+      {
+        "repo": "JetBrains/thinkrail",
+        "rank": 8,
+        "stars_today": 52,
+        "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
+        "language": "TypeScript",
+        "stars": 1117,
+        "forks": 81,
+        "repo_created_at": "2026-07-08T07:40:43Z",
+        "repo_pushed_at": "2026-10-25T11:26:26Z",
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/JetBrains/thinkrail",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 1117
+          }
+        ]
+      },
+      {
+        "repo": "coollabsio/coolify",
+        "rank": 9,
+        "stars_today": 150,
+        "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 360+ one-click services on your own servers.",
+        "language": "PHP",
+        "stars": 63815,
+        "forks": 5750,
+        "repo_created_at": "2021-01-25T20:54:01Z",
+        "repo_pushed_at": "2026-10-24T21:48:44Z",
+        "category": "other",
+        "ai_related": false,
+        "tags": [
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/coollabsio/coolify",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 63815
+          }
+        ]
+      },
+      {
+        "repo": "cloudflare/security-audit-skill",
+        "rank": 10,
+        "stars_today": 2264,
+        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+        "language": "JavaScript",
+        "stars": 45738,
+        "forks": 2838,
+        "repo_created_at": "2026-06-18T14:08:44Z",
+        "repo_pushed_at": "2026-09-14T19:29:02Z",
+        "category": "agent-skills",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Skills",
+          "Workflow"
+        ],
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-24T15:21:51Z",
+            "stars": 43399
+          },
+          {
+            "at": "2026-10-24T16:05:40Z",
+            "stars": 43508
+          },
+          {
+            "at": "2026-10-24T17:17:37Z",
+            "stars": 43696
+          },
+          {
+            "at": "2026-10-24T18:51:46Z",
+            "stars": 43921
+          },
+          {
+            "at": "2026-10-24T19:28:07Z",
+            "stars": 44008
+          },
+          {
+            "at": "2026-10-24T22:35:12Z",
+            "stars": 44394
+          },
+          {
+            "at": "2026-10-24T23:22:39Z",
+            "stars": 44464
+          },
+          {
+            "at": "2026-10-25T01:17:59Z",
+            "stars": 44596
+          },
+          {
+            "at": "2026-10-25T04:57:57Z",
+            "stars": 44984
+          },
+          {
+            "at": "2026-10-25T07:15:26Z",
+            "stars": 45228
+          },
+          {
+            "at": "2026-10-25T09:22:43Z",
+            "stars": 45498
+          },
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 45738
+          }
+        ]
+      },
+      {
+        "repo": "AgriciDaniel/claude-seo",
+        "rank": 11,
+        "stars_today": 179,
+        "description": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
+        "language": "Python",
+        "stars": 20184,
+        "forks": 2907,
+        "repo_created_at": "2026-02-07T08:17:38Z",
+        "repo_pushed_at": "2026-10-22T16:47:40Z",
+        "category": "agent-interface",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Tools",
+          "MCP"
+        ],
+        "url": "https://github.com/AgriciDaniel/claude-seo",
+        "metadata_verified_at": "2026-10-25T11:26:06Z",
+        "star_history": [
+          {
+            "at": "2026-10-25T11:26:06Z",
+            "stars": 20184
           }
         ]
       }
@@ -8018,14 +7850,14 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-25T09:22:43Z",
-      "last_success_at": "2026-10-25T09:22:43Z",
+      "last_checked_at": "2026-10-25T11:26:06Z",
+      "last_success_at": "2026-10-25T11:26:06Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-25T09:22:43Z",
+      "watchlist_checked_at": "2026-10-25T11:26:06Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
-      "trending_count": 10,
-      "verified_count": 10,
+      "trending_count": 11,
+      "verified_count": 11,
       "metadata_failed_count": 0,
       "metadata_status": "success",
       "skipped": []
@@ -8042,27 +7874,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 380692,
-        "forks": 95204,
+        "stars": 381287,
+        "forks": 95327,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-25T08:57:44Z",
+        "repo_pushed_at": "2026-10-25T11:08:21Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-25T09:22:43Z",
+        "verified_at": "2026-10-25T11:26:06Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-25T09:22:43Z",
+    "checked_at": "2026-10-25T11:27:00Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-25T09:22:43Z",
-    "web_fetched_at": "2026-10-25T09:22:43Z",
+    "api_fetched_at": "2026-10-25T11:27:00Z",
+    "web_fetched_at": "2026-10-25T11:27:00Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -8072,8 +7904,8 @@
       "Lightricks/LTX-2.5",
       "OpenMOSS-Team/MOSS-Image-SFT",
       "fishaudio/drama-3",
-      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "MiniMaxAI/MiniMax-M3.1-Flash",
+      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
       "InternScience/Sage-A1.5",
@@ -8083,8 +7915,8 @@
       "mistralai/Timestral-209M",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "unsloth/flint-GGUF",
-      "google/embeddinggemma-2",
-      "orcarouter/OrcaCyber-Nano-1.0"
+      "orcarouter/OrcaCyber-Nano-1.0",
+      "google/embeddinggemma-2"
     ],
     "web_rank_changes": [
       {
@@ -8092,140 +7924,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
-      },
-      {
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 8,
-        "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "rank": 9,
+        "rank": 8,
         "previous_rank": 9,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
+      },
+      {
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 9,
+        "previous_rank": 8,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 12,
-        "previous_rank": 13,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "rank": 13,
-        "previous_rank": 12,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "lodestones/Kromoss",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "mistralai/Timestral-209M",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 17,
-        "previous_rank": 18,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 18,
-        "previous_rank": 19,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
-      },
-      {
-        "id": "google/embeddinggemma-2",
-        "rank": 19,
-        "previous_rank": 17,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "previous_rank": 18,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       },
       {
         "id": "orcarouter/OrcaCyber-Nano-1.0",
-        "rank": 20,
+        "rank": 19,
         "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-25T07:19:12Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
+      },
+      {
+        "id": "google/embeddinggemma-2",
+        "rank": 20,
+        "previous_rank": 19,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-25T09:22:43Z"
       }
     ],
     "items": [
@@ -8233,9 +8065,9 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1315,
-        "likes": 2849,
-        "downloads": 73215,
+        "trending_score": 1292,
+        "likes": 2870,
+        "downloads": 85275,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-10-17T02:40:38.000Z",
@@ -8250,9 +8082,9 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 769,
-        "likes": 797,
-        "downloads": 4795,
+        "trending_score": 778,
+        "likes": 806,
+        "downloads": 6444,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-21T14:20:58.000Z",
@@ -8267,9 +8099,9 @@
         "rank": 3,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 540,
-        "likes": 1535,
-        "downloads": 590742,
+        "trending_score": 535,
+        "likes": 1544,
+        "downloads": 660874,
         "task": "image-to-image",
         "library": "diffusion-single-file",
         "created_at": "2026-10-14T12:00:13.000Z",
@@ -8284,9 +8116,9 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 425,
-        "likes": 464,
-        "downloads": 2537,
+        "trending_score": 427,
+        "likes": 467,
+        "downloads": 3488,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-19T03:19:51.000Z",
@@ -8301,8 +8133,8 @@
         "rank": 5,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 413,
-        "likes": 9225,
+        "trending_score": 412,
+        "likes": 9237,
         "downloads": 2107108,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -8318,9 +8150,9 @@
         "rank": 6,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 374,
-        "likes": 704,
-        "downloads": 9717,
+        "trending_score": 369,
+        "likes": 707,
+        "downloads": 10757,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T07:01:17.000Z",
@@ -8335,8 +8167,8 @@
         "rank": 7,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 336,
-        "likes": 999,
+        "trending_score": 329,
+        "likes": 1000,
         "downloads": 21375,
         "task": "text-to-speech",
         "library": "未标注",
@@ -8350,10 +8182,27 @@
       },
       {
         "rank": 8,
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "trending_score": 323,
+        "likes": 333,
+        "downloads": 7355,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-10-17T06:37:50.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "minimax_m3_vl",
+          "image-text-to-text"
+        ]
+      },
+      {
+        "rank": 9,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "trending_score": 320,
-        "likes": 4993,
+        "likes": 4996,
         "downloads": 2235846,
         "task": "text-to-image",
         "library": "gguf",
@@ -8366,28 +8215,11 @@
         ]
       },
       {
-        "rank": 9,
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 320,
-        "likes": 330,
-        "downloads": 5789,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-17T06:37:50.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "minimax_m3_vl",
-          "image-text-to-text"
-        ]
-      },
-      {
         "rank": 10,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 309,
-        "likes": 18361,
+        "trending_score": 311,
+        "likes": 18368,
         "downloads": 7762014,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8403,9 +8235,9 @@
         "rank": 11,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 292,
+        "trending_score": 284,
         "likes": 351,
-        "downloads": 5583,
+        "downloads": 6792,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-10-18T04:11:31.000Z",
@@ -8420,9 +8252,9 @@
         "rank": 12,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 275,
-        "likes": 280,
-        "downloads": 2033,
+        "trending_score": 276,
+        "likes": 281,
+        "downloads": 3875,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-15T08:34:39.000Z",
@@ -8437,9 +8269,9 @@
         "rank": 13,
         "id": "OpenMOSS-Team/MOSS-Image-Base",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 266,
-        "likes": 543,
-        "downloads": 6943,
+        "trending_score": 265,
+        "likes": 544,
+        "downloads": 7641,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-11T06:49:17.000Z",
@@ -8454,9 +8286,9 @@
         "rank": 14,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 261,
-        "likes": 443,
-        "downloads": 1944278,
+        "trending_score": 256,
+        "likes": 445,
+        "downloads": 2161961,
         "task": "未标注",
         "library": "diffusion-single-file",
         "created_at": "2026-10-16T12:42:32.000Z",
@@ -8473,7 +8305,7 @@
         "url": "https://huggingface.co/lodestones/Kromoss",
         "trending_score": 251,
         "likes": 256,
-        "downloads": 21143,
+        "downloads": 23972,
         "task": "text-to-image",
         "library": "diffusers",
         "created_at": "2026-10-19T01:34:35.000Z",
@@ -8488,9 +8320,9 @@
         "rank": 16,
         "id": "mistralai/Timestral-209M",
         "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 249,
-        "likes": 350,
-        "downloads": 8731,
+        "trending_score": 246,
+        "likes": 354,
+        "downloads": 9765,
         "task": "time-series-forecasting",
         "library": "timestral",
         "created_at": "2026-10-14T08:52:36.000Z",
@@ -8505,9 +8337,9 @@
         "rank": 17,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 232,
-        "likes": 241,
-        "downloads": 32479,
+        "trending_score": 238,
+        "likes": 248,
+        "downloads": 412392,
         "task": "text-generation",
         "library": "gguf",
         "created_at": "2026-10-23T09:43:05.000Z",
@@ -8522,9 +8354,9 @@
         "rank": 18,
         "id": "unsloth/flint-GGUF",
         "url": "https://huggingface.co/unsloth/flint-GGUF",
-        "trending_score": 226,
-        "likes": 232,
-        "downloads": 78891,
+        "trending_score": 227,
+        "likes": 233,
+        "downloads": 103369,
         "task": "text-generation",
         "library": "未标注",
         "created_at": "2026-10-20T03:26:14.000Z",
@@ -8537,10 +8369,27 @@
       },
       {
         "rank": 19,
+        "id": "orcarouter/OrcaCyber-Nano-1.0",
+        "url": "https://huggingface.co/orcarouter/OrcaCyber-Nano-1.0",
+        "trending_score": 223,
+        "likes": 240,
+        "downloads": 30330,
+        "task": "image-text-to-text",
+        "library": "gguf",
+        "created_at": "2026-10-16T10:04:56.000Z",
+        "tags": [
+          "gguf",
+          "cybersecurity",
+          "security",
+          "reverse-engineering"
+        ]
+      },
+      {
+        "rank": 20,
         "id": "google/embeddinggemma-2",
         "url": "https://huggingface.co/google/embeddinggemma-2",
-        "trending_score": 223,
-        "likes": 2906,
+        "trending_score": 220,
+        "likes": 2910,
         "downloads": 212769,
         "task": "feature-extraction",
         "library": "transformers",
@@ -8551,28 +8400,11 @@
           "embedding_gemma2",
           "feature-extraction"
         ]
-      },
-      {
-        "rank": 20,
-        "id": "orcarouter/OrcaCyber-Nano-1.0",
-        "url": "https://huggingface.co/orcarouter/OrcaCyber-Nano-1.0",
-        "trending_score": 222,
-        "likes": 239,
-        "downloads": 27054,
-        "task": "image-text-to-text",
-        "library": "gguf",
-        "created_at": "2026-10-16T10:04:56.000Z",
-        "tags": [
-          "gguf",
-          "cybersecurity",
-          "security",
-          "reverse-engineering"
-        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-25T09:22:43Z",
+      "last_checked_at": "2026-10-25T11:27:00Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -19865,10 +19697,10 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-25T09:22:43Z",
-    "last_success": "2026-10-25T09:22:43Z",
-    "repositories_succeeded": 19,
-    "repositories_total": 19,
+    "last_attempt": "2026-10-25T11:27:00Z",
+    "last_success": "2026-10-25T11:22:30Z",
+    "repositories_succeeded": 8,
+    "repositories_total": 17,
     "releases": [
       {
         "id": "upstream-421895037",
@@ -19877,7 +19709,7 @@
         "tag": "v1.33.0",
         "title": "v1.33.0",
         "published_at": "2026-10-23T13:46:20Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
         "review_status": "unreviewed"
       },
@@ -19888,7 +19720,7 @@
         "tag": "v2.142.1",
         "title": "v2.142.1",
         "published_at": "2026-10-23T08:18:50Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
         "review_status": "unreviewed"
       },
@@ -19899,7 +19731,7 @@
         "tag": "v1.32.0",
         "title": "v1.32.0",
         "published_at": "2026-10-23T03:03:37Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.32.0",
         "review_status": "unreviewed"
       },
@@ -19910,7 +19742,7 @@
         "tag": "v1.31.0",
         "title": "v1.31.0",
         "published_at": "2026-10-22T16:09:18Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.31.0",
         "review_status": "unreviewed"
       },
@@ -19921,7 +19753,7 @@
         "tag": "v2.142.0",
         "title": "v2.142.0",
         "published_at": "2026-10-22T14:28:24Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.142.0",
         "review_status": "unreviewed"
       },
@@ -19932,7 +19764,7 @@
         "tag": "v1.30.1",
         "title": "v1.30.1",
         "published_at": "2026-10-22T07:12:31Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.30.1",
         "review_status": "unreviewed"
       },
@@ -19943,7 +19775,7 @@
         "tag": "v1.30.0",
         "title": "v1.30.0",
         "published_at": "2026-10-22T01:08:52Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.30.0",
         "review_status": "unreviewed"
       },
@@ -19954,7 +19786,7 @@
         "tag": "v0.7.0",
         "title": "NVIDIA NeMo-Automodel 0.7.0",
         "published_at": "2026-10-21T23:48:01Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
         "review_status": "unreviewed"
       },
@@ -19965,7 +19797,7 @@
         "tag": "v0.3.11",
         "title": "v0.3.11",
         "published_at": "2026-10-21T19:12:09Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.11",
         "review_status": "unreviewed"
       },
@@ -19976,7 +19808,7 @@
         "tag": "1.0",
         "title": "Flint 1.0: Interactivity",
         "published_at": "2026-10-21T07:06:03Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/1.0",
         "review_status": "unreviewed"
       },
@@ -19987,7 +19819,7 @@
         "tag": "v1.29.0",
         "title": "v1.29.0",
         "published_at": "2026-10-20T22:22:52Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.29.0",
         "review_status": "unreviewed"
       },
@@ -19998,7 +19830,7 @@
         "tag": "v2.141.0",
         "title": "v2.141.0",
         "published_at": "2026-10-20T21:27:15Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.141.0",
         "review_status": "unreviewed"
       },
@@ -20009,7 +19841,7 @@
         "tag": "v1.28.1",
         "title": "v1.28.1",
         "published_at": "2026-10-19T17:09:42Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.28.1",
         "review_status": "unreviewed"
       },
@@ -20020,7 +19852,7 @@
         "tag": "v1.28.0",
         "title": "v1.28.0",
         "published_at": "2026-10-19T14:29:10Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.28.0",
         "review_status": "unreviewed"
       },
@@ -20031,7 +19863,7 @@
         "tag": "v2.140.0",
         "title": "v2.140.0",
         "published_at": "2026-10-16T09:00:49Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.140.0",
         "review_status": "unreviewed"
       },
@@ -20042,7 +19874,7 @@
         "tag": "0.13.13",
         "title": "0.13.13: OpenAI browser tools and Cloud fixes",
         "published_at": "2026-10-15T23:50:45Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.13",
         "review_status": "unreviewed"
       },
@@ -20053,7 +19885,7 @@
         "tag": "0.13.12",
         "title": "0.13.12: OpenAI browser tools",
         "published_at": "2026-10-15T23:37:58Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.12",
         "review_status": "unreviewed"
       },
@@ -20064,7 +19896,7 @@
         "tag": "v0.2.1",
         "title": "SDM 0.2.1",
         "published_at": "2026-10-14T17:11:30Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA/structured-data-models/releases/tag/v0.2.1",
         "review_status": "unreviewed"
       },
@@ -20075,7 +19907,7 @@
         "tag": "v0.2.0",
         "title": "SDM 0.2.0",
         "published_at": "2026-10-14T16:07:07Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA/structured-data-models/releases/tag/v0.2.0",
         "review_status": "unreviewed"
       },
@@ -20086,7 +19918,7 @@
         "tag": "v0.1.0",
         "title": "SDM 0.1.0",
         "published_at": "2026-10-14T15:42:47Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA/structured-data-models/releases/tag/v0.1.0",
         "review_status": "unreviewed"
       },
@@ -20097,7 +19929,7 @@
         "tag": "v2.139.0",
         "title": "v2.139.0",
         "published_at": "2026-10-14T12:18:27Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.139.0",
         "review_status": "unreviewed"
       },
@@ -20108,7 +19940,7 @@
         "tag": "v4.35.0",
         "title": "v4.35.0",
         "published_at": "2026-10-13T15:11:23Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/leanprover-community/mathlib4/releases/tag/v4.35.0",
         "review_status": "unreviewed"
       },
@@ -20119,7 +19951,7 @@
         "tag": "v1.27.1",
         "title": "v1.27.1",
         "published_at": "2026-10-12T19:33:56Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.27.1",
         "review_status": "unreviewed"
       },
@@ -20130,7 +19962,7 @@
         "tag": "v1.27.0",
         "title": "v1.27.0",
         "published_at": "2026-10-12T15:06:15Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.27.0",
         "review_status": "unreviewed"
       },
@@ -20141,7 +19973,7 @@
         "tag": "v2.138.0",
         "title": "v2.138.0",
         "published_at": "2026-10-12T06:14:54Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.138.0",
         "review_status": "unreviewed"
       },
@@ -20152,7 +19984,7 @@
         "tag": "v2.137.0",
         "title": "v2.137.0",
         "published_at": "2026-10-09T14:12:20Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.137.0",
         "review_status": "unreviewed"
       },
@@ -20163,7 +19995,7 @@
         "tag": "v2.136.0",
         "title": "v2.136.0",
         "published_at": "2026-10-09T12:08:31Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.136.0",
         "review_status": "unreviewed"
       },
@@ -20174,7 +20006,7 @@
         "tag": "v3.3.0",
         "title": "v3.3.0",
         "published_at": "2026-10-08T18:28:43Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.3.0",
         "review_status": "unreviewed"
       },
@@ -20185,7 +20017,7 @@
         "tag": "v2.135.0",
         "title": "v2.135.0",
         "published_at": "2026-10-07T10:42:24Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.135.0",
         "review_status": "unreviewed"
       },
@@ -20196,7 +20028,7 @@
         "tag": "0.13.11",
         "title": "0.13.11",
         "published_at": "2026-10-07T04:23:18Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.11",
         "review_status": "unreviewed"
       },
@@ -20207,7 +20039,7 @@
         "tag": "v2.134.0",
         "title": "v2.134.0",
         "published_at": "2026-10-06T04:56:24Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.134.0",
         "review_status": "unreviewed"
       },
@@ -20218,7 +20050,7 @@
         "tag": "v0.3.10",
         "title": "v0.3.10",
         "published_at": "2026-10-02T11:48:43Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.10",
         "review_status": "unreviewed"
       },
@@ -20229,7 +20061,7 @@
         "tag": "v4.34.1",
         "title": "v4.34.1",
         "published_at": "2026-09-24T20:34:58Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/leanprover-community/mathlib4/releases/tag/v4.34.1",
         "review_status": "unreviewed"
       },
@@ -20240,7 +20072,7 @@
         "tag": "v3.2.0",
         "title": "v3.2.0",
         "published_at": "2026-09-24T02:25:49Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.2.0",
         "review_status": "unreviewed"
       },
@@ -20251,7 +20083,7 @@
         "tag": "v1.0.0",
         "title": "NV-Tesseract v1.0.0",
         "published_at": "2026-09-21T21:27:39Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA/Kumo-TS/releases/tag/v1.0.0",
         "review_status": "unreviewed"
       },
@@ -20262,7 +20094,7 @@
         "tag": "v0.1.2",
         "title": "v0.1.2",
         "published_at": "2026-09-16T22:02:15Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.1.2",
         "review_status": "unreviewed"
       },
@@ -20273,7 +20105,7 @@
         "tag": "v4.34.0",
         "title": "v4.34.0",
         "published_at": "2026-09-15T09:06:46Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/leanprover-community/mathlib4/releases/tag/v4.34.0",
         "review_status": "unreviewed"
       },
@@ -20284,7 +20116,7 @@
         "tag": "0.13.10",
         "title": "0.13.10",
         "published_at": "2026-09-04T03:28:53Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.10",
         "review_status": "unreviewed"
       },
@@ -20295,7 +20127,7 @@
         "tag": "0.13.9",
         "title": "0.13.9",
         "published_at": "2026-09-04T01:29:32Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.9",
         "review_status": "unreviewed"
       },
@@ -20306,7 +20138,7 @@
         "tag": "v0.3.9",
         "title": "v0.3.9",
         "published_at": "2026-08-28T21:25:54Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.9",
         "review_status": "unreviewed"
       },
@@ -20317,7 +20149,7 @@
         "tag": "v0.6.0",
         "title": "NVIDIA NeMo-Automodel 0.6.0",
         "published_at": "2026-08-26T17:54:19Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.6.0",
         "review_status": "unreviewed"
       },
@@ -20328,7 +20160,7 @@
         "tag": "v3.1.2",
         "title": "v3.1.2",
         "published_at": "2026-08-21T15:24:30Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.1.2",
         "review_status": "unreviewed"
       },
@@ -20339,7 +20171,7 @@
         "tag": "v4.33.1",
         "title": "v4.33.1",
         "published_at": "2026-08-21T12:05:59Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/leanprover-community/mathlib4/releases/tag/v4.33.1",
         "review_status": "unreviewed"
       },
@@ -20350,7 +20182,7 @@
         "tag": "0.13.8",
         "title": "0.13.8",
         "published_at": "2026-08-16T18:48:54Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.8",
         "review_status": "unreviewed"
       },
@@ -20361,7 +20193,7 @@
         "tag": "0.5.1",
         "title": "0.5.1",
         "published_at": "2026-08-14T01:57:39Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.5.1",
         "review_status": "unreviewed"
       },
@@ -20372,7 +20204,7 @@
         "tag": "0.5",
         "title": "Flint 0.5: ThemeSpec",
         "published_at": "2026-08-06T06:00:58Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.5",
         "review_status": "unreviewed"
       },
@@ -20383,7 +20215,7 @@
         "tag": "v0.3.8",
         "title": "v0.3.8",
         "published_at": "2026-08-04T22:49:07Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.8",
         "review_status": "unreviewed"
       },
@@ -20394,7 +20226,7 @@
         "tag": "v0.3.7",
         "title": "v0.3.7",
         "published_at": "2026-07-31T00:52:46Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.7",
         "review_status": "unreviewed"
       },
@@ -20405,7 +20237,7 @@
         "tag": "0.13.7",
         "title": "0.13.7",
         "published_at": "2026-07-27T17:10:13Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.7",
         "review_status": "unreviewed"
       },
@@ -20416,7 +20248,7 @@
         "tag": "0.4.0",
         "title": "Flint 0.4",
         "published_at": "2026-07-24T23:04:51Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.4.0",
         "review_status": "unreviewed"
       },
@@ -20427,7 +20259,7 @@
         "tag": "0.3.0",
         "title": "Flint 0.3",
         "published_at": "2026-07-19T21:11:14Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.3.0",
         "review_status": "unreviewed"
       },
@@ -20438,7 +20270,7 @@
         "tag": "v3.1.1",
         "title": "v3.1.1",
         "published_at": "2026-07-18T01:23:18Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.1.1",
         "review_status": "unreviewed"
       },
@@ -20449,7 +20281,7 @@
         "tag": "0.13.6",
         "title": "0.13.6",
         "published_at": "2026-07-17T05:29:18Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.6",
         "review_status": "unreviewed"
       },
@@ -20460,7 +20292,7 @@
         "tag": "0.13.5",
         "title": "0.13.5",
         "published_at": "2026-07-17T00:49:17Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.5",
         "review_status": "unreviewed"
       },
@@ -20471,7 +20303,7 @@
         "tag": "0.2.1",
         "title": "Flint 0.2",
         "published_at": "2026-07-13T23:17:07Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.2.1",
         "review_status": "unreviewed"
       },
@@ -20482,7 +20314,7 @@
         "tag": "0.13.4",
         "title": "0.13.4",
         "published_at": "2026-07-11T18:50:05Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.4",
         "review_status": "unreviewed"
       },
@@ -20493,7 +20325,7 @@
         "tag": "v0.1.0",
         "title": "NV-Tesseract v0.1.0",
         "published_at": "2026-07-07T19:31:53Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA/Kumo-TS/releases/tag/v0.1.0",
         "review_status": "unreviewed"
       },
@@ -20504,7 +20336,7 @@
         "tag": "v0.5.0",
         "title": "NVIDIA NeMo-Automodel 0.5.0",
         "published_at": "2026-07-02T19:58:31Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.5.0",
         "review_status": "unreviewed"
       },
@@ -20515,7 +20347,7 @@
         "tag": "0.1.1",
         "title": "Flint first release!",
         "published_at": "2026-06-28T00:50:42Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/flint-chart/releases/tag/0.1.1",
         "review_status": "unreviewed"
       },
@@ -20526,7 +20358,7 @@
         "tag": "v0.1.1",
         "title": "Adds 1.1 and 1.2 models",
         "published_at": "2026-06-26T16:24:00Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.1.1",
         "review_status": "unreviewed"
       },
@@ -20537,7 +20369,7 @@
         "tag": "v3.1.0",
         "title": "v3.1.0",
         "published_at": "2026-05-28T15:55:40Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.1.0",
         "review_status": "unreviewed"
       },
@@ -20548,7 +20380,7 @@
         "tag": "v0.3.6",
         "title": "v0.3.6",
         "published_at": "2026-05-01T21:41:44Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.6",
         "review_status": "unreviewed"
       },
@@ -20559,7 +20391,7 @@
         "tag": "v0.4.0",
         "title": "NVIDIA NeMo-Automodel 0.4.0",
         "published_at": "2026-04-28T20:04:37Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.4.0",
         "review_status": "unreviewed"
       },
@@ -20570,7 +20402,7 @@
         "tag": "3.0.9",
         "title": "v3.0.9",
         "published_at": "2026-04-13T19:29:27Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/3.0.9",
         "review_status": "unreviewed"
       },
@@ -20581,7 +20413,7 @@
         "tag": "v3.0.8",
         "title": "v3.0.8",
         "published_at": "2026-03-27T20:52:00Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.0.8",
         "review_status": "unreviewed"
       },
@@ -20592,7 +20424,7 @@
         "tag": "v3.0.7",
         "title": "v3.0.7",
         "published_at": "2026-03-24T17:21:24Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.0.7",
         "review_status": "unreviewed"
       },
@@ -20603,7 +20435,7 @@
         "tag": "v3.0.6",
         "title": "v3.0.6",
         "published_at": "2026-03-06T20:07:19Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.0.6",
         "review_status": "unreviewed"
       },
@@ -20614,7 +20446,7 @@
         "tag": "v0.3.5",
         "title": "v0.3.5",
         "published_at": "2026-03-04T00:40:46Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.5",
         "review_status": "unreviewed"
       },
@@ -20625,7 +20457,7 @@
         "tag": "v0.3.0",
         "title": "NVIDIA NeMo-Automodel 0.3.0",
         "published_at": "2026-03-02T18:57:42Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.3.0",
         "review_status": "unreviewed"
       },
@@ -20636,7 +20468,7 @@
         "tag": "v0.3.4",
         "title": "v0.3.4",
         "published_at": "2026-03-01T12:59:30Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.4",
         "review_status": "unreviewed"
       },
@@ -20647,7 +20479,7 @@
         "tag": "v3.0.5",
         "title": "v3.0.5",
         "published_at": "2026-02-27T21:17:58Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/microsoft/graphrag/releases/tag/v3.0.5",
         "review_status": "unreviewed"
       },
@@ -20658,7 +20490,7 @@
         "tag": "v0.1.0",
         "title": "Add py.typed, move masking to dataloader, configurable tokenization",
         "published_at": "2026-02-06T18:05:33Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.1.0",
         "review_status": "unreviewed"
       },
@@ -20669,7 +20501,7 @@
         "tag": "v0.3.3",
         "title": "v0.3.3",
         "published_at": "2026-01-21T23:08:42Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.3",
         "review_status": "unreviewed"
       },
@@ -20680,7 +20512,7 @@
         "tag": "v0.0.2",
         "title": "Allow olmo-core free inference",
         "published_at": "2026-01-08T15:54:06Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.0.2",
         "review_status": "unreviewed"
       },
@@ -20691,7 +20523,7 @@
         "tag": "v0.2.0",
         "title": "NVIDIA NeMo-Automodel 0.2.0",
         "published_at": "2025-12-04T21:22:08Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.2.0",
         "review_status": "unreviewed"
       },
@@ -20702,7 +20534,7 @@
         "tag": "v0.0.1.post1",
         "title": "v0.0.1.post1",
         "published_at": "2025-11-06T18:06:39Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.0.1.post1",
         "review_status": "unreviewed"
       },
@@ -20713,7 +20545,7 @@
         "tag": "v0.0.1",
         "title": "v0.0.1",
         "published_at": "2025-11-06T17:21:24Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/allenai/olmoearth_pretrain/releases/tag/v0.0.1",
         "review_status": "unreviewed"
       },
@@ -20724,7 +20556,7 @@
         "tag": "v0.3.2",
         "title": "v0.3.2",
         "published_at": "2025-10-28T21:02:04Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.2",
         "review_status": "unreviewed"
       },
@@ -20735,7 +20567,7 @@
         "tag": "v0.1.2",
         "title": "NVIDIA NeMo-Automodel 0.1.2",
         "published_at": "2025-10-23T19:24:10Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.1.2",
         "review_status": "unreviewed"
       },
@@ -20746,7 +20578,7 @@
         "tag": "v0.1.0",
         "title": "NVIDIA NeMo-Automodel 0.1.0",
         "published_at": "2025-10-08T14:18:57Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.1.0",
         "review_status": "unreviewed"
       },
@@ -20757,7 +20589,7 @@
         "tag": "v20250625",
         "title": "v20250625",
         "published_at": "2025-06-26T01:06:09Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20250625",
         "review_status": "unreviewed"
       },
@@ -20768,7 +20600,7 @@
         "tag": "v20240930",
         "title": "v20240930",
         "published_at": "2024-09-30T18:21:20Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20240930",
         "review_status": "unreviewed"
       },
@@ -20779,7 +20611,7 @@
         "tag": "v20240927",
         "title": "v20240927",
         "published_at": "2024-09-27T23:44:27Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20240927",
         "review_status": "unreviewed"
       },
@@ -20790,7 +20622,7 @@
         "tag": "v20231117",
         "title": "v20231117",
         "published_at": "2023-11-17T19:59:53Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20231117",
         "review_status": "unreviewed"
       },
@@ -20801,7 +20633,7 @@
         "tag": "v20231106",
         "title": "v20231106",
         "published_at": "2023-11-06T18:16:19Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20231106",
         "review_status": "unreviewed"
       },
@@ -20812,7 +20644,7 @@
         "tag": "v20231105",
         "title": "v20231105",
         "published_at": "2023-11-06T11:09:27Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20231105",
         "review_status": "unreviewed"
       },
@@ -20823,7 +20655,7 @@
         "tag": "v20230918",
         "title": "v20230918",
         "published_at": "2023-09-19T00:13:44Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20230918",
         "review_status": "unreviewed"
       },
@@ -20834,7 +20666,7 @@
         "tag": "v20230314",
         "title": "v20230314",
         "published_at": "2023-03-15T07:40:02Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20230314",
         "review_status": "unreviewed"
       },
@@ -20845,7 +20677,7 @@
         "tag": "v20230308",
         "title": "v20230308",
         "published_at": "2023-03-08T23:49:55Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20230308",
         "review_status": "unreviewed"
       },
@@ -20856,12 +20688,67 @@
         "tag": "v20230307",
         "title": "v20230307",
         "published_at": "2023-03-08T04:37:08Z",
-        "observed_at": "2026-10-25T09:22:43Z",
+        "observed_at": "2026-10-25T07:16:32Z",
         "url": "https://github.com/openai/whisper/releases/tag/v20230307",
         "review_status": "unreviewed"
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "task": "nvidia-kumo-forecast",
+        "repo": "NVIDIA/Kumo-TS",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "timestral",
+        "repo": "mistralai/timestral",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "openhands",
+        "repo": "OpenHands/OpenHands",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "graphrag",
+        "repo": "microsoft/graphrag",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "docling",
+        "repo": "docling-project/docling",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "browser-use",
+        "repo": "browser-use/browser-use",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "whisper",
+        "repo": "openai/whisper",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "ai-scientist",
+        "repo": "SakanaAI/AI-Scientist",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "mathlib",
+        "repo": "leanprover-community/mathlib4",
+        "at": "2026-10-25T11:27:00Z",
+        "message": "GitHub HTTP 403"
+      }
+    ],
     "note": "Official release metadata only. Capability assessments require editorial review."
   },
   "site": {
@@ -22550,9 +22437,9 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-25T05:23:21.737158Z",
-    "last_success": "2026-10-25T05:23:21.737158Z",
-    "last_full_success": "2026-10-25T05:23:21.737158Z",
+    "last_attempt": "2026-10-25T11:22:30.854350Z",
+    "last_success": "2026-10-25T11:22:30.854350Z",
+    "last_full_success": "2026-10-25T11:22:30.854350Z",
     "items": [
       {
         "title": "Release Anomalib Library v2.7.0",
@@ -22569,7 +22456,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22589,7 +22476,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22609,7 +22496,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22629,7 +22516,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22649,7 +22536,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22669,7 +22556,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -22689,7 +22576,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22709,7 +22596,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22729,7 +22616,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22749,7 +22636,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22769,7 +22656,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22789,7 +22676,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22809,7 +22696,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22829,7 +22716,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22849,7 +22736,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22869,7 +22756,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -22888,7 +22775,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -22908,7 +22795,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -22928,7 +22815,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -22947,7 +22834,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -22967,7 +22854,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -22986,7 +22873,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23005,7 +22892,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23024,7 +22911,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23043,7 +22930,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23062,7 +22949,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23081,7 +22968,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23101,7 +22988,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23121,7 +23008,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23140,7 +23027,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23160,7 +23047,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -23180,7 +23067,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23200,7 +23087,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23220,7 +23107,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23240,7 +23127,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -23260,7 +23147,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -23280,7 +23167,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -23300,7 +23187,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23319,7 +23206,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23339,7 +23226,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -23358,7 +23245,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23378,7 +23265,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23397,7 +23284,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23416,7 +23303,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23435,7 +23322,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23454,7 +23341,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23474,7 +23361,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23493,7 +23380,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23512,7 +23399,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -23532,7 +23419,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23552,7 +23439,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-25T05:23:21.737158Z",
+        "last_seen": "2026-10-25T11:22:30.854350Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -23563,7 +23450,7 @@
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
         "status": "success",
-        "checked_at": "2026-10-25T05:23:21.737158Z",
+        "checked_at": "2026-10-25T11:22:30.854350Z",
         "parsed": 14,
         "matched": 14
       },
@@ -23571,7 +23458,7 @@
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-25T05:23:21.737158Z",
+        "checked_at": "2026-10-25T11:22:30.854350Z",
         "parsed": 17,
         "matched": 17
       },
@@ -23579,7 +23466,7 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-25T05:23:21.737158Z",
+        "checked_at": "2026-10-25T11:22:30.854350Z",
         "parsed": 20,
         "matched": 20
       }
