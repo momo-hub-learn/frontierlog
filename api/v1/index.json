@@ -3285,7 +3285,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-26T05:33:41Z",
+    "generated_at": "2026-10-26T05:39:53Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -7320,7 +7320,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-26T05:33:41Z",
+    "last_evaluated": "2026-10-26T05:39:53Z",
     "last_decision": {
       "action": "merge",
       "candidate_count": 74,
@@ -16747,7 +16747,7 @@
   },
   "models": {
     "version": 1,
-    "checked": "2026-10-24",
+    "checked": "2026-10-26",
     "sources": [
       {
         "id": "aa-live",
@@ -16758,6 +16758,16 @@
         "published": null,
         "kind": "评测方公开榜单",
         "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-24 复核官方榜首五个配置：Claude Opus 5.5 max 为 58，Sonnet 5.5 max、Opus 5.5 xhigh 与 Muse Wonder Full max 均为 56；Kimi K3.1 Pro 以 55 进入前五。其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
+      },
+      {
+        "id": "aa-gpt61-sol",
+        "publisher": "Artificial Analysis",
+        "title": "GPT-6.1 Sol (max) model analysis",
+        "url": "https://artificialanalysis.ai/models/gpt-6-1-sol/",
+        "checked": "2026-10-26",
+        "published": "2026-09-29",
+        "kind": "评测方模型页",
+        "note": "独立公开快照：Intelligence Index 52、输出速度约 57.3 tok/s、Cost per Intelligence Index Task $0.72、输入/输出每百万 Token $2/$10、cache hit $0.10、1M context。速度与单任务成本是评测方动态实测，后续可能变化。"
       },
       {
         "id": "aa-gpt6-sol",
@@ -16997,11 +17007,11 @@
         "provider": "Artificial Analysis",
         "metric": "intelligence",
         "as_of": "2026-10-24",
-        "checked": "2026-10-24",
+        "checked": "2026-10-26",
         "methodology": "Intelligence Index v4.3.2",
         "mode": "manual_excerpt",
         "source": "aa-live",
-        "scope": "22 个配置的人工摘录，不是全榜；本轮只复核官方页面当前前五名。相同整数分不据此断言高下。",
+        "scope": "23 个配置的人工摘录，不是全榜；2026-10-26 补录 GPT-6.1 Sol 独立模型页，其余配置保留原核验范围。相同整数分不据此断言高下。",
         "rows": [
           {
             "id": "aa-opus-55-max",
@@ -17154,6 +17164,25 @@
             "votes": null,
             "preliminary": false,
             "source": "aa-live"
+          },
+          {
+            "id": "aa-gpt61-sol-max",
+            "name": "GPT-6.1 Sol (max)",
+            "maker": "OpenAI",
+            "intelligence": 52,
+            "speed": 57.3,
+            "cost_task": 0.72,
+            "input_price": 2,
+            "output_price": 10,
+            "coding": null,
+            "context": "1M",
+            "source_rank": null,
+            "source_order": 3,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-gpt61-sol"
           },
           {
             "id": "aa-opus-max",
