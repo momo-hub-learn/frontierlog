@@ -39,6 +39,13 @@ class HotDataTests(unittest.TestCase):
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
  def test_bad_internal_link(self):self.reject(lambda d:d['items'][0].update(link='https://evil.example'))
+ def test_tibo_resets_are_exclusive_to_the_reset_monitor(self):
+  reset_ids={x['id'] for x in json.loads((R/'data/resets.json').read_text())['events']}
+  self.assertIn('tibo-global-confirmed-2026-10-23-day18',reset_ids)
+  self.assertIn('tibo-global-confirmed-2026-10-25-day20',reset_ids)
+  self.assertFalse([x['id'] for x in self.data['items'] if x['id'].startswith('tibo-reset-') or x.get('link','').startswith('#/tibo')])
+  self.reject(lambda d:d['items'][0].update(link='#/tibo?event=tibo-global-confirmed-2026-10-25-day20'))
+  self.reject(lambda d:d['items'][0].update(id='tibo-reset-future'))
  def test_toolkit_links_use_supported_task_contract(self):
   tasks={x['id'] for x in json.loads((R/'data/catalog.json').read_text())['items']}
   links=[x['link'] for x in self.data['items'] if x.get('link','').startswith('#/toolkit?')]
