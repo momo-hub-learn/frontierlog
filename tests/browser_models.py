@@ -23,6 +23,9 @@ with sync_playwright() as p:
  expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
+ meta=page.locator('.v2-model-meta').inner_text()
+ assert f"来源 {AA['as_of'].replace('-', '.')}" in meta
+ assert f"核验 {AA['checked'].replace('-', '.')}" in meta
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
  shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, preserved theme')
  page.locator('[data-ma="metric"][data-id="speed"]').click()
