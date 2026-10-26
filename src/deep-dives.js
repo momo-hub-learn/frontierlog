@@ -270,9 +270,14 @@ function dSection(a,s){
   dRefLinks(a,s.source_refs)+
  '</section>'
 }
+function dBackgroundSources(a){
+ const sources=(a.background_refs||[]).map(id=>dSourceMap(a).get(id)).filter(Boolean);
+ if(!sources.length)return '';
+ return '<nav class="d-background-sources" aria-label="背景原始资料"><span class="d-background-label">背景原文 · 阅读原始资料</span><div class="d-background-links">'+sources.map(s=>'<a href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer" title="'+esc(s.title)+'"><strong>'+esc(s.publisher)+'</strong> · '+esc(s.title)+'</a>').join('')+'</div></nav>'
+}
 function dOpening(a){
  const rows=a.opening||[];if(!rows.length)return '';
- return '<section class="d-opening">'+rows.map((p,i)=>'<p'+(i===0?' class="d-opening-lead"':'')+'>'+esc(p)+'</p>').join('')+'</section>'
+ return '<section class="d-opening">'+rows.map((p,i)=>'<p'+(i===0?' class="d-opening-lead"':'')+'>'+esc(p)+'</p>'+(i===0?dBackgroundSources(a):'')).join('')+'</section>'
 }
 function dToc(a){
  return '<aside class="d-toc"><div class="d-toc-inner"><span>阅读地图</span>'+a.sections.map(s=>'<button data-d-jump="'+esc(s.key)+'"><b>'+esc(s.eyebrow)+'</b><small>'+esc(s.kicker||s.title)+'</small></button>').join('')+'<div class="d-toc-time">'+esc(String(a.read_minutes))+' MIN READ</div></div></aside>'
