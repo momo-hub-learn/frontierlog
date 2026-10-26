@@ -77,7 +77,7 @@ with sync_playwright() as pw:
  route('#/people')
  ok('Influence dimensions are transparent evidence facets; all people show latest or missing-evidence state')
  page.locator('.pp-tabs a').filter(has_text='人物动态').click()
- expect(page.locator('[data-person-event]')).to_have_count(1)
+ expect(page.locator('[data-person-event]')).to_have_count(len(DATA['events']))
  expect(page.locator('[data-person-event="vista-paper"]')).to_contain_text('2026.10.01')
  page.locator('.pp-reset').click()
  expect(page.locator('.pp-archive')).to_be_visible()
