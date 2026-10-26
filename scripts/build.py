@@ -245,6 +245,11 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
             if not https_url(src.get('url','')): raise ValueError('Invalid deep-dive source URL')
             if src.get('verified_at') and date.fromisoformat(src['verified_at'])>deep_checked:raise ValueError('Future deep-dive source verification')
         known=set(source_ids)
+        background=a.get('background_refs')
+        if not isinstance(background,list) or not background or len(background)!=len(set(background)):
+            raise ValueError('Missing or duplicate deep-dive background sources')
+        if not set(background).issubset(known):
+            raise ValueError('Unknown deep-dive background source ref')
         for section in a['sections']:
             if not set(section.get('source_refs',[])).issubset(known): raise ValueError('Unknown deep-dive source ref')
             for block in section.get('blocks',[]):
