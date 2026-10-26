@@ -80,6 +80,22 @@
 .fc-gh-star small{display:block;font-size:.6rem;color:var(--muted);margin-top:1px}
 .fc-gh-foot{padding:9px 15px;font-size:.62rem;color:var(--muted);background:color-mix(in srgb,var(--raised) 45%,var(--panel))}
 
+/* HF occupies one compact full-width row so the two official platform signals
+   are both discoverable without shrinking the existing three-card cockpit. */
+.fc-hf-panel{grid-column:1/-1;min-width:0}
+.fc-hf-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.fc-hf-row{display:grid;grid-template-columns:40px minmax(0,1fr) 88px;gap:11px;align-items:center;min-height:84px;padding:14px 17px;border-right:1px solid var(--soft-line)}
+.fc-hf-row:last-child{border-right:0}
+.fc-hf-row:hover{background:var(--hover)}
+.fc-hf-rank{font:700 .64rem var(--mono);color:var(--muted)}
+.fc-hf-main{min-width:0}
+.fc-hf-main strong{display:block;font:750 .82rem var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc-hf-main small{display:block;margin-top:4px;font-size:.68rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc-hf-score{text-align:right;min-width:0}
+.fc-hf-score b{display:block;font:850 1rem var(--display,var(--sans));color:var(--accent);font-variant-numeric:tabular-nums}
+.fc-hf-score small{display:block;margin-top:2px;font-size:.57rem;color:var(--muted);white-space:nowrap}
+.fc-hf-foot{padding:9px 15px;font-size:.62rem;color:var(--muted);background:color-mix(in srgb,var(--raised) 45%,var(--panel))}
+
 @media(max-width:1120px){
  .fc-tool-grid{grid-template-columns:minmax(270px,.82fr) minmax(0,1.18fr)}
  .fc-personal-panel{max-width:340px}
@@ -90,6 +106,10 @@
  .fc-tool-grid{grid-template-columns:1fr}
  .fc-personal-panel{max-width:100%;aspect-ratio:auto;min-height:280px}
  .fc-gh-panel{grid-column:auto;min-height:0}
+ .fc-hf-panel{grid-column:auto}
+ .fc-hf-list{grid-template-columns:1fr}
+ .fc-hf-row{border-right:0;border-bottom:1px solid var(--soft-line)}
+ .fc-hf-row:last-child{border-bottom:0}
  .fc-hot-row{grid-template-columns:24px minmax(0,1fr) 46px;padding:10px 12px}
  .fc-hot-meta small{display:none}
  .fc-hot-main>strong{font-size:.82rem}

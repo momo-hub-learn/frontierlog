@@ -5,6 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const ROOT=path.resolve(__dirname,'..');
 const data=JSON.parse(fs.readFileSync(path.join(ROOT,'data/github-hot.json'),'utf8'));
+const hfData=JSON.parse(fs.readFileSync(path.join(ROOT,'data/huggingface-hot.json'),'utf8'));
 const gh=fs.readFileSync(path.join(ROOT,'src/github-hot.js'),'utf8');
 const cockpit=fs.readFileSync(path.join(ROOT,'src/feed-cockpit.js'),'utf8');
 
@@ -80,4 +81,27 @@ assert.match(view.__fresh,/\+51/);
 assert.match(view.__fresh,/morluto\/rea/);
 assert.match(view.__fresh,/142k/);
 assert.match(view.__fresh,/总 Star/);
+
+const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
+const hfView={APP:{huggingface_hot:{
+ checked_at:new Date().toISOString(),web_fetched_at:new Date().toISOString(),api_fetched_at:new Date().toISOString(),
+ web_order:['org/model-a','org/model-b','org/model-c','org/model-d'],
+ items:[
+  {id:'org/model-a',url:'https://huggingface.co/org/model-a',task:'text-generation',library:'transformers',trending_score:91},
+  {id:'org/model-b',url:'https://huggingface.co/org/model-b',task:'image-to-video',library:'diffusers',trending_score:72},
+  {id:'org/model-c',url:'https://huggingface.co/org/model-c',task:null,library:null,trending_score:null}
+ ]
+}},Date,Intl,Map,icon:()=>'',safeLink:x=>x,esc:x=>String(x)};
+vm.createContext(hfView);
+vm.runInContext(hfPanel+'\nthis.__hf=fcHuggingFacePanel();',hfView);
+assert.match(hfView.__hf,/Hugging Face 热榜/);
+assert.match(hfView.__hf,/#01/);
+assert.match(hfView.__hf,/org\/model-a/);
+assert.match(hfView.__hf,/API Trending/);
+assert.match(hfView.__hf,/Trending 不等于能力榜/);
+assert.doesNotMatch(hfView.__hf,/org\/model-d/);
+hfView.APP.huggingface_hot={...hfData,checked_at:'2026-09-25T23:16:36Z',web_fetched_at:'2026-09-25T23:16:36Z'};
+vm.runInContext('this.__hfOld=fcHuggingFacePanel();',hfView);
+assert.match(hfView.__hfOld,/当前 Models Trending 未完成核验/);
+assert.doesNotMatch(hfView.__hfOld,/>#01</);
 console.log('PASS GitHub Trending stale guard and independent REA watchlist UI');

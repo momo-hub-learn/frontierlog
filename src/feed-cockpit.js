@@ -73,10 +73,32 @@ function fcGithubPanel(){
  '</section>'
 }
 
+function fcHuggingFacePanel(){
+ const hf=APP.huggingface_hot||{items:[],web_order:[],checked_at:''};
+ const now=Date.now(),webAt=Date.parse(hf.web_fetched_at||hf.checked_at||''),apiAt=Date.parse(hf.api_fetched_at||'');
+ const webFresh=Number.isFinite(webAt)&&(now-webAt)<=6*36e5&&(now-webAt)>=-36e5;
+ const apiFresh=Number.isFinite(apiAt)&&(now-apiAt)<=6*36e5&&(now-apiAt)>=-36e5;
+ const byId=new Map((hf.items||[]).map(x=>[x.id,x]));
+ const order=Array.isArray(hf.web_order)&&hf.web_order.length?hf.web_order:[...(hf.items||[])].sort((a,b)=>(a.rank||999)-(b.rank||999)).map(x=>x.id);
+ const rows=webFresh?order.slice(0,3).map((id,index)=>({...byId.get(id),id,rank:index+1})):[];
+ const fmt=n=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v>=1000000)return (v/1000000).toFixed(v>=10000000?1:2)+'M';if(v>=1000)return (v/1000).toFixed(v>=100000?0:1)+'k';return v.toLocaleString('en-US')};
+ const when=raw=>{try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}catch{return '待核验'}};
+ return '<section class="fc-panel fc-hf-panel">'+
+  '<div class="fc-panel-head compact"><div><p class="eyebrow">HUGGING FACE / WEB ORDER</p><h2>Hugging Face 热榜</h2></div><a href="#/hot?tab=hf">完整榜 '+icon('arrow')+'</a></div>'+
+  (webFresh?'<div class="fc-hf-list">'+rows.map(x=>
+   '<a class="fc-hf-row" href="'+safeLink(x.url||('https://huggingface.co/'+x.id))+'" target="_blank" rel="noopener noreferrer">'+
+    '<span class="fc-hf-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
+    '<span class="fc-hf-main"><strong>'+esc(x.id)+'</strong><small>'+esc((x.task||'任务未标注')+' · '+(x.library||'库未标注'))+'</small></span>'+
+    '<span class="fc-hf-score"><b>'+fmt(x.trending_score)+'</b><small>API Trending'+(apiFresh?'':'（旧）')+'</small></span></a>'
+  ).join('')+'</div>':'<div class="fc-gh-old"><strong>当前 Models Trending 未完成核验</strong><p>旧榜位已停止作为首页前列展示；仍可查看可追溯的历史快照。</p></div>')+
+  '<div class="fc-hf-foot">'+(webFresh?'官方网页顺序 · '+esc(when(hf.web_fetched_at||hf.checked_at)):'历史榜已过期 · 等待新快照')+(webFresh&&!apiFresh?' · API 指标沿用旧快照':'')+' · Trending 不等于能力榜</div>'+
+ '</section>'
+}
+
 function fcCockpit(){
  return '<section class="fc-cockpit">'+
   fcHotPanel()+
-  '<div class="fc-tool-grid">'+fcPersonalPanel()+fcDeepPanel()+fcGithubPanel()+'</div>'+
+  '<div class="fc-tool-grid">'+fcPersonalPanel()+fcDeepPanel()+fcGithubPanel()+fcHuggingFacePanel()+'</div>'+
  '</section>'
 }
 function fcStripLegacy(html){

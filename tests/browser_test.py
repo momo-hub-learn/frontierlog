@@ -61,10 +61,13 @@ try:
             page.wait_for_timeout(150)
 
         expect(page.locator(".fc-cockpit")).to_have_count(1)
+        expect(page.locator(".fc-hf-panel")).to_have_count(1)
+        expect(page.locator(".fc-hf-row")).to_have_count(3)
+        expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
         assert page.locator("#nav .active").inner_text().startswith("精选")
         assert page.locator("html").get_attribute("data-theme") == "light"
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
-        passed("current home cockpit, navigation and light theme render without overflow")
+        passed("current home cockpit, official HF top three, navigation and light theme render without overflow")
 
         go("#/progress")
         expect(page.locator(".p5-progress")).to_have_count(1)
@@ -160,6 +163,10 @@ try:
             mobile.evaluate("route => location.hash = route", route)
             mobile.wait_for_timeout(120)
             assert mobile.evaluate("document.documentElement.scrollWidth <= innerWidth"), route
+        mobile.evaluate("location.hash = '#/feed'")
+        mobile.wait_for_timeout(120)
+        expect(mobile.locator(".fc-hf-panel")).to_have_count(1)
+        expect(mobile.locator(".fc-hf-row")).to_have_count(3)
         mobile.locator('[data-action="menu"]').click()
         mobile.locator('#nav a[href="#/models"]').click()
         expect(mobile.locator("body")).not_to_have_class("nav-open")

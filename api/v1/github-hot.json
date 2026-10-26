@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-26T21:06:04Z",
+  "checked_at": "2026-10-26T21:21:47Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -73,7 +73,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 35977
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "TauricResearch/TradingAgents",
@@ -143,7 +144,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 115890
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "JetBrains/thinkrail",
@@ -212,7 +214,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 2756
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "makecindy/cindy",
@@ -282,7 +285,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 6317
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "affaan-m/ECC",
@@ -332,7 +336,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 289715
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "pbakaus/impeccable",
@@ -402,7 +407,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 89027
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "NVIDIA/SkillSpector",
@@ -452,7 +458,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 22068
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "pollen-robotics/microduck",
@@ -521,7 +528,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 12340
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "nightly-labs/openbot",
@@ -571,7 +579,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 1383
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Panniantong/Agent-Reach",
@@ -621,7 +630,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 103401
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "debpalash/VoiceStudio",
@@ -691,7 +701,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 88943
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "gitroomhq/postiz-app",
@@ -741,7 +752,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 38344
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "alchaincyf/huashu-design",
@@ -791,7 +803,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 26677
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "multica-ai/andrej-karpathy-skills",
@@ -841,7 +854,8 @@
           "at": "2026-10-26T21:06:04Z",
           "stars": 224508
         }
-      ]
+      ],
+      "metadata_status": "stale"
     }
   ],
   "categories": [
@@ -919,17 +933,26 @@
   "sync": {
     "mode": "official_trending_plus_repository_api",
     "status": "success",
-    "last_checked_at": "2026-10-26T21:06:04Z",
-    "last_success_at": "2026-10-26T21:06:04Z",
+    "last_checked_at": "2026-10-26T21:21:47Z",
+    "last_success_at": "2026-10-26T21:21:47Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-26T21:06:04Z",
-    "watchlist_errors": [],
-    "watchlist_failed_count": 0,
+    "watchlist_checked_at": "2026-10-26T21:21:47Z",
+    "watchlist_errors": [
+      "morluto/rea: HTTP Error 403: Forbidden"
+    ],
+    "watchlist_failed_count": 1,
     "trending_count": 14,
-    "verified_count": 14,
-    "metadata_failed_count": 0,
-    "metadata_status": "success",
-    "skipped": []
+    "verified_count": 0,
+    "metadata_failed_count": 14,
+    "metadata_status": "partial",
+    "skipped": [
+      "Nutlope/hallmark: HTTP Error 403: Forbidden",
+      "TauricResearch/TradingAgents: HTTP Error 403: Forbidden",
+      "JetBrains/thinkrail: HTTP Error 403: Forbidden",
+      "makecindy/cindy: HTTP Error 403: Forbidden",
+      "affaan-m/ECC: HTTP Error 403: Forbidden",
+      "pbakaus/impeccable: HTTP Error 403: Forbidden"
+    ]
   },
   "watchlist": [
     {
