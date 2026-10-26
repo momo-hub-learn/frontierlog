@@ -30,6 +30,13 @@ with sync_playwright() as p:
   assert label in weights
  assert '多模态、语音与多语言能力不计入这张总榜' in page.locator('.v2-aa-method').inner_text()
  expect(page.locator('.v2-aa-method a')).to_have_attribute('href','https://artificialanalysis.ai/methodology/intelligence-benchmarking')
+ details=page.locator('.v2-aa-suite');expect(details).to_have_count(1);assert details.get_attribute('open') is None
+ page.locator('.v2-aa-suite summary').click();expect(details).to_have_attribute('open','')
+ suite=details.inner_text()
+ for label in ['AA-Briefcase v1.1','GDPval-AA v2.1','AutomationBench-AA','AA-Omniscience','GDP.pdf','AA-LCR v1.1','Terminal-Bench 4.0','SciCode',"Humanity's Last Exam",'CritPt']:
+  assert label in suite
+ assert '单项强弱可能被总分掩盖' in suite
+ assert details.evaluate('e=>e.scrollWidth<=e.clientWidth+1')
  assert '综合能力主榜' in page.locator('.v2-source-tabs').inner_text()
  assert '人类偏好榜' in page.locator('.v2-source-tabs').inner_text()
  assert '两张独立榜单 · 不合成本站总分' in page.locator('.v2-source-tabs').inner_text()
@@ -111,6 +118,7 @@ with sync_playwright() as p:
  # Guard invalid runtime data and ensure sources/text cannot become executed markup.
  assert page.evaluate("modulePayloadValid(APP.models,'models')")
  assert not page.evaluate("modulePayloadValid({version:1,checked:'2026-09-21'},'models')")
+ assert not page.evaluate("(()=>{const x=structuredClone(APP.models);delete x.intelligence_index;return modulePayloadValid(x,'models')})()")
  assert page.evaluate("(()=>{const e={date:'2026-09-07',precision:'instant',published_at:'2026-09-07T23:30:00Z'};return rDay(e,'Asia/Shanghai')==='2026-09-08'&&rDay(e,'America/Los_Angeles')==='2026-09-07'})()")
  route(page,'#/models?q=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');expect(page.locator('.m-empty')).to_have_count(1)
  assert page.locator('.m-wrap img').count()==0;ok('runtime validation, exact timestamp conversion and escaped URL inputs')
@@ -122,7 +130,7 @@ with sync_playwright() as p:
   metrics=page.locator('.v3-metric-tabs')
   if width<=760:assert metrics.evaluate("e=>getComputedStyle(e).overflowX==='auto'")
   if width==390:
-   shot(page,'models-coding-version-mobile.png',True);route(page,'#/tibo');shot(page,'tibo-mobile.png',True);route(page,'#/models');shot(page,'models-mobile.png',True)
+   shot(page,'models-coding-version-mobile.png',True);route(page,'#/tibo');shot(page,'tibo-mobile.png',True);route(page,'#/models');page.locator('.v2-aa-suite summary').click();assert page.locator('.v2-aa-suite').evaluate('e=>e.scrollWidth<=e.clientWidth+1');shot(page,'models-mobile.png',True)
  route(page,'#/models?model=aa-astra-max');expect(page.locator('dialog[open]')).to_have_count(1)
  assert page.locator('dialog[open]').evaluate('e=>e.scrollWidth<=e.clientWidth+1');page.keyboard.press('Escape')
  ok('1024/790/390/360px layouts, scoped table scrolling and narrow evidence drawer')

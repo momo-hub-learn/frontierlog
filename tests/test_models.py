@@ -17,6 +17,19 @@ def transport_for(posts,next_token=None):
  return transport
 class ValidationTests(unittest.TestCase):
  def test_valid_catalogs(self):validate_models(M);validate_resets(E)
+ def test_intelligence_index_methodology_is_complete_and_source_backed(self):
+  index=M['intelligence_index']
+  self.assertEqual((index['version'],index['checked'],index['source']),('4.3.2','2026-10-27','aa-method'))
+  self.assertEqual(sum(x['weight'] for x in index['categories']),100)
+  evaluations=[e for category in index['categories'] for e in category['evaluations']]
+  self.assertEqual(len(evaluations),10)
+  self.assertEqual({e['name'] for e in evaluations},{'AA-Briefcase v1.1','GDPval-AA v2.1','AutomationBench-AA','AA-Omniscience','GDP.pdf','AA-LCR v1.1','Terminal-Bench 4.0','SciCode',"Humanity's Last Exam",'CritPt'})
+  source=next(x for x in M['sources'] if x['id']==index['source'])
+  self.assertEqual(source['url'],'https://artificialanalysis.ai/methodology/intelligence-benchmarking')
+  validate_models(M)
+ def test_intelligence_index_bad_weights_rejected(self):
+  d=copy.deepcopy(M);d['intelligence_index']['categories'][0]['evaluations'][0]['weight']+=1
+  with self.assertRaises(ValueError):validate_models(d)
  def test_nan_rejected(self):
   d=copy.deepcopy(M);d['boards'][0]['rows'][0]['intelligence']=float('nan')
   with self.assertRaises(ValueError):validate_models(d)

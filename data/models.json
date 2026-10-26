@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "sources": [
     {
       "id": "aa-live",
@@ -65,12 +65,12 @@
     {
       "id": "aa-method",
       "publisher": "Artificial Analysis",
-      "title": "Intelligence Index v4.3.2",
-      "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
-      "checked": "2026-09-22",
-      "published": "2026-09-07",
+      "title": "Artificial Analysis Intelligence Benchmarking Methodology",
+      "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "checked": "2026-10-27",
+      "published": null,
       "kind": "评测方法",
-      "note": "v4.3.2 纳入 AutomationBench-AA 与 Terminal-Bench 4.0；指数版本不同，分数不能直接跨版本比较。"
+      "note": "v4.3.2 由 Agent 任务 30%、编程 20%、通用能力 30%、科学推理 20% 加权组成，共 10 项评测；主要覆盖英文文本模型，多模态、语音与多语言另行评测。指数版本不同，分数不能直接跨版本比较。"
     },
     {
       "id": "arena-text",
@@ -253,6 +253,44 @@
       "note": "包含 CartPole、PointMaze、Walker2D 的评测与对比实现；无本站独立复现结论。"
     }
   ],
+  "intelligence_index": {
+    "version": "4.3.2",
+    "checked": "2026-10-27",
+    "source": "aa-method",
+    "scope": "主要评估英文文本模型；多模态、语音与多语言能力不计入这张总榜，需另看专项评测。",
+    "categories": [
+      {
+        "id": "agents", "label": "Agent 任务", "weight": 30,
+        "evaluations": [
+          {"name": "AA-Briefcase v1.1", "weight": 15, "tasks": "91 项任务 / 4 个场景"},
+          {"name": "GDPval-AA v2.1", "weight": 10, "tasks": "220 项任务"},
+          {"name": "AutomationBench-AA", "weight": 5, "tasks": "657 项任务"}
+        ]
+      },
+      {
+        "id": "general", "label": "通用能力", "weight": 30,
+        "evaluations": [
+          {"name": "AA-Omniscience", "weight": 15, "tasks": "6,000 题；准确率 10% + 非幻觉率 5%"},
+          {"name": "GDP.pdf", "weight": 10, "tasks": "100 项长文档任务"},
+          {"name": "AA-LCR v1.1", "weight": 5, "tasks": "100 题长上下文推理"}
+        ]
+      },
+      {
+        "id": "coding", "label": "编程", "weight": 20,
+        "evaluations": [
+          {"name": "Terminal-Bench 4.0", "weight": 10, "tasks": "66 项终端任务"},
+          {"name": "SciCode", "weight": 10, "tasks": "288 个科学编程子问题"}
+        ]
+      },
+      {
+        "id": "science", "label": "科学推理", "weight": 20,
+        "evaluations": [
+          {"name": "Humanity's Last Exam", "weight": 10, "tasks": "2,158 道文本题"},
+          {"name": "CritPt", "weight": 10, "tasks": "70 道前沿物理题"}
+        ]
+      }
+    ]
+  },
   "boards": [
     {
       "id": "aa",
