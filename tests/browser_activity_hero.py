@@ -130,6 +130,8 @@ try:
         go('#/activity?kind=upstream')
         summary=page.locator('.v2-queue-summary')
         expect(page.locator('#content > .v2-pageintro h1')).to_have_text('上游候选')
+        expect(page.locator('#content > .v2-radar-section > header h2')).to_have_count(0)
+        expect(page.get_by_role('heading',name='上游候选',exact=True)).to_have_count(1)
         expect(page.locator('#content > .v2-radar-tabs')).to_have_count(0)
         expect(page.locator('#content > .v2-radar-section')).to_have_count(1)
         expect(summary).to_contain_text(f"{UPSTREAM['repositories_succeeded']}/{UPSTREAM['repositories_total']} 源成功")

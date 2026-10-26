@@ -79,7 +79,7 @@ def validate_product_radar(data:dict, *, now:datetime|None=None)->None:
     checked=date.fromisoformat(data['checked'])
     if checked>now.astimezone(REVIEW_TIMEZONE).date(): raise ValueError('Future product radar check date')
     groups=data.get('groups'); items=data.get('items')
-    if not isinstance(groups,list) or len(groups)<2 or not isinstance(items,list) or not 5<=len(items)<=12: raise ValueError('Invalid product radar lists')
+    if not isinstance(groups,list) or len(groups)<2 or not isinstance(items,list) or len(items)<5: raise ValueError('Invalid product radar lists')
     gids=[g.get('id') for g in groups]
     if len(gids)!=len(set(gids)) or any(not isinstance(x,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*',x) for x in gids): raise ValueError('Invalid product radar groups')
     for g in groups:

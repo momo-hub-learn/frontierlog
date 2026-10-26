@@ -105,6 +105,9 @@ class BuildTests(unittest.TestCase):
         self.assertTrue(palantir.get('research'))
         self.assertGreaterEqual(len(palantir['timeline']),5)
         self.assertTrue(all(x.get('filter_ids') for x in radar['items']))
+        cloud=next(x for x in radar['items'] if x['id']=='claude-models-google-cloud')
+        self.assertEqual(cloud['timeline'][0]['kind'],'GA')
+        self.assertEqual(cloud['timeline'][0]['evidence_level'],'primary_source')
         self.assertGreaterEqual(sum(len(x.get('timeline',[])) for x in radar['items']),10)
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')
@@ -220,6 +223,9 @@ class BuildTests(unittest.TestCase):
         research=json.loads((ROOT/'data/research-radar.json').read_text())
         product['checked']='2026-10-21'
         research['checked']='2026-10-21'
+        for item in product['items']:
+            for event in item['timeline']:
+                if event['date']>'2026-10-21':event['date']='2026-10-21'
         for item in research['items']:
             if item['date']>'2026-10-21':item['date']='2026-10-21'
         build.validate_product_radar(product,now=instant)

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-26",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,40 @@
     }
   ],
   "items": [
+    {
+      "id": "claude-models-google-cloud",
+      "name": "Claude Models on Google Cloud",
+      "company": "Google Cloud / Anthropic",
+      "group": "enterprise-agent",
+      "tags": ["Cloud Deployment", "Managed Agents", "Governance"],
+      "summary": "在 Google Cloud 上以 Anthropic-managed 或 Google-managed 路径部署 Claude：一条优先最新 Agent 平台能力，另一条优先 Google 数据处理协议与云治理控制。",
+      "product_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "source_label": "Google Cloud 官方 GA 公告",
+      "evidence": "Google Cloud 2026-10-22 官方公告确认两种路径均为正式可用、共享同日模型与定价，并逐项说明数据处理方、合同、治理控制和 Claude Platform 工具差异。",
+      "boundary": "这是厂商正式可用性与功能范围说明，不是独立安全或性能比较；账户、地区、配额、控制台可见性及后续功能仍需逐项核对。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-22",
+          "kind": "GA",
+          "title": "Claude 双托管部署在 Google Cloud 正式开放",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+          "summary": "Anthropic-managed 路径立即提供 Managed Agents、skills 与代码执行；Google-managed 路径提供 VPC Service Controls、CMEK 与美欧亚太数据驻留。",
+          "facts": [
+            {"label": "Anthropic-managed", "value": "Managed Agents / skills / code execution"},
+            {"label": "Google-managed", "value": "VPC SC / CMEK / US-EU-APAC residency"},
+            {"label": "两者共有", "value": "Day-zero models / same pricing / GCP billing"}
+          ],
+          "interpretation": "企业选型的核心分叉是数据处理方、合同、控制平面与工具可用性，而不是模型名称本身。",
+          "scope": "Google Cloud 2026-10-22 官方 GA 公告所列的两种 Claude 部署路径。",
+          "limitations": "不能由公告推出每个账户或地区已即时可见，也不能把厂商控制项说明当作独立安全审计或性能对比。",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-26",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "claude-duet",
       "name": "Claude Duet",

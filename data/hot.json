@@ -36,6 +36,48 @@
   ],
   "items": [
     {
+      "id": "google-cloud-claude-managed-ga-20261022",
+      "category": "product",
+      "title": "Google Cloud：Claude 双托管路径正式开放",
+      "published": "2026-10-22",
+      "checked": "2026-10-26",
+      "verified_at": "2026-10-26T09:16:26+08:00",
+      "first_seen_at": "2026-10-26T09:16:26+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 32,
+        "availability": 21,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是云安全、模型能力、性能或本站实测分数。",
+      "trend": "up",
+      "summary": "Google Cloud 正式提供 Anthropic-managed 与 Google-managed 两种 Claude 部署：前者可立即使用 Managed Agents、skills 与代码执行，后者由 Google 处理数据并提供 VPC Service Controls、CMEK 与美欧亚太数据驻留。",
+      "why": "企业现在需要按数据处理方、合同、控制平面与 Agent 工具可用性选部署路径，而不是只看模型名称。两种路径共享同日模型、相同定价和 Google Cloud 账单，但治理与平台能力并不相同。",
+      "boundary": "这是 Google Cloud 的正式可用性公告，不是本站安全或性能评测。同模型与同定价不等于同条款、同数据处理方或同工具；具体地区、账户资格、配额、功能可见性及 Google-managed 路径后续平台能力仍须以控制台和文档为准。",
+      "source": "Google Cloud / Anthropic",
+      "source_kind": "Google Cloud 官方 GA 公告 / 本轮编辑核验",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "link": "#/hot?cat=product&pview=map&product=claude-models-google-cloud",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读双托管路径说明",
+          "note": "重点核对数据处理方、合同、治理控制与 Agent 工具差异",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google Cloud",
+          "title": "Expanding Claude availability and deployment choice on Google Cloud",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "tibo-reset-propagated-20261025-day20",
       "category": "product",
       "title": "Tibo：Day 20 reset 已完成传播",
