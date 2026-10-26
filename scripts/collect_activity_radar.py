@@ -20,6 +20,17 @@ def clean(s):
     s=re.sub(r'<[^>]+>',' ',html.unescape(s or ''))
     return re.sub(r'\s+',' ',s).strip()
 
+def clip_text(value, limit):
+    """Keep feed excerpts readable without cutting a word in half."""
+    value=clean(value)
+    if len(value)<=limit:return value
+    head=value[:limit]
+    sentence=max(head.rfind('. '),head.rfind('! '),head.rfind('? '))
+    if sentence>=limit*0.5:return head[:sentence+1]
+    if value[limit].isspace():return head.rstrip(' ,;:')+'…'
+    boundary=head.rfind(' ')
+    return head[:boundary if boundary>0 else limit].rstrip(' ,;:')+'…'
+
 def date_only(raw):
     if not raw:return ''
     try:return parsedate_to_datetime(raw).date().isoformat()
@@ -112,7 +123,7 @@ def main():
             if kws and not any(k in hay for k in kws):continue
             if not x['title'] or not x['url'] or not x['date']:continue
             key=hashlib.sha1((sid+'|'+x['url']).encode()).hexdigest()[:12]
-            auto.append({'id':sid+'-'+key,'source_id':sid,'published':x['date'],'title':x['title'][:220],'summary':x['summary'][:320],'url':x['url'],'tags':tags(hay),'origin':'rss'})
+            auto.append({'id':sid+'-'+key,'source_id':sid,'published':x['date'],'title':clip_text(x['title'],220),'summary':clip_text(x['summary'],320),'url':x['url'],'tags':tags(hay),'origin':'rss'})
             kept+=1
             if kept>=3:break
     if not ok:raise SystemExit('no public feeds fetched successfully')

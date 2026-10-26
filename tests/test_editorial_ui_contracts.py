@@ -61,7 +61,8 @@ class EditorialContracts(unittest.TestCase):
  def test_homepage_heat_has_text_and_accessible_numeric_label(self):
   text=(ROOT/'src/feed-cockpit.js').read_text()
   self.assertIn('aria-label="编辑热度 ',text)
-  self.assertIn("hHeatBand(x.heat).label+'</small>'",text)
+  self.assertIn('新鲜度排序分 ',text)
+  self.assertIn("hHeatBand(x.heat).label+' · 排序 '+esc(String(v10Top5Score(x)))",text)
   css=(ROOT/'src/feed-cockpit.css').read_text()
   for band in ('extreme','high','rising','watch'):self.assertIn('.fc-heat-'+band,css)
  def test_timeline_heat_has_text_tiers_and_non_color_shapes(self):
@@ -76,6 +77,12 @@ class EditorialContracts(unittest.TestCase):
   text=(ROOT/'src/intraday.js').read_text()
   self.assertNotIn('AI 评分',text)
   self.assertIn('aria-label="本站编辑热度 ${x.heat} 分，${band.label}"',text)
+
+ def test_tibo_explicit_confirmation_has_a_distinct_visible_state(self):
+  text=(ROOT/'src/tibo-intel.js').read_text()
+  self.assertIn("explicit_reset_confirmation:'明确确认'",text)
+  self.assertIn("if(x.semantic_type==='explicit_reset_confirmation')return 'Tibo：reset 已确认'",text)
+  self.assertIn("'explicit_reset_confirmation'",text)
 
  def test_unreviewed_upstream_releases_require_an_explicit_queue_view(self):
   legacy=(ROOT/'src/app.js').read_text()

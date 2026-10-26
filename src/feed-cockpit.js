@@ -9,7 +9,7 @@ function fcHotPanel(){
    '<a class="fc-hot-row" href="#/hot?item='+encodeURIComponent(x.id)+'">'+
     '<span class="fc-hot-rank">'+String(i+1).padStart(2,'0')+'</span>'+
     '<span class="fc-hot-main"><span class="fc-hot-meta"><em>'+esc(HOT_CATS.get(x.category)?.title||x.category)+'</em><time>'+esc(x.published.slice(5).replace('-','.'))+'</time><small>'+esc(x.source)+'</small></span><strong>'+esc(x.title)+'</strong></span>'+
-    '<span class="fc-hot-score fc-heat-'+hHeatBand(x.heat).key+'" aria-label="编辑热度 '+esc(String(x.heat))+'，'+hHeatBand(x.heat).label+'"><b>'+esc(String(x.heat))+'</b><small>'+hHeatBand(x.heat).label+'</small>'+hTrend(x)+'</span>'+
+    '<span class="fc-hot-score fc-heat-'+hHeatBand(x.heat).key+'" aria-label="编辑热度 '+esc(String(x.heat))+'，'+hHeatBand(x.heat).label+'；新鲜度排序分 '+esc(String(v10Top5Score(x)))+'"><b>'+esc(String(x.heat))+'</b><small>'+hHeatBand(x.heat).label+' · 排序 '+esc(String(v10Top5Score(x)))+'</small>'+hTrend(x)+'</span>'+
    '</a>'
   ).join('')+'</div>'+
  '</section>'

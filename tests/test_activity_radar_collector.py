@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.collect_activity_radar import merge_media_items
+from scripts.collect_activity_radar import clip_text, merge_media_items
 
 
 def item(item_id, published, source="feed", title=None, url=None, origin="rss"):
@@ -17,6 +17,14 @@ def item(item_id, published, source="feed", title=None, url=None, origin="rss"):
 
 
 class ActivityRadarCollectorTests(unittest.TestCase):
+    def test_clip_text_prefers_a_complete_sentence(self):
+        text = "A complete sentence with enough context. A second sentence that should not be cut in the middle of a word."
+        self.assertEqual(clip_text(text, 70), "A complete sentence with enough context.")
+
+    def test_clip_text_uses_a_word_boundary_when_no_sentence_fits(self):
+        clipped = clip_text("one two three four five six seven", 18)
+        self.assertEqual(clipped, "one two three four…")
+
     def test_keeps_existing_rss_when_feed_yields_no_match(self):
         previous = [item("old", "2026-10-23")]
         self.assertEqual(merge_media_items(previous, []), previous)
