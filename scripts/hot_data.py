@@ -32,6 +32,8 @@ def validate_hot(data:dict, *, now:datetime|None=None)->None:
     for item in items:
         if not re.fullmatch(r'[a-z0-9][a-z0-9-]*',item['id']): raise ValueError('Unsafe hot ID')
         if item['category'] not in set(cids)-{'all'}: raise ValueError('Unknown hot category')
+        if item['id'].startswith('tibo-reset-') or str(item.get('link','')).startswith('#/tibo'):
+            raise ValueError('Tibo reset events belong in the dedicated reset monitor')
         if not isinstance(item['heat'],int) or not 0<=item['heat']<=100: raise ValueError('Invalid hot score')
         if item['trend'] not in {'up','flat','down'}: raise ValueError('Invalid trend')
         published=date.fromisoformat(item['published'])
