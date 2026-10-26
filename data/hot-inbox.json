@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-26T17:33:01Z",
+  "generated_at": "2026-10-26T19:34:25Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 71,
+    "merge": 76,
     "hold": 3
   },
   "candidates": [
@@ -38,6 +38,54 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
+    },
+    {
+      "id": "candidate-30929a7b4f37bb4f",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "GPT-6.1 Terra 进入 ChatGPT Work、Codex 与 API",
+      "summary": "OpenAI 将 Terra 定位为视觉推理、计算机操作与写作模型，并公布 gpt-6.1-terra API 与标准价格。",
+      "why": "更低价格与精确界面操作会扩大企业 Agent 的可测试任务面，但是否省时要看真实任务成功、接管、误操作与重试成本。",
+      "boundary": "厂商 Benchmark 不是本站实测；具体账户、地区、额度和高风险用例仍受产品与安全政策约束。",
+      "source": "OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "openai-gpt-6-1-terra",
+      "first_seen_at": "2026-10-26T19:34:25Z"
+    },
+    {
+      "id": "candidate-5e18b2d6ee331cdb",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "GPT-6.1 Terra 在 ChatGPT Work、Codex 与 API 上线",
+      "summary": "OpenAI 发布主打视觉理解、电脑操作、写作与编码的快速模型，并公布 API 模型名、标准价格与系统卡补充。",
+      "why": "高频电脑工作获得新的成本/速度档位；厂商自测仍需用真实工具、权限和业务验收重跑，不能并入独立综合能力榜。",
+      "boundary": "官方 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均是厂商自测，本站未运行，也未并入独立能力榜。模型可用不等于你的账号、工具和环境已满足生产要求；系统卡的网络安全 Critical、生化 High 分级要求更严格的权限、监控与人工审批。",
+      "source": "OpenAI",
+      "source_kind": "官方产品发布",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "openai-gpt-6-1-terra",
+      "first_seen_at": "2026-10-26T19:34:25Z"
     },
     {
       "id": "candidate-92ca2707f4cec9ad",
@@ -472,6 +520,29 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T17:48:39Z"
+    },
+    {
+      "id": "candidate-7a4e5ed9c4a05600",
+      "category": "industry",
+      "published": "2026-10-21",
+      "title": "DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释",
+      "summary": "Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。",
+      "why": "统一的 DNA—语言接口可能降低变体解释、序列问答和研究原型的接线成本；更值得跟踪的是坐标与碱基操作能否被确定性工具约束，而不是只看平台热度。",
+      "boundary": "本站未运行权重。模型卡明确说明模型未做临床验证、不可用于医疗决策，且可能误计碱基和坐标、产生幻觉，在剪接与组蛋白任务上较弱；作者汇总分数和 Hugging Face Trending 均不等于临床有效性或独立能力排名。",
+      "source": "Hugging Face Bio",
+      "source_kind": "官方模型卡、架构、训练规模、使用方式与限制",
+      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "publishable": true,
+      "features": {
+        "freshness": 0.643,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.73,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-26T19:34:25Z"
     },
     {
       "id": "candidate-7e5edc5a0d94b32f",
@@ -917,78 +988,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-auto-ontology",
       "first_seen_at": "2026-10-22T05:26:27Z"
-    },
-    {
-      "id": "candidate-bb0bc414c62e4fca",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "NVIDIA 发布 NeMo AutoModel 0.7",
-      "summary": "训练栈扩大模型与 MoE 覆盖，加入推测解码、离散扩散、图像微调、FlashAttention-4 和低内存加载路径。",
-      "why": "更多训练范式被收进同一套 PyTorch 原生接口；能否用于目标模型仍取决于对应并行路径、检查点、显存和发布 CI 覆盖。",
-      "boundary": "版本清单不是本站训练实测，也不代表所有组合都支持。部分新配方缺少 TP、PP、CP 或 packing，GLM 医学视觉示例使用 72 张 H100；Cohere 预览依赖 remote code 且未纳入本次发布 CI。",
-      "source": "NVIDIA NeMo",
-      "source_kind": "官方版本发布、能力清单、已知限制与 CI 范围",
-      "url": "https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-nemo-automodel-0-7",
-      "first_seen_at": "2026-10-25T01:28:29Z"
-    },
-    {
-      "id": "candidate-c21212465f6f4674",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Kumo Anomaly 开放模型与代码",
-      "summary": "NVIDIA 与 Kumo AI 发布扩散式多变量时序异常检测模型和 SCS、MACS 阈值方法。",
-      "why": "制造时序可从可复现基线开始，但异常分只用于筛查，不能直接触发设备控制。",
-      "boundary": "异常不是故障根因；阈值决定误报与漏报。厂商半导体案例只是一种设备和数据分布，不能直接外推到生产线，本站未运行。",
-      "source": "NVIDIA / Kumo AI",
-      "source_kind": "官方技术发布",
-      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-kumo-anomaly",
-      "first_seen_at": "2026-10-21T17:48:39Z"
-    },
-    {
-      "id": "candidate-d82d1c6679d6eebe",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "OpenAI 模型预告进入 Antigravity 与 Gemini Agent",
-      "summary": "OpenAI 与 Google Cloud 宣布 Model Garden 合作，并预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent。",
-      "why": "开发 Agent 产品开始跨模型供应商提供选择，但真正价值要等具体模型、工具权限、上下文和定价上线后再比较。",
-      "boundary": "尚未全面 GA；公告没有给出每个模型、地区和账户的精确可用日期，不能标成现在可用。",
-      "source": "Google",
-      "source_kind": "官方产品节点",
-      "url": "https://openai.com/index/openai-models-google-cloud",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "google-antigravity",
-      "first_seen_at": "2026-10-21T17:48:39Z"
     }
   ]
 }
