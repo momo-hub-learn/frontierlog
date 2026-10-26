@@ -39,6 +39,10 @@ class HotDataTests(unittest.TestCase):
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
  def test_bad_internal_link(self):self.reject(lambda d:d['items'][0].update(link='https://evil.example'))
+ def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
+  workflow=(R/'.github/workflows/hot-sync.yml').read_text()
+  self.assertIn("      - 'data/hot.json'",workflow)
+
  def test_tibo_resets_are_exclusive_to_the_reset_monitor(self):
   reset_ids={x['id'] for x in json.loads((R/'data/resets.json').read_text())['events']}
   self.assertIn('tibo-global-confirmed-2026-10-23-day18',reset_ids)
