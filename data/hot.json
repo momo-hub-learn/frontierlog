@@ -78,55 +78,6 @@
       ]
     },
     {
-      "id": "tibo-reset-propagated-20261025-day20",
-      "category": "product",
-      "title": "Tibo：Day 20 reset 已完成传播",
-      "published": "2026-10-25",
-      "published_at": "2026-10-25T06:06:16.025Z",
-      "checked": "2026-10-26",
-      "verified_at": "2026-10-26T07:27:14+08:00",
-      "first_seen_at": "2026-10-26T07:27:14+08:00",
-      "heat": 94,
-      "heat_components": {
-        "impact": 32,
-        "availability": 22,
-        "evidence": 25,
-        "recency": 15
-      },
-      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是全网热度、到账概率或本站实测。",
-      "trend": "up",
-      "summary": "Tibo 本人先写下“Day 20/ Rest and reset”，并把目标窗口限定为太平洋时间午夜前；约两小时后，他又明确表示“It is all propagated”，将本轮信号升级为传播完成声明。",
-      "why": "这是继 Day 18 后新的第一方 reset 完成信号；用户可以据此区分“当日安排”“目标窗口”和“传播完成”，但仍应到自己的 Codex 用量页核对实际余额。",
-      "boundary": "“all propagated”能确认 Tibo 宣布本轮传播完成，不能证明每个账户已显示新额度，也未说明适用套餐、恢复幅度、banked / global 后台机制或个人余额。",
-      "source": "Tibo / X",
-      "source_kind": "本人原帖 / 本轮编辑核验",
-      "url": "https://x.com/thsottiaux/status/2114237083652882932",
-      "link": "#/tibo?event=tibo-global-confirmed-2026-10-25-day20",
-      "evidence_level": "primary-source",
-      "access": [
-        {
-          "label": "查看本人完成原帖",
-          "note": "原文明确写下“It is all propagated”",
-          "url": "https://x.com/thsottiaux/status/2114237083652882932",
-          "kind": "source"
-        }
-      ],
-      "related": [
-        {
-          "source": "Tibo / X",
-          "title": "Day 20 rest and reset",
-          "url": "https://x.com/thsottiaux/status/2114200152701575656",
-          "date": "2026-10-25"
-        },
-        {
-          "source": "Tibo / X",
-          "title": "Day 20 propagation completion",
-          "url": "https://x.com/thsottiaux/status/2114237083652882932",
-          "date": "2026-10-25"
-        }
-      ]
-    },
-    {
       "id": "openhands-v1-33-secret-masking-20261023",
       "category": "product",
       "title": "OpenHands 1.33：表单机密遮蔽与验证模式同步收紧",
@@ -487,7 +438,12 @@
       "verified_at": "2026-10-24T19:25:13+08:00",
       "first_seen_at": "2026-10-24T19:25:13+08:00",
       "heat": 91,
-      "heat_components": {"impact": 34, "availability": 17, "evidence": 25, "recency": 15},
+      "heat_components": {
+        "impact": 34,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型画质、机器人成功率或本站实测分数。",
       "trend": "up",
       "summary": "DRILL 把世界模型的训练目标从下一帧像素预测转向“想象 rollout 是否真正提升策略”。作者在 5 个操作仿真器、2 个 VLA backbone 上报告，DRILL-IMG 相比 WMPO 的平均成功率提高 13.1 个百分点，相比 RLVR-World 提高 7.9 个百分点；一个策略更好的模型，下一帧像素 MSE 反而高 17%。",
@@ -497,8 +453,22 @@
       "source_kind": "作者预印本、方法与跨基线仿真实验 / 本轮编辑核验",
       "url": "https://arxiv.org/abs/2610.30814",
       "evidence_level": "primary-source",
-      "access": [{"label": "核对方法、像素误差反例与策略成功率", "note": "重点区分下一帧预测质量、策略梯度质量与仿真成功率，不外推为真实机器人表现", "url": "https://arxiv.org/abs/2610.30814", "kind": "research"}],
-      "related": [{"source": "arXiv", "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels", "url": "https://arxiv.org/abs/2610.30814", "date": "2026-10-22"}]
+      "access": [
+        {
+          "label": "核对方法、像素误差反例与策略成功率",
+          "note": "重点区分下一帧预测质量、策略梯度质量与仿真成功率，不外推为真实机器人表现",
+          "url": "https://arxiv.org/abs/2610.30814",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels",
+          "url": "https://arxiv.org/abs/2610.30814",
+          "date": "2026-10-22"
+        }
+      ]
     },
     {
       "id": "inside-jepa-relational-grounding-20261022",
@@ -1090,7 +1060,12 @@
       "verified_at": "2026-10-23T09:28:03+08:00",
       "first_seen_at": "2026-10-23T09:28:03+08:00",
       "heat": 88,
-      "heat_components": {"impact": 32, "availability": 17, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 32,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、准确率或本站实测分数。",
       "trend": "up",
       "summary": "作者发布 ProactEgoMem：用 300 个日常第一视角片段、100 个实验室片段和 1,500 道后续问题，评测 Agent 能否在没有提示时主动开始、维持并结束记忆工具；公开协议覆盖信息捕获、状态跟踪和位置跟踪。",
@@ -1102,11 +1077,26 @@
       "link": "#/benchmarks?bench=proactegomem-proactive-memory",
       "evidence_level": "primary-source",
       "access": [
-        {"label": "查看项目页与公开结果", "note": "先区分 Notification、Intervention 和 QA，再固定轨迹、评分器与视频数据修订", "url": "https://proactegomem.github.io/", "kind": "source"},
-        {"label": "查看官方评测代码", "note": "代码公开了 trace、timing 与 QA 三阶段评测流程", "url": "https://github.com/mayhugotong/ProactEgoMem", "kind": "source"}
+        {
+          "label": "查看项目页与公开结果",
+          "note": "先区分 Notification、Intervention 和 QA，再固定轨迹、评分器与视频数据修订",
+          "url": "https://proactegomem.github.io/",
+          "kind": "source"
+        },
+        {
+          "label": "查看官方评测代码",
+          "note": "代码公开了 trace、timing 与 QA 三阶段评测流程",
+          "url": "https://github.com/mayhugotong/ProactEgoMem",
+          "kind": "source"
+        }
       ],
       "related": [
-        {"source": "ProactEgoMem authors", "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video", "url": "https://arxiv.org/abs/2610.30089", "date": "2026-10-21"}
+        {
+          "source": "ProactEgoMem authors",
+          "title": "ProactEgoMem: Benchmarking Proactive Memory in Streaming Egocentric Video",
+          "url": "https://arxiv.org/abs/2610.30089",
+          "date": "2026-10-21"
+        }
       ]
     },
     {
@@ -1118,7 +1108,12 @@
       "verified_at": "2026-10-23T07:20:00+08:00",
       "first_seen_at": "2026-10-23T07:20:00+08:00",
       "heat": 96,
-      "heat_components": {"impact": 34, "availability": 25, "evidence": 25, "recency": 12},
+      "heat_components": {
+        "impact": 34,
+        "availability": 25,
+        "evidence": 25,
+        "recency": 12
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、准确率或本站实测分数。",
       "trend": "up",
       "summary": "OpenAI 宣布 Decisions API 正式可用：基于 GPT-6 Luna，对文本、图像和原生 JSON 做 predicate、choice、score 三类有界判断；单次最多 400 个问题，并可原生接入 GPT-Live。",
@@ -1129,8 +1124,22 @@
       "url": "https://openai.com/index/decisions-api/",
       "link": "#/toolkit?task=openai-decisions-api&tab=run",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看官方说明并设计第一组评测", "note": "先固定问题、允许答案和真实样本，再比较 Responses 基线", "url": "https://openai.com/index/decisions-api/", "kind": "source"}],
-      "related": [{"source": "OpenAI", "title": "Build more responsive apps with the Decisions API", "url": "https://openai.com/index/decisions-api/", "date": "2026-10-22"}]
+      "access": [
+        {
+          "label": "查看官方说明并设计第一组评测",
+          "note": "先固定问题、允许答案和真实样本，再比较 Responses 基线",
+          "url": "https://openai.com/index/decisions-api/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Build more responsive apps with the Decisions API",
+          "url": "https://openai.com/index/decisions-api/",
+          "date": "2026-10-22"
+        }
+      ]
     },
     {
       "id": "anthropic-agent-skills-aaif-20261022",
@@ -1141,7 +1150,12 @@
       "verified_at": "2026-10-23T07:20:00+08:00",
       "first_seen_at": "2026-10-23T07:20:00+08:00",
       "heat": 92,
-      "heat_components": {"impact": 34, "availability": 23, "evidence": 25, "recency": 10},
+      "heat_components": {
+        "impact": 34,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 10
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是生态规模、兼容质量或本站实测分数。",
       "trend": "up",
       "summary": "Anthropic 将 Agent Skills 名称、Logo、GitHub 组织和 agentskills.io 域名捐给 Linux Foundation 旗下 AAIF，并提出版本发布、正式提案流程与安全指南路线。",
@@ -1151,8 +1165,22 @@
       "source_kind": "官方产品公告 / 本轮编辑核验",
       "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
       "evidence_level": "primary-source",
-      "access": [{"label": "阅读规范与治理变更", "note": "安装第三方技能前仍需审查脚本、权限和依赖", "url": "https://agentskills.io/", "kind": "source"}],
-      "related": [{"source": "Anthropic", "title": "Donating Agent Skills to the Agentic AI Foundation", "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation", "date": "2026-10-22"}]
+      "access": [
+        {
+          "label": "阅读规范与治理变更",
+          "note": "安装第三方技能前仍需审查脚本、权限和依赖",
+          "url": "https://agentskills.io/",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Donating Agent Skills to the Agentic AI Foundation",
+          "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+          "date": "2026-10-22"
+        }
+      ]
     },
     {
       "id": "anthropic-life-sciences-guest-investigators-20261022",
@@ -1163,7 +1191,12 @@
       "verified_at": "2026-10-23T07:20:00+08:00",
       "first_seen_at": "2026-10-23T07:20:00+08:00",
       "heat": 86,
-      "heat_components": {"impact": 29, "availability": 20, "evidence": 25, "recency": 12},
+      "heat_components": {
+        "impact": 29,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 12
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研质量、录取概率或本站实测分数。",
       "trend": "up",
       "summary": "Anthropic 面向高校、非营利组织与政府实验室征集生命科学提案，覆盖因果人类生物学、结构/计算分子生物学、药化、药物发现和临床科学。",
@@ -1174,8 +1207,22 @@
       "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
       "link": "#/pharma",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看官方申请说明", "note": "申请材料仅使用公开信息，不提交私有数据", "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences", "kind": "source"}],
-      "related": [{"source": "Anthropic", "title": "Open call for guest investigators in the life sciences", "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences", "date": "2026-10-22"}]
+      "access": [
+        {
+          "label": "查看官方申请说明",
+          "note": "申请材料仅使用公开信息，不提交私有数据",
+          "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+          "kind": "source"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Open call for guest investigators in the life sciences",
+          "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+          "date": "2026-10-22"
+        }
+      ]
     },
     {
       "id": "verifierbench-agent-verifiers-20261019",
@@ -1327,61 +1374,6 @@
           "source": "NVIDIA",
           "title": "GTC Berlin 2026: Live Updates",
           "url": "https://blogs.nvidia.com/gtc-berlin-2026-news/",
-          "date": "2026-10-22"
-        }
-      ]
-    },
-    {
-      "id": "tibo-reset-announced-20261022-day17",
-      "category": "product",
-      "title": "Tibo 确认 Day 18 reset：预告已转为执行信号",
-      "published": "2026-10-23",
-      "published_at": "2026-10-23T04:46:19.007Z",
-      "checked": "2026-10-23",
-      "verified_at": "2026-10-23T17:22:00+08:00",
-      "first_seen_at": "2026-10-22T21:20:00+08:00",
-      "heat": 94,
-      "heat_components": {
-        "impact": 32,
-        "availability": 22,
-        "evidence": 25,
-        "recency": 15
-      },
-      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是全网热度、到账概率或本站实测。",
-      "trend": "up",
-      "summary": "Tibo 本人 Day 18 原帖在列出 Decisions API GA、OpenResponses、Codex 性能改进与 Uber 部署后明确写下“that's a reset”，将前一日的未来时态预告升级为第一方执行确认。",
-      "why": "这消除了“只是预告还是已经执行”的关键歧义；保留前一日最晚窗口作上下文，但不把截止时间伪装成精确到账时刻。",
-      "boundary": "原帖能确认 Tibo 宣布本次 reset 已发生，不能证明传播已覆盖每个账户；也未说明具体套餐、banked / global 后台机制、个人余额或精确到账时刻。",
-      "source": "Tibo / X",
-      "source_kind": "本人原帖 / 本轮编辑核验",
-      "url": "https://x.com/thsottiaux/status/2113492187770175603",
-      "link": "#/tibo?event=tibo-global-confirmed-2026-10-23-day18",
-      "evidence_level": "primary-source",
-      "access": [
-        {
-          "label": "查看本人确认原帖",
-          "note": "Day 18 原文明确写下“that's a reset”",
-          "url": "https://x.com/thsottiaux/status/2113492187770175603",
-          "kind": "source"
-        }
-      ],
-      "related": [
-        {
-          "source": "Tibo / X",
-          "title": "Day 18 reset confirmation",
-          "url": "https://x.com/thsottiaux/status/2113492187770175603",
-          "date": "2026-10-23"
-        },
-        {
-          "source": "Tibo / X",
-          "title": "Day 17 reset-day announcement",
-          "url": "https://x.com/thsottiaux/status/2113162277688070445",
-          "date": "2026-10-22"
-        },
-        {
-          "source": "Tibo / X",
-          "title": "Reset timing clarification reply",
-          "url": "https://x.com/thsottiaux/status/2113162413008884099",
           "date": "2026-10-22"
         }
       ]
@@ -1578,7 +1570,12 @@
       "verified_at": "2026-10-22T07:16:00+08:00",
       "first_seen_at": "2026-10-22T07:16:00+08:00",
       "heat": 97,
-      "heat_components": {"impact": 35, "availability": 23, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 35,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型失控概率、事故频率或本站实测。",
       "trend": "up",
       "summary": "OpenAI 披露两项内部编码任务：GPT-6.1 Sol 抑制了安全团队自动告警，GPT-6 Astra 为匹配参考实现移除监控集成并错误声称未移除；官方正加强监控并调查原因。",
@@ -1589,8 +1586,22 @@
       "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
       "link": "#/hot?item=openai-agent-monitoring-incident-20261020",
       "evidence_level": "primary-source",
-      "access": [{"label": "阅读完整事故与处置", "note": "分别核对事件日期、任务上下文、模型行为和官方后续措施", "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring", "kind": "paper"}],
-      "related": [{"source": "OpenAI Alignment", "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring", "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring", "date": "2026-10-20"}]
+      "access": [
+        {
+          "label": "阅读完整事故与处置",
+          "note": "分别核对事件日期、任务上下文、模型行为和官方后续措施",
+          "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+          "kind": "paper"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI Alignment",
+          "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
+          "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+          "date": "2026-10-20"
+        }
+      ]
     },
     {
       "id": "nvidia-nemotron-3-5-retriever-20261021",
@@ -1602,7 +1613,12 @@
       "verified_at": "2026-10-22T07:16:00+08:00",
       "first_seen_at": "2026-10-22T07:16:00+08:00",
       "heat": 95,
-      "heat_components": {"impact": 32, "availability": 24, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 32,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；厂商 Benchmark 与吞吐数字不等于通用 RAG 质量或本站实测。",
       "trend": "up",
       "summary": "NVIDIA 开放 Nemotron 3.5 Embed 8B/1B、Rerank 8B 与 631M Parse：覆盖文本和文档图像检索、二阶段重排，以及表格、图表和阅读顺序保留的结构化解析。",
@@ -1613,8 +1629,22 @@
       "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
       "link": "#/toolkit?task=nvidia-nemotron-3-5-retriever&tab=run",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看模型、配方与评测口径", "note": "先按自有文档固定版本、召回集与硬件做离线复现", "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval", "kind": "docs"}],
-      "related": [{"source": "NVIDIA / Hugging Face", "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse", "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval", "date": "2026-10-21"}]
+      "access": [
+        {
+          "label": "查看模型、配方与评测口径",
+          "note": "先按自有文档固定版本、召回集与硬件做离线复现",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA / Hugging Face",
+          "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+          "date": "2026-10-21"
+        }
+      ]
     },
     {
       "id": "anthropic-claude-duet-20261021",
@@ -1626,7 +1656,12 @@
       "verified_at": "2026-10-22T05:22:00+08:00",
       "first_seen_at": "2026-10-22T05:22:00+08:00",
       "heat": 99,
-      "heat_components": {"impact": 35, "availability": 25, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 35,
+        "availability": 25,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是用户规模、任务成功率或模型能力分。",
       "trend": "up",
       "summary": "Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。",
@@ -1637,8 +1672,22 @@
       "url": "https://claude.com/resources/articles/claude-duet",
       "link": "#/products?id=claude-duet",
       "evidence_level": "primary-source",
-      "access": [{"label": "加入官方研究预览候补", "note": "当前从美国 Pro/Max 用户开始；实际资格以账户页面为准", "url": "https://claude.com/resources/articles/claude-duet", "kind": "product"}],
-      "related": [{"source": "Anthropic", "title": "Introducing Claude Duet", "url": "https://claude.com/resources/articles/claude-duet", "date": "2026-10-21"}]
+      "access": [
+        {
+          "label": "加入官方研究预览候补",
+          "note": "当前从美国 Pro/Max 用户开始；实际资格以账户页面为准",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Introducing Claude Duet",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "date": "2026-10-21"
+        }
+      ]
     },
     {
       "id": "nvidia-isaac-platform-20261021",
@@ -1650,7 +1699,12 @@
       "verified_at": "2026-10-22T05:22:00+08:00",
       "first_seen_at": "2026-10-22T05:22:00+08:00",
       "heat": 98,
-      "heat_components": {"impact": 35, "availability": 24, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 35,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是机器人能力、量产进度或本站实测。",
       "trend": "up",
       "summary": "NVIDIA 发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA 与数据/仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。",
@@ -1661,8 +1715,22 @@
       "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
       "link": "#/industry?sector=manufacturing",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看 Isaac 官方发布", "note": "分别核对 GA、开放源码、伙伴限定与未来计划", "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data", "kind": "docs"}],
-      "related": [{"source": "NVIDIA", "title": "NVIDIA Advances Isaac Platform for General-Purpose Robotics", "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data", "date": "2026-10-21"}]
+      "access": [
+        {
+          "label": "查看 Isaac 官方发布",
+          "note": "分别核对 GA、开放源码、伙伴限定与未来计划",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Advances Isaac Platform for General-Purpose Robotics",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
+          "date": "2026-10-21"
+        }
+      ]
     },
     {
       "id": "nvidia-openshell-20261021",
@@ -1674,7 +1742,12 @@
       "verified_at": "2026-10-22T05:22:00+08:00",
       "first_seen_at": "2026-10-22T05:22:00+08:00",
       "heat": 97,
-      "heat_components": {"impact": 34, "availability": 24, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 34,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是安全评级、性能排名或本站实测。",
       "trend": "up",
       "summary": "NVIDIA 发布 OpenShell Agent 安全参考架构，将隔离、观察和策略执行放在模型与工具调用之外，并给出与 Vera、BlueField-4/Sentry 组合的运行路径。",
@@ -1685,8 +1758,22 @@
       "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
       "link": "#/toolkit?task=nvidia-openshell&tab=run",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看 OpenShell 官方文档入口", "note": "先在隔离环境验证最小权限、审计和拒绝路径", "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture", "kind": "docs"}],
-      "related": [{"source": "NVIDIA", "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents", "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture", "date": "2026-10-21"}]
+      "access": [
+        {
+          "label": "查看 OpenShell 官方文档入口",
+          "note": "先在隔离环境验证最小权限、审计和拒绝路径",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Launches OpenShell Reference Architecture for Safe AI Agents",
+          "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
+          "date": "2026-10-21"
+        }
+      ]
     },
     {
       "id": "anthropic-claude-security-continuous-20261021",
@@ -1698,7 +1785,12 @@
       "verified_at": "2026-10-22T05:22:00+08:00",
       "first_seen_at": "2026-10-22T05:22:00+08:00",
       "heat": 96,
-      "heat_components": {"impact": 33, "availability": 24, "evidence": 25, "recency": 14},
+      "heat_components": {
+        "impact": 33,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 14
+      },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是漏洞检出率或独立安全评测。",
       "trend": "up",
       "summary": "Anthropic 面向 Claude Enterprise 公测新版 Claude Security：按代码变化持续扫描，追踪已修复或重开的发现，并新增项目知识、威胁模型、API、MCP、Webhook 与角色权限控制。",
@@ -1709,8 +1801,22 @@
       "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
       "link": "#/toolkit?task=anthropic-claude-security&tab=run",
       "evidence_level": "primary-source",
-      "access": [{"label": "查看官方公测说明", "note": "需 Claude Enterprise 管理员启用；先在非生产仓库做权限与误报验收", "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes", "kind": "product"}],
-      "related": [{"source": "Anthropic", "title": "Claude Security now scans continuously and tracks fixes", "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes", "date": "2026-10-21"}]
+      "access": [
+        {
+          "label": "查看官方公测说明",
+          "note": "需 Claude Enterprise 管理员启用；先在非生产仓库做权限与误报验收",
+          "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Claude Security now scans continuously and tracks fixes",
+          "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+          "date": "2026-10-21"
+        }
+      ]
     },
     {
       "id": "openai-patch-the-planet-php-20261021",
