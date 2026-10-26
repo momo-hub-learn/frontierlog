@@ -1,7 +1,63 @@
 {
   "version": 2,
-  "snapshot": "2026-10-25",
+  "snapshot": "2026-10-27",
   "items": [
+    {
+      "id": "openai-gpt-6-1-terra",
+      "name": "OpenAI · GPT-6.1 Terra",
+      "title": "把技术图纸、表单和跨应用操作交给一个更快的视觉 Agent 模型",
+      "category": "Agent / 办公",
+      "mark": "GT",
+      "accent": "lime",
+      "summary": "面向高频专业工作的快速模型，结合视觉理解、电脑操作、写作和编码；已在 ChatGPT Work、Codex 与 API 以 gpt-6.1-terra 提供。",
+      "scope": "OpenAI 2026-10-26 正式发布；官方列出的例子包括解读技术图纸、填写表单、编辑视频和处理发票。标准 API 定价为每百万输入/缓存输入/输出 token 1/0.05/5 美元。",
+      "boundary": "官方 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均是厂商自测，本站未运行，也未并入独立能力榜。模型可用不等于你的账号、工具和环境已满足生产要求；系统卡的网络安全 Critical、生化 High 分级要求更严格的权限、监控与人工审批。",
+      "repo": null,
+      "sources": ["openai-gpt-6-1-terra-release", "openai-gpt-6-1-terra-system-card"],
+      "requirements": "Plus、Pro、Enterprise 或 Edu 的 ChatGPT Work/Codex 账户，或具备当前区域访问权限和预算的 OpenAI API 项目；另需一组脱敏、可回滚、带明确成功条件的真实电脑任务。",
+      "test": "先用 10 个低风险、可重放任务比较 Terra 与现有基线：固定工具、推理档位和预算，记录端到端成功率、人工接管、注入阻断、时延与成本，再决定是否扩大权限。",
+      "checks": [
+        "固定模型 ID、推理档位、工具版本、输入和预算",
+        "视觉理解、动作选择、最终状态与恢复能力分开评分",
+        "外部写入、发送、删除和付款动作必须保留人工审批",
+        "保存失败轨迹与提示注入样本，不只记录平均完成率"
+      ],
+      "command": "在 OpenAI API 中选择 gpt-6.1-terra，先运行脱敏、只读、可回放的电脑任务；不要从公开 Benchmark 直接外推业务成功率。",
+      "effort": "托管模型 / API 按量计费 / ChatGPT Work 与 Codex 按套餐额度",
+      "evidence": "OpenAI 官方产品发布与系统卡补充",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00"
+    },
+    {
+      "id": "huggingface-carbon-x",
+      "name": "Hugging Face Bio · Carbon-X",
+      "title": "在自有 GPU 上让语言模型读取 DNA，并保留临床边界",
+      "category": "科学研究",
+      "mark": "CX",
+      "accent": "violet",
+      "summary": "14.8B 开放权重模型把自然语言与 DNA 6-mer 放进同一 token 流，可回答变异影响、序列区域、物种分类和下一碱基问题。",
+      "scope": "Hugging Face Hub 的 createdAt 记录为 2026-10-21；Hugging Face Bio、Zhongguancun Academy 与 TIGEM 等团队公开模型卡、权重和示例，BF16 权重可在单张 80GB GPU 上通过 Transformers 或 vLLM 运行。",
+      "boundary": "模型卡明确说明未经过临床验证、不可用于医疗决策，并可能错数碱基、混淆坐标或编造序列功能。作者的五项 DNA Benchmark 均值、成本与 ClinVar 估算不是本站实测；敏感遗传数据的存储、日志和第三方推理路径必须单独审查。",
+      "repo": null,
+      "sources": ["hf-carbon-x-model-card"],
+      "requirements": "Linux、Python、Transformers 5+ 或 vLLM、约 80GB GPU 显存和模型权重；使用未发表或个人遗传数据前还需独立的隐私、合规和访问控制评审。",
+      "test": "先在公开且无个人信息的小样本上固定模型修订、enable_thinking=false 和采样参数，逐项核对坐标、碱基计数与变异标签；用确定性代码复算精确操作，并由领域专家盲审。",
+      "checks": [
+        "固定权重、tokenizer 代码、Transformers/vLLM 版本和采样参数",
+        "精确坐标、碱基计数与编辑交给代码复算，不信任自然语言输出",
+        "公开样本、授权数据和敏感遗传数据分环境处理",
+        "把作者 Benchmark、内部复跑、临床验证和医疗决策明确分开"
+      ],
+      "command": "vllm serve HuggingFaceBio/Carbon-X --trust-remote-code",
+      "effort": "开放权重 / Apache-2.0 / 约 80GB GPU 与隐私治理成本",
+      "evidence": "Hugging Face 官方模型卡、权重、运行说明和限制",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00"
+    },
     {
       "id": "nvidia-nemo-automodel-0-7",
       "name": "NVIDIA · NeMo AutoModel 0.7",
@@ -871,6 +927,33 @@
   ],
   "sources": [
     {
+      "id": "openai-gpt-6-1-terra-release",
+      "title": "Introducing GPT-6.1 Terra",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "官方产品发布"
+    },
+    {
+      "id": "openai-gpt-6-1-terra-system-card",
+      "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+      "publisher": "OpenAI Deployment Safety Hub",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "官方系统卡"
+    },
+    {
+      "id": "hf-carbon-x-model-card",
+      "title": "Carbon-X model card",
+      "publisher": "Hugging Face Bio",
+      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "published": "2026-10-21",
+      "checked": "2026-10-27",
+      "kind": "官方模型卡"
+    },
+    {
       "id": "openhands-1-33-release",
       "title": "OpenHands v1.33.0",
       "publisher": "OpenHands",
@@ -1444,6 +1527,30 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-gpt-6-1-terra-release",
+      "task": "openai-gpt-6-1-terra",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "GPT-6.1 Terra 在 ChatGPT Work、Codex 与 API 上线",
+      "summary": "OpenAI 发布主打视觉理解、电脑操作、写作与编码的快速模型，并公布 API 模型名、标准价格与系统卡补充。",
+      "delta": "高频电脑工作获得新的成本/速度档位；厂商自测仍需用真实工具、权限和业务验收重跑，不能并入独立综合能力榜。",
+      "sources": ["openai-gpt-6-1-terra-release", "openai-gpt-6-1-terra-system-card"],
+      "reviewed": "2026-10-27",
+      "short_title": "视觉电脑操作模型正式开放"
+    },
+    {
+      "id": "huggingface-carbon-x-release",
+      "task": "huggingface-carbon-x",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Carbon-X 开放 DNA / 自然语言联合模型权重",
+      "summary": "14.8B 模型用联合 tokenizer 在同一对话中处理 DNA 与自然语言，并公开模型卡、权重、运行入口与限制。",
+      "delta": "生物序列模型获得可本地调用的语言接口；精确坐标、临床结论和敏感数据处理仍需独立工具、专家与治理。",
+      "sources": ["hf-carbon-x-model-card"],
+      "reviewed": "2026-10-27",
+      "short_title": "DNA 语言模型开放权重"
+    },
     {
       "id": "openhands-1-33-release",
       "task": "openhands",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,102 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-gpt-6-1-terra-20261026",
+      "category": "model",
+      "title": "GPT-6.1 Terra：把视觉理解接到电脑操作",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00",
+      "first_seen_at": "2026-10-27T03:21:00+08:00",
+      "heat": 97,
+      "heat_components": {
+        "impact": 35,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、Benchmark 成绩、市场份额或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenAI 发布面向高频专业工作的 GPT-6.1 Terra，主打图像理解、电脑操作、写作和编码；已向 ChatGPT Work、Codex 及 API 开放，API 模型名为 gpt-6.1-terra。",
+      "why": "它把可用性、成本与电脑操作能力放进同一次正式发布：团队可以直接用真实表单、技术图纸和跨应用任务做小范围验收，而不必把视觉分数等同于端到端成功。",
+      "boundary": "OpenAI 公布的 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均为厂商自测，本站未运行，也未把这些结果并入 Artificial Analysis 或 Arena 榜。账户、地区、工具、推理档位和生产提示都会影响实际表现；系统卡将其按 Preparedness Framework 视为网络安全 Critical、生化 High，部署仍需权限、监控和人工放行。",
+      "source": "OpenAI",
+      "source_kind": "官方产品发布 + 官方系统卡 / 本轮编辑核验",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "link": "#/progress?task=openai-gpt-6-1-terra",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 GPT-6.1 Terra 发布",
+          "note": "核对适用任务、公开评测、价格和可用范围",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "kind": "docs"
+        },
+        {
+          "label": "阅读系统卡补充",
+          "note": "核对 Preparedness 分级、安全评测和外推限制",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Introducing GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "date": "2026-10-26"
+        },
+        {
+          "source": "OpenAI Deployment Safety Hub",
+          "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "huggingface-carbon-x-20261021",
+      "category": "research",
+      "title": "Carbon-X：14.8B 模型把 DNA 与自然语言放进同一序列",
+      "published": "2026-10-21",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00",
+      "first_seen_at": "2026-10-27T03:21:00+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 32,
+        "availability": 20,
+        "evidence": 24,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床有效性、DNA Benchmark 总分、HF Trending 分或本站实测分数。",
+      "trend": "up",
+      "summary": "Hugging Face Bio 等发布开放权重 Carbon-X：14.8B 参数、40,960 token 上下文，用联合 tokenizer 在聊天中读取 DNA 并回答变异影响、序列理解和下一碱基问题；本轮进入 HF 官方 Models Trending Top 20。",
+      "why": "公开权重、单张 80GB GPU 可运行和明确 DNA tokenizer，让团队能把敏感序列留在自有基础设施做受控复核；它也提示生物模型正在从专用编码器走向可被 Agent 调用的语言接口。",
+      "boundary": "模型卡明确说明未经过临床验证、不可用于医疗决策，并可能错数碱基、混淆坐标或编造功能。66.7% 五项 DNA Benchmark 均值、成本比较和 ClinVar 估算来自发布团队，本站未复跑；HF Trending 只表示平台关注，不代表生物能力领先。",
+      "source": "Hugging Face Bio / Zhongguancun Academy / TIGEM",
+      "source_kind": "官方模型卡 / 本轮编辑核验",
+      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "link": "#/pharma?topic=targets&article=huggingface-carbon-x-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Carbon-X 模型卡",
+          "note": "先核对 tokenizer、硬件、评测范围、隐私与临床限制",
+          "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face Bio",
+          "title": "Carbon-X model card",
+          "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+          "date": "2026-10-21"
+        }
+      ]
+    },
     {
       "id": "anthropic-s1-proposed-ipo-20261026",
       "category": "industry",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-25",
+  "checked": "2026-10-27",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "hf-carbon-x-model-card-20261021",
+      "title": "Carbon-X 模型卡",
+      "publisher": "Hugging Face Bio",
+      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "published": "2026-10-21",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00",
+      "kind": "官方模型卡、架构、训练规模、使用方式与限制"
+    },
     {
       "id": "siemens-nvidia-industrial-ai-20261022",
       "title": "Siemens and NVIDIA are advancing Industrial AI",
@@ -584,6 +594,39 @@
     }
   ],
   "articles": [
+    {
+      "id": "huggingface-carbon-x-20261021",
+      "sector": "pharma",
+      "topics": [
+        "targets"
+      ],
+      "title": "DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释",
+      "summary": "Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。",
+      "why": "统一的 DNA—语言接口可能降低变体解释、序列问答和研究原型的接线成本；更值得跟踪的是坐标与碱基操作能否被确定性工具约束，而不是只看平台热度。",
+      "boundary": "本站未运行权重。模型卡明确说明模型未做临床验证、不可用于医疗决策，且可能误计碱基和坐标、产生幻觉，在剪接与组蛋白任务上较弱；作者汇总分数和 Hugging Face Trending 均不等于临床有效性或独立能力排名。",
+      "sources": [
+        "hf-carbon-x-model-card-20261021"
+      ],
+      "kind": "update",
+      "access": "开放模型卡与权重；Transformers / vLLM，本地资源和许可按模型卡核对",
+      "published": "2026-10-21",
+      "steps": [
+        "固定模型修订与一组公开、无敏感信息的 DNA 小样本",
+        "用确定性代码逐条核对序列长度、坐标、反向互补与变体操作",
+        "把功能解释、幻觉、拒答、显存和延迟分开记录，禁止进入临床决策"
+      ],
+      "metrics": [
+        "碱基与坐标操作准确率、幻觉与拒答率",
+        "公开 DNA 任务的逐项分数与独立复现差异",
+        "上下文长度、峰值显存、时延与人工复核时间"
+      ],
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T03:21:00+08:00",
+      "first_seen_at": "2026-10-27T03:21:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "siemens-nvidia-industrial-ai-20261022",
       "sector": "manufacturing",

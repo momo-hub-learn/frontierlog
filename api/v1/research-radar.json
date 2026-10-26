@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-25",
+  "checked": "2026-10-27",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,31 @@
     }
   ],
   "items": [
+    {
+      "id": "carbon-x-dna-language-model",
+      "lane": "science",
+      "title": "DNA 与自然语言开始在同一解码模型中共训",
+      "maker": "Hugging Face Bio",
+      "date": "2026-10-21",
+      "verified_at": "2026-10-27T03:21:00+08:00",
+      "tags": [
+        "Genomics",
+        "DNA Language Model",
+        "Open Weights"
+      ],
+      "fact": "Carbon-X 是 14.8B 参数解码模型，采用 6-mer DNA tokenizer 与 40,960 token 上下文，在 DNA 与自然语言上联合训练；模型卡给出 302B 训练 token、Transformers/vLLM 用法和五项 DNA 任务的作者汇总结果。",
+      "insight": "统一序列与语言接口有机会把序列操作、知识检索和解释串在同一研究工作流，但真正的价值取决于是否用确定性工具约束坐标、碱基计数与变体映射。",
+      "boundary": "本站未运行模型。模型卡明确其未做临床验证、不可用于医疗决策，可能误计碱基和坐标、产生幻觉，并在剪接与组蛋白任务上较弱；作者分数与 Hugging Face 热度都不能替代独立复现。",
+      "next_watch": "关注模型与评测代码的独立复现、逐项 DNA 任务误差、量化与长上下文稳定性，以及受控生物数据工作流中的隐私和人工复核。",
+      "sources": [
+        {
+          "label": "Hugging Face Bio Carbon-X 模型卡",
+          "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+          "kind": "官方架构、训练规模、使用方式、作者评测与限制",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "olmoearth-v1-3-global-embeddings",
       "lane": "science",

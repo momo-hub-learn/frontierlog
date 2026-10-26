@@ -1,6 +1,35 @@
 {
-  "snapshot": "2026-10-25",
+  "snapshot": "2026-10-27",
   "events": [
+    {
+      "id": "openai-gpt-6-1-terra-release",
+      "task": "openai-gpt-6-1-terra",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "GPT-6.1 Terra 在 ChatGPT Work、Codex 与 API 上线",
+      "summary": "OpenAI 发布主打视觉理解、电脑操作、写作与编码的快速模型，并公布 API 模型名、标准价格与系统卡补充。",
+      "delta": "高频电脑工作获得新的成本/速度档位；厂商自测仍需用真实工具、权限和业务验收重跑，不能并入独立综合能力榜。",
+      "sources": [
+        "openai-gpt-6-1-terra-release",
+        "openai-gpt-6-1-terra-system-card"
+      ],
+      "reviewed": "2026-10-27",
+      "short_title": "视觉电脑操作模型正式开放"
+    },
+    {
+      "id": "huggingface-carbon-x-release",
+      "task": "huggingface-carbon-x",
+      "date": "2026-10-21",
+      "kind": "release",
+      "title": "Carbon-X 开放 DNA / 自然语言联合模型权重",
+      "summary": "14.8B 模型用联合 tokenizer 在同一对话中处理 DNA 与自然语言，并公开模型卡、权重、运行入口与限制。",
+      "delta": "生物序列模型获得可本地调用的语言接口；精确坐标、临床结论和敏感数据处理仍需独立工具、专家与治理。",
+      "sources": [
+        "hf-carbon-x-model-card"
+      ],
+      "reviewed": "2026-10-27",
+      "short_title": "DNA 语言模型开放权重"
+    },
     {
       "id": "openhands-1-33-release",
       "task": "openhands",
@@ -490,6 +519,33 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-gpt-6-1-terra-release",
+      "title": "Introducing GPT-6.1 Terra",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "官方产品发布"
+    },
+    {
+      "id": "openai-gpt-6-1-terra-system-card",
+      "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+      "publisher": "OpenAI Deployment Safety Hub",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "官方系统卡"
+    },
+    {
+      "id": "hf-carbon-x-model-card",
+      "title": "Carbon-X model card",
+      "publisher": "Hugging Face Bio",
+      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "published": "2026-10-21",
+      "checked": "2026-10-27",
+      "kind": "官方模型卡"
+    },
     {
       "id": "openhands-1-33-release",
       "title": "OpenHands v1.33.0",

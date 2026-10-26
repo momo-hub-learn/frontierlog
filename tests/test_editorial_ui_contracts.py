@@ -1,12 +1,32 @@
 """Contract regressions for editorial growth and visible heat hierarchy."""
 import copy, json, subprocess, sys, unittest
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 from xml.etree import ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from topics import topic_rss, validate_topics
 
 class EditorialContracts(unittest.TestCase):
+ def test_hot_internal_deep_links_resolve_to_real_records(self):
+  hot=json.loads((ROOT/'data/hot.json').read_text())
+  catalog=json.loads((ROOT/'data/catalog.json').read_text())
+  industry=json.loads((ROOT/'data/industry.json').read_text())
+  task_ids={x['id'] for x in catalog['items']}
+  article_ids={x['id'] for x in industry['articles']}
+  checked=0
+  for item in hot['items']:
+   link=item.get('link','')
+   if not link.startswith('#/') or '?' not in link: continue
+   query=parse_qs(urlsplit(link[1:]).query)
+   if 'task' in query:
+    self.assertIn(query['task'][0],task_ids,item['id'])
+    checked+=1
+   if 'article' in query:
+    self.assertIn(query['article'][0],article_ids,item['id'])
+    checked+=1
+  self.assertGreaterEqual(checked,2)
+
  def test_sidebar_date_names_the_dataset_it_actually_describes(self):
   html=(ROOT/'src/index.html').read_text()
   app=(ROOT/'src/app.js').read_text()

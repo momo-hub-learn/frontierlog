@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,40 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-gpt-6-1-terra",
+      "name": "GPT-6.1 Terra",
+      "company": "OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["Computer Use", "Visual Reasoning", "API"],
+      "summary": "面向视觉推理、精确计算机操作和写作的快速模型，已进入 ChatGPT Work、Codex 与 API。",
+      "product_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "source_label": "OpenAI 官方发布",
+      "evidence": "OpenAI 2026-10-26 发布说明给出产品入口、API 模型 ID、标准价格与厂商评测；同日系统卡给出网络安全与生化能力分级。",
+      "boundary": "公开分数均为厂商评测，本站未独立运行；不能从发布稿推出特定企业工作流成功率，也不能忽略系统卡中的高能力风险与最小权限要求。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-26",
+          "kind": "Release",
+          "title": "GPT-6.1 Terra 进入 ChatGPT Work、Codex 与 API",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "summary": "OpenAI 将 Terra 定位为视觉推理、计算机操作与写作模型，并公布 gpt-6.1-terra API 与标准价格。",
+          "facts": [
+            {"label": "入口", "value": "ChatGPT Work / Codex / API"},
+            {"label": "API ID", "value": "gpt-6.1-terra"},
+            {"label": "标准价格", "value": "$1 输入 / $0.05 缓存 / $5 输出（每百万 token）"}
+          ],
+          "interpretation": "更低价格与精确界面操作会扩大企业 Agent 的可测试任务面，但是否省时要看真实任务成功、接管、误操作与重试成本。",
+          "scope": "OpenAI 2026-10-26 官方发布和系统卡所述范围。",
+          "limitations": "厂商 Benchmark 不是本站实测；具体账户、地区、额度和高风险用例仍受产品与安全政策约束。",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "claude-models-google-cloud",
       "name": "Claude Models on Google Cloud",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "account": "thsottiaux",
   "events": [
     {
@@ -20,6 +20,24 @@
         "oa-banked"
       ],
       "reviewed": "2026-09-21",
+      "review_basis": "primary_source",
+      "related_ids": []
+    },
+    {
+      "id": "openai-paid-weekly-reset-2026-10-26",
+      "kind": "announcement",
+      "status": "announced",
+      "date": "2026-10-26",
+      "published_at": null,
+      "effective_at": null,
+      "precision": "source_date",
+      "source_timezone": null,
+      "title": "官方说明：符合资格的 Plus / Pro 可购买即时周额度重置",
+      "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后，符合范围的五小时和周用量窗口立即刷新。",
+      "scope": "符合资格的个人 ChatGPT Plus / Pro · 取决于账号与账单国家/地区",
+      "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它会把周额度提前到当前时点并改变下次周重置日期，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。官方说明不能证明每个账户都有购买入口；价格、可见性与资格只能以个人用量页为准。",
+      "sources": ["oa-paid-weekly-reset"],
+      "reviewed": "2026-10-27",
       "review_basis": "primary_source",
       "related_ids": []
     },
@@ -469,6 +487,15 @@
     }
   ],
   "sources": [
+    {
+      "id": "oa-paid-weekly-reset",
+      "publisher": "OpenAI Help Center",
+      "title": "Paid weekly Work and Codex rate limit resets",
+      "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
+      "checked": "2026-10-27",
+      "kind": "官方说明",
+      "note": "2026-10-26 官方说明更新；记录购买资格、即时生效、banked reset 独立性与周重置日期变化，不把它写成 Tibo 全局 reset。"
+    },
     {
       "id": "oa-banked",
       "publisher": "OpenAI Help Center",

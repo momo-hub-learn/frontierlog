@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-24",
+  "checked": "2026-10-27",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,36 @@
     }
   ],
   "items": [
+    {
+      "id": "agents-last-exam-openai-terra",
+      "name": "Agents’ Last Exam · GPT-6.1 Terra 发布快照",
+      "group": "agent",
+      "edition": "OpenAI 2026-10-26 release snapshot · public protocol incomplete",
+      "subtitle": "厂商发布分数能否被映射到公开、可复跑的 Agent 任务协议？",
+      "summary": "OpenAI 在 GPT-6.1 Terra 发布中列出 Agents’ Last Exam 结果，用于说明模型的 Agent 能力；当前公开材料不足以让本站按同一任务集、工具权限和评分流程复跑。",
+      "metric": "vendor-reported score ↑ / public protocol coverage ↑ / independent reproductions ↑",
+      "metric_note": "厂商分数必须与任务清单、Harness、工具、预算、失败计分和独立复现并列；缺少这些字段时不进入本站可比较总榜。",
+      "protocol": "先保存发布页与系统卡，再等待公开任务、Harness、工具权限、预算、模型设置和评分脚本；只有协议与数据可获得时才建立固定版本复跑。",
+      "boundary": "本站未运行该评测，公开协议与数据目前不完整。不能把厂商发布分数与 AA、Terminal-Bench 或其他独立榜单拼成综合实力分，也不能从单一分数推出生产任务成功率。",
+      "business": "适合用作“待复核能力线索”：团队应把自己的 10–20 个 Agent 任务做成可回放验收集，而不是直接采购或上线。",
+      "setup": "当前不提供本站复跑命令；先记录模型、日期、来源和缺失协议，等待官方或评测方公开可复跑材料。",
+      "topics": [],
+      "sources": ["b-openai-gpt-6-1-terra-release"],
+      "result_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "kind": "benchmark",
+      "flag": "厂商发布评测 / 协议与数据未完整公开 / 本站未运行",
+      "checked": "2026-10-27",
+      "tested": false,
+      "checks": [
+        "等待公开任务清单、Harness 与评分脚本",
+        "固定模型、工具权限、预算、超时和失败计分",
+        "把厂商结果与独立复现分栏",
+        "不与不同协议榜单拼总分"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "dual-exam-controlled-agent-world-model",
       "name": "Dual Exam · Agent / World Model",
@@ -1119,6 +1149,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "b-openai-gpt-6-1-terra-release",
+      "title": "Introducing GPT-6.1 Terra",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "厂商模型发布与评测快照",
+      "note": "记录 Terra 发布中的 Agents’ Last Exam、OSWorld 2.1、MMMU-Pro 与 Terminal-Bench 4.0 厂商结果；本站未运行，公开协议不足的项目不进入可比较总榜。"
+    },
     {
       "id": "b-dual-exam-paper",
       "title": "Dual Exam: Evaluating Multimodal Agents and World Models in Interactive Environments",

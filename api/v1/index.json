@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-26",
+    "checked": "2026-10-27",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,102 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-gpt-6-1-terra-20261026",
+        "category": "model",
+        "title": "GPT-6.1 Terra：把视觉理解接到电脑操作",
+        "published": "2026-10-26",
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00",
+        "first_seen_at": "2026-10-27T03:21:00+08:00",
+        "heat": 97,
+        "heat_components": {
+          "impact": 35,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、Benchmark 成绩、市场份额或本站实测分数。",
+        "trend": "up",
+        "summary": "OpenAI 发布面向高频专业工作的 GPT-6.1 Terra，主打图像理解、电脑操作、写作和编码；已向 ChatGPT Work、Codex 及 API 开放，API 模型名为 gpt-6.1-terra。",
+        "why": "它把可用性、成本与电脑操作能力放进同一次正式发布：团队可以直接用真实表单、技术图纸和跨应用任务做小范围验收，而不必把视觉分数等同于端到端成功。",
+        "boundary": "OpenAI 公布的 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均为厂商自测，本站未运行，也未把这些结果并入 Artificial Analysis 或 Arena 榜。账户、地区、工具、推理档位和生产提示都会影响实际表现；系统卡将其按 Preparedness Framework 视为网络安全 Critical、生化 High，部署仍需权限、监控和人工放行。",
+        "source": "OpenAI",
+        "source_kind": "官方产品发布 + 官方系统卡 / 本轮编辑核验",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "link": "#/progress?task=openai-gpt-6-1-terra",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 GPT-6.1 Terra 发布",
+            "note": "核对适用任务、公开评测、价格和可用范围",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+            "kind": "docs"
+          },
+          {
+            "label": "阅读系统卡补充",
+            "note": "核对 Preparedness 分级、安全评测和外推限制",
+            "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Introducing GPT-6.1 Terra",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+            "date": "2026-10-26"
+          },
+          {
+            "source": "OpenAI Deployment Safety Hub",
+            "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+            "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+            "date": "2026-10-26"
+          }
+        ]
+      },
+      {
+        "id": "huggingface-carbon-x-20261021",
+        "category": "research",
+        "title": "Carbon-X：14.8B 模型把 DNA 与自然语言放进同一序列",
+        "published": "2026-10-21",
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00",
+        "first_seen_at": "2026-10-27T03:21:00+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 32,
+          "availability": 20,
+          "evidence": 24,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床有效性、DNA Benchmark 总分、HF Trending 分或本站实测分数。",
+        "trend": "up",
+        "summary": "Hugging Face Bio 等发布开放权重 Carbon-X：14.8B 参数、40,960 token 上下文，用联合 tokenizer 在聊天中读取 DNA 并回答变异影响、序列理解和下一碱基问题；本轮进入 HF 官方 Models Trending Top 20。",
+        "why": "公开权重、单张 80GB GPU 可运行和明确 DNA tokenizer，让团队能把敏感序列留在自有基础设施做受控复核；它也提示生物模型正在从专用编码器走向可被 Agent 调用的语言接口。",
+        "boundary": "模型卡明确说明未经过临床验证、不可用于医疗决策，并可能错数碱基、混淆坐标或编造功能。66.7% 五项 DNA Benchmark 均值、成本比较和 ClinVar 估算来自发布团队，本站未复跑；HF Trending 只表示平台关注，不代表生物能力领先。",
+        "source": "Hugging Face Bio / Zhongguancun Academy / TIGEM",
+        "source_kind": "官方模型卡 / 本轮编辑核验",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "link": "#/pharma?topic=targets&article=huggingface-carbon-x-20261021",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 Carbon-X 模型卡",
+            "note": "先核对 tokenizer、硬件、评测范围、隐私与临床限制",
+            "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "Hugging Face Bio",
+            "title": "Carbon-X model card",
+            "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+            "date": "2026-10-21"
+          }
+        ]
+      },
       {
         "id": "anthropic-s1-proposed-ipo-20261026",
         "category": "industry",
@@ -4333,7 +4429,7 @@
   },
   "product_radar": {
     "version": 1,
-    "checked": "2026-10-26",
+    "checked": "2026-10-27",
     "title": "AI 产品雷达",
     "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
     "groups": [
@@ -4349,6 +4445,56 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-gpt-6-1-terra",
+        "name": "GPT-6.1 Terra",
+        "company": "OpenAI",
+        "group": "enterprise-agent",
+        "tags": [
+          "Computer Use",
+          "Visual Reasoning",
+          "API"
+        ],
+        "summary": "面向视觉推理、精确计算机操作和写作的快速模型，已进入 ChatGPT Work、Codex 与 API。",
+        "product_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "source_label": "OpenAI 官方发布",
+        "evidence": "OpenAI 2026-10-26 发布说明给出产品入口、API 模型 ID、标准价格与厂商评测；同日系统卡给出网络安全与生化能力分级。",
+        "boundary": "公开分数均为厂商评测，本站未独立运行；不能从发布稿推出特定企业工作流成功率，也不能忽略系统卡中的高能力风险与最小权限要求。",
+        "filter_ids": [
+          "enterprise-agent",
+          "knowledge-work"
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-26",
+            "kind": "Release",
+            "title": "GPT-6.1 Terra 进入 ChatGPT Work、Codex 与 API",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+            "summary": "OpenAI 将 Terra 定位为视觉推理、计算机操作与写作模型，并公布 gpt-6.1-terra API 与标准价格。",
+            "facts": [
+              {
+                "label": "入口",
+                "value": "ChatGPT Work / Codex / API"
+              },
+              {
+                "label": "API ID",
+                "value": "gpt-6.1-terra"
+              },
+              {
+                "label": "标准价格",
+                "value": "$1 输入 / $0.05 缓存 / $5 输出（每百万 token）"
+              }
+            ],
+            "interpretation": "更低价格与精确界面操作会扩大企业 Agent 的可测试任务面，但是否省时要看真实任务成功、接管、误操作与重试成本。",
+            "scope": "OpenAI 2026-10-26 官方发布和系统卡所述范围。",
+            "limitations": "厂商 Benchmark 不是本站实测；具体账户、地区、额度和高风险用例仍受产品与安全政策约束。",
+            "published_at": "2026-10-26",
+            "verified_at": "2026-10-27",
+            "evidence_level": "primary_source"
+          }
+        ]
+      },
       {
         "id": "claude-models-google-cloud",
         "name": "Claude Models on Google Cloud",
@@ -5215,7 +5361,7 @@
   },
   "research_radar": {
     "version": 1,
-    "checked": "2026-10-25",
+    "checked": "2026-10-27",
     "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
     "lanes": [
       {
@@ -5235,6 +5381,31 @@
       }
     ],
     "items": [
+      {
+        "id": "carbon-x-dna-language-model",
+        "lane": "science",
+        "title": "DNA 与自然语言开始在同一解码模型中共训",
+        "maker": "Hugging Face Bio",
+        "date": "2026-10-21",
+        "verified_at": "2026-10-27T03:21:00+08:00",
+        "tags": [
+          "Genomics",
+          "DNA Language Model",
+          "Open Weights"
+        ],
+        "fact": "Carbon-X 是 14.8B 参数解码模型，采用 6-mer DNA tokenizer 与 40,960 token 上下文，在 DNA 与自然语言上联合训练；模型卡给出 302B 训练 token、Transformers/vLLM 用法和五项 DNA 任务的作者汇总结果。",
+        "insight": "统一序列与语言接口有机会把序列操作、知识检索和解释串在同一研究工作流，但真正的价值取决于是否用确定性工具约束坐标、碱基计数与变体映射。",
+        "boundary": "本站未运行模型。模型卡明确其未做临床验证、不可用于医疗决策，可能误计碱基和坐标、产生幻觉，并在剪接与组蛋白任务上较弱；作者分数与 Hugging Face 热度都不能替代独立复现。",
+        "next_watch": "关注模型与评测代码的独立复现、逐项 DNA 任务误差、量化与长上下文稳定性，以及受控生物数据工作流中的隐私和人工复核。",
+        "sources": [
+          {
+            "label": "Hugging Face Bio Carbon-X 模型卡",
+            "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+            "kind": "官方架构、训练规模、使用方式、作者评测与限制",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "olmoearth-v1-3-global-embeddings",
         "lane": "science",
@@ -7400,7 +7571,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-26T17:16:01Z",
+    "checked_at": "2026-10-26T19:17:50Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -7411,8 +7582,8 @@
         "stars_today": 2235,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
-        "stars": 35663,
-        "forks": 1856,
+        "stars": 35838,
+        "forks": 1865,
         "repo_created_at": "2026-04-27T20:47:10Z",
         "repo_pushed_at": "2026-10-22T17:20:32Z",
         "category": "agent-skills",
@@ -7423,12 +7594,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T19:21:13Z",
-            "stars": 33448
-          },
           {
             "at": "2026-10-25T20:59:33Z",
             "stars": 33538
@@ -7472,6 +7639,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 35663
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 35838
           }
         ]
       },
@@ -7481,8 +7652,8 @@
         "stars_today": 1376,
         "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
         "language": "Python",
-        "stars": 115675,
-        "forks": 22227,
+        "stars": 115798,
+        "forks": 22237,
         "repo_created_at": "2024-12-28T03:31:08Z",
         "repo_pushed_at": "2026-10-16T21:38:46Z",
         "category": "ai-tools",
@@ -7493,12 +7664,8 @@
           "GitHub"
         ],
         "url": "https://github.com/TauricResearch/TradingAgents",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T19:21:13Z",
-            "stars": 114363
-          },
           {
             "at": "2026-10-25T20:59:33Z",
             "stars": 114431
@@ -7542,6 +7709,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 115675
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 115798
           }
         ]
       },
@@ -7551,10 +7722,10 @@
         "stars_today": 1156,
         "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
         "language": "TypeScript",
-        "stars": 2564,
-        "forks": 142,
+        "stars": 2668,
+        "forks": 144,
         "repo_created_at": "2026-07-08T07:40:43Z",
-        "repo_pushed_at": "2026-10-26T16:27:37Z",
+        "repo_pushed_at": "2026-10-26T19:16:01Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -7562,12 +7733,8 @@
           "GitHub"
         ],
         "url": "https://github.com/JetBrains/thinkrail",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T17:14:39Z",
-            "stars": 1264
-          },
           {
             "at": "2026-10-25T19:21:13Z",
             "stars": 1304
@@ -7611,6 +7778,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 2564
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 2668
           }
         ]
       },
@@ -7620,10 +7791,10 @@
         "stars_today": 1268,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 6111,
-        "forks": 761,
+        "stars": 6228,
+        "forks": 769,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-26T17:12:33Z",
+        "repo_pushed_at": "2026-10-26T17:17:47Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -7632,12 +7803,8 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T19:21:13Z",
-            "stars": 4724
-          },
           {
             "at": "2026-10-25T20:59:33Z",
             "stars": 4758
@@ -7681,17 +7848,21 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 6111
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 6228
           }
         ]
       },
       {
         "repo": "affaan-m/ECC",
         "rank": 5,
-        "stars_today": 853,
+        "stars_today": 987,
         "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
         "language": "JavaScript",
-        "stars": 289533,
-        "forks": 42889,
+        "stars": 289644,
+        "forks": 42913,
         "repo_created_at": "2026-01-18T00:51:51Z",
         "repo_pushed_at": "2026-10-26T04:56:56Z",
         "category": "agent-memory",
@@ -7702,7 +7873,7 @@
           "AI"
         ],
         "url": "https://github.com/affaan-m/ECC",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -7723,6 +7894,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 289533
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 289644
           }
         ]
       },
@@ -7732,10 +7907,10 @@
         "stars_today": 1551,
         "description": "The design language that makes your AI harness better at design.",
         "language": "Rust",
-        "stars": 88808,
-        "forks": 5296,
+        "stars": 88933,
+        "forks": 5303,
         "repo_created_at": "2025-11-16T01:52:04Z",
-        "repo_pushed_at": "2026-10-26T17:11:21Z",
+        "repo_pushed_at": "2026-10-26T17:17:27Z",
         "category": "agent-harness",
         "ai_related": true,
         "tags": [
@@ -7744,12 +7919,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T17:14:39Z",
-            "stars": 87351
-          },
           {
             "at": "2026-10-25T19:21:13Z",
             "stars": 87474
@@ -7793,6 +7964,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 88808
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 88933
           }
         ]
       },
@@ -7802,8 +7977,8 @@
         "stars_today": 203,
         "description": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
         "language": "Python",
-        "stars": 21924,
-        "forks": 1920,
+        "stars": 22001,
+        "forks": 1925,
         "repo_created_at": "2026-03-21T00:28:43Z",
         "repo_pushed_at": "2026-10-23T09:40:29Z",
         "category": "agent-interface",
@@ -7814,7 +7989,7 @@
           "MCP"
         ],
         "url": "https://github.com/NVIDIA/SkillSpector",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -7835,6 +8010,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 21924
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 22001
           }
         ]
       },
@@ -7844,8 +8023,8 @@
         "stars_today": 844,
         "description": "A Tiny biped duck robot 🦆",
         "language": "Rust",
-        "stars": 12262,
-        "forks": 1536,
+        "stars": 12303,
+        "forks": 1541,
         "repo_created_at": "2026-07-29T07:52:16Z",
         "repo_pushed_at": "2026-10-26T11:29:24Z",
         "category": "other",
@@ -7855,12 +8034,8 @@
           "GitHub"
         ],
         "url": "https://github.com/pollen-robotics/microduck",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T17:14:39Z",
-            "stars": 11473
-          },
           {
             "at": "2026-10-25T19:21:13Z",
             "stars": 11524
@@ -7904,6 +8079,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 12262
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 12303
           }
         ]
       },
@@ -7913,10 +8092,10 @@
         "stars_today": 312,
         "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
         "language": "TypeScript",
-        "stars": 1278,
-        "forks": 168,
+        "stars": 1341,
+        "forks": 173,
         "repo_created_at": "2026-08-12T21:32:03Z",
-        "repo_pushed_at": "2026-10-26T17:10:52Z",
+        "repo_pushed_at": "2026-10-26T19:04:46Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -7925,7 +8104,7 @@
           "GitHub"
         ],
         "url": "https://github.com/nightly-labs/openbot",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -7946,6 +8125,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 1278
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 1341
           }
         ]
       },
@@ -7955,8 +8138,8 @@
         "stars_today": 723,
         "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
         "language": "Python",
-        "stars": 103217,
-        "forks": 9153,
+        "stars": 103312,
+        "forks": 9161,
         "repo_created_at": "2026-02-24T02:10:24Z",
         "repo_pushed_at": "2026-10-25T04:37:26Z",
         "category": "agent-interface",
@@ -7967,7 +8150,7 @@
           "MCP"
         ],
         "url": "https://github.com/Panniantong/Agent-Reach",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -7988,6 +8171,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 103217
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 103312
           }
         ]
       },
@@ -7997,10 +8184,10 @@
         "stars_today": 2292,
         "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "language": "Python",
-        "stars": 88552,
-        "forks": 9762,
+        "stars": 88776,
+        "forks": 9786,
         "repo_created_at": "2026-04-09T21:40:26Z",
-        "repo_pushed_at": "2026-10-26T16:32:49Z",
+        "repo_pushed_at": "2026-10-26T19:14:32Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8009,12 +8196,8 @@
           "GitHub"
         ],
         "url": "https://github.com/debpalash/VoiceStudio",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
-          {
-            "at": "2026-10-25T17:14:39Z",
-            "stars": 86243
-          },
           {
             "at": "2026-10-25T19:21:13Z",
             "stars": 86414
@@ -8058,6 +8241,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 88552
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 88776
           }
         ]
       },
@@ -8067,8 +8254,8 @@
         "stars_today": 146,
         "description": "📨 The ultimate agentic social media scheduling tool 🤖",
         "language": "TypeScript",
-        "stars": 38202,
-        "forks": 7430,
+        "stars": 38290,
+        "forks": 7442,
         "repo_created_at": "2023-07-08T17:24:22Z",
         "repo_pushed_at": "2026-10-24T18:27:21Z",
         "category": "agent-interface",
@@ -8079,7 +8266,7 @@
           "MCP"
         ],
         "url": "https://github.com/gitroomhq/postiz-app",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -8100,17 +8287,21 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 38202
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 38290
           }
         ]
       },
       {
         "repo": "alchaincyf/huashu-design",
         "rank": 13,
-        "stars_today": 177,
+        "stars_today": 409,
         "description": "Huashu Design 3.0 · 在 agent 里打一句话，拿回能交付的设计：网页 / App 原型 / 可编辑 PPTX / 动画 / 信息图 · 六个候选挑三个方向 · 84 种带样张的风格库 · 越用越懂你的外观账本与设计体检 · HTML-native design skill for Claude Code, Codex, Cursor & any agent",
         "language": "HTML",
-        "stars": 26621,
-        "forks": 2955,
+        "stars": 26658,
+        "forks": 2956,
         "repo_created_at": "2026-04-19T14:42:06Z",
         "repo_pushed_at": "2026-10-23T15:32:08Z",
         "category": "agent-skills",
@@ -8121,7 +8312,7 @@
           "Workflow"
         ],
         "url": "https://github.com/alchaincyf/huashu-design",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -8142,6 +8333,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 26621
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 26658
           }
         ]
       },
@@ -8151,8 +8346,8 @@
         "stars_today": 702,
         "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
         "language": "",
-        "stars": 224360,
-        "forks": 22452,
+        "stars": 224449,
+        "forks": 22458,
         "repo_created_at": "2026-01-27T03:53:13Z",
         "repo_pushed_at": "2026-04-20T10:05:04Z",
         "category": "agent-skills",
@@ -8163,7 +8358,7 @@
           "Workflow"
         ],
         "url": "https://github.com/multica-ai/andrej-karpathy-skills",
-        "metadata_verified_at": "2026-10-26T17:16:01Z",
+        "metadata_verified_at": "2026-10-26T19:17:50Z",
         "star_history": [
           {
             "at": "2026-10-26T11:21:48Z",
@@ -8184,6 +8379,10 @@
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 224360
+          },
+          {
+            "at": "2026-10-26T19:17:50Z",
+            "stars": 224449
           }
         ]
       }
@@ -8263,10 +8462,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-26T17:16:01Z",
-      "last_success_at": "2026-10-26T17:16:01Z",
+      "last_checked_at": "2026-10-26T19:17:50Z",
+      "last_success_at": "2026-10-26T19:17:50Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-26T17:16:01Z",
+      "watchlist_checked_at": "2026-10-26T19:17:50Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 14,
@@ -8287,27 +8486,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 390157,
-        "forks": 97751,
+        "stars": 390679,
+        "forks": 97886,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-26T17:14:29Z",
+        "repo_pushed_at": "2026-10-26T19:16:21Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-26T17:16:01Z",
+        "verified_at": "2026-10-26T19:17:50Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-26T17:16:01Z",
+    "checked_at": "2026-10-26T19:17:50Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-26T17:16:01Z",
-    "web_fetched_at": "2026-10-26T17:16:01Z",
+    "api_fetched_at": "2026-10-26T19:17:50Z",
+    "web_fetched_at": "2026-10-26T19:17:50Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -8317,19 +8516,19 @@
       "black-forest-labs/flux-3-image-klein-comfy",
       "Lightricks/LTX-2.5",
       "MiniMaxAI/MiniMax-M3.1-Flash",
-      "Qwen/Qwen3.8-27B",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "Qwen/Qwen3.8-27B",
       "OpenMOSS-Team/MOSS-Image-SFT",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "InternScience/Sage-A1.5",
-      "fishaudio/drama-3",
       "unsloth/flint-GGUF",
+      "fishaudio/drama-3",
       "Comfy-Org/MOSS-Image",
       "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-      "mistralai/Timestral-209M",
-      "datalab-to/indra-ocr",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-      "OpenMOSS-Team/MOSS-Image-Base"
+      "mistralai/Timestral-209M",
+      "HuggingFaceBio/Carbon-X",
+      "datalab-to/indra-ocr"
     ],
     "web_rank_changes": [
       {
@@ -8337,140 +8536,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
-      },
-      {
-        "id": "Qwen/Qwen3.8-27B",
-        "rank": 8,
-        "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+        "rank": 8,
+        "previous_rank": 9,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
+      },
+      {
+        "id": "Qwen/Qwen3.8-27B",
         "rank": 9,
-        "previous_rank": 11,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_rank": 8,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 10,
-        "previous_rank": 9,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_rank": 10,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
-        "previous_rank": 10,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_rank": 11,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
-      },
-      {
-        "id": "fishaudio/drama-3",
-        "rank": 13,
-        "previous_rank": 13,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "unsloth/flint-GGUF",
-        "rank": 14,
+        "rank": 13,
         "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
+      },
+      {
+        "id": "fishaudio/drama-3",
+        "rank": 14,
+        "previous_rank": 13,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 15,
-        "previous_rank": 16,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_rank": 15,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "rank": 16,
-        "previous_rank": 15,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
-      },
-      {
-        "id": "mistralai/Timestral-209M",
-        "rank": 17,
-        "previous_rank": 17,
+        "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
-      },
-      {
-        "id": "datalab-to/indra-ocr",
-        "rank": 18,
-        "previous_rank": 18,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "rank": 19,
+        "rank": 17,
         "previous_rank": 19,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       },
       {
-        "id": "OpenMOSS-Team/MOSS-Image-Base",
+        "id": "mistralai/Timestral-209M",
+        "rank": 18,
+        "previous_rank": 17,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
+      },
+      {
+        "id": "HuggingFaceBio/Carbon-X",
+        "rank": 19,
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
+      },
+      {
+        "id": "datalab-to/indra-ocr",
         "rank": 20,
-        "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-26T15:22:25Z"
+        "previous_rank": 18,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-26T17:16:01Z"
       }
     ],
     "items": [
@@ -8478,8 +8677,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1071,
-        "likes": 3138,
+        "trending_score": 1065,
+        "likes": 3157,
         "downloads": 95889,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8495,8 +8694,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 864,
-        "likes": 899,
+        "trending_score": 869,
+        "likes": 906,
         "downloads": 8470,
         "task": "text-generation",
         "library": "transformers",
@@ -8512,8 +8711,8 @@
         "rank": 3,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 553,
-        "likes": 558,
+        "trending_score": 568,
+        "likes": 573,
         "downloads": 2787,
         "task": "text-generation",
         "library": "transformers",
@@ -8529,8 +8728,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 538,
-        "likes": 628,
+        "trending_score": 542,
+        "likes": 632,
         "downloads": 4726,
         "task": "text-generation",
         "library": "transformers",
@@ -8546,8 +8745,8 @@
         "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 459,
-        "likes": 1672,
+        "trending_score": 454,
+        "likes": 1679,
         "downloads": 700652,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -8563,8 +8762,8 @@
         "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 408,
-        "likes": 9417,
+        "trending_score": 402,
+        "likes": 9431,
         "downloads": 2117147,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -8580,8 +8779,8 @@
         "rank": 7,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 366,
-        "likes": 379,
+        "trending_score": 367,
+        "likes": 381,
         "downloads": 8782,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8595,27 +8794,10 @@
       },
       {
         "rank": 8,
-        "id": "Qwen/Qwen3.8-27B",
-        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 313,
-        "likes": 18441,
-        "downloads": 7608285,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-08-05T08:22:59.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "qwen3_5",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 9,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 313,
-        "likes": 330,
+        "trending_score": 317,
+        "likes": 334,
         "downloads": 891147,
         "task": "text-generation",
         "library": "gguf",
@@ -8628,11 +8810,28 @@
         ]
       },
       {
+        "rank": 9,
+        "id": "Qwen/Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "trending_score": 314,
+        "likes": 18447,
+        "downloads": 7608285,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-08-05T08:22:59.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3_5",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 10,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 312,
-        "likes": 748,
+        "trending_score": 314,
+        "likes": 752,
         "downloads": 12114,
         "task": "text-to-image",
         "library": "diffusers",
@@ -8648,8 +8847,8 @@
         "rank": 11,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 309,
-        "likes": 5086,
+        "trending_score": 310,
+        "likes": 5090,
         "downloads": 2207486,
         "task": "text-to-image",
         "library": "gguf",
@@ -8680,27 +8879,10 @@
       },
       {
         "rank": 13,
-        "id": "fishaudio/drama-3",
-        "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 256,
-        "likes": 1025,
-        "downloads": 23216,
-        "task": "text-to-speech",
-        "library": "未标注",
-        "created_at": "2026-10-01T04:34:57.000Z",
-        "tags": [
-          "safetensors",
-          "fish_omni",
-          "fish-audio",
-          "text-to-speech"
-        ]
-      },
-      {
-        "rank": 14,
         "id": "unsloth/flint-GGUF",
         "url": "https://huggingface.co/unsloth/flint-GGUF",
-        "trending_score": 252,
-        "likes": 261,
+        "trending_score": 255,
+        "likes": 265,
         "downloads": 125188,
         "task": "text-generation",
         "library": "未标注",
@@ -8713,11 +8895,28 @@
         ]
       },
       {
+        "rank": 14,
+        "id": "fishaudio/drama-3",
+        "url": "https://huggingface.co/fishaudio/drama-3",
+        "trending_score": 249,
+        "likes": 1027,
+        "downloads": 23216,
+        "task": "text-to-speech",
+        "library": "未标注",
+        "created_at": "2026-10-01T04:34:57.000Z",
+        "tags": [
+          "safetensors",
+          "fish_omni",
+          "fish-audio",
+          "text-to-speech"
+        ]
+      },
+      {
         "rank": 15,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 221,
-        "likes": 471,
+        "trending_score": 223,
+        "likes": 474,
         "downloads": 2442344,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -8733,8 +8932,8 @@
         "rank": 16,
         "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "url": "https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-        "trending_score": 221,
-        "likes": 380,
+        "trending_score": 219,
+        "likes": 382,
         "downloads": 7557,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8748,44 +8947,10 @@
       },
       {
         "rank": 17,
-        "id": "mistralai/Timestral-209M",
-        "url": "https://huggingface.co/mistralai/Timestral-209M",
-        "trending_score": 206,
-        "likes": 394,
-        "downloads": 10971,
-        "task": "time-series-forecasting",
-        "library": "timestral",
-        "created_at": "2026-10-14T08:52:36.000Z",
-        "tags": [
-          "timestral",
-          "safetensors",
-          "time-series",
-          "forecasting"
-        ]
-      },
-      {
-        "rank": 18,
-        "id": "datalab-to/indra-ocr",
-        "url": "https://huggingface.co/datalab-to/indra-ocr",
-        "trending_score": 203,
-        "likes": 436,
-        "downloads": 5008,
-        "task": "image-to-text",
-        "library": "onnx",
-        "created_at": "2026-10-10T14:12:33.000Z",
-        "tags": [
-          "onnx",
-          "safetensors",
-          "indra-ocr",
-          "ocr"
-        ]
-      },
-      {
-        "rank": 19,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 202,
-        "likes": 235,
+        "trending_score": 203,
+        "likes": 236,
         "downloads": 9022,
         "task": "text-generation",
         "library": "gguf",
@@ -8798,26 +8963,60 @@
         ]
       },
       {
-        "rank": 20,
-        "id": "OpenMOSS-Team/MOSS-Image-Base",
-        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
-        "trending_score": 194,
-        "likes": 565,
-        "downloads": 8080,
-        "task": "text-to-image",
-        "library": "diffusers",
-        "created_at": "2026-10-11T06:49:17.000Z",
+        "rank": 18,
+        "id": "mistralai/Timestral-209M",
+        "url": "https://huggingface.co/mistralai/Timestral-209M",
+        "trending_score": 199,
+        "likes": 395,
+        "downloads": 10971,
+        "task": "time-series-forecasting",
+        "library": "timestral",
+        "created_at": "2026-10-14T08:52:36.000Z",
         "tags": [
-          "diffusers",
+          "timestral",
           "safetensors",
-          "moss-image",
-          "text-to-image"
+          "time-series",
+          "forecasting"
+        ]
+      },
+      {
+        "rank": 19,
+        "id": "HuggingFaceBio/Carbon-X",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "trending_score": 195,
+        "likes": 203,
+        "downloads": 1128,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-21T10:21:04.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 20,
+        "id": "datalab-to/indra-ocr",
+        "url": "https://huggingface.co/datalab-to/indra-ocr",
+        "trending_score": 193,
+        "likes": 436,
+        "downloads": 5008,
+        "task": "image-to-text",
+        "library": "onnx",
+        "created_at": "2026-10-10T14:12:33.000Z",
+        "tags": [
+          "onnx",
+          "safetensors",
+          "indra-ocr",
+          "ocr"
         ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-26T17:16:01Z",
+      "last_checked_at": "2026-10-26T19:17:50Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -14835,7 +15034,7 @@
   },
   "benchmarks": {
     "version": 1,
-    "checked": "2026-10-24",
+    "checked": "2026-10-27",
     "title": "Benchmark 观察站",
     "sync": {
       "status": "manual",
@@ -14886,6 +15085,38 @@
       }
     ],
     "items": [
+      {
+        "id": "agents-last-exam-openai-terra",
+        "name": "Agents’ Last Exam · GPT-6.1 Terra 发布快照",
+        "group": "agent",
+        "edition": "OpenAI 2026-10-26 release snapshot · public protocol incomplete",
+        "subtitle": "厂商发布分数能否被映射到公开、可复跑的 Agent 任务协议？",
+        "summary": "OpenAI 在 GPT-6.1 Terra 发布中列出 Agents’ Last Exam 结果，用于说明模型的 Agent 能力；当前公开材料不足以让本站按同一任务集、工具权限和评分流程复跑。",
+        "metric": "vendor-reported score ↑ / public protocol coverage ↑ / independent reproductions ↑",
+        "metric_note": "厂商分数必须与任务清单、Harness、工具、预算、失败计分和独立复现并列；缺少这些字段时不进入本站可比较总榜。",
+        "protocol": "先保存发布页与系统卡，再等待公开任务、Harness、工具权限、预算、模型设置和评分脚本；只有协议与数据可获得时才建立固定版本复跑。",
+        "boundary": "本站未运行该评测，公开协议与数据目前不完整。不能把厂商发布分数与 AA、Terminal-Bench 或其他独立榜单拼成综合实力分，也不能从单一分数推出生产任务成功率。",
+        "business": "适合用作“待复核能力线索”：团队应把自己的 10–20 个 Agent 任务做成可回放验收集，而不是直接采购或上线。",
+        "setup": "当前不提供本站复跑命令；先记录模型、日期、来源和缺失协议，等待官方或评测方公开可复跑材料。",
+        "topics": [],
+        "sources": [
+          "b-openai-gpt-6-1-terra-release"
+        ],
+        "result_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "kind": "benchmark",
+        "flag": "厂商发布评测 / 协议与数据未完整公开 / 本站未运行",
+        "checked": "2026-10-27",
+        "tested": false,
+        "checks": [
+          "等待公开任务清单、Harness 与评分脚本",
+          "固定模型、工具权限、预算、超时和失败计分",
+          "把厂商结果与独立复现分栏",
+          "不与不同协议榜单拼总分"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
       {
         "id": "dual-exam-controlled-agent-world-model",
         "name": "Dual Exam · Agent / World Model",
@@ -15983,6 +16214,16 @@
       }
     ],
     "sources": [
+      {
+        "id": "b-openai-gpt-6-1-terra-release",
+        "title": "Introducing GPT-6.1 Terra",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "published": "2026-10-26",
+        "checked": "2026-10-27",
+        "kind": "厂商模型发布与评测快照",
+        "note": "记录 Terra 发布中的 Agents’ Last Exam、OSWorld 2.1、MMMU-Pro 与 Terminal-Bench 4.0 厂商结果；本站未运行，公开协议不足的项目不进入可比较总榜。"
+      },
       {
         "id": "b-dual-exam-paper",
         "title": "Dual Exam: Evaluating Multimodal Agents and World Models in Interactive Environments",
@@ -18147,7 +18388,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-26",
+    "checked": "2026-10-27",
     "account": "thsottiaux",
     "events": [
       {
@@ -18167,6 +18408,26 @@
           "oa-banked"
         ],
         "reviewed": "2026-09-21",
+        "review_basis": "primary_source",
+        "related_ids": []
+      },
+      {
+        "id": "openai-paid-weekly-reset-2026-10-26",
+        "kind": "announcement",
+        "status": "announced",
+        "date": "2026-10-26",
+        "published_at": null,
+        "effective_at": null,
+        "precision": "source_date",
+        "source_timezone": null,
+        "title": "官方说明：符合资格的 Plus / Pro 可购买即时周额度重置",
+        "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后，符合范围的五小时和周用量窗口立即刷新。",
+        "scope": "符合资格的个人 ChatGPT Plus / Pro · 取决于账号与账单国家/地区",
+        "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它会把周额度提前到当前时点并改变下次周重置日期，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。官方说明不能证明每个账户都有购买入口；价格、可见性与资格只能以个人用量页为准。",
+        "sources": [
+          "oa-paid-weekly-reset"
+        ],
+        "reviewed": "2026-10-27",
         "review_basis": "primary_source",
         "related_ids": []
       },
@@ -18617,6 +18878,15 @@
     ],
     "sources": [
       {
+        "id": "oa-paid-weekly-reset",
+        "publisher": "OpenAI Help Center",
+        "title": "Paid weekly Work and Codex rate limit resets",
+        "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
+        "checked": "2026-10-27",
+        "kind": "官方说明",
+        "note": "2026-10-26 官方说明更新；记录购买资格、即时生效、banked reset 独立性与周重置日期变化，不把它写成 Tibo 全局 reset。"
+      },
+      {
         "id": "oa-banked",
         "publisher": "OpenAI Help Center",
         "title": "How banked Codex resets work",
@@ -18883,8 +19153,69 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-10-25",
+    "snapshot": "2026-10-27",
     "items": [
+      {
+        "id": "openai-gpt-6-1-terra",
+        "name": "OpenAI · GPT-6.1 Terra",
+        "title": "把技术图纸、表单和跨应用操作交给一个更快的视觉 Agent 模型",
+        "category": "Agent / 办公",
+        "mark": "GT",
+        "accent": "lime",
+        "summary": "面向高频专业工作的快速模型，结合视觉理解、电脑操作、写作和编码；已在 ChatGPT Work、Codex 与 API 以 gpt-6.1-terra 提供。",
+        "scope": "OpenAI 2026-10-26 正式发布；官方列出的例子包括解读技术图纸、填写表单、编辑视频和处理发票。标准 API 定价为每百万输入/缓存输入/输出 token 1/0.05/5 美元。",
+        "boundary": "官方 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均是厂商自测，本站未运行，也未并入独立能力榜。模型可用不等于你的账号、工具和环境已满足生产要求；系统卡的网络安全 Critical、生化 High 分级要求更严格的权限、监控与人工审批。",
+        "repo": null,
+        "sources": [
+          "openai-gpt-6-1-terra-release",
+          "openai-gpt-6-1-terra-system-card"
+        ],
+        "requirements": "Plus、Pro、Enterprise 或 Edu 的 ChatGPT Work/Codex 账户，或具备当前区域访问权限和预算的 OpenAI API 项目；另需一组脱敏、可回滚、带明确成功条件的真实电脑任务。",
+        "test": "先用 10 个低风险、可重放任务比较 Terra 与现有基线：固定工具、推理档位和预算，记录端到端成功率、人工接管、注入阻断、时延与成本，再决定是否扩大权限。",
+        "checks": [
+          "固定模型 ID、推理档位、工具版本、输入和预算",
+          "视觉理解、动作选择、最终状态与恢复能力分开评分",
+          "外部写入、发送、删除和付款动作必须保留人工审批",
+          "保存失败轨迹与提示注入样本，不只记录平均完成率"
+        ],
+        "command": "在 OpenAI API 中选择 gpt-6.1-terra，先运行脱敏、只读、可回放的电脑任务；不要从公开 Benchmark 直接外推业务成功率。",
+        "effort": "托管模型 / API 按量计费 / ChatGPT Work 与 Codex 按套餐额度",
+        "evidence": "OpenAI 官方产品发布与系统卡补充",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00"
+      },
+      {
+        "id": "huggingface-carbon-x",
+        "name": "Hugging Face Bio · Carbon-X",
+        "title": "在自有 GPU 上让语言模型读取 DNA，并保留临床边界",
+        "category": "科学研究",
+        "mark": "CX",
+        "accent": "violet",
+        "summary": "14.8B 开放权重模型把自然语言与 DNA 6-mer 放进同一 token 流，可回答变异影响、序列区域、物种分类和下一碱基问题。",
+        "scope": "Hugging Face Hub 的 createdAt 记录为 2026-10-21；Hugging Face Bio、Zhongguancun Academy 与 TIGEM 等团队公开模型卡、权重和示例，BF16 权重可在单张 80GB GPU 上通过 Transformers 或 vLLM 运行。",
+        "boundary": "模型卡明确说明未经过临床验证、不可用于医疗决策，并可能错数碱基、混淆坐标或编造序列功能。作者的五项 DNA Benchmark 均值、成本与 ClinVar 估算不是本站实测；敏感遗传数据的存储、日志和第三方推理路径必须单独审查。",
+        "repo": null,
+        "sources": [
+          "hf-carbon-x-model-card"
+        ],
+        "requirements": "Linux、Python、Transformers 5+ 或 vLLM、约 80GB GPU 显存和模型权重；使用未发表或个人遗传数据前还需独立的隐私、合规和访问控制评审。",
+        "test": "先在公开且无个人信息的小样本上固定模型修订、enable_thinking=false 和采样参数，逐项核对坐标、碱基计数与变异标签；用确定性代码复算精确操作，并由领域专家盲审。",
+        "checks": [
+          "固定权重、tokenizer 代码、Transformers/vLLM 版本和采样参数",
+          "精确坐标、碱基计数与编辑交给代码复算，不信任自然语言输出",
+          "公开样本、授权数据和敏感遗传数据分环境处理",
+          "把作者 Benchmark、内部复跑、临床验证和医疗决策明确分开"
+        ],
+        "command": "vllm serve HuggingFaceBio/Carbon-X --trust-remote-code",
+        "effort": "开放权重 / Apache-2.0 / 约 80GB GPU 与隐私治理成本",
+        "evidence": "Hugging Face 官方模型卡、权重、运行说明和限制",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00"
+      },
       {
         "id": "nvidia-nemo-automodel-0-7",
         "name": "NVIDIA · NeMo AutoModel 0.7",
@@ -19843,6 +20174,33 @@
     ],
     "sources": [
       {
+        "id": "openai-gpt-6-1-terra-release",
+        "title": "Introducing GPT-6.1 Terra",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "published": "2026-10-26",
+        "checked": "2026-10-27",
+        "kind": "官方产品发布"
+      },
+      {
+        "id": "openai-gpt-6-1-terra-system-card",
+        "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+        "publisher": "OpenAI Deployment Safety Hub",
+        "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "published": "2026-10-26",
+        "checked": "2026-10-27",
+        "kind": "官方系统卡"
+      },
+      {
+        "id": "hf-carbon-x-model-card",
+        "title": "Carbon-X model card",
+        "publisher": "Hugging Face Bio",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "published": "2026-10-21",
+        "checked": "2026-10-27",
+        "kind": "官方模型卡"
+      },
+      {
         "id": "openhands-1-33-release",
         "title": "OpenHands v1.33.0",
         "publisher": "OpenHands",
@@ -20416,6 +20774,35 @@
       }
     ],
     "events": [
+      {
+        "id": "openai-gpt-6-1-terra-release",
+        "task": "openai-gpt-6-1-terra",
+        "date": "2026-10-26",
+        "kind": "release",
+        "title": "GPT-6.1 Terra 在 ChatGPT Work、Codex 与 API 上线",
+        "summary": "OpenAI 发布主打视觉理解、电脑操作、写作与编码的快速模型，并公布 API 模型名、标准价格与系统卡补充。",
+        "delta": "高频电脑工作获得新的成本/速度档位；厂商自测仍需用真实工具、权限和业务验收重跑，不能并入独立综合能力榜。",
+        "sources": [
+          "openai-gpt-6-1-terra-release",
+          "openai-gpt-6-1-terra-system-card"
+        ],
+        "reviewed": "2026-10-27",
+        "short_title": "视觉电脑操作模型正式开放"
+      },
+      {
+        "id": "huggingface-carbon-x-release",
+        "task": "huggingface-carbon-x",
+        "date": "2026-10-21",
+        "kind": "release",
+        "title": "Carbon-X 开放 DNA / 自然语言联合模型权重",
+        "summary": "14.8B 模型用联合 tokenizer 在同一对话中处理 DNA 与自然语言，并公开模型卡、权重、运行入口与限制。",
+        "delta": "生物序列模型获得可本地调用的语言接口；精确坐标、临床结论和敏感数据处理仍需独立工具、专家与治理。",
+        "sources": [
+          "hf-carbon-x-model-card"
+        ],
+        "reviewed": "2026-10-27",
+        "short_title": "DNA 语言模型开放权重"
+      },
       {
         "id": "openhands-1-33-release",
         "task": "openhands",
@@ -21915,7 +22302,7 @@
   },
   "industry": {
     "version": 1,
-    "checked": "2026-10-25",
+    "checked": "2026-10-27",
     "sectors": [
       {
         "id": "pharma",
@@ -22088,6 +22475,16 @@
       }
     ],
     "sources": [
+      {
+        "id": "hf-carbon-x-model-card-20261021",
+        "title": "Carbon-X 模型卡",
+        "publisher": "Hugging Face Bio",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "published": "2026-10-21",
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00",
+        "kind": "官方模型卡、架构、训练规模、使用方式与限制"
+      },
       {
         "id": "siemens-nvidia-industrial-ai-20261022",
         "title": "Siemens and NVIDIA are advancing Industrial AI",
@@ -22499,6 +22896,39 @@
       }
     ],
     "articles": [
+      {
+        "id": "huggingface-carbon-x-20261021",
+        "sector": "pharma",
+        "topics": [
+          "targets"
+        ],
+        "title": "DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释",
+        "summary": "Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。",
+        "why": "统一的 DNA—语言接口可能降低变体解释、序列问答和研究原型的接线成本；更值得跟踪的是坐标与碱基操作能否被确定性工具约束，而不是只看平台热度。",
+        "boundary": "本站未运行权重。模型卡明确说明模型未做临床验证、不可用于医疗决策，且可能误计碱基和坐标、产生幻觉，在剪接与组蛋白任务上较弱；作者汇总分数和 Hugging Face Trending 均不等于临床有效性或独立能力排名。",
+        "sources": [
+          "hf-carbon-x-model-card-20261021"
+        ],
+        "kind": "update",
+        "access": "开放模型卡与权重；Transformers / vLLM，本地资源和许可按模型卡核对",
+        "published": "2026-10-21",
+        "steps": [
+          "固定模型修订与一组公开、无敏感信息的 DNA 小样本",
+          "用确定性代码逐条核对序列长度、坐标、反向互补与变体操作",
+          "把功能解释、幻觉、拒答、显存和延迟分开记录，禁止进入临床决策"
+        ],
+        "metrics": [
+          "碱基与坐标操作准确率、幻觉与拒答率",
+          "公开 DNA 任务的逐项分数与独立复现差异",
+          "上下文长度、峰值显存、时延与人工复核时间"
+        ],
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T03:21:00+08:00",
+        "first_seen_at": "2026-10-27T03:21:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "siemens-nvidia-industrial-ai-20261022",
         "sector": "manufacturing",
@@ -24789,6 +25219,90 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-gpt-6-1-terra",
+        "publisher": "OpenAI",
+        "group": "agents",
+        "access": "model",
+        "headline": "先用 10 个只读、可回放任务验收 GPT-6.1 Terra",
+        "input": "10 个含界面截图、表单或桌面工具的低风险任务，以及每项任务的正确结果、允许工具、退出条件和人工接管点",
+        "output": "逐任务成功率、误操作、人工接管、提示注入响应、时延与 token 成本记录",
+        "requirements": "ChatGPT Work、Codex 或 API 的相应访问权限；API 模型 ID 为 gpt-6.1-terra。浏览器或桌面工具只授予完成样本所需的最小权限。",
+        "limitation": "本站核验 OpenAI 发布与系统卡，但未独立运行模型。发布中的 Agents’ Last Exam、OSWorld 2.1、MMMU-Pro 与 Terminal-Bench 4.0 数值均为厂商评测，不能替代团队自己的任务回放；系统卡将该模型按 Critical 网络安全、High 生化能力处理。",
+        "cost": "官方标准 API 价格为每百万 token 输入 1 美元、缓存输入 0.05 美元、输出 5 美元；实际成本还取决于截图、工具调用、重试和长任务上下文。",
+        "steps": [
+          {
+            "title": "固定模型、工具与退出条件",
+            "body": "记录模型 ID、推理设置、可用工具、权限和每个任务的人工接管点；先只读或使用沙箱数据。"
+          },
+          {
+            "title": "跑 10 个可回放任务",
+            "body": "覆盖视觉定位、表单填写、跨页面核对和终端操作；逐步保存截图、工具轨迹、错误恢复和最终结果。"
+          },
+          {
+            "title": "单独审查安全与成本",
+            "body": "加入提示注入、意外弹窗和权限越界样本，并把任务成功、人工接管、错误动作、时延与 token 成本分列。"
+          }
+        ],
+        "troubleshooting": "页面定位失败时先固定视口和缩放并保存失败截图；工具越界或遇到注入内容立即停止该任务并回收权限；成本异常时检查截图频率、上下文累积和重复工具调用。",
+        "sources": [
+          {
+            "title": "OpenAI：Introducing GPT-6.1 Terra",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+            "published_at": "2026-10-26",
+            "verified_at": "2026-10-27"
+          },
+          {
+            "title": "GPT-6.1 Terra System Card",
+            "url": "https://openai.com/index/gpt-6-1-terra-system-card/",
+            "published_at": "2026-10-26",
+            "verified_at": "2026-10-27"
+          }
+        ],
+        "entry_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-27T03:21:00+08:00"
+      },
+      {
+        "id": "huggingface-carbon-x",
+        "publisher": "Hugging Face Bio",
+        "group": "research",
+        "access": "local",
+        "headline": "用公开 DNA 小样本复核 Carbon-X 的序列操作，再决定是否扩到内部数据",
+        "input": "一组不含个人敏感信息的公开 DNA 序列、明确的变体或碱基坐标问题，以及可人工核对的参考答案",
+        "output": "逐样本序列操作、坐标错误、幻觉、拒答、显存与运行日志",
+        "requirements": "Transformers 或 vLLM、模型权重与足够显存；模型卡称 BF16 可放入单张 80 GB GPU，仍需按本地上下文长度和批量实测。",
+        "limitation": "Carbon-X 是研究模型，未做临床验证，也不应用于医疗决策。模型卡明确提示可能误计碱基与坐标、产生幻觉，并在剪接与组蛋白任务上较弱；本站未运行权重。",
+        "cost": "模型权重公开，但下载、80 GB 级显存、长上下文推理、数据治理和人工生物学复核都会产生实际成本。",
+        "steps": [
+          {
+            "title": "锁定模型与样本",
+            "body": "固定模型修订、推理参数和 20–50 个公开 DNA 样本；提前写下正确序列、坐标与可接受答案。"
+          },
+          {
+            "title": "逐字符验证序列操作",
+            "body": "把反向互补、变体定位和功能解释分开测试；用代码核对长度、坐标和字符，不让语言模型自评。"
+          },
+          {
+            "title": "再决定是否接入受控数据",
+            "body": "只有公开样本达到门槛后，才评估受控环境、数据授权、隐私、人工复核和禁止临床用途的门禁。"
+          }
+        ],
+        "troubleshooting": "序列长度或坐标不一致时先用确定性代码复核 tokenizer 与 0/1 基索引；显存不足时缩短上下文或量化，但要把量化后的结果与 BF16 分开；任何临床解释请求都应转人工流程。",
+        "sources": [
+          {
+            "title": "Hugging Face Bio Carbon-X 模型卡",
+            "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+            "published_at": "2026-10-21",
+            "verified_at": "2026-10-27"
+          }
+        ],
+        "entry_url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-27T03:21:00+08:00"
+      },
       {
         "id": "nvidia-nemo-automodel-0-7",
         "publisher": "NVIDIA NeMo",

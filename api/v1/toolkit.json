@@ -42,6 +42,90 @@
   ],
   "items": [
     {
+      "id": "openai-gpt-6-1-terra",
+      "publisher": "OpenAI",
+      "group": "agents",
+      "access": "model",
+      "headline": "先用 10 个只读、可回放任务验收 GPT-6.1 Terra",
+      "input": "10 个含界面截图、表单或桌面工具的低风险任务，以及每项任务的正确结果、允许工具、退出条件和人工接管点",
+      "output": "逐任务成功率、误操作、人工接管、提示注入响应、时延与 token 成本记录",
+      "requirements": "ChatGPT Work、Codex 或 API 的相应访问权限；API 模型 ID 为 gpt-6.1-terra。浏览器或桌面工具只授予完成样本所需的最小权限。",
+      "limitation": "本站核验 OpenAI 发布与系统卡，但未独立运行模型。发布中的 Agents’ Last Exam、OSWorld 2.1、MMMU-Pro 与 Terminal-Bench 4.0 数值均为厂商评测，不能替代团队自己的任务回放；系统卡将该模型按 Critical 网络安全、High 生化能力处理。",
+      "cost": "官方标准 API 价格为每百万 token 输入 1 美元、缓存输入 0.05 美元、输出 5 美元；实际成本还取决于截图、工具调用、重试和长任务上下文。",
+      "steps": [
+        {
+          "title": "固定模型、工具与退出条件",
+          "body": "记录模型 ID、推理设置、可用工具、权限和每个任务的人工接管点；先只读或使用沙箱数据。"
+        },
+        {
+          "title": "跑 10 个可回放任务",
+          "body": "覆盖视觉定位、表单填写、跨页面核对和终端操作；逐步保存截图、工具轨迹、错误恢复和最终结果。"
+        },
+        {
+          "title": "单独审查安全与成本",
+          "body": "加入提示注入、意外弹窗和权限越界样本，并把任务成功、人工接管、错误动作、时延与 token 成本分列。"
+        }
+      ],
+      "troubleshooting": "页面定位失败时先固定视口和缩放并保存失败截图；工具越界或遇到注入内容立即停止该任务并回收权限；成本异常时检查截图频率、上下文累积和重复工具调用。",
+      "sources": [
+        {
+          "title": "OpenAI：Introducing GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
+        },
+        {
+          "title": "GPT-6.1 Terra System Card",
+          "url": "https://openai.com/index/gpt-6-1-terra-system-card/",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
+        }
+      ],
+      "entry_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-27T03:21:00+08:00"
+    },
+    {
+      "id": "huggingface-carbon-x",
+      "publisher": "Hugging Face Bio",
+      "group": "research",
+      "access": "local",
+      "headline": "用公开 DNA 小样本复核 Carbon-X 的序列操作，再决定是否扩到内部数据",
+      "input": "一组不含个人敏感信息的公开 DNA 序列、明确的变体或碱基坐标问题，以及可人工核对的参考答案",
+      "output": "逐样本序列操作、坐标错误、幻觉、拒答、显存与运行日志",
+      "requirements": "Transformers 或 vLLM、模型权重与足够显存；模型卡称 BF16 可放入单张 80 GB GPU，仍需按本地上下文长度和批量实测。",
+      "limitation": "Carbon-X 是研究模型，未做临床验证，也不应用于医疗决策。模型卡明确提示可能误计碱基与坐标、产生幻觉，并在剪接与组蛋白任务上较弱；本站未运行权重。",
+      "cost": "模型权重公开，但下载、80 GB 级显存、长上下文推理、数据治理和人工生物学复核都会产生实际成本。",
+      "steps": [
+        {
+          "title": "锁定模型与样本",
+          "body": "固定模型修订、推理参数和 20–50 个公开 DNA 样本；提前写下正确序列、坐标与可接受答案。"
+        },
+        {
+          "title": "逐字符验证序列操作",
+          "body": "把反向互补、变体定位和功能解释分开测试；用代码核对长度、坐标和字符，不让语言模型自评。"
+        },
+        {
+          "title": "再决定是否接入受控数据",
+          "body": "只有公开样本达到门槛后，才评估受控环境、数据授权、隐私、人工复核和禁止临床用途的门禁。"
+        }
+      ],
+      "troubleshooting": "序列长度或坐标不一致时先用确定性代码复核 tokenizer 与 0/1 基索引；显存不足时缩短上下文或量化，但要把量化后的结果与 BF16 分开；任何临床解释请求都应转人工流程。",
+      "sources": [
+        {
+          "title": "Hugging Face Bio Carbon-X 模型卡",
+          "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-27"
+        }
+      ],
+      "entry_url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-27T03:21:00+08:00"
+    },
+    {
       "id": "nvidia-nemo-automodel-0-7",
       "publisher": "NVIDIA NeMo",
       "group": "research",
