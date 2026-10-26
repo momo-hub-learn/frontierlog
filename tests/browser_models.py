@@ -20,6 +20,14 @@ with sync_playwright() as p:
  test_html=HTML.replace("fetch('./api/v1/capabilities.json'","fetch('https://frontierlog.test/api/v1/capabilities.json'")
  page.set_content(test_html,wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
+ expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
+ expect(page.locator('.v2-source-tabs')).to_have_attribute('aria-label','选择独立榜单')
+ assert '综合能力主榜' in page.locator('.v2-source-tabs').inner_text()
+ assert '人类偏好榜' in page.locator('.v2-source-tabs').inner_text()
+ assert '两张独立榜单 · 不合成本站总分' in page.locator('.v2-source-tabs').inner_text()
+ expect(page.locator('.m-segments')).to_have_attribute('aria-label','查看与排序指标')
+ assert '已收录模型 #1' in page.locator('.v2-current-first').inner_text()
+ assert '#1 当前样本' not in page.locator('#vertical-root').inner_text()
  expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
@@ -29,6 +37,7 @@ with sync_playwright() as p:
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
  shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, preserved theme')
  page.locator('[data-ma="metric"][data-id="speed"]').click()
+ assert '当前查看首位' in page.locator('.v2-current-first').inner_text()
  assert page.evaluate("(()=>{const r=mRows().map(x=>x.speed).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]>=v)})()")
  page.locator('[data-ma="metric"][data-id="cost_task"]').click()
  assert page.evaluate("(()=>{const r=mRows().map(x=>x.cost_task).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]<=v)})()")
@@ -50,6 +59,9 @@ with sync_playwright() as p:
  shot(page,'model-detail.png');page.keyboard.press('Escape');assert 'model=' not in page.evaluate('location.hash')
  ok('model evidence drawer, deep links, Escape removes detail state')
  page.locator('[data-ma="board"][data-id="arena"]').click();expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['arena'])
+ assert '人类偏好榜' in page.locator('.ar-source-tabs').inner_text()
+ assert '综合能力主榜' in page.locator('.ar-source-tabs').inner_text()
+ assert '两张独立榜单 · 不合成本站总分' in page.locator('.ar-source-tabs').inner_text()
  table=page.locator('#vertical-root').inner_text();assert ARENA['as_of'].replace('-','.',2) in table;assert f"± {ARENA['rows'][0]['score_error']}" in table
  assert page.locator('.m-comparebar').count()==0
  shot(page,'models-arena.png');ok('independent Arena ranks, error bands, source date and cross-source comparison reset')

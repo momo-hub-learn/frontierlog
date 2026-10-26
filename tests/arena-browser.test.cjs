@@ -60,6 +60,10 @@ check('table and mobile view expose the same records and unique search controls'
  const html=render('');assert.equal((html.match(/data-ar-model=/g)||[]).length,8);assert.equal((html.match(/id="m-search"/g)||[]).length,1);
  assert(!html.includes('输出 tok/s'));assert(!html.includes('USD / task'));assert(!html.includes('BASE MODELS'));
 });
+check('source switch names two independent boards without inventing a combined score',()=>{
+ const html=render('');assert(html.includes('综合能力主榜'));assert(html.includes('人类偏好榜'));
+ assert(html.includes('两张独立榜单 · 不合成本站总分'));assert(html.includes('aria-label="选择独立榜单"'));
+});
 check('company decorator is idempotent and never reads score metadata',()=>{
  render('');let writes=0;const cell={set innerHTML(s){writes++;assert(s.includes('Anthropic'));assert(!s.includes('±'))}};
  const row={dataset:{modelRow:'arena-1'},querySelector:selector=>{assert.equal(selector,'.m-company-cell');return cell}};
