@@ -29,7 +29,7 @@ test('corrupt/unknown local IDs do not become follows',()=>{
  assert.equal(P.followIds({},data).size,0);assert.equal(P.followIds(['tri-dao','tri-dao',{},'unknown'],data).size,1);
 });
 test('event time is original publication, not review date',()=>{
- const ev=P.events(data,read(''),new Set(),now);assert.equal(ev[0].id,'vista-paper');assert.equal(ev[0].date,'2026-10-01');
+ const ev=P.events(data,read(''),new Set(),now);assert.equal(ev[0].id,'bret-poppy-draft-20261009');assert.equal(ev[0].date,'2026-10-09');
  const page=P.page(data,read('view=updates'),new Set(),now);
  assert(page.includes('历史作品与观点'));assert(page.includes('2023.12.01'));assert(page.includes('近 30 日'));
  const future=JSON.parse(snapshot);future.events.push({...future.events[0],id:'future',date:'2099-01-01'});
@@ -41,7 +41,9 @@ test('following events use exact author relationships',()=>{
 test('profile coauthor links and empty activity are honest',()=>{
  const profile=P.page(data,read('person=qiushi-han'),new Set(),now);
  assert(profile.includes('person=keya-hu'));assert(profile.includes('不据此推断师生关系'));assert(profile.includes('编辑观察 · 不是本人引语'));
- assert(P.page(data,read('person=bret-taylor'),new Set(),now).includes('暂无已收录动态'));
+ assert(P.page(data,read('person=bret-taylor'),new Set(),now).includes('Poppy'));
+ assert(P.page(data,read('person=geoffrey-hinton'),new Set(),now).includes('暂无本站已核验的独立动态'));
+ assert(P.page(data,read('person=shyam-sankar'),new Set(),now).includes('暂无本站已核验的独立动态'));
  assert(P.page(data,read('person=unknown')).includes('未找到这个人物档案'));
 });
 test('text and URLs are escaped even before validation',()=>{
@@ -51,5 +53,16 @@ test('text and URLs are escaped even before validation',()=>{
  const q=P.page(data,read('q='+encodeURIComponent('<script>alert(1)</script>')));assert(!q.includes('<script>'));assert(q.includes('&lt;script&gt;'));
 });
 test('Beijing date and invalid calendar dates',()=>{assert.equal(P.today(Date.parse('2026-10-11T16:30:00Z')),'2026-10-12');assert(!P.day('2026-02-30'));assert(P.day('2024-02-29'))});
+test('latest verified activity covers every profile without inventing updates',()=>{
+ const current=Date.parse('2026-10-26T02:30:00Z');
+ assert.equal(P.rows(data,read('view=influence&dim=research')).length,data.people.filter(p=>p.impact.dimensions.includes('research')).length);
+ const page=P.page(data,read('view=influence'),new Set(),current);
+ assert(page.includes('影响力地图'));assert(page.includes('学术与研究'));assert(page.includes('开源与技术生态'));assert(page.includes('产品与产业落地'));
+ assert.equal((page.match(/class="pp-latest/g)||[]).length,data.people.length);
+ const recent=P.latestSignal(data.people.find(p=>p.id==='harrison-chase'),data,current);assert.equal(recent.date,'2026-10-24');
+ const older=P.latestSignal(data.people.find(p=>p.id==='geoffrey-hinton'),data,current);assert.equal(older,null);
+ assert(P.page(data,read('person=shreya-shankar'),new Set(),current).includes('Quail'));
+ const round=P.read(P.href(read('view=influence&dim=research'),{person:'kaiming-he'}),data);assert.equal(round.dim,'research');assert.equal(round.view,'influence');
+});
 test('rendering never mutates source evidence',()=>{assert.equal(JSON.stringify(data),snapshot)});
 console.log(`People: ${n} behavioral checks passed.`);
