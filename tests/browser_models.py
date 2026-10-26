@@ -22,6 +22,14 @@ with sync_playwright() as p:
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
  expect(page.locator('.v2-source-tabs')).to_have_attribute('aria-label','选择独立榜单')
+ expect(page.locator('.v2-aa-method')).to_have_count(1)
+ expect(page.locator('.v2-aa-method')).to_contain_text('这张总榜实际考什么？')
+ expect(page.locator('.v2-aa-method')).to_contain_text('Intelligence Index v4.3.2 · 10 项评测')
+ weights=page.locator('.v2-aa-weights').inner_text()
+ for label in ['30%\nAgent 任务','30%\n通用能力','20%\n编程','20%\n科学推理']:
+  assert label in weights
+ assert '多模态、语音与多语言能力不计入这张总榜' in page.locator('.v2-aa-method').inner_text()
+ expect(page.locator('.v2-aa-method a')).to_have_attribute('href','https://artificialanalysis.ai/methodology/intelligence-benchmarking')
  assert '综合能力主榜' in page.locator('.v2-source-tabs').inner_text()
  assert '人类偏好榜' in page.locator('.v2-source-tabs').inner_text()
  assert '两张独立榜单 · 不合成本站总分' in page.locator('.v2-source-tabs').inner_text()
@@ -59,6 +67,7 @@ with sync_playwright() as p:
  shot(page,'model-detail.png');page.keyboard.press('Escape');assert 'model=' not in page.evaluate('location.hash')
  ok('model evidence drawer, deep links, Escape removes detail state')
  page.locator('[data-ma="board"][data-id="arena"]').click();expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['arena'])
+ expect(page.locator('.v2-aa-method')).to_have_count(0)
  assert '人类偏好榜' in page.locator('.ar-source-tabs').inner_text()
  assert '综合能力主榜' in page.locator('.ar-source-tabs').inner_text()
  assert '两张独立榜单 · 不合成本站总分' in page.locator('.ar-source-tabs').inner_text()

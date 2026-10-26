@@ -62,7 +62,7 @@ check('table and mobile view expose the same records and unique search controls'
 });
 check('source switch names two independent boards without inventing a combined score',()=>{
  const html=render('');assert(html.includes('综合能力主榜'));assert(html.includes('人类偏好榜'));
- assert(html.includes('两张独立榜单 · 不合成本站总分'));assert(html.includes('aria-label="选择独立榜单"'));
+ assert(html.includes('两张独立榜单 · 不合成本站总分'));assert(html.includes('aria-label="选择独立榜单"'));assert(!html.includes('v2-aa-method'));
 });
 check('company decorator is idempotent and never reads score metadata',()=>{
  render('');let writes=0;const cell={set innerHTML(s){writes++;assert(s.includes('Anthropic'));assert(!s.includes('±'))}};
