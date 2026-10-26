@@ -48,6 +48,7 @@ with sync_playwright() as pw:
  expect(page.locator('.pp-head h1')).to_have_text('AI 人物');expect(page.locator('[data-person-card]')).to_have_count(len(DATA['people']))
  expect(page.locator('#nav [data-people-nav]')).to_have_count(1)
  expect(page.locator('#nav [data-people-nav]')).to_have_attribute('aria-current','page')
+ expect(page.locator('.pp-latest')).to_have_count(len(DATA['people']))
  ok('Direct people deep link, directory count and sidebar entry')
  page.evaluate("localStorage.setItem('aip.saved','[\"docling\"]')")
  page.locator('[data-people-follow="tri-dao"]').click()
@@ -67,8 +68,16 @@ with sync_playwright() as pw:
   page.go_back();expect(page.locator('[data-profile="qiushi-han"]')).to_be_visible()
   page.go_forward();expect(page.locator('[data-person-card]')).to_have_count(5)
  ok('Search by work, contributor profiles, preserved filters and browser history')
+ route('#/people?view=influence')
+ expect(page.locator('.pp-influence-guide')).to_be_visible()
+ expect(page.locator('.pp-latest')).to_have_count(len(DATA['people']))
+ expect(page.locator('.pp-impact')).to_have_count(len(DATA['people']))
+ page.locator('.pp-influence-guide a').filter(has_text='学术与研究').click()
+ assert page.locator('[data-person-card]').count()==sum('research' in p['impact']['dimensions'] for p in DATA['people'])
+ route('#/people')
+ ok('Influence dimensions are transparent evidence facets; all people show latest or missing-evidence state')
  page.locator('.pp-tabs a').filter(has_text='人物动态').click()
- expect(page.locator('[data-person-event]')).to_have_count(1)
+ expect(page.locator('[data-person-event]')).to_have_count(len(DATA['events']))
  expect(page.locator('[data-person-event="vista-paper"]')).to_contain_text('2026.10.01')
  page.locator('.pp-reset').click()
  expect(page.locator('.pp-archive')).to_be_visible()
@@ -99,7 +108,7 @@ with sync_playwright() as pw:
  ok('Existing pages remain navigable after people view')
  for width in [1440,1100,768,390,320]:
   page.set_viewport_size({'width':width,'height':1080})
-  for hash in ['#/people','#/people?person=shreya-shankar','#/people?person=kaiming-he','#/people?view=updates']:
+  for hash in ['#/people','#/people?person=shreya-shankar','#/people?person=kaiming-he','#/people?view=influence','#/people?view=updates']:
    route(hash);no_overflow()
   ok(f'{width}px: directory, profiles and activity have no horizontal overflow')
  for width,label,hash in [(1440,'directory-desktop','#/people'),(390,'directory-mobile','#/people'),(1440,'profile-desktop','#/people?person=kaiming-he'),(390,'profile-mobile','#/people?person=shyam-sankar'),(1440,'updates-desktop','#/people?view=updates')]:

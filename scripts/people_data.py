@@ -60,6 +60,13 @@ def validate_people(data: dict) -> None:
             raise ValueError('People profiles exclude private fields and rankings')
         refs(p.get('roles'), roles)
         refs(p.get('areas'), areas)
+        impact=p.get('impact')
+        if not isinstance(impact,dict) or set(impact)!={'dimensions','basis'}:
+            raise ValueError('Every person needs documented impact dimensions')
+        dims=impact['dimensions']
+        if not isinstance(dims,list) or not dims or len(dims)!=len(set(dims)) or not set(dims)<={'research','ecosystem','industry'}:
+            raise ValueError('Unsupported impact dimension or fake ranking')
+        text(impact['basis'])
         if not isinstance(p.get('aliases'), list) or any(not isinstance(a, str) or not a.strip() for a in p['aliases']):
             raise ValueError('Invalid people aliases')
         if p.get('discovery') not in {'work', 'editorial'} or day(p.get('checked')) > checked:

@@ -33,6 +33,19 @@ class PeopleTests(unittest.TestCase):
  def test_event_review_order(self):self.reject(lambda d:d['events'][0].update(checked='2000-01-01'))
  def test_calendar_invalid(self):self.reject(lambda d:d['events'][0].update(date='2026-02-30'))
  def test_people_not_ranked(self):self.reject(lambda d:d['people'][0].update(score=99))
+ def test_every_person_has_source_backed_impact_facets(self):
+  self.assertEqual(len(self.data['people']),33)
+  self.assertTrue(all(p['impact']['dimensions'] and p['impact']['basis'] for p in self.data['people']))
+  self.reject(lambda d:d['people'][0].pop('impact'))
+  self.reject(lambda d:d['people'][0]['impact'].update(dimensions=['global-ranking']))
+  self.reject(lambda d:d['people'][0]['impact'].update(score=99))
+ def test_verified_recent_activity_has_original_dates_and_no_fake_events(self):
+  ids={x['id'] for x in self.data['events']}
+  self.assertIn('harrison-company-harness-20261024',ids)
+  self.assertIn('hamel-decision-evals-20261020',ids)
+  self.assertIn('danqi-queen-chess-20261002',ids)
+  self.assertEqual(len(ids),len(self.data['events']))
+  self.assertTrue(all(x['date']<=x['checked'] for x in self.data['events']))
  def test_private_fields_excluded(self):self.reject(lambda d:d['people'][0].update(email='private@example.org'))
  def test_no_arbitrary_related_href(self):self.reject(lambda d:d['people'][0]['related'].append({'id':'sierra','kind':'product','label':'Test','href':'javascript:bad'}))
  def test_no_automatic_claim(self):self.reject(lambda d:d.update(mode='live'))

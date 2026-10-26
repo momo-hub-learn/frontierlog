@@ -21,6 +21,13 @@ on:
       - 'src/v10.js'
       - 'src/feed-cockpit.js'
       - 'src/top5-editorial.js'
+      # Publish editorial AI People changes from latest main (not stale preview snapshots).
+      - 'data/people.json'
+      - 'src/people.js'
+      - 'src/people.css'
+      - 'scripts/people_data.py'
+      - 'tests/test_people.py'
+      - 'tests/people.test.cjs'
       # Keep checked-in GitHub Pages in sync with long-form editorial templates.
       - 'src/deep-dives.js'
       - 'src/deep-dives.css'

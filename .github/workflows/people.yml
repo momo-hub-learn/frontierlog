@@ -2,7 +2,7 @@ name: AI People checks
 
 on:
   push:
-    branches: [main, 'preview/people-20261011']
+    branches: [main, 'preview/people-*']
     paths:
       - '.github/workflows/people.yml'
       - 'src/people.*'
