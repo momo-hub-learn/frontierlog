@@ -3389,13 +3389,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-26T00:46:21Z",
+    "generated_at": "2026-10-26T01:21:22Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 0,
-      "merge": 70,
+      "merge": 71,
       "hold": 3
     },
     "candidates": [
@@ -3696,6 +3696,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "allenai-olmoearth-v1-3",
         "first_seen_at": "2026-10-24T17:33:29Z"
+      },
+      {
+        "id": "candidate-7de12a7a04b7f13c",
+        "category": "product",
+        "published": "2026-10-22",
+        "title": "Claude 双托管部署在 Google Cloud 正式开放",
+        "summary": "Anthropic-managed 路径立即提供 Managed Agents、skills 与代码执行；Google-managed 路径提供 VPC Service Controls、CMEK 与美欧亚太数据驻留。",
+        "why": "企业选型的核心分叉是数据处理方、合同、控制平面与工具可用性，而不是模型名称本身。",
+        "boundary": "不能由公告推出每个账户或地区已即时可见，也不能把厂商控制项说明当作独立安全审计或性能对比。",
+        "source": "Google Cloud / Anthropic",
+        "source_kind": "官方产品节点",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "publishable": true,
+        "features": {
+          "freshness": 0.714,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.74,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "claude-models-google-cloud",
+        "first_seen_at": "2026-10-26T01:21:22Z"
       },
       {
         "id": "candidate-ce99a6443de3cc9c",
@@ -4354,30 +4378,6 @@
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "google-antigravity",
         "first_seen_at": "2026-10-21T17:48:39Z"
-      },
-      {
-        "id": "candidate-fe69ddefb585e6dc",
-        "category": "product",
-        "published": "2026-10-21",
-        "title": "Claude Duet 主动 Agent 开放研究预览候补",
-        "summary": "独立 iOS、Android 与 claude.ai 入口可主动汇总连接应用、后台执行任务，并在发送、付款、签署和删除前等待批准。",
-        "why": "主动 Agent 的产品差异将更多来自通知判断、权限控制、可观察性和额度效率，而不只是模型回答质量。",
-        "boundary": "不是正式普遍开放；官方承认可能误读、误判优先级，且后台检查会消耗共享额度。",
-        "source": "Anthropic",
-        "source_kind": "官方产品节点",
-        "url": "https://claude.com/resources/articles/claude-duet",
-        "publishable": true,
-        "features": {
-          "freshness": 0.643,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.719,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "claude-duet",
-        "first_seen_at": "2026-10-21T21:30:26Z"
       }
     ]
   },
@@ -7424,12 +7424,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-26T00:46:21Z",
+    "last_evaluated": "2026-10-26T01:21:22Z",
     "last_decision": {
       "action": "merge",
-      "candidate_count": 73,
+      "candidate_count": 74,
       "publish_ready_count": 0,
-      "merge_count": 70,
+      "merge_count": 71,
       "best_candidate": "candidate-b026f19029976dfa",
       "reason": "发现与现有热点同源的新节点，建议合并。"
     },

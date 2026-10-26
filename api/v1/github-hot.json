@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-26T00:29:09Z",
+  "checked_at": "2026-10-26T01:13:48Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -73,7 +73,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 4850
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Nutlope/hallmark",
@@ -143,7 +144,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 33740
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "debpalash/VoiceStudio",
@@ -201,7 +203,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 86788
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "pbakaus/impeccable",
@@ -271,7 +274,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 87687
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "pollen-robotics/microduck",
@@ -340,7 +344,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 11627
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "TauricResearch/TradingAgents",
@@ -402,7 +407,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 114594
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Renhuai123/ziwei-doushu",
@@ -463,7 +469,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 7542
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "JetBrains/thinkrail",
@@ -520,7 +527,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 1718
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "coollabsio/coolify",
@@ -577,7 +585,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 64368
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "cloudflare/security-audit-skill",
@@ -647,7 +656,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 46863
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "AgriciDaniel/claude-seo",
@@ -705,7 +715,8 @@
           "at": "2026-10-26T00:29:09Z",
           "stars": 20847
         }
-      ]
+      ],
+      "metadata_status": "stale"
     }
   ],
   "categories": [
@@ -783,17 +794,24 @@
   "sync": {
     "mode": "official_trending_plus_repository_api",
     "status": "success",
-    "last_checked_at": "2026-10-26T00:29:09Z",
-    "last_success_at": "2026-10-26T00:29:09Z",
+    "last_checked_at": "2026-10-26T01:13:48Z",
+    "last_success_at": "2026-10-26T01:13:48Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-26T00:29:09Z",
+    "watchlist_checked_at": "2026-10-26T01:13:48Z",
     "watchlist_errors": [],
     "watchlist_failed_count": 0,
     "trending_count": 11,
-    "verified_count": 11,
-    "metadata_failed_count": 0,
-    "metadata_status": "success",
-    "skipped": []
+    "verified_count": 0,
+    "metadata_failed_count": 11,
+    "metadata_status": "partial",
+    "skipped": [
+      "makecindy/cindy: HTTP Error 403: Forbidden",
+      "Nutlope/hallmark: HTTP Error 403: Forbidden",
+      "debpalash/VoiceStudio: HTTP Error 403: Forbidden",
+      "pbakaus/impeccable: HTTP Error 403: Forbidden",
+      "pollen-robotics/microduck: HTTP Error 403: Forbidden",
+      "TauricResearch/TradingAgents: HTTP Error 403: Forbidden"
+    ]
   },
   "watchlist": [
     {
@@ -807,12 +825,12 @@
         "Agent",
         "MCP"
       ],
-      "stars": 384607,
-      "forks": 96266,
+      "stars": 384776,
+      "forks": 96315,
       "repo_created_at": "2026-04-14T00:51:32Z",
       "repo_pushed_at": "2026-10-25T19:21:28Z",
       "language": "TypeScript",
-      "verified_at": "2026-10-26T00:29:09Z",
+      "verified_at": "2026-10-26T01:13:48Z",
       "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
     }
   ]
