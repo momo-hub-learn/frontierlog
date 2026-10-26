@@ -32,6 +32,14 @@
 .d-opening{padding:36px 0 2px}
 .d-opening p,.d-section>p{font-size:1rem;line-height:1.88;color:var(--sub);margin:0 0 15px}
 .d-opening-lead{font-size:1.1rem!important;line-height:1.84!important;color:var(--text)!important;font-weight:520}
+/* Primary background reading: visible beside the first context paragraph, not buried in footnotes. */
+.d-background-sources{margin:2px 0 22px;padding:12px 15px;border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 9px 9px 0;min-width:0}
+.d-background-label{display:block;color:var(--accent);font-size:.75rem;font-weight:720;margin-bottom:6px}
+.d-background-links{display:grid;gap:5px;min-width:0}
+.d-background-links a{display:block;max-width:100%;overflow-wrap:anywhere;line-height:1.6;font-size:.8rem;color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.d-background-links a strong{font-weight:700;color:var(--accent)}
+.d-background-links a:hover{color:var(--accent)}
+.d-background-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .d-opening-lead:first-letter{font-size:1.82rem;font-weight:800;line-height:1;float:left;margin:7px 6px 0 0;color:var(--text)}
 .d-section{padding:46px 0 0;scroll-margin-top:88px}
 .d-section.is-ending{padding-top:54px;margin-top:10px}
