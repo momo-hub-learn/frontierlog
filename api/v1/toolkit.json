@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "huggingface-hub-cli-2-3",
+      "publisher": "Hugging Face",
+      "group": "agents",
+      "access": "local",
+      "headline": "先验证共享缓存与清理，再接入 Jobs、Bucket 或 Sandbox",
+      "input": "两个可公开下载的小模型仓库、独立缓存目录，以及一个无敏感数据、可取消的小型批处理任务",
+      "output": "缓存命中和磁盘占用记录、清理结果、Job 的日志/重试/取消证据，以及权限与费用边界清单",
+      "requirements": "Python 3.10+、huggingface_hub 2.3.0、独立测试缓存目录；Jobs、Buckets 或 Sandboxes 还需要相应 Hugging Face 账号权限和可用服务。",
+      "limitation": "本站核验官方博客与 v2.3.0 Release，但未运行命令。Sandboxes 仍是实验能力；共享缓存不会消除网络、磁盘和依赖故障。官方 Agent skill 的 28 项测试是供应商自测，不能当作本站 Benchmark 或模型能力排名。",
+      "cost": "客户端开源；模型下载、Jobs 算力、Sandbox、Storage Buckets、网络和存储的实际费用与限制取决于账号、硬件、区域和用量。",
+      "steps": [
+        {
+          "title": "固定版本与隔离缓存",
+          "body": "在临时环境安装 2.3.0，记录 Python、客户端版本、缓存目录和两个样本仓库；不要先迁移生产缓存。",
+          "command": "python -m venv .venv-hf23\n. .venv-hf23/bin/activate\npython -m pip install \"huggingface_hub==2.3.0\"\nhf version"
+        },
+        {
+          "title": "验证共享缓存与清理",
+          "body": "依次下载两个含重复文件的公开小仓库，比较缓存占用；先 dry-run 或列出目标，再验证 hf cache rm 和 hf cache prune 的退出状态与剩余文件。"
+        },
+        {
+          "title": "再接一条可取消任务",
+          "body": "用无敏感数据的小任务测试 Job 日志、重试、调度、Webhook 或取消；Sandbox 和 Bucket 单独评估权限、隔离、持久化、费用与回滚。"
+        }
+      ],
+      "troubleshooting": "缓存未复用时核对客户端版本、HF_HOME、文件哈希与 Xet 后端；清理前先列出目标并保留回滚样本。Job 或 Sandbox 失败时分别检查账号权限、区域、硬件、镜像、日志和费用，不把服务端失败归因成模型能力。",
+      "sources": [
+        {
+          "title": "Hugging Face：What's new in the hf CLI and huggingface_hub library",
+          "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
+        },
+        {
+          "title": "huggingface_hub v2.3.0 官方 Release",
+          "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-27"
+        }
+      ],
+      "entry_url": "https://huggingface.co/docs/huggingface_hub/main/en/guides/cli",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-27T07:21:54+08:00"
+    },
+    {
       "id": "openai-gpt-6-1-terra",
       "publisher": "OpenAI",
       "group": "agents",

@@ -419,7 +419,13 @@
 
 边界：这是作者预印本、项目页和公开评测，本站未运行。13 个基线在不同任务和指标上各有取舍，不能把单列最优值拼成综合能力；原始视频获取、模型成本、隐私与长期误报也未由这套分数解决。
 
-站内热度 88；不是全网流量。</description></item><item><title>NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径</title><guid isPermaLink="false">frontierlog:hot:nvidia-nemo-automodel-0-7-20261021</guid><link>https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。
+站内热度 88；不是全网流量。</description></item><item><title>Hugging Face Hub 2.3：共享缓存与 Jobs 编排集中升级</title><guid isPermaLink="false">frontierlog:hot:huggingface-hub-cli-2-3-20261026</guid><link>https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 汇总 huggingface_hub 2.3 的共享 Xet 缓存、缓存清理、Jobs 重试/重跑/定时/Webhook、实验性 Sandboxes 与 Storage Buckets；官方 v2.3.0 Release 已于 10 月 22 日发布。
+
+为什么值得看：下载、计算、调度和存储开始被压进同一套 Hub CLI / Python 接口，能减少跨仓库重复缓存，也让小型 Agent 工作流有更清晰的自动化入口。
+
+边界：本站核验官方博客与 GitHub Release，但未运行命令。Sandboxes 仍标为实验性；Jobs、Buckets、算力与存储受账号、权限、区域和费用约束。官方用 DeepSeek V4.1 Flash 与 Kimi K3 做的 28 项 CLI skill 对照是供应商自测，不能外推为模型综合能力或本站 Benchmark。
+
+站内热度 87；不是全网流量。</description></item><item><title>NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径</title><guid isPermaLink="false">frontierlog:hot:nvidia-nemo-automodel-0-7-20261021</guid><link>https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。
 
 为什么值得看：同一套 PyTorch 原生训练接口开始覆盖更分散的后训练与生成范式。做模型适配的团队可先用官方小配方验证配置、并行策略和显存，再决定是否迁移真实训练任务。
 

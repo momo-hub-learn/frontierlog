@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-26T21:33:18Z",
+  "generated_at": "2026-10-26T23:32:41Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
-    "merge": 76,
+    "merge": 77,
     "hold": 3
   },
   "candidates": [
@@ -86,6 +86,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-gpt-6-1-terra",
       "first_seen_at": "2026-10-26T19:34:25Z"
+    },
+    {
+      "id": "candidate-f1807b40775d91b3",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "Hugging Face 汇总 Hub CLI 2.3 的缓存与任务编排升级",
+      "summary": "共享 Xet 缓存、缓存清理、Jobs 重试/定时/Webhook、实验性 Sandboxes 与 Storage Buckets 进入同一套官方工作流。",
+      "why": "Hub 自动化从下载客户端扩展为可调度的运行与存储入口；实验状态、权限、费用和供应商自测边界仍需在真实环境逐项验证。",
+      "boundary": "共享缓存能减少重复字节，不等于磁盘、网络或依赖问题自动消失；Sandboxes 仍标为实验性，Jobs、Buckets 与算力会受账号、区域、硬件、权限和费用约束。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
+      "source": "Hugging Face",
+      "source_kind": "官方功能综述、示例与限制",
+      "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "huggingface-hub-cli-2-3",
+      "first_seen_at": "2026-10-26T23:32:41Z"
     },
     {
       "id": "candidate-92ca2707f4cec9ad",
@@ -964,30 +988,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "ibm-granite-speech-5",
       "first_seen_at": "2026-10-21T17:48:39Z"
-    },
-    {
-      "id": "candidate-9f05dff55ada20e0",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Auto Ontology 作为 Agent Knowledge Foundation 组件开放",
-      "summary": "NVIDIA 开放 ontology 生成、认证、查询验证与 MCP/API 暴露路径，并把它与检索、预测和 CUDA-X 数据组件放入同一可组合基础层。",
-      "why": "企业 Agent 可以在既有数据平台上单独检查业务定义、来源和权限，而不是只比较最终回答；生产接入前仍需独立验证查询准确率与凭据存储。",
-      "boundary": "官方 90% ontology 创建时间降幅来自 NVIDIA 测试。默认模型路径需要 NVIDIA NIM；若未配置 Vault，通过 UI 新增的数据源凭据会以明文存入 Postgres。本站未安装或运行。",
-      "source": "NVIDIA",
-      "source_kind": "官方平台发布",
-      "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-auto-ontology",
-      "first_seen_at": "2026-10-22T05:26:27Z"
     }
   ]
 }

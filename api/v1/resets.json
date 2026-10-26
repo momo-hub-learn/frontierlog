@@ -486,6 +486,36 @@
       "not_proves": "未证明每个账户的界面或余额已经更新、适用套餐与额度恢复幅度，也未说明 banked / global 的后台实现。",
       "post_id": "2114237083652882932",
       "relation": "original"
+    },
+    {
+      "id": "tibo-global-confirmed-2026-10-26-day21",
+      "kind": "global",
+      "status": "confirmed",
+      "date": "2026-10-26",
+      "published_at": "2026-10-26T05:21:22.546Z",
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 确认 Day 21 是 reset",
+      "summary": "Tibo 在本人 X 原帖以 Day 21 开头，并明确写下“But today is a reset.”；这是可直接核验的一手 reset 确认。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖未列出套餐、账户范围或后台 reset 类型",
+      "boundary": "原帖能确认 Tibo 宣布当日是 reset，但没有说明传播完成，也不能证明每个账户已经显示新额度、具体套餐、恢复幅度、banked / global 后台机制或个人余额。",
+      "sources": [
+        "tibo-post-2114588174249071102"
+      ],
+      "reviewed": "2026-10-27",
+      "verified_at": "2026-10-27T07:21:54+08:00",
+      "review_basis": "primary_source",
+      "related_ids": [
+        "tibo-global-confirmed-2026-10-25-day20"
+      ],
+      "original_text": "But today is a reset.",
+      "conversation_context": "本人原帖讨论剩余七天会发生什么，并以明确现在时确认当日 reset；原帖没有附带 rollout 完成或套餐范围说明。",
+      "interpretation": "这是一条可直接核验的一手 reset 确认，因此记录原帖真实发布时间；由于没有传播完成表述，不把它升级为每个账户已到账。",
+      "evidence_strength": "high",
+      "semantic_type": "explicit_reset_confirmation",
+      "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
+      "post_id": "2114588174249071102",
+      "relation": "original"
     }
   ],
   "sources": [
@@ -749,6 +779,15 @@
       "checked": "2026-10-26",
       "kind": "官方原帖",
       "note": "本人原帖明确写下“It is all propagated”；状态 ID 的 Snowflake 时间对应 2026-10-25T06:06:16.025Z。"
+    },
+    {
+      "id": "tibo-post-2114588174249071102",
+      "publisher": "Tibo / X",
+      "title": "Day 21 reset confirmation",
+      "url": "https://x.com/thsottiaux/status/2114588174249071102",
+      "checked": "2026-10-27",
+      "kind": "官方原帖",
+      "note": "本人原帖明确写下“But today is a reset.”；状态 ID 的 Snowflake 时间对应 2026-10-26T05:21:22.546Z。原帖未声称传播已经完成。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

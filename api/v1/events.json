@@ -2,6 +2,22 @@
   "snapshot": "2026-10-27",
   "events": [
     {
+      "id": "hf-hub-cli-2-3-release",
+      "task": "huggingface-hub-cli-2-3",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "Hugging Face 汇总 Hub CLI 2.3 的缓存与任务编排升级",
+      "summary": "共享 Xet 缓存、缓存清理、Jobs 重试/定时/Webhook、实验性 Sandboxes 与 Storage Buckets 进入同一套官方工作流。",
+      "delta": "Hub 自动化从下载客户端扩展为可调度的运行与存储入口；实验状态、权限、费用和供应商自测边界仍需在真实环境逐项验证。",
+      "sources": [
+        "hf-hub-cli-20261026-blog",
+        "hf-hub-2-3-release"
+      ],
+      "reviewed": "2026-10-27",
+      "tag": "v2.3.0",
+      "short_title": "共享缓存与 Jobs 编排升级"
+    },
+    {
       "id": "openai-gpt-6-1-terra-release",
       "task": "openai-gpt-6-1-terra",
       "date": "2026-10-26",
@@ -519,6 +535,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "hf-hub-cli-20261026-blog",
+      "title": "What's new in the hf CLI and huggingface_hub library",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T07:21:54+08:00",
+      "kind": "官方功能综述、示例与限制"
+    },
+    {
+      "id": "hf-hub-2-3-release",
+      "title": "huggingface_hub v2.3.0",
+      "publisher": "Hugging Face",
+      "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0",
+      "published": "2026-10-22",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T07:21:54+08:00",
+      "kind": "官方 GitHub Release 与变更清单"
+    },
     {
       "id": "openai-gpt-6-1-terra-release",
       "title": "Introducing GPT-6.1 Terra",

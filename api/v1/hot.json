@@ -36,6 +36,60 @@
   ],
   "items": [
     {
+      "id": "huggingface-hub-cli-2-3-20261026",
+      "category": "product",
+      "title": "Hugging Face Hub 2.3：共享缓存与 Jobs 编排集中升级",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T07:21:54+08:00",
+      "first_seen_at": "2026-10-27T07:21:54+08:00",
+      "heat": 87,
+      "heat_components": {
+        "impact": 27,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Hub 下载量、Agent Benchmark、模型能力或本站实测分数。",
+      "trend": "up",
+      "summary": "Hugging Face 汇总 huggingface_hub 2.3 的共享 Xet 缓存、缓存清理、Jobs 重试/重跑/定时/Webhook、实验性 Sandboxes 与 Storage Buckets；官方 v2.3.0 Release 已于 10 月 22 日发布。",
+      "why": "下载、计算、调度和存储开始被压进同一套 Hub CLI / Python 接口，能减少跨仓库重复缓存，也让小型 Agent 工作流有更清晰的自动化入口。",
+      "boundary": "本站核验官方博客与 GitHub Release，但未运行命令。Sandboxes 仍标为实验性；Jobs、Buckets、算力与存储受账号、权限、区域和费用约束。官方用 DeepSeek V4.1 Flash 与 Kimi K3 做的 28 项 CLI skill 对照是供应商自测，不能外推为模型综合能力或本站 Benchmark。",
+      "source": "Hugging Face",
+      "source_kind": "官方博客 + 官方 GitHub Release / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+      "link": "#/toolkit?task=huggingface-hub-cli-2-3&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Hub CLI 2.3 功能综述",
+          "note": "核对共享缓存、Jobs、Sandbox、Bucket 与官方测试边界",
+          "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+          "kind": "docs"
+        },
+        {
+          "label": "查看 v2.3.0 Release",
+          "note": "核对正式版本、变更清单与修复",
+          "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0",
+          "kind": "release"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "What's new in the hf CLI and huggingface_hub library",
+          "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+          "date": "2026-10-26"
+        },
+        {
+          "source": "Hugging Face GitHub",
+          "title": "huggingface_hub v2.3.0",
+          "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
       "id": "openai-gpt-6-1-terra-20261026",
       "category": "model",
       "title": "GPT-6.1 Terra：把视觉理解接到电脑操作",
