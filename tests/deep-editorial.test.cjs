@@ -24,6 +24,33 @@ assert.equal(ctx.__select.dCurrent().id,'jev-agent-decision-layer');
 const diagram=ctx.__select.dMiniFlow(rea);
 assert.match(diagram,/REA \+ MCP/);
 assert(!diagram.includes('Jev'));
+// Background references are curated for each article and appear immediately after the opening context.
+for(const article of deep.articles){
+ assert(article.background_refs?.length,article.id+' needs a background source link');
+ assert(article.background_refs.every(id=>article.sources.some(s=>s.id===id)),article.id+' has an unknown background ref');
+}
+const bgStart=source.indexOf('function dBackgroundSources(a){');
+const bgEnd=source.indexOf('function dToc(a){',bgStart);
+assert(bgStart>=0&&bgEnd>bgStart);
+const bgCtx={
+ esc:x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'),
+ safeLink:x=>String(x),
+ dSourceMap:a=>new Map(a.sources.map((s,i)=>[s.id,{...s,index:i+1}]))
+};
+vm.runInNewContext(source.slice(bgStart,bgEnd)+'\nthis.__opening=dOpening;',bgCtx);
+for(const article of deep.articles){
+ const html=bgCtx.__opening(article);
+ const firstParagraphEnd=html.indexOf('</p>');
+ const backgroundStart=html.indexOf('class="d-background-sources"');
+ assert(backgroundStart>firstParagraphEnd,article.id+' background link must follow the opening context');
+ assert(backgroundStart<html.indexOf('<p',firstParagraphEnd+4),article.id+' background link should precede the second paragraph');
+ for(const id of article.background_refs){
+  const src=article.sources.find(s=>s.id===id);
+  assert(html.includes('href="'+src.url+'"'),article.id+' missing original source '+id);
+ }
+ assert(html.includes('rel="noopener noreferrer"'),article.id+' missing safe new-tab link rel');
+}
+assert(!bgCtx.__opening({...rea,background_refs:[]}).includes('d-background-sources'));
 assert(source.includes('dOtherReads(a)'));
 const cockpit=fs.readFileSync(path.join(root,'src/feed-cockpit.js'),'utf8');
 const start=cockpit.indexOf('function fcDeepPanel(){');
