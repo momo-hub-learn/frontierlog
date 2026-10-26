@@ -7,6 +7,12 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from topics import topic_rss, validate_topics
 
 class EditorialContracts(unittest.TestCase):
+ def test_sidebar_date_names_the_dataset_it_actually_describes(self):
+  html=(ROOT/'src/index.html').read_text()
+  app=(ROOT/'src/app.js').read_text()
+  self.assertIn('<span>垂类资料核对</span><code id="snapshot-date">',html)
+  self.assertNotIn('<span>资料快照</span><code id="snapshot-date">',html)
+  self.assertIn("$('#snapshot-date').textContent=VERT.checked",app)
  def test_topic_rss_grows_and_shrinks_without_losing_identity(self):
   base=json.loads((ROOT/'data/industry.json').read_text())
   source=copy.deepcopy(base['articles'][0])
