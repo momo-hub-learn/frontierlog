@@ -47,11 +47,24 @@
   "boards": {
     "coding": {
       "checked": "2026-09-22",
-      "source_checked": "2026-10-22",
-      "title": "Coding Agent Index",
+      "source_checked": "2026-10-26",
+      "verified_at": "2026-10-26T21:22:00+08:00",
+      "title": "Coding Agent Index v1.5 · 历史快照",
       "source": "Artificial Analysis",
       "url": "https://artificialanalysis.ai/agents/coding-agents",
-      "note": "模型、Agent Harness 与执行设置共同决定结果。GPT-6 Sol (max) 已按 Artificial Analysis 9 月 22 日 Coding Agent Index v1.5 的 Codex harness 结果更新；Grok Build 保留 Grok 4.7 当前快照。",
+      "methodology_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "evidence_level": "official",
+      "lifecycle": "historical_snapshot",
+      "snapshot_version": "1.5",
+      "current_version": "2.0",
+      "current_components": [
+        "FrontierCode v1.1 · 100 tasks",
+        "Terminal-Bench 4.0 · 66 tasks",
+        "SWE-Atlas-QnA-AA · 124 tasks"
+      ],
+      "current_method": "三项等权；每个任务运行 3 次。v2.0 已用 FrontierCode v1.1 替换 DeepSWE，并调整 SWE-Atlas-QnA-AA 的评分。",
+      "comparability": "下方 5 条分数来自 2026-09-22 的 v1.5 快照，只能在同版内比较；不能与当前 v2.0 分数混排或推断当前领先者。",
+      "note": "模型、Agent Harness 与执行设置共同决定结果。下方保留 Artificial Analysis 2026-09-22 的 v1.5 快照供追溯，未把旧分数改写为 v2.0。",
       "primary": "index",
       "columns": [
         {

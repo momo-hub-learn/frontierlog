@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'test-results/arena'
 OUT.mkdir(parents=True,exist_ok=True)
 MODEL_DATA=json.loads((ROOT/'data/models.json').read_text())
+CAP_DATA=json.loads((ROOT/'data/capabilities.json').read_text())
 # Derive volatile ranks, labels and dates from the committed dataset so this
 # check protects the rendering contract without freezing a news snapshot.
 ARENA=next(board for board in MODEL_DATA['boards'] if board['id']=='arena')
@@ -157,7 +158,8 @@ try:
             go(route);expect(page.locator(selector)).to_be_visible()
             if route=='#/models?cap=coding':
                 freshness=page.locator('.v3-cap-source small').inner_text()
-                assert '分数快照 2026-09-22' in freshness and '官方来源复核 2026-10-22' in freshness
+                coding=CAP_DATA['boards']['coding']
+                assert f"分数快照 {coding['checked']}" in freshness and f"官方来源复核 {coding['source_checked']}" in freshness
                 expect(page.locator('#v3-cap-search')).to_have_attribute('aria-label','搜索Coding Agent模型、厂商或 Harness')
                 expect(page.locator('#v3-cap-maker')).to_have_attribute('aria-label','筛选Coding Agent模型厂商')
         passed(('Activity header and horizontal product timeline smoke checks; capability HTTP loading deferred to CI' if MEMORY else 'Coding/world models, activity header and horizontal product timeline smoke checks'))

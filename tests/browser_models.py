@@ -78,6 +78,15 @@ with sync_playwright() as p:
  ok('model methodology keeps preference scope separate from general capability')
  route(page,'#/models?cap=coding')
  expect(page.locator('.v3-capnav a.active')).to_have_attribute('aria-current','page')
+ expect(page.locator('.v3-version-notice')).to_have_count(1)
+ notice=page.locator('.v3-version-notice').inner_text()
+ for label in ['当前官方口径','Coding Agent Index v2.0','FrontierCode v1.1 · 100 tasks','Terminal-Bench 4.0 · 66 tasks','SWE-Atlas-QnA-AA · 124 tasks','本页分数是 v1.5 历史快照','不能与当前 v2.0 分数混排']:
+  assert label in notice
+ expect(page.locator('.v3-version-warning a')).to_have_attribute('href','https://artificialanalysis.ai/methodology/coding-agents-benchmarking')
+ assert 'Coding Agent Index v1.5 · 历史快照' in page.locator('.v3-boardline').inner_text()
+ assert 'DeepSWE' in page.locator('.v3-metric-tabs').inner_text()
+ shot(page,'models-coding-version.png',True)
+ ok('superseded Coding Agent v1.5 scores stay historical while the current v2.0 method is explicit')
  expect(page.locator('.v3-metric-tabs button.active')).to_have_attribute('aria-pressed','true')
  for button in page.locator('.v3-metric-tabs button').all():
   expect(button).to_have_attribute('aria-pressed','true' if 'active' in (button.get_attribute('class') or '') else 'false')
@@ -113,7 +122,7 @@ with sync_playwright() as p:
   metrics=page.locator('.v3-metric-tabs')
   if width<=760:assert metrics.evaluate("e=>getComputedStyle(e).overflowX==='auto'")
   if width==390:
-   shot(page,'tibo-mobile.png',True);route(page,'#/models');shot(page,'models-mobile.png',True)
+   shot(page,'models-coding-version-mobile.png',True);route(page,'#/tibo');shot(page,'tibo-mobile.png',True);route(page,'#/models');shot(page,'models-mobile.png',True)
  route(page,'#/models?model=aa-astra-max');expect(page.locator('dialog[open]')).to_have_count(1)
  assert page.locator('dialog[open]').evaluate('e=>e.scrollWidth<=e.clientWidth+1');page.keyboard.press('Escape')
  ok('1024/790/390/360px layouts, scoped table scrolling and narrow evidence drawer')

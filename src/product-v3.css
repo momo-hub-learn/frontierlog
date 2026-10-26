@@ -102,3 +102,15 @@
  .ar-resultline{font-size:.8125rem;align-items:flex-start;margin-bottom:8px}.ar-resultline>span{padding-top:5px}
  .ar-footnote{font-size:.8125rem}
 }
+
+/* A superseded benchmark must read as historical before its scores are seen. */
+.v3-version-notice{display:grid;grid-template-columns:minmax(210px,.8fr) minmax(300px,1.2fr) minmax(280px,1fr);gap:16px;align-items:start;margin:0 0 16px;padding:16px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:12px;background:color-mix(in srgb,var(--accent-bg) 55%,var(--panel))}
+.v3-version-notice>div>span{display:block;font-size:.68rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.v3-version-notice strong{font-size:.92rem;line-height:1.45}
+.v3-version-notice p{font-size:.74rem;line-height:1.6;color:var(--sub);margin:5px 0 0}
+.v3-version-notice ul{display:grid;gap:5px;margin:0;padding:0;list-style:none}
+.v3-version-notice li{font-size:.72rem;line-height:1.45;color:var(--text);padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+.v3-version-warning{border-left:3px solid var(--accent);padding-left:12px}
+.v3-version-warning a{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:.72rem;margin-top:7px}
+.v3-version-warning .ico{width:12px;height:12px}
+@media(max-width:760px){.v3-version-notice{grid-template-columns:1fr;padding:13px;gap:12px}}

@@ -253,7 +253,19 @@ class BuildTests(unittest.TestCase):
     def test_capability_boards_keep_independent_source_dates_and_current_leaders(self):
         caps=json.loads((ROOT/'data/capabilities.json').read_text())
         self.assertEqual(caps['boards']['coding']['checked'],'2026-09-22')
-        self.assertEqual(caps['boards']['coding']['source_checked'],'2026-10-22')
+        coding=caps['boards']['coding']
+        self.assertEqual(coding['source_checked'],'2026-10-26')
+        self.assertEqual(coding['lifecycle'],'historical_snapshot')
+        self.assertEqual(coding['snapshot_version'],'1.5')
+        self.assertEqual(coding['current_version'],'2.0')
+        self.assertEqual(coding['current_components'],[
+            'FrontierCode v1.1 · 100 tasks',
+            'Terminal-Bench 4.0 · 66 tasks',
+            'SWE-Atlas-QnA-AA · 124 tasks',
+        ])
+        self.assertIn('不能与当前 v2.0 分数混排',coding['comparability'])
+        self.assertEqual(coding['columns'][1]['label'],'DeepSWE')
+        self.assertEqual(coding['methodology_url'],'https://artificialanalysis.ai/methodology/coding-agents-benchmarking')
         self.assertEqual(caps['boards']['s2s']['checked'],'2026-10-22')
         self.assertEqual(caps['boards']['s2s']['rows'][0]['name'],'Grok Voice 3.0')
         self.assertEqual(caps['boards']['s2s']['rows'][0]['index'],86.9)
@@ -268,6 +280,8 @@ class BuildTests(unittest.TestCase):
             self.assertIn('榜单数据核对',html)
             self.assertIn('分数快照',html)
             self.assertIn('官方来源复核',html)
+            self.assertIn('function capVersionNotice',html)
+            self.assertIn('本页分数是 v',html)
 
     def test_voxtral3_is_actionable_without_claiming_runtime_test(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
