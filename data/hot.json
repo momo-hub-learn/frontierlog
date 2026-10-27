@@ -79,6 +79,49 @@
       ]
     },
     {
+      "id": "openai-coderabbit-sol-security-20261026",
+      "category": "product",
+      "title": "CodeRabbit：用 GPT-6.1 Sol 做跨仓库安全审查",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T19:26:55+08:00",
+      "first_seen_at": "2026-10-27T19:26:55+08:00",
+      "heat": 88,
+      "heat_components": {
+        "impact": 31,
+        "availability": 20,
+        "evidence": 23,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是漏洞检出率、修复正确率、模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方合作案例 · 合作方自报",
+      "summary": "CodeRabbit 的安全 Agent 以 GPT-6.1 Sol 为主模型，在 PR、Deep Scan 与关联仓库上下文中调查跨文件问题；用户选中的发现可在隔离沙箱尝试验证，并起草修复 PR 交给人审。",
+      "why": "安全代码 Agent 开始把跨仓库证据、隔离验证与修复草案串进现有 PR 流程；比单次代码补全更接近可审计的工程闭环。",
+      "boundary": "这是 OpenAI 与 CodeRabbit 的合作案例，未公开可复现的统一准确率，本站也未实测。CodeRabbit 还会组合其他模型、工具与传统扫描器；沙箱验证只针对用户选中的受支持发现且不在生产环境运行，最终变更必须由人审决定。",
+      "source": "OpenAI",
+      "source_kind": "官方安全案例 / 合作方部署说明",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+      "link": "#/progress?task=openai-coderabbit-secure",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读安全案例",
+          "note": "核对跨仓库调查、隔离验证、修复草案与人工审批边界",
+          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "GPT-6.1 Sol helps CodeRabbit strengthen security with advanced code reasoning",
+          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
       "id": "openai-signals-v3-work-activities-20261026",
       "category": "industry",
       "title": "OpenAI Signals v3：工作使用扩散到 165 类活动",

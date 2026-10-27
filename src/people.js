@@ -96,7 +96,10 @@ const PeopleUI = (() => {
    stream(data,{...s,area:'all',role:'all',q:'',following:false,discover:false},saved,now,p.id)+'</article>';
  }
  function controls(data,s,saved) {
-  const chip=(field,id,title)=>nav(s,{[field]:id,person:''},h(title),'pp-filter '+(s[field]===id?'active':''));
+  const chip=(field,id,title)=>{
+   const active=s[field]===id;
+   return '<a class="pp-filter '+(active?'active':'')+'" data-people-link href="'+h(href(s,{[field]:id,person:''}))+'"'+(active?' aria-current="true"':'')+'>'+h(title)+'</a>';
+  };
   return '<div class="pp-controls"><label class="pp-search"><span aria-hidden="true">⌕</span><input id="pp-search" type="search" autocomplete="off" aria-label="搜索人物、作品与方向" placeholder="搜索姓名、作品、研究问题…" value="'+h(s.q)+'"><kbd>/</kbd></label><label class="pp-role">贡献类型<select id="pp-role"><option value="all">全部类型</option>'+data.roles.map(x=>'<option value="'+x.id+'"'+(s.role===x.id?' selected':'')+'>'+h(x.title)+'</option>').join('')+'</select></label></div><nav class="pp-filters" aria-label="人物研究方向">'+chip('area','all','全部方向')+data.areas.map(x=>chip('area',x.id,x.title)).join('')+'</nav><div class="pp-options"><label><input id="pp-following" type="checkbox"'+(s.following?' checked':'')+'>只看关注 <span>'+saved.size+'</span></label><label><input id="pp-discover" type="checkbox"'+(s.discover?' checked':'')+'>从作品发现</label>'+nav(s,{q:'',area:'all',role:'all',following:false,discover:false,person:''},'清除筛选','pp-reset')+'</div>';
  }
  function page(data,s,saved=new Set(),now=Date.now()) {
@@ -106,7 +109,7 @@ const PeopleUI = (() => {
    const list=rows(data,s,saved,now),n=s.view==='updates'?events(data,s,saved,now).length:list.length;
    content='<header class="pp-head"><div><p class="pp-kicker">PEOPLE / IDEAS / WORK</p><h1>AI 人物</h1><p>最近谁有新进展？也看看他们做过什么。</p></div><div class="pp-stats"><span><b>'+data.people.length+'</b>人物档案</span><span><b>'+data.events.length+'</b>公开记录</span><span><b>'+saved.size+'</b>我的关注</span></div></header>'+
    '<div class="pp-principle"><strong>最近更新优先 · 一人一卡</strong><span>按已收录动态的原始发布日期倒序；同日更新保持稳定顺序。暂无动态者置后保留，核验日期不参与排序。</span></div>'+
-   '<nav class="pp-tabs" aria-label="人物视图">'+[['directory','人物目录'],['influence','影响力地图'],['updates','人物动态']].map(([id,title])=>'<a data-people-link href="'+h(href(s,{view:id,person:''}))+'"'+(s.view===id?' aria-current="page"':'')+'>'+title+'</a>').join('')+'</nav>'+(s.view==='influence'?'<section class="pp-influence-guide"><h2>按证据看影响，而不是给人打分</h2><p>学术：论文与方法贡献；生态：开源框架、工具与开发者实践；产业：组织推动的产品与落地。维度可并列，不能由作品数量直接推出贡献大小，也不能当作综合实力排行榜。</p><nav aria-label="影响力方向">'+[['all','全部维度'],...Object.entries(impactTitles)].map(([id,label])=>nav(s,{dim:id,person:''},h(label),'pp-filter '+(s.dim===id?'active':''))).join('')+'</nav></section>':'')+controls(data,s,saved)+
+   '<nav class="pp-tabs" aria-label="人物视图">'+[['directory','人物目录'],['influence','影响力地图'],['updates','人物动态']].map(([id,title])=>'<a data-people-link href="'+h(href(s,{view:id,person:''}))+'"'+(s.view===id?' aria-current="page"':'')+'>'+title+'</a>').join('')+'</nav>'+(s.view==='influence'?'<section class="pp-influence-guide"><h2>按证据看影响，而不是给人打分</h2><p>学术：论文与方法贡献；生态：开源框架、工具与开发者实践；产业：组织推动的产品与落地。维度可并列，不能由作品数量直接推出贡献大小，也不能当作综合实力排行榜。</p><nav aria-label="影响力方向">'+[['all','全部维度'],...Object.entries(impactTitles)].map(([id,label])=>{const active=s.dim===id;return '<a class="pp-filter '+(active?'active':'')+'" data-people-link href="'+h(href(s,{dim:id,person:''}))+'"'+(active?' aria-current="true"':'')+'>'+h(label)+'</a>'}).join('')+'</nav></section>':'')+controls(data,s,saved)+
    '<p class="pp-results" role="status">'+n+(s.view==='updates'?' 条已收录记录 · 按原始日期排列':s.view==='influence'?' 位人物 · 最近更新优先 · 影响力维度不是名次':' 位匹配人物 · 最近更新优先 · 暂无动态者置后')+'</p>'+
    (s.view==='updates'?stream(data,s,saved,now):list.length?'<div class="pp-grid">'+list.map(p=>card(p,data,s,saved,now)).join('')+'</div>':'<div class="pp-empty"><h2>'+(s.following&&!saved.size?'还没有关注人物':'没有匹配人物')+'</h2><p>可以搜索作品，也可以放宽筛选条件。</p>'+nav(s,{q:'',area:'all',role:'all',following:false,discover:false},'浏览全部人物','pp-more')+'</div>');
   }

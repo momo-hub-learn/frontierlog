@@ -123,6 +123,11 @@ with sync_playwright() as pw:
   for hash in ['#/people','#/people?person=shreya-shankar','#/people?person=kaiming-he','#/people?view=influence','#/people?view=updates']:
    route(hash);no_overflow()
   ok(f'{width}px: directory, profiles and activity have no horizontal overflow')
+ page.set_viewport_size({'width':390,'height':1080});route('#/people')
+ expect(page.locator('.pp-filter.active')).to_have_attribute('aria-current','true')
+ assert min(page.locator('.pp-filter').evaluate_all("els=>els.map(e=>e.getBoundingClientRect().height)"))>=44
+ assert page.locator('.pp-reset').evaluate("e=>e.getBoundingClientRect().height")>=44
+ ok('Mobile people filters expose current state and 44px touch targets')
  for width,label,hash in [(1440,'directory-desktop','#/people'),(390,'directory-mobile','#/people'),(1440,'profile-desktop','#/people?person=kaiming-he'),(390,'profile-mobile','#/people?person=shyam-sankar'),(1440,'updates-desktop','#/people?view=updates')]:
   page.set_viewport_size({'width':width,'height':1080});route(hash);page.evaluate('scrollTo(0,0)')
   page.screenshot(path=str(OUT/(label+'.png')))

@@ -130,7 +130,11 @@ class ValidationTests(unittest.TestCase):
   self.assertIsNone(rows[1]['speed'])
  def test_arena_oct22_excerpt_preserves_official_rank_uncertainty_and_preliminary(self):
   board=next(x for x in M['boards'] if x['id']=='arena')
-  self.assertEqual((board['as_of'],board['checked']),('2026-10-22','2026-10-23'))
+  self.assertEqual(board['as_of'],'2026-10-22')
+  self.assertGreaterEqual(board['checked'],board['as_of'])
+  source=next(x for x in M['sources'] if x['id']==board['source'])
+  self.assertEqual(source['published'],board['as_of'])
+  self.assertEqual(source['checked'],board['checked'])
   self.assertEqual([x['source_rank'] for x in board['rows']],[1,2,3,4,5,18,21,26])
   leader=board['rows'][0]
   self.assertEqual((leader['name'],leader['preference'],leader['score_error'],leader['votes']),

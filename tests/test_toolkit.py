@@ -29,6 +29,14 @@ class ToolkitTests(unittest.TestCase):
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
         self.assertEqual(row['publisher'],'OpenAI')
+    def test_coderabbit_security_guide_keeps_sandbox_and_human_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-coderabbit-secure')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('未运行',row['limitation'])
+        self.assertIn('不能把结果归因于 GPT-6.1 Sol 单独完成',row['limitation'])
+        self.assertIn('无生产网络',row['steps'][1]['body'])
+        self.assertIn('不启用自动合并',row['steps'][-1]['body'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-26')
     def test_sources_and_dates_required(self):
         for key,value in [('url','https://untrusted.example/a'),('url','https://github.com@evil.example/a'),('url','javascript:alert(1)'),('verified_at','2099-01-01'),('verified_at','2026-09'),('published_at','2099-01-01')]:
             with self.subTest(key=key,value=value):
