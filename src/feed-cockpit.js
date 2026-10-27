@@ -59,6 +59,7 @@ function fcGithubPanel(){
  const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
   '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub 热仓</h2></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
+  (partial?'<div class="fc-gh-data-state" role="status">仓库资料部分沿用旧快照 · '+metadataFailures+' 个上榜项'+(watchFailures?' · '+watchFailures+' 个长期关注项':'')+'</div>':'')+
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+

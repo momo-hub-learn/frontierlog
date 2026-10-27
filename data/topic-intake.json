@@ -1,5 +1,5 @@
 {
-  "last_attempt": "2026-10-27T07:23:05.703548Z",
+  "last_attempt": "2026-10-27T09:22:19.116688Z",
   "last_success": "2026-10-27T07:23:05.703548Z",
   "last_full_success": "2026-10-27T07:23:05.703548Z",
   "items": [
@@ -1011,29 +1011,39 @@
     {
       "id": "github-bionemo-framework",
       "name": "NVIDIA BioNeMo Framework releases",
-      "status": "success",
-      "checked_at": "2026-10-27T07:23:05.703548Z",
-      "parsed": 14,
-      "matched": 14
+      "status": "failed",
+      "checked_at": "2026-10-27T09:22:19.116688Z",
+      "error": "HTTP 403"
     },
     {
       "id": "github-boltz",
       "name": "Boltz releases",
-      "status": "success",
-      "checked_at": "2026-10-27T07:23:05.703548Z",
-      "parsed": 17,
-      "matched": 17
+      "status": "failed",
+      "checked_at": "2026-10-27T09:22:19.116688Z",
+      "error": "HTTP 403"
     },
     {
       "id": "github-anomalib",
       "name": "Open Edge Platform Anomalib releases",
-      "status": "success",
-      "checked_at": "2026-10-27T07:23:05.703548Z",
-      "parsed": 20,
-      "matched": 20
+      "status": "failed",
+      "checked_at": "2026-10-27T09:22:19.116688Z",
+      "error": "HTTP 403"
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "source_id": "github-bionemo-framework",
+      "error": "HTTP 403"
+    },
+    {
+      "source_id": "github-boltz",
+      "error": "HTTP 403"
+    },
+    {
+      "source_id": "github-anomalib",
+      "error": "HTTP 403"
+    }
+  ],
   "note": "自动候选资料，未核验。机器分类不等于疗效、良率、可用性或监管结论。",
   "version": 1
 }
