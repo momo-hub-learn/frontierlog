@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,32 @@
     }
   ],
   "items": [
+    {
+      "id": "google-deepmind-genie-4-20261027",
+      "lane": "paradigm",
+      "title": "世界模拟开始把像素、声音、实时操控与规划放进同一闭环",
+      "maker": "Google DeepMind",
+      "date": "2026-10-27",
+      "verified_at": "2026-10-28T03:25:41+08:00",
+      "verification_status": "官方研究预览 · 可信测试者",
+      "tags": [
+        "World Models",
+        "Native Audio",
+        "Interactive Simulation"
+      ],
+      "fact": "Genie 4 可实时生成可探索场景、环境音与互动对话，并接受文本实时修改。官方演示中，Gemini 3.8 Flash 持续观察场景、拆解目标并核验步骤；Google 同时说明该模型目前只面向可信测试者研究预览。",
+      "insight": "值得跟踪的不是单段画质，而是语言规划器与感知生成器是否能在同一循环里保持因果、状态和任务进度。如果这条混合路线能经独立复验，它可能为机器人与 Agent 提供更可控的训练环境。",
+      "boundary": "本站未试用，证据来自发布方说明和演示，不是独立 Benchmark。Google 明确披露长时运行、复杂编辑、物体恒常性、复杂物理、音频准确性、可读文字、空间精度与长期一致性仍有限；即将面向 Ultra、API 与 AI Studio 伙伴开放不等于现在公众可用。",
+      "next_watch": "关注 Ultra 与开发者访问的真实开放时间、会话长度和运行成本、可复验评测、独立失败案例，以及机器人或 Agent 训练能否迁移到真实任务。",
+      "sources": [
+        {
+          "label": "Google DeepMind · Genie 4 官方发布",
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "kind": "官方能力、访问范围、演示、限制与后续路线",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "openai-academic-science-claims-20261026",
       "lane": "science",

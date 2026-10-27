@@ -73,6 +73,21 @@ def tags(s):
         if k in q and v not in out:out.append(v)
     return out[:4]
 
+def editorial_title_key(item):
+    """Return a conservative key for feed aliases of the same episode.
+
+    Podcast publishers sometimes emit both a post and an auto-generated audio
+    entry with different canonical URLs and different promotional prefixes.
+    A long shared subtitle on the same source and publication day is strong
+    enough evidence to collapse those aliases without conflating unrelated
+    episodes.
+    """
+    title=clean(item.get('title','')).casefold()
+    suffix=title.rsplit(':',1)[-1].strip(' -–—')
+    suffix=re.sub(r'[^\w]+',' ',suffix,flags=re.UNICODE).strip()
+    if len(suffix)<32 or len(suffix.split())<5:return ''
+    return (item.get('source_id',''),item.get('published',''),suffix)
+
 def merge_media_items(existing, discovered, limit=36):
     """Keep verified history while adding the newest feed discoveries.
 
@@ -81,13 +96,15 @@ def merge_media_items(existing, discovered, limit=36):
     previously collected item stopped existing, so synchronization must not
     delete it.  The global recency limit still bounds the published snapshot.
     """
-    manual=[]; seen_ids=set(); seen_titles=set(); seen_urls=set()
+    manual=[]; seen_ids=set(); seen_titles=set(); seen_urls=set(); seen_editorial=set()
     for x in (row for row in existing if row.get('origin')!='rss'):
         title_key=(x.get('source_id'),x.get('title','').strip().lower())
         url=x.get('url'); item_id=x.get('id')
-        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles:continue
+        editorial_key=editorial_title_key(x)
+        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles or (editorial_key and editorial_key in seen_editorial):continue
         manual.append(x);seen_ids.add(item_id);seen_titles.add(title_key)
         if url:seen_urls.add(url)
+        if editorial_key:seen_editorial.add(editorial_key)
     feed=[x for x in existing if x.get('origin')=='rss']+discovered
     merged_feed=[]
     rows=sorted(feed,key=lambda x:(x.get('published',''),x.get('id','')),reverse=True)
@@ -95,9 +112,11 @@ def merge_media_items(existing, discovered, limit=36):
         title_key=(x.get('source_id'),x.get('title','').strip().lower())
         url=x.get('url')
         item_id=x.get('id')
-        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles:continue
+        editorial_key=editorial_title_key(x)
+        if item_id in seen_ids or (url and url in seen_urls) or title_key in seen_titles or (editorial_key and editorial_key in seen_editorial):continue
         seen_ids.add(item_id);seen_titles.add(title_key)
         if url:seen_urls.add(url)
+        if editorial_key:seen_editorial.add(editorial_key)
         merged_feed.append(x)
         if len(merged_feed)>=max(limit-len(manual),0):break
     merged=manual+merged_feed

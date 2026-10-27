@@ -227,7 +227,13 @@
 
 边界：只支持数值时序与指定输入长度；DARR 上下文维度需相近。检索增强并不保证优于直接预测，必须在同一留出窗口、不同工况和预测跨度下比较，本站未实测。
 
-站内热度 94；不是全网流量。</description></item><item><title>MiniMax M3.1 Flash 权重上线：1M 上下文原生多模态 MoE</title><guid isPermaLink="false">frontierlog:hot:minimax-m31-flash-open-weights-20261023</guid><link>https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>MiniMax 在 Hugging Face 公开 M3.1 Flash 权重与模型卡：原生多模态 MoE 支持文本、图像和视频输入、最长 1M token 上下文，并给出 vLLM、SGLang 与本地下载路径；首次收录时位列 HF Models Trending 网页第 18 位，当前榜位以热榜页最新官方快照为准。
+站内热度 94；不是全网流量。</description></item><item><title>Genie 4：实时世界模拟开始原生生成声音与对话</title><guid isPermaLink="false">frontierlog:hot:google-deepmind-genie-4-20261027</guid><link>https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Google DeepMind 发布 Genie 4：世界模型可实时生成可探索场景、环境音与互动对话，并接受文本实时修改；官方演示还让 Gemini 3.8 Flash 在循环中观察画面、拆解步骤并核验进度。
+
+为什么值得看：这把世界模拟从无声、短片式生成推进到可操控的多模态环境，并把语言模型的规划与像素级模拟接进同一闭环。若后续开放并经独立复验，它可能成为机器人、Agent 训练环境与交互原型的新底座。
+
+边界：Genie 4 当前仅向可信测试者提供研究预览，Google AI Ultra、Gemini API 与 AI Studio 的更广访问仍标为即将推出；本站未试用。官方明确长时运行与多次复杂编辑后可能出现视觉漂移和物体恒常性问题，复杂物理、音频准确性、可读文字、空间精度与长期一致性仍在研究，演示不能当作独立 Benchmark 或生产可靠性证明。
+
+站内热度 93；不是全网流量。</description></item><item><title>MiniMax M3.1 Flash 权重上线：1M 上下文原生多模态 MoE</title><guid isPermaLink="false">frontierlog:hot:minimax-m31-flash-open-weights-20261023</guid><link>https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>MiniMax 在 Hugging Face 公开 M3.1 Flash 权重与模型卡：原生多模态 MoE 支持文本、图像和视频输入、最长 1M token 上下文，并给出 vLLM、SGLang 与本地下载路径；首次收录时位列 HF Models Trending 网页第 18 位，当前榜位以热榜页最新官方快照为准。
 
 为什么值得看：这把 10 月 19 日的 API 与产品发布推进到可下载权重阶段，开发者可以在固定 Harness 下复核其 Agent、编程、Computer Use 和网络安全能力，而不只依赖托管接口或发布稿。
 

@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.collect_activity_radar import clip_text, merge_media_items
+from scripts.collect_activity_radar import clip_text, editorial_title_key, merge_media_items
 
 
 def item(item_id, published, source="feed", title=None, url=None, origin="rss"):
@@ -40,6 +40,42 @@ class ActivityRadarCollectorTests(unittest.TestCase):
         merged = merge_media_items(previous, new)
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0]["id"], "new")
+
+    def test_deduplicates_same_day_episode_aliases_by_long_shared_subtitle(self):
+        post = item(
+            "post",
+            "2026-10-27",
+            source="show",
+            title="How Anthropic ships Claude with Claude: Separating the Brain from the Hands",
+            url="https://example.com/p/opus55/",
+        )
+        podcast = item(
+            "podcast",
+            "2026-10-27",
+            source="show",
+            title="How Anthropic ships the #1 LLM safely: Separating the Brain from the Hands",
+            url="https://example.com/p/podcast-episode/",
+        )
+        self.assertEqual(editorial_title_key(post), editorial_title_key(podcast))
+        self.assertEqual([x["id"] for x in merge_media_items([], [podcast, post])], ["post"])
+
+    def test_shared_short_or_cross_day_suffix_does_not_merge(self):
+        first = item("first", "2026-10-27", source="show", title="News: Model update")
+        second = item("second", "2026-10-27", source="show", title="Interview: Model update")
+        next_day = item(
+            "next-day",
+            "2026-10-28",
+            source="show",
+            title="Follow-up interview: Separating the Brain from the Hands",
+        )
+        previous_day = item(
+            "previous-day",
+            "2026-10-27",
+            source="show",
+            title="Launch interview: Separating the Brain from the Hands",
+        )
+        self.assertEqual(editorial_title_key(first), "")
+        self.assertEqual(len(merge_media_items([], [first, second, previous_day, next_day])), 4)
 
     def test_applies_global_recency_limit(self):
         rows = [item(f"item-{n}", f"2026-10-{n:02d}") for n in range(1, 18)]

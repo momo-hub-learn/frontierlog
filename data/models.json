@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "sources": [
     {
       "id": "aa-live",
       "publisher": "Artificial Analysis",
       "title": "LLM Leaderboard",
       "url": "https://artificialanalysis.ai/models",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
       "published": null,
       "kind": "评测方公开榜单",
-      "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-27 复核官方榜首五个配置仍为：Claude Opus 5.5 max 58；Sonnet 5.5 max、Opus 5.5 xhigh 与 Muse Wonder Full max 均为 56；Kimi K3.1 Pro 55。其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
+      "note": "人工摘录一组模型配置，保留网页所示分数。2026-10-28 复核官方榜首五个配置仍为：Claude Opus 5.5 max 58；Sonnet 5.5 max、Opus 5.5 xhigh 与 Muse Wonder Full max 均为 56；Kimi K3.1 Pro 55。其余行保留各自旧核验日期与字段，不把本轮局部复核冒充全榜刷新。"
     },
     {
       "id": "aa-gpt61-sol",
@@ -77,7 +77,7 @@
       "publisher": "Artificial Analysis",
       "title": "Artificial Analysis Intelligence Benchmarking Methodology",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
       "published": null,
       "kind": "评测方法",
       "note": "v4.3.2 由 Agent 任务 30%、编程 20%、通用能力 30%、科学推理 20% 加权组成，共 10 项评测；主要覆盖英文文本模型，多模态、语音与多语言另行评测。指数版本不同，分数不能直接跨版本比较。"
@@ -87,10 +87,10 @@
       "publisher": "Arena",
       "title": "Text Arena · Overall",
       "url": "https://arena.ai/leaderboard/chat/text",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
       "published": "2026-10-22",
       "kind": "评测方公开榜单",
-      "note": "2026-10-27 复核时，页面仍标示 2026-10-22，共 8,946,356 票、418 个模型；站内 8 条摘录的来源名次、误差范围与票数未变。8 条摘录不是完整榜单，Preliminary 也不等于稳定领先。"
+      "note": "2026-10-28 复核时，页面仍标示 2026-10-22，共 8,946,356 票、418 个模型；站内 8 条摘录的来源名次、误差范围与票数未变。Gemini 4 Argon (High) 当前不再标 Preliminary；8 条摘录不是完整榜单。"
     },
     {
       "id": "aa-api",
@@ -161,6 +161,16 @@
       "published": "2026-09-01",
       "kind": "公司官方发布",
       "note": "World Labs 官方发布 Atlas，定位为面向空间智能的 omni world model，当前为早期访问。"
+    },
+    {
+      "id": "google-deepmind-genie-4",
+      "publisher": "Google DeepMind",
+      "title": "Genie 4: A new generation of world simulation",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "checked": "2026-10-28",
+      "published": "2026-10-27",
+      "kind": "公司官方研究发布",
+      "note": "Google DeepMind 官方发布 Genie 4，说明实时多模态世界模拟、Gemini 规划循环、可信测试者预览范围与当前限制。"
     },
     {
       "id": "xiaomi-robotics-u0",
@@ -265,7 +275,7 @@
   ],
   "intelligence_index": {
     "version": "4.3.2",
-    "checked": "2026-10-27",
+    "checked": "2026-10-28",
     "source": "aa-method",
     "scope": "主要评估英文文本模型；多模态、语音与多语言能力不计入这张总榜，需另看专项评测。",
     "categories": [
@@ -308,11 +318,13 @@
       "provider": "Artificial Analysis",
       "metric": "intelligence",
       "as_of": "2026-10-24",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
+      "source_checked": "2026-10-28",
+      "verified_at": "2026-10-28T03:33:26+08:00",
       "methodology": "Intelligence Index v4.3.2",
       "mode": "manual_excerpt",
       "source": "aa-live",
-      "scope": "24 个配置的人工摘录，不是全榜；2026-10-27 复核榜首五个配置未变，并新增同口径的 GPT-6.1 Terra (max) 发布页快照；GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
+      "scope": "24 个配置的人工摘录，不是全榜；2026-10-28 复核榜首五个配置未变；GPT-6.1 Terra (max)、GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
       "rows": [
         {
           "id": "aa-opus-55-max",
@@ -778,7 +790,9 @@
       "provider": "Arena",
       "metric": "preference",
       "as_of": "2026-10-22",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
+      "source_checked": "2026-10-28",
+      "verified_at": "2026-10-28T03:33:26+08:00",
       "methodology": "Text Arena · Overall",
       "mode": "manual_excerpt",
       "source": "arena-text",
@@ -798,7 +812,7 @@
           "source_rank": 1,
           "source_order": 1,
           "source": "arena-text",
-          "preliminary": true
+          "preliminary": false
         },
         {
           "id": "arena-claude-opus-5-5-high",
@@ -1003,6 +1017,19 @@
       "title": "World Model / JEPA",
       "description": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
       "items": [
+        {
+          "id": "google-deepmind-genie-4",
+          "name": "Genie 4",
+          "maker": "Google DeepMind",
+          "date": "2026-10-27",
+          "status": "preview",
+          "status_label": "可信测试者预览",
+          "summary": "实时生成可探索场景、环境音与互动对话，并支持文本实时修改；官方演示用 Gemini 3.8 Flash 观察场景、拆解目标与核验步骤。当前仅面向可信测试者，长时一致性、物体恒常性、复杂物理、音频准确性、文字与空间精度仍有限。",
+          "tags": ["World Model", "Native Audio", "Interactive Simulation"],
+          "sources": ["google-deepmind-genie-4"],
+          "evidence_type": "official_research_preview",
+          "result_scope": "发布方演示与限制说明；本站未试用，不是独立 Benchmark，也不代表公众或开发者已全面可用。"
+        },
         {
           "id": "jepa-control-unstable-modes",
           "name": "JEPA Control-Aware World Models",
@@ -1232,5 +1259,5 @@
       ]
     }
   ],
-  "frontier_checked": "2026-10-15"
+  "frontier_checked": "2026-10-28"
 }

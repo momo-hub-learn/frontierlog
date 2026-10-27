@@ -56,7 +56,9 @@ try:
         passed('Exactly one company column/link, inline score uncertainty and readable model width')
         expect(page.locator('.ar-provenance')).to_contain_text(f"人工摘录 {len(ARENA_ROWS)} 条 · 非完整榜")
         assert page.locator('.ar-provenance time').evaluate_all('(els)=>els.map(e=>e.dateTime)')==[ARENA['as_of'],ARENA['checked']]
-        assert set(page.locator('.ar-preliminary').all_text_contents())=={'初步结果'}
+        expected_preliminary=sum(bool(row.get('preliminary')) for row in ARENA_ROWS)
+        expect(page.locator('.ar-preliminary')).to_have_count(expected_preliminary)
+        assert set(page.locator('.ar-preliminary').all_text_contents())<= {'初步结果'}
         assert not page.locator('.v2-current-first').count()
         assert '速度、成本' not in page.locator('.ar-wrap').inner_text()
         passed('Coverage and two date meanings are explicit; generic/champion clutter is removed')

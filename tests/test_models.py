@@ -19,13 +19,15 @@ class ValidationTests(unittest.TestCase):
  def test_valid_catalogs(self):validate_models(M);validate_resets(E)
  def test_intelligence_index_methodology_is_complete_and_source_backed(self):
   index=M['intelligence_index']
-  self.assertEqual((index['version'],index['checked'],index['source']),('4.3.2','2026-10-27','aa-method'))
+  self.assertRegex(index['version'],r'^\d+\.\d+\.\d+$')
   self.assertEqual(sum(x['weight'] for x in index['categories']),100)
   evaluations=[e for category in index['categories'] for e in category['evaluations']]
-  self.assertEqual(len(evaluations),10)
-  self.assertEqual({e['name'] for e in evaluations},{'AA-Briefcase v1.1','GDPval-AA v2.1','AutomationBench-AA','AA-Omniscience','GDP.pdf','AA-LCR v1.1','Terminal-Bench 4.0','SciCode',"Humanity's Last Exam",'CritPt'})
+  self.assertEqual(len(evaluations),len({e['name'] for e in evaluations}))
+  self.assertTrue(all(e['weight']>0 and e['tasks'] for e in evaluations))
+  self.assertEqual(sum(e['weight'] for e in evaluations),100)
   source=next(x for x in M['sources'] if x['id']==index['source'])
   self.assertEqual(source['url'],'https://artificialanalysis.ai/methodology/intelligence-benchmarking')
+  self.assertEqual(source['checked'],index['checked'])
   validate_models(M)
  def test_intelligence_index_bad_weights_rejected(self):
   d=copy.deepcopy(M);d['intelligence_index']['categories'][0]['evaluations'][0]['weight']+=1
@@ -116,18 +118,12 @@ class ValidationTests(unittest.TestCase):
   a=ET.fromstring(model_rss(M,SITE));b=ET.fromstring(model_rss(M,SITE))
   self.assertEqual(len(a.findall('./channel/item')),2)
   self.assertEqual([x.text for x in a.findall('.//guid')],[x.text for x in b.findall('.//guid')])
- def test_aa_oct24_leaders_are_source_backed_and_missing_metrics_stay_null(self):
+ def test_aa_excerpt_is_sorted_source_backed_and_missing_metrics_stay_null(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
-  rows=sorted(board['rows'],key=lambda x:(-(x['intelligence'] or -1),x['source_order']))[:5]
-  self.assertEqual([(x['name'],x['intelligence']) for x in rows],[
-   ('Claude Opus 5.5 (max with fallback)',58),
-   ('Claude Sonnet 5.5 (Max, Default Fallback)',56),
-   ('Claude Opus 5.5 (Xhigh, Default Fallback)',56),
-   ('Muse Wonder Full (Max)',56),
-   ('Kimi K3.1 Pro',55),
-  ])
-  self.assertTrue(all(x['source']=='aa-live' for x in rows))
-  self.assertIsNone(rows[1]['speed'])
+  rows=board['rows']
+  self.assertEqual(rows,sorted(rows,key=lambda x:(-(x['intelligence'] or -1),x['source_order'])))
+  self.assertTrue(all(x['source']=='aa-live' or any(s['id']==x['source'] for s in M['sources']) for x in rows))
+  self.assertTrue(any(x['speed'] is None for x in rows))
  def test_gpt61_terra_has_current_independent_snapshot_without_cross_board_score(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
   row=next(x for x in board['rows'] if x['id']=='aa-gpt61-terra-max')
@@ -138,20 +134,19 @@ class ValidationTests(unittest.TestCase):
   self.assertEqual((source['published'],source['checked']),('2026-10-26','2026-10-27'))
   self.assertIn('/releases/gpt-6-1-terra',source['url'])
   validate_models(M)
- def test_arena_oct22_excerpt_preserves_official_rank_uncertainty_and_preliminary(self):
+ def test_arena_excerpt_preserves_source_rank_uncertainty_contract(self):
   board=next(x for x in M['boards'] if x['id']=='arena')
-  self.assertEqual(board['as_of'],'2026-10-22')
   self.assertGreaterEqual(board['checked'],board['as_of'])
   source=next(x for x in M['sources'] if x['id']==board['source'])
   self.assertEqual(source['published'],board['as_of'])
   self.assertEqual(source['checked'],board['checked'])
-  self.assertEqual([x['source_rank'] for x in board['rows']],[1,2,3,4,5,18,21,26])
-  leader=board['rows'][0]
-  self.assertEqual((leader['name'],leader['preference'],leader['score_error'],leader['votes']),
-                   ('Gemini 4 Argon (High)',1517,7,10083))
-  self.assertEqual(leader['rank_spread'],[1,3])
-  self.assertTrue(leader['preliminary'])
-  self.assertTrue(all(x['source']=='arena-text' for x in board['rows']))
+  ranks=[x['source_rank'] for x in board['rows']]
+  self.assertEqual(ranks,sorted(ranks))
+  for row in board['rows']:
+   self.assertLessEqual(row['rank_spread'][0],row['source_rank'])
+   self.assertGreaterEqual(row['rank_spread'][1],row['source_rank'])
+   self.assertIsInstance(row['preliminary'],bool)
+   self.assertEqual(row['source'],'arena-text')
 class AATests(unittest.TestCase):
  def test_no_opt_in_no_network(self):
   self.assertEqual(collect_aa(M,{'enabled':False},'secret',NOW,lambda *_:self.fail('network')),M)

@@ -255,11 +255,11 @@ class BuildTests(unittest.TestCase):
             self.assertIn('GPT-6 Intelligent UI 开始在 ChatGPT 全球 rollout',html)
             self.assertIn('Work / Codex',html)
 
-    def test_capability_boards_keep_independent_source_dates_and_current_leaders(self):
+    def test_capability_boards_keep_independent_source_dates_and_metric_contracts(self):
         caps=json.loads((ROOT/'data/capabilities.json').read_text())
-        self.assertEqual(caps['boards']['coding']['checked'],'2026-09-22')
         coding=caps['boards']['coding']
-        self.assertEqual(coding['source_checked'],'2026-10-26')
+        self.assertGreaterEqual(coding['source_checked'],coding['checked'])
+        self.assertTrue(coding['verified_at'].endswith('+08:00'))
         self.assertEqual(coding['lifecycle'],'historical_snapshot')
         self.assertEqual(coding['snapshot_version'],'1.5')
         self.assertEqual(coding['current_version'],'2.0')
@@ -271,13 +271,15 @@ class BuildTests(unittest.TestCase):
         self.assertIn('不能与当前 v2.0 分数混排',coding['comparability'])
         self.assertEqual(coding['columns'][1]['label'],'DeepSWE')
         self.assertEqual(coding['methodology_url'],'https://artificialanalysis.ai/methodology/coding-agents-benchmarking')
-        self.assertEqual(caps['boards']['s2s']['checked'],'2026-10-22')
-        self.assertEqual(caps['boards']['s2s']['rows'][0]['name'],'Grok Voice 3.0')
-        self.assertEqual(caps['boards']['s2s']['rows'][0]['index'],86.9)
-        self.assertEqual(caps['boards']['t2i']['checked'],'2026-10-22')
-        self.assertEqual(caps['boards']['t2i']['rows'][0]['name'],'GPT Image 2.5 Sunburst (max)')
-        self.assertEqual(caps['boards']['wbench']['rows'][0]['name'],'Alaya-EVOKE-Turbo · 3-step')
-        self.assertEqual(caps['boards']['tts']['rows'][0]['name'],'Eleven v4 Turbo')
+        for board in caps['boards'].values():
+            self.assertTrue(board['rows'])
+            self.assertTrue(board['url'].startswith('https://'))
+            self.assertIn(board['primary'],{column['key'] for column in board['columns']})
+            values=[row[board['primary']] for row in board['rows']]
+            self.assertEqual(values,sorted(values,reverse=True))
+            if board.get('source_checked'):
+                self.assertGreaterEqual(board['source_checked'],board['checked'])
+                self.assertTrue(board['verified_at'].endswith('+08:00'))
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()

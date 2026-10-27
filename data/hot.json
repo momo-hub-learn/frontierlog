@@ -36,6 +36,35 @@
   ],
   "items": [
     {
+      "id": "google-deepmind-genie-4-20261027",
+      "category": "research",
+      "title": "Genie 4：实时世界模拟开始原生生成声音与对话",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T03:25:41+08:00",
+      "first_seen_at": "2026-10-28T03:25:41+08:00",
+      "heat": 93,
+      "heat_components": {"impact": 35, "availability": 18, "evidence": 25, "recency": 15},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型能力、物理真实性、产品成熟度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方研究预览 · 可信测试者",
+      "summary": "Google DeepMind 发布 Genie 4：世界模型可实时生成可探索场景、环境音与互动对话，并接受文本实时修改；官方演示还让 Gemini 3.8 Flash 在循环中观察画面、拆解步骤并核验进度。",
+      "why": "这把世界模拟从无声、短片式生成推进到可操控的多模态环境，并把语言模型的规划与像素级模拟接进同一闭环。若后续开放并经独立复验，它可能成为机器人、Agent 训练环境与交互原型的新底座。",
+      "boundary": "Genie 4 当前仅向可信测试者提供研究预览，Google AI Ultra、Gemini API 与 AI Studio 的更广访问仍标为即将推出；本站未试用。官方明确长时运行与多次复杂编辑后可能出现视觉漂移和物体恒常性问题，复杂物理、音频准确性、可读文字、空间精度与长期一致性仍在研究，演示不能当作独立 Benchmark 或生产可靠性证明。",
+      "source": "Google DeepMind",
+      "source_kind": "官方研究发布 / 本轮编辑核验",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "link": "#/models?frontier=world-models",
+      "evidence_level": "primary-source",
+      "access": [
+        {"label": "阅读 Google DeepMind 官方发布", "note": "核对原生音频、实时操控、Gemini 规划循环、访问范围与已披露限制", "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/", "kind": "research"},
+        {"label": "查看世界模型档案", "note": "与其他路线分开阅读，不跨范式拼能力总分", "url": "#/models?frontier=world-models", "kind": "internal"}
+      ],
+      "related": [
+        {"source": "Google DeepMind", "title": "Genie 4: A new generation of world simulation", "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/", "date": "2026-10-27"}
+      ]
+    },
+    {
       "id": "openai-oracle-ai-workspace-20261027",
       "category": "product",
       "title": "Oracle AI Workspace 将接入 ChatGPT",
