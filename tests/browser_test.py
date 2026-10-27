@@ -20,6 +20,7 @@ OUT.mkdir(exist_ok=True)
 CATALOG = json.loads((ROOT / "data/catalog.json").read_text())
 TOOLKIT = json.loads((ROOT / "data/toolkit.json").read_text())
 RESEARCH = json.loads((ROOT / "data/research-radar.json").read_text())
+GITHUB = json.loads((ROOT / "data/github-hot.json").read_text())
 HTML = (ROOT / "dist/index.html").read_text()
 MEMORY = os.environ.get("BROWSER_TEST_MODE") == "memory"
 
@@ -64,8 +65,13 @@ try:
         expect(page.locator(".fc-hf-panel")).to_have_count(1)
         expect(page.locator(".fc-hf-row")).to_have_count(3)
         expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
-        expect(page.locator(".fc-gh-panel")).to_contain_text("仓库 API 部分失败")
-        expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
+        github_partial = GITHUB.get("sync", {}).get("metadata_status") == "partial"
+        if github_partial:
+            expect(page.locator(".fc-gh-panel")).to_contain_text("仓库 API 部分失败")
+            expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
+        else:
+            expect(page.locator(".fc-gh-panel")).not_to_contain_text("仓库 API 部分失败")
+            expect(page.locator(".fc-gh-data-state")).to_have_count(0)
         assert page.locator("#nav .active").inner_text().startswith("精选")
         assert page.locator("html").get_attribute("data-theme") == "light"
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
