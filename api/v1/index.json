@@ -3819,13 +3819,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-27T17:37:29Z",
+    "generated_at": "2026-10-27T18:06:41Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 81,
+      "merge": 82,
       "hold": 3
     },
     "candidates": [
@@ -3876,6 +3876,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
         "first_seen_at": "2026-10-27T15:35:36Z"
+      },
+      {
+        "id": "candidate-f6b46c9e56abcc96",
+        "category": "product",
+        "published": "2026-10-27",
+        "title": "Oracle 公布 ChatGPT 内的 AI Workspace 路线",
+        "summary": "Oracle 正在开发 AI Workspace，并同时公布安全、SMB 与应用构建方案；美国客户可通过 Oracle Marketplace 采购 OpenAI 产品。",
+        "why": "价值在于把模型能力接进既有权限、审批、采购与 Oracle 数据面；实际成效要等账户开放后验证跨系统检索、执行成功率和越权防护。",
+        "boundary": "不能从合作公告推出所有 Oracle 应用已经可在 ChatGPT 中执行，也不能把厂商效率案例当成独立生产力评测。",
+        "source": "Oracle / OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "oracle-ai-workspace",
+        "first_seen_at": "2026-10-27T18:06:41Z"
       },
       {
         "id": "candidate-b026f19029976dfa",
@@ -4788,35 +4812,6 @@
           "Software Security"
         ],
         "first_seen_at": "2026-10-24T03:26:29Z"
-      },
-      {
-        "id": "candidate-c8fb8b8866630ceb",
-        "category": "research",
-        "published": "2026-10-22",
-        "title": "时间序列基础模型开始从选单模型转向可复现概率组合",
-        "summary": "Granite Timeseries Ensemble R1 以统一接口组合四个 Granite 检查点；默认等权概率池无需拟合组合权重，另提供按区间宽度加权的 IQR 配方，并输出中位数和多级分位数。",
-        "why": "开放配方把模型选择风险转成一个可直接回测的默认基线：团队可以先核验点预测、区间覆盖和资源成本，再决定是否需要为特定序列选模型或学习组合权重。",
-        "boundary": "IBM 在 97 个 GIFT-Eval 配置上的聚合点误差改进很小，且单个 PatchTST 成员仍有更低的 CRPS；当前实现逐通道预测、加载四个检查点，也不保证校准或分布漂移稳健。",
-        "source": "IBM Research",
-        "source_kind": "官方发布、用法、评测与限制",
-        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
-        "publishable": false,
-        "features": {
-          "freshness": 0.643,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.708,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "granite-timeseries-probabilistic-ensemble",
-        "topic_tags": [
-          "Time Series",
-          "Probabilistic Forecasting",
-          "Ensemble"
-        ],
-        "first_seen_at": "2026-10-22T11:33:11Z"
       }
     ]
   },
@@ -8077,12 +8072,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-27T17:37:29Z",
+    "last_evaluated": "2026-10-27T18:06:41Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 85,
+      "candidate_count": 86,
       "publish_ready_count": 1,
-      "merge_count": 81,
+      "merge_count": 82,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
