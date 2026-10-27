@@ -67,10 +67,13 @@ try:
         expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
         github_partial = GITHUB.get("sync", {}).get("metadata_status") == "partial"
         if github_partial:
-            expect(page.locator(".fc-gh-panel")).to_contain_text("仓库 API 部分失败")
+            failed = int(GITHUB.get("sync", {}).get("metadata_failed_count") or 0)
+            total = len(GITHUB.get("items", []))
+            scope = "全部" if total and failed >= total else "部分"
+            expect(page.locator(".fc-gh-panel")).to_contain_text(f"仓库 API {scope}失败")
             expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
         else:
-            expect(page.locator(".fc-gh-panel")).not_to_contain_text("仓库 API 部分失败")
+            expect(page.locator(".fc-gh-panel")).not_to_contain_text("仓库 API")
             expect(page.locator(".fc-gh-data-state")).to_have_count(0)
         assert page.locator("#nav .active").inner_text().startswith("精选")
         assert page.locator("html").get_attribute("data-theme") == "light"

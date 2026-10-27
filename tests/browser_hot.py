@@ -46,10 +46,13 @@ with sync_playwright() as pw:
  hot=json.loads((R/'dist/api/v1/hot.json').read_text());assert hot['method']['automatic'] is False and hot['items']==HOT_DATA['items'];assert (R/'dist/feeds/hot.xml').exists();ok('data status is honest, API JSON and hot RSS artifacts match the reviewed input')
  route(p,'#/feed');expect(p.locator('.fc-hot-row')).to_have_count(5);assert 'HOT / RECENT' in p.locator('.fc-hot-panel').inner_text();ok('curated homepage includes compact five-item hot list')
  changes=HF_DATA.get('web_rank_changes',[]);entrants=sum(x.get('previous_rank') is None for x in changes);moved=sum(isinstance(x.get('previous_rank'),int) and x.get('rank_change')!=0 for x in changes);outgoing=len(HF_DATA.get('web_outgoing',[]))
- expect(p.locator('.fc-hf-change')).to_contain_text(f'{entrants} 新上榜 · {moved} 位次变化 · {outgoing} 离榜')
- assert '较 ' in p.locator('.fc-hf-change').inner_text() and ' 快照' in p.locator('.fc-hf-change').inner_text()
- assert p.locator('.fc-hf-change a').get_attribute('href')=='#/hot?tab=hf'
- ok('homepage exposes the current HF entry, rank-move and outgoing counts with a direct evidence path')
+ if entrants or moved or outgoing:
+  expect(p.locator('.fc-hf-change')).to_contain_text(f'{entrants} 新上榜 · {moved} 位次变化 · {outgoing} 离榜')
+  assert '较 ' in p.locator('.fc-hf-change').inner_text() and ' 快照' in p.locator('.fc-hf-change').inner_text()
+  assert p.locator('.fc-hf-change a').get_attribute('href')=='#/hot?tab=hf'
+ else:
+  expect(p.locator('.fc-hf-change')).to_have_count(0)
+ ok('homepage change summary follows the current HF input without inventing zero-change news')
  for w in [790,390,360]:
   p.set_viewport_size({'width':w,'height':844});route(p,'#/hot');assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
  shot(p,'hot-mobile.png');ok('hot list is responsive at 790/390/360px')

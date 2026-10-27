@@ -51,6 +51,11 @@ assert.match(partialView.__partial,/3 个上榜仓库/);
 assert.match(partialView.__partial,/5 个新上榜仓库/);
 assert.match(partialView.__partial,/1 个长期关注仓库/);
 
+const allFailedView={GH:{items:Array.from({length:10},()=>({metadata_status:'stale'})),sync:{metadata_status:'partial',metadata_failed_count:10,watchlist_failed_count:1}},esc:x=>String(x)};
+vm.createContext(allFailedView);
+vm.runInContext(partialPart+'\nthis.__partial=ghPartialNotice();',allFailedView);
+assert.match(allFailedView.__partial,/全部仓库 API 指标未同步/);
+
 assert.match(inlinePart,/role="status" aria-live="polite"/);
 assert.match(inlinePart,/显示 '\+rows\.length\+' \/ '\+\(GH\.items\|\|\[\]\)\.length\+' 个仓库/);
 assert.match(inlinePart,/保留 GitHub 官方榜位/);
@@ -73,7 +78,10 @@ assert.doesNotMatch(view.__panel,/>\+\d+<\/b><small>Today/);
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
  sync:{metadata_status:'partial',metadata_failed_count:1,watchlist_failed_count:1},
- items:[{repo:'example/agent',ai_related:true,stars_today:51,rank:7,url:'https://github.com/example/agent',description:'Agent tools',metadata_status:'stale'}],
+ items:[
+  {repo:'example/agent',ai_related:true,stars_today:51,rank:7,url:'https://github.com/example/agent',description:'Agent tools',metadata_status:'stale'},
+  {repo:'example/fresh-agent',ai_related:false,stars_today:20,rank:8,url:'https://github.com/example/fresh-agent',description:'Fresh agent tools'}
+ ],
  watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:142000,verified_at:new Date().toISOString()}]
 };
 vm.runInContext('this.__fresh=fcGithubPanel();',view);
@@ -84,6 +92,16 @@ assert.match(view.__fresh,/142k/);
 assert.match(view.__fresh,/总 Star/);
 assert.match(view.__fresh,/仓库资料旧快照/);
 assert.match(view.__fresh,/仓库 API 部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
+
+view.APP.github_hot={
+ checked_at:new Date().toISOString(),
+ sync:{metadata_status:'partial',metadata_failed_count:10,watchlist_failed_count:1},
+ items:Array.from({length:10},(_,i)=>({repo:'example/agent-'+i,ai_related:true,stars_today:51-i,rank:i+1,url:'https://github.com/example/agent-'+i,description:'Agent tools',metadata_status:'stale'})),
+ watchlist:[]
+};
+vm.runInContext('this.__allFailed=fcGithubPanel();',view);
+assert.match(view.__allFailed,/仓库资料全部沿用旧快照/);
+assert.match(view.__allFailed,/仓库 API 全部失败：10 个上榜项、1 个长期关注项沿用旧值/);
 
 const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
 const hfView={APP:{huggingface_hot:{
