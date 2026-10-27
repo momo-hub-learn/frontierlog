@@ -2,6 +2,20 @@
   "snapshot": "2026-10-27",
   "events": [
     {
+      "id": "openai-coderabbit-sol-security",
+      "task": "openai-coderabbit-secure",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "CodeRabbit 把 GPT-6.1 Sol 接入跨仓库安全审查",
+      "summary": "安全 Agent 在 PR、全仓扫描与关联仓库上下文中调查跨文件问题，并可对用户选中的发现做隔离验证、起草修复 PR。",
+      "delta": "代码审查正从单文件建议走向可追踪的跨仓库调查与修复草案；案例仍是合作方自报，缺少可复现的统一准确率，且生产变更必须保留人工审批。",
+      "sources": [
+        "openai-coderabbit-sol-security"
+      ],
+      "reviewed": "2026-10-27",
+      "short_title": "跨仓库安全审查进入 PR 流程"
+    },
+    {
       "id": "hf-hub-cli-2-3-release",
       "task": "huggingface-hub-cli-2-3",
       "date": "2026-10-26",
@@ -564,6 +578,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-coderabbit-sol-security",
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security with advanced code reasoning",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T19:26:55+08:00",
+      "kind": "官方安全案例 / 合作方部署说明"
+    },
     {
       "id": "hf-hub-cli-20261026-blog",
       "title": "What's new in the hf CLI and huggingface_hub library",

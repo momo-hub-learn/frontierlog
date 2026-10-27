@@ -42,6 +42,45 @@
   ],
   "items": [
     {
+      "id": "openai-coderabbit-secure",
+      "publisher": "CodeRabbit / OpenAI",
+      "group": "agents",
+      "access": "web",
+      "headline": "用隔离仓库验收跨文件调查、沙箱验证与修复草案",
+      "input": "一个无生产密钥的测试仓库，以及分别覆盖传统扫描、跨文件数据流、不可达代码和已修复状态的已知漏洞样本",
+      "output": "逐条发现的跨文件证据、传统扫描对照、隔离验证结果、修复草案、人工驳回或批准记录",
+      "requirements": "具备 CodeRabbit Secure 相应访问权限的测试仓库；最小权限代码访问、禁止生产网络与密钥的沙箱、分支保护和人工审批。具体可用范围以实际账号为准。",
+      "limitation": "本站只核验 OpenAI 官方合作案例，未运行 CodeRabbit Secure。案例是合作方部署说明，没有可复现的统一召回率或误报率；系统还会组合其他模型、工具与扫描器，不能把结果归因于 GPT-6.1 Sol 单独完成，也不能替代 SAST、DAST、依赖扫描和人工审查。",
+      "cost": "托管商业服务；官方案例未给出完整套餐与价格，接入前应以 CodeRabbit 实际账号、权限和合同为准。",
+      "steps": [
+        {
+          "title": "固定隔离仓库与基线",
+          "body": "锁定提交和依赖，植入一组已知漏洞；先运行现有 SAST、DAST 与依赖扫描，记录每项检出、误报和不可达判断。"
+        },
+        {
+          "title": "分开验收调查与验证",
+          "body": "仅授权只读分析，对跨文件发现逐条核对数据流和关联仓库证据；只把用户选中的受支持发现送入无生产网络、无生产密钥的沙箱。"
+        },
+        {
+          "title": "人工审查修复草案",
+          "body": "对修复 PR 跑原有测试、安全回归和分支保护，记录人工作出的修改、驳回与批准；不启用自动合并或生产写入。"
+        }
+      ],
+      "troubleshooting": "发现缺少跨文件证据时先核对仓库权限和关联仓库范围；沙箱无法复现时保留原状态并检查环境差异，不把未复现当作无风险；修复破坏行为时回滚草案并把失败样本加入回归集。",
+      "sources": [
+        {
+          "title": "OpenAI：GPT-6.1 Sol helps CodeRabbit strengthen security",
+          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
+        }
+      ],
+      "entry_url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-27T19:26:55+08:00"
+    },
+    {
       "id": "huggingface-hub-cli-2-3",
       "publisher": "Hugging Face",
       "group": "agents",

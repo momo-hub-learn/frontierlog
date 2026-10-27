@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-27T09:33:05Z",
+  "generated_at": "2026-10-27T11:28:21Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 78,
+    "merge": 79,
     "hold": 3
   },
   "candidates": [
@@ -134,6 +134,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-gpt-6-1-terra",
       "first_seen_at": "2026-10-26T19:34:25Z"
+    },
+    {
+      "id": "candidate-7c429a5ac7334da4",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "CodeRabbit 把 GPT-6.1 Sol 接入跨仓库安全审查",
+      "summary": "安全 Agent 在 PR、全仓扫描与关联仓库上下文中调查跨文件问题，并可对用户选中的发现做隔离验证、起草修复 PR。",
+      "why": "代码审查正从单文件建议走向可追踪的跨仓库调查与修复草案；案例仍是合作方自报，缺少可复现的统一准确率，且生产变更必须保留人工审批。",
+      "boundary": "利用验证只针对用户选中且受支持的发现，在隔离环境而非生产系统中运行；修复草案必须由人审决定是否合入。案例没有给出可复现的统一数据集、召回率或误报率，不能证明 GPT-6.1 Sol 单独完成全部检测，也不能替代 SAST、DAST、依赖扫描与人工审查。",
+      "source": "OpenAI",
+      "source_kind": "官方安全案例 / 合作方部署说明",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "openai-coderabbit-secure",
+      "first_seen_at": "2026-10-27T11:28:21Z"
     },
     {
       "id": "candidate-f1807b40775d91b3",
@@ -973,30 +997,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-openshell",
-      "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-1040d08afdb3c713",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Claude Security 增加持续扫描与修复追踪",
-      "summary": "新版公测加入项目知识、可编辑威胁模型、发现状态、API、MCP、Webhook 与 RBAC。",
-      "why": "代码安全 Agent 从一次性扫描推进到带状态、上下文和权限的持续闭环。",
-      "boundary": "厂商报告的组织数、漏洞数和客户评价不是独立检出率。工具可能误报、漏报或误判可达性；令牌、项目权限、定级、复现与修复关闭都需安全团队复核。",
-      "source": "Anthropic",
-      "source_kind": "官方产品发布",
-      "url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "anthropic-claude-security",
       "first_seen_at": "2026-10-21T21:30:26Z"
     }
   ]

@@ -413,7 +413,13 @@
 
 边界：规模与分数来自作者论文，本站未运行。六个来源 benchmark、统一 Harness 和隐藏用例不能外推到全部企业流程或真实事故率，也不能与其他 Agent 榜单拼成综合分。
 
-站内热度 89；不是全网流量。</description></item><item><title>OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户</title><guid isPermaLink="false">frontierlog:hot:openai-habitat-storage-scale-20261023</guid><link>https://openai.com/index/scaling-storage-one-billion-users-part-two/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 披露，Habitat 为超过 10 亿用户、40 个地理区域提供在线存储，平台管理的数据超过 500PB；其最大的 Azure Cosmos DB 账户存储数十 PB 数据并承载超过 2000 万 QPS。
+站内热度 89；不是全网流量。</description></item><item><title>CodeRabbit：用 GPT-6.1 Sol 做跨仓库安全审查</title><guid isPermaLink="false">frontierlog:hot:openai-coderabbit-sol-security-20261026</guid><link>https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>CodeRabbit 的安全 Agent 以 GPT-6.1 Sol 为主模型，在 PR、Deep Scan 与关联仓库上下文中调查跨文件问题；用户选中的发现可在隔离沙箱尝试验证，并起草修复 PR 交给人审。
+
+为什么值得看：安全代码 Agent 开始把跨仓库证据、隔离验证与修复草案串进现有 PR 流程；比单次代码补全更接近可审计的工程闭环。
+
+边界：这是 OpenAI 与 CodeRabbit 的合作案例，未公开可复现的统一准确率，本站也未实测。CodeRabbit 还会组合其他模型、工具与传统扫描器；沙箱验证只针对用户选中的受支持发现且不在生产环境运行，最终变更必须由人审决定。
+
+站内热度 88；不是全网流量。</description></item><item><title>OpenAI Habitat：十亿用户在线存储从隔离容器重回多租户</title><guid isPermaLink="false">frontierlog:hot:openai-habitat-storage-scale-20261023</guid><link>https://openai.com/index/scaling-storage-one-billion-users-part-two/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 披露，Habitat 为超过 10 亿用户、40 个地理区域提供在线存储，平台管理的数据超过 500PB；其最大的 Azure Cosmos DB 账户存储数十 PB 数据并承载超过 2000 万 QPS。
 
 为什么值得看：Agent 与全球 AI 产品的可靠性不只取决于模型：热键限流、请求优先级、数据迁移、缓存失效和跨区域放置，已经成为规模化产品能否稳定上线的共同底座。
 
