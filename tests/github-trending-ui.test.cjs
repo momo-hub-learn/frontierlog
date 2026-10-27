@@ -89,6 +89,11 @@ const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockp
 const hfView={APP:{huggingface_hot:{
  checked_at:new Date().toISOString(),web_fetched_at:new Date().toISOString(),api_fetched_at:new Date().toISOString(),
  web_order:['org/model-a','org/model-b','org/model-c','org/model-d'],
+ web_rank_changes:[
+  {id:'org/model-a',rank:1,previous_rank:2,rank_change:1},
+  {id:'org/model-d',rank:4,previous_rank:null,rank_change:null}
+ ],
+ web_outgoing:[{id:'org/model-old',previous_rank:20}],
  items:[
   {id:'org/model-a',url:'https://huggingface.co/org/model-a',task:'text-generation',library:'transformers',trending_score:91},
   {id:'org/model-b',url:'https://huggingface.co/org/model-b',task:'image-to-video',library:'diffusers',trending_score:72},
@@ -102,9 +107,13 @@ assert.match(hfView.__hf,/#01/);
 assert.match(hfView.__hf,/org\/model-a/);
 assert.match(hfView.__hf,/API Trending/);
 assert.match(hfView.__hf,/Trending 不等于能力榜/);
+assert.match(hfView.__hf,/本轮变化/);
+assert.match(hfView.__hf,/1 新上榜 · 1 位次变化 · 1 离榜/);
+assert.match(hfView.__hf,/role="status"/);
 assert.doesNotMatch(hfView.__hf,/org\/model-d/);
 hfView.APP.huggingface_hot={...hfData,checked_at:'2026-09-25T23:16:36Z',web_fetched_at:'2026-09-25T23:16:36Z'};
 vm.runInContext('this.__hfOld=fcHuggingFacePanel();',hfView);
 assert.match(hfView.__hfOld,/当前 Models Trending 未完成核验/);
 assert.doesNotMatch(hfView.__hfOld,/>#01</);
+assert.doesNotMatch(hfView.__hfOld,/本轮变化/);
 console.log('PASS GitHub Trending stale guard and independent REA watchlist UI');

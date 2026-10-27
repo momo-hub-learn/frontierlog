@@ -1,5 +1,5 @@
 {
-  "snapshot": "2026-10-27",
+  "snapshot": "2026-10-28",
   "events": [
     {
       "id": "openai-coderabbit-sol-security",
@@ -457,6 +457,21 @@
       "reviewed": "2026-10-27",
       "tag": "v2.143.0",
       "short_title": "混合 ZIP 与离线 ASR"
+    },
+    {
+      "id": "docling-v2-143-1-table-ocr",
+      "task": "docling",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
+      "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
+      "delta": "扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。",
+      "sources": [
+        "docling-v2-143-1-release"
+      ],
+      "reviewed": "2026-10-28",
+      "tag": "v2.143.1",
+      "short_title": "表格 OCR 与 PPTX 修复"
     },
     {
       "id": "browser-v0-13-10",
@@ -1122,6 +1137,15 @@
       "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
       "published": "2026-10-26",
       "checked": "2026-10-27",
+      "kind": "官方发布"
+    },
+    {
+      "id": "docling-v2-143-1-release",
+      "title": "Docling v2.143.1",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+      "published": "2026-10-28",
+      "checked": "2026-10-28",
       "kind": "官方发布"
     },
     {

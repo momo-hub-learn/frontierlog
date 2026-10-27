@@ -44,6 +44,9 @@ with sync_playwright() as pw:
  guide=p.locator('.h-access-card[href="#/toolkit?task=openhands&tab=run"]');expect(guide).to_have_count(1);assert guide.get_attribute('target') is None;guide.evaluate('(el)=>el.click()');expect(p.locator('dialog[open]')).to_have_count(0);assert p.evaluate('location.hash')=='#/toolkit?task=openhands&tab=run';expect(p.locator('[data-tk-guide="openhands"]')).to_have_attribute('open','');expect(p.locator('[data-tk-id="openhands"]')).to_contain_text('OpenHands 1.34');p.locator('[data-tk-id="openhands"]').screenshot(path=str(OUT/'openhands-1-34-toolkit-card.png'));ok('OpenHands 1.34 evidence path opens the current in-site verification guide in the same tab')
  hot=json.loads((R/'dist/api/v1/hot.json').read_text());assert hot['method']['automatic'] is False and hot['items']==HOT_DATA['items'];assert (R/'dist/feeds/hot.xml').exists();ok('data status is honest, API JSON and hot RSS artifacts match the reviewed input')
  route(p,'#/feed');expect(p.locator('.fc-hot-row')).to_have_count(5);assert 'HOT / RECENT' in p.locator('.fc-hot-panel').inner_text();ok('curated homepage includes compact five-item hot list')
+ expect(p.locator('.fc-hf-change')).to_contain_text('1 新上榜 · 2 位次变化 · 1 离榜')
+ assert p.locator('.fc-hf-change a').get_attribute('href')=='#/hot?tab=hf'
+ ok('homepage exposes the current HF entry, rank-move and outgoing counts with a direct evidence path')
  for w in [790,390,360]:
   p.set_viewport_size({'width':w,'height':844});route(p,'#/hot');assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
  shot(p,'hot-mobile.png');ok('hot list is responsive at 790/390/360px')

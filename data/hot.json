@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,104 @@
     }
   ],
   "items": [
+    {
+      "id": "docling-v2-143-1-table-ocr-20261028",
+      "category": "product",
+      "title": "Docling 2.143.1：补齐全页 OCR 的表格 token",
+      "published": "2026-10-28",
+      "published_at": "2026-10-27T17:11:51Z",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T01:26:12+08:00",
+      "first_seen_at": "2026-10-28T01:26:12+08:00",
+      "heat": 87,
+      "heat_components": {
+        "impact": 27,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 OCR 准确率、表格 Benchmark 或本站实测分数。",
+      "trend": "up",
+      "summary": "Docling v2.143.1 在全页 OCR 路径中把 OCR 单元格与原生文字一并保留为表格 token，同时把实际渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
+      "why": "这些改动直接落在文档解析流水线最容易静默丢失结构的表格与扫描件边界。已经使用 Docling 的团队应锁定 2.143.1，用原有错表、扫描 PDF 和 PPTX 回归样本重新比对，而不是只确认命令成功。",
+      "boundary": "这是 Docling 官方 GitHub Release 的修复清单，不是本站运行或 OCR 质量评测。修复表格 token 不保证合并单元格、跨页表格、手写体或低清扫描件全部正确；升级仍需在隔离环境复核输出、依赖范围和资源限制。",
+      "source": "Docling Project",
+      "source_kind": "官方 GitHub Release / 本轮编辑核验",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+      "link": "#/toolkit?task=docling&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 v2.143.1 Release",
+          "note": "核对表格 token、Tesseract 分辨率、PPTX 与依赖范围修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+          "kind": "code"
+        },
+        {
+          "label": "按站内指南复核升级",
+          "note": "用扫描件、错表与 PPTX 小样本逐项比对，不把 Release 当成本站实测",
+          "url": "#/toolkit?task=docling&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Docling Project",
+          "title": "Docling v2.143.0：混合格式 ZIP 与离线 ASR",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "baidu-unlimited-ocr-2-20261027",
+      "category": "model",
+      "title": "Unlimited OCR 2：用固定参考窗口延长多页解析",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T01:26:12+08:00",
+      "first_seen_at": "2026-10-28T01:26:12+08:00",
+      "heat": 88,
+      "heat_components": {
+        "impact": 31,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 OCR 准确率、HF Trending 分、Benchmark 总分或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方模型卡 · 厂商评测",
+      "summary": "百度发布 3B 参数 Unlimited OCR 2；模型卡称 SR-SWA 每步只保留固定规模的文字—视觉参考（示例为 512 token），并支持 Transformers 与 SGLang。本轮进入 Hugging Face 官方 Models Trending 网页榜第 20。",
+      "why": "若固定参考窗口在真实长文档上成立，多页 OCR 可以少依赖逐页切分，并保留更多跨页上下文。它值得用百页 PDF、跨页表格和页眉脚注做受控复验，而不是把“unlimited”直接当成无条件能力。",
+      "boundary": "“无限视野”与 MPDocBench、MarathonDocBench 的 SOTA 均为发布方模型卡声称，本站未复跑。官方 Transformers 示例测试于 NVIDIA A800 80GB，并启用 trust_remote_code；SGLang 路径使用定制 wheel 和显存调优参数。固定参考集不证明跨远距离引用一定正确，HF Trending 也不等于能力榜。",
+      "source": "Baidu / Hugging Face",
+      "source_kind": "官方模型卡 / 本轮编辑核验",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "link": "#/hot?tab=hf&hfq=Unlimited-OCR-2",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读官方模型卡",
+          "note": "核对 SR-SWA、测试硬件、依赖、服务参数与发布方评测边界",
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+          "kind": "docs"
+        },
+        {
+          "label": "查看 HF 当前榜位与平台指标",
+          "note": "榜位、trendingScore、Likes 与 Downloads 仅作平台热度信号",
+          "url": "#/hot?tab=hf&hfq=Unlimited-OCR-2",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Baidu",
+          "title": "Unlimited OCR Works 2 model card",
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+          "date": "2026-10-27"
+        }
+      ]
+    },
     {
       "id": "openhands-v1-34-runtime-security-20261027",
       "category": "product",

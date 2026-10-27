@@ -85,6 +85,11 @@
 /* HF occupies one compact full-width row so the two official platform signals
    are both discoverable without shrinking the existing three-card cockpit. */
 .fc-hf-panel{grid-column:1/-1;min-width:0}
+.fc-hf-change{padding:8px 15px;border-bottom:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));background:var(--accent-bg)}
+.fc-hf-change>a{display:flex;align-items:center;gap:8px;color:var(--sub);font-size:.72rem;line-height:1.45}
+.fc-hf-change b{color:var(--accent);font-size:.68rem;letter-spacing:.04em}
+.fc-hf-change span{font-variant-numeric:tabular-nums}
+.fc-hf-change .ico{width:12px;margin-left:auto;color:var(--accent)}
 .fc-hf-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .fc-hf-row{display:grid;grid-template-columns:40px minmax(0,1fr) 88px;gap:11px;align-items:center;min-height:84px;padding:14px 17px;border-right:1px solid var(--soft-line)}
 .fc-hf-row:last-child{border-right:0}

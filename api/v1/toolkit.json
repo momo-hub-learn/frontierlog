@@ -969,8 +969,8 @@
       "headline": "把 PDF 变成可用文本与表格",
       "input": "一份获授权的 PDF",
       "output": "结构化文档 / Markdown",
-      "requirements": "独立 Python 环境；初次运行需下载模型。",
-      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.143.0 新增混合格式 ZIP 与离线 ASR 预设，但压缩包仍应设置文件数量、大小、类型、超时和隔离边界；本站未运行本版本。",
+      "requirements": "独立 Python 环境；初次运行需下载模型。升级到 v2.143.1 后先用既有错表、扫描 PDF 与 PPTX 回归样本验收。",
+      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.143.1 修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但不保证合并单元格、跨页表格、手写体或低清扫描全部正确；本站未运行本版本。",
       "cost": "本地计算；预留模型下载与存储空间。",
       "steps": [
         {
@@ -984,7 +984,7 @@
         },
         {
           "title": "对照原文验收",
-          "body": "检查导出的文本和表格，优先核对表头、单位和关键数字；把失败页留作下一次回归样本。"
+          "body": "检查导出的文本和表格，优先核对全页 OCR 的表格 token、表头、单位和关键数字；再用 PPTX 图表和 Tesseract 扫描件复验，把失败页留作下一次回归样本。"
         }
       ],
       "troubleshooting": "安装失败先查 Python / PyTorch 平台兼容性；首次运行卡住先检查模型下载；表格错位则保留错误页，不要直接进入业务计算。",
@@ -1006,12 +1006,18 @@
           "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
           "published_at": "2026-10-26",
           "verified_at": "2026-10-27"
+        },
+        {
+          "title": "Docling v2.143.1：表格 OCR 与 PPTX 修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-28"
         }
       ],
       "entry_url": null,
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-27T09:23:34+08:00"
+      "verified_at": "2026-10-28T01:26:12+08:00"
     },
     {
       "id": "whisper",

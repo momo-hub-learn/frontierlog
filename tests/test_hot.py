@@ -2,6 +2,7 @@ from __future__ import annotations
 import copy,json,sys,tempfile,unittest
 from pathlib import Path
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from xml.etree import ElementTree as ET
 from email.utils import parsedate_to_datetime
 R=Path(__file__).resolve().parents[1]
@@ -54,6 +55,17 @@ class HotDataTests(unittest.TestCase):
   route=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(route['url'],item['link'])
   validate_hot(self.data)
+ def test_docling_2_143_1_and_unlimited_ocr_keep_runtime_and_vendor_claim_boundaries(self):
+  docling=next(x for x in self.data['items'] if x['id']=='docling-v2-143-1-table-ocr-20261028')
+  self.assertEqual(docling['published_at'],'2026-10-27T17:11:51Z')
+  self.assertEqual(docling['link'],'#/toolkit?task=docling&tab=run')
+  self.assertIn('不是本站运行或 OCR 质量评测',docling['boundary'])
+  ocr=next(x for x in self.data['items'] if x['id']=='baidu-unlimited-ocr-2-20261027')
+  self.assertEqual(ocr['url'],'https://huggingface.co/baidu/Unlimited-OCR-2')
+  self.assertIn('厂商评测',ocr['verification_status'])
+  self.assertIn('trust_remote_code',ocr['boundary'])
+  self.assertIn('HF Trending 也不等于能力榜',ocr['boundary'])
+  validate_hot(self.data)
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)
@@ -98,7 +110,10 @@ class HotDataTests(unittest.TestCase):
   self.assertEqual(len(items),len(self.data['items']));self.assertEqual({i.findtext('guid') for i in items},{'frontierlog:hot:'+x['id'] for x in self.data['items']})
   self.assertTrue(all(i.findtext('link').startswith('https://') for i in items))
   self.assertTrue(all('不是全网流量' in i.findtext('description') for i in items))
-  self.assertEqual({parsedate_to_datetime(i.findtext('pubDate')).date().isoformat() for i in items},{x['published'] for x in self.data['items']})
+  beijing=ZoneInfo('Asia/Shanghai')
+  self.assertEqual({parsedate_to_datetime(i.findtext('pubDate')).astimezone(beijing).date().isoformat() for i in items},{x['published'] for x in self.data['items']})
+  docling=next(i for i in items if i.findtext('guid')=='frontierlog:hot:docling-v2-143-1-table-ocr-20261028')
+  self.assertEqual(parsedate_to_datetime(docling.findtext('pubDate')).isoformat(),'2026-10-27T17:11:51+00:00')
  def test_build_embeds_hot_and_model_benchmark_tab(self):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td);app=build(out);html=(out/'index.html').read_text()

@@ -105,7 +105,9 @@ def hot_rss(data:dict,site:dict)->bytes:
         if precise:
             pub_dt=datetime.fromisoformat(str(precise).replace('Z','+00:00'))
         else:
-            pub_dt=datetime.fromisoformat(x['published']).replace(tzinfo=timezone.utc)
+            # Date-only editorial records use the Beijing calendar day.  Emitting
+            # midnight UTC would silently move their local meaning by eight hours.
+            pub_dt=datetime.fromisoformat(x['published']).replace(tzinfo=REVIEW_TIMEZONE)
         ET.SubElement(i,'pubDate').text=format_datetime(pub_dt)
         ET.SubElement(i,'description').text=x['summary']+'\n\n为什么值得看：'+x['why']+'\n\n边界：'+x['boundary']+'\n\n站内热度 '+str(x['heat'])+'；不是全网流量。'
     return ET.tostring(root,encoding='utf-8',xml_declaration=True)

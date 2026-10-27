@@ -119,8 +119,11 @@ class ToolkitTests(unittest.TestCase):
         row=next(x for x in self.data['items'] if x['id']=='docling')
         command=row['steps'][1]['command']
         self.assertIn('\n',command);self.assertIn('docling ./sample.pdf',command)
-        self.assertEqual(row['sources'][-1]['published_at'],'2026-10-26')
-        self.assertIn('混合格式 ZIP',row['limitation'])
+        self.assertEqual(row['sources'][-1]['published_at'],'2026-10-28')
+        self.assertIn('v2.143.1',row['requirements'])
+        self.assertIn('全页 OCR 表格 token',row['limitation'])
+        self.assertIn('Tesseract',row['limitation'])
+        self.assertFalse(row['runtime_tested'])
         browser=next(x for x in self.data['items'] if x['id']=='browser-use')
         self.assertEqual(browser['sources'][-1]['published_at'],'2026-10-26')
         self.assertIn('PyPI',browser['limitation'])
