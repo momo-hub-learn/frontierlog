@@ -1,7 +1,7 @@
 {
-  "last_attempt": "2026-10-27T11:23:06Z",
+  "last_attempt": "2026-10-27T13:22:28Z",
   "last_success": "2026-10-27T11:23:06Z",
-  "repositories_succeeded": 18,
+  "repositories_succeeded": 16,
   "repositories_total": 18,
   "releases": [
     {
@@ -1127,6 +1127,19 @@
       "review_status": "unreviewed"
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "task": "ai-scientist",
+      "repo": "SakanaAI/AI-Scientist",
+      "at": "2026-10-27T13:22:28Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "mathlib",
+      "repo": "leanprover-community/mathlib4",
+      "at": "2026-10-27T13:22:28Z",
+      "message": "GitHub HTTP 403"
+    }
+  ],
   "note": "Official release metadata only. Capability assessments require editorial review."
 }

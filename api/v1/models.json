@@ -23,6 +23,16 @@
       "note": "独立公开快照：Intelligence Index 52、输出速度约 62.3 tok/s、Cost per Intelligence Index Task $0.72、输入/输出每百万 Token $2/$10、cache hit $0.10、1M context。速度与单任务成本是评测方动态实测，后续可能变化。"
     },
     {
+      "id": "aa-gpt61-terra",
+      "publisher": "Artificial Analysis",
+      "title": "GPT-6.1 Terra release analysis",
+      "url": "https://artificialanalysis.ai/models/releases/gpt-6-1-terra",
+      "checked": "2026-10-27",
+      "published": "2026-10-26",
+      "kind": "评测方模型页",
+      "note": "独立公开快照：GPT-6.1 Terra（Max）Intelligence Index 48、Cost per Intelligence Index Task $0.40；输入/输出每百万 Token $1/$5、95% cache discount、1M context。发布页另称系列中 non-reasoning 配置最快约 90.9 output tok/s，本站不把该速度拼入 Max 行。成本会随评测采样更新；相同整数分不代表并列或稳定高下。"
+    },
+    {
       "id": "aa-gpt6-sol",
       "publisher": "Artificial Analysis",
       "title": "GPT-6 Sol (max) model analysis",
@@ -350,7 +360,7 @@
       "methodology": "Intelligence Index v4.3.2",
       "mode": "manual_excerpt",
       "source": "aa-live",
-      "scope": "23 个配置的人工摘录，不是全榜；2026-10-27 复核榜首五个配置未变，GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
+      "scope": "24 个配置的人工摘录，不是全榜；2026-10-27 复核榜首五个配置未变，并新增同口径的 GPT-6.1 Terra (max) 发布页快照；GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
       "rows": [
         {
           "id": "aa-opus-55-max",
@@ -541,6 +551,25 @@
           "votes": null,
           "preliminary": false,
           "source": "aa-live"
+        },
+        {
+          "id": "aa-gpt61-terra-max",
+          "name": "GPT-6.1 Terra (max)",
+          "maker": "OpenAI",
+          "intelligence": 48,
+          "speed": null,
+          "cost_task": 0.4,
+          "input_price": 1,
+          "output_price": 5,
+          "coding": null,
+          "context": "1M",
+          "source_rank": 25,
+          "source_order": 4,
+          "score_error": null,
+          "rank_spread": null,
+          "votes": null,
+          "preliminary": false,
+          "source": "aa-gpt61-terra"
         },
         {
           "id": "aa-muse-max",

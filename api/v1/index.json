@@ -256,6 +256,12 @@
             "note": "核对 Preparedness 分级、安全评测和外推限制",
             "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
             "kind": "docs"
+          },
+          {
+            "label": "查看独立评测位置",
+            "note": "在模型榜中查看 AA 同口径分数、任务成本与价格；速度按该配置未标注处理",
+            "url": "#/models?q=Terra",
+            "kind": "internal"
           }
         ],
         "related": [
@@ -3618,7 +3624,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-27T12:46:33Z",
+    "generated_at": "2026-10-27T13:43:39Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -6883,11 +6889,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-27T11:37:53Z",
+    "checked_at": "2026-10-27T13:21:15Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-27T11:37:53Z",
+      "last_success": "2026-10-27T13:21:15Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -7809,7 +7815,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-27T12:46:33Z",
+    "last_evaluated": "2026-10-27T13:43:39Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 84,
@@ -7835,7 +7841,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-27T11:21:55Z",
+    "checked_at": "2026-10-27T13:22:28Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -7843,11 +7849,11 @@
       {
         "repo": "Nutlope/hallmark",
         "rank": 1,
-        "stars_today": 2244,
+        "stars_today": 2859,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
-        "stars": 37795,
-        "forks": 1970,
+        "stars": 38049,
+        "forks": 1981,
         "repo_created_at": "2026-04-27T20:47:10Z",
         "repo_pushed_at": "2026-10-27T11:19:54Z",
         "category": "agent-skills",
@@ -7858,12 +7864,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T13:22:00Z",
-            "stars": 35236
-          },
           {
             "at": "2026-10-26T15:18:21Z",
             "stars": 35471
@@ -7907,19 +7909,23 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 37795
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 38049
           }
         ]
       },
       {
         "repo": "nightly-labs/openbot",
         "rank": 2,
-        "stars_today": 176,
+        "stars_today": 794,
         "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
         "language": "TypeScript",
-        "stars": 1836,
-        "forks": 213,
+        "stars": 1939,
+        "forks": 219,
         "repo_created_at": "2026-08-12T21:32:03Z",
-        "repo_pushed_at": "2026-10-27T11:22:07Z",
+        "repo_pushed_at": "2026-10-27T13:21:51Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -7928,12 +7934,8 @@
           "GitHub"
         ],
         "url": "https://github.com/nightly-labs/openbot",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:21:22Z",
-            "stars": 1208
-          },
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 1278
@@ -7977,6 +7979,10 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 1836
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 1939
           }
         ]
       },
@@ -7986,8 +7992,8 @@
         "stars_today": 608,
         "description": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
-        "stars": 305875,
-        "forks": 27243,
+        "stars": 305961,
+        "forks": 27249,
         "repo_created_at": "2025-10-09T19:45:18Z",
         "repo_pushed_at": "2026-10-23T03:48:57Z",
         "category": "agent-skills",
@@ -7998,22 +8004,26 @@
           "Workflow"
         ],
         "url": "https://github.com/obra/superpowers",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 305875
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 305961
           }
         ]
       },
       {
         "repo": "pbakaus/impeccable",
         "rank": 4,
-        "stars_today": 1506,
+        "stars_today": 1458,
         "description": "The design language that makes your AI harness better at design.",
         "language": "Rust",
-        "stars": 89814,
-        "forks": 5340,
+        "stars": 89938,
+        "forks": 5346,
         "repo_created_at": "2025-11-16T01:52:04Z",
         "repo_pushed_at": "2026-10-27T08:28:52Z",
         "category": "agent-harness",
@@ -8024,12 +8034,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:21:22Z",
-            "stars": 88684
-          },
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 88808
@@ -8073,19 +8079,23 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 89814
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 89938
           }
         ]
       },
       {
         "repo": "makecindy/cindy",
         "rank": 5,
-        "stars_today": 1296,
+        "stars_today": 1446,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 7090,
-        "forks": 851,
+        "stars": 7171,
+        "forks": 859,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-27T11:20:04Z",
+        "repo_pushed_at": "2026-10-27T13:22:49Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8094,12 +8104,8 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:21:22Z",
-            "stars": 5944
-          },
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 6111
@@ -8143,17 +8149,21 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 7090
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 7171
           }
         ]
       },
       {
         "repo": "gitroomhq/postiz-app",
         "rank": 6,
-        "stars_today": 188,
+        "stars_today": 953,
         "description": "📨 The ultimate agentic social media scheduling tool 🤖",
         "language": "TypeScript",
-        "stars": 38843,
-        "forks": 7468,
+        "stars": 38930,
+        "forks": 7475,
         "repo_created_at": "2023-07-08T17:24:22Z",
         "repo_pushed_at": "2026-10-24T18:27:21Z",
         "category": "agent-interface",
@@ -8164,12 +8174,8 @@
           "MCP"
         ],
         "url": "https://github.com/gitroomhq/postiz-app",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:18:21Z",
-            "stars": 38110
-          },
           {
             "at": "2026-10-26T15:21:22Z",
             "stars": 38115
@@ -8213,17 +8219,21 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 38843
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 38930
           }
         ]
       },
       {
         "repo": "affaan-m/ECC",
         "rank": 7,
-        "stars_today": 896,
+        "stars_today": 1183,
         "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
         "language": "JavaScript",
-        "stars": 290316,
-        "forks": 43013,
+        "stars": 290412,
+        "forks": 43022,
         "repo_created_at": "2026-01-18T00:51:51Z",
         "repo_pushed_at": "2026-10-26T04:56:56Z",
         "category": "agent-memory",
@@ -8234,12 +8244,8 @@
           "AI"
         ],
         "url": "https://github.com/affaan-m/ECC",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:18:21Z",
-            "stars": 289408
-          },
           {
             "at": "2026-10-26T15:21:22Z",
             "stars": 289411
@@ -8283,6 +8289,10 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 290316
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 290412
           }
         ]
       },
@@ -8292,8 +8302,8 @@
         "stars_today": 1587,
         "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
-        "stars": 44770,
-        "forks": 5659,
+        "stars": 45001,
+        "forks": 5679,
         "repo_created_at": "2025-12-28T15:35:54Z",
         "repo_pushed_at": "2026-10-27T09:59:28Z",
         "category": "other",
@@ -8303,24 +8313,28 @@
           "GitHub"
         ],
         "url": "https://github.com/HKUDS/DeepTutor",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 44770
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 45001
           }
         ]
       },
       {
         "repo": "JetBrains/thinkrail",
         "rank": 9,
-        "stars_today": 1173,
+        "stars_today": 1211,
         "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
         "language": "TypeScript",
-        "stars": 3457,
-        "forks": 184,
+        "stars": 3575,
+        "forks": 188,
         "repo_created_at": "2026-07-08T07:40:43Z",
-        "repo_pushed_at": "2026-10-27T11:14:49Z",
+        "repo_pushed_at": "2026-10-27T13:18:31Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -8328,12 +8342,8 @@
           "GitHub"
         ],
         "url": "https://github.com/JetBrains/thinkrail",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:21:22Z",
-            "stars": 2451
-          },
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 2564
@@ -8377,6 +8387,10 @@
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 3457
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 3575
           }
         ]
       },
@@ -8386,8 +8400,8 @@
         "stars_today": 890,
         "description": "LIST OF ALL MY JAILBREAKS",
         "language": "",
-        "stars": 4835,
-        "forks": 775,
+        "stars": 4956,
+        "forks": 784,
         "repo_created_at": "2026-06-18T18:21:25Z",
         "repo_pushed_at": "2026-10-25T15:21:20Z",
         "category": "other",
@@ -8397,11 +8411,15 @@
           "GitHub"
         ],
         "url": "https://github.com/togg53192-cmd/jailbreaks",
-        "metadata_verified_at": "2026-10-27T11:21:55Z",
+        "metadata_verified_at": "2026-10-27T13:22:28Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 4835
+          },
+          {
+            "at": "2026-10-27T13:22:28Z",
+            "stars": 4956
           }
         ]
       }
@@ -8481,10 +8499,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-27T11:21:55Z",
-      "last_success_at": "2026-10-27T11:21:55Z",
+      "last_checked_at": "2026-10-27T13:22:28Z",
+      "last_success_at": "2026-10-27T13:22:28Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-27T11:21:55Z",
+      "watchlist_checked_at": "2026-10-27T13:22:28Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 10,
@@ -8505,27 +8523,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 394517,
-        "forks": 98897,
+        "stars": 395048,
+        "forks": 99033,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-27T10:57:29Z",
+        "repo_pushed_at": "2026-10-27T13:11:55Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-27T11:21:55Z",
+        "verified_at": "2026-10-27T13:22:28Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-27T11:21:55Z",
+    "checked_at": "2026-10-27T13:22:28Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-27T11:21:55Z",
-    "web_fetched_at": "2026-10-27T11:21:55Z",
+    "api_fetched_at": "2026-10-27T13:22:28Z",
+    "web_fetched_at": "2026-10-27T13:22:28Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -8543,10 +8561,10 @@
       "unsloth/flint-GGUF",
       "fishaudio/drama-3",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-      "Comfy-Org/MOSS-Image",
       "HuggingFaceBio/Carbon-X",
-      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "Comfy-Org/MOSS-Image",
       "Comfy-Org/Fibo-2.0",
+      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
       "KRAFTON/Raon-1-mini-preview"
     ],
     "web_rank_changes": [
@@ -8555,156 +8573,150 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 15,
-        "previous_rank": 16,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
-      },
-      {
-        "id": "Comfy-Org/MOSS-Image",
-        "rank": 16,
         "previous_rank": 15,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
-        "rank": 17,
+        "rank": 16,
         "previous_rank": 17,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "rank": 18,
-        "previous_rank": 19,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "id": "Comfy-Org/MOSS-Image",
+        "rank": 17,
+        "previous_rank": 16,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "Comfy-Org/Fibo-2.0",
+        "rank": 18,
+        "previous_rank": 19,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
+      },
+      {
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 19,
         "previous_rank": 18,
         "rank_change": -1,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       },
       {
         "id": "KRAFTON/Raon-1-mini-preview",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
-      }
-    ],
-    "web_outgoing": [
-      {
-        "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
         "previous_rank": 20,
-        "previous_fetched_at": "2026-10-27T09:21:53Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T11:21:55Z"
       }
     ],
+    "web_outgoing": [],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 1012,
-        "likes": 3286,
+        "trending_score": 999,
+        "likes": 3302,
         "downloads": 105667,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8720,8 +8732,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 900,
-        "likes": 940,
+        "trending_score": 906,
+        "likes": 946,
         "downloads": 10574,
         "task": "text-generation",
         "library": "transformers",
@@ -8737,8 +8749,8 @@
         "rank": 3,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 619,
-        "likes": 625,
+        "trending_score": 622,
+        "likes": 629,
         "downloads": 4785,
         "task": "text-generation",
         "library": "transformers",
@@ -8754,8 +8766,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 603,
-        "likes": 737,
+        "trending_score": 607,
+        "likes": 746,
         "downloads": 6191,
         "task": "text-generation",
         "library": "transformers",
@@ -8771,8 +8783,8 @@
         "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 419,
-        "likes": 1782,
+        "trending_score": 417,
+        "likes": 1793,
         "downloads": 750694,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -8788,8 +8800,8 @@
         "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 408,
-        "likes": 9504,
+        "trending_score": 405,
+        "likes": 9512,
         "downloads": 2163739,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -8805,8 +8817,8 @@
         "rank": 7,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 379,
-        "likes": 393,
+        "trending_score": 382,
+        "likes": 399,
         "downloads": 11075,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8822,8 +8834,8 @@
         "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 348,
-        "likes": 367,
+        "trending_score": 352,
+        "likes": 372,
         "downloads": 1105751,
         "task": "text-generation",
         "library": "gguf",
@@ -8839,8 +8851,8 @@
         "rank": 9,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 323,
-        "likes": 18499,
+        "trending_score": 322,
+        "likes": 18502,
         "downloads": 7522728,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8856,8 +8868,8 @@
         "rank": 10,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 312,
-        "likes": 322,
+        "trending_score": 314,
+        "likes": 324,
         "downloads": 6613,
         "task": "text-generation",
         "library": "transformers",
@@ -8874,7 +8886,7 @@
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "trending_score": 310,
-        "likes": 5139,
+        "likes": 5150,
         "downloads": 2201569,
         "task": "text-to-image",
         "library": "gguf",
@@ -8890,7 +8902,7 @@
         "rank": 12,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 270,
+        "trending_score": 265,
         "likes": 769,
         "downloads": 13253,
         "task": "text-to-image",
@@ -8908,7 +8920,7 @@
         "id": "unsloth/flint-GGUF",
         "url": "https://huggingface.co/unsloth/flint-GGUF",
         "trending_score": 265,
-        "likes": 277,
+        "likes": 278,
         "downloads": 149888,
         "task": "text-generation",
         "library": "未标注",
@@ -8924,8 +8936,8 @@
         "rank": 14,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 233,
-        "likes": 1047,
+        "trending_score": 229,
+        "likes": 1049,
         "downloads": 24996,
         "task": "text-to-speech",
         "library": "未标注",
@@ -8941,8 +8953,8 @@
         "rank": 15,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 209,
-        "likes": 250,
+        "trending_score": 211,
+        "likes": 253,
         "downloads": 13441,
         "task": "text-generation",
         "library": "gguf",
@@ -8956,27 +8968,10 @@
       },
       {
         "rank": 16,
-        "id": "Comfy-Org/MOSS-Image",
-        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 206,
-        "likes": 493,
-        "downloads": 2760550,
-        "task": "未标注",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-16T12:42:32.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "comfyui",
-          "base_model:OpenMOSS-Team/MOSS-Image-Base",
-          "license:apache-2.0"
-        ]
-      },
-      {
-        "rank": 17,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 203,
-        "likes": 212,
+        "trending_score": 205,
+        "likes": 214,
         "downloads": 1595,
         "task": "text-generation",
         "library": "transformers",
@@ -8989,28 +8984,28 @@
         ]
       },
       {
-        "rank": 18,
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "trending_score": 194,
-        "likes": 2135,
-        "downloads": 1713544,
-        "task": "image-text-to-text",
-        "library": "未标注",
-        "created_at": "2026-09-01T07:01:09.000Z",
+        "rank": 17,
+        "id": "Comfy-Org/MOSS-Image",
+        "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
+        "trending_score": 198,
+        "likes": 494,
+        "downloads": 2760550,
+        "task": "未标注",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-16T12:42:32.000Z",
         "tags": [
-          "gguf",
-          "unsloth",
-          "fine tune",
-          "heretic"
+          "diffusion-single-file",
+          "comfyui",
+          "base_model:OpenMOSS-Team/MOSS-Image-Base",
+          "license:apache-2.0"
         ]
       },
       {
-        "rank": 19,
+        "rank": 18,
         "id": "Comfy-Org/Fibo-2.0",
         "url": "https://huggingface.co/Comfy-Org/Fibo-2.0",
-        "trending_score": 194,
-        "likes": 198,
+        "trending_score": 195,
+        "likes": 200,
         "downloads": 170383,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -9020,6 +9015,23 @@
           "comfyui",
           "arxiv:2511.06876",
           "base_model:briaai/Fibo-2.0-dev"
+        ]
+      },
+      {
+        "rank": 19,
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "trending_score": 192,
+        "likes": 2137,
+        "downloads": 1713544,
+        "task": "image-text-to-text",
+        "library": "未标注",
+        "created_at": "2026-09-01T07:01:09.000Z",
+        "tags": [
+          "gguf",
+          "unsloth",
+          "fine tune",
+          "heretic"
         ]
       },
       {
@@ -9042,7 +9054,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-27T11:21:55Z",
+      "last_checked_at": "2026-10-27T13:22:28Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -17405,6 +17417,16 @@
         "note": "独立公开快照：Intelligence Index 52、输出速度约 62.3 tok/s、Cost per Intelligence Index Task $0.72、输入/输出每百万 Token $2/$10、cache hit $0.10、1M context。速度与单任务成本是评测方动态实测，后续可能变化。"
       },
       {
+        "id": "aa-gpt61-terra",
+        "publisher": "Artificial Analysis",
+        "title": "GPT-6.1 Terra release analysis",
+        "url": "https://artificialanalysis.ai/models/releases/gpt-6-1-terra",
+        "checked": "2026-10-27",
+        "published": "2026-10-26",
+        "kind": "评测方模型页",
+        "note": "独立公开快照：GPT-6.1 Terra（Max）Intelligence Index 48、Cost per Intelligence Index Task $0.40；输入/输出每百万 Token $1/$5、95% cache discount、1M context。发布页另称系列中 non-reasoning 配置最快约 90.9 output tok/s，本站不把该速度拼入 Max 行。成本会随评测采样更新；相同整数分不代表并列或稳定高下。"
+      },
+      {
         "id": "aa-gpt6-sol",
         "publisher": "Artificial Analysis",
         "title": "GPT-6 Sol (max) model analysis",
@@ -17732,7 +17754,7 @@
         "methodology": "Intelligence Index v4.3.2",
         "mode": "manual_excerpt",
         "source": "aa-live",
-        "scope": "23 个配置的人工摘录，不是全榜；2026-10-27 复核榜首五个配置未变，GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
+        "scope": "24 个配置的人工摘录，不是全榜；2026-10-27 复核榜首五个配置未变，并新增同口径的 GPT-6.1 Terra (max) 发布页快照；GPT-6.1 Sol 等其余行保留各自核验范围。相同整数分不据此断言高下。",
         "rows": [
           {
             "id": "aa-opus-55-max",
@@ -17923,6 +17945,25 @@
             "votes": null,
             "preliminary": false,
             "source": "aa-live"
+          },
+          {
+            "id": "aa-gpt61-terra-max",
+            "name": "GPT-6.1 Terra (max)",
+            "maker": "OpenAI",
+            "intelligence": 48,
+            "speed": null,
+            "cost_task": 0.4,
+            "input_price": 1,
+            "output_price": 5,
+            "coding": null,
+            "context": "1M",
+            "source_rank": 25,
+            "source_order": 4,
+            "score_error": null,
+            "rank_spread": null,
+            "votes": null,
+            "preliminary": false,
+            "source": "aa-gpt61-terra"
           },
           {
             "id": "aa-muse-max",
@@ -21751,9 +21792,9 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-27T11:23:06Z",
+    "last_attempt": "2026-10-27T13:22:28Z",
     "last_success": "2026-10-27T11:23:06Z",
-    "repositories_succeeded": 18,
+    "repositories_succeeded": 16,
     "repositories_total": 18,
     "releases": [
       {
@@ -22879,7 +22920,20 @@
         "review_status": "unreviewed"
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "task": "ai-scientist",
+        "repo": "SakanaAI/AI-Scientist",
+        "at": "2026-10-27T13:22:28Z",
+        "message": "GitHub HTTP 403"
+      },
+      {
+        "task": "mathlib",
+        "repo": "leanprover-community/mathlib4",
+        "at": "2026-10-27T13:22:28Z",
+        "message": "GitHub HTTP 403"
+      }
+    ],
     "note": "Official release metadata only. Capability assessments require editorial review."
   },
   "site": {
