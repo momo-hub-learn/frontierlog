@@ -50,6 +50,18 @@ with sync_playwright() as pw:
  expect(page.locator('#nav [data-people-nav]')).to_have_attribute('aria-current','page')
  expect(page.locator('.pp-latest')).to_have_count(len(DATA['people']))
  ok('Direct people deep link, directory count and sidebar entry')
+ expected_order=page.evaluate("PeopleUI.rows(APP.people,PeopleUI.read('#/people',APP.people)).map(p=>p.id)")
+ actual_order=page.locator('[data-person-card]').evaluate_all("els=>els.map(e=>e.dataset.personCard)")
+ assert actual_order==expected_order
+ dated=page.locator('[data-person-card]').evaluate_all("els=>els.map(e=>e.dataset.latestDate)")
+ assert dated==sorted(dated,reverse=True)
+ expect(page.locator('.pp-achievements')).to_have_count(len(DATA['people']))
+ for person in DATA['people']:
+  card=page.locator('[data-person-card="'+person['id']+'"]')
+  expect(card.locator('.pp-work-preview li')).to_have_count(len(person['works']))
+  expect(card.locator('.pp-achievements')).to_contain_text(person['intro'])
+ expect(page.locator('.pp-results')).to_contain_text('最近更新优先')
+ ok('One complete card per person, newest real activity first, all works and credited achievements visible')
  page.evaluate("localStorage.setItem('aip.saved','[\"docling\"]')")
  page.locator('[data-people-follow="tri-dao"]').click()
  page.locator('#pp-following').check();expect(page.locator('[data-person-card]')).to_have_count(1)
@@ -117,6 +129,9 @@ with sync_playwright() as pw:
  page.evaluate("applyTheme('dark',true)");route('#/people');no_overflow()
  page.screenshot(path=str(OUT/'directory-dark.png'))
  ok('Light/dark design and desktop/mobile screenshots')
+ page.set_viewport_size({'width':390,'height':1080});route('#/people')
+ page.evaluate("""() => {const sizes=[...document.querySelectorAll('.pp-page *')].map(el=>[el,parseFloat(getComputedStyle(el).fontSize)]);for(const [el,size] of sizes)el.style.setProperty('font-size',(size*2)+'px','important')}""")
+ no_overflow();ok('People cards remain readable without page overflow at 200 percent text')
  if not OFFLINE:
   denied=browser.new_context();denied.add_init_script("Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage denied','SecurityError')}})")
   q=denied.new_page();q.on('pageerror',lambda e:errors.append(str(e)));q.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE) else r.abort())
