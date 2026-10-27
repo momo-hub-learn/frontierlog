@@ -64,6 +64,8 @@ try:
         expect(page.locator(".fc-hf-panel")).to_have_count(1)
         expect(page.locator(".fc-hf-row")).to_have_count(3)
         expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
+        expect(page.locator(".fc-gh-panel")).to_contain_text("仓库 API 部分失败")
+        expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
         assert page.locator("#nav .active").inner_text().startswith("精选")
         assert page.locator("html").get_attribute("data-theme") == "light"
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")

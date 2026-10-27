@@ -72,7 +72,8 @@ assert.doesNotMatch(view.__panel,/>\+\d+<\/b><small>Today/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
- items:[{repo:'example/agent',ai_related:true,stars_today:51,rank:7,url:'https://github.com/example/agent',description:'Agent tools'}],
+ sync:{metadata_status:'partial',metadata_failed_count:1,watchlist_failed_count:1},
+ items:[{repo:'example/agent',ai_related:true,stars_today:51,rank:7,url:'https://github.com/example/agent',description:'Agent tools',metadata_status:'stale'}],
  watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:142000,verified_at:new Date().toISOString()}]
 };
 vm.runInContext('this.__fresh=fcGithubPanel();',view);
@@ -81,6 +82,8 @@ assert.match(view.__fresh,/\+51/);
 assert.match(view.__fresh,/morluto\/rea/);
 assert.match(view.__fresh,/142k/);
 assert.match(view.__fresh,/总 Star/);
+assert.match(view.__fresh,/仓库资料旧快照/);
+assert.match(view.__fresh,/仓库 API 部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
 
 const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
 const hfView={APP:{huggingface_hot:{

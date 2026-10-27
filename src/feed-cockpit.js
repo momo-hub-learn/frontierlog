@@ -53,6 +53,8 @@ function fcGithubPanel(){
  const verified=Date.parse(gh.checked_at||'');
  const fresh=Number.isFinite(verified)&&(Date.now()-verified)<=6*36e5&&(Date.now()-verified)>=-36e5;
  const rows=fresh?(gh.items||[]).filter(x=>x.ai_related).sort((a,b)=>(b.stars_today||0)-(a.stars_today||0)||a.rank-b.rank).slice(0,3):[];
+ const metadataFailures=Number(gh.sync?.metadata_failed_count)||0,watchFailures=Number(gh.sync?.watchlist_failed_count)||0;
+ const partial=gh.sync?.metadata_status==='partial'||metadataFailures>0||watchFailures>0;
  const fmt=n=>{const v=Number(n)||0;return v>=1000?(v/1000).toFixed(v>=10000?0:1)+'k':String(v)};
  const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
@@ -60,7 +62,7 @@ function fcGithubPanel(){
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
-    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>'+esc(x.description||x.language||'')+'</small></span>'+
+    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>'+esc(x.description||x.language||'')+'</small>'+(x.metadata_status==='stale'?'<em class="fc-gh-data-state">仓库资料旧快照</em>':x.metadata_status==='unavailable'?'<em class="fc-gh-data-state">仓库资料待首次核验</em>':'')+'</span>'+
     '<span class="fc-gh-star"><b>+'+fmt(x.stars_today)+'</b><small>Today</small></span></a>'
   ).join('')+'</div>':
   '<div class="fc-gh-old"><strong>当前 Trending 未完成核验</strong><p>旧榜单已停止作为今日热门展示。可查看独立关注仓库或历史快照。</p></div>')+
@@ -69,7 +71,7 @@ function fcGithubPanel(){
     '<span class="fc-gh-rank">追踪</span><span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>独立关注 · 不等于今日上榜 · '+esc(x.verified_at?.slice(0,10)||'待核验')+'</small></span>'+
     '<span class="fc-gh-star"><b>'+ (x.verified_at&&Number.isInteger(x.stars)?fmt(x.stars):'—') +'</b><small>总 Star</small></span></a>'
   ).join('')+'</div>':'')+
-  '<div class="fc-gh-foot">'+(fresh?'官方 Trending · 当日新增 Star':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+' · 独立关注不参与排名</div>'+
+  '<div class="fc-gh-foot">'+(fresh?'官方 Trending · 当日新增 Star':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+(partial?' · 仓库 API 部分失败：'+metadataFailures+' 个上榜项'+(watchFailures?'、'+watchFailures+' 个长期关注项':'')+'沿用旧值':'')+' · 独立关注不参与排名</div>'+
  '</section>'
 }
 
