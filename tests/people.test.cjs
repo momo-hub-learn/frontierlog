@@ -64,5 +64,32 @@ test('latest verified activity covers every profile without inventing updates',(
  assert(P.page(data,read('person=shreya-shankar'),new Set(),current).includes('Quail'));
  const round=P.read(P.href(read('view=influence&dim=research'),{person:'kaiming-he'}),data);assert.equal(round.dim,'research');assert.equal(round.view,'influence');
 });
+// Synthetic fixtures isolate the ordering contract from changing news and profile counts.
+function fixture(){
+ const person=(id,checked)=>({...data.people[0],id,name:id,aliases:[],checked,works:[{title:'Work '+id,url:'https://example.org/'+id,relation:'共同作者'},{title:'Second '+id,url:'https://example.org/'+id+'/two',relation:'项目贡献者'}]});
+ const event=(id,date,people)=>({...data.events[0],id,title:id,date,people,checked:'2026-10-27'});
+ return {...data,people:[person('unknown','2026-10-27'),person('old','2026-10-27'),person('recent-b','2026-10-01'),person('recent-a','2026-10-01')],events:[event('old-event','2026-10-20',['old']),event('recent-event','2026-10-26',['recent-a','recent-b']),event('future-event','2099-01-01',['unknown']),event('invalid-event','2026-02-30',['unknown'])]};
+}
+test('profile cards sort by newest real event, not profile or source check dates',()=>{
+ const f=fixture(),at=Date.parse('2026-10-27T00:00:00Z'),before=JSON.stringify(f);
+ assert.deepEqual(P.rows(f,read(''),new Set(),at).map(p=>p.id),['recent-a','recent-b','old','unknown']);
+ assert.equal(JSON.stringify(f),before);
+ f.people.reverse();assert.deepEqual(P.rows(f,read(''),new Set(),at).map(p=>p.id),['recent-a','recent-b','old','unknown']);
+ assert.deepEqual(P.rows(f,read('following=1'),new Set(['old','recent-b']),at).map(p=>p.id),['recent-b','old']);
+});
+test('one complete card per person exposes all representative works and achievements',()=>{
+ const f=fixture(),at=Date.parse('2026-10-27T00:00:00Z'),html=P.page(f,read(''),new Set(),at);
+ assert.deepEqual([...html.matchAll(/data-person-card="([^"]+)"/g)].map(m=>m[1]),['recent-a','recent-b','old','unknown']);
+ assert(html.includes('最近更新优先'));assert(!html.includes('编辑编选顺序'));
+ assert.equal((html.match(/class="pp-achievements"/g)||[]).length,f.people.length);
+ for(const p of f.people){const card=P.card(p,f,read(''),new Set(),at);assert(card.includes('主要成就与贡献'));for(const w of p.works)assert(card.includes('href="'+w.url+'"'));}
+});
+test('sort and visible latest event share one clock, including Beijing midnight',()=>{
+ const f=fixture();f.events.push({...f.events[0],id:'new-day',title:'MIDNIGHT-EVENT',date:'2026-10-28',people:['unknown']});
+ const before=Date.parse('2026-10-27T15:59:00Z'),after=Date.parse('2026-10-27T16:01:00Z');
+ assert.notEqual(P.rows(f,read(''),new Set(),before)[0].id,'unknown');assert.equal(P.rows(f,read(''),new Set(),after)[0].id,'unknown');
+ assert(!P.page(f,read(''),new Set(),before).includes('MIDNIGHT-EVENT'));assert(P.page(f,read(''),new Set(),after).includes('MIDNIGHT-EVENT'));
+ assert.equal(P.rows({...f,people:[],events:[]},read(''),new Set(),after).length,0);
+});
 test('rendering never mutates source evidence',()=>{assert.equal(JSON.stringify(data),snapshot)});
 console.log(`People: ${n} behavioral checks passed.`);
