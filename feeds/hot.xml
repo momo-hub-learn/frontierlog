@@ -401,6 +401,12 @@
 
 边界：这是合作方向和待发布评测计划，不是现成排行榜、已发布数据集或量产收益。官方没有给出统一交付日期，本站未验证 CAD 到仿真的任务成功率。
 
+站内热度 89；不是全网流量。</description></item><item><title>OpenHands 1.34：每段对话可绑定独立 Docker Runtime</title><guid isPermaLink="false">frontierlog:hot:openhands-v1-34-runtime-security-20261027</guid><link>https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0</link><pubDate>Tue, 27 Oct 2026 14:35:23 +0000</pubDate><description>OpenHands v1.34.0 让 Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页；同时改进 Automation 标签与团队分享开关，把会话 API key 从进程参数移到环境变量，并修复不可信 Markdown 的链接属性处理。
+
+为什么值得看：Coding Agent 的隔离单元从一套共享环境进一步下沉到具体对话，团队也获得更清晰的运行时与分享控制。已部署 OpenHands 的团队应锁定 1.34.0，用测试仓库检查容器生命周期、目录挂载、密钥暴露面和旧会话兼容性。
+
+边界：这是 OpenHands 官方 Release 的功能与修复清单，不是本站运行或安全审计。每段对话独立容器不自动证明宿主机、网络、挂载目录与模型后端已隔离；API key 改走环境变量只减少命令行暴露面。macOS 构建仍未签名和公证。
+
 站内热度 89；不是全网流量。</description></item><item><title>Pathos × BMS × Tempus：神经疾病数据与 Agent 平台进入五年合作</title><guid isPermaLink="false">frontierlog:hot:pathos-bms-tempus-neuroscience-20261023</guid><link>https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>Pathos 宣布与 BMS、Tempus 建立多年合作：Tempus 将构建覆盖数十万神经疾病患者的去标识化纵向数据集，Pathos 以五年 5,500 万美元协议许可数据，并用 Foundry 分析疾病进展、生成与检验假设、辅助更有针对性的自适应试验设计。
 
 为什么值得看：医药 Agent 的落点从单次文献问答推进到“纵向患者数据→疾病假设→临床试验设计”的持续工作流；协议金额、数据规模、平台权限和独占期都提供了后续可跟踪的交付节点。

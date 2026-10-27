@@ -61,6 +61,21 @@
       "short_title": "DNA 语言模型开放权重"
     },
     {
+      "id": "openhands-1-34-release",
+      "task": "openhands",
+      "date": "2026-10-27",
+      "kind": "release",
+      "title": "OpenHands v1.34.0 加入对话级 Docker Runtime",
+      "summary": "Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。",
+      "delta": "运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。",
+      "sources": [
+        "openhands-1-34-release"
+      ],
+      "reviewed": "2026-10-27",
+      "tag": "v1.34.0",
+      "short_title": "对话级 Docker Runtime"
+    },
+    {
       "id": "openhands-1-33-release",
       "task": "openhands",
       "date": "2026-10-23",
@@ -634,6 +649,16 @@
       "published": "2026-10-21",
       "checked": "2026-10-27",
       "kind": "官方模型卡"
+    },
+    {
+      "id": "openhands-1-34-release",
+      "title": "OpenHands v1.34.0",
+      "publisher": "OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+      "published": "2026-10-27",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T23:25:14+08:00",
+      "kind": "官方 GitHub Release"
     },
     {
       "id": "openhands-1-33-release",

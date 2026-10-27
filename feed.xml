@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>CodeRabbit 把 GPT-6.1 Sol 接入跨仓库安全审查</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openai-coderabbit-secure&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openai-coderabbit-sol-security</guid><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>安全 Agent 在 PR、全仓扫描与关联仓库上下文中调查跨文件问题，并可对用户选中的发现做隔离验证、起草修复 PR。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>OpenHands v1.34.0 加入对话级 Docker Runtime</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-34-release</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。
+
+编辑解读：运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。
+
+公开资料，本站未复测。
+来源：https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0</description></item><item><title>CodeRabbit 把 GPT-6.1 Sol 接入跨仓库安全审查</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openai-coderabbit-secure&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openai-coderabbit-sol-security</guid><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>安全 Agent 在 PR、全仓扫描与关联仓库上下文中调查跨文件问题，并可对用户选中的发现做隔离验证、起草修复 PR。
 
 编辑解读：代码审查正从单文件建议走向可追踪的跨仓库调查与修复草案；案例仍是合作方自报，缺少可复现的统一准确率，且生产变更必须保留人工审批。
 

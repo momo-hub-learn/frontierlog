@@ -37,6 +37,55 @@
     ],
     "items": [
       {
+        "id": "openhands-v1-34-runtime-security-20261027",
+        "category": "product",
+        "title": "OpenHands 1.34：每段对话可绑定独立 Docker Runtime",
+        "published": "2026-10-27",
+        "published_at": "2026-10-27T14:35:23Z",
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T23:25:14+08:00",
+        "first_seen_at": "2026-10-27T23:25:14+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 27,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是安全评级、Agent 能力或本站实测分数。",
+        "trend": "up",
+        "summary": "OpenHands v1.34.0 让 Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页；同时改进 Automation 标签与团队分享开关，把会话 API key 从进程参数移到环境变量，并修复不可信 Markdown 的链接属性处理。",
+        "why": "Coding Agent 的隔离单元从一套共享环境进一步下沉到具体对话，团队也获得更清晰的运行时与分享控制。已部署 OpenHands 的团队应锁定 1.34.0，用测试仓库检查容器生命周期、目录挂载、密钥暴露面和旧会话兼容性。",
+        "boundary": "这是 OpenHands 官方 Release 的功能与修复清单，不是本站运行或安全审计。每段对话独立容器不自动证明宿主机、网络、挂载目录与模型后端已隔离；API key 改走环境变量只减少命令行暴露面。macOS 构建仍未签名和公证。",
+        "source": "OpenHands",
+        "source_kind": "官方 GitHub Release / 本轮编辑核验",
+        "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+        "link": "#/toolkit?task=openhands&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看 v1.34.0 Release",
+            "note": "核对每段对话的 Docker Runtime、Settings → Runtime 与安全修复原文",
+            "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+            "kind": "code"
+          },
+          {
+            "label": "按站内指南复核升级",
+            "note": "在隔离测试仓库核对容器、挂载、密钥与回归测试，不把 Release 当成本站实测",
+            "url": "#/toolkit?task=openhands&tab=run",
+            "kind": "internal"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenHands",
+            "title": "OpenHands v1.33.0：验证模式与机密遮蔽",
+            "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+            "date": "2026-10-23"
+          }
+        ]
+      },
+      {
         "id": "openai-academic-science-claims-20261026",
         "category": "research",
         "title": "OpenAI 把三组科学结果交给外部学界核验",
@@ -6889,11 +6938,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-27T14:54:47Z",
+    "checked_at": "2026-10-27T15:35:30Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-27T14:54:47Z",
+      "last_success": "2026-10-27T15:35:30Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -7854,7 +7903,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-27T14:41:13Z",
+    "checked_at": "2026-10-27T15:21:57Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -7865,10 +7914,10 @@
         "stars_today": 2859,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
-        "stars": 38212,
-        "forks": 1989,
+        "stars": 38290,
+        "forks": 1995,
         "repo_created_at": "2026-04-27T20:47:10Z",
-        "repo_pushed_at": "2026-10-27T11:19:54Z",
+        "repo_pushed_at": "2026-10-27T15:05:53Z",
         "category": "agent-skills",
         "ai_related": true,
         "tags": [
@@ -7877,12 +7926,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T15:21:22Z",
-            "stars": 35478
-          },
           {
             "at": "2026-10-26T17:16:01Z",
             "stars": 35663
@@ -7926,6 +7971,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 38212
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 38290
           }
         ]
       },
@@ -7935,10 +7984,10 @@
         "stars_today": 794,
         "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
         "language": "TypeScript",
-        "stars": 2010,
-        "forks": 221,
+        "stars": 2046,
+        "forks": 222,
         "repo_created_at": "2026-08-12T21:32:03Z",
-        "repo_pushed_at": "2026-10-27T14:39:49Z",
+        "repo_pushed_at": "2026-10-27T15:10:55Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -7947,12 +7996,8 @@
           "GitHub"
         ],
         "url": "https://github.com/nightly-labs/openbot",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T19:17:50Z",
-            "stars": 1341
-          },
           {
             "at": "2026-10-26T21:06:04Z",
             "stars": 1383
@@ -7996,6 +8041,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 2010
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 2046
           }
         ]
       },
@@ -8005,8 +8054,8 @@
         "stars_today": 608,
         "description": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
-        "stars": 306044,
-        "forks": 27254,
+        "stars": 306082,
+        "forks": 27255,
         "repo_created_at": "2025-10-09T19:45:18Z",
         "repo_pushed_at": "2026-10-23T03:48:57Z",
         "category": "agent-skills",
@@ -8017,7 +8066,7 @@
           "Workflow"
         ],
         "url": "https://github.com/obra/superpowers",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -8030,6 +8079,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 306044
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 306082
           }
         ]
       },
@@ -8039,8 +8092,8 @@
         "stars_today": 1458,
         "description": "The design language that makes your AI harness better at design.",
         "language": "Rust",
-        "stars": 90034,
-        "forks": 5351,
+        "stars": 90084,
+        "forks": 5357,
         "repo_created_at": "2025-11-16T01:52:04Z",
         "repo_pushed_at": "2026-10-27T08:28:52Z",
         "category": "agent-harness",
@@ -8051,12 +8104,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T19:17:50Z",
-            "stars": 88933
-          },
           {
             "at": "2026-10-26T21:06:04Z",
             "stars": 89027
@@ -8100,6 +8149,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 90034
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 90084
           }
         ]
       },
@@ -8109,10 +8162,10 @@
         "stars_today": 1446,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 7224,
-        "forks": 863,
+        "stars": 7246,
+        "forks": 865,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-27T14:38:15Z",
+        "repo_pushed_at": "2026-10-27T15:21:09Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8121,12 +8174,8 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T19:17:50Z",
-            "stars": 6228
-          },
           {
             "at": "2026-10-26T21:06:04Z",
             "stars": 6317
@@ -8170,6 +8219,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 7224
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 7246
           }
         ]
       },
@@ -8179,7 +8232,7 @@
         "stars_today": 953,
         "description": "📨 The ultimate agentic social media scheduling tool 🤖",
         "language": "TypeScript",
-        "stars": 38998,
+        "stars": 39016,
         "forks": 7477,
         "repo_created_at": "2023-07-08T17:24:22Z",
         "repo_pushed_at": "2026-10-24T18:27:21Z",
@@ -8191,12 +8244,8 @@
           "MCP"
         ],
         "url": "https://github.com/gitroomhq/postiz-app",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T17:16:01Z",
-            "stars": 38202
-          },
           {
             "at": "2026-10-26T19:17:50Z",
             "stars": 38290
@@ -8240,6 +8289,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 38998
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 39016
           }
         ]
       },
@@ -8249,8 +8302,8 @@
         "stars_today": 1183,
         "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
         "language": "JavaScript",
-        "stars": 290467,
-        "forks": 43027,
+        "stars": 290500,
+        "forks": 43033,
         "repo_created_at": "2026-01-18T00:51:51Z",
         "repo_pushed_at": "2026-10-26T04:56:56Z",
         "category": "agent-memory",
@@ -8261,12 +8314,8 @@
           "AI"
         ],
         "url": "https://github.com/affaan-m/ECC",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T17:16:01Z",
-            "stars": 289533
-          },
           {
             "at": "2026-10-26T19:17:50Z",
             "stars": 289644
@@ -8310,6 +8359,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 290467
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 290500
           }
         ]
       },
@@ -8319,10 +8372,10 @@
         "stars_today": 1587,
         "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
-        "stars": 45173,
-        "forks": 5693,
+        "stars": 45276,
+        "forks": 5698,
         "repo_created_at": "2025-12-28T15:35:54Z",
-        "repo_pushed_at": "2026-10-27T14:22:31Z",
+        "repo_pushed_at": "2026-10-27T15:21:40Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -8330,7 +8383,7 @@
           "GitHub"
         ],
         "url": "https://github.com/HKUDS/DeepTutor",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -8343,6 +8396,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 45173
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 45276
           }
         ]
       },
@@ -8352,10 +8409,10 @@
         "stars_today": 1211,
         "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
         "language": "TypeScript",
-        "stars": 3647,
+        "stars": 3679,
         "forks": 190,
         "repo_created_at": "2026-07-08T07:40:43Z",
-        "repo_pushed_at": "2026-10-27T14:32:32Z",
+        "repo_pushed_at": "2026-10-27T15:03:15Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -8363,12 +8420,8 @@
           "GitHub"
         ],
         "url": "https://github.com/JetBrains/thinkrail",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-26T19:17:50Z",
-            "stars": 2668
-          },
           {
             "at": "2026-10-26T21:06:04Z",
             "stars": 2756
@@ -8412,6 +8465,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 3647
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 3679
           }
         ]
       },
@@ -8421,8 +8478,8 @@
         "stars_today": 890,
         "description": "LIST OF ALL MY JAILBREAKS",
         "language": "",
-        "stars": 5037,
-        "forks": 789,
+        "stars": 5067,
+        "forks": 793,
         "repo_created_at": "2026-06-18T18:21:25Z",
         "repo_pushed_at": "2026-10-25T15:21:20Z",
         "category": "other",
@@ -8432,7 +8489,7 @@
           "GitHub"
         ],
         "url": "https://github.com/togg53192-cmd/jailbreaks",
-        "metadata_verified_at": "2026-10-27T14:41:13Z",
+        "metadata_verified_at": "2026-10-27T15:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -8445,6 +8502,10 @@
           {
             "at": "2026-10-27T14:41:13Z",
             "stars": 5037
+          },
+          {
+            "at": "2026-10-27T15:21:57Z",
+            "stars": 5067
           }
         ]
       }
@@ -8524,10 +8585,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-27T14:41:13Z",
-      "last_success_at": "2026-10-27T14:41:13Z",
+      "last_checked_at": "2026-10-27T15:21:57Z",
+      "last_success_at": "2026-10-27T15:21:57Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-27T14:41:13Z",
+      "watchlist_checked_at": "2026-10-27T15:21:57Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 10,
@@ -8548,27 +8609,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 395409,
-        "forks": 99136,
+        "stars": 395618,
+        "forks": 99183,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-27T14:36:45Z",
+        "repo_pushed_at": "2026-10-27T14:56:23Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-27T14:41:13Z",
+        "verified_at": "2026-10-27T15:21:57Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-27T13:22:28Z",
+    "checked_at": "2026-10-27T15:21:57Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-27T13:22:28Z",
-    "web_fetched_at": "2026-10-27T13:22:28Z",
+    "api_fetched_at": "2026-10-27T15:21:57Z",
+    "web_fetched_at": "2026-10-27T15:21:57Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -8580,10 +8641,10 @@
       "MiniMaxAI/MiniMax-M3.1-Flash",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "Qwen/Qwen3.8-27B",
-      "InternScience/Sage-A1.5",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "OpenMOSS-Team/MOSS-Image-SFT",
+      "InternScience/Sage-A1.5",
       "unsloth/flint-GGUF",
+      "OpenMOSS-Team/MOSS-Image-SFT",
       "fishaudio/drama-3",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "HuggingFaceBio/Carbon-X",
@@ -8598,140 +8659,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
-      },
-      {
-        "id": "InternScience/Sage-A1.5",
-        "rank": 10,
-        "previous_rank": 10,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 11,
+        "rank": 10,
         "previous_rank": 11,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
-        "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "rank": 12,
-        "previous_rank": 12,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "id": "InternScience/Sage-A1.5",
+        "rank": 11,
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "unsloth/flint-GGUF",
-        "rank": 13,
+        "rank": 12,
         "previous_rank": 13,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
+      },
+      {
+        "id": "OpenMOSS-Team/MOSS-Image-SFT",
+        "rank": 13,
+        "previous_rank": 12,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
         "rank": 16,
-        "previous_rank": 17,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_rank": 16,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 17,
-        "previous_rank": 16,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "Comfy-Org/Fibo-2.0",
         "rank": 18,
-        "previous_rank": 19,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_rank": 18,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 19,
-        "previous_rank": 18,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_rank": 19,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       },
       {
         "id": "KRAFTON/Raon-1-mini-preview",
         "rank": 20,
         "previous_rank": 20,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-27T11:21:55Z"
+        "previous_fetched_at": "2026-10-27T13:22:28Z"
       }
     ],
     "web_outgoing": [],
@@ -8740,8 +8801,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 999,
-        "likes": 3302,
+        "trending_score": 987,
+        "likes": 3318,
         "downloads": 105667,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8757,8 +8818,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 906,
-        "likes": 946,
+        "trending_score": 911,
+        "likes": 951,
         "downloads": 10574,
         "task": "text-generation",
         "library": "transformers",
@@ -8774,8 +8835,8 @@
         "rank": 3,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 622,
-        "likes": 629,
+        "trending_score": 633,
+        "likes": 640,
         "downloads": 4785,
         "task": "text-generation",
         "library": "transformers",
@@ -8791,8 +8852,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 607,
-        "likes": 746,
+        "trending_score": 608,
+        "likes": 748,
         "downloads": 6191,
         "task": "text-generation",
         "library": "transformers",
@@ -8809,7 +8870,7 @@
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
         "trending_score": 417,
-        "likes": 1793,
+        "likes": 1815,
         "downloads": 750694,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -8825,8 +8886,8 @@
         "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 405,
-        "likes": 9512,
+        "trending_score": 410,
+        "likes": 9525,
         "downloads": 2163739,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -8842,8 +8903,8 @@
         "rank": 7,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 382,
-        "likes": 399,
+        "trending_score": 383,
+        "likes": 400,
         "downloads": 11075,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8859,8 +8920,8 @@
         "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 352,
-        "likes": 372,
+        "trending_score": 355,
+        "likes": 375,
         "downloads": 1105751,
         "task": "text-generation",
         "library": "gguf",
@@ -8876,8 +8937,8 @@
         "rank": 9,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 322,
-        "likes": 18502,
+        "trending_score": 323,
+        "likes": 18511,
         "downloads": 7522728,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -8891,27 +8952,10 @@
       },
       {
         "rank": 10,
-        "id": "InternScience/Sage-A1.5",
-        "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 314,
-        "likes": 324,
-        "downloads": 6613,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-15T08:34:39.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "qwen3_5_moe",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 11,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 310,
-        "likes": 5150,
+        "trending_score": 316,
+        "likes": 5160,
         "downloads": 2201569,
         "task": "text-to-image",
         "library": "gguf",
@@ -8924,10 +8968,44 @@
         ]
       },
       {
+        "rank": 11,
+        "id": "InternScience/Sage-A1.5",
+        "url": "https://huggingface.co/InternScience/Sage-A1.5",
+        "trending_score": 316,
+        "likes": 326,
+        "downloads": 6613,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-15T08:34:39.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3_5_moe",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 12,
+        "id": "unsloth/flint-GGUF",
+        "url": "https://huggingface.co/unsloth/flint-GGUF",
+        "trending_score": 267,
+        "likes": 280,
+        "downloads": 149888,
+        "task": "text-generation",
+        "library": "未标注",
+        "created_at": "2026-10-20T03:26:14.000Z",
+        "tags": [
+          "gguf",
+          "flint",
+          "unsloth",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 13,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 265,
+        "trending_score": 256,
         "likes": 769,
         "downloads": 13253,
         "task": "text-to-image",
@@ -8941,28 +9019,11 @@
         ]
       },
       {
-        "rank": 13,
-        "id": "unsloth/flint-GGUF",
-        "url": "https://huggingface.co/unsloth/flint-GGUF",
-        "trending_score": 265,
-        "likes": 278,
-        "downloads": 149888,
-        "task": "text-generation",
-        "library": "未标注",
-        "created_at": "2026-10-20T03:26:14.000Z",
-        "tags": [
-          "gguf",
-          "flint",
-          "unsloth",
-          "text-generation"
-        ]
-      },
-      {
         "rank": 14,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 229,
-        "likes": 1049,
+        "trending_score": 228,
+        "likes": 1053,
         "downloads": 24996,
         "task": "text-to-speech",
         "library": "未标注",
@@ -8978,8 +9039,8 @@
         "rank": 15,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 211,
-        "likes": 253,
+        "trending_score": 216,
+        "likes": 258,
         "downloads": 13441,
         "task": "text-generation",
         "library": "gguf",
@@ -8995,8 +9056,8 @@
         "rank": 16,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 205,
-        "likes": 214,
+        "trending_score": 207,
+        "likes": 217,
         "downloads": 1595,
         "task": "text-generation",
         "library": "transformers",
@@ -9012,8 +9073,8 @@
         "rank": 17,
         "id": "Comfy-Org/MOSS-Image",
         "url": "https://huggingface.co/Comfy-Org/MOSS-Image",
-        "trending_score": 198,
-        "likes": 494,
+        "trending_score": 196,
+        "likes": 496,
         "downloads": 2760550,
         "task": "未标注",
         "library": "diffusion-single-file",
@@ -9047,7 +9108,7 @@
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "trending_score": 192,
-        "likes": 2137,
+        "likes": 2138,
         "downloads": 1713544,
         "task": "image-text-to-text",
         "library": "未标注",
@@ -9063,8 +9124,8 @@
         "rank": 20,
         "id": "KRAFTON/Raon-1-mini-preview",
         "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview",
-        "trending_score": 187,
-        "likes": 202,
+        "trending_score": 188,
+        "likes": 204,
         "downloads": 2208,
         "task": "text-generation",
         "library": "transformers",
@@ -9079,7 +9140,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-27T13:22:28Z",
+      "last_checked_at": "2026-10-27T15:21:57Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -20360,15 +20421,16 @@
         "mark": "oh",
         "accent": "lime",
         "summary": "在隔离仓库中运行编程 Agent，连接本地或云端后端，并保留可检查的执行与验证路径。",
-        "scope": "当前仓库提供 Agent Canvas；v1.33.0 增加 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式、Web 登录持久化，并在请求与 Settings 表单遮蔽机密值。",
-        "boundary": "补丁通过不等于可以直接合并；表单遮蔽也不证明机密未进入请求、日志、存储或后端。macOS 应用仍未签名和公证，需按官方说明评估安装与 Gatekeeper 风险。",
+        "scope": "当前仓库提供 Agent Canvas；v1.34.0 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑和更清晰的团队分享开关。",
+        "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
         "repo": "OpenHands/OpenHands",
         "sources": [
+          "openhands-1-34-release",
           "openhands-1-33-release",
           "openhands"
         ],
-        "requirements": "Docker、模型配置、隔离的项目副本。不要直接挂载主目录或生产凭证；升级后重新核对 Web 登录、请求表单与 Settings 的凭据边界。",
-        "test": "选一个可复现的小 Bug，固定 v1.33.0、后端和模型，冻结失败测试与原有测试；再检查补丁、日志，以及表单遮蔽是否符合自己的凭据策略。",
+        "requirements": "Docker、模型配置、隔离的项目副本。不要直接挂载主目录或生产凭证；升级后在 Settings → Runtime 核对容器、镜像、挂载、网络与模型后端。",
+        "test": "选一个可复现的小 Bug，固定 v1.34.0、后端和模型，为测试对话创建独立 Runtime，冻结失败测试与原有测试；再检查补丁、日志、容器生命周期和密钥暴露面。",
         "checks": [
           "失败测试恢复通过",
           "原有测试无回归",
@@ -20379,8 +20441,8 @@
         "evidence": "官方资料",
         "status": "code",
         "tested": false,
-        "reviewed": "2026-10-25",
-        "verified_at": "2026-10-25T11:26:01+08:00"
+        "reviewed": "2026-10-27",
+        "verified_at": "2026-10-27T23:25:14+08:00"
       },
       {
         "id": "graphrag",
@@ -20646,6 +20708,16 @@
         "published": "2026-10-21",
         "checked": "2026-10-27",
         "kind": "官方模型卡"
+      },
+      {
+        "id": "openhands-1-34-release",
+        "title": "OpenHands v1.34.0",
+        "publisher": "OpenHands",
+        "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+        "published": "2026-10-27",
+        "checked": "2026-10-27",
+        "verified_at": "2026-10-27T23:25:14+08:00",
+        "kind": "官方 GitHub Release"
       },
       {
         "id": "openhands-1-33-release",
@@ -21299,6 +21371,21 @@
         "short_title": "DNA 语言模型开放权重"
       },
       {
+        "id": "openhands-1-34-release",
+        "task": "openhands",
+        "date": "2026-10-27",
+        "kind": "release",
+        "title": "OpenHands v1.34.0 加入对话级 Docker Runtime",
+        "summary": "Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。",
+        "delta": "运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。",
+        "sources": [
+          "openhands-1-34-release"
+        ],
+        "reviewed": "2026-10-27",
+        "tag": "v1.34.0",
+        "short_title": "对话级 Docker Runtime"
+      },
+      {
         "id": "openhands-1-33-release",
         "task": "openhands",
         "date": "2026-10-23",
@@ -21817,11 +21904,22 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-27T13:22:28Z",
-    "last_success": "2026-10-27T11:23:06Z",
-    "repositories_succeeded": 16,
+    "last_attempt": "2026-10-27T15:21:57Z",
+    "last_success": "2026-10-27T15:21:57Z",
+    "repositories_succeeded": 18,
     "repositories_total": 18,
     "releases": [
+      {
+        "id": "upstream-425575573",
+        "task": "openhands",
+        "repo": "OpenHands/OpenHands",
+        "tag": "v1.34.0",
+        "title": "v1.34.0",
+        "published_at": "2026-10-27T14:35:23Z",
+        "observed_at": "2026-10-27T15:21:57Z",
+        "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+        "review_status": "unreviewed"
+      },
       {
         "id": "upstream-424894279",
         "task": "docling",
@@ -22945,20 +23043,7 @@
         "review_status": "unreviewed"
       }
     ],
-    "errors": [
-      {
-        "task": "ai-scientist",
-        "repo": "SakanaAI/AI-Scientist",
-        "at": "2026-10-27T13:22:28Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "mathlib",
-        "repo": "leanprover-community/mathlib4",
-        "at": "2026-10-27T13:22:28Z",
-        "message": "GitHub HTTP 403"
-      }
-    ],
+    "errors": [],
     "note": "Official release metadata only. Capability assessments require editorial review."
   },
   "site": {
@@ -27095,16 +27180,16 @@
         "publisher": "OpenHands",
         "group": "agents",
         "access": "model",
-        "headline": "在隔离仓库复跑 OpenHands 1.33，并核对验证与机密边界",
+        "headline": "在隔离仓库复跑 OpenHands 1.34，并核对对话级 Runtime 与密钥边界",
         "input": "隔离仓库 + 问题描述 + 测试",
         "output": "代码变更与可检查的执行记录",
-        "requirements": "OpenHands v1.33.0、Agent Canvas、可用后端 / 模型与隔离测试仓库；不要挂载主目录或生产凭据。",
-        "limitation": "本站只核验官方 Release 与文档，未运行软件。表单遮蔽不能证明机密未进入请求、日志、存储或后端；补丁通过也需人工审阅，macOS 构建仍未签名和公证。",
+        "requirements": "OpenHands v1.34.0、Agent Canvas、Docker、可用后端 / 模型与隔离测试仓库；不要挂载主目录或生产凭据。",
+        "limitation": "本站只核验官方 Release 与文档，未运行软件。对话级 Docker Runtime 不证明宿主机、网络、挂载和模型后端已隔离；会话 API key 改走环境变量也不等于不会进入日志或后端。补丁仍需人工审阅，macOS 构建仍未签名和公证。",
         "cost": "模型调用与后端运行可能分别产生费用。",
         "steps": [
           {
-            "title": "选择隔离运行路径",
-            "body": "当前官方仓库是 Agent Canvas，支持不同后端。先阅读官方 Quickstart 的 Docker 沙箱或自托管方案；不要把旧版 Local GUI 当作当前入口。"
+            "title": "创建对话级测试 Runtime",
+            "body": "在 Settings → Runtime 检查 Docker 配置，再为测试对话创建独立 Runtime。记录容器、镜像、目录挂载和网络范围；不要把旧版 Local GUI 当作当前入口。"
           },
           {
             "title": "只提供测试仓库",
@@ -27112,11 +27197,17 @@
           },
           {
             "title": "检查代码与日志",
-            "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；同时检查请求表单、Settings、网络请求和日志，不要把 UI 遮蔽当作机密已隔离的证明。"
+            "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；同时检查进程环境、请求、日志与后端，不要因会话 API key 不再出现在命令行就认定密钥已经安全。"
           }
         ],
-        "troubleshooting": "界面启动但任务不运行时检查后端与模型配置；验证接线可核对 --mars-web / --lock-to-cloud；沙箱找不到文件时核对允许目录，不要扩大全盘权限。macOS 若被标记为损坏，先确认来源和版本，再按 v1.33.0 Release 的未签名说明处理。",
+        "troubleshooting": "对话启动但任务不运行时，先在 Settings → Runtime 核对 Docker 与后端配置，再确认当前会话绑定的容器；找不到文件时检查显式挂载，不要扩大全盘权限。macOS 若被标记为损坏，先确认来源和版本，再按 v1.34.0 Release 的未签名说明处理。",
         "sources": [
+          {
+            "title": "OpenHands v1.34.0 官方 Release",
+            "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+            "published_at": "2026-10-27",
+            "verified_at": "2026-10-27"
+          },
           {
             "title": "OpenHands v1.33.0 官方 Release",
             "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
@@ -27139,7 +27230,7 @@
         "entry_url": null,
         "evidence_level": "primary-docs",
         "runtime_tested": false,
-        "verified_at": "2026-10-25T11:26:01+08:00"
+        "verified_at": "2026-10-27T23:25:14+08:00"
       },
       {
         "id": "browser-use",

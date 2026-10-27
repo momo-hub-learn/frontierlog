@@ -36,6 +36,55 @@
   ],
   "items": [
     {
+      "id": "openhands-v1-34-runtime-security-20261027",
+      "category": "product",
+      "title": "OpenHands 1.34：每段对话可绑定独立 Docker Runtime",
+      "published": "2026-10-27",
+      "published_at": "2026-10-27T14:35:23Z",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T23:25:14+08:00",
+      "first_seen_at": "2026-10-27T23:25:14+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 27,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是安全评级、Agent 能力或本站实测分数。",
+      "trend": "up",
+      "summary": "OpenHands v1.34.0 让 Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页；同时改进 Automation 标签与团队分享开关，把会话 API key 从进程参数移到环境变量，并修复不可信 Markdown 的链接属性处理。",
+      "why": "Coding Agent 的隔离单元从一套共享环境进一步下沉到具体对话，团队也获得更清晰的运行时与分享控制。已部署 OpenHands 的团队应锁定 1.34.0，用测试仓库检查容器生命周期、目录挂载、密钥暴露面和旧会话兼容性。",
+      "boundary": "这是 OpenHands 官方 Release 的功能与修复清单，不是本站运行或安全审计。每段对话独立容器不自动证明宿主机、网络、挂载目录与模型后端已隔离；API key 改走环境变量只减少命令行暴露面。macOS 构建仍未签名和公证。",
+      "source": "OpenHands",
+      "source_kind": "官方 GitHub Release / 本轮编辑核验",
+      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+      "link": "#/toolkit?task=openhands&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 v1.34.0 Release",
+          "note": "核对每段对话的 Docker Runtime、Settings → Runtime 与安全修复原文",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+          "kind": "code"
+        },
+        {
+          "label": "按站内指南复核升级",
+          "note": "在隔离测试仓库核对容器、挂载、密钥与回归测试，不把 Release 当成本站实测",
+          "url": "#/toolkit?task=openhands&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenHands",
+          "title": "OpenHands v1.33.0：验证模式与机密遮蔽",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
       "id": "openai-academic-science-claims-20261026",
       "category": "research",
       "title": "OpenAI 把三组科学结果交给外部学界核验",
