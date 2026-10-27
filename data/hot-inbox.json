@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-27T15:35:36Z",
+  "generated_at": "2026-10-27T17:37:29Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 2,
-    "merge": 80,
+    "publish": 1,
+    "merge": 81,
     "hold": 3
   },
   "candidates": [
@@ -32,30 +32,6 @@
       "action": "publish",
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "browser-use",
-      "first_seen_at": "2026-10-27T01:23:34Z"
-    },
-    {
-      "id": "candidate-c999163fce628094",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
-      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
-      "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；混合格式 ZIP 与离线 ASR 预设已进入 v2.143.0，但本站未运行。",
-      "source": "Docling project",
-      "source_kind": "官方发布",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.929,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.941,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-      "task_id": "docling",
       "first_seen_at": "2026-10-27T01:23:34Z"
     },
     {
@@ -182,6 +158,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-coderabbit-secure",
       "first_seen_at": "2026-10-27T11:28:21Z"
+    },
+    {
+      "id": "candidate-c999163fce628094",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
+      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
+      "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
+      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
+      "source": "Docling project",
+      "source_kind": "官方发布",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "docling",
+      "first_seen_at": "2026-10-27T01:23:34Z"
     },
     {
       "id": "candidate-f1807b40775d91b3",
@@ -366,7 +366,7 @@
       "title": "Docling 收紧归档、图片与复杂格式输入边界",
       "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
       "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；混合格式 ZIP 与离线 ASR 预设已进入 v2.143.0，但本站未运行。",
+      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
