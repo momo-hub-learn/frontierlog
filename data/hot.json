@@ -36,6 +36,92 @@
   ],
   "items": [
     {
+      "id": "openai-academic-science-claims-20261026",
+      "category": "research",
+      "title": "OpenAI 把三组科学结果交给外部学界核验",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T09:23:34+08:00",
+      "first_seen_at": "2026-10-27T09:23:34+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 33,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科学正确率、同行评审结论、模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "厂商声明 · 外部核验中",
+      "summary": "OpenAI 发布三组由模型参与形成的数学、计算机科学与理论物理结果，公开数学/计算机科学手稿与 Lean 材料，并组织独立学者工作组继续核验。",
+      "why": "AI 生成的候选研究开始进入“公开手稿—形式化材料—外部专家审阅”的可审计链条；真正的前瞻信号是核验机制，而不是厂商宣布了几个结果。",
+      "boundary": "OpenAI 明确把这些稿件称为原始研究数据，不是学界共识或同行评审结论。Lean 只能检查被形式化的推理，不能自动证明科学前提与物理建模正确；物理底层产物尚未公开，独立工作组仍在核验。",
+      "source": "OpenAI",
+      "source_kind": "官方研究说明 / 厂商声明 · 外部核验中",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "link": "#/progress?view=research&q=OpenAI",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读研究说明",
+          "note": "核对三个结果、公开材料、外部工作组和明确限制",
+          "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Working with academic communities to build scientific understanding",
+          "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "openai-signals-v3-work-activities-20261026",
+      "category": "industry",
+      "title": "OpenAI Signals v3：工作使用扩散到 165 类活动",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T09:23:34+08:00",
+      "first_seen_at": "2026-10-27T09:23:34+08:00",
+      "heat": 84,
+      "heat_components": {
+        "impact": 29,
+        "availability": 20,
+        "evidence": 22,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是生产率、就业影响、市场份额或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方聚合数据 · 非因果研究",
+      "summary": "OpenAI Signals v3.0 覆盖近 100 个国家、165 类工作活动；持续观测的 74 个国家中，前十类活动占比从 56.0% 降至 51.1%，显示使用向更多任务扩散。",
+      "why": "采用结构比总消息量更能提示未来产品与组织要面对的长尾工作流和区域差异，也为季度追踪提供了可重复的官方口径。",
+      "boundary": "数据只覆盖个人 ChatGPT 计划，不含企业消息和 Codex 使用；小群体会被抑制并加入统计噪声。平台内部使用分布不能证明完成质量、节省时间、工资或岗位变化，也不能代表整个 AI 市场。",
+      "source": "OpenAI Economic Research",
+      "source_kind": "官方聚合数据 / 方法边界已披露",
+      "url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+      "link": "#/progress?view=research&q=Signals",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Signals v3.0",
+          "note": "核对活动分类、国家覆盖、季度范围与隐私限制",
+          "url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "ChatGPT's expanding world of work",
+          "url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
       "id": "huggingface-hub-cli-2-3-20261026",
       "category": "product",
       "title": "Hugging Face Hub 2.3：共享缓存与 Jobs 编排集中升级",

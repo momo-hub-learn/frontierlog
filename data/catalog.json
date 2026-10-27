@@ -787,13 +787,14 @@
       "accent": "orange",
       "summary": "解析版面、表格和图表，导出结构化文档。",
       "scope": "官方实现支持多格式文档处理，提供 CLI 与 Python 接口。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查。",
+      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；混合格式 ZIP 与离线 ASR 预设已进入 v2.143.0，但本站未运行。",
       "repo": "docling-project/docling",
       "sources": [
         "docling",
         "docling-report",
         "docling-release",
-        "docling-v2-142-1-release"
+        "docling-v2-142-1-release",
+        "docling-v2-143-release"
       ],
       "requirements": "Python 3.10+；首次运行可能下载模型。准备有使用权限的 sample.pdf。",
       "test": "选择三页带合并单元格的 PDF，对照人工标注检查导出的结构。",
@@ -807,7 +808,7 @@
       "evidence": "官方资料",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-09-20"
+      "reviewed": "2026-10-27"
     },
     {
       "id": "browser-use",
@@ -818,11 +819,12 @@
       "accent": "blue",
       "summary": "让 Agent 操作真实网页，完成可验收的多步任务。",
       "scope": "官方提供浏览器 Agent 的 Python 库、CLI 和云服务入口。",
-      "boundary": "界面变化、重试和最终结果需要验证；敏感操作保留人工确认。",
+      "boundary": "界面变化、重试和最终结果需要验证；敏感操作保留人工确认。0.13.14 的 GitHub Release 已发布，但官方页面说明 PyPI 发布仍等待额外审批。",
       "repo": "browser-use/browser-use",
       "sources": [
         "browser-use",
-        "browser-release"
+        "browser-release",
+        "browser-v0-13-14-release"
       ],
       "requirements": "浏览器、Python 与模型配置。首个任务使用自有测试站点或只读页面。",
       "test": "从测试站点提取三条指定数据，并核对源页、数值和遗漏。",
@@ -836,7 +838,7 @@
       "evidence": "官方资料",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-09-20"
+      "reviewed": "2026-10-27"
     },
     {
       "id": "whisper",
@@ -1457,6 +1459,15 @@
       "kind": "官方发布"
     },
     {
+      "id": "docling-v2-143-release",
+      "title": "Docling v2.143.0",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
+      "kind": "官方发布"
+    },
+    {
       "id": "browser-use",
       "title": "Browser Use · 官方实现",
       "publisher": "Browser Use",
@@ -1472,6 +1483,15 @@
       "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.10",
       "published": "2026-09-04",
       "checked": "2026-09-20",
+      "kind": "官方发布"
+    },
+    {
+      "id": "browser-v0-13-14-release",
+      "title": "Browser Use 0.13.14",
+      "publisher": "Browser Use",
+      "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
+      "published": "2026-10-26",
+      "checked": "2026-10-27",
       "kind": "官方发布"
     },
     {
@@ -1934,6 +1954,21 @@
       "short_title": "不可信文档输入加固"
     },
     {
+      "id": "docling-v2-143-mixed-zip-asr",
+      "task": "docling",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
+      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
+      "delta": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
+      "sources": [
+        "docling-v2-143-release"
+      ],
+      "reviewed": "2026-10-27",
+      "tag": "v2.143.0",
+      "short_title": "混合 ZIP 与离线 ASR"
+    },
+    {
       "id": "browser-v0-13-10",
       "task": "browser-use",
       "date": "2026-09-04",
@@ -1946,6 +1981,20 @@
       ],
       "reviewed": "2026-09-20",
       "tag": "0.13.10"
+    },
+    {
+      "id": "browser-v0-13-14",
+      "task": "browser-use",
+      "date": "2026-10-26",
+      "kind": "release",
+      "title": "Browser Use 更新页面观察、表单状态与恢复路径",
+      "summary": "0.13.14 为 Python Agent 增加 OpenAI 浏览器工具与共享 Bash helper，并改进有界页面观察、表单状态、缩放显示下的截图/点击对齐和浏览器恢复。",
+      "delta": "多步浏览器任务的状态读取与故障恢复更完整；GitHub Release 页面说明 PyPI 发布仍等待额外审批，本站也未运行本版本。",
+      "sources": [
+        "browser-v0-13-14-release"
+      ],
+      "reviewed": "2026-10-27",
+      "tag": "0.13.14"
     },
     {
       "id": "alphaevolve-preprint",

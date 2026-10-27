@@ -85,6 +85,7 @@ try:
 
         go("#/progress?view=research")
         expect(page.locator(".p5-research-card")).to_have_count(len(RESEARCH["items"]))
+        expect(page.locator(".p5-verification").filter(has_text="外部核验中")).to_have_count(1)
         body = page.locator(".p5-progress").inner_text()
         assert "我们的解读" in body and "现在还不能推出" in body
         assert "世界模型的关键误差不一定出现在最差画面，而在稀有事件" in body

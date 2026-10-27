@@ -848,7 +848,7 @@
       "input": "一份获授权的 PDF",
       "output": "结构化文档 / Markdown",
       "requirements": "独立 Python 环境；初次运行需下载模型。",
-      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。处理外部归档、图片或含 TikZ 的文档时，应使用 v2.142.1 或更新版本，并继续设置文件大小、类型、超时和隔离边界。",
+      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.143.0 新增混合格式 ZIP 与离线 ASR 预设，但压缩包仍应设置文件数量、大小、类型、超时和隔离边界；本站未运行本版本。",
       "cost": "本地计算；预留模型下载与存储空间。",
       "steps": [
         {
@@ -880,16 +880,16 @@
           "verified_at": "2026-09-26"
         },
         {
-          "title": "Docling v2.142.1：输入边界修复",
-          "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
-          "published_at": "2026-10-23",
-          "verified_at": "2026-10-25"
+          "title": "Docling v2.143.0：混合格式 ZIP 与离线 ASR",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
         }
       ],
       "entry_url": null,
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-25T07:32:12+08:00"
+      "verified_at": "2026-10-27T09:23:34+08:00"
     },
     {
       "id": "whisper",
@@ -1181,7 +1181,7 @@
       "input": "授权测试网站 + 清晰任务",
       "output": "浏览器操作与可核对结果",
       "requirements": "Python 3.12 / uv、浏览器组件和模型配置。",
-      "limitation": "网页变化与重复提交可能导致失败；先只读，不连接生产账号。",
+      "limitation": "网页变化与重复提交可能导致失败；先只读，不连接生产账号。0.13.14 的 GitHub Release 已发布，但页面说明 PyPI 发布仍等待额外审批，安装前应先核对包索引中的实际可用版本；本站未运行本版本。",
       "cost": "模型调用、可选云端浏览器可能另行计费。",
       "steps": [
         {
@@ -1203,12 +1203,19 @@
           "title": "官方开源 Quickstart",
           "url": "https://docs.browser-use.com/open-source/quickstart",
           "published_at": null,
-          "verified_at": "2026-09-26"
+          "verified_at": "2026-10-27"
+        },
+        {
+          "title": "browser-use 0.13.14：Python Agent 与集成更新",
+          "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27"
         }
       ],
       "entry_url": null,
       "evidence_level": "primary-docs",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "verified_at": "2026-10-27T09:23:34+08:00"
     },
     {
       "id": "mathlib",

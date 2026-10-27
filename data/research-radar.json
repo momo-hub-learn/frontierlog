@@ -21,6 +21,50 @@
   ],
   "items": [
     {
+      "id": "openai-academic-science-claims-20261026",
+      "lane": "science",
+      "title": "AI 生成的数学与物理结果开始进入外部学术核验",
+      "maker": "OpenAI",
+      "date": "2026-10-26",
+      "verified_at": "2026-10-27T09:23:34+08:00",
+      "verification_status": "厂商声明 · 外部核验中",
+      "tags": ["Formal Mathematics", "Theoretical Physics", "External Review"],
+      "fact": "OpenAI 发布三组由模型参与形成的数学、计算机科学与理论物理结果，提供数学与计算机科学论文及 Lean 形式化材料；物理方向的底层产物暂未公开，并把这些稿件称为供学界检验的原始研究数据。",
+      "insight": "重要信号不是“模型已成为科学家”，而是 AI 产出的候选结果开始被放进形式化证明、公开手稿和独立工作组组成的可审计核验链。未来价值取决于外部专家能否复现、修正或推翻这些结论。",
+      "boundary": "这是 OpenAI 的官方发布，不是学界共识或同行评审结论。Lean 可检查形式化表达中的推理链，但不能自动证明研究问题的前提、科学意义或物理建模正确；物理底层产物尚未公开，外部工作组也仍在核验。",
+      "next_watch": "跟踪独立工作组的公开审阅、期刊或会议评审、Lean 文件与物理产物的完整开放，以及是否出现可复现的修正、反例或接受记录。",
+      "sources": [
+        {
+          "label": "OpenAI 官方研究说明",
+          "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+          "kind": "厂商声明、论文与形式化材料、外部核验安排和限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "openai-signals-v3-work-activities-20261026",
+      "lane": "science",
+      "title": "ChatGPT 工作使用扩散到更多国家与更多任务类别",
+      "maker": "OpenAI Economic Research",
+      "date": "2026-10-26",
+      "verified_at": "2026-10-27T09:23:34+08:00",
+      "verification_status": "官方聚合数据 · 方法边界已披露",
+      "tags": ["AI Adoption", "Labor Economics", "Privacy"],
+      "fact": "OpenAI Signals v3.0 汇总 2025 年第一季度至 2026 年第三季度近 100 个国家的 165 类工作活动；在持续观测的 74 个国家中，使用最集中的前十类活动占比由 56.0% 降至 51.1%。",
+      "insight": "任务分布变得更分散，比单一总消息量更能提示开发者未来要面对的长尾工作流、区域差异和专业语境；但这仍是平台内部采用信号，不是生产率或就业因果证据。",
+      "boundary": "数据只覆盖个人 ChatGPT 计划，不含企业消息和 Codex 使用；活动由隐私保护后的聚合方法估计，小群体会被抑制并加入统计噪声。它不能证明完成质量、节省时间、工资或岗位变化，也不能代表所有 AI 产品用户。",
+      "next_watch": "关注可下载方法文件、季度连续性、国家与活动覆盖变化，以及能否由独立研究在真实工作产出和组织数据中复核。",
+      "sources": [
+        {
+          "label": "OpenAI Signals v3.0 官方发布",
+          "url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+          "kind": "聚合数据范围、季度趋势、隐私方法与明确排除项",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "carbon-x-dna-language-model",
       "lane": "science",
       "title": "DNA 与自然语言开始在同一解码模型中共训",

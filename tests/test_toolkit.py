@@ -102,6 +102,11 @@ class ToolkitTests(unittest.TestCase):
         row=next(x for x in self.data['items'] if x['id']=='docling')
         command=row['steps'][1]['command']
         self.assertIn('\n',command);self.assertIn('docling ./sample.pdf',command)
+        self.assertEqual(row['sources'][-1]['published_at'],'2026-10-26')
+        self.assertIn('混合格式 ZIP',row['limitation'])
+        browser=next(x for x in self.data['items'] if x['id']=='browser-use')
+        self.assertEqual(browser['sources'][-1]['published_at'],'2026-10-26')
+        self.assertIn('PyPI',browser['limitation'])
     def test_build_contains_exact_guides_and_frontend(self):
         with tempfile.TemporaryDirectory() as tmp:
             app=build(Path(tmp),'momo-hub-learn/frontierlog','https://momo-hub-learn.github.io/frontierlog/')

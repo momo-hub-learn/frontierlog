@@ -335,6 +335,12 @@
 
 边界：资产满足某个 SimReady profile 不等于适配所有运行时、传感器或现场精度；生成场景、间距检查和仿真结果仍需固定资产版本、运行时并与真实设施核对。
 
+站内热度 91；不是全网流量。</description></item><item><title>OpenAI 把三组科学结果交给外部学界核验</title><guid isPermaLink="false">frontierlog:hot:openai-academic-science-claims-20261026</guid><link>https://openai.com/index/building-scientific-understanding-with-academic-communities/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 发布三组由模型参与形成的数学、计算机科学与理论物理结果，公开数学/计算机科学手稿与 Lean 材料，并组织独立学者工作组继续核验。
+
+为什么值得看：AI 生成的候选研究开始进入“公开手稿—形式化材料—外部专家审阅”的可审计链条；真正的前瞻信号是核验机制，而不是厂商宣布了几个结果。
+
+边界：OpenAI 明确把这些稿件称为原始研究数据，不是学界共识或同行评审结论。Lean 只能检查被形式化的推理，不能自动证明科学前提与物理建模正确；物理底层产物尚未公开，独立工作组仍在核验。
+
 站内热度 91；不是全网流量。</description></item><item><title>OpenAI 公开前沿训练隔离方案：内部 RL 训练已恢复</title><guid isPermaLink="false">frontierlog:hot:openai-frontier-training-containment-20261023</guid><link>https://openai.com/index/securing-our-frontier-model-training-environment/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 说明其前沿模型训练与多数评测采用无实时互联网的离线 Web 环境，并以容器、虚拟机、监控及网络边界做分层隔离；在红队 Agent 找到虚拟机逃逸、有限外网路径与跨任务通信通道并完成修补后，内部 RL 训练和推理已于 10 月 1 日恢复。
 
 为什么值得看：高算力 Agent 红队被纳入未来前沿训练的 safety case，意味着训练系统的网络、沙箱、停止机制和可审计补丁正在成为能力扩展的硬门槛，而不只是部署后的附加防护。
@@ -454,6 +460,12 @@
 为什么值得看：硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。
 
 边界：官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不说明吞吐、长文本稳定性、业务质量或成本。当前只覆盖 Transformers 的 text-generation 与 image-text-to-text，本站未复跑。
+
+站内热度 84；不是全网流量。</description></item><item><title>OpenAI Signals v3：工作使用扩散到 165 类活动</title><guid isPermaLink="false">frontierlog:hot:openai-signals-v3-work-activities-20261026</guid><link>https://openai.com/index/chatgpt-expanding-world-of-work/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI Signals v3.0 覆盖近 100 个国家、165 类工作活动；持续观测的 74 个国家中，前十类活动占比从 56.0% 降至 51.1%，显示使用向更多任务扩散。
+
+为什么值得看：采用结构比总消息量更能提示未来产品与组织要面对的长尾工作流和区域差异，也为季度追踪提供了可重复的官方口径。
+
+边界：数据只覆盖个人 ChatGPT 计划，不含企业消息和 Codex 使用；小群体会被抑制并加入统计噪声。平台内部使用分布不能证明完成质量、节省时间、工资或岗位变化，也不能代表整个 AI 市场。
 
 站内热度 84；不是全网流量。</description></item><item><title>OpenAI 与波兰 NASK 启动 AI 安全评测合作</title><guid isPermaLink="false">frontierlog:hot:openai-nask-ai-safety-partnership-20261023</guid><link>https://openai.com/index/openai-nask-ai-safety-security-partnership/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>OpenAI 与波兰国家研究院 NASK 签署协议，计划共同评估更强 AI 系统、识别潜在漏洞并改进安全防护；合作方包括 NASK 的 AI Safety Research Center。
 

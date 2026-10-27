@@ -1,15 +1,63 @@
 {
   "version": 1,
-  "generated_at": "2026-10-27T00:07:06Z",
+  "generated_at": "2026-10-27T01:23:34Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 0,
-    "merge": 76,
+    "publish": 2,
+    "merge": 78,
     "hold": 3
   },
   "candidates": [
+    {
+      "id": "candidate-6b8e7800e9f3ce05",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "Browser Use 更新页面观察、表单状态与恢复路径",
+      "summary": "0.13.14 为 Python Agent 增加 OpenAI 浏览器工具与共享 Bash helper，并改进有界页面观察、表单状态、缩放显示下的截图/点击对齐和浏览器恢复。",
+      "why": "多步浏览器任务的状态读取与故障恢复更完整；GitHub Release 页面说明 PyPI 发布仍等待额外审批，本站也未运行本版本。",
+      "boundary": "界面变化、重试和最终结果需要验证；敏感操作保留人工确认。0.13.14 的 GitHub Release 已发布，但官方页面说明 PyPI 发布仍等待额外审批。",
+      "source": "Browser Use",
+      "source_kind": "官方发布",
+      "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.941,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "browser-use",
+      "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-c999163fce628094",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
+      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
+      "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
+      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；混合格式 ZIP 与离线 ASR 预设已进入 v2.143.0，但本站未运行。",
+      "source": "Docling project",
+      "source_kind": "官方发布",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.941,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "docling",
+      "first_seen_at": "2026-10-27T01:23:34Z"
+    },
     {
       "id": "candidate-b026f19029976dfa",
       "category": "research",
@@ -141,6 +189,35 @@
       "first_seen_at": "2026-10-22T03:33:57Z"
     },
     {
+      "id": "candidate-197fbdc842089a17",
+      "category": "research",
+      "published": "2026-10-26",
+      "title": "AI 生成的数学与物理结果开始进入外部学术核验",
+      "summary": "OpenAI 发布三组由模型参与形成的数学、计算机科学与理论物理结果，提供数学与计算机科学论文及 Lean 形式化材料；物理方向的底层产物暂未公开，并把这些稿件称为供学界检验的原始研究数据。",
+      "why": "重要信号不是“模型已成为科学家”，而是 AI 产出的候选结果开始被放进形式化证明、公开手稿和独立工作组组成的可审计核验链。未来价值取决于外部专家能否复现、修正或推翻这些结论。",
+      "boundary": "这是 OpenAI 的官方发布，不是学界共识或同行评审结论。Lean 可检查形式化表达中的推理链，但不能自动证明研究问题的前提、科学意义或物理建模正确；物理底层产物尚未公开，外部工作组也仍在核验。",
+      "source": "OpenAI",
+      "source_kind": "厂商声明、论文与形式化材料、外部核验安排和限制",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 0.88,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.762,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "openai-academic-science-claims-20261026",
+      "topic_tags": [
+        "Formal Mathematics",
+        "Theoretical Physics",
+        "External Review"
+      ],
+      "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
       "id": "candidate-43e740d17aae603a",
       "category": "industry",
       "published": "2026-10-23",
@@ -241,7 +318,7 @@
       "title": "Docling 收紧归档、图片与复杂格式输入边界",
       "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
       "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查。",
+      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；混合格式 ZIP 与离线 ASR 预设已进入 v2.143.0，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
@@ -475,6 +552,35 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "ibm-granite-timeseries-ensemble-r1",
       "first_seen_at": "2026-10-22T11:33:11Z"
+    },
+    {
+      "id": "candidate-1bfcf23d68aaa488",
+      "category": "research",
+      "published": "2026-10-26",
+      "title": "ChatGPT 工作使用扩散到更多国家与更多任务类别",
+      "summary": "OpenAI Signals v3.0 汇总 2025 年第一季度至 2026 年第三季度近 100 个国家的 165 类工作活动；在持续观测的 74 个国家中，使用最集中的前十类活动占比由 56.0% 降至 51.1%。",
+      "why": "任务分布变得更分散，比单一总消息量更能提示开发者未来要面对的长尾工作流、区域差异和专业语境；但这仍是平台内部采用信号，不是生产率或就业因果证据。",
+      "boundary": "数据只覆盖个人 ChatGPT 计划，不含企业消息和 Codex 使用；活动由隐私保护后的聚合方法估计，小群体会被抑制并加入统计噪声。它不能证明完成质量、节省时间、工资或岗位变化，也不能代表所有 AI 产品用户。",
+      "source": "OpenAI Economic Research",
+      "source_kind": "聚合数据范围、季度趋势、隐私方法与明确排除项",
+      "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 0.72,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.718,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "openai-signals-v3-work-activities-20261026",
+      "topic_tags": [
+        "AI Adoption",
+        "Labor Economics",
+        "Privacy"
+      ],
+      "first_seen_at": "2026-10-27T01:23:34Z"
     },
     {
       "id": "candidate-2e1dbc4df560deae",
@@ -892,102 +998,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "anthropic-claude-security",
       "first_seen_at": "2026-10-21T21:30:26Z"
-    },
-    {
-      "id": "candidate-197125b913c73f9c",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Nemotron 3.5 Retriever 开放解析、检索与重排模型",
-      "summary": "开放 8B/1B Embed、8B Rerank 和 631M Parse，并给出 ViDoRe v3.1、ParseBench 与部署配方。",
-      "why": "企业知识链从单一文本向量检索扩展为可复现的多模态解析、召回和二阶段排序组件。",
-      "boundary": "厂商公布的 ViDoRe、ParseBench、吞吐和错误率依赖指定数据、硬件与配置。本站未运行模型；开放权重不代表所有部署路径免费，也不能保证特定企业文档、语言或 RAG 答案质量。",
-      "source": "NVIDIA / Hugging Face",
-      "source_kind": "官方技术发布与模型入口",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-nemotron-3-5-retriever",
-      "first_seen_at": "2026-10-21T23:27:58Z"
-    },
-    {
-      "id": "candidate-2c43ecffbf7a9b8f",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Kumo Relational 开放关系数据少样本预测入口",
-      "summary": "开放模型权重、structured-data-models 库、PQL 客户端、NIM 与快速入门。",
-      "why": "企业预测可以从每个任务单独造特征与训练模型，转向保留关系结构的上下文学习；必须用本地时间外推基线复验。",
-      "boundary": "作者在 RelBench、SAP SALT 与 4DBInfer 上的结果不代表任意企业数据；大训练集、跨跳数信号或数据漂移下，专用监督模型可能更强。本站未运行模型。",
-      "source": "NVIDIA / Hugging Face",
-      "source_kind": "官方技术发布、论文与开放入口",
-      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "nvidia-kumo-relational",
-      "first_seen_at": "2026-10-22T01:32:24Z"
-    },
-    {
-      "id": "candidate-78c73999374b87c6",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Patch the Planet 公开 PHP 漏洞协同响应",
-      "summary": "OpenAI 公布由 Agent 辅助发现严重 PHP 漏洞后的跨组织修补流程，并上线统一披露与指导页。",
-      "why": "安全 Agent 的可用边界从发现扩展到有审计轨迹的协调修补；真正落地仍依赖维护者确认、补丁发布和授权环境复验。",
-      "boundary": "这不是授权外扫描或自动入侵工具，也不证明 AI 可以独立完成漏洞定级与修复。只在拥有或获准管理的系统上操作，并以 PHP、托管商和安全维护者公告为准。",
-      "source": "OpenAI",
-      "source_kind": "官方安全披露",
-      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-patch-the-planet",
-      "first_seen_at": "2026-10-21T19:23:10Z"
-    },
-    {
-      "id": "candidate-8a516f8c0cbb7b18",
-      "category": "product",
-      "published": "2026-10-21",
-      "title": "Granite Speech 5.0 发布",
-      "summary": "IBM 发布多语 2B 转写/翻译模型，并更新 TurboCTC 与 2B Plus。",
-      "why": "开放语音模型同时补足多语翻译、关键词偏置、标点恢复与多种本地推理入口；具体质量仍需按语言和业务录音复验。",
-      "boundary": "厂商 WER、速度与对比图不等于本站实测或所有口音、噪声和领域的结果；关键词偏置也可能放大误识别，需用业务录音和人工转写复核。",
-      "source": "IBM",
-      "source_kind": "官方技术发布",
-      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "ibm-granite-speech-5",
-      "first_seen_at": "2026-10-21T17:48:39Z"
     }
   ]
 }

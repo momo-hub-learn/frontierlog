@@ -11,7 +11,17 @@ https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0</description>
 
 公开资料，本站未复测。
 来源：https://openai.com/index/introducing-gpt-6-1-terra/
-https://deploymentsafety.openai.com/gpt-6-1-terra</description></item><item><title>OpenHands v1.33.0 收紧验证与机密展示边界</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-33-release</guid><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。
+https://deploymentsafety.openai.com/gpt-6-1-terra</description></item><item><title>Docling 增加混合格式 ZIP 与离线 ASR 预设</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=docling&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:docling-v2-143-mixed-zip-asr</guid><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。
+
+编辑解读：批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。
+
+公开资料，本站未复测。
+来源：https://github.com/docling-project/docling/releases/tag/v2.143.0</description></item><item><title>Browser Use 更新页面观察、表单状态与恢复路径</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=browser-use&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:browser-v0-13-14</guid><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>0.13.14 为 Python Agent 增加 OpenAI 浏览器工具与共享 Bash helper，并改进有界页面观察、表单状态、缩放显示下的截图/点击对齐和浏览器恢复。
+
+编辑解读：多步浏览器任务的状态读取与故障恢复更完整；GitHub Release 页面说明 PyPI 发布仍等待额外审批，本站也未运行本版本。
+
+公开资料，本站未复测。
+来源：https://github.com/browser-use/browser-use/releases/tag/0.13.14</description></item><item><title>OpenHands v1.33.0 收紧验证与机密展示边界</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-33-release</guid><pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate><description>新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。
 
 编辑解读：验证接线和 UI 机密展示更可控；表单遮蔽仍不能替代日志、请求、存储与后端的凭据审计，macOS 构建也仍未签名和公证。
 

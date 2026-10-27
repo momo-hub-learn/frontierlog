@@ -221,6 +221,11 @@ class BuildTests(unittest.TestCase):
         instant=datetime(2026,10,20,16,30,tzinfo=timezone.utc)
         product=json.loads((ROOT/'data/product-radar.json').read_text())
         research=json.loads((ROOT/'data/research-radar.json').read_text())
+        science={x['id']:x for x in research['items']}
+        claim=science['openai-academic-science-claims-20261026']
+        self.assertIn('外部核验中',claim['verification_status'])
+        self.assertIn('不是学界共识',claim['boundary'])
+        self.assertEqual(claim['sources'][0]['strength'],'primary')
         product['checked']='2026-10-21'
         research['checked']='2026-10-21'
         for item in product['items']:
