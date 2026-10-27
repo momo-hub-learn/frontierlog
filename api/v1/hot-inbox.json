@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-27T18:23:50Z",
+  "generated_at": "2026-10-27T19:42:14Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 82,
+    "merge": 84,
     "hold": 3
   },
   "candidates": [
@@ -33,6 +33,31 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "browser-use",
       "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-cc9e333e2ae5552d",
+      "category": "model",
+      "published": "2026-10-27",
+      "title": "Genie 4",
+      "summary": "实时生成可探索场景、环境音与互动对话，并支持文本实时修改；官方演示用 Gemini 3.8 Flash 观察场景、拆解目标与核验步骤。当前仅面向可信测试者，长时一致性、物体恒常性、复杂物理、音频准确性、文字与空间精度仍有限。",
+      "why": "世界理解、潜空间预测与可行动规划。这里看架构和公开能力进展，不与 LLM Intelligence Index 混算。",
+      "boundary": "不同评测、机器人或任务不可直接用单一分数外推；研究演示和 early access 也不等于稳定生产能力。",
+      "source": "Google DeepMind",
+      "source_kind": "公司官方研究发布",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.94,
+        "novelty": 0.15
+      },
+      "priority_score": 0.848,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "track_id": "world-models",
+      "maker": "Google DeepMind",
+      "first_seen_at": "2026-10-27T19:42:14Z"
     },
     {
       "id": "candidate-f505d828cc1e6f14",
@@ -110,6 +135,35 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
+    },
+    {
+      "id": "candidate-1eca50e460595a54",
+      "category": "research",
+      "published": "2026-10-27",
+      "title": "世界模拟开始把像素、声音、实时操控与规划放进同一闭环",
+      "summary": "Genie 4 可实时生成可探索场景、环境音与互动对话，并接受文本实时修改。官方演示中，Gemini 3.8 Flash 持续观察场景、拆解目标并核验步骤；Google 同时说明该模型目前只面向可信测试者研究预览。",
+      "why": "值得跟踪的不是单段画质，而是语言规划器与感知生成器是否能在同一循环里保持因果、状态和任务进度。如果这条混合路线能经独立复验，它可能为机器人与 Agent 提供更可控的训练环境。",
+      "boundary": "本站未试用，证据来自发布方说明和演示，不是独立 Benchmark。Google 明确披露长时运行、复杂编辑、物体恒常性、复杂物理、音频准确性、可读文字、空间精度与长期一致性仍有限；即将面向 Ultra、API 与 AI Studio 伙伴开放不等于现在公众可用。",
+      "source": "Google DeepMind",
+      "source_kind": "官方能力、访问范围、演示、限制与后续路线",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "google-deepmind-genie-4-20261027",
+      "topic_tags": [
+        "World Models",
+        "Native Audio",
+        "Interactive Simulation"
+      ],
+      "first_seen_at": "2026-10-27T19:42:14Z"
     },
     {
       "id": "candidate-30929a7b4f37bb4f",
@@ -935,64 +989,6 @@
         "Semantic Interaction"
       ],
       "first_seen_at": "2026-10-23T13:37:36Z"
-    },
-    {
-      "id": "candidate-6f26386697f2d785",
-      "category": "research",
-      "published": "2026-10-22",
-      "title": "Agent 后训练开始把最终数据库状态直接变成奖励",
-      "summary": "ThinkingBox Training 用任务结束后的数据库记录与副作用检查产生二元奖励。Qwen3.8-27B 经 50 步 GRPO 后，在训练集之外的 507 个任务、每题 20 次评测中，pass@1 从 51.70% 升至 60.78%，Observed 20/20 从 38 个任务升至 107 个；pass@20 则从 89.35% 降到 87.97%。",
-      "why": "把终态业务约束写成可执行检查，既能做 benchmark，也能直接成为训练奖励；同时记录一次成功、平均成功和重复全对，能显露“能力覆盖”与“稳定性”之间的真实权衡。",
-      "boundary": "本站未复跑训练或评测。公开任务是合成业务流程，参考全参数训练使用三台、每台 8 张 H100；结果只对应指定模型、任务选择、检查器与 50 步训练，不能外推为所有 Agent 或真实企业流程的可靠性。",
-      "source": "Microsoft / Hugging Face",
-      "source_kind": "官方方法、507×20 结果与限制",
-      "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
-      "publishable": false,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.708,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "thinkingbox-executable-rewards",
-      "topic_tags": [
-        "Agent Reliability",
-        "Executable Rewards",
-        "RL Post-training"
-      ],
-      "first_seen_at": "2026-10-24T05:36:52Z"
-    },
-    {
-      "id": "candidate-740dc512ba53ba2f",
-      "category": "research",
-      "published": "2026-10-22",
-      "title": "Coding Agent 开始把生产二进制的安全属性交给证明检查器验收",
-      "summary": "Anthropic 与 Theorem 把 OSS-Fuzz 入口编译为 RISC-V 规格，让 Claude 为 123 个开源库的 239 个入口生成约 1.8 亿行 Rocq 证明：在单线程、静态二进制、固定内存预算和建模的 Linux 响应等假设下，所有小于 64MB 的输入都不会触发目标崩溃。官方公开了部分证明、规格和语义组件。",
-      "why": "Agent 的可验证产物不必局限于补丁或测试通过；当规格、受信组件和机器检查器都明确时，长程代码生成可以收束为可独立重跑的证明对象。这可能改变高风险依赖的验收接口。",
-      "boundary": "本站未重跑证明。机械检查只说明指定定理成立，不能保证测试转成的规格覆盖业务意图，也不能排除定理范围外的 bug；Rocq、RISC-V/Linux 语义及定理陈述仍是受信边界。",
-      "source": "Anthropic / Theorem",
-      "source_kind": "官方方法、数据、公开产物与限制",
-      "url": "https://www.anthropic.com/research/formal-verification",
-      "publishable": false,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.708,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "anthropic-formal-verification-production-binaries",
-      "topic_tags": [
-        "Formal Verification",
-        "Coding Agent",
-        "Software Security"
-      ],
-      "first_seen_at": "2026-10-24T03:26:29Z"
     }
   ]
 }
