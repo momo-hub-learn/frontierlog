@@ -49,14 +49,21 @@ class HuggingFaceTrendingSyncTests(unittest.TestCase):
         self.assertIsNone(changes["org/new-model"]["previous_rank"])
         self.assertIsNone(changes["org/new-model"]["rank_change"])
         self.assertEqual(changes[old_order[1]]["previous_fetched_at"], "2026-10-22T01:00:00Z")
+        self.assertEqual(out["web_outgoing"], [{
+            "id": old_order[-1],
+            "previous_rank": 20,
+            "previous_fetched_at": "2026-10-22T01:00:00Z",
+        }])
 
     def test_web_failure_preserves_existing_rank_changes(self):
         before = self.base.get("web_rank_changes")
+        outgoing = self.base.get("web_outgoing")
         out = sync.update_state(self.base, self.now, None, [
             {"id": f"api/model-{i}", "trendingScore": 20-i, "tags": []}
             for i in range(20)
         ])
         self.assertEqual(out.get("web_rank_changes"), before)
+        self.assertEqual(out.get("web_outgoing"), outgoing)
 
     def test_api_metrics_do_not_rewrite_web_order(self):
         payload = [{"id": f"api/model-{i}", "trendingScore": 20-i, "likes": i,

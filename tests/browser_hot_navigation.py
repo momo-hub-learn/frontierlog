@@ -130,6 +130,19 @@ with sync_playwright() as pw:
         expect(page.locator('.hf-row', has_text=model_id).locator('.hf-delta')).to_have_text('新上榜')
     ok('HF first-time entrants use an explicit new-entry label instead of an ambiguous single character')
 
+    original_outgoing = page.evaluate('structuredClone(APP.huggingface_hot.web_outgoing || [])')
+    page.evaluate("""() => {
+      APP.huggingface_hot.web_outgoing = [{id:'org/previous-model',previous_rank:20,previous_fetched_at:'2026-10-24T01:16:11Z'}];
+    }""")
+    route(page, '#/hot?tab=hf')
+    expect(page.locator('.hf-change-summary')).to_contain_text('1 新上榜')
+    expect(page.locator('.hf-change-summary')).to_contain_text('1 离榜')
+    page.locator('.hf-change-summary summary').click()
+    expect(page.locator('.hf-change-summary details a')).to_have_text('#20 org/previous-model')
+    page.evaluate('(value) => { APP.huggingface_hot.web_outgoing = value; }', original_outgoing)
+    route(page, '#/hot?tab=hf')
+    ok('HF change summary exposes entrants, rank moves and outgoing models without manual snapshot comparison')
+
     original_hf_state = page.evaluate('structuredClone(APP.huggingface_hot)')
     page.evaluate("""() => {
       APP.huggingface_hot.web_fetched_at = new Date().toISOString();

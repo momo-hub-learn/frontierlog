@@ -70,6 +70,18 @@ function hfDelta(x){
   const up=d>0,label=up?'上升':'下降';
   return '<span class="hf-delta '+(up?'is-up':'is-down')+'" aria-label="较上次官方网页快照'+label+' '+Math.abs(d)+' 位">'+(up?'↑':'↓')+Math.abs(d)+'</span>'
 }
+function hfChangeSummary(){
+  const changes=HF.web_rank_changes||[],previous=changes.find(x=>x&&x.previous_fetched_at)?.previous_fetched_at;
+  if(!previous)return '';
+  const entrants=changes.filter(x=>!Number.isInteger(x.previous_rank));
+  const moved=changes.filter(x=>Number.isInteger(x.previous_rank)&&Number(x.rank_change)!==0);
+  const outgoing=Array.isArray(HF.web_outgoing)?HF.web_outgoing:[];
+  if(!entrants.length&&!moved.length&&!outgoing.length)return '<p class="hf-change-summary is-steady">与上次官方网页快照一致</p>';
+  return '<div class="hf-change-summary" aria-label="Hugging Face 官方网页榜位变化摘要">'+
+    '<span><b>'+entrants.length+'</b> 新上榜</span><span><b>'+moved.length+'</b> 位次变化</span>'+
+    (outgoing.length?'<details><summary><b>'+outgoing.length+'</b> 离榜</summary><div>'+outgoing.map(x=>'<a href="'+safeLink('https://huggingface.co/'+x.id)+'" target="_blank" rel="noopener noreferrer">#'+esc(x.previous_rank)+' '+esc(x.id)+'</a>').join('')+'</div></details>':'<span><b>0</b> 离榜</span>')+
+  '</div>'
+}
 function hfRows(){
   const q=hfQuery().toLowerCase(),type=hfType();
   return hfSourceRows().filter(x=>(type==='all'||hfGroup(x)===type)&&(!q||[x.id,x.task,x.library,...(x.tags||[])].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.web_rank-b.web_rank)
@@ -91,6 +103,7 @@ function hfInline(){
     hfStaleNotice()+
     '<div class="hf-method"><b>怎么看</b><span>左侧 # 严格保留官方 Models Trending 网页顺序；升降箭头只比较'+(previous?' '+esc(hfWhen(previous))+' ':'本站上一次成功保存的')+'官方网页快照。右侧 API Trending 是官方 API 的 trendingScore；不同来源时间单独标注，不拼成伪精确榜。这些只是平台关注/使用信号，不是 Benchmark 或本站实测。</span></div>'+
     hfTabs()+
+    hfChangeSummary()+
     '<p class="hf-resultline" role="status" aria-live="polite">显示 '+rows.length+' / '+all.length+' 个模型 · 保留官方网页名次</p>'+
     (rows.length?'<div class="hf-list">'+rows.map(x=>
       '<a class="hf-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+

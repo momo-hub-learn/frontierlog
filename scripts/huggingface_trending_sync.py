@@ -110,6 +110,22 @@ def web_rank_changes(previous_order: object, current_order: list[str], previous_
     ]
 
 
+def web_outgoing(previous_order: object, current_order: list[str], previous_fetched_at: object) -> list[dict]:
+    """Keep the models that left the saved web top 20 so the UI can explain the diff."""
+    old = previous_order if isinstance(previous_order, list) else []
+    current = set(current_order)
+    previous_time = previous_fetched_at if isinstance(previous_fetched_at, str) and previous_fetched_at else None
+    return [
+        {
+            "id": model_id,
+            "previous_rank": rank,
+            "previous_fetched_at": previous_time,
+        }
+        for rank, model_id in enumerate(old, 1)
+        if isinstance(model_id, str) and model_id not in current
+    ]
+
+
 def update_state(data: dict, now: datetime, web_page: str | None, api_payload: object | None) -> dict:
     out = copy.deepcopy(data)
     now_text = stamp(now)
@@ -117,6 +133,9 @@ def update_state(data: dict, now: datetime, web_page: str | None, api_payload: o
     if web_page is not None:
         current_order = parse_web_order(web_page)
         out["web_rank_changes"] = web_rank_changes(
+            data.get("web_order"), current_order, data.get("web_fetched_at")
+        )
+        out["web_outgoing"] = web_outgoing(
             data.get("web_order"), current_order, data.get("web_fetched_at")
         )
         out["web_order"] = current_order
