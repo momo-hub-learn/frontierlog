@@ -1,7 +1,7 @@
 {
-  "last_attempt": "2026-10-27T07:14:41Z",
+  "last_attempt": "2026-10-27T09:22:40Z",
   "last_success": "2026-10-27T07:14:41Z",
-  "repositories_succeeded": 18,
+  "repositories_succeeded": 7,
   "repositories_total": 18,
   "releases": [
     {
@@ -1127,6 +1127,73 @@
       "review_status": "unreviewed"
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "task": "huggingface-hub-cli-2-3",
+      "repo": "huggingface/huggingface_hub",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "nvidia-nemo-automodel-0-7",
+      "repo": "NVIDIA-NeMo/Automodel",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "allenai-olmoearth-v1-3",
+      "repo": "allenai/olmoearth_pretrain",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "microsoft-flint-interactive",
+      "repo": "microsoft/flint-chart",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "agent4sci",
+      "repo": "maszhongming/agent4sci",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "ibm-granite-timeseries-ensemble-r1",
+      "repo": "ibm-granite/granite-tsfm",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "nvidia-auto-ontology",
+      "repo": "NVIDIA/auto-ontology",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "nvidia-kumo-relational",
+      "repo": "NVIDIA/structured-data-models",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "nvidia-rfd4-proteina",
+      "repo": "RosettaCommons/RFD4-Proteina",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "nvidia-kumo-forecast",
+      "repo": "NVIDIA/Kumo-TS",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "timestral",
+      "repo": "mistralai/timestral",
+      "at": "2026-10-27T09:22:40Z",
+      "message": "GitHub HTTP 403"
+    }
+  ],
   "note": "Official release metadata only. Capability assessments require editorial review."
 }
