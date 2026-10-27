@@ -1165,16 +1165,16 @@
       "publisher": "OpenHands",
       "group": "agents",
       "access": "model",
-      "headline": "在隔离仓库复跑 OpenHands 1.33，并核对验证与机密边界",
+      "headline": "在隔离仓库复跑 OpenHands 1.34，并核对对话级 Runtime 与密钥边界",
       "input": "隔离仓库 + 问题描述 + 测试",
       "output": "代码变更与可检查的执行记录",
-      "requirements": "OpenHands v1.33.0、Agent Canvas、可用后端 / 模型与隔离测试仓库；不要挂载主目录或生产凭据。",
-      "limitation": "本站只核验官方 Release 与文档，未运行软件。表单遮蔽不能证明机密未进入请求、日志、存储或后端；补丁通过也需人工审阅，macOS 构建仍未签名和公证。",
+      "requirements": "OpenHands v1.34.0、Agent Canvas、Docker、可用后端 / 模型与隔离测试仓库；不要挂载主目录或生产凭据。",
+      "limitation": "本站只核验官方 Release 与文档，未运行软件。对话级 Docker Runtime 不证明宿主机、网络、挂载和模型后端已隔离；会话 API key 改走环境变量也不等于不会进入日志或后端。补丁仍需人工审阅，macOS 构建仍未签名和公证。",
       "cost": "模型调用与后端运行可能分别产生费用。",
       "steps": [
         {
-          "title": "选择隔离运行路径",
-          "body": "当前官方仓库是 Agent Canvas，支持不同后端。先阅读官方 Quickstart 的 Docker 沙箱或自托管方案；不要把旧版 Local GUI 当作当前入口。"
+          "title": "创建对话级测试 Runtime",
+          "body": "在 Settings → Runtime 检查 Docker 配置，再为测试对话创建独立 Runtime。记录容器、镜像、目录挂载和网络范围；不要把旧版 Local GUI 当作当前入口。"
         },
         {
           "title": "只提供测试仓库",
@@ -1182,11 +1182,17 @@
         },
         {
           "title": "检查代码与日志",
-          "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；同时检查请求表单、Settings、网络请求和日志，不要把 UI 遮蔽当作机密已隔离的证明。"
+          "body": "让 Agent 修改并运行相关测试，再手动审阅 diff、重跑原有测试；同时检查进程环境、请求、日志与后端，不要因会话 API key 不再出现在命令行就认定密钥已经安全。"
         }
       ],
-      "troubleshooting": "界面启动但任务不运行时检查后端与模型配置；验证接线可核对 --mars-web / --lock-to-cloud；沙箱找不到文件时核对允许目录，不要扩大全盘权限。macOS 若被标记为损坏，先确认来源和版本，再按 v1.33.0 Release 的未签名说明处理。",
+      "troubleshooting": "对话启动但任务不运行时，先在 Settings → Runtime 核对 Docker 与后端配置，再确认当前会话绑定的容器；找不到文件时检查显式挂载，不要扩大全盘权限。macOS 若被标记为损坏，先确认来源和版本，再按 v1.34.0 Release 的未签名说明处理。",
       "sources": [
+        {
+          "title": "OpenHands v1.34.0 官方 Release",
+          "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-27"
+        },
         {
           "title": "OpenHands v1.33.0 官方 Release",
           "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
@@ -1209,7 +1215,7 @@
       "entry_url": null,
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-25T11:26:01+08:00"
+      "verified_at": "2026-10-27T23:25:14+08:00"
     },
     {
       "id": "browser-use",

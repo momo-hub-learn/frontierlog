@@ -115,6 +115,7 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("const queueMode=state.view==='activity'&&state.kind==='upstream'",enhanced)
   self.assertIn("state.view!=='activity'||queueMode",enhanced)
   for url in (
+   'https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0',
    'https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0',
    'https://github.com/docling-project/docling/releases/tag/v2.142.1',
    'https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0',

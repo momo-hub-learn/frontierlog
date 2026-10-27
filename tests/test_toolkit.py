@@ -29,6 +29,15 @@ class ToolkitTests(unittest.TestCase):
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
         self.assertEqual(row['publisher'],'OpenAI')
+    def test_openhands_1_34_guide_preserves_runtime_and_secret_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='openhands')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('v1.34.0',row['requirements'])
+        self.assertIn('Settings → Runtime',row['steps'][0]['body'])
+        self.assertIn('不证明宿主机、网络、挂载和模型后端已隔离',row['limitation'])
+        self.assertEqual(row['sources'][0]['url'],'https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0')
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-27')
+        validate_toolkit(self.data,self.catalog)
     def test_coderabbit_security_guide_keeps_sandbox_and_human_boundaries(self):
         row=next(x for x in self.data['items'] if x['id']=='openai-coderabbit-secure')
         self.assertFalse(row['runtime_tested'])

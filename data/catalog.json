@@ -754,15 +754,16 @@
       "mark": "oh",
       "accent": "lime",
       "summary": "在隔离仓库中运行编程 Agent，连接本地或云端后端，并保留可检查的执行与验证路径。",
-      "scope": "当前仓库提供 Agent Canvas；v1.33.0 增加 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式、Web 登录持久化，并在请求与 Settings 表单遮蔽机密值。",
-      "boundary": "补丁通过不等于可以直接合并；表单遮蔽也不证明机密未进入请求、日志、存储或后端。macOS 应用仍未签名和公证，需按官方说明评估安装与 Gatekeeper 风险。",
+      "scope": "当前仓库提供 Agent Canvas；v1.34.0 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑和更清晰的团队分享开关。",
+      "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
       "repo": "OpenHands/OpenHands",
       "sources": [
+        "openhands-1-34-release",
         "openhands-1-33-release",
         "openhands"
       ],
-      "requirements": "Docker、模型配置、隔离的项目副本。不要直接挂载主目录或生产凭证；升级后重新核对 Web 登录、请求表单与 Settings 的凭据边界。",
-      "test": "选一个可复现的小 Bug，固定 v1.33.0、后端和模型，冻结失败测试与原有测试；再检查补丁、日志，以及表单遮蔽是否符合自己的凭据策略。",
+      "requirements": "Docker、模型配置、隔离的项目副本。不要直接挂载主目录或生产凭证；升级后在 Settings → Runtime 核对容器、镜像、挂载、网络与模型后端。",
+      "test": "选一个可复现的小 Bug，固定 v1.34.0、后端和模型，为测试对话创建独立 Runtime，冻结失败测试与原有测试；再检查补丁、日志、容器生命周期和密钥暴露面。",
       "checks": [
         "失败测试恢复通过",
         "原有测试无回归",
@@ -773,8 +774,8 @@
       "evidence": "官方资料",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-10-25",
-      "verified_at": "2026-10-25T11:26:01+08:00"
+      "reviewed": "2026-10-27",
+      "verified_at": "2026-10-27T23:25:14+08:00"
     },
     {
       "id": "graphrag",
@@ -1040,6 +1041,16 @@
       "published": "2026-10-21",
       "checked": "2026-10-27",
       "kind": "官方模型卡"
+    },
+    {
+      "id": "openhands-1-34-release",
+      "title": "OpenHands v1.34.0",
+      "publisher": "OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+      "published": "2026-10-27",
+      "checked": "2026-10-27",
+      "verified_at": "2026-10-27T23:25:14+08:00",
+      "kind": "官方 GitHub Release"
     },
     {
       "id": "openhands-1-33-release",
@@ -1681,6 +1692,19 @@
       "sources": ["hf-carbon-x-model-card"],
       "reviewed": "2026-10-27",
       "short_title": "DNA 语言模型开放权重"
+    },
+    {
+      "id": "openhands-1-34-release",
+      "task": "openhands",
+      "date": "2026-10-27",
+      "kind": "release",
+      "title": "OpenHands v1.34.0 加入对话级 Docker Runtime",
+      "summary": "Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。",
+      "delta": "运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。",
+      "sources": ["openhands-1-34-release"],
+      "reviewed": "2026-10-27",
+      "tag": "v1.34.0",
+      "short_title": "对话级 Docker Runtime"
     },
     {
       "id": "openhands-1-33-release",

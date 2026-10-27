@@ -45,6 +45,15 @@ class HotDataTests(unittest.TestCase):
   self.assertEqual(route['url'],'#/models?q=Terra');validate_hot(self.data)
   self.reject(lambda d:next(x for x in d['items'] if x['id']==terra['id'])['access'][-1].update(url='javascript:alert(1)'))
   self.reject(lambda d:next(x for x in d['items'] if x['id']==terra['id'])['access'][-1].update(url='#//evil.example'))
+ def test_openhands_1_34_links_release_to_runnable_guide_without_claiming_runtime_evidence(self):
+  item=next(x for x in self.data['items'] if x['id']=='openhands-v1-34-runtime-security-20261027')
+  self.assertEqual(item['published_at'],'2026-10-27T14:35:23Z')
+  self.assertEqual(item['url'],'https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0')
+  self.assertEqual(item['link'],'#/toolkit?task=openhands&tab=run')
+  self.assertIn('不是本站运行或安全审计',item['boundary'])
+  route=next(x for x in item['access'] if x['kind']=='internal')
+  self.assertEqual(route['url'],item['link'])
+  validate_hot(self.data)
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)

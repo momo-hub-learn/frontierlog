@@ -126,6 +126,12 @@ try:
             assert a.get_attribute('href').startswith('https://')
             assert 'noopener' in a.get_attribute('rel')
         passed('Legacy guide links avoid stale modal; closed deep links stay closed; primary links are safe')
+        go('#/toolkit?task=openhands&tab=run')
+        expect(page.locator('[data-tk-guide=openhands]')).to_have_attribute('open','')
+        expect(page.locator('[data-tk-id=openhands]')).to_contain_text('OpenHands 1.34')
+        expect(page.locator('[data-tk-id=openhands]')).to_contain_text('本站只核验官方 Release 与文档，未运行软件')
+        page.screenshot(path=str(OUT/'openhands-1-34-guide.png'),full_page=True,timeout=45000)
+        passed('OpenHands 1.34 deep link opens the current guide and keeps runtime evidence honest')
         # Export must match the visible selection rather than the legacy unfiltered catalogue.
         page.locator('#tk-search').fill('Whisper')
         if not MEMORY:
