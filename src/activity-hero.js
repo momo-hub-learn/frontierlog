@@ -31,7 +31,17 @@ const ActivityHero = (() => {
   }
   if (!dateOK(e.date)) return 'unknown';
   const today = dayIn(now, e.time_zone || 'Asia/Shanghai');
-  return e.date > today ? 'upcoming' : e.date === today ? 'today' : 'ended';
+  const last = dateOK(e.end_date) && e.end_date >= e.date ? e.end_date : e.date;
+  return e.date > today ? 'upcoming' : last >= today ? 'today' : 'ended';
+ }
+ function dateLabel(e) {
+  if (!dateOK(e.date)) return '';
+  const start = e.date.slice(5).replace('-','月')+'日';
+  if (!dateOK(e.end_date) || e.end_date <= e.date) return start;
+  const end = e.end_date.slice(0,4) === e.date.slice(0,4)
+   ? (e.end_date.slice(5,7) === e.date.slice(5,7) ? e.end_date.slice(8)+'日' : e.end_date.slice(5).replace('-','月')+'日')
+   : e.end_date.replace(/^(\d{4})-(\d{2})-(\d{2})$/,'$1年$2月$3日');
+  return start+'–'+end;
  }
  function select(radar, config = {}, now = Date.now()) {
   const all = events(radar,config).filter(e => e.source.authority === 'official' && https(e.url));
@@ -115,9 +125,9 @@ const ActivityHero = (() => {
  }
  function eventHTML(e,now) {
   const mode=phase(e,now), labels={upcoming:'待开始',today:'今日',live:'直播中',started:'已到开场时间',ended:'已结束',replay:'回放',unknown:'时间待核验',unavailable:'安排变更'};
-  return '<a class="v2-event-card ah-event '+h(mode)+'" data-ah-date="'+h(e.date)+'" data-ah-id="'+h(e.id)+'" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+art(e)+'<div class="ah-event-copy"><div class="ah-event-meta"><time>'+h(e.date.slice(5).replace('-','月')+'日')+'</time><small>'+h(e.date.slice(0,4))+'</small><span>'+h(labels[mode])+'</span></div><h3>'+h(e.title)+'</h3><p>'+h(e.short_summary || e.summary)+'</p><div class="v2-radar-tags">'+(e.tags||[]).slice(0,3).map(tag=>'<span>'+h(tag)+'</span>').join('')+'</div></div><span class="ah-out" aria-hidden="true">↗</span></a>';
+  return '<a class="v2-event-card ah-event '+h(mode)+'" data-ah-date="'+h(e.date)+'" data-ah-id="'+h(e.id)+'" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+art(e)+'<div class="ah-event-copy"><div class="ah-event-meta"><time>'+h(dateLabel(e))+'</time><small>'+h(e.date.slice(0,4))+'</small><span>'+h(labels[mode])+'</span></div><h3>'+h(e.title)+'</h3><p>'+h(e.short_summary || e.summary)+'</p><div class="v2-radar-tags">'+(e.tags||[]).slice(0,3).map(tag=>'<span>'+h(tag)+'</span>').join('')+'</div></div><span class="ah-out" aria-hidden="true">↗</span></a>';
  }
- return {events,phase,select,remaining,times,calendar,fold,featureHTML,introHTML,eventHTML,https};
+ return {events,phase,dateLabel,select,remaining,times,calendar,fold,featureHTML,introHTML,eventHTML,https};
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = ActivityHero;
 

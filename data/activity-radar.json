@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-10-27T21:36:27Z",
+  "checked_at": "2026-10-27T23:19:02Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-10-27T21:36:27Z",
+    "last_success": "2026-10-27T23:19:02Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -43,6 +43,19 @@
         "官方发布会"
       ],
       "url": "https://www.nvidia.com/gtc/",
+      "authority": "official",
+      "sync": "official-page"
+    },
+    {
+      "id": "nvidia-medtech-days",
+      "name": "NVIDIA MedTech Days",
+      "publisher": "NVIDIA",
+      "kind": "event",
+      "formats": [
+        "官方虚拟活动",
+        "技术议程"
+      ],
+      "url": "https://events.nvidia.com/medtech-days-2026",
       "authority": "official",
       "sync": "official-page"
     },
@@ -270,6 +283,24 @@
     }
   ],
   "events": [
+    {
+      "id": "nvidia-medtech-days-2026",
+      "source_id": "nvidia-medtech-days",
+      "date": "2026-10-27",
+      "end_date": "2026-10-28",
+      "status": "ended",
+      "title": "MedTech Days: Building the Open Physical AI Stack for Healthcare",
+      "summary": "NVIDIA 两日官方虚拟活动：首日覆盖 MONAI、3D CT 与病理开放模型，次日转向医疗 Physical AI、数字孪生、合成数据、Holoscan 5 与可运行演示。",
+      "url": "https://events.nvidia.com/medtech-days-2026",
+      "first_seen_at": "2026-10-28T07:18:41+08:00",
+      "verified_at": "2026-10-28T07:18:41+08:00",
+      "evidence_level": "primary",
+      "tags": [
+        "医疗 AI",
+        "Physical AI",
+        "开放模型"
+      ]
+    },
     {
       "id": "openai-fde-frontier-2026-10-22",
       "source_id": "openai-forum",

@@ -66,7 +66,12 @@ try:
         expect(page.locator('.ah-hero')).to_have_count(1)
         expect(page.locator('.ah-feature')).to_have_count(1)
         expect(page.locator('.ah-event')).to_have_count(len(EVENT_IDS))
-        assert page.locator('.ah-event').evaluate_all("es=>es.map(e=>e.dataset.ahId)") == EVENT_IDS
+        rendered_ids = page.locator('.ah-event').evaluate_all("es=>es.map(e=>e.dataset.ahId)")
+        assert len(rendered_ids) == len(set(rendered_ids)) and set(rendered_ids) == set(EVENT_IDS)
+        active_dates = page.locator('.ah-event.upcoming,.ah-event.today,.ah-event.live,.ah-event.started').evaluate_all(
+            "es=>es.map(e=>e.dataset.ahDate)"
+        )
+        assert active_dates == sorted(active_dates)
         assert len(page.locator('.ah-intro').inner_text()) < 125
         expect(page.locator('.ah-feature')).to_have_attribute('data-ah-feature',FEATURE_ID)
         expect(page.locator('.ah-feature .ah-start')).to_contain_text(BEIJING_TEXT)

@@ -9,12 +9,15 @@ let n=0;
 function test(name,fn){fn();n++;console.log('PASS',name)}
 const event=H.events(radar,conf).find(e=>e.id==='nvidia-gtc-dc-2026');
 const fde=H.events(radar,conf).find(e=>e.id==='openai-fde-frontier-2026-10-22');
+const medtech=H.events(radar,conf).find(e=>e.id==='nvidia-medtech-days-2026');
 test('current official event outranks a distant future event',()=>{const f=H.select(radar,conf,Date.parse('2026-10-22T17:20:00Z'));assert.equal(f.item.id,fde.id);assert.equal(f.mode,'started')});
 test('verified event without reusable artwork uses labelled fallback',()=>{const s=H.featureHTML({kind:'event',item:fde,mode:'started'},Date.parse('2026-10-22T17:20:00Z'));assert.match(s,/ah-art-fallback[^>]*>OpenAI</);assert.doesNotMatch(s,/<img /)});
 test('select nearest tracked official future event',()=>{assert.equal(H.select(radar,conf,now).item.id,fde.id);assert.equal(H.phase(fde,now),'upcoming')});
 test('timezone conversion crosses the Beijing date boundary',()=>{assert.match(H.times(event).primary,/12\/02.*03:00/);assert.match(H.times(event).secondary,/12\/01.*14:00/)});
 test('countdown derived from clock, not a stored 67',()=>{assert.notEqual(H.remaining(event,now),H.remaining(event,now+86400000));assert.match(H.remaining(event,Date.parse(event.start_at)-1000),/1 分钟后/)});
 test('past event never retains upcoming label',()=>{assert.equal(H.phase(event,Date.parse(event.start_at)+1),'started');assert.equal(H.phase(event,Date.parse(event.start_at)+7*3600000),'ended')});
+test('multi-day event keeps its verified date range visible',()=>{assert.equal(H.dateLabel(medtech),'10月27日–28日');assert.match(H.eventHTML(medtech,Date.parse('2026-10-28T20:00:00Z')),/10月27日–28日/)});
+test('date-only multi-day event remains today through its last source date',()=>{const e={...medtech,start_at:null,time_zone:'America\/Los_Angeles'};assert.equal(H.phase(e,Date.parse('2026-10-28T16:00:00Z')),'today');assert.equal(H.phase(e,Date.parse('2026-10-29T16:00:00Z')),'ended')});
 test('live requires confirmation and a bounded end',()=>{assert.notEqual(H.phase({...event,status:'live'},Date.parse(event.start_at)+1),'live');assert.equal(H.phase({...event,status:'live',end_at:'2026-12-01T21:00:00Z'},Date.parse(event.start_at)+1),'live')});
 test('cancellation overrides schedule',()=>{assert.equal(H.phase({...event,status:'cancelled'},now),'unavailable');assert.equal(H.calendar({...event,status:'cancelled'},now),null)});
 test('future sorted nearest, regardless of input order',()=>{const e={...radar.events[0],id:'sooner',date:'2026-10-01'};assert.equal(H.select({...radar,events:[...radar.events,e]},conf,now).item.id,'sooner')});
