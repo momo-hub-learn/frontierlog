@@ -473,6 +473,12 @@
 
 边界：这是 Docling 官方 Release 的修复清单，不是 CVE 公告，也不证明 v2.142.1 消除了所有解析风险。本站未对补丁做渗透测试；生产环境仍需文件大小、类型、执行路径、超时和隔离层限制。
 
+站内热度 86；不是全网流量。</description></item><item><title>Oracle AI Workspace 将接入 ChatGPT</title><guid isPermaLink="false">frontierlog:hot:openai-oracle-ai-workspace-20261027</guid><link>https://openai.com/index/oracle-apps-in-chatgpt/</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 与 Oracle 公告将 Oracle 应用和数据带入 ChatGPT：Oracle 正在开发 AI Workspace；同时公布 AI Security Mesh、AI SMB Bundle 与 App Composer，并允许美国客户通过 Oracle Marketplace 采购 OpenAI API、Codex 和 ChatGPT Work。
+
+为什么值得看：企业 Agent 的关键不只是模型，而是能否在既有身份、权限、采购和业务系统里完成获批流程。该合作把 ChatGPT、Codex 与 Oracle 的财务、采购、规划和云控制面放到同一企业集成路线中，值得跟踪实际开放范围与权限模型。
+
+边界：Oracle AI Workspace 仍被发布公告表述为“正在开发”；合作页虽列出可安装的 NetSuite 与 Oracle Analytics 等插件，但不能据此写成完整 Workspace 已向所有 Oracle 客户开放。Marketplace 采购当前明确限于美国客户，具体账户、审批、数据权限和产品可用性仍需逐项核对。官方列出的效率数字来自 Oracle 自身使用案例，不是本站独立验证。
+
 站内热度 86；不是全网流量。</description></item><item><title>OpenHands 1.33：表单机密遮蔽与验证模式同步收紧</title><guid isPermaLink="false">frontierlog:hot:openhands-v1-33-secret-masking-20261023</guid><link>https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>OpenHands v1.33.0 为 verify-openhands 增加 --mars-web 与 --lock-to-cloud 模式，让 Web 构建在重启后保留登录，并在请求与 Settings 表单中遮蔽机密值，同时包含多项缺陷修复。
 
 为什么值得看：Coding Agent 的验证接线、登录连续性和机密展示边界同时变化。已经在本地或云端运行 OpenHands 的团队应锁定版本，用隔离仓库复跑任务，并检查请求表单、设置页、日志与后端是否符合自己的凭据策略。

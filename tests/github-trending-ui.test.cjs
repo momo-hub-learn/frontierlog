@@ -90,8 +90,8 @@ const hfView={APP:{huggingface_hot:{
  checked_at:new Date().toISOString(),web_fetched_at:new Date().toISOString(),api_fetched_at:new Date().toISOString(),
  web_order:['org/model-a','org/model-b','org/model-c','org/model-d'],
  web_rank_changes:[
-  {id:'org/model-a',rank:1,previous_rank:2,rank_change:1},
-  {id:'org/model-d',rank:4,previous_rank:null,rank_change:null}
+  {id:'org/model-a',rank:1,previous_rank:2,rank_change:1,previous_fetched_at:'2026-10-27T17:24:59Z'},
+  {id:'org/model-d',rank:4,previous_rank:null,rank_change:null,previous_fetched_at:'2026-10-27T17:24:59Z'}
  ],
  web_outgoing:[{id:'org/model-old',previous_rank:20}],
  items:[
@@ -109,6 +109,7 @@ assert.match(hfView.__hf,/API Trending/);
 assert.match(hfView.__hf,/Trending 不等于能力榜/);
 assert.match(hfView.__hf,/本轮变化/);
 assert.match(hfView.__hf,/1 新上榜 · 1 位次变化 · 1 离榜/);
+assert.match(hfView.__hf,/较 10\.28 01:24 快照/);
 assert.match(hfView.__hf,/role="status"/);
 assert.doesNotMatch(hfView.__hf,/org\/model-d/);
 hfView.APP.huggingface_hot={...hfData,checked_at:'2026-09-25T23:16:36Z',web_fetched_at:'2026-09-25T23:16:36Z'};

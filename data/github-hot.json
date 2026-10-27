@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-27T17:25:05Z",
+  "checked_at": "2026-10-27T17:51:39Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -73,7 +73,8 @@
           "at": "2026-10-27T17:25:05Z",
           "stars": 38488
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "nightly-labs/openbot",
@@ -143,7 +144,8 @@
           "at": "2026-10-27T17:25:05Z",
           "stars": 2163
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "obra/superpowers",
@@ -690,23 +692,25 @@
   "sync": {
     "mode": "official_trending_plus_repository_api",
     "status": "success",
-    "last_checked_at": "2026-10-27T17:25:05Z",
-    "last_success_at": "2026-10-27T17:25:05Z",
+    "last_checked_at": "2026-10-27T17:51:39Z",
+    "last_success_at": "2026-10-27T17:51:39Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-27T17:25:05Z",
-    "watchlist_errors": [],
-    "watchlist_failed_count": 0,
+    "watchlist_checked_at": "2026-10-27T17:51:39Z",
+    "watchlist_errors": [
+      "morluto/rea: HTTP Error 403: Forbidden"
+    ],
+    "watchlist_failed_count": 1,
     "trending_count": 10,
-    "verified_count": 2,
-    "metadata_failed_count": 8,
+    "verified_count": 0,
+    "metadata_failed_count": 10,
     "metadata_status": "partial",
     "skipped": [
+      "Nutlope/hallmark: HTTP Error 403: Forbidden",
+      "nightly-labs/openbot: HTTP Error 403: Forbidden",
       "obra/superpowers: HTTP Error 403: Forbidden",
       "pbakaus/impeccable: HTTP Error 403: Forbidden",
       "makecindy/cindy: HTTP Error 403: Forbidden",
-      "gitroomhq/postiz-app: HTTP Error 403: Forbidden",
-      "affaan-m/ECC: HTTP Error 403: Forbidden",
-      "HKUDS/DeepTutor: HTTP Error 403: Forbidden"
+      "gitroomhq/postiz-app: HTTP Error 403: Forbidden"
     ]
   },
   "watchlist": [

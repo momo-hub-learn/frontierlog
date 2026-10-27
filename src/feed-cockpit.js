@@ -91,9 +91,11 @@ function fcHuggingFacePanel(){
  const hasChanges=webFresh&&(entrants||moved||outgoing);
  const fmt=n=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v>=1000000)return (v/1000000).toFixed(v>=10000000?1:2)+'M';if(v>=1000)return (v/1000).toFixed(v>=100000?0:1)+'k';return v.toLocaleString('en-US')};
  const when=raw=>{try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.')+' 北京时间'}catch{return '待核验'}};
+ const previous=changes.find(x=>x&&x.previous_fetched_at)?.previous_fetched_at||(hf.web_outgoing||[]).find(x=>x&&x.previous_fetched_at)?.previous_fetched_at||'';
+ const comparison=previous?'较 '+when(previous).replace(' 北京时间','')+' 快照':'';
  return '<section class="fc-panel fc-hf-panel">'+
   '<div class="fc-panel-head compact"><div><p class="eyebrow">HUGGING FACE / WEB ORDER</p><h2>Hugging Face 热榜</h2></div><a href="#/hot?tab=hf">完整榜 '+icon('arrow')+'</a></div>'+
-  (hasChanges?'<div class="fc-hf-change" role="status"><a href="#/hot?tab=hf"><b>本轮变化</b><span>'+entrants+' 新上榜 · '+moved+' 位次变化 · '+outgoing+' 离榜</span>'+icon('arrow')+'</a></div>':'')+
+  (hasChanges?'<div class="fc-hf-change" role="status"><a href="#/hot?tab=hf"><b>本轮变化</b>'+(comparison?'<small>'+esc(comparison)+'</small>':'')+'<span>'+entrants+' 新上榜 · '+moved+' 位次变化 · '+outgoing+' 离榜</span>'+icon('arrow')+'</a></div>':'')+
   (webFresh?'<div class="fc-hf-list">'+rows.map(x=>
    '<a class="fc-hf-row" href="'+safeLink(x.url||('https://huggingface.co/'+x.id))+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-hf-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+

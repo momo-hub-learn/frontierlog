@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,41 @@
     }
   ],
   "items": [
+    {
+      "id": "oracle-ai-workspace",
+      "name": "Oracle AI Workspace",
+      "company": "Oracle / OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["Enterprise Workflow", "ChatGPT", "Governance"],
+      "summary": "计划把 Oracle 应用和获批数据带入 ChatGPT，并以组织权限、审批、统一登录和 Oracle Cloud 部署为边界连接企业工作流。",
+      "product_url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+      "source_url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+      "source_label": "OpenAI 官方公告 · 开发中",
+      "evidence": "OpenAI 2026-10-27 官方公告确认 Oracle 正在开发 AI Workspace，并列出 AI Security Mesh、AI SMB Bundle、App Composer 与美国 Marketplace 采购范围。",
+      "boundary": "AI Workspace 尚未被公告为全面可用，也未给出统一上线日期；合作页列出的现有插件入口不等于完整 Workspace 已开放。Marketplace 采购当前明确限于美国客户。公告中的工作效率案例来自 Oracle 自述，不是本站实测。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-27",
+          "kind": "Announced",
+          "title": "Oracle 公布 ChatGPT 内的 AI Workspace 路线",
+          "url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+          "summary": "Oracle 正在开发 AI Workspace，并同时公布安全、SMB 与应用构建方案；美国客户可通过 Oracle Marketplace 采购 OpenAI 产品。",
+          "facts": [
+            {"label": "Workspace 状态", "value": "正在开发，未公布全面上线日期"},
+            {"label": "配套方案", "value": "Security Mesh / SMB Bundle / App Composer"},
+            {"label": "当前入口", "value": "合作页列出部分 NetSuite / Oracle Analytics 插件"},
+            {"label": "当前采购范围", "value": "美国 Oracle Marketplace 客户"}
+          ],
+          "interpretation": "价值在于把模型能力接进既有权限、审批、采购与 Oracle 数据面；实际成效要等账户开放后验证跨系统检索、执行成功率和越权防护。",
+          "scope": "OpenAI 2026-10-27 官方合作公告所列产品与地区范围。",
+          "limitations": "不能从合作公告推出所有 Oracle 应用已经可在 ChatGPT 中执行，也不能把厂商效率案例当成独立生产力评测。",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "openai-gpt-6-1-terra",
       "name": "GPT-6.1 Terra",
