@@ -3673,13 +3673,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-27T13:43:39Z",
+    "generated_at": "2026-10-27T15:35:36Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 2,
-      "merge": 79,
+      "merge": 80,
       "hold": 3
     },
     "candidates": [
@@ -3730,6 +3730,30 @@
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "docling",
         "first_seen_at": "2026-10-27T01:23:34Z"
+      },
+      {
+        "id": "candidate-f505d828cc1e6f14",
+        "category": "product",
+        "published": "2026-10-27",
+        "title": "OpenHands v1.34.0 加入对话级 Docker Runtime",
+        "summary": "Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。",
+        "why": "运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。",
+        "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
+        "source": "OpenHands",
+        "source_kind": "官方 GitHub Release",
+        "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openhands",
+        "first_seen_at": "2026-10-27T15:35:36Z"
       },
       {
         "id": "candidate-b026f19029976dfa",
@@ -3991,7 +4015,7 @@
         "title": "OpenHands v1.33.0 收紧验证与机密展示边界",
         "summary": "新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。",
         "why": "验证接线和 UI 机密展示更可控；表单遮蔽仍不能替代日志、请求、存储与后端的凭据审计，macOS 构建也仍未签名和公证。",
-        "boundary": "补丁通过不等于可以直接合并；表单遮蔽也不证明机密未进入请求、日志、存储或后端。macOS 应用仍未签名和公证，需按官方说明评估安装与 Gatekeeper 风险。",
+        "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
         "source": "OpenHands",
         "source_kind": "官方 GitHub Release",
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
@@ -4647,30 +4671,6 @@
           "Ensemble"
         ],
         "first_seen_at": "2026-10-22T11:33:11Z"
-      },
-      {
-        "id": "candidate-02f1d79923b3f7ba",
-        "category": "product",
-        "published": "2026-10-21",
-        "title": "OpenShell Agent 安全参考架构发布",
-        "summary": "将隔离、观察和策略执行放到模型与工具调用之外的独立运行层。",
-        "why": "Agent 安全由提示层约束进一步下沉到可强制执行、可审计的基础设施。",
-        "boundary": "参考架构不是安全认证。策略过宽会放大权限，过窄会阻断任务；厂商性能数字不等于本站实测或任意部署可复现。",
-        "source": "NVIDIA",
-        "source_kind": "官方架构发布",
-        "url": "https://nvidianews.nvidia.com/news/openshell-reference-architecture",
-        "publishable": true,
-        "features": {
-          "freshness": 0.571,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.698,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "nvidia-openshell",
-        "first_seen_at": "2026-10-21T21:30:26Z"
       }
     ]
   },
@@ -7877,12 +7877,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-27T13:43:39Z",
+    "last_evaluated": "2026-10-27T15:35:36Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 84,
+      "candidate_count": 85,
       "publish_ready_count": 2,
-      "merge_count": 79,
+      "merge_count": 80,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
