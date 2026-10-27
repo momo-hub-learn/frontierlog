@@ -90,6 +90,9 @@ assert.match(view.__fresh,/\+51/);
 assert.match(view.__fresh,/morluto\/rea/);
 assert.match(view.__fresh,/142k/);
 assert.match(view.__fresh,/总 Star/);
+assert.match(view.__fresh,/GitHub AI 热仓/);
+assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
+assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/仓库资料旧快照/);
 assert.match(view.__fresh,/仓库 API 部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
 
