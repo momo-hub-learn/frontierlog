@@ -39,6 +39,12 @@ class HotDataTests(unittest.TestCase):
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))
  def test_bad_internal_link(self):self.reject(lambda d:d['items'][0].update(link='https://evil.example'))
+ def test_internal_access_requires_an_explicit_safe_site_route(self):
+  terra=next(x for x in self.data['items'] if x['id']=='openai-gpt-6-1-terra-20261026')
+  route=next(x for x in terra['access'] if x.get('kind')=='internal')
+  self.assertEqual(route['url'],'#/models?q=Terra');validate_hot(self.data)
+  self.reject(lambda d:next(x for x in d['items'] if x['id']==terra['id'])['access'][-1].update(url='javascript:alert(1)'))
+  self.reject(lambda d:next(x for x in d['items'] if x['id']==terra['id'])['access'][-1].update(url='#//evil.example'))
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)

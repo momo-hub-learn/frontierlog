@@ -56,8 +56,12 @@ def validate_hot(data:dict, *, now:datetime|None=None)->None:
                 if not isinstance(row,dict): raise ValueError('Invalid hot '+list_key+' row')
                 for key in required:
                     if not isinstance(row.get(key),str) or not row[key].strip(): raise ValueError('Missing hot '+list_key+' '+key)
-                ru=urlparse(row['url'])
-                if ru.scheme!='https' or not ru.hostname or ru.username or ru.password: raise ValueError('Unsafe hot '+list_key+' URL')
+                internal=(list_key=='access' and row.get('kind')=='internal')
+                if internal:
+                    if not re.fullmatch(r'#/[-a-z0-9]+(?:\?[A-Za-z0-9._~!$&()*+,;=:@%/?-]+)?',row['url']): raise ValueError('Unsafe hot internal access URL')
+                else:
+                    ru=urlparse(row['url'])
+                    if ru.scheme!='https' or not ru.hostname or ru.username or ru.password: raise ValueError('Unsafe hot '+list_key+' URL')
                 if row.get('date') and date.fromisoformat(row['date'])>checked: raise ValueError('Future hot related date')
         for key in ['title','summary','why','boundary','source','source_kind']:
             if not isinstance(item.get(key),str) or not item[key].strip(): raise ValueError('Missing '+key)

@@ -131,7 +131,13 @@ with sync_playwright() as pw:
     ok('HF first-time entrants use an explicit new-entry label instead of an ambiguous single character')
 
     original_outgoing = page.evaluate('structuredClone(APP.huggingface_hot.web_outgoing || [])')
+    original_changes = page.evaluate('structuredClone(APP.huggingface_hot.web_rank_changes || [])')
     page.evaluate("""() => {
+      const [first, second] = APP.huggingface_hot.web_order;
+      APP.huggingface_hot.web_rank_changes = [
+        {id:first,rank:1,previous_rank:null,rank_change:null,previous_fetched_at:'2026-10-24T01:16:11Z'},
+        {id:second,rank:2,previous_rank:4,rank_change:2,previous_fetched_at:'2026-10-24T01:16:11Z'}
+      ];
       APP.huggingface_hot.web_outgoing = [{id:'org/previous-model',previous_rank:20,previous_fetched_at:'2026-10-24T01:16:11Z'}];
     }""")
     route(page, '#/hot?tab=hf')
@@ -140,6 +146,7 @@ with sync_playwright() as pw:
     page.locator('.hf-change-summary summary').click()
     expect(page.locator('.hf-change-summary details a')).to_have_text('#20 org/previous-model')
     page.evaluate('(value) => { APP.huggingface_hot.web_outgoing = value; }', original_outgoing)
+    page.evaluate('(value) => { APP.huggingface_hot.web_rank_changes = value; }', original_changes)
     route(page, '#/hot?tab=hf')
     ok('HF change summary exposes entrants, rank moves and outgoing models without manual snapshot comparison')
 

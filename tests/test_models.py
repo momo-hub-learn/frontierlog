@@ -128,6 +128,16 @@ class ValidationTests(unittest.TestCase):
   ])
   self.assertTrue(all(x['source']=='aa-live' for x in rows))
   self.assertIsNone(rows[1]['speed'])
+ def test_gpt61_terra_has_current_independent_snapshot_without_cross_board_score(self):
+  board=next(x for x in M['boards'] if x['id']=='aa')
+  row=next(x for x in board['rows'] if x['id']=='aa-gpt61-terra-max')
+  self.assertEqual((row['intelligence'],row['speed'],row['cost_task']),(48,None,0.4))
+  self.assertEqual((row['input_price'],row['output_price'],row['context']),(1,5,'1M'))
+  self.assertIsNone(row['coding'])
+  source=next(x for x in M['sources'] if x['id']==row['source'])
+  self.assertEqual((source['published'],source['checked']),('2026-10-26','2026-10-27'))
+  self.assertIn('/releases/gpt-6-1-terra',source['url'])
+  validate_models(M)
  def test_arena_oct22_excerpt_preserves_official_rank_uncertainty_and_preliminary(self):
   board=next(x for x in M['boards'] if x['id']=='arena')
   self.assertEqual(board['as_of'],'2026-10-22')
