@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-28T21:24:16Z",
+  "generated_at": "2026-10-28T21:46:48Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 90,
+    "merge": 91,
     "hold": 5
   },
   "candidates": [
@@ -259,6 +259,35 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-28T01:30:28Z"
+    },
+    {
+      "id": "candidate-f16e57cd3c773a5c",
+      "category": "research",
+      "published": "2026-10-28",
+      "title": "长时 Agent 开始同时面对工程坚持性与网络安全边界",
+      "summary": "Google 发布 Gemini 4 Carbon，称内部团队观察到模型可持续运行数日处理复杂工程任务；同时报告 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，并先向部分网络安全防御者开放。",
+      "why": "下一阶段长时 Agent 研究不能只看任务最终是否完成，还要把漏洞发现、利用验证、修复、越权、作弊、事实依据和人工中断点放进同一条可审计轨迹。持续更久不自动等于更可靠。",
+      "boundary": "数日运行、安全代码提升、误对齐下降和无支持主张减少均为 Google 的内部观察或厂商评测，本站未复现。三项网络安全分数来自 Google 发布页，且声明在无 guardrails 条件下评测；不能外推为真实部署安全性、普遍成功率或普通用户已可用。",
+      "source": "Google",
+      "source_kind": "官方能力、Benchmark 摘录、访问范围与限制",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "google-gemini-4-carbon-long-horizon-cyber-20261028",
+      "topic_tags": [
+        "Long-horizon Agent",
+        "Cybersecurity",
+        "Evaluation"
+      ],
+      "first_seen_at": "2026-10-28T21:46:48Z"
     },
     {
       "id": "candidate-a6ac1f5158745200",
@@ -973,29 +1002,6 @@
       "source": "NVIDIA",
       "source_kind": "官方 AI 工厂平台发布",
       "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T19:42:10Z"
-    },
-    {
-      "id": "candidate-2fb2fdc9e3135863",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "AI 基础设施扩产：把时间表与承诺值分开追踪",
-      "summary": "NVIDIA 公布基板、先进封装、半导体测试与共封装光学扩产计划：基板总产能目标三年增至 2.5 倍、Amkor 先进封装到 2028 年底增逾 300%，KYEC 美国测试产线目标 2027 年 4 月量产，SPIL 光引擎目标 2027 年中增至 15 倍。",
-      "why": "供应约束正在从 GPU 芯片扩展到基板、封装、测试和光互连；公开时间表可作为产能风险台账，但必须持续区分已签协议、建设中与实际量产。",
-      "boundary": "公告中的扩产幅度与日期多为公司计划和前瞻性陈述，不等于已经交付的产能、良率或供货保证；也不能由产能预约金额直接推断收入、需求兑现或行业份额。",
-      "source": "NVIDIA",
-      "source_kind": "官方供应链与产能公告",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
       "publishable": true,
       "features": {
         "freshness": 0.5,
