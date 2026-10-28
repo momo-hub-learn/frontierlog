@@ -140,7 +140,7 @@ resetPage=function(){
   if(!feature&&!block)return html;
   const start=html.indexOf('<div class="r-summary">'),controls=html.indexOf('<div class="m-controls">',start);
   if(start<0||controls<0)return html.replace('<div class="m-controls">',feature+block+'<div class="m-controls">');
-  return html.slice(0,start)+feature+block+html.slice(controls)
+  return html.slice(0,start)+feature+rGuidance()+block+html.slice(controls)
 };
 const baseModuleMain=moduleMain;
 moduleMain=function(){baseModuleMain();if(state.view==='tibo')requestAnimationFrame(renderXEmbeds)};

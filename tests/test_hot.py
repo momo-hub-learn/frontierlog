@@ -94,6 +94,14 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('没有宣布可直接发送 iCloud 邮件',item['boundary'])
   self.assertIn('本站未连接账户或执行写入',item['boundary'])
   validate_hot(self.data)
+ def test_nvidia_meta_muse_collaboration_stays_a_plan_not_a_capability_claim(self):
+  item=next(x for x in self.data['items'] if x['id']=='nvidia-meta-muse-collaboration-20261027')
+  self.assertEqual(item['published'],'2026-10-27')
+  self.assertEqual(item['link'],'#/toolkit?task=nvidia-openshell&tab=run')
+  self.assertIn('合作与计划',item['boundary'])
+  self.assertIn('没有给出优化后的 Benchmark',item['boundary'])
+  self.assertIn('本站未复核',item['boundary'])
+  validate_hot(self.data)
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)

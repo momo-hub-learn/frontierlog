@@ -153,8 +153,14 @@ def validate_resets(data):
     if not isinstance(events,list):fail('Missing reset list')
     ids=identifiers(events)
     primary={s['id'] for s in data['sources'] if s.get('kind') in {'官方说明','官方原帖'}}
+    guidance=data.get('guidance')
+    if not isinstance(guidance,list) or not guidance:fail('Missing reset guidance')
+    identifiers(guidance)
+    for item in guidance:
+        for field in ('title','summary','action','boundary'):text(item.get(field),'reset guidance '+field)
+        if not item.get('sources') or not set(item['sources'])<=sids:fail('Reset guidance source missing')
     for e in events:
-        if e.get('kind') not in {'global','banked','announcement'}:fail('Invalid reset kind')
+        if e.get('kind') not in {'global','banked','announcement','guidance'}:fail('Invalid reset kind')
         if e.get('status') not in {'confirmed','pending','announced','withdrawn'}:fail('Invalid reset state')
         if not e.get('sources') or not set(e['sources'])<=sids:fail('Reset source missing')
         day(e['date']);day(e['reviewed']);text(e.get('title'),'event title')

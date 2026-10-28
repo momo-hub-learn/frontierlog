@@ -17,6 +17,24 @@ def transport_for(posts,next_token=None):
  return transport
 class ValidationTests(unittest.TestCase):
  def test_valid_catalogs(self):validate_models(M);validate_resets(E)
+ def test_reset_guidance_separates_banked_automatic_and_purchased_semantics(self):
+  rows={x['id']:x for x in E['guidance']}
+  self.assertEqual(set(rows),{'banked-reset','automatic-reset','purchased-reset'})
+  self.assertIn('第一次 Work / Codex 请求',rows['purchased-reset']['summary'])
+  self.assertIn('七天后',rows['purchased-reset']['summary'])
+  self.assertIn('不代表所有账号',rows['automatic-reset']['summary'])
+  paid=next(x for x in E['events'] if x['id']=='openai-paid-weekly-reset-2026-10-26')
+  self.assertEqual((paid['kind'],paid['status']),('guidance','confirmed'))
+  self.assertIn('Free、Go、Business、Enterprise 或 Edu',paid['boundary'])
+  source=next(x for x in E['sources'] if x['id']=='oa-banked')
+  self.assertEqual(source['title'],'How resets work in Codex')
+  self.assertEqual(source['url'],'https://help.openai.com/en/articles/20001498-how-resets-work-in-codex')
+  validate_resets(E)
+ def test_reset_guidance_requires_source_backed_action_and_boundary(self):
+  d=copy.deepcopy(E);d['guidance'][0]['sources']=['missing']
+  with self.assertRaises(ValueError):validate_resets(d)
+  d=copy.deepcopy(E);d['guidance'][0]['action']=''
+  with self.assertRaises(ValueError):validate_resets(d)
  def test_intelligence_index_methodology_is_complete_and_source_backed(self):
   index=M['intelligence_index']
   self.assertRegex(index['version'],r'^\d+\.\d+\.\d+$')

@@ -1,7 +1,33 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "account": "thsottiaux",
+  "guidance": [
+    {
+      "id": "banked-reset",
+      "title": "Banked reset · 留存后主动使用",
+      "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；发到账号不等于额度已恢复。",
+      "action": "先看用量页是否显示可用 reset，再核对适用窗口、资格和有效期。",
+      "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度。",
+      "sources": ["oa-banked"]
+    },
+    {
+      "id": "automatic-reset",
+      "title": "Automatic / global reset · 官方直接应用",
+      "summary": "OpenAI 可能把一次重置直接应用到符合条件的限额；这里的 global 不代表所有账号、所有套餐或所有用量窗口。",
+      "action": "用账号用量页或 Codex /status 核对实际窗口，不根据公告标题推断个人余额。",
+      "boundary": "公告时间、Tibo 原帖或本站记录都不能单独证明每个账户已完成传播。",
+      "sources": ["oa-banked", "oa-usage"]
+    },
+    {
+      "id": "purchased-reset",
+      "title": "Purchased reset · 单独付费提前开启新周期",
+      "summary": "符合资格的个人 Plus / Pro 完成购买后，五小时和周窗口立即恢复；新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
+      "action": "只在网页或桌面用量页确认入口、价格和资格；购买前先判断是否确实需要提前开启新周期。",
+      "boundary": "这是把周额度拉到当前使用，不是额外赠送一整周，也不消耗 banked reset；Free、Go、Business、Enterprise 和 Edu 不在当前官方说明范围。",
+      "sources": ["oa-paid-weekly-reset"]
+    }
+  ],
   "events": [
     {
       "id": "banked-2026-09-03",
@@ -25,19 +51,20 @@
     },
     {
       "id": "openai-paid-weekly-reset-2026-10-26",
-      "kind": "announcement",
-      "status": "announced",
+      "kind": "guidance",
+      "status": "confirmed",
       "date": "2026-10-26",
       "published_at": null,
       "effective_at": null,
       "precision": "source_date",
       "source_timezone": null,
-      "title": "官方说明：符合资格的 Plus / Pro 可购买即时周额度重置",
-      "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后，符合范围的五小时和周用量窗口立即刷新。",
+      "title": "官方使用说明：符合资格的 Plus / Pro 可购买即时周额度重置",
+      "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后五小时和周窗口立即刷新，新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
       "scope": "符合资格的个人 ChatGPT Plus / Pro · 取决于账号与账单国家/地区",
-      "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它会把周额度提前到当前时点并改变下次周重置日期，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。官方说明不能证明每个账户都有购买入口；价格、可见性与资格只能以个人用量页为准。",
+      "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它把周额度提前到当前使用，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。当前官方范围不含 Free、Go、Business、Enterprise 或 Edu；价格、入口与资格只能以个人用量页为准。",
       "sources": ["oa-paid-weekly-reset"],
-      "reviewed": "2026-10-27",
+      "reviewed": "2026-10-28",
+      "verified_at": "2026-10-28T17:25:45+08:00",
       "review_basis": "primary_source",
       "related_ids": []
     },
@@ -522,18 +549,18 @@
       "publisher": "OpenAI Help Center",
       "title": "Paid weekly Work and Codex rate limit resets",
       "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
-      "checked": "2026-10-27",
+      "checked": "2026-10-28",
       "kind": "官方说明",
-      "note": "2026-10-26 官方说明更新；记录购买资格、即时生效、banked reset 独立性与周重置日期变化，不把它写成 Tibo 全局 reset。"
+      "note": "本轮核验购买资格、即时生效、banked reset 独立性，以及新周周期从购买后的第一次请求开始、七天后再自动周重置；不把它写成 Tibo 全局 reset。"
     },
     {
       "id": "oa-banked",
       "publisher": "OpenAI Help Center",
-      "title": "How banked Codex resets work",
-      "url": "https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work",
-      "checked": "2026-09-21",
+      "title": "How resets work in Codex",
+      "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
+      "checked": "2026-10-28",
       "kind": "官方说明",
-      "note": "日期是官方文中记日，未给出精确发生时刻；不把它补成北京时间零点。"
+      "note": "本轮核验 banked、automatic/global 与 purchased 三类 reset 的官方定义、资格和不叠加边界；日期记录仍不补成虚构的北京时间零点。"
     },
     {
       "id": "oa-usage",

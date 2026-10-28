@@ -110,8 +110,17 @@ with sync_playwright() as p:
  assert '不能证明' in tibo and '每个账户' in tibo
  assert page.locator('.tibo-featured a[href*="x.com"],.tibo-evidence-card a[href*="x.com"]').count()>=1
  assert page.locator('.tibo-x-fallback').count()>=1
+ expect(page.locator('.r-guidance')).to_have_count(1)
+ expect(page.locator('[data-reset-guidance]')).to_have_count(3)
+ guidance=page.locator('.r-guidance').inner_text()
+ for label in ['先判断是哪一种 reset','Banked reset','Automatic / global reset','Purchased reset','第一次 Work / Codex 请求','七天后']:
+  assert label in guidance
+ paid=page.locator('[data-reset-row="openai-paid-weekly-reset-2026-10-26"]')
+ expect(paid).to_contain_text('使用说明')
+ expect(paid).to_contain_text('来源已确认')
+ assert '已核验预告' not in paid.inner_text()
  shot(page,'tibo-first-screen.png');shot(page,'tibo-full.png',True)
- ok('Tibo page times out stalled X embeds, then separates original evidence, editorial inference and explicit access limits without fake screenshots')
+ ok('Tibo page separates original evidence, three official reset types, editorial inference and explicit access limits without fake screenshots')
  route(page,'#/tibo?event=tibo-reset-announced-2026-10-22-day17');expect(page.locator('dialog[open]')).to_have_count(1)
  assert '太平洋时间 10 月 23 日上午 10 点前' in page.locator('dialog[open]').inner_text();page.keyboard.press('Escape')
  ok('Tibo announcement deep link opens the exact reviewed record')
