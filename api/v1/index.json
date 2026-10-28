@@ -4119,13 +4119,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-28T05:28:03Z",
+    "generated_at": "2026-10-28T07:42:05Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 85,
+      "merge": 88,
       "hold": 4
     },
     "candidates": [
@@ -4255,6 +4255,30 @@
         "first_seen_at": "2026-10-28T01:30:28Z"
       },
       {
+        "id": "candidate-a6ac1f5158745200",
+        "category": "product",
+        "published": "2026-10-27",
+        "title": "iCloud Mail 与 Calendar 连接进入 ChatGPT",
+        "summary": "iCloud 用户可查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口为网页、桌面端和 iOS。",
+        "why": "产品价值取决于能否在最小权限下稳定命中正确账户，并让日历写入准确落盘；“已连接”本身不是任务完成证据。",
+        "boundary": "不能从公告推出可发送邮件、处理所有冲突日程或所有账号已同时出现入口；本站未连接账户或测试写入。",
+        "source": "OpenAI / Apple iCloud",
+        "source_kind": "官方产品节点",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "chatgpt-icloud-connected-apps",
+        "first_seen_at": "2026-10-28T07:42:05Z"
+      },
+      {
         "id": "candidate-f505d828cc1e6f14",
         "category": "product",
         "published": "2026-10-27",
@@ -4301,6 +4325,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "oracle-ai-workspace",
         "first_seen_at": "2026-10-27T18:06:41Z"
+      },
+      {
+        "id": "candidate-fffc6e6a98a31682",
+        "category": "product",
+        "published": "2026-10-27",
+        "title": "ChatGPT 开放 iCloud Mail 与 Calendar 连接",
+        "summary": "iCloud 用户可在 ChatGPT 中查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口覆盖网页、桌面端和 iOS。",
+        "why": "个人工作流获得新的邮件与日历上下文及明确的日历写入路径；是否真正可用仍要以账号入口、Apple 授权和目标日历最终状态验收。",
+        "boundary": "公告没有宣布可直接发送 iCloud 邮件，也没有公布连接成功率、冲突处理或误写率。Apple 授权、Workspace 设置、账户和地区可能影响实际入口；任何写入都要核对目标账户、时区、参与者和最终日历状态。本站未连接账户或执行写入。",
+        "source": "OpenAI",
+        "source_kind": "官方 Release Notes",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openai-icloud-mail-calendar",
+        "first_seen_at": "2026-10-28T07:42:05Z"
       },
       {
         "id": "candidate-b026f19029976dfa",
@@ -4655,6 +4703,35 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
         "first_seen_at": "2026-10-24T23:39:02Z"
+      },
+      {
+        "id": "candidate-1f0f2de773198368",
+        "category": "research",
+        "published": "2026-10-27",
+        "title": "Agent 的建议会不会悄悄变成专家自己的判断？",
+        "summary": "研究让 50 名专业分析师用 Claude Code 完成因果分析，并以隐藏随机硬币设定 Agent 的倾向。分析师在四类选择中有 86% 与 Agent 倾向一致；原有偏好与 Agent 不一致时，60% 改变选择，一致时只有 6%。77% 的人复用了 Agent 的论据，但只有 15% 明确注明来源。",
+        "why": "高风险 Agent 的监督不能只问“最后有没有人签字”。如果人的判断会被同一个 Agent 预先塑形，签字就不再是独立证据；流程需要先记录人的判断、显式暴露模型倾向，并把二次复核放到独立上下文中。",
+        "boundary": "作者刻意加强了 Agent 的倾向，且只研究一个任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能外推为所有专家、Agent 或真实业务都会出现相同比例的从众。本站未复现。",
+        "source": "Anthropic / London School of Economics",
+        "source_kind": "实验设计、主要结果与作者限制",
+        "url": "https://www.anthropic.com/research/agents-judgment-calls",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 0.72,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.718,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "anthropic-agent-judgment-calls",
+        "topic_tags": [
+          "Agent Oversight",
+          "Human Judgment",
+          "Evaluation"
+        ],
+        "first_seen_at": "2026-10-28T07:42:05Z"
       },
       {
         "id": "candidate-5b6012e7e08daff6",
@@ -5040,75 +5117,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T19:42:10Z"
-      },
-      {
-        "id": "candidate-d280c86d543cb18a",
-        "category": "industry",
-        "published": "2026-10-21",
-        "title": "Isaac 机器人栈：把已开放、伙伴限定与 2027 计划分开验收",
-        "summary": "NVIDIA 同时发布 Isaac OS 开放运行时、Isaac Lab 3.0 GA、数据与仿真工作流，并预告 Agile ONE SN 参考人形机器人计划于 2027 年初推出。",
-        "why": "机器人选型开始覆盖参考硬件、运行时、训练、仿真和部署全链路；清楚区分当前可用和未来计划，可以避免用演示或伙伴项目替代现场验收。",
-        "boundary": "Agile ONE SN 仍是未来计划，Human 1M 数据仅限指定联盟伙伴；2,000+ SimReady 资产等为厂商披露。本站未运行 Isaac Lab、机器人策略或安全测试，不能由平台完整度推断量产可靠性。",
-        "source": "NVIDIA",
-        "source_kind": "官方平台发布",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T21:30:26Z"
-      },
-      {
-        "id": "candidate-d99b2c6d697385a3",
-        "category": "industry",
-        "published": "2026-10-21",
-        "title": "Mistral × NVIDIA：为 CAE / EDA Agent 建公开评测口径",
-        "summary": "双方计划把 Mistral 模型接入 CUDA-X、Warp 与 Omniverse 工程管线，并为物理模型、CAD 到仿真及 CAE/EDA 多步 Agent 任务开发公开 Benchmark 和开放数据集。",
-        "why": "工程 Agent 需要同时衡量技术正确性、工具调用、执行时间和计算成本；公开口径比通用聊天分数更接近真实工程决策。",
-        "boundary": "目前是合作与待发布计划，不是现成排行榜或开放数据集；未给出统一交付日期，也不能据此推断仿真提速或量产收益。",
-        "source": "Mistral AI",
-        "source_kind": "官方一手来源",
-        "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T13:33:09Z"
-      },
-      {
-        "id": "candidate-edc5df8642e5e532",
-        "category": "industry",
-        "published": "2026-10-21",
-        "title": "分布式生物 Agent：把数百万脑细胞结果整理成待验证线索",
-        "summary": "OpenAI、PerturbAI 与 Scripps Research 用数千个 GPT‑Rosalind Agent 分析全脑 CRISPR 图谱，将基因扰动、细胞反应、文献和可能机制组织成公开推理图谱。",
-        "why": "这是一条可审计的“实验数据→文献→候选机制→下一项实验”路径；研究者可以回到单个扰动和引用复核，而不是只读自动总结。",
-        "boundary": "数据来自小鼠脑细胞，作者论文和专家偏好不证明机制成立、能外推人类或已经找到药物；候选关系仍需独立计算、湿实验和疾病模型验证，本站未复现。",
-        "source": "OpenAI / PerturbAI / Scripps Research",
-        "source_kind": "官方研究发布与作者论文",
-        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T17:48:39Z"
       }
     ]
   },
@@ -8586,12 +8594,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-28T05:28:03Z",
+    "last_evaluated": "2026-10-28T07:42:05Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 90,
+      "candidate_count": 93,
       "publish_ready_count": 1,
-      "merge_count": 85,
+      "merge_count": 88,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
