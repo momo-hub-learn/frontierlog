@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -1115,6 +1115,44 @@
       "result_status": "not_run"
     },
     {
+      "id": "novelty-judge-bench",
+      "name": "Novelty Judge Bench",
+      "group": "judge",
+      "edition": "arXiv v3 / Human-Only 与 Human+Generated 分开",
+      "subtitle": "LLM 能否稳定判断研究创意是否真的新颖？",
+      "summary": "Ai2 用 OpenReview 一致性极端样本与 LLM 生成创意评估六类 Judge；同一批题只改提示词，就可让 GPT-5.4 成对准确率从 93.5% 降到 40.9%。",
+      "metric": "Pairwise accuracy ↑ / Macro-F1 ↑ / Cost ↓",
+      "metric_note": "Human-Only 与 Human+Generated、pointwise 与 pairwise 必须分别报告；Human+Generated 的生成式负样本是弱标签，不能与人工验证标签合并成一个总分。",
+      "protocol": "固定论文 v3、数据配置、创意表示、Judge 模型、提示词、推理档、检索范围、三次采样与多数投票；在同一题集上成对比较提示变体，并保存逐题翻转和成本。",
+      "boundary": "作者公开结果不是本站实测。Human+Generated 的 154 个生成创意仅按生成来源赋予弱负标签，并非逐条证明不新颖；OpenReview 极端样本也不能代表所有学科、会议或真实研发决策。",
+      "business": "适合压力测试科研 Agent、自动选题或内部评审器对提示词和生成来源的敏感性；上线前还需领域专家盲审和持续更新的文献检索。",
+      "setup": "公开数据与 Apache-2.0 代码；Judge 模型 API、可选检索、固定配置与成本日志。重建数据还需要 OpenReview 凭据，但复跑已发布题集不需要。",
+      "topics": [],
+      "sources": [
+        "b-novelty-judge-paper",
+        "b-novelty-judge-data",
+        "b-novelty-judge-code"
+      ],
+      "result_url": "https://github.com/allenai/novelty-eval",
+      "kind": "benchmark",
+      "flag": "弱标签 + 提示敏感 / 本站未运行",
+      "checked": "2026-10-28",
+      "tested": false,
+      "checks": [
+        "分开 Human-Only 与 Human+Generated，不把弱标签当成人工金标准",
+        "固定 pointwise/pairwise、abstract/plan、提示词和推理档",
+        "报告准确率或 Macro-F1、逐题翻转、方差与 API 成本",
+        "用领域专家盲审误判，并记录检索范围和文献时间截点"
+      ],
+      "dataset_ids": [
+        "ds-novelty-judge-bench"
+      ],
+      "evaluator_ids": [
+        "ev-pairwise-judge"
+      ],
+      "result_status": "not_run"
+    },
+    {
       "id": "automationbench",
       "name": "AutomationBench",
       "group": "agent",
@@ -1656,6 +1694,36 @@
       "kind": "官方数据集"
     },
     {
+      "id": "b-novelty-judge-paper",
+      "title": "Old Ideas, Novel Problems: The Instability of LLM-Based Novelty Evaluation",
+      "publisher": "Ai2 researchers",
+      "url": "https://arxiv.org/abs/2610.02022",
+      "published": "2026-10-26",
+      "checked": "2026-10-28",
+      "kind": "作者预印本 v3",
+      "note": "v1 提交于 2026-10-01，本站按 2026-10-26 的 v3 核对；公开数字均为作者实验，不是本站复跑。"
+    },
+    {
+      "id": "b-novelty-judge-data",
+      "title": "allenai/novelty-judge-bench",
+      "publisher": "Allen Institute for AI",
+      "url": "https://huggingface.co/datasets/allenai/novelty-judge-bench",
+      "published": null,
+      "checked": "2026-10-28",
+      "kind": "官方数据集",
+      "note": "16 个配置覆盖 Human-Only / Human+Generated、pointwise / pairwise 与 abstract / plan；Human+Generated 的低新颖性池为弱标签。"
+    },
+    {
+      "id": "b-novelty-judge-code",
+      "title": "allenai/novelty-eval",
+      "publisher": "Allen Institute for AI",
+      "url": "https://github.com/allenai/novelty-eval",
+      "published": null,
+      "checked": "2026-10-28",
+      "kind": "官方代码与复现实验配置",
+      "note": "Apache-2.0 代码公开基准配置、提示消融、检索与成本复现实验；复跑需自行提供模型 API。"
+    },
+    {
       "id": "b-multilangbench-release",
       "title": "Advancing Coding in Low-Resource Programming Languages",
       "publisher": "OpenAI",
@@ -1697,6 +1765,22 @@
     }
   ],
   "changes": [
+    {
+      "id": "novelty-judge-instability-20261026",
+      "date": "2026-10-26",
+      "title": "Novelty Judge Bench 暴露提示词与标签来源的高敏感性",
+      "summary": "作者在六类 Judge 上发现，同一批 Human+Generated 题仅改变提示即可让 GPT-5.4 准确率从 93.5% 降至 40.9%；更高推理预算和实时检索也未稳定胜出。",
+      "implication": "科研 Agent 的“新颖性得分”必须同时披露题集来源、弱标签、提示词、检索范围与逐题翻转；不能把一次 Judge 结果直接当成创新性事实或跨系统总排名。",
+      "benchmarks": [
+        "novelty-judge-bench"
+      ],
+      "sources": [
+        "b-novelty-judge-paper",
+        "b-novelty-judge-data",
+        "b-novelty-judge-code"
+      ],
+      "kind": "新公开 Judge 基准"
+    },
     {
       "id": "dual-exam-release-20261022",
       "date": "2026-10-22",
@@ -2068,6 +2152,19 @@
       "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments",
       "license": "CC-BY-4.0（以数据集卡为准）",
       "source_id": "b-mtbench-human"
+    },
+    {
+      "id": "ds-novelty-judge-bench",
+      "name": "Novelty Judge Bench",
+      "version": "arXiv v3 / Hub 16 configs",
+      "domain": "Judge / 科研创意新颖性",
+      "size": "Human-Only 154/145；Human+Generated 154/154",
+      "access": "public",
+      "gold_label": "Human-Only 为 OpenReview 一致极端标签；Human+Generated 负类为生成来源弱标签",
+      "split": "Human-Only / Human+Generated；pointwise / pairwise；abstract / plan",
+      "url": "https://huggingface.co/datasets/allenai/novelty-judge-bench",
+      "license": "ODC-BY（数据）；代码 Apache-2.0",
+      "source_id": "b-novelty-judge-data"
     }
   ],
   "evaluators": [

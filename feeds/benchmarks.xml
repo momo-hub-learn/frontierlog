@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Dual Exam 把 Agent 行动与世界模型预测分轨评估</title><guid isPermaLink="false">frontierlog:benchmark:dual-exam-release-20261022</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dual-exam-controlled-agent-world-model</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 1,088 道 Agent 题和 400 个世界模型案例，用固定环境回复与固定动作干预分别隔离行动选择和后果预测。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Novelty Judge Bench 暴露提示词与标签来源的高敏感性</title><guid isPermaLink="false">frontierlog:benchmark:novelty-judge-instability-20261026</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=novelty-judge-bench</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>作者在六类 Judge 上发现，同一批 Human+Generated 题仅改变提示即可让 GPT-5.4 准确率从 93.5% 降至 40.9%；更高推理预算和实时检索也未稳定胜出。
+
+编辑解读：科研 Agent 的“新颖性得分”必须同时披露题集来源、弱标签、提示词、检索范围与逐题翻转；不能把一次 Judge 结果直接当成创新性事实或跨系统总排名。
+
+来源：
+https://arxiv.org/abs/2610.02022
+https://huggingface.co/datasets/allenai/novelty-judge-bench
+https://github.com/allenai/novelty-eval</description></item><item><title>Dual Exam 把 Agent 行动与世界模型预测分轨评估</title><guid isPermaLink="false">frontierlog:benchmark:dual-exam-release-20261022</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dual-exam-controlled-agent-world-model</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 1,088 道 Agent 题和 400 个世界模型案例，用固定环境回复与固定动作干预分别隔离行动选择和后果预测。
 
 编辑解读：交互智能评估可以先定位决策与动力学建模的不同缺口；两轨任务和指标不可跨轨拼分，耦合试验也不能直接外推为产品失败率。
 

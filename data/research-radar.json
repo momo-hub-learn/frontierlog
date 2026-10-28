@@ -21,6 +21,25 @@
   ],
   "items": [
     {
+      "id": "ai2-novelty-judge-instability-20261026",
+      "lane": "science",
+      "title": "AI 科研创意开始暴露“会生成、难判新”的评估瓶颈",
+      "maker": "Allen Institute for AI / University of Washington",
+      "date": "2026-10-26",
+      "verified_at": "2026-10-28T12:24:47+08:00",
+      "verification_status": "论文 v3 + 官方数据与代码",
+      "tags": ["AI for Science", "LLM as Judge", "Evaluation"],
+      "fact": "作者公开 Novelty Judge Bench，用 OpenReview 一致极端样本与 LLM 生成创意测试六类 Judge。在同一批 Human+Generated 题上，仅改变问法就使 GPT-5.4 的准确率从 93.5% 降至 40.9%；更多推理和实时检索也没有稳定带来更好判断。",
+      "insight": "自动科研的下一个瓶颈可能不是继续生成更多点子，而是构建对提示词、文献覆盖与模型世代都更稳健的新颖性核验链。对 Agent 而言，生成器、检索器和评审器需要分开验收。",
+      "boundary": "所有分数都是作者实验，本站未复跑。Human+Generated 中的 154 个生成创意只被作为弱负标签，未经逐条专家证明不新颖；OpenReview 样本也不代表全部学科和会议。",
+      "next_watch": "关注跨学科专家盲审、新会议周期数据、检索截点和提示稳健性，以及评审结果能否在不同 Judge 与生成器上复现。",
+      "sources": [
+        {"label": "Hugging Face / Ai2 官方研究说明", "url": "https://huggingface.co/blog/allenai/novelty-bench", "kind": "作者结果、实验对比与限制", "strength": "primary"},
+        {"label": "arXiv 论文 v3", "url": "https://arxiv.org/abs/2610.02022", "kind": "评测设计、方法与作者实验", "strength": "primary"},
+        {"label": "Ai2 官方代码与数据说明", "url": "https://github.com/allenai/novelty-eval", "kind": "可复用数据、提示消融与复现步骤", "strength": "primary"}
+      ]
+    },
+    {
       "id": "google-deepmind-genie-4-20261027",
       "lane": "paradigm",
       "title": "世界模拟开始把像素、声音、实时操控与规划放进同一闭环",

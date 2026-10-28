@@ -5956,6 +5956,44 @@
     ],
     "items": [
       {
+        "id": "ai2-novelty-judge-instability-20261026",
+        "lane": "science",
+        "title": "AI 科研创意开始暴露“会生成、难判新”的评估瓶颈",
+        "maker": "Allen Institute for AI / University of Washington",
+        "date": "2026-10-26",
+        "verified_at": "2026-10-28T12:24:47+08:00",
+        "verification_status": "论文 v3 + 官方数据与代码",
+        "tags": [
+          "AI for Science",
+          "LLM as Judge",
+          "Evaluation"
+        ],
+        "fact": "作者公开 Novelty Judge Bench，用 OpenReview 一致极端样本与 LLM 生成创意测试六类 Judge。在同一批 Human+Generated 题上，仅改变问法就使 GPT-5.4 的准确率从 93.5% 降至 40.9%；更多推理和实时检索也没有稳定带来更好判断。",
+        "insight": "自动科研的下一个瓶颈可能不是继续生成更多点子，而是构建对提示词、文献覆盖与模型世代都更稳健的新颖性核验链。对 Agent 而言，生成器、检索器和评审器需要分开验收。",
+        "boundary": "所有分数都是作者实验，本站未复跑。Human+Generated 中的 154 个生成创意只被作为弱负标签，未经逐条专家证明不新颖；OpenReview 样本也不代表全部学科和会议。",
+        "next_watch": "关注跨学科专家盲审、新会议周期数据、检索截点和提示稳健性，以及评审结果能否在不同 Judge 与生成器上复现。",
+        "sources": [
+          {
+            "label": "Hugging Face / Ai2 官方研究说明",
+            "url": "https://huggingface.co/blog/allenai/novelty-bench",
+            "kind": "作者结果、实验对比与限制",
+            "strength": "primary"
+          },
+          {
+            "label": "arXiv 论文 v3",
+            "url": "https://arxiv.org/abs/2610.02022",
+            "kind": "评测设计、方法与作者实验",
+            "strength": "primary"
+          },
+          {
+            "label": "Ai2 官方代码与数据说明",
+            "url": "https://github.com/allenai/novelty-eval",
+            "kind": "可复用数据、提示消融与复现步骤",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "google-deepmind-genie-4-20261027",
         "lane": "paradigm",
         "title": "世界模拟开始把像素、声音、实时操控与规划放进同一闭环",
@@ -7291,11 +7329,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-28T03:28:34Z",
+    "checked_at": "2026-10-28T04:22:55Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-28T03:28:34Z",
+      "last_success": "2026-10-28T04:22:55Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -8329,7 +8367,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T03:14:27Z",
+    "checked_at": "2026-10-28T04:25:55Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -8374,7 +8412,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 9656
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Nutlope/hallmark",
@@ -8515,7 +8554,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 2556
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "obra/superpowers",
@@ -8644,7 +8684,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 90749
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "makecindy/cindy",
@@ -8714,7 +8755,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 7569
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "gitroomhq/postiz-app",
@@ -8784,7 +8826,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 39477
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "affaan-m/ECC",
@@ -8854,7 +8897,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 290991
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "HKUDS/DeepTutor",
@@ -8915,7 +8959,8 @@
             "at": "2026-10-28T03:14:27Z",
             "stars": 46167
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "JetBrains/thinkrail",
@@ -9121,21 +9166,25 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-28T03:14:27Z",
-      "last_success_at": "2026-10-28T03:14:27Z",
+      "last_checked_at": "2026-10-28T04:25:55Z",
+      "last_success_at": "2026-10-28T04:25:55Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-28T03:14:27Z",
-      "watchlist_errors": [],
-      "watchlist_failed_count": 0,
+      "watchlist_checked_at": "2026-10-28T04:25:55Z",
+      "watchlist_errors": [
+        "morluto/rea: HTTP Error 403: Forbidden"
+      ],
+      "watchlist_failed_count": 1,
       "trending_count": 11,
-      "verified_count": 7,
-      "metadata_failed_count": 4,
+      "verified_count": 0,
+      "metadata_failed_count": 11,
       "metadata_status": "partial",
       "skipped": [
+        "elayadesign/ai-design-skills: HTTP Error 403: Forbidden",
         "Nutlope/hallmark: HTTP Error 403: Forbidden",
+        "nightly-labs/openbot: HTTP Error 403: Forbidden",
         "obra/superpowers: HTTP Error 403: Forbidden",
-        "JetBrains/thinkrail: HTTP Error 403: Forbidden",
-        "togg53192-cmd/jailbreaks: HTTP Error 403: Forbidden"
+        "pbakaus/impeccable: HTTP Error 403: Forbidden",
+        "makecindy/cindy: HTTP Error 403: Forbidden"
       ]
     },
     "watchlist": [
@@ -9162,15 +9211,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T03:14:27Z",
+    "checked_at": "2026-10-28T04:26:30Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-28T03:14:27Z",
-    "web_fetched_at": "2026-10-28T03:14:27Z",
+    "api_fetched_at": "2026-10-28T04:26:30Z",
+    "web_fetched_at": "2026-10-28T04:26:30Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -9189,8 +9238,8 @@
       "baidu/Unlimited-OCR-2",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "HuggingFaceBio/Carbon-X",
-      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
       "LiquidAI/LFM3-1.7B",
+      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
       "fishaudio/drama-3",
       "Comfy-Org/MOSS-Image"
     ],
@@ -9200,156 +9249,150 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 14,
-        "previous_rank": 15,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_rank": 14,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 15,
-        "previous_rank": 14,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_rank": 15,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
-      },
-      {
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "rank": 17,
-        "previous_rank": 17,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
+        "rank": 17,
+        "previous_rank": 18,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
+      },
+      {
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 18,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_rank": 17,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "fishaudio/drama-3",
         "rank": 19,
-        "previous_rank": 18,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "previous_rank": 19,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       },
       {
         "id": "Comfy-Org/MOSS-Image",
         "rank": 20,
-        "previous_rank": 19,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
-      }
-    ],
-    "web_outgoing": [
-      {
-        "id": "KRAFTON/Raon-1-mini-preview",
         "previous_rank": 20,
-        "previous_fetched_at": "2026-10-28T01:17:01Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T03:14:27Z"
       }
     ],
+    "web_outgoing": [],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 961,
-        "likes": 3406,
+        "trending_score": 960,
+        "likes": 3415,
         "downloads": 105667,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9365,8 +9408,8 @@
         "rank": 2,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 943,
-        "likes": 985,
+        "trending_score": 944,
+        "likes": 986,
         "downloads": 10574,
         "task": "text-generation",
         "library": "transformers",
@@ -9382,8 +9425,8 @@
         "rank": 3,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 668,
-        "likes": 676,
+        "trending_score": 672,
+        "likes": 680,
         "downloads": 4785,
         "task": "text-generation",
         "library": "transformers",
@@ -9399,8 +9442,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 600,
-        "likes": 803,
+        "trending_score": 603,
+        "likes": 812,
         "downloads": 6191,
         "task": "text-generation",
         "library": "transformers",
@@ -9416,8 +9459,8 @@
         "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 418,
-        "likes": 1870,
+        "trending_score": 416,
+        "likes": 1873,
         "downloads": 750694,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -9450,8 +9493,8 @@
         "rank": 7,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 399,
-        "likes": 9594,
+        "trending_score": 398,
+        "likes": 9601,
         "downloads": 2163739,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -9467,8 +9510,8 @@
         "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 381,
-        "likes": 403,
+        "trending_score": 383,
+        "likes": 405,
         "downloads": 1105751,
         "task": "text-generation",
         "library": "gguf",
@@ -9484,7 +9527,7 @@
         "rank": 9,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 334,
+        "trending_score": 332,
         "likes": 347,
         "downloads": 6613,
         "task": "text-generation",
@@ -9502,7 +9545,7 @@
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
         "trending_score": 323,
-        "likes": 18551,
+        "likes": 18552,
         "downloads": 7522728,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9518,8 +9561,8 @@
         "rank": 11,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 304,
-        "likes": 5201,
+        "trending_score": 305,
+        "likes": 5205,
         "downloads": 2201569,
         "task": "text-to-image",
         "library": "gguf",
@@ -9553,7 +9596,7 @@
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
         "trending_score": 258,
-        "likes": 788,
+        "likes": 789,
         "downloads": 13253,
         "task": "text-to-image",
         "library": "diffusers",
@@ -9569,8 +9612,8 @@
         "rank": 14,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 244,
-        "likes": 255,
+        "trending_score": 250,
+        "likes": 261,
         "downloads": 513,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9586,8 +9629,8 @@
         "rank": 15,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 236,
-        "likes": 282,
+        "trending_score": 237,
+        "likes": 283,
         "downloads": 13441,
         "task": "text-generation",
         "library": "gguf",
@@ -9618,27 +9661,10 @@
       },
       {
         "rank": 17,
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "trending_score": 204,
-        "likes": 2171,
-        "downloads": 1713544,
-        "task": "image-text-to-text",
-        "library": "未标注",
-        "created_at": "2026-09-01T07:01:09.000Z",
-        "tags": [
-          "gguf",
-          "unsloth",
-          "fine tune",
-          "heretic"
-        ]
-      },
-      {
-        "rank": 18,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 204,
-        "likes": 204,
+        "trending_score": 211,
+        "likes": 211,
         "downloads": 6311,
         "task": "text-generation",
         "library": "transformers",
@@ -9651,10 +9677,27 @@
         ]
       },
       {
+        "rank": 18,
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "trending_score": 204,
+        "likes": 2172,
+        "downloads": 1713544,
+        "task": "image-text-to-text",
+        "library": "未标注",
+        "created_at": "2026-09-01T07:01:09.000Z",
+        "tags": [
+          "gguf",
+          "unsloth",
+          "fine tune",
+          "heretic"
+        ]
+      },
+      {
         "rank": 19,
         "id": "fishaudio/drama-3",
         "url": "https://huggingface.co/fishaudio/drama-3",
-        "trending_score": 197,
+        "trending_score": 195,
         "likes": 1068,
         "downloads": 24996,
         "task": "text-to-speech",
@@ -9687,7 +9730,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-28T03:14:27Z",
+      "last_checked_at": "2026-10-28T04:26:30Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -16040,7 +16083,7 @@
   },
   "benchmarks": {
     "version": 1,
-    "checked": "2026-10-27",
+    "checked": "2026-10-28",
     "title": "Benchmark 观察站",
     "sync": {
       "status": "manual",
@@ -17155,6 +17198,44 @@
         "result_status": "not_run"
       },
       {
+        "id": "novelty-judge-bench",
+        "name": "Novelty Judge Bench",
+        "group": "judge",
+        "edition": "arXiv v3 / Human-Only 与 Human+Generated 分开",
+        "subtitle": "LLM 能否稳定判断研究创意是否真的新颖？",
+        "summary": "Ai2 用 OpenReview 一致性极端样本与 LLM 生成创意评估六类 Judge；同一批题只改提示词，就可让 GPT-5.4 成对准确率从 93.5% 降到 40.9%。",
+        "metric": "Pairwise accuracy ↑ / Macro-F1 ↑ / Cost ↓",
+        "metric_note": "Human-Only 与 Human+Generated、pointwise 与 pairwise 必须分别报告；Human+Generated 的生成式负样本是弱标签，不能与人工验证标签合并成一个总分。",
+        "protocol": "固定论文 v3、数据配置、创意表示、Judge 模型、提示词、推理档、检索范围、三次采样与多数投票；在同一题集上成对比较提示变体，并保存逐题翻转和成本。",
+        "boundary": "作者公开结果不是本站实测。Human+Generated 的 154 个生成创意仅按生成来源赋予弱负标签，并非逐条证明不新颖；OpenReview 极端样本也不能代表所有学科、会议或真实研发决策。",
+        "business": "适合压力测试科研 Agent、自动选题或内部评审器对提示词和生成来源的敏感性；上线前还需领域专家盲审和持续更新的文献检索。",
+        "setup": "公开数据与 Apache-2.0 代码；Judge 模型 API、可选检索、固定配置与成本日志。重建数据还需要 OpenReview 凭据，但复跑已发布题集不需要。",
+        "topics": [],
+        "sources": [
+          "b-novelty-judge-paper",
+          "b-novelty-judge-data",
+          "b-novelty-judge-code"
+        ],
+        "result_url": "https://github.com/allenai/novelty-eval",
+        "kind": "benchmark",
+        "flag": "弱标签 + 提示敏感 / 本站未运行",
+        "checked": "2026-10-28",
+        "tested": false,
+        "checks": [
+          "分开 Human-Only 与 Human+Generated，不把弱标签当成人工金标准",
+          "固定 pointwise/pairwise、abstract/plan、提示词和推理档",
+          "报告准确率或 Macro-F1、逐题翻转、方差与 API 成本",
+          "用领域专家盲审误判，并记录检索范围和文献时间截点"
+        ],
+        "dataset_ids": [
+          "ds-novelty-judge-bench"
+        ],
+        "evaluator_ids": [
+          "ev-pairwise-judge"
+        ],
+        "result_status": "not_run"
+      },
+      {
         "id": "automationbench",
         "name": "AutomationBench",
         "group": "agent",
@@ -17696,6 +17777,36 @@
         "kind": "官方数据集"
       },
       {
+        "id": "b-novelty-judge-paper",
+        "title": "Old Ideas, Novel Problems: The Instability of LLM-Based Novelty Evaluation",
+        "publisher": "Ai2 researchers",
+        "url": "https://arxiv.org/abs/2610.02022",
+        "published": "2026-10-26",
+        "checked": "2026-10-28",
+        "kind": "作者预印本 v3",
+        "note": "v1 提交于 2026-10-01，本站按 2026-10-26 的 v3 核对；公开数字均为作者实验，不是本站复跑。"
+      },
+      {
+        "id": "b-novelty-judge-data",
+        "title": "allenai/novelty-judge-bench",
+        "publisher": "Allen Institute for AI",
+        "url": "https://huggingface.co/datasets/allenai/novelty-judge-bench",
+        "published": null,
+        "checked": "2026-10-28",
+        "kind": "官方数据集",
+        "note": "16 个配置覆盖 Human-Only / Human+Generated、pointwise / pairwise 与 abstract / plan；Human+Generated 的低新颖性池为弱标签。"
+      },
+      {
+        "id": "b-novelty-judge-code",
+        "title": "allenai/novelty-eval",
+        "publisher": "Allen Institute for AI",
+        "url": "https://github.com/allenai/novelty-eval",
+        "published": null,
+        "checked": "2026-10-28",
+        "kind": "官方代码与复现实验配置",
+        "note": "Apache-2.0 代码公开基准配置、提示消融、检索与成本复现实验；复跑需自行提供模型 API。"
+      },
+      {
         "id": "b-multilangbench-release",
         "title": "Advancing Coding in Low-Resource Programming Languages",
         "publisher": "OpenAI",
@@ -17737,6 +17848,22 @@
       }
     ],
     "changes": [
+      {
+        "id": "novelty-judge-instability-20261026",
+        "date": "2026-10-26",
+        "title": "Novelty Judge Bench 暴露提示词与标签来源的高敏感性",
+        "summary": "作者在六类 Judge 上发现，同一批 Human+Generated 题仅改变提示即可让 GPT-5.4 准确率从 93.5% 降至 40.9%；更高推理预算和实时检索也未稳定胜出。",
+        "implication": "科研 Agent 的“新颖性得分”必须同时披露题集来源、弱标签、提示词、检索范围与逐题翻转；不能把一次 Judge 结果直接当成创新性事实或跨系统总排名。",
+        "benchmarks": [
+          "novelty-judge-bench"
+        ],
+        "sources": [
+          "b-novelty-judge-paper",
+          "b-novelty-judge-data",
+          "b-novelty-judge-code"
+        ],
+        "kind": "新公开 Judge 基准"
+      },
       {
         "id": "dual-exam-release-20261022",
         "date": "2026-10-22",
@@ -18108,6 +18235,19 @@
         "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments",
         "license": "CC-BY-4.0（以数据集卡为准）",
         "source_id": "b-mtbench-human"
+      },
+      {
+        "id": "ds-novelty-judge-bench",
+        "name": "Novelty Judge Bench",
+        "version": "arXiv v3 / Hub 16 configs",
+        "domain": "Judge / 科研创意新颖性",
+        "size": "Human-Only 154/145；Human+Generated 154/154",
+        "access": "public",
+        "gold_label": "Human-Only 为 OpenReview 一致极端标签；Human+Generated 负类为生成来源弱标签",
+        "split": "Human-Only / Human+Generated；pointwise / pairwise；abstract / plan",
+        "url": "https://huggingface.co/datasets/allenai/novelty-judge-bench",
+        "license": "ODC-BY（数据）；代码 Apache-2.0",
+        "source_id": "b-novelty-judge-data"
       }
     ],
     "evaluators": [
@@ -25660,7 +25800,7 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-28T03:34:35.858584Z",
+    "last_attempt": "2026-10-28T04:26:35.912456Z",
     "last_success": "2026-10-28T03:34:35.858584Z",
     "last_full_success": "2026-10-28T03:34:35.858584Z",
     "items": [
@@ -26672,29 +26812,39 @@
       {
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
-        "status": "success",
-        "checked_at": "2026-10-28T03:34:35.858584Z",
-        "parsed": 14,
-        "matched": 14
+        "status": "failed",
+        "checked_at": "2026-10-28T04:26:35.912456Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-boltz",
         "name": "Boltz releases",
-        "status": "success",
-        "checked_at": "2026-10-28T03:34:35.858584Z",
-        "parsed": 17,
-        "matched": 17
+        "status": "failed",
+        "checked_at": "2026-10-28T04:26:35.912456Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
-        "status": "success",
-        "checked_at": "2026-10-28T03:34:35.858584Z",
-        "parsed": 20,
-        "matched": 20
+        "status": "failed",
+        "checked_at": "2026-10-28T04:26:35.912456Z",
+        "error": "HTTP 403"
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "source_id": "github-bionemo-framework",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-boltz",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-anomalib",
+        "error": "HTTP 403"
+      }
+    ],
     "note": "自动候选资料，未核验。机器分类不等于疗效、良率、可用性或监管结论。",
     "version": 1
   },
