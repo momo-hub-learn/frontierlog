@@ -65,6 +65,37 @@
       ]
     },
     {
+      "id": "ai2-novelty-judge-instability-20261027",
+      "category": "benchmark",
+      "title": "新颖性评审：同一模型只换提示，准确率从 93.5% 跌到 40.9%",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T12:40:13+08:00",
+      "first_seen_at": "2026-10-28T12:40:13+08:00",
+      "heat": 90,
+      "heat_components": {"impact": 34, "availability": 16, "evidence": 25, "recency": 15},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型新颖性判断能力、论文质量、Benchmark 总分或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方论文、数据与代码 · 本站未实测",
+      "summary": "Ai2 发布 Novelty Judge Bench：论文报告 GPT-5.4 在同一 Human+Generated 配对上，仅改变评审提示，准确率便从 93.5% 降至 40.9%；Claude Opus 4.6 在 Human-Only 设置也出现 21 个百分点的波动。",
+      "why": "自动化科研、论文筛选和研究 Agent 正在把“大模型当评审”写进工作流。这组公开数据说明，分数可能强烈依赖提示和对照样本，而增加搜索或推理不一定让评审更稳定。",
+      "boundary": "数字来自作者论文与官方发布，本站没有运行模型或复现实验。Human+Generated 中的“非新颖”负例由生成流程构造，作者明确提示其标签较弱；结果不能外推为模型能可靠判断所有学科、真实论文价值或同行评审质量，也不能把单一提示下的高分当作稳定能力。",
+      "source": "Ai2 / Hugging Face",
+      "source_kind": "官方研究与 Benchmark 发布 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/allenai/novelty-judge",
+      "link": "#/benchmarks?bench=novelty-judge-bench",
+      "evidence_level": "primary-source",
+      "access": [
+        {"label": "阅读 Ai2 官方发布", "note": "核对提示敏感性、搜索与推理结论，以及作者披露的弱标签限制", "url": "https://huggingface.co/blog/allenai/novelty-judge", "kind": "research"},
+        {"label": "查看 Benchmark 证据卡", "note": "分开查看任务口径、作者报告数字、数据、代码与本站未实测状态", "url": "#/benchmarks?bench=novelty-judge-bench", "kind": "internal"}
+      ],
+      "related": [
+        {"source": "arXiv", "title": "Can LLMs Reliably Judge Novelty?", "url": "https://arxiv.org/abs/2610.02022", "date": "2026-10-26"},
+        {"source": "Ai2", "title": "Novelty Judge Bench dataset", "url": "https://huggingface.co/datasets/allenai/novelty-judge-bench", "date": "2026-10-27"},
+        {"source": "Ai2", "title": "Novelty Eval code", "url": "https://github.com/allenai/novelty-eval", "date": "2026-10-27"}
+      ]
+    },
+    {
       "id": "anthropic-claude-drug-development-20261027",
       "category": "industry",
       "title": "Claude 进入六个真实药物研发项目",

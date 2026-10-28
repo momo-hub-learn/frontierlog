@@ -66,6 +66,15 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('trust_remote_code',ocr['boundary'])
   self.assertIn('HF Trending 也不等于能力榜',ocr['boundary'])
   validate_hot(self.data)
+ def test_novelty_judge_hot_item_preserves_author_result_and_weak_label_boundary(self):
+  item=next(x for x in self.data['items'] if x['id']=='ai2-novelty-judge-instability-20261027')
+  self.assertEqual(item['link'],'#/benchmarks?bench=novelty-judge-bench')
+  self.assertIn('93.5%',item['summary'])
+  self.assertIn('40.9%',item['summary'])
+  self.assertIn('本站没有运行模型或复现实验',item['boundary'])
+  self.assertIn('标签较弱',item['boundary'])
+  self.assertEqual(item['evidence_level'],'primary-source')
+  validate_hot(self.data)
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)
