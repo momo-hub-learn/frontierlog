@@ -86,7 +86,7 @@ function ghFreshness(){
 }
 function ghStaleNotice(){
   const f=ghFreshness();
-  if(!f.stale&&GH.sync?.status==='error')return '<div class="ranking-stale"><strong>本轮采集失败，正在自动重试</strong><span>当前数据仍为 '+esc(ghWhen())+' 的最近成功快照；暂不使用本轮失败数据替换榜单。</span></div>';
+  if(!f.stale&&GH.sync?.status==='error')return '<div class="ranking-stale"><strong>最近一次采集失败，已保留成功快照</strong><span>当前数据仍为 '+esc(ghWhen())+' 的最近成功快照；只有后续采集成功后才会更新榜单。</span></div>';
   if(!f.stale)return '';
   const age=f.ageHours==null?'更新时间不可核验':('已超过 '+Math.floor(f.ageHours)+' 小时未核验');
   const failed=GH.sync?.status==='error'?' · 最近一次同步失败，已进入维护提醒':'';

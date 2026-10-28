@@ -16,6 +16,7 @@ function extract(s,start,end){
 }
 const watchPart=extract(gh,'function ghWatchPanel(){','function ghActive(){');
 const metadataPart=extract(gh,'function ghFmt(n){','function ghWhen(){');
+const stalePart=extract(gh,'function ghStaleNotice(){','function ghPartialNotice(){');
 const partialPart=extract(gh,'function ghPartialNotice(){','function ghWatchPanel(){');
 const inlinePart=extract(gh,'function ghInline(){','const ghBaseHotPage=hotPage;');
 const pagePart=extract(gh,'const ghBaseHotPage=hotPage;','document.addEventListener(\'input\'');
@@ -55,6 +56,13 @@ const allFailedView={GH:{items:Array.from({length:10},()=>({metadata_status:'sta
 vm.createContext(allFailedView);
 vm.runInContext(partialPart+'\nthis.__partial=ghPartialNotice();',allFailedView);
 assert.match(allFailedView.__partial,/全部仓库 API 指标未同步/);
+
+const failedSyncView={GH:{sync:{status:'error'}},ghFreshness:()=>({stale:false}),ghWhen:()=> '10.28 23:22 北京时间',esc:x=>String(x)};
+vm.createContext(failedSyncView);
+vm.runInContext(stalePart+'\nthis.__notice=ghStaleNotice();',failedSyncView);
+assert.match(failedSyncView.__notice,/最近一次采集失败，已保留成功快照/);
+assert.match(failedSyncView.__notice,/只有后续采集成功后才会更新榜单/);
+assert.doesNotMatch(failedSyncView.__notice,/正在自动重试/);
 
 assert.match(inlinePart,/role="status" aria-live="polite"/);
 assert.match(inlinePart,/显示 '\+rows\.length\+' \/ '\+\(GH\.items\|\|\[\]\)\.length\+' 个仓库/);
