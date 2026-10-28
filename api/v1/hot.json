@@ -36,6 +36,60 @@
   ],
   "items": [
     {
+      "id": "artificial-analysis-index-v5-20261027",
+      "category": "benchmark",
+      "title": "Artificial Analysis 指数切换到 v5",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T19:40:00+08:00",
+      "first_seen_at": "2026-10-28T19:40:00+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 34,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、榜单置信度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "官方方法页与公告 · 9 项评测 / 四类各 25%",
+      "summary": "Artificial Analysis 发布 Intelligence Index v5.0：新增 FrontierCode 2.0 与 Terminal-Bench-Science，升级 AA-Omniscience、HLE-Diamond 与 CritPt，并把 GDPval-AA、SciCode、AA-LCR 移出指数；知识工作、编程、科学、通用能力现在各占 25%。",
+      "why": "这次不是普通榜位波动，而是评测集合和权重整体变化。v4 与 v5 分数不能直接纵向比较；模型选型时也应先看九项任务是否覆盖自己的真实工作，而不是只看一个整数总分。",
+      "boundary": "官方指数仍主要覆盖英文文本模型，多模态、语音和多语言需另看专项评测。部分测试集为私有或答案留出集，本站没有独立复现；当前模型页只公开展示部分配置，本站仅摘录本轮可直接核实的榜首五个配置与已发布权重前三名，不把旧 v4 分数混入当前榜。",
+      "source": "Artificial Analysis",
+      "source_kind": "评测方官方公告与方法页 / 本轮编辑核验",
+      "url": "https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5",
+      "link": "#/models",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 v5 官方公告",
+          "note": "核对新增、升级、移除的评测与主要结果",
+          "url": "https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5",
+          "kind": "benchmark"
+        },
+        {
+          "label": "查看当前模型榜",
+          "note": "只显示本轮已由官方当前页直接核实的 v5 摘录",
+          "url": "#/models",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Artificial Analysis",
+          "title": "Announcing Artificial Analysis Intelligence Index v5",
+          "url": "https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5",
+          "date": "2026-10-27"
+        },
+        {
+          "source": "Artificial Analysis",
+          "title": "Intelligence Benchmarking Methodology",
+          "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+        }
+      ]
+    },
+    {
       "id": "nvidia-meta-muse-collaboration-20261027",
       "category": "industry",
       "title": "NVIDIA 与 Meta 扩大 Muse Agent 合作",
@@ -801,9 +855,9 @@
           "kind": "docs"
         },
         {
-          "label": "查看独立评测位置",
-          "note": "在模型榜中查看 AA 同口径分数、任务成本与价格；速度按该配置未标注处理",
-          "url": "#/models?q=Terra",
+          "label": "查看当前 v5 模型榜",
+          "note": "当前 v5 摘录不混入 Terra 的旧 v4 分数；用方法卡核对版本与九项评测",
+          "url": "#/models",
           "kind": "internal"
         }
       ],

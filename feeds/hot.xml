@@ -197,7 +197,13 @@
 
 边界：这是 OpenAI 的官方声明，不是数学界已完成独立验证。公告本身未公开完整问题清单、证明文本或审稿结果，因此本站只记录为重大前沿信号，不写成“这些问题已被公认解决”。
 
-站内热度 95；不是全网流量。</description></item><item><title>Google 给云端 AI 加长期记忆：密钥只留在设备</title><guid isPermaLink="false">frontierlog:hot:google-private-ai-memory-20260923</guid><link>https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate><description>Google DeepMind 9 月 23 日披露 Private AI Compute 的持久化服务器端记忆架构：个人上下文存入专用加密存储，解密密钥只保留在用户设备；模型需要信息时，通过认证的端到端加密通道进入安全隔离环境，临时解密、更新上下文后立即重新加密。
+站内热度 95；不是全网流量。</description></item><item><title>Artificial Analysis 指数切换到 v5</title><guid isPermaLink="false">frontierlog:hot:artificial-analysis-index-v5-20261027</guid><link>https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Artificial Analysis 发布 Intelligence Index v5.0：新增 FrontierCode 2.0 与 Terminal-Bench-Science，升级 AA-Omniscience、HLE-Diamond 与 CritPt，并把 GDPval-AA、SciCode、AA-LCR 移出指数；知识工作、编程、科学、通用能力现在各占 25%。
+
+为什么值得看：这次不是普通榜位波动，而是评测集合和权重整体变化。v4 与 v5 分数不能直接纵向比较；模型选型时也应先看九项任务是否覆盖自己的真实工作，而不是只看一个整数总分。
+
+边界：官方指数仍主要覆盖英文文本模型，多模态、语音和多语言需另看专项评测。部分测试集为私有或答案留出集，本站没有独立复现；当前模型页只公开展示部分配置，本站仅摘录本轮可直接核实的榜首五个配置与已发布权重前三名，不把旧 v4 分数混入当前榜。
+
+站内热度 94；不是全网流量。</description></item><item><title>Google 给云端 AI 加长期记忆：密钥只留在设备</title><guid isPermaLink="false">frontierlog:hot:google-private-ai-memory-20260923</guid><link>https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate><description>Google DeepMind 9 月 23 日披露 Private AI Compute 的持久化服务器端记忆架构：个人上下文存入专用加密存储，解密密钥只保留在用户设备；模型需要信息时，通过认证的端到端加密通道进入安全隔离环境，临时解密、更新上下文后立即重新加密。
 
 为什么值得看：个人 Agent 要持续数周乃至跨设备协作，长期记忆与隐私一直是基础设施瓶颈。Google 正把此前“任务结束即清空”的无状态私密云推理，推进到可跨设备延续上下文的持久记忆；如果按计划进入产品，这会直接改变个人 Agent 的记忆层设计。
 

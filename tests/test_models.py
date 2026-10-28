@@ -37,7 +37,7 @@ class ValidationTests(unittest.TestCase):
   with self.assertRaises(ValueError):validate_resets(d)
  def test_intelligence_index_methodology_is_complete_and_source_backed(self):
   index=M['intelligence_index']
-  self.assertRegex(index['version'],r'^\d+\.\d+\.\d+$')
+  self.assertRegex(index['version'],r'^\d+\.\d+(?:\.\d+)?$')
   self.assertEqual(sum(x['weight'] for x in index['categories']),100)
   evaluations=[e for category in index['categories'] for e in category['evaluations']]
   self.assertEqual(len(evaluations),len({e['name'] for e in evaluations}))
@@ -49,6 +49,9 @@ class ValidationTests(unittest.TestCase):
   validate_models(M)
  def test_intelligence_index_bad_weights_rejected(self):
   d=copy.deepcopy(M);d['intelligence_index']['categories'][0]['evaluations'][0]['weight']+=1
+  with self.assertRaises(ValueError):validate_models(d)
+ def test_intelligence_index_duplicate_evaluation_rejected(self):
+  d=copy.deepcopy(M);d['intelligence_index']['categories'][1]['evaluations'][0]['name']=d['intelligence_index']['categories'][0]['evaluations'][0]['name']
   with self.assertRaises(ValueError):validate_models(d)
  def test_nan_rejected(self):
   d=copy.deepcopy(M);d['boards'][0]['rows'][0]['intelligence']=float('nan')
@@ -142,15 +145,13 @@ class ValidationTests(unittest.TestCase):
   self.assertEqual(rows,sorted(rows,key=lambda x:(-(x['intelligence'] or -1),x['source_order'])))
   self.assertTrue(all(x['source']=='aa-live' or any(s['id']==x['source'] for s in M['sources']) for x in rows))
   self.assertTrue(any(x['speed'] is None for x in rows))
- def test_gpt61_terra_has_current_independent_snapshot_without_cross_board_score(self):
+ def test_v4_terra_snapshot_is_preserved_but_not_mixed_into_v5_board(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
-  row=next(x for x in board['rows'] if x['id']=='aa-gpt61-terra-max')
-  self.assertEqual((row['intelligence'],row['speed'],row['cost_task']),(48,None,0.4))
-  self.assertEqual((row['input_price'],row['output_price'],row['context']),(1,5,'1M'))
-  self.assertIsNone(row['coding'])
-  source=next(x for x in M['sources'] if x['id']==row['source'])
+  self.assertNotIn('aa-gpt61-terra-max',{x['id'] for x in board['rows']})
+  source=next(x for x in M['sources'] if x['id']=='aa-gpt61-terra')
   self.assertEqual((source['published'],source['checked']),('2026-10-26','2026-10-27'))
   self.assertIn('/releases/gpt-6-1-terra',source['url'])
+  self.assertIn('48',source['note'])
   validate_models(M)
  def test_arena_excerpt_preserves_source_rank_uncertainty_contract(self):
   board=next(x for x in M['boards'] if x['id']=='arena')

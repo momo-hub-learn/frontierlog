@@ -61,15 +61,14 @@ def validate_models(data):
     if data.get('version')!=1:fail('Unsupported model schema')
     day(data['checked']);sids=sources(data);sync(data)
     index=data.get('intelligence_index')
-    if not isinstance(index,dict) or not re.fullmatch(r'\d+\.\d+\.\d+',index.get('version','')):fail('Missing Intelligence Index methodology')
+    if not isinstance(index,dict) or not re.fullmatch(r'\d+\.\d+(?:\.\d+)?',index.get('version','')):fail('Missing Intelligence Index methodology')
     day(index['checked']);text(index.get('scope'),'Intelligence Index scope')
     if index.get('source') not in sids:fail('Intelligence Index source missing')
     categories=index.get('categories')
-    if not isinstance(categories,list) or len(categories)!=4:fail('Invalid Intelligence Index categories')
+    if not isinstance(categories,list) or not categories or len(categories)>8:fail('Invalid Intelligence Index categories')
     identifiers(categories)
-    if {x['id'] for x in categories}!={'agents','coding','general','science'}:fail('Unknown Intelligence Index category')
     if sum(x.get('weight',0) for x in categories)!=100:fail('Intelligence Index category weights must total 100')
-    evaluation_count=0
+    evaluation_names=[]
     for category in categories:
         text(category.get('label'),'Intelligence Index category')
         if type(category.get('weight'))!=int or category['weight']<=0:fail('Invalid Intelligence Index category weight')
@@ -79,8 +78,8 @@ def validate_models(data):
         for evaluation in evaluations:
             text(evaluation.get('name'),'evaluation name');text(evaluation.get('tasks'),'evaluation task scope')
             if type(evaluation.get('weight'))!=int or evaluation['weight']<=0:fail('Invalid evaluation weight')
-        evaluation_count+=len(evaluations)
-    if evaluation_count!=10:fail('Intelligence Index must retain ten evaluations')
+        evaluation_names.extend(x['name'] for x in evaluations)
+    if len(evaluation_names)!=len(set(evaluation_names)):fail('Duplicate Intelligence Index evaluation')
     if not isinstance(data.get('boards'),list) or not data['boards']:fail('Missing boards')
     identifiers(data['boards']);all_ids=set()
     for b in data['boards']:

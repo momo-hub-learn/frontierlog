@@ -6,6 +6,7 @@ R=Path(__file__).resolve().parents[1];OUT=R/'screenshots';OUT.mkdir(exist_ok=Tru
 HTML=(R/'dist/index.html').read_text();checks=[];errors=[]
 MODEL_DATA=json.loads((R/'data/models.json').read_text());RESET_DATA=json.loads((R/'data/resets.json').read_text());CAP_DATA=json.loads((R/'data/capabilities.json').read_text())
 BOARD_COUNTS={b['id']:len(b['rows']) for b in MODEL_DATA['boards']};AA=next(b for b in MODEL_DATA['boards'] if b['id']=='aa');ARENA=next(b for b in MODEL_DATA['boards'] if b['id']=='arena')
+AA_INDEX=MODEL_DATA['intelligence_index'];AA_EVALUATIONS=[e for category in AA_INDEX['categories'] for e in category['evaluations']]
 def ok(s):checks.append(s);print('PASS',s,flush=True)
 def route(page,s):page.evaluate('(s)=>location.hash=s',s);page.wait_for_timeout(80)
 def shot(page,n,full=False):page.evaluate("scrollTo(0,0);document.querySelector('#toast').classList.remove('active')");page.wait_for_timeout(100);page.screenshot(path=str(OUT/n),full_page=full)
@@ -24,17 +25,19 @@ with sync_playwright() as p:
  expect(page.locator('.v2-source-tabs')).to_have_attribute('aria-label','选择独立榜单')
  expect(page.locator('.v2-aa-method')).to_have_count(1)
  expect(page.locator('.v2-aa-method')).to_contain_text('这张总榜实际考什么？')
- expect(page.locator('.v2-aa-method')).to_contain_text('Intelligence Index v4.3.2 · 10 项评测')
+ expect(page.locator('.v2-aa-method')).to_contain_text(f"Intelligence Index v{AA_INDEX['version']} · {len(AA_EVALUATIONS)} 项评测")
  weights=page.locator('.v2-aa-weights').inner_text()
- for label in ['30%\nAgent 任务','30%\n通用能力','20%\n编程','20%\n科学推理']:
+ for category in AA_INDEX['categories']:
+  label=f"{category['weight']}%\n{category['label']}"
   assert label in weights
  assert '多模态、语音与多语言能力不计入这张总榜' in page.locator('.v2-aa-method').inner_text()
  expect(page.locator('.v2-aa-method a')).to_have_attribute('href','https://artificialanalysis.ai/methodology/intelligence-benchmarking')
  details=page.locator('.v2-aa-suite');expect(details).to_have_count(1);assert details.get_attribute('open') is None
+ expect(details.locator('summary')).to_contain_text(f'查看 {len(AA_EVALUATIONS)} 项评测与各自权重')
  page.locator('.v2-aa-suite summary').click();expect(details).to_have_attribute('open','')
  suite=details.inner_text()
- for label in ['AA-Briefcase v1.1','GDPval-AA v2.1','AutomationBench-AA','AA-Omniscience','GDP.pdf','AA-LCR v1.1','Terminal-Bench 4.0','SciCode',"Humanity's Last Exam",'CritPt']:
-  assert label in suite
+ for evaluation in AA_EVALUATIONS:
+  assert evaluation['name'] in suite
  assert '单项强弱可能被总分掩盖' in suite
  assert details.evaluate('e=>e.scrollWidth<=e.clientWidth+1')
  assert '综合能力主榜' in page.locator('.v2-source-tabs').inner_text()
@@ -48,14 +51,17 @@ with sync_playwright() as p:
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
  meta=page.locator('.v2-model-meta').inner_text()
  assert f"来源 {AA['as_of'].replace('-', '.')}" in meta
- assert f"核验 {AA['checked'].replace('-', '.')}" in meta
+ if AA['checked']!=AA['as_of']:assert f"核验 {AA['checked'].replace('-', '.')}" in meta
+ else:assert '核验' not in meta
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
  shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, preserved theme')
- page.locator('[data-ma="metric"][data-id="speed"]').click()
- assert '当前查看首位' in page.locator('.v2-current-first').inner_text()
- assert page.evaluate("(()=>{const r=mRows().map(x=>x.speed).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]>=v)})()")
- page.locator('[data-ma="metric"][data-id="cost_task"]').click()
- assert page.evaluate("(()=>{const r=mRows().map(x=>x.cost_task).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]<=v)})()")
+ if any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']):
+  page.locator('[data-ma="metric"][data-id="speed"]').click()
+  assert '当前查看首位' in page.locator('.v2-current-first').inner_text()
+  assert page.evaluate("(()=>{const r=mRows().map(x=>x.speed).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]>=v)})()")
+ if any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']):
+  page.locator('[data-ma="metric"][data-id="cost_task"]').click()
+  assert page.evaluate("(()=>{const r=mRows().map(x=>x.cost_task).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]<=v)})()")
  page.locator('#m-maker').select_option('OpenAI');expect(page.locator('[data-model-row]')).to_have_count(sum(x['maker']=='OpenAI' for x in AA['rows']))
  page.locator('#m-search').fill('Sol');expect(page.locator('[data-model-row]')).to_have_count(sum(x['maker']=='OpenAI' and 'sol' in x['name'].lower() for x in AA['rows']))
  page.locator('#m-search').fill('no-matching-model');expect(page.locator('.m-empty')).to_have_count(1)
