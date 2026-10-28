@@ -3960,14 +3960,14 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-28T03:28:30Z",
+    "generated_at": "2026-10-28T04:35:59Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
       "merge": 85,
-      "hold": 3
+      "hold": 4
     },
     "candidates": [
       {
@@ -3993,6 +3993,35 @@
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "browser-use",
         "first_seen_at": "2026-10-27T01:23:34Z"
+      },
+      {
+        "id": "candidate-c8c3b03ffb4a37da",
+        "category": "research",
+        "published": "2026-10-26",
+        "title": "AI 科研创意开始暴露“会生成、难判新”的评估瓶颈",
+        "summary": "作者公开 Novelty Judge Bench，用 OpenReview 一致极端样本与 LLM 生成创意测试六类 Judge。在同一批 Human+Generated 题上，仅改变问法就使 GPT-5.4 的准确率从 93.5% 降至 40.9%；更多推理和实时检索也没有稳定带来更好判断。",
+        "why": "自动科研的下一个瓶颈可能不是继续生成更多点子，而是构建对提示词、文献覆盖与模型世代都更稳健的新颖性核验链。对 Agent 而言，生成器、检索器和评审器需要分开验收。",
+        "boundary": "所有分数都是作者实验，本站未复跑。Human+Generated 中的 154 个生成创意只被作为弱负标签，未经逐条专家证明不新颖；OpenReview 样本也不代表全部学科和会议。",
+        "source": "Allen Institute for AI / University of Washington",
+        "source_kind": "作者结果、实验对比与限制",
+        "url": "https://huggingface.co/blog/allenai/novelty-bench",
+        "publishable": false,
+        "features": {
+          "freshness": 0.857,
+          "authority": 0.72,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.833,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "research_id": "ai2-novelty-judge-instability-20261026",
+        "topic_tags": [
+          "AI for Science",
+          "LLM as Judge",
+          "Evaluation"
+        ],
+        "first_seen_at": "2026-10-28T04:35:59Z"
       },
       {
         "id": "candidate-cc9e333e2ae5552d",
@@ -4921,29 +4950,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T17:48:39Z"
-      },
-      {
-        "id": "candidate-eff250e244822a86",
-        "category": "industry",
-        "published": "2026-10-21",
-        "title": "Kumo Forecast：直接预测与历史检索要同窗对比",
-        "summary": "NVIDIA 公开多变量时序预测模型，可选 DARR 检索相似历史片段，并为不同预测跨度提供解释；代码与权重已给出。",
-        "why": "设备维护和运营预测可以同时查看预测、检索依据和跨度解释，但应先做时间外推基线。",
-        "boundary": "只支持数值时序与指定输入长度；检索上下文维度需相近，且检索增强不保证更准。预测解释不是故障因果，本站未运行。",
-        "source": "NVIDIA",
-        "source_kind": "官方技术发布",
-        "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T15:29:58Z"
       }
     ]
   },
@@ -8341,10 +8347,10 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-28T03:28:30Z",
+    "last_evaluated": "2026-10-28T04:35:59Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 89,
+      "candidate_count": 90,
       "publish_ready_count": 1,
       "merge_count": 85,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
