@@ -257,7 +257,8 @@ function v2Activity(){
  const upstreamMode=state.kind==='upstream',pendingUpstream=pendingUpstreamReleases(),groups={};
  if(upstreamMode)pendingUpstream.forEach(e=>(groups[e.task]??=[]).push({...e,kind:'upstream',date:(e.published_at||'').slice(0,10),summary:e.name||'上游版本发布',delta:'机器收录，尚未人工核验。'}));
  else DATA.events.forEach(e=>(groups[e.task]??=[]).push(e));
- const rows=Object.entries(groups).map(([id,ev])=>({task:tasks.get(id),events:ev.sort((a,b)=>b.date.localeCompare(a.date))})).filter(x=>x.task).sort((a,b)=>(b.events[0]?.date||'').localeCompare(a.events[0]?.date||''));
+ const eventMoment=e=>e.published_at||e.date||'';
+ const rows=Object.entries(groups).map(([id,ev])=>({task:tasks.get(id),events:ev.sort((a,b)=>eventMoment(b).localeCompare(eventMoment(a)))})).filter(x=>x.task).sort((a,b)=>eventMoment(b.events[0]||{}).localeCompare(eventMoment(a.events[0]||{})));
  const publicationBadge=e=>{
   const p=e.publication;if(!p)return '';
   const prefix=p.ccf?'CCF '+p.ccf:(p.venue==='Nature'||p.venue==='Science'||p.tier==='top-journal')?'顶刊':p.tier==='top-conference'?'顶会':p.status==='preprint'?'预印本':p.status==='accepted'?'已录用':'已发表';
