@@ -13,6 +13,12 @@ CATALOG_DATA=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
 TASKS={x['id']:x for x in CATALOG_DATA['items']}
 GROUPS={x['id']:x['label'] for x in TOOLKIT_DATA['groups']}
 TOOLKIT_COUNT=len(TOOLKIT_DATA['items'])
+def latest_date(guide):
+    values=[source.get('published_at') or source.get('verified_at') or '' for source in guide['sources']]
+    return max(values,default='')
+RECENT_DATE=max(map(latest_date,TOOLKIT_DATA['items']))
+RECENT_FIRST=next(x['id'] for x in TOOLKIT_DATA['items'] if latest_date(x)==RECENT_DATE)
+CURATED_FIRST=TOOLKIT_DATA['items'][0]['id']
 OPENAI_COUNT=sum('openai' in ' '.join([
     TASKS[x['id']]['name'],x['publisher'],x['headline'],x['input'],x['output'],GROUPS[x['group']]
 ]).lower() for x in TOOLKIT_DATA['items'])
@@ -46,9 +52,9 @@ try:
         go('#/toolkit')
         expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('#tk-sort')).to_have_value('recent')
-        expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id','docling')
+        expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id',RECENT_FIRST)
         page.locator('#tk-sort').select_option('curated')
-        expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id','cloudflare-agents-0-31')
+        expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id',CURATED_FIRST)
         page.locator('#tk-sort').select_option('recent')
         expect(page.locator('.tk-card h2')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('.tk-conditions dd')).to_have_count(TOOLKIT_COUNT*2)

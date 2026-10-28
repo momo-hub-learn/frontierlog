@@ -17,6 +17,41 @@
   ],
   "items": [
     {
+      "id": "chatgpt-icloud-connected-apps",
+      "name": "ChatGPT iCloud Connected Apps",
+      "company": "OpenAI / Apple iCloud",
+      "group": "enterprise-agent",
+      "tags": ["Connected Apps", "Mail", "Calendar"],
+      "summary": "把 iCloud Mail 与 Calendar 接进 ChatGPT，用于查找邮件、汇总收件箱、查看日程，并在确认后更新日历事件。",
+      "product_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_label": "OpenAI 官方 Release Notes",
+      "evidence": "OpenAI 2026-10-27 Release Notes 明确列出 iCloud Mail 与 Calendar 的任务范围、网页/桌面端/iOS 入口和全部 ChatGPT 套餐可用范围。",
+      "boundary": "官方没有宣布可发送 iCloud 邮件，也没有披露连接成功率、冲突处理或误写率；实际入口、Apple 授权与 Workspace 设置须按账号核对。日历写入必须以目标日历最终状态验收。本站未连接账户。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-27",
+          "kind": "Released",
+          "title": "iCloud Mail 与 Calendar 连接进入 ChatGPT",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "summary": "iCloud 用户可查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口为网页、桌面端和 iOS。",
+          "facts": [
+            {"label": "邮件范围", "value": "查找邮件 / 汇总收件箱"},
+            {"label": "日历范围", "value": "查看日程 / 更新事件"},
+            {"label": "官方入口", "value": "Web / Desktop / iOS"},
+            {"label": "套餐范围", "value": "全部 ChatGPT 套餐"}
+          ],
+          "interpretation": "产品价值取决于能否在最小权限下稳定命中正确账户，并让日历写入准确落盘；“已连接”本身不是任务完成证据。",
+          "scope": "OpenAI 2026-10-27 ChatGPT Release Notes 所列能力与入口。",
+          "limitations": "不能从公告推出可发送邮件、处理所有冲突日程或所有账号已同时出现入口；本站未连接账户或测试写入。",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28T15:34:19+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "oracle-ai-workspace",
       "name": "Oracle AI Workspace",
       "company": "Oracle / OpenAI",

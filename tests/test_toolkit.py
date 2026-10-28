@@ -39,6 +39,15 @@ class ToolkitTests(unittest.TestCase):
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
         self.assertEqual(row['publisher'],'OpenAI')
+    def test_icloud_guide_preserves_account_write_and_runtime_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-icloud-mail-calendar')
+        self.assertFalse(row['runtime_tested'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-27')
+        self.assertIn('未宣布可发送 iCloud 邮件',row['limitation'])
+        self.assertIn('Apple Calendar',row['steps'][-1]['body'])
+        task=next(x for x in self.catalog['items'] if x['id']==row['id'])
+        self.assertEqual(task['sources'],['openai-icloud-mail-calendar-release-notes'])
+        validate_toolkit(self.data,self.catalog)
     def test_openhands_1_34_guide_preserves_runtime_and_secret_boundaries(self):
         row=next(x for x in self.data['items'] if x['id']=='openhands')
         self.assertFalse(row['runtime_tested'])

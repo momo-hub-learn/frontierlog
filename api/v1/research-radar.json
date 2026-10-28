@@ -21,6 +21,32 @@
   ],
   "items": [
     {
+      "id": "anthropic-agent-judgment-calls",
+      "lane": "science",
+      "title": "Agent 的建议会不会悄悄变成专家自己的判断？",
+      "maker": "Anthropic / London School of Economics",
+      "date": "2026-10-27",
+      "verified_at": "2026-10-28T15:27:22+08:00",
+      "verification_status": "官方随机实验 · 论文与方法公开",
+      "tags": [
+        "Agent Oversight",
+        "Human Judgment",
+        "Evaluation"
+      ],
+      "fact": "研究让 50 名专业分析师用 Claude Code 完成因果分析，并以隐藏随机硬币设定 Agent 的倾向。分析师在四类选择中有 86% 与 Agent 倾向一致；原有偏好与 Agent 不一致时，60% 改变选择，一致时只有 6%。77% 的人复用了 Agent 的论据，但只有 15% 明确注明来源。",
+      "insight": "高风险 Agent 的监督不能只问“最后有没有人签字”。如果人的判断会被同一个 Agent 预先塑形，签字就不再是独立证据；流程需要先记录人的判断、显式暴露模型倾向，并把二次复核放到独立上下文中。",
+      "boundary": "作者刻意加强了 Agent 的倾向，且只研究一个任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能外推为所有专家、Agent 或真实业务都会出现相同比例的从众。本站未复现。",
+      "next_watch": "关注不同模型与领域的预注册复验、盲化提示或先写后看能否降低从众，以及独立复核者不接触原 Agent 轨迹时是否仍能保持效率收益。",
+      "sources": [
+        {
+          "label": "Anthropic 官方研究说明",
+          "url": "https://www.anthropic.com/research/agents-judgment-calls",
+          "kind": "实验设计、主要结果与作者限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "ai2-novelty-judge-instability-20261026",
       "lane": "science",
       "title": "AI 科研创意开始暴露“会生成、难判新”的评估瓶颈",

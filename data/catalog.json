@@ -3,6 +3,34 @@
   "snapshot": "2026-10-28",
   "items": [
     {
+      "id": "openai-icloud-mail-calendar",
+      "name": "ChatGPT · iCloud Mail + Calendar",
+      "title": "在 ChatGPT 中查邮件、看日程并更新日历事件",
+      "category": "Agent / 办公",
+      "mark": "iC",
+      "accent": "blue",
+      "summary": "连接 iCloud Mail 与 Calendar 后，在 ChatGPT 中查找邮件、汇总收件箱、查看日程，并把已确认的变更写入日历事件。",
+      "scope": "OpenAI 2026-10-27 Release Notes 确认该能力覆盖全部 ChatGPT 套餐，入口为网页、桌面端和 iOS；具体连接入口仍以实际账号为准。",
+      "boundary": "公告没有宣布可直接发送 iCloud 邮件，也没有公布连接成功率、冲突处理或误写率。Apple 授权、Workspace 设置、账户和地区可能影响实际入口；任何写入都要核对目标账户、时区、参与者和最终日历状态。本站未连接账户或执行写入。",
+      "repo": null,
+      "sources": ["openai-icloud-mail-calendar-release-notes"],
+      "requirements": "一个已出现 iCloud Mail / Calendar 连接入口的 ChatGPT 账号，以及只含测试邮件和测试事件的低风险 Apple 账户；只授予完成验证所需的最小权限。",
+      "test": "先连接测试账户并只读查询一封指定邮件和一个指定日程；再新建或修改一个可删除的测试事件，逐项核对账户、标题、时区、参与者和 Apple Calendar 最终状态，完成后撤销授权。",
+      "checks": [
+        "账号实际出现 iCloud Mail 与 Calendar 连接入口",
+        "只读结果来自正确账户、邮件和时间范围",
+        "日历写入前复核账户、时区、参与者和变更内容",
+        "以 Apple Calendar 最终状态验收并在测试后撤销授权"
+      ],
+      "command": "无需命令行；在 ChatGPT 的连接应用设置中授权测试账户后，从只读任务开始。",
+      "effort": "网页 / 桌面端 / iOS；全部 ChatGPT 套餐，实际入口以账号为准",
+      "evidence": "OpenAI 官方 ChatGPT Release Notes",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-28",
+      "verified_at": "2026-10-28T15:34:19+08:00"
+    },
+    {
       "id": "cloudflare-agents-0-31",
       "name": "Cloudflare · Agents 0.31",
       "title": "让浏览器 Agent 访问受控内部预览，并显式迁移 Browser Tool 与 MCP 依赖",
@@ -1015,6 +1043,16 @@
   ],
   "sources": [
     {
+      "id": "openai-icloud-mail-calendar-release-notes",
+      "title": "ChatGPT release notes — iCloud Mail and Calendar plugins",
+      "publisher": "OpenAI",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T15:34:19+08:00",
+      "kind": "官方 Release Notes"
+    },
+    {
       "id": "cloudflare-agents-0-31-release",
       "title": "agents@0.31.0",
       "publisher": "Cloudflare",
@@ -1692,6 +1730,18 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-icloud-mail-calendar-release",
+      "task": "openai-icloud-mail-calendar",
+      "date": "2026-10-27",
+      "kind": "release",
+      "title": "ChatGPT 开放 iCloud Mail 与 Calendar 连接",
+      "summary": "iCloud 用户可在 ChatGPT 中查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口覆盖网页、桌面端和 iOS。",
+      "delta": "个人工作流获得新的邮件与日历上下文及明确的日历写入路径；是否真正可用仍要以账号入口、Apple 授权和目标日历最终状态验收。",
+      "sources": ["openai-icloud-mail-calendar-release-notes"],
+      "reviewed": "2026-10-28",
+      "short_title": "iCloud 邮件与日历进入 ChatGPT"
+    },
     {
       "id": "openai-coderabbit-sol-security",
       "task": "openai-coderabbit-secure",

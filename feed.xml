@@ -4,7 +4,12 @@
 编辑解读：扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。
 
 公开资料，本站未复测。
-来源：https://github.com/docling-project/docling/releases/tag/v2.143.1</description></item><item><title>OpenHands v1.34.0 加入对话级 Docker Runtime</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-34-release</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。
+来源：https://github.com/docling-project/docling/releases/tag/v2.143.1</description></item><item><title>ChatGPT 开放 iCloud Mail 与 Calendar 连接</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openai-icloud-mail-calendar&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openai-icloud-mail-calendar-release</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>iCloud 用户可在 ChatGPT 中查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口覆盖网页、桌面端和 iOS。
+
+编辑解读：个人工作流获得新的邮件与日历上下文及明确的日历写入路径；是否真正可用仍要以账号入口、Apple 授权和目标日历最终状态验收。
+
+公开资料，本站未复测。
+来源：https://help.openai.com/en/articles/6825453-chatgpt-release-notes</description></item><item><title>OpenHands v1.34.0 加入对话级 Docker Runtime</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=openhands&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:openhands-1-34-release</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。
 
 编辑解读：运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。
 

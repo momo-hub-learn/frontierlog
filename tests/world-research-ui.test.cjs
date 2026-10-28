@@ -7,6 +7,7 @@ const root = path.join(__dirname,'..');
 const models = JSON.parse(fs.readFileSync(path.join(root,'data/models.json'),'utf8'));
 const candidates = JSON.parse(fs.readFileSync(path.join(root,'data/frontier-candidates.json'),'utf8'));
 const code = fs.readFileSync(path.join(root,'src/world-priority.js'),'utf8');
+const progressCode = fs.readFileSync(path.join(root,'src/progress-v4.js'),'utf8');
 const context = {
  APP:{frontier_candidates:candidates},MODEL_DATA:models,
  mFrontierCard:(item)=>'<article><div class="m-frontier-tags">'+item.name+'</div></article>',
@@ -28,4 +29,9 @@ assert.match(t.queue(false),/未核验/);
 assert.match(t.radar(),/研究关注度/);
 assert.match(t.radar(),/研究关注指数怎么计算|评分不是能力排名/);
 assert(!t.radar().includes('LeHami · 82.5'));
+assert.match(progressCode,/research:\(P5_RESEARCH\.items\|\|\[\]\)\.some/);
+assert.match(progressCode,/data-research-id=/);
+assert.match(progressCode,/p5Href\(\{view:'research',research:x\.id,q:''\}\)/);
+assert.match(progressCode,/p\.delete\('research'\)/);
+assert.match(progressCode,/返回全部研究档案/);
 console.log('PASS research priority is separate from model capability and unreviewed discoveries stay visible');

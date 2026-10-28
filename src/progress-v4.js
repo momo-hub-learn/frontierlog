@@ -7,14 +7,16 @@ const P5_SOURCES=new Map((DATA.sources||[]).map(x=>[x.id,x]));
 function p5Params(){return new URLSearchParams(location.hash.split('?')[1]||'')}
 function p5State(){
  const p=p5Params(),view=['updates','map','research'].includes(p.get('view'))?p.get('view'):'updates';
- return {view,cat:(p.get('cap')||'all').slice(0,80),q:(p.get('q')||'').slice(0,200).trim()}
+ const research=(p.get('research')||'').slice(0,120);
+ return {view,cat:(p.get('cap')||'all').slice(0,80),q:(p.get('q')||'').slice(0,200).trim(),research:(P5_RESEARCH.items||[]).some(x=>x.id===research)?research:''}
 }
 function p5Href(patch={}){
  const s=p5State(),p=new URLSearchParams();
- const next={view:s.view,cat:s.cat,q:s.q,...patch};
+ const next={view:s.view,cat:s.cat,q:s.q,research:s.research,...patch};
  if(next.view&&next.view!=='updates')p.set('view',next.view);
  if(next.cat&&next.cat!=='all')p.set('cap',next.cat);
  if(next.q)p.set('q',next.q);
+ if(next.view==='research'&&next.research)p.set('research',next.research);
  return '#/progress'+(p.size?'?'+p.toString():'')
 }
 function p5Date(d){return String(d||'').replaceAll('-','.')}
@@ -52,7 +54,7 @@ function p5FilterTasks(rows,s){
 }
 function p5Tabs(s){
  const tabs=[['updates','能力进展','最近真正多了什么'],['map','能力地图','现在能做到哪'],['research','研究雷达','下一步可能突破什么']];
- return '<nav class="p5-tabs">'+tabs.map(([id,title,sub])=>'<a class="'+(s.view===id?'active':'')+'" href="'+p5Href({view:id})+'"><strong>'+title+'</strong><small>'+sub+'</small></a>').join('')+'</nav>'
+ return '<nav class="p5-tabs">'+tabs.map(([id,title,sub])=>'<a class="'+(s.view===id?'active':'')+'" '+(s.view===id?'aria-current="page" ':'')+'href="'+p5Href({view:id,research:''})+'"><strong>'+title+'</strong><small>'+sub+'</small></a>').join('')+'</nav>'
 }
 function p5Filters(s){
  if(s.view==='research')return '';
@@ -90,13 +92,15 @@ function p5Map(s){
 }
 function p5ResearchCard(x){
  const primary=(x.sources||[]).filter(s=>s.strength==='primary'),lead=(x.sources||[]).filter(s=>s.strength==='lead');
- return '<article class="p5-research-card"><div class="p5-research-top"><div class="p5-tags">'+(x.tags||[]).slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><time>'+p5Date(x.date)+'</time></div>'+(x.verification_status?'<p class="p5-verification"><span aria-hidden="true">●</span>'+esc(x.verification_status)+'</p>':'')+'<h3>'+esc(x.title)+'</h3><p class="p5-maker">'+esc(x.maker)+'</p><div class="p5-rline"><b>在研究什么</b><p>'+esc(x.fact)+'</p></div><div class="p5-rline insight"><b>我们的解读</b><p>'+esc(x.insight)+'</p></div><div class="p5-rline boundary"><b>现在还不能推出</b><p>'+esc(x.boundary)+'</p></div><div class="p5-rline next"><b>下一步看什么</b><p>'+esc(x.next_watch)+'</p></div><footer>'+
+ return '<article class="p5-research-card" id="research-'+esc(x.id)+'" data-research-id="'+esc(x.id)+'"><div class="p5-research-top"><div class="p5-tags">'+(x.tags||[]).slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><time datetime="'+esc(x.date)+'">'+p5Date(x.date)+'</time></div>'+(x.verification_status?'<p class="p5-verification"><span aria-hidden="true">●</span>'+esc(x.verification_status)+'</p>':'')+'<h3>'+esc(x.title)+'</h3><p class="p5-maker">'+esc(x.maker)+'</p><div class="p5-rline"><b>在研究什么</b><p>'+esc(x.fact)+'</p></div><div class="p5-rline insight"><b>我们的解读</b><p>'+esc(x.insight)+'</p></div><div class="p5-rline boundary"><b>现在还不能推出</b><p>'+esc(x.boundary)+'</p></div><div class="p5-rline next"><b>下一步看什么</b><p>'+esc(x.next_watch)+'</p></div><footer>'+
  primary.map(s=>'<a href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.label)+' · '+esc(s.kind)+' '+icon('external')+'</a>').join('')+
- lead.map(s=>'<a class="lead" href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer">待核验线索 · '+esc(s.label)+' '+icon('external')+'</a>').join('')+'</footer></article>'
+ lead.map(s=>'<a class="lead" href="'+safeLink(s.url)+'" target="_blank" rel="noopener noreferrer">待核验线索 · '+esc(s.label)+' '+icon('external')+'</a>').join('')+
+ '<a class="p5-self-link" href="'+p5Href({view:'research',research:x.id,q:''})+'">本档案链接</a></footer></article>'
 }
 function p5Research(s){
- const q=s.q.toLowerCase(),lanes=P5_RESEARCH.lanes||[],items=(P5_RESEARCH.items||[]).filter(x=>!q||[x.title,x.maker,x.fact,x.insight,x.next_watch,...(x.tags||[])].join(' ').toLowerCase().includes(q));
+ const q=s.q.toLowerCase(),lanes=P5_RESEARCH.lanes||[],items=(P5_RESEARCH.items||[]).filter(x=>(!s.research||x.id===s.research)&&(!q||[x.title,x.maker,x.fact,x.insight,x.next_watch,...(x.tags||[])].join(' ').toLowerCase().includes(q)));
  return '<section class="p5-view"><div class="p5-view-head"><div><p class="eyebrow">RESEARCH RADAR / INDEPENDENT ARCHIVE</p><h2>研究雷达</h2><p>长期研究档案不再依赖热点榜；热点只负责给这些档案增加新节点。第三方线索明确标记为待核验。</p></div><b>'+items.length+' 个研究档案</b></div><label class="p5-search research">'+icon('search')+'<input id="p5-search" aria-label="搜索研究档案" value="'+esc(s.q)+'" placeholder="搜索范式、实验室、跨学科方向…"></label>'+
+ (s.research?'<aside class="p5-focus-note" role="status"><span>正在查看单个研究档案</span><a href="'+p5Href({research:'',q:''})+'">返回全部研究档案</a></aside>':'')+
  lanes.map(l=>{const rows=items.filter(x=>x.lane===l.id);return rows.length?'<section class="p5-research-group"><div class="p5-group-head"><div><h3>'+esc(l.title)+'</h3><p>'+esc(l.description)+'</p></div><span>'+rows.length+'</span></div><div class="p5-research-grid">'+rows.map(p5ResearchCard).join('')+'</div></section>':''}).join('')+
  (!items.length?'<div class="p5-empty p5-research-empty"><strong>没有匹配的研究档案</strong><span>换个关键词，或清除搜索查看全部已核验记录。</span><a href="'+p5Href({q:''})+'">清除搜索</a></div>':'')+
  '<p class="p5-research-note">'+esc(P5_RESEARCH.note||'')+' · 核对 '+esc(P5_RESEARCH.checked||'—')+'</p></section>'
@@ -108,6 +112,6 @@ function p5Progress(){
 }
 const p5BaseRenderMain=renderMain;
 renderMain=function(){p5BaseRenderMain();if(state.view==='progress')p5Progress()};
-document.addEventListener('input',e=>{if(e.target.id!=='p5-search')return;const pos=e.target.selectionStart,p=p5Params();const v=e.target.value.trim();if(v)p.set('q',v);else p.delete('q');history.replaceState(null,'','#/progress'+(p.size?'?'+p.toString():''));p5Progress();const input=$('#p5-search');input?.focus({preventScroll:true});try{input.setSelectionRange(pos,pos)}catch{}});
+document.addEventListener('input',e=>{if(e.target.id!=='p5-search')return;const pos=e.target.selectionStart,p=p5Params();const v=e.target.value.trim();p.delete('research');if(v)p.set('q',v);else p.delete('q');history.replaceState(null,'','#/progress'+(p.size?'?'+p.toString():''));p5Progress();const input=$('#p5-search');input?.focus({preventScroll:true});try{input.setSelectionRange(pos,pos)}catch{}});
 if(state.view==='progress'){lastMain='';renderMain()}
 })();

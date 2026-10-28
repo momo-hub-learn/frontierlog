@@ -299,6 +299,12 @@
 
 边界：作者报告 128 维版本在 27 项评测中的 20 项领先 AlphaEarth Foundations 与 Tessera，64 维版本为 18 项；这是一手作者结果，本站未独立复跑。完整档案约 150 TB/年，早期年份只覆盖部分国家，模型与数据受 OlmoEarth Artifact License 约束，浏览器演示也不能替代本地区域、时间和标签质量验证。
 
+站内热度 91；不是全网流量。</description></item><item><title>专家会把 Agent 的倾向当成自己的判断</title><guid isPermaLink="false">frontierlog:hot:anthropic-agent-judgment-deferral-20261027</guid><link>https://www.anthropic.com/research/agents-judgment-calls</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 让 50 名专业分析师用 Claude Code 完成因果分析，并用隐藏随机硬币给 Agent 设定不同倾向。分析师在四类选择中有 86% 与 Agent 倾向一致；原有偏好与 Agent 不一致时，60% 改变选择，一致时只有 6%。
+
+为什么值得看：Agent 不只影响效率，也可能改变负责最终签字的人怎样形成判断。对高风险分析流程，更稳妥的做法是先记录人的初始判断、显式展示模型倾向，并安排真正独立的复核。
+
+边界：作者刻意加强了 Agent 的倾向，且只研究一个分析任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户也不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能推出所有专家、所有 Agent 或真实业务场景都会以同样比例被影响。本站未复现实验。
+
 站内热度 91；不是全网流量。</description></item><item><title>Anthropic 提交 S-1：拟以 ANT 登陆纳斯达克</title><guid isPermaLink="false">frontierlog:hot:anthropic-s1-proposed-ipo-20261026</guid><link>https://www.anthropic.com/news/s1-sec</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic PBC 已向美国 SEC 提交 Form S-1，拟让 A 类普通股在纳斯达克全球精选市场以 ANT 为代码上市；发行股数与价格区间尚未确定。
 
 为什么值得看：公开申报文件让市场第一次能直接核对其财务、风险、治理与业务结构，是观察前沿模型公司资本化路径的重要一手信号；它影响行业与治理判断，但不改变模型能力榜。
@@ -388,6 +394,12 @@
 为什么值得看：它把几何、物理和外观渲染拆成可检查链路：照片不只生成一段视频，而是先变成可编辑的场景表示，再把动作和接触结果交给模拟器。这为机器人 real-to-sim、空间规划和个性化环境建模提供了更具体的系统原型。
 
 边界：证据来自作者团队项目说明与演示，本站未运行；重建一个场景约需 10–20 分钟，作者报告在 8 张 A800、20 步采样下渲染约 1.5 fps。小物体仍可能漂浮或被幻觉补全，系统没有长时记忆，因此不能外推为实时、通用或高保真物理世界模型。
+
+站内热度 90；不是全网流量。</description></item><item><title>ChatGPT 接入 iCloud 邮件与日历</title><guid isPermaLink="false">frontierlog:hot:openai-icloud-mail-calendar-20261027</guid><link>https://help.openai.com/en/articles/6825453-chatgpt-release-notes</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI Release Notes 确认 iCloud 用户现在可把 Mail 与 Calendar 连接到 ChatGPT，用于查找邮件、汇总收件箱、查看日程和更新日历事件；官方列出的入口为网页、桌面端和 iOS，覆盖全部 ChatGPT 套餐。
+
+为什么值得看：这让 ChatGPT 的个人工作流从读取文件继续延伸到邮件与日历上下文，并明确包含日历写入动作。真正价值不在“已连接”，而在能否用最小权限稳定读取正确账户并让变更准确落到目标事件。
+
+边界：官方公告没有给出连接成功率、跨语言邮件理解、冲突日程处理或误写率，也没有宣布可直接发送 iCloud 邮件。可用性仍取决于账户端实际入口、Apple 授权与 Workspace 设置；涉及日历写入时必须核对目标账户、时区、参与者和最终状态。本站未连接账户或执行写入。
 
 站内热度 90；不是全网流量。</description></item><item><title>Siemens × NVIDIA：排产 Agent 与虚拟质检进入真实工厂</title><guid isPermaLink="false">frontierlog:hot:siemens-nvidia-industrial-ai-20261022</guid><link>https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate><description>Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成并验证生产方案，数字孪生与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并把相关应用从试点推进到产品化。
 

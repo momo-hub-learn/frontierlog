@@ -108,6 +108,10 @@ class BuildTests(unittest.TestCase):
         cloud=next(x for x in radar['items'] if x['id']=='claude-models-google-cloud')
         self.assertEqual(cloud['timeline'][0]['kind'],'GA')
         self.assertEqual(cloud['timeline'][0]['evidence_level'],'primary_source')
+        icloud=next(x for x in radar['items'] if x['id']=='chatgpt-icloud-connected-apps')
+        self.assertEqual(icloud['timeline'][0]['kind'],'Released')
+        self.assertIn('没有宣布可发送 iCloud 邮件',icloud['boundary'])
+        self.assertEqual(icloud['timeline'][0]['evidence_level'],'primary_source')
         self.assertGreaterEqual(sum(len(x.get('timeline',[])) for x in radar['items']),10)
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')

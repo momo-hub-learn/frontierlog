@@ -42,6 +42,44 @@
   ],
   "items": [
     {
+      "id": "openai-icloud-mail-calendar",
+      "publisher": "OpenAI",
+      "group": "office",
+      "access": "web",
+      "headline": "用测试账户验证 iCloud 邮件读取与日历写入",
+      "input": "低风险 iCloud 测试账户 + 指定测试邮件 + 可删除的测试事件",
+      "output": "可回查的邮件摘要与 Apple Calendar 中的实际测试变更",
+      "requirements": "ChatGPT 账号已出现 iCloud Mail / Calendar 连接入口；Apple 账户仅含测试内容，并只授予验证所需的最小权限。",
+      "limitation": "官方未宣布可发送 iCloud 邮件，也未公布连接成功率、冲突处理或误写率。账号、Workspace 设置和 Apple 授权会影响入口；本站未连接账户或执行写入。",
+      "cost": "官方称覆盖全部 ChatGPT 套餐；实际限额、入口、地区和 Workspace 设置以账号内显示为准。",
+      "steps": [
+        {
+          "title": "确认入口与权限",
+          "body": "在 ChatGPT 的连接应用设置中确认 iCloud Mail 与 Calendar 均真实可见；连接只含测试数据的 Apple 账户，逐项记录授权范围，不使用主邮箱或生产日历。"
+        },
+        {
+          "title": "先验收只读结果",
+          "body": "要求 ChatGPT 查找一封标题唯一的测试邮件并列出一个指定日期的测试日程；核对账户、邮件标题、发件人、日期与时区，不把聊天回复当成来源本身。"
+        },
+        {
+          "title": "再验证单个测试写入",
+          "body": "新建或修改一个可删除的测试事件，提交前复核目标账户、标题、时区和参与者；完成后在 Apple Calendar 中确认最终状态，删除测试事件并撤销不再需要的授权。"
+        }
+      ],
+      "troubleshooting": "看不到入口时先检查套餐、客户端版本与 Workspace 设置，不反复重新授权；读到错误账户时立即断开连接；事件未落盘或时区不符时停止重试并在 Apple Calendar 中人工清理。",
+      "sources": [
+        {
+          "title": "ChatGPT Release Notes — iCloud Mail and Calendar plugins",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28"
+        }
+      ],
+      "entry_url": "https://chatgpt.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
       "id": "cloudflare-agents-0-31",
       "publisher": "Cloudflare",
       "group": "agents",

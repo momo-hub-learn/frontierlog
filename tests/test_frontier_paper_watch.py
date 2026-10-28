@@ -68,6 +68,12 @@ class WorldModelCoverageTests(unittest.TestCase):
         self.assertIn('Atari-100k',event['fact'])
         self.assertIn('https://arxiv.org/abs/2610.29435',[s['url'] for s in event['sources']])
         self.assertIn('不代表',event['boundary'])
+        judgment=next(x for x in RESEARCH['items'] if x['id']=='anthropic-agent-judgment-calls')
+        self.assertEqual(judgment['date'],'2026-10-27')
+        self.assertIn('86%',judgment['fact'])
+        self.assertIn('一个任务',judgment['boundary'])
+        self.assertEqual([s['url'] for s in judgment['sources']],['https://www.anthropic.com/research/agents-judgment-calls'])
+        self.assertTrue(all(s['strength']=='primary' for s in judgment['sources']))
 
     def test_known_arxiv_ids_are_cross_source_deduplicated(self):
         known=covered_ids(MODELS,RESEARCH)
