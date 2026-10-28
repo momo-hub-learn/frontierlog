@@ -152,8 +152,11 @@ class BuildTests(unittest.TestCase):
         radar=json.loads((ROOT/'data/activity-radar.json').read_text())
         sources={x['id']:x for x in radar['sources']}
         fde=next(x for x in radar['events'] if x['id']=='openai-fde-frontier-2026-10-22')
-        self.assertEqual(fde['status'],'upcoming')
+        impact=next(x for x in radar['events'] if x['id']=='openai-academy-impact-math-20261028')
+        self.assertEqual(fde['status'],'ended')
+        self.assertEqual(impact['status'],'upcoming')
         self.assertEqual(sources[fde['source_id']]['authority'],'official')
+        self.assertEqual(sources[impact['source_id']]['authority'],'official')
         self.assertTrue(any(x['status']=='upcoming' for x in radar['events']))
         self.assertTrue({'dwarkesh','latent-space','no-priors','lex-fridman','zhang-xiaojun','silicon-valley-101','42zhangjing','crossing'} <= set(sources))
         self.assertTrue({'openai-engineering','anthropic-engineering','google-research-blog','nvidia-technical-blog','microsoft-research-blog','meta-ai-research'} <= set(sources))
