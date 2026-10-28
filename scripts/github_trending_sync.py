@@ -154,8 +154,14 @@ def metadata(repo: str, token: str = "") -> dict:
     return request_json("https://api.github.com/repos/" + quote(repo, safe="/"), token)
 
 
-def classify(repo: str, description: str, old: dict | None = None) -> tuple[str, bool, list[str]]:
-    q = (repo + " " + description).lower()
+def classify(repo: str, description: str, old: dict | None = None,
+             topics: list[str] | None = None) -> tuple[str, bool, list[str]]:
+    # Repository topics are official repository metadata and often carry the
+    # only explicit AI signal for terse Trending descriptions (for example,
+    # an IDE may say only "vibe code" on the public list).  Treat them as
+    # classification evidence, while keeping the displayed description intact.
+    topic_text = " ".join(x for x in (topics or []) if isinstance(x, str))
+    q = (repo + " " + description + " " + topic_text).lower()
     detected_ai = bool(AI_TERMS.search(q))
     # Preserve reviewed labels unless fresh official text provides a strong AI
     # signal that corrects a previous false negative. This keeps editorial
@@ -255,7 +261,9 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
                     # Renamed/moved repos are not silently attributed to another Trending rank.
                     raise ValueError("Repository path changed since Trending snapshot")
                 desc = info.get("description") or x["description"]
-                category, related, tags = classify(x["repo"], desc, old)
+                category, related, tags = classify(
+                    x["repo"], desc, old, info.get("topics")
+                )
                 merged = {**x, **api_fields(info), "repo": x["repo"],
                           "description": desc, "category": category,
                           "ai_related": related, "tags": tags,

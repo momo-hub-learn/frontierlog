@@ -148,6 +148,13 @@ class GitHubSyncTests(unittest.TestCase):
             'anthropics/knowledge-work-plugins',
             'Open source plugins for knowledge workers to use in Claude Cowork',old)
         self.assertEqual((category,related),('ai-tools',True))
+
+    def test_official_repository_topics_can_supply_the_ai_signal(self):
+        category,related,tags=classify(
+            'JetBrains/thinkrail',
+            'Vibe code in a lightweight IDE',
+            topics=['agentic-ai','ai-coding','ai-tools'])
+        self.assertEqual((category,related),('agent-interface',True))
         category,related,tags=classify(
             'SnailSploit/Claude-Red','Offensive security skills for the Claude skills system')
         self.assertEqual((category,related),('agent-skills',True))
