@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.collect_activity_radar import clip_text, editorial_title_key, merge_media_items
+from scripts.collect_activity_radar import clip_text, editorial_title_key, merge_media_items, tags
 
 
 def item(item_id, published, source="feed", title=None, url=None, origin="rss"):
@@ -17,6 +17,8 @@ def item(item_id, published, source="feed", title=None, url=None, origin="rss"):
 
 
 class ActivityRadarCollectorTests(unittest.TestCase):
+    def test_chinese_ai_safety_conversation_gets_scannable_topics(self):
+        self.assertEqual(tags('对话 AI安全 与有效利他主义如何影响硅谷'), ['AI Safety', 'Society'])
     def test_clip_text_prefers_a_complete_sentence(self):
         text = "A complete sentence with enough context. A second sentence that should not be cut in the middle of a word."
         self.assertEqual(clip_text(text, 70), "A complete sentence with enough context.")

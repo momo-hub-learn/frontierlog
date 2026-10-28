@@ -42,6 +42,53 @@
   ],
   "items": [
     {
+      "id": "microsoft-copilot-harness",
+      "publisher": "Microsoft / GitHub",
+      "group": "agents",
+      "access": "web",
+      "headline": "先用合成任务验证托管 Harness 的权限、恢复和幂等，再接真实系统",
+      "input": "固定 instructions + versioned skill + 合成数据 + 最低权限测试工具",
+      "output": "带引用的结果、工具与审批轨迹、中断恢复记录、幂等与越权测试日志",
+      "requirements": "一个已出现 Copilot harness 预览入口的 Microsoft Foundry 项目、受支持模型与工具、合成数据、可删除的测试输出目标，以及可查看运行日志的测试权限。",
+      "limitation": "Copilot harness 仍是公开预览；现有 Agent 创建后暂不支持切换 Harness，地区、模型、工具与预览限制要按账号核对。长任务恢复只提供重启基础，应用必须保存检查点并保证外部动作幂等。Microsoft 的性能与规模表述不是本站实测。",
+      "cost": "Harness runtime 在 2026-12-01 前免收自身费用，但模型推理、另计费工具和连接服务仍收费；之后官方列出 sandbox CPU 与内存按量计费，实际价格依地区与协议。",
+      "steps": [
+        {
+          "title": "固定声明式定义与测试边界",
+          "body": "只使用公开或合成材料，版本化 instructions、skill、模型、工具和审批策略；明确不得查询机密信息或写入生产系统。",
+          "command": "azd deploy --all"
+        },
+        {
+          "title": "先验收只读证据链",
+          "body": "让 Agent 从已批准来源生成短简报；逐项核对引用、来源日期、工具认证、审批记录和无法确认的证据缺口。",
+          "command": "azd ai agent invoke research-brief \"用已批准的公开来源生成一份带引用的简报，并列出证据缺口。\""
+        },
+        {
+          "title": "中断一次并测试幂等",
+          "body": "在人为中断前写入应用检查点；恢复后确认已完成阶段没有重跑，外部测试结果不会重复创建，并验证明确越权动作被拒绝。"
+        }
+      ],
+      "troubleshooting": "看不到预览入口时先核对官方支持地区、模型、工具和项目权限；恢复后重复写入时检查应用检查点与幂等键，不把问题归因于模型；越权或审批轨迹不清时停止连接真实系统。",
+      "sources": [
+        {
+          "title": "Microsoft Foundry 官方 Copilot harness 开发者发布",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        },
+        {
+          "title": "Microsoft 官方统一 Copilot harness 公告",
+          "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://ai.azure.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-29T07:20:34+08:00"
+    },
+    {
       "id": "nvidia-nemotron-bolt-e4b-4gb",
       "publisher": "NVIDIA",
       "group": "agents",

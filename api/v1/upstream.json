@@ -1,7 +1,7 @@
 {
-  "last_attempt": "2026-10-28T21:19:35Z",
+  "last_attempt": "2026-10-28T23:16:39Z",
   "last_success": "2026-10-28T21:19:35Z",
-  "repositories_succeeded": 19,
+  "repositories_succeeded": 16,
   "repositories_total": 19,
   "releases": [
     {
@@ -1204,6 +1204,25 @@
       "review_status": "unreviewed"
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "task": "nvidia-nemo-automodel-0-7",
+      "repo": "NVIDIA-NeMo/Automodel",
+      "at": "2026-10-28T23:16:39Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "microsoft-flint-interactive",
+      "repo": "microsoft/flint-chart",
+      "at": "2026-10-28T23:16:39Z",
+      "message": "GitHub HTTP 403"
+    },
+    {
+      "task": "agent4sci",
+      "repo": "maszhongming/agent4sci",
+      "at": "2026-10-28T23:16:39Z",
+      "message": "GitHub HTTP 403"
+    }
+  ],
   "note": "Official release metadata only. Capability assessments require editorial review."
 }

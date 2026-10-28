@@ -36,6 +36,67 @@
   ],
   "items": [
     {
+      "id": "microsoft-copilot-harness-foundry-20261028",
+      "category": "product",
+      "title": "Microsoft Copilot harness 进入 Foundry 公开预览",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T07:20:34+08:00",
+      "first_seen_at": "2026-10-29T07:20:34+08:00",
+      "heat": 95,
+      "heat_components": {
+        "impact": 33,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Agent 成功率、Harness 性能、企业采用率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Microsoft 官方公开预览 · 长任务恢复 GA",
+      "summary": "Microsoft 把 GitHub 团队构建的多模型 Copilot harness 带入 Foundry Agent Service 公开预览：可组合 skills、MCP / Foundry 工具、文件与代码执行和受限子 Agent；Hosted agents 的长任务恢复同周正式可用。",
+      "why": "Agent 竞争开始从单一模型转向模型之外的执行层。公开预览让团队可以直接比较托管 Harness 与自建运行时，但真正决策要看权限、审批、恢复幂等、失败轨迹和完整费用，而不只是支持多少模型。",
+      "boundary": "Copilot harness 仍是公开预览，现有 Agent 不能创建后再切换 Harness；支持地区、模型、工具和预览限制需按官方文档核对。长任务恢复只负责重启并带回原始输入，进度保存、幂等和外部系统去重仍由应用实现。Microsoft 的规模与性能表述是厂商声明，本站未部署或运行；12 月前免收 Harness runtime 费用不包含模型、工具和连接服务费用。",
+      "source": "Microsoft",
+      "source_kind": "官方产品发布 + 官方开发者指南 / 本轮编辑核验",
+      "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "link": "#/toolkit?task=microsoft-copilot-harness&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开站内验证指南",
+          "note": "按公开预览边界检查 skills、工具授权、恢复与幂等，不把示例当本站实测",
+          "url": "#/toolkit?task=microsoft-copilot-harness&tab=run",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 Foundry 官方开发者发布",
+          "note": "核对公开预览、四个构件、长任务恢复、限制与计费",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "kind": "product"
+        },
+        {
+          "label": "阅读 Microsoft 统一 Harness 公告",
+          "note": "核对产品覆盖、多模型定位和 SDK / Foundry 入口",
+          "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "Microsoft Foundry",
+          "title": "Introducing the Microsoft Copilot harness in Foundry Agent Service",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "date": "2026-10-28"
+        },
+        {
+          "source": "Microsoft",
+          "title": "Introducing the Microsoft Copilot harness",
+          "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "google-gemini-4-carbon-20261028",
       "category": "model",
       "title": "Gemini 4 Carbon 登顶 AA v5，但仍只向少量防御者开放",

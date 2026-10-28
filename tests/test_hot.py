@@ -86,6 +86,16 @@ class HotDataTests(unittest.TestCase):
   internal=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(internal['url'],item['link'])
   validate_hot(self.data)
+ def test_microsoft_copilot_harness_links_preview_to_exact_verification_guide(self):
+  item=next(x for x in self.data['items'] if x['id']=='microsoft-copilot-harness-foundry-20261028')
+  self.assertEqual(item['published'],'2026-10-28')
+  self.assertEqual(item['link'],'#/toolkit?task=microsoft-copilot-harness&tab=run')
+  self.assertIn('公开预览',item['summary'])
+  self.assertIn('幂等',item['boundary'])
+  self.assertIn('本站未部署或运行',item['boundary'])
+  internal=next(x for x in item['access'] if x['kind']=='internal')
+  self.assertEqual(internal['url'],item['link'])
+  validate_hot(self.data)
  def test_icloud_release_keeps_read_write_scope_and_runtime_evidence_separate(self):
   item=next(x for x in self.data['items'] if x['id']=='openai-icloud-mail-calendar-20261027')
   self.assertEqual(item['published'],'2026-10-27')

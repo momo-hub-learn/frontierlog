@@ -67,6 +67,14 @@ const TK = (()=>{
   document.getElementById('tk-clear').hidden=!(s.q||s.group!=='all'||s.access!=='all'||s.only);
   target.innerHTML=visible.length?visible.map(card).join(''):`<div class="tk-empty"><h2>没有匹配的上手路径</h2><p>试试项目名、输入文件或想完成的任务，也可以清除当前筛选。</p><button type="button" class="button" data-tk-clear>清除筛选</button></div>`;
  }
+ function revealTool(id){
+  if(!id)return;
+  requestAnimationFrame(()=>{
+   const el=document.querySelector(`[data-tk-guide="${id}"]`),summary=el?.querySelector('summary');
+   if(!el||!summary)return;
+   summary.scrollIntoView({block:'center'});summary.focus({preventScroll:true});
+  });
+ }
  function page(){
   const s=read();if(s.tool)openIds.add(s.tool);
   renderNav();
@@ -78,7 +86,7 @@ const TK = (()=>{
    <div class="tk-toolbar"><label class="tk-search">${icon('search')}<input id="tk-search" type="search" aria-label="搜索工具、任务、输入或输出" placeholder="搜索工具、任务、输入或输出…" maxlength="300" value="${esc(s.q)}"></label><label class="tk-access"><span class="tk-sr">使用方式</span><select id="tk-access" aria-label="使用方式"><option value="all">全部使用方式</option>${data.access_modes.map(x=>`<option value="${x.id}" ${s.access===x.id?'selected':''}>${esc(x.label)}</option>`).join('')}</select></label><label class="tk-sort"><span class="tk-sr">排序</span><select id="tk-sort" aria-label="上手路径排序"><option value="recent" ${s.sort==='recent'?'selected':''}>最近发布</option><option value="curated" ${s.sort==='curated'?'selected':''}>编选顺序</option></select></label><label class="tk-saved"><input id="tk-only" type="checkbox" ${s.only?'checked':''}>只看关注</label></div>
    <div class="tk-resultline"><span id="tk-count" role="status"></span><span class="tk-order">${s.sort==='recent'?'按最近原文发布排序':'按编选顺序展示'}，非能力排名</span><button type="button" id="tk-clear" data-tk-clear>清除筛选</button></div>
    <div class="tk-grid" id="tk-results"></div><p class="tk-footnote">网页能力以账号内实际开放为准；命令需在自己的环境运行。清单与关注仅保存在当前浏览器，不会改变证据等级。</p></div>`;
-  renderResults();document.body.classList.remove('nav-open');renderTray();
+  renderResults();revealTool(s.tool);document.body.classList.remove('nav-open');renderTray();
  }
  async function copy(button){
   const g=guides.get(button.dataset.tkTool),step=g?.steps[Number(button.dataset.tkCopy)];

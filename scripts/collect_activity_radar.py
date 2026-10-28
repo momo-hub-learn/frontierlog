@@ -68,7 +68,7 @@ def entries(xml):
 
 def tags(s):
     q=s.lower(); out=[]
-    rules=[('agent','Agents'),('alignment','Alignment'),('recursive','RSI'),('diffusion','Diffusion'),('inference','Inference'),('robot','Robotics'),('bio','BioAI'),('coding','Coding'),('programming','Coding'),('gpu','AI Infra'),('nvidia','AI Infra'),('safety','Safety'),('model','Models')]
+    rules=[('agent','Agents'),('alignment','Alignment'),('ai安全','AI Safety'),('有效利他主义','Society'),('recursive','RSI'),('diffusion','Diffusion'),('inference','Inference'),('robot','Robotics'),('bio','BioAI'),('coding','Coding'),('programming','Coding'),('gpu','AI Infra'),('nvidia','AI Infra'),('safety','Safety'),('model','Models')]
     for k,v in rules:
         if k in q and v not in out:out.append(v)
     return out[:4]

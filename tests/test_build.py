@@ -112,6 +112,10 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(icloud['timeline'][0]['kind'],'Released')
         self.assertIn('没有宣布可发送 iCloud 邮件',icloud['boundary'])
         self.assertEqual(icloud['timeline'][0]['evidence_level'],'primary_source')
+        harness=next(x for x in radar['items'] if x['id']=='microsoft-copilot-harness')
+        self.assertEqual(harness['timeline'][0]['kind'],'Public Preview')
+        self.assertIn('幂等',harness['boundary'])
+        self.assertEqual(harness['timeline'][0]['evidence_level'],'primary_source')
         self.assertGreaterEqual(sum(len(x.get('timeline',[])) for x in radar['items']),10)
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')

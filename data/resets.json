@@ -1,22 +1,22 @@
 {
   "version": 1,
-  "checked": "2026-10-28",
+  "checked": "2026-10-29",
   "account": "thsottiaux",
   "guidance": [
     {
       "id": "banked-reset",
       "title": "Banked reset · 留存后主动使用",
-      "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；发到账号不等于额度已恢复。",
-      "action": "先看用量页是否显示可用 reset，再核对适用窗口、资格和有效期。",
-      "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度。",
+      "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；只有被覆盖的限额剩余不足 80% 时才能使用，发到账号不等于额度已恢复。",
+      "action": "先在用量页查看可用 reset、覆盖的限额与有效期；近 30 天内已使用的 banked reset 可在 History 中核对。",
+      "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度；全量覆盖还是部分覆盖取决于计划。",
       "sources": ["oa-banked"]
     },
     {
       "id": "automatic-reset",
       "title": "Automatic / global reset · 官方直接应用",
-      "summary": "OpenAI 可能把一次重置直接应用到符合条件的限额；这里的 global 不代表所有账号、所有套餐或所有用量窗口。",
+      "summary": "OpenAI 可能把一次重置直接应用到符合条件的限额；若提供 Assistant 自动使用选项，官方说明的触发门槛是主限额剩余不高于 10%。这里的 global 不代表所有账号、所有套餐或所有用量窗口。",
       "action": "用账号用量页或 Codex /status 核对实际窗口，不根据公告标题推断个人余额。",
-      "boundary": "公告时间、Tibo 原帖或本站记录都不能单独证明每个账户已完成传播。",
+      "boundary": "官方没有承诺固定发放日程，时间与资格可能变化；公告时间、Tibo 原帖或本站记录都不能单独证明每个账户已完成传播。",
       "sources": ["oa-banked", "oa-usage"]
     },
     {
@@ -549,7 +549,7 @@
       "publisher": "OpenAI Help Center",
       "title": "Paid weekly Work and Codex rate limit resets",
       "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
-      "checked": "2026-10-28",
+      "checked": "2026-10-29",
       "kind": "官方说明",
       "note": "本轮核验购买资格、即时生效、banked reset 独立性，以及新周周期从购买后的第一次请求开始、七天后再自动周重置；不把它写成 Tibo 全局 reset。"
     },
@@ -560,7 +560,7 @@
       "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
       "checked": "2026-10-28",
       "kind": "官方说明",
-      "note": "本轮核验 banked、automatic/global 与 purchased 三类 reset 的官方定义、资格和不叠加边界；日期记录仍不补成虚构的北京时间零点。"
+      "note": "本轮核验三类 reset 的官方定义，并补齐 banked 使用需对应限额低于 80%、Assistant 自动使用门槛为主限额不高于 10%、History 仅显示近 30 天已使用记录，以及 global 不代表所有账号或限额；日期记录仍不补成虚构的北京时间零点。"
     },
     {
       "id": "oa-usage",

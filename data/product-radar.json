@@ -17,6 +17,41 @@
   ],
   "items": [
     {
+      "id": "microsoft-copilot-harness",
+      "name": "Microsoft Copilot harness",
+      "company": "Microsoft / GitHub",
+      "group": "enterprise-agent",
+      "tags": ["Agent Harness", "Multi-model", "Microsoft Foundry"],
+      "summary": "把 GitHub 团队构建的多模型 Agent 执行层作为 Foundry 托管能力，组合 instructions、skills、工具、沙箱、文件、代码执行与受限委派。",
+      "product_url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "source_url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "source_label": "Microsoft Foundry 官方公开预览说明",
+      "evidence": "Microsoft 2026-10-28 官方发布确认 Copilot harness 在 Foundry Agent Service 进入公开预览，并将 hosted agents 的长任务恢复标为同周正式可用；开发者说明给出 skills、工具授权、委派、源码化定义、限制与计费。",
+      "boundary": "公开预览不等于所有地区、模型、工具和账号均已开放，也不等于现有 Agent 可原地切换 Harness。Microsoft 的性能、规模与客户引述属于厂商材料；本站未部署。恢复能力不会自动保存业务进度或防止重复外部动作，应用仍需持久化检查点与幂等。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Public Preview",
+          "title": "Copilot harness 进入 Foundry Agent Service 公开预览",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "summary": "Foundry 托管 Agent loop 与 sandbox；开发者提供 instructions、skills、工具和模型选择，并可使用文件、代码执行和受限子 Agent。",
+          "facts": [
+            {"label": "Harness 状态", "value": "Public preview"},
+            {"label": "组成", "value": "Skills / tools / execution + delegation / source-controlled definitions"},
+            {"label": "恢复", "value": "Hosted agents long-running resilience · GA"},
+            {"label": "计费", "value": "Harness runtime 12 月 1 日起计费；模型与工具另计"}
+          ],
+          "interpretation": "统一 Harness 降低多模型编排和运行维护成本，但产品差异仍要落在任务定义、权限、评测、恢复幂等与失败处理上。",
+          "scope": "Microsoft 2026-10-28 官方 Foundry 发布所列的公开预览与同周 GA 能力。",
+          "limitations": "现有 Agent 创建后暂不支持切换 Harness；预览的地区、模型、工具和限制需逐项核对。恢复只重新启动工作，进度保存、外部写入去重和最终验收仍由应用负责。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T07:20:34+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "servicenow-chatgpt-workflows",
       "name": "ServiceNow in ChatGPT",
       "company": "ServiceNow / OpenAI",

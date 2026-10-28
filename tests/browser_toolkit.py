@@ -128,6 +128,8 @@ try:
         passed('Shared bookmarks and personal checklists persist without upgrading runtime evidence')
         go('#/toolkit?task=docling&tab=run')
         expect(page.locator('[data-tk-guide=docling]')).to_have_attribute('open','')
+        expect(page.locator('[data-tk-guide=docling]>summary')).to_be_focused()
+        assert page.locator('[data-tk-guide=docling]>summary').evaluate('e=>{const r=e.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight}')
         expect(page.locator('dialog[open]')).to_have_count(0)
         page.locator('[data-tk-guide=docling]>summary').click();page.wait_for_timeout(100)
         page.locator('#tk-search').fill('Docling')

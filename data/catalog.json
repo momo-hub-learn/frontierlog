@@ -3,6 +3,34 @@
   "snapshot": "2026-10-29",
   "items": [
     {
+      "id": "microsoft-copilot-harness",
+      "name": "Microsoft · Copilot harness",
+      "title": "先用合成任务验证托管 Harness 的权限、恢复和幂等，再接真实系统",
+      "category": "Agent / Harness",
+      "mark": "MH",
+      "accent": "blue",
+      "summary": "Foundry Agent Service 的托管多模型 Harness，组合 skills、MCP / Foundry 工具、文件与代码执行、沙箱和受限子 Agent。",
+      "scope": "Microsoft 2026-10-28 官方发布确认 Copilot harness 进入公开预览；hosted agents 的 long-running resilience 同周正式可用。",
+      "boundary": "公开预览不等于所有地区、模型和工具已开放；现有 Agent 创建后暂不能切换 Harness。恢复会重新启动工作并带回原始输入，但不会替应用保存业务进度或阻止重复写入。本站未部署或运行。",
+      "repo": null,
+      "sources": ["microsoft-copilot-harness-foundry-20261028", "microsoft-copilot-harness-announcement-20261028"],
+      "requirements": "一个已出现 Microsoft Copilot harness 预览入口的 Foundry 项目、合成数据、最低权限工具连接、可查看运行日志的测试环境，以及可删除的测试输出目标。",
+      "test": "创建只处理合成研究材料的 Agent，固定模型、skills 和工具；先验证只读检索与引用，再人为中断一次长任务，核对检查点恢复和外部写入幂等，最后尝试一个明确越权动作。",
+      "checks": [
+        "账号、地区、模型与工具均在官方支持范围内",
+        "工具认证和审批遵循最低权限，越权动作被拒绝",
+        "中断后从应用检查点恢复，不重复创建外部结果",
+        "最终输出、引用、工具日志、成本和人工接管均可追溯"
+      ],
+      "command": "azd deploy --all\nazd ai agent invoke research-brief \"用已批准的公开来源生成一份带引用的简报，并列出证据缺口。\"",
+      "effort": "Foundry 公开预览 / 需 Azure 项目、模型与工具费用、权限配置和人工验收",
+      "evidence": "Microsoft 官方产品公告与 Foundry 开发者指南",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T07:20:34+08:00"
+    },
+    {
       "id": "nvidia-nemotron-bolt-e4b-4gb",
       "name": "NVIDIA · Nemotron 3.5 Bolt E4B 4GB",
       "title": "先在 4GB 量化版上验收本地工具调用，再接入真实设备工作流",
@@ -1099,6 +1127,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "microsoft-copilot-harness-foundry-20261028",
+      "publisher": "Microsoft Foundry",
+      "title": "Introducing the Microsoft Copilot harness in Foundry Agent Service",
+      "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T07:20:34+08:00",
+      "kind": "官方公开预览、构件、限制、恢复与计费说明"
+    },
+    {
+      "id": "microsoft-copilot-harness-announcement-20261028",
+      "publisher": "Microsoft / GitHub",
+      "title": "Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work",
+      "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T07:20:34+08:00",
+      "kind": "公司官方统一 Harness、产品覆盖与开放入口公告"
+    },
     {
       "id": "nvidia-nemotron-bolt-e4b-4gb-card",
       "publisher": "NVIDIA",
