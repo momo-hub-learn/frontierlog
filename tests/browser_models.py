@@ -21,6 +21,12 @@ with sync_playwright() as p:
  test_html=HTML.replace("fetch('./api/v1/capabilities.json'","fetch('https://frontierlog.test/api/v1/capabilities.json'")
  page.set_content(test_html,wait_until='domcontentloaded');page.set_default_timeout(5000)
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
+ aa_headers=page.locator('.v2-model-table table th').all_text_contents()
+ expected_aa_headers=5+int(any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('context'),str) and x['context'].strip() for x in AA['rows']))
+ assert len(aa_headers)==expected_aa_headers
+ if expected_aa_headers==5:
+  assert not {'输出 tok/s','USD / task','上下文'} & set(aa_headers)
+  expect(page.locator('.m-mobile-hint')).to_have_text('仅展示当前可核验字段；缺失指标不占空列。')
  expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
  expect(page.locator('.v2-source-tabs')).to_have_attribute('aria-label','选择独立榜单')
  expect(page.locator('.v2-aa-method')).to_have_count(1)
@@ -54,7 +60,7 @@ with sync_playwright() as p:
  if AA['checked']!=AA['as_of']:assert f"核验 {AA['checked'].replace('-', '.')}" in meta
  else:assert '核验' not in meta
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
- shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, preserved theme')
+ shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, unavailable metric columns removed, preserved theme')
  if any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']):
   page.locator('[data-ma="metric"][data-id="speed"]').click()
   assert '当前查看首位' in page.locator('.v2-current-first').inner_text()

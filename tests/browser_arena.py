@@ -141,11 +141,13 @@ try:
         passed('Mobile source disclosures, bookmarks, focus restoration, same-source comparison and saved filter')
         page.set_viewport_size({'width':1280,'height':1000})
         page.locator('[data-ma=board][data-id=aa]').click()
-        expect(page.locator('.v2-model-table table th')).to_have_count(8)
+        aa_rows=next(board for board in MODEL_DATA['boards'] if board['id']=='aa')['rows']
+        expected_aa_headers=5+int(any(isinstance(row.get('speed'),(int,float)) for row in aa_rows))+int(any(isinstance(row.get('cost_task'),(int,float)) for row in aa_rows))+int(any(isinstance(row.get('context'),str) and row['context'].strip() for row in aa_rows))
+        expect(page.locator('.v2-model-table table th')).to_have_count(expected_aa_headers)
         assert page.locator('.v2-model-table table th').all_text_contents().count('公司')==1
         expect(page.locator('.v2-model-table .m-company-cell').first).not_to_contain_text('±')
         page.wait_for_timeout(200)
-        expect(page.locator('.v2-model-table table th')).to_have_count(8)
+        expect(page.locator('.v2-model-table table th')).to_have_count(expected_aa_headers)
         page.locator('[data-ma=board][data-id=arena]').click()
         expect(page.locator('.ar-table th')).to_have_count(7)
         page.locator('#m-maker').select_option(maker)
