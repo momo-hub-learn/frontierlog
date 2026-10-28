@@ -51,6 +51,12 @@ class BenchmarkTests(unittest.TestCase):
   self.assertTrue(all(by_id[x]['tested'] is False and by_id[x]['result_status']=='not_run' for x in ('automationbench','cwe-bench-v1')))
   event=next(x for x in self.data['changes'] if x['id']=='argon-agent-benchmarks-20261013')
   self.assertEqual(set(event['benchmarks']),{'automationbench','cwe-bench-v1'})
+ def test_carbon_cyber_results_remain_vendor_reported_and_uncombined(self):
+  event=next(x for x in self.data['changes'] if x['id']=='gemini-4-carbon-cyber-benchmarks-20261028')
+  self.assertIn('无 guardrails',event['summary'])
+  self.assertIn('本站未复跑',event['summary'])
+  self.assertIn('不能用一个“网络安全分数”',event['implication'])
+  self.assertIn('b-google-gemini-4-carbon',event['sources'])
  def test_agent4sci_keeps_hidden_test_and_audit_boundaries(self):
   b=next(x for x in self.data['items'] if x['id']=='agent4sci')
   self.assertFalse(b['tested'])

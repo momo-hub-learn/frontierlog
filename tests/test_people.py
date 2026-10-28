@@ -4,6 +4,7 @@ import json
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -30,6 +31,16 @@ class PeopleTests(unittest.TestCase):
  def test_unknown_author(self):self.reject(lambda d:d['events'][0].update(people=['missing']))
  def test_reference_type(self):self.reject(lambda d:d['events'][0].update(people='kaiming-he'))
  def test_future_event(self):self.reject(lambda d:d['events'][0].update(date='2099-01-01'))
+ def test_beijing_editorial_date_is_valid_before_utc_midnight(self):
+  validate_people(self.data,now=datetime(2026,10,28,21,30,tzinfo=timezone.utc))
+ def test_same_instant_with_another_offset_keeps_beijing_day(self):
+  instant=datetime(2026,10,28,21,30,tzinfo=timezone.utc)
+  validate_people(self.data,now=instant.astimezone(timezone(timedelta(hours=-4))))
+ def test_real_future_beijing_date_is_rejected(self):
+  with self.assertRaises(ValueError):
+   validate_people(self.data,now=datetime(2026,10,28,15,30,tzinfo=timezone.utc))
+ def test_naive_validation_clock_is_rejected(self):
+  with self.assertRaises(ValueError):validate_people(self.data,now=datetime(2026,10,29,5,30))
  def test_event_review_order(self):self.reject(lambda d:d['events'][0].update(checked='2000-01-01'))
  def test_calendar_invalid(self):self.reject(lambda d:d['events'][0].update(date='2026-02-30'))
  def test_people_not_ranked(self):self.reject(lambda d:d['people'][0].update(score=99))
@@ -44,6 +55,7 @@ class PeopleTests(unittest.TestCase):
   self.assertIn('harrison-company-harness-20261024',ids)
   self.assertIn('hamel-shreya-eval-dashboard-20261025',ids)
   self.assertIn('hamel-decision-evals-20261020',ids)
+  self.assertIn('simon-vibe-game-inflection-20261028',ids)
   self.assertIn('danqi-queen-chess-20261002',ids)
   self.assertEqual(len(ids),len(self.data['events']))
   self.assertTrue(all(x['date']<=x['checked'] for x in self.data['events']))
@@ -51,6 +63,9 @@ class PeopleTests(unittest.TestCase):
   self.assertEqual(dashboard['people'],['hamel-husain','shreya-shankar'])
   self.assertEqual(dashboard['date'],'2026-10-25')
   self.assertIn('不是对所有团队有效的实验结论',dashboard['boundary'])
+  simon=next(x for x in self.data['events'] if x['id']=='simon-vibe-game-inflection-20261028')
+  self.assertEqual(simon['people'],['simon-willison'])
+  self.assertIn('不是对所有类型游戏',simon['boundary'])
  def test_private_fields_excluded(self):self.reject(lambda d:d['people'][0].update(email='private@example.org'))
  def test_no_arbitrary_related_href(self):self.reject(lambda d:d['people'][0]['related'].append({'id':'sierra','kind':'product','label':'Test','href':'javascript:bad'}))
  def test_no_automatic_claim(self):self.reject(lambda d:d.update(mode='live'))

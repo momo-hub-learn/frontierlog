@@ -71,6 +71,14 @@ class ValidationTests(unittest.TestCase):
  def test_cross_score_system_rejected(self):
   d=copy.deepcopy(M);d['boards'][0]['rows'][0]['preference']=1500
   with self.assertRaises(ValueError):validate_models(d)
+ def test_limited_access_model_requires_explicit_primary_boundary(self):
+  row=next(x for x in M['boards'][0]['rows'] if x['id']=='aa-gemini-4-carbon-high')
+  self.assertEqual((row['access_status'],row['access_label']),('limited','小范围 Fairwind'))
+  self.assertIn('开发者、企业和消费者',row['access_note'])
+  self.assertIn(row['access_source'],{x['id'] for x in M['sources']})
+  for key in ('access_label','access_note','access_source'):
+   d=copy.deepcopy(M);next(x for x in d['boards'][0]['rows'] if x['id']==row['id']).pop(key)
+   with self.assertRaises(ValueError,msg=key):validate_models(d)
  def test_invalid_interval(self):
   d=copy.deepcopy(M);d['boards'][1]['rows'][0]['rank_spread']=[9,1]
   with self.assertRaises(ValueError):validate_models(d)

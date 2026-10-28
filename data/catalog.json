@@ -3,6 +3,34 @@
   "snapshot": "2026-10-29",
   "items": [
     {
+      "id": "nvidia-nemotron-bolt-e4b-4gb",
+      "name": "NVIDIA · Nemotron 3.5 Bolt E4B 4GB",
+      "title": "先在 4GB 量化版上验收本地工具调用，再接入真实设备工作流",
+      "category": "本地 Agent / 端侧模型",
+      "mark": "NB",
+      "accent": "lime",
+      "summary": "NVIDIA 的 Q4_K_M 量化开放权重模型，8B 总参数、4B 有效参数，面向本地语音/设备助手、互动角色和嵌入式界面。",
+      "scope": "模型卡标注 2026-10-23 GA、64K 输入/输出上下文与 OpenMDW-1.1；2026-10-28 NVIDIA 官方文章补充 llama.cpp、vLLM、Ollama、Unsloth 与 LM Studio 支持。",
+      "boundary": "4GB 指量化模型文件/内存定位，不等于所有设备只需 4GB 总内存，也不代表多步工具调用、事实准确率或时延已由本站验证。模型卡的分数由 NVIDIA 在 NeMo Gym 下测得，不能与不同 Harness 的供应商分数直接混排。",
+      "repo": null,
+      "sources": ["nvidia-nemotron-bolt-e4b-4gb-card", "nvidia-rtx-spark-local-ai-20261028"],
+      "requirements": "受支持的本地运行器、足够内存与存储、Hugging Face CLI，以及不含生产凭据的固定测试提示和模拟工具；按模型卡选择 Q4_K_M 文件。",
+      "test": "固定模型文件与运行器版本，先完成单轮聊天，再用只读模拟工具验证三轮上下文、允许/拒绝调用、64K 以下长文本和内存/首 Token 时延；所有结果保留日志并人工核对。",
+      "checks": [
+        "锁定模型仓库、文件名、修订、运行器与聊天模板",
+        "分别验证 thinking 与 conversational mode，不跨模式混分",
+        "只连接模拟工具，检查参数、拒绝、超时和错误恢复",
+        "记录实际内存、TTFT、吞吐、失败样本与人工接管"
+      ],
+      "command": "hf download nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf --local-dir ./bolt-models",
+      "effort": "开放权重 / 需本地运行器、模型下载、内存与人工验证",
+      "evidence": "NVIDIA 官方 Hugging Face 模型卡与 NVIDIA 官方本地 AI 更新",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T05:24:00+08:00"
+    },
+    {
       "id": "openai-servicenow-mcp",
       "name": "ServiceNow · ChatGPT MCP",
       "title": "先用只读查询核对企业记录，再验证受权限控制的更新动作",
@@ -1071,6 +1099,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-nemotron-bolt-e4b-4gb-card",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA-Nemotron-3.5-Bolt-E4B-4GB model card",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "published": "2026-10-23",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T05:24:00+08:00",
+      "kind": "官方模型卡、许可、量化文件、运行方法与评测口径"
+    },
+    {
+      "id": "nvidia-rtx-spark-local-ai-20261028",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T05:24:00+08:00",
+      "kind": "公司官方本地 AI 产品与模型支持更新"
+    },
     {
       "id": "openai-servicenow-partnership-20261028",
       "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",

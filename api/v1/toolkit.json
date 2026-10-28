@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemotron-bolt-e4b-4gb",
+      "publisher": "NVIDIA",
+      "group": "agents",
+      "access": "local",
+      "headline": "先在隔离环境验收 4GB 量化版的多轮工具调用，再接入设备工作流",
+      "input": "固定 Q4_K_M 模型文件 + 20 条聊天/工具调用小样本 + 只读模拟工具",
+      "output": "逐条正确性、工具参数、拒绝与恢复、内存、TTFT、吞吐和失败日志",
+      "requirements": "受支持的 llama.cpp、vLLM、Ollama、Unsloth 或 LM Studio 运行器，Hugging Face CLI，足够本地内存与存储；按模型卡固定 Q4_K_M 文件与聊天模板。",
+      "limitation": "模型卡称 8B 总参数、4B 有效参数、64K 输入/输出上下文并面向低内存场景，但 4GB 不等于设备总内存门槛。NVIDIA 评测使用 NeMo Gym，本站未运行权重；不能把 Hugging Face Trending 或厂商分数当成工具调用可靠性、事实准确率或端侧时延实测。",
+      "cost": "权重允许商业或非商业使用；下载、存储、CPU/GPU/内存、运行器适配和人工复核仍有实际成本，许可与下游依赖需单独核对。",
+      "steps": [
+        {
+          "title": "固定模型与运行环境",
+          "body": "记录模型仓库、文件名、修订、运行器版本、硬件和聊天模板；只下载官方 Q4_K_M 文件，不在生产设备或含凭据环境直接试跑。",
+          "command": "hf download nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf --local-dir ./bolt-models"
+        },
+        {
+          "title": "分开验收对话与思考模式",
+          "body": "用固定小样本分别运行 thinking 与 conversational mode；核对多轮指令、输入 grounding、拒答、内存峰值、TTFT 和吞吐，不跨模式平均。"
+        },
+        {
+          "title": "只接模拟工具验证边界",
+          "body": "连接只读模拟工具，覆盖正确参数、缺失参数、禁止动作、超时和工具报错；保留完整轨迹并人工核对，再决定是否进入真实设备流程。"
+        }
+      ],
+      "troubleshooting": "模板不兼容时先核对模型卡与运行器版本；内存不足时缩短上下文或更换受支持量化，不把失败归因于模型能力；工具越权、参数不稳或恢复失败时停止扩大范围并保留日志。",
+      "sources": [
+        {
+          "title": "NVIDIA Nemotron 3.5 Bolt E4B 4GB 官方模型卡",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+          "published_at": "2026-10-23",
+          "verified_at": "2026-10-29"
+        },
+        {
+          "title": "NVIDIA RTX Spark 本地 AI 更新",
+          "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-29T05:24:00+08:00"
+    },
+    {
       "id": "openai-servicenow-mcp",
       "publisher": "OpenAI / ServiceNow",
       "group": "office",

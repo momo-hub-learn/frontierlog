@@ -1,5 +1,5 @@
 """Model/reset UI checks. Memory mode intentionally does not claim origin storage or network integration."""
-import json,os
+import json,os,re
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 R=Path(__file__).resolve().parents[1];OUT=R/'screenshots';OUT.mkdir(exist_ok=True)
@@ -51,6 +51,8 @@ with sync_playwright() as p:
  assert '两张独立榜单 · 不合成本站总分' in page.locator('.v2-source-tabs').inner_text()
  expect(page.locator('.m-segments')).to_have_attribute('aria-label','查看与排序指标')
  assert '已收录模型 #1' in page.locator('.v2-current-first').inner_text()
+ expect(page.locator('[data-model-row]').first.locator('.m-access-limited')).to_have_text('小范围 Fairwind')
+ expect(page.locator('[data-model-row]').first.locator('.m-access-limited')).to_have_attribute('title',re.compile('coming soon'))
  assert '#1 当前样本' not in page.locator('#vertical-root').inner_text()
  expect(page.locator('#m-search')).to_have_attribute('aria-label','搜索基础模型或厂商')
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')

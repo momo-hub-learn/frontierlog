@@ -21,6 +21,24 @@
   ],
   "items": [
     {
+      "id": "google-gemini-4-carbon-long-horizon-cyber-20261028",
+      "lane": "paradigm",
+      "title": "长时 Agent 开始同时面对工程坚持性与网络安全边界",
+      "maker": "Google",
+      "date": "2026-10-28",
+      "verified_at": "2026-10-29T05:24:00+08:00",
+      "verification_status": "公司官方模型发布 · 外部 Benchmark 摘录 + 内部观察",
+      "tags": ["Long-horizon Agent", "Cybersecurity", "Evaluation"],
+      "fact": "Google 发布 Gemini 4 Carbon，称内部团队观察到模型可持续运行数日处理复杂工程任务；同时报告 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，并先向部分网络安全防御者开放。",
+      "insight": "下一阶段长时 Agent 研究不能只看任务最终是否完成，还要把漏洞发现、利用验证、修复、越权、作弊、事实依据和人工中断点放进同一条可审计轨迹。持续更久不自动等于更可靠。",
+      "boundary": "数日运行、安全代码提升、误对齐下降和无支持主张减少均为 Google 的内部观察或厂商评测，本站未复现。三项网络安全分数来自 Google 发布页，且声明在无 guardrails 条件下评测；不能外推为真实部署安全性、普遍成功率或普通用户已可用。",
+      "next_watch": "关注 Fairwind 伙伴是否公开固定 Harness、保护措施前后差异、完整失败轨迹、人工接管与真实修复回归；同时等待开发者入口和独立复验。",
+      "sources": [
+        {"label": "Introducing Gemini 4 Carbon", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/", "kind": "官方能力、Benchmark 摘录、访问范围与限制", "strength": "primary"},
+        {"label": "Artificial Analysis · Gemini 4 Carbon (High)", "url": "https://artificialanalysis.ai/models/gemini-4-carbon/", "kind": "评测方官方 v5.0 模型页", "strength": "primary"}
+      ]
+    },
+    {
       "id": "openai-future-of-firm-20261028",
       "lane": "paradigm",
       "title": "AI 进入组织图，可能在员工之下、旁边或中间",

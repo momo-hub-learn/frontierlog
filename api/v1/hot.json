@@ -36,6 +36,67 @@
   ],
   "items": [
     {
+      "id": "google-gemini-4-carbon-20261028",
+      "category": "model",
+      "title": "Gemini 4 Carbon 登顶 AA v5，但仍只向少量防御者开放",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T05:24:00+08:00",
+      "first_seen_at": "2026-10-29T05:24:00+08:00",
+      "heat": 97,
+      "heat_components": {
+        "impact": 35,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力总分、安全能力、产品成熟度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Google 官方发布 + Artificial Analysis 官方模型页 · 小范围 Fairwind",
+      "summary": "Google 发布 Gemini 4 Carbon；Artificial Analysis v5.0 官方模型页给出 Intelligence Index 59、当前 #1。Google 先向部分网络安全防御者开放，并计划通过 Fairwind 扩展可信伙伴，开发者、企业和消费者入口仍为 coming soon。",
+      "why": "这次同时改变了前沿模型榜首与网络安全 Agent 的公开信号。值得关注的是长时工程工作和漏洞发现、验证、修复开始被放在同一发布里，但真正决策仍要分别核对评测 Harness、保护措施、可用入口和真实任务失败率。",
+      "boundary": "AA 的 59 分来自评测方官方当前页，不等于所有场景领先。Google 报告 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，均为发布方摘录且声明在无 guardrails 条件下评测，本站未复跑。Google 的内部安全、诚实和长时运行改进也是厂商报告；当前并未面向普通开发者、企业或消费者全面开放。",
+      "source": "Google / Artificial Analysis",
+      "source_kind": "公司官方发布 + 评测方官方模型页 / 本轮编辑核验",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "link": "#/models?model=aa-gemini-4-carbon-high",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看模型榜与可用性",
+          "note": "把 AA v5 分数与小范围 Fairwind 状态分开阅读",
+          "url": "#/models?model=aa-gemini-4-carbon-high",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 Google 官方发布",
+          "note": "核对访问范围、外部 Benchmark 摘录、价格计划与限制",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "kind": "model"
+        },
+        {
+          "label": "查看 AA 官方模型页",
+          "note": "核对 59 分、榜位、速度、成本与上下文",
+          "url": "https://artificialanalysis.ai/models/gemini-4-carbon/",
+          "kind": "benchmark"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google",
+          "title": "Introducing Gemini 4 Carbon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "date": "2026-10-28"
+        },
+        {
+          "source": "Artificial Analysis",
+          "title": "Gemini 4 Carbon (High) model analysis",
+          "url": "https://artificialanalysis.ai/models/gemini-4-carbon/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "openai-servicenow-workflows-20261028",
       "category": "product",
       "title": "ServiceNow 工作流进入 ChatGPT，首个 MCP 插件已开放",

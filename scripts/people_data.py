@@ -3,15 +3,20 @@ from __future__ import annotations
 import copy
 import json
 import re
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, quote
+from zoneinfo import ZoneInfo
 
 ID = re.compile(r'^[a-z0-9][a-z0-9-]*$')
 KINDS = {'personal', 'institution', 'project', 'paper', 'article'}
 
 
-def validate_people(data: dict) -> None:
+def validate_people(data: dict, now: datetime | None = None) -> None:
+    clock = now or datetime.now(timezone.utc)
+    if clock.tzinfo is None or clock.utcoffset() is None:
+        raise ValueError('People validation clock requires timezone')
+    beijing_day = clock.astimezone(ZoneInfo('Asia/Shanghai')).date()
     def text(value):
         if not isinstance(value, str) or not value.strip() or len(value) > 4000:
             raise ValueError('Invalid people text')
@@ -19,7 +24,7 @@ def validate_people(data: dict) -> None:
         if not isinstance(value, str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
             raise ValueError('Invalid people date')
         parsed = date.fromisoformat(value)
-        if parsed > date.today():
+        if parsed > beijing_day:
             raise ValueError('Future people date')
         return parsed
     def records(rows):

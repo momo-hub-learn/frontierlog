@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-28",
+  "checked": "2026-10-29",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -1188,6 +1188,16 @@
   ],
   "sources": [
     {
+      "id": "b-google-gemini-4-carbon",
+      "title": "Introducing Gemini 4 Carbon",
+      "publisher": "Google",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "kind": "厂商模型发布与外部评测结果摘录",
+      "note": "Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；本站未运行，必须保留 Harness、任务版本、运行时限与厂商报告属性。"
+    },
+    {
       "id": "b-openai-gpt-6-1-terra-release",
       "title": "Introducing GPT-6.1 Terra",
       "publisher": "OpenAI",
@@ -1734,6 +1744,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "gemini-4-carbon-cyber-benchmarks-20261028",
+      "date": "2026-10-28",
+      "title": "Gemini 4 Carbon 把漏洞发现、利用验证与修复放进同一发布",
+      "summary": "Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；三项分别覆盖漏洞发现、利用验证和根因修复，本站未复跑。",
+      "implication": "安全 Agent 不能用一个“网络安全分数”替代三段能力。比较时必须分别锁定题集、Harness、运行时限、工具、保护措施与通过标准；无 guardrails 结果也不能外推为部署时的可用成功率或安全性。",
+      "benchmarks": ["cwe-bench-v1"],
+      "sources": ["b-google-gemini-4-carbon", "b-cwe-bench-v1"],
+      "kind": "厂商发布的外部 Benchmark 结果"
+    },
     {
       "id": "novelty-judge-instability-20261026",
       "date": "2026-10-26",

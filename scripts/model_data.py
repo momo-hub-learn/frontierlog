@@ -97,6 +97,10 @@ def validate_models(data):
         for r in rows:
             text(r.get('name'),'name');text(r.get('maker'),'maker')
             if r.get('source') not in sids:fail('Model source missing')
+            if r.get('access_status') is not None:
+                if r['access_status'] not in {'public','limited','announced','unknown'}:fail('Invalid model access status')
+                text(r.get('access_label'),'model access label');text(r.get('access_note'),'model access note')
+                if r.get('access_source') not in sids:fail('Model access source missing')
             for k in NUMBERS:
                 v=r.get(k)
                 if v is not None and (type(v) not in (int,float) or not math.isfinite(v) or v<0):fail('Invalid model value: '+k)

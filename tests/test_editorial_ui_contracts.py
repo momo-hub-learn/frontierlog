@@ -70,6 +70,12 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("hHeatBand(x.heat).label+' · 排序 '+esc(String(v10Top5Score(x)))",text)
   css=(ROOT/'src/feed-cockpit.css').read_text()
   for band in ('extreme','high','rising','watch'):self.assertIn('.fc-heat-'+band,css)
+ def test_model_rows_show_access_boundary_separately_from_score(self):
+  js=(ROOT/'src/models.js').read_text()
+  css=(ROOT/'src/models.css').read_text()
+  self.assertIn('function mAccessBadge(r)',js)
+  self.assertIn('${mAccessBadge(r)}',js)
+  self.assertIn('.m-access-limited',css)
  def test_timeline_heat_has_text_tiers_and_non_color_shapes(self):
   timeline=(ROOT/'src/intraday.js').read_text()
   self.assertIn('class="intraday-score is-${band.key}"',timeline)
