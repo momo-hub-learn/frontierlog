@@ -56,9 +56,8 @@ class HotDataTests(unittest.TestCase):
   route=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(route['url'],item['link'])
   validate_hot(self.data)
- def test_docling_2_143_1_and_unlimited_ocr_keep_runtime_and_vendor_claim_boundaries(self):
-  docling=next(x for x in self.data['items'] if x['id']=='docling-v2-143-1-table-ocr-20261028')
-  self.assertEqual(docling['published_at'],'2026-10-27T17:11:51Z')
+ def test_docling_and_unlimited_ocr_keep_runtime_and_vendor_claim_boundaries(self):
+  docling=next(x for x in self.data['items'] if x['source']=='Docling Project')
   self.assertEqual(docling['link'],'#/toolkit?task=docling&tab=run')
   self.assertIn('不是本站运行或 OCR 质量评测',docling['boundary'])
   ocr=next(x for x in self.data['items'] if x['id']=='baidu-unlimited-ocr-2-20261027')
@@ -149,8 +148,11 @@ class HotDataTests(unittest.TestCase):
   self.assertTrue(all('不是全网流量' in i.findtext('description') for i in items))
   beijing=ZoneInfo('Asia/Shanghai')
   self.assertEqual({parsedate_to_datetime(i.findtext('pubDate')).astimezone(beijing).date().isoformat() for i in items},{x['published'] for x in self.data['items']})
-  docling=next(i for i in items if i.findtext('guid')=='frontierlog:hot:docling-v2-143-1-table-ocr-20261028')
-  self.assertEqual(parsedate_to_datetime(docling.findtext('pubDate')).isoformat(),'2026-10-27T17:11:51+00:00')
+  by_guid={i.findtext('guid'):i for i in items}
+  for row in self.data['items']:
+   stamp=row.get('published_at')
+   if stamp:
+    self.assertEqual(parsedate_to_datetime(by_guid['frontierlog:hot:'+row['id']].findtext('pubDate')),datetime.fromisoformat(stamp.replace('Z','+00:00')))
  def test_build_embeds_hot_and_model_benchmark_tab(self):
   with tempfile.TemporaryDirectory() as td:
    out=Path(td);app=build(out);html=(out/'index.html').read_text()

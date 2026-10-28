@@ -467,6 +467,12 @@
 
 边界：“无限视野”与 MPDocBench、MarathonDocBench 的 SOTA 均为发布方模型卡声称，本站未复跑。官方 Transformers 示例测试于 NVIDIA A800 80GB，并启用 trust_remote_code；SGLang 路径使用定制 wheel 和显存调优参数。固定参考集不证明跨远距离引用一定正确，HF Trending 也不等于能力榜。
 
+站内热度 88；不是全网流量。</description></item><item><title>Docling 2.144：损坏 PDF 文本层可回退到 OCR</title><guid isPermaLink="false">frontierlog:hot:docling-v2-144-broken-text-ocr-20261028</guid><link>https://github.com/docling-project/docling/releases/tag/v2.144.0</link><pubDate>Wed, 28 Oct 2026 12:03:10 +0000</pubDate><description>Docling v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同版修复 tesserocr 并发转换崩溃、阿拉伯文字规范化、阅读顺序与零 DPI 图片边界。
+
+为什么值得看：“PDF 有文字层”过去不等于文字层可用，损坏内容可能静默进入检索或表格流水线。升级后应把损坏文字层、并发 OCR、阿拉伯文和跨栏标题样本加入回归，比较输出而不是只看命令退出码。
+
+边界：这是 Docling 官方 GitHub Release 的功能与修复清单，不是本站运行或 OCR 质量评测。OCR 回退不保证能识别所有损坏层、合并单元格、跨页表格、手写体或低清扫描；标题层级和阅读顺序也需在目标文档上复核。
+
 站内热度 88；不是全网流量。</description></item><item><title>CodeRabbit：用 GPT-6.1 Sol 做跨仓库安全审查</title><guid isPermaLink="false">frontierlog:hot:openai-coderabbit-sol-security-20261026</guid><link>https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><description>CodeRabbit 的安全 Agent 以 GPT-6.1 Sol 为主模型，在 PR、Deep Scan 与关联仓库上下文中调查跨文件问题；用户选中的发现可在隔离沙箱尝试验证，并起草修复 PR 交给人审。
 
 为什么值得看：安全代码 Agent 开始把跨仓库证据、隔离验证与修复草案串进现有 PR 流程；比单次代码补全更接近可审计的工程闭环。
@@ -485,13 +491,7 @@
 
 边界：这是作者预印本、项目页和公开评测，本站未运行。13 个基线在不同任务和指标上各有取舍，不能把单列最优值拼成综合能力；原始视频获取、模型成本、隐私与长期误报也未由这套分数解决。
 
-站内热度 88；不是全网流量。</description></item><item><title>Docling 2.143.1：补齐全页 OCR 的表格 token</title><guid isPermaLink="false">frontierlog:hot:docling-v2-143-1-table-ocr-20261028</guid><link>https://github.com/docling-project/docling/releases/tag/v2.143.1</link><pubDate>Tue, 27 Oct 2026 17:11:51 +0000</pubDate><description>Docling v2.143.1 在全页 OCR 路径中把 OCR 单元格与原生文字一并保留为表格 token，同时把实际渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。
-
-为什么值得看：这些改动直接落在文档解析流水线最容易静默丢失结构的表格与扫描件边界。已经使用 Docling 的团队应锁定 2.143.1，用原有错表、扫描 PDF 和 PPTX 回归样本重新比对，而不是只确认命令成功。
-
-边界：这是 Docling 官方 GitHub Release 的修复清单，不是本站运行或 OCR 质量评测。修复表格 token 不保证合并单元格、跨页表格、手写体或低清扫描件全部正确；升级仍需在隔离环境复核输出、依赖范围和资源限制。
-
-站内热度 87；不是全网流量。</description></item><item><title>Hugging Face Hub 2.3：共享缓存与 Jobs 编排集中升级</title><guid isPermaLink="false">frontierlog:hot:huggingface-hub-cli-2-3-20261026</guid><link>https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><description>Hugging Face 汇总 huggingface_hub 2.3 的共享 Xet 缓存、缓存清理、Jobs 重试/重跑/定时/Webhook、实验性 Sandboxes 与 Storage Buckets；官方 v2.3.0 Release 已于 10 月 22 日发布。
+站内热度 88；不是全网流量。</description></item><item><title>Hugging Face Hub 2.3：共享缓存与 Jobs 编排集中升级</title><guid isPermaLink="false">frontierlog:hot:huggingface-hub-cli-2-3-20261026</guid><link>https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><description>Hugging Face 汇总 huggingface_hub 2.3 的共享 Xet 缓存、缓存清理、Jobs 重试/重跑/定时/Webhook、实验性 Sandboxes 与 Storage Buckets；官方 v2.3.0 Release 已于 10 月 22 日发布。
 
 为什么值得看：下载、计算、调度和存储开始被压进同一套 Hub CLI / Python 接口，能减少跨仓库重复缓存，也让小型 Agent 工作流有更清晰的自动化入口。
 

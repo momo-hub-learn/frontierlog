@@ -81,8 +81,13 @@ try:
         page.evaluate("Date.now=()=>Date.parse('2026-10-22T18:01:00Z');window.dispatchEvent(new Event('pageshow'))")
         expect(page.locator('[data-ah-id="openai-fde-frontier-2026-10-22"]')).to_have_class(re.compile(r'\bended\b'))
         expect(page.locator('[data-ah-id="openai-fde-frontier-2026-10-22"]')).to_contain_text('已结束')
+        page.evaluate("Date.now=()=>Date.parse('2026-10-28T16:30:00Z');window.dispatchEvent(new Event('pageshow'))")
+        expect(page.locator('.ah-feature')).to_have_attribute('data-ah-feature','nvidia-medtech-days-2026')
+        expect(page.locator('.ah-feature .ah-start')).to_have_text('北京时间 10/28 23:00')
+        expect(page.locator('.ah-feature .ah-start')).not_to_contain_text('下一节')
+        page.screenshot(path=str(OUT/'expired-session-honest-state.png'))
         page.evaluate("Date.now=()=>Date.parse('2026-09-25T13:00:00Z');window.dispatchEvent(new Event('pageshow'))")
-        passed('event cards cross start/end boundaries without a page reload')
+        passed('event cards cross start/end boundaries and expired sessions lose the misleading next label')
         # A readable type scale is allowed more space than the former 10px labels.
         hero_height=page.locator('.ah-hero').bounding_box()['height']
         assert hero_height < 550, hero_height

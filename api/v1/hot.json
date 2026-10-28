@@ -487,41 +487,41 @@
       ]
     },
     {
-      "id": "docling-v2-143-1-table-ocr-20261028",
+      "id": "docling-v2-144-broken-text-ocr-20261028",
       "category": "product",
-      "title": "Docling 2.143.1：补齐全页 OCR 的表格 token",
+      "title": "Docling 2.144：损坏 PDF 文本层可回退到 OCR",
       "published": "2026-10-28",
-      "published_at": "2026-10-27T17:11:51Z",
+      "published_at": "2026-10-28T12:03:10Z",
       "checked": "2026-10-28",
-      "verified_at": "2026-10-28T01:26:12+08:00",
-      "first_seen_at": "2026-10-28T01:26:12+08:00",
-      "heat": 87,
+      "verified_at": "2026-10-28T23:22:24+08:00",
+      "first_seen_at": "2026-10-28T23:22:24+08:00",
+      "heat": 88,
       "heat_components": {
-        "impact": 27,
+        "impact": 28,
         "availability": 22,
         "evidence": 25,
         "recency": 13
       },
       "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 OCR 准确率、表格 Benchmark 或本站实测分数。",
       "trend": "up",
-      "summary": "Docling v2.143.1 在全页 OCR 路径中把 OCR 单元格与原生文字一并保留为表格 token，同时把实际渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
-      "why": "这些改动直接落在文档解析流水线最容易静默丢失结构的表格与扫描件边界。已经使用 Docling 的团队应锁定 2.143.1，用原有错表、扫描 PDF 和 PPTX 回归样本重新比对，而不是只确认命令成功。",
-      "boundary": "这是 Docling 官方 GitHub Release 的修复清单，不是本站运行或 OCR 质量评测。修复表格 token 不保证合并单元格、跨页表格、手写体或低清扫描件全部正确；升级仍需在隔离环境复核输出、依赖范围和资源限制。",
+      "summary": "Docling v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同版修复 tesserocr 并发转换崩溃、阿拉伯文字规范化、阅读顺序与零 DPI 图片边界。",
+      "why": "“PDF 有文字层”过去不等于文字层可用，损坏内容可能静默进入检索或表格流水线。升级后应把损坏文字层、并发 OCR、阿拉伯文和跨栏标题样本加入回归，比较输出而不是只看命令退出码。",
+      "boundary": "这是 Docling 官方 GitHub Release 的功能与修复清单，不是本站运行或 OCR 质量评测。OCR 回退不保证能识别所有损坏层、合并单元格、跨页表格、手写体或低清扫描；标题层级和阅读顺序也需在目标文档上复核。",
       "source": "Docling Project",
       "source_kind": "官方 GitHub Release / 本轮编辑核验",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
       "link": "#/toolkit?task=docling&tab=run",
       "evidence_level": "primary-source",
       "access": [
         {
-          "label": "查看 v2.143.1 Release",
-          "note": "核对表格 token、Tesseract 分辨率、PPTX 与依赖范围修复",
-          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+          "label": "查看 v2.144.0 Release",
+          "note": "核对 OCR 回退、标题层级、并发转换与文字规范化修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
           "kind": "code"
         },
         {
           "label": "按站内指南复核升级",
-          "note": "用扫描件、错表与 PPTX 小样本逐项比对，不把 Release 当成本站实测",
+          "note": "用损坏文字层、并发 OCR 与复杂版面小样本逐项比对，不把 Release 当成本站实测",
           "url": "#/toolkit?task=docling&tab=run",
           "kind": "internal"
         }
@@ -529,9 +529,9 @@
       "related": [
         {
           "source": "Docling Project",
-          "title": "Docling v2.143.0：混合格式 ZIP 与离线 ASR",
-          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
-          "date": "2026-10-26"
+          "title": "Docling v2.143.1：表格 OCR 与 PPTX 修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+          "date": "2026-10-28"
         }
       ]
     },

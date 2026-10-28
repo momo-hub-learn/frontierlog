@@ -89,7 +89,10 @@ const ActivityHero = (() => {
   const d = new Date(start), fmt = zone => new Intl.DateTimeFormat('zh-CN',{timeZone:zone,month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d).replace(/\//g,'/');
   let local = '';
   try {local = fmt(e.time_zone || 'UTC')} catch {local = fmt('UTC')}
-  const prefix = stamp(e.next_session_at) === start ? '下一节 · ' : '';
+  // Once the verified session time has passed, keep the timestamp visible but
+  // stop describing it as the "next" session. The event state/countdown tells
+  // readers whether the official source has confirmed a live state.
+  const prefix = stamp(e.next_session_at) === start && start > now ? '下一节 · ' : '';
   return {primary:prefix+'北京时间 '+fmt('Asia/Shanghai'),secondary:'当地 '+local+' · '+(e.location || e.time_zone || 'UTC')};
  }
  const escapeICS = x => String(x ?? '').replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');

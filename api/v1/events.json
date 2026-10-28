@@ -488,6 +488,21 @@
       "short_title": "表格 OCR 与 PPTX 修复"
     },
     {
+      "id": "docling-v2-144-broken-text-ocr",
+      "task": "docling",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
+      "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
+      "delta": "文档流水线可更明确地处理“存在但不可用”的文字层；仍需用损坏层、并发转换、多语与复杂版面样本逐项复核，官方修复清单不等于本站实测。",
+      "sources": [
+        "docling-v2-144-release"
+      ],
+      "reviewed": "2026-10-28",
+      "tag": "v2.144.0",
+      "short_title": "损坏文字层 OCR 回退"
+    },
+    {
       "id": "browser-v0-13-10",
       "task": "browser-use",
       "date": "2026-09-04",
@@ -1178,6 +1193,15 @@
       "title": "Docling v2.143.1",
       "publisher": "Docling project",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+      "published": "2026-10-28",
+      "checked": "2026-10-28",
+      "kind": "官方发布"
+    },
+    {
+      "id": "docling-v2-144-release",
+      "title": "Docling v2.144.0",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
       "published": "2026-10-28",
       "checked": "2026-10-28",
       "kind": "官方发布"

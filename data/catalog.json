@@ -872,7 +872,7 @@
       "accent": "orange",
       "summary": "解析版面、表格和图表，导出结构化文档。",
       "scope": "官方实现支持多格式文档处理，提供 CLI 与 Python 接口。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
+      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
       "repo": "docling-project/docling",
       "sources": [
         "docling",
@@ -880,7 +880,8 @@
         "docling-release",
         "docling-v2-142-1-release",
         "docling-v2-143-release",
-        "docling-v2-143-1-release"
+        "docling-v2-143-1-release",
+        "docling-v2-144-release"
       ],
       "requirements": "Python 3.10+；首次运行可能下载模型。准备有使用权限的 sample.pdf。",
       "test": "选择三页带合并单元格的 PDF，对照人工标注检查导出的结构。",
@@ -1603,6 +1604,15 @@
       "kind": "官方发布"
     },
     {
+      "id": "docling-v2-144-release",
+      "title": "Docling v2.144.0",
+      "publisher": "Docling project",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
+      "published": "2026-10-28",
+      "checked": "2026-10-28",
+      "kind": "官方发布"
+    },
+    {
       "id": "browser-use",
       "title": "Browser Use · 官方实现",
       "publisher": "Browser Use",
@@ -2154,6 +2164,21 @@
       "reviewed": "2026-10-28",
       "tag": "v2.143.1",
       "short_title": "表格 OCR 与 PPTX 修复"
+    },
+    {
+      "id": "docling-v2-144-broken-text-ocr",
+      "task": "docling",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
+      "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
+      "delta": "文档流水线可更明确地处理“存在但不可用”的文字层；仍需用损坏层、并发转换、多语与复杂版面样本逐项复核，官方修复清单不等于本站实测。",
+      "sources": [
+        "docling-v2-144-release"
+      ],
+      "reviewed": "2026-10-28",
+      "tag": "v2.144.0",
+      "short_title": "损坏文字层 OCR 回退"
     },
     {
       "id": "browser-v0-13-10",
