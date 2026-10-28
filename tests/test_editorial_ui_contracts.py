@@ -33,6 +33,11 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<span>垂类资料核对</span><code id="snapshot-date">',html)
   self.assertNotIn('<span>资料快照</span><code id="snapshot-date">',html)
   self.assertIn("$('#snapshot-date').textContent=VERT.checked",app)
+ def test_industry_cards_expose_source_strength_before_opening_detail(self):
+  text=(ROOT/'src/vertical.js').read_text()
+  self.assertIn("function articleEvidenceLabel(a)",text)
+  self.assertIn("官方一手 · 本站未实测",text)
+  self.assertIn("articleEvidenceChip(a)",text)
  def test_topic_rss_grows_and_shrinks_without_losing_identity(self):
   base=json.loads((ROOT/'data/industry.json').read_text())
   source=copy.deepcopy(base['articles'][0])

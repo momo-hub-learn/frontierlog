@@ -41,10 +41,12 @@ try:
   expect(page.locator('.v-latest')).to_have_count(1)
   assert page.locator('.v-latest').get_attribute('data-latest-id')==latest_pharma['id']
   assert latest_pharma['title'] in page.locator('.v-latest').inner_text()
+  assert '官方一手 · 本站未实测' in page.locator('.v-latest .v-evidence-chip').inner_text()
+  expect(page.locator('.v-article .v-evidence-chip')).to_have_count(SECTOR_COUNTS['pharma'])
   expect(page.locator('.v-topic-strip')).to_have_count(0)
   expect(page.locator('.v2-business-chain')).to_have_count(1)
   assert float(page.locator('.v-summary').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
-  shot(page,'pharma.png');pass_('pharma page, large reading typography, dated and evergreen records separate')
+  shot(page,'pharma.png');pass_('pharma page, visible evidence status, large reading typography, dated and evergreen records separate')
   route(page,'#/pharma?topic=csr');expect(page.locator('.v-article')).to_have_count(TOPIC_COUNTS['csr'])
   expect(page.locator('.v-latest')).to_have_count(0)
   assert '临床研究报告' in page.locator('body').inner_text()
