@@ -79,6 +79,7 @@
 .ah-event-copy{min-width:0;padding:0 10px 0 0}
 .ah-event-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 10px;font-size:var(--ah-meta);line-height:1.7}
 .ah-event-meta time{font-weight:650;color:var(--text)}.ah-event-meta small{font:500 var(--ah-meta)/1.7 var(--sans);font-variant-numeric:tabular-nums;color:var(--sub)}
+.ah-event-meta .ah-event-clock{flex-basis:100%;color:var(--sub)}.ah-event-meta .ah-event-clock time{font:550 var(--ah-meta)/1.7 var(--sans);font-variant-numeric:tabular-nums;color:inherit}
 .ah-event-meta>span{font-size:var(--ah-caption);line-height:1.65;border-radius:6px;background:var(--accent-bg);color:var(--accent);padding:2px 8px}
 .ah-page .ah-event h3{font-size:var(--ah-card-title);font-weight:700;line-height:1.45;letter-spacing:-.015em;margin:0 0 10px;overflow-wrap:anywhere;color:var(--text)}
 .ah-page .ah-event p{font-size:var(--ah-body);line-height:1.8;margin:0 0 14px;color:var(--sub);display:block;overflow:visible;-webkit-line-clamp:unset}

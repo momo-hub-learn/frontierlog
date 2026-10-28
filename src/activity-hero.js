@@ -125,7 +125,8 @@ const ActivityHero = (() => {
  }
  function eventHTML(e,now) {
   const mode=phase(e,now), labels={upcoming:'待开始',today:'今日',live:'直播中',started:'已到开场时间',ended:'已结束',replay:'回放',unknown:'时间待核验',unavailable:'安排变更'};
-  return '<a class="v2-event-card ah-event '+h(mode)+'" data-ah-date="'+h(e.date)+'" data-ah-id="'+h(e.id)+'" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+art(e)+'<div class="ah-event-copy"><div class="ah-event-meta"><time>'+h(dateLabel(e))+'</time><small>'+h(e.date.slice(0,4))+'</small><span>'+h(labels[mode])+'</span></div><h3>'+h(e.title)+'</h3><p>'+h(e.short_summary || e.summary)+'</p><div class="v2-radar-tags">'+(e.tags||[]).slice(0,3).map(tag=>'<span>'+h(tag)+'</span>').join('')+'</div></div><span class="ah-out" aria-hidden="true">↗</span></a>';
+  const exact=stamp(e.start_at)!==null?'<small class="ah-event-clock"><time datetime="'+h(e.start_at)+'">'+h(times(e).primary)+'</time></small>':'';
+  return '<a class="v2-event-card ah-event '+h(mode)+'" data-ah-date="'+h(e.date)+'" data-ah-id="'+h(e.id)+'" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+art(e)+'<div class="ah-event-copy"><div class="ah-event-meta"><time>'+h(dateLabel(e))+'</time><small>'+h(e.date.slice(0,4))+'</small>'+exact+'<span>'+h(labels[mode])+'</span></div><h3>'+h(e.title)+'</h3><p>'+h(e.short_summary || e.summary)+'</p><div class="v2-radar-tags">'+(e.tags||[]).slice(0,3).map(tag=>'<span>'+h(tag)+'</span>').join('')+'</div></div><span class="ah-out" aria-hidden="true">↗</span></a>';
  }
  return {events,phase,dateLabel,select,remaining,times,calendar,fold,featureHTML,introHTML,eventHTML,https};
 })();
