@@ -4222,7 +4222,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-28T15:47:17Z",
+    "generated_at": "2026-10-28T16:09:36Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -7686,11 +7686,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-28T15:40:32Z",
+    "checked_at": "2026-10-28T15:55:39Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-28T15:40:32Z",
+      "last_success": "2026-10-28T15:55:39Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -8711,7 +8711,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-28T15:47:17Z",
+    "last_evaluated": "2026-10-28T16:09:36Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 94,
@@ -8737,7 +8737,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T15:22:24Z",
+    "checked_at": "2026-10-28T15:59:04Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -8748,10 +8748,10 @@
         "stars_today": 1075,
         "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
         "language": "TypeScript",
-        "stars": 4705,
-        "forks": 245,
+        "stars": 4734,
+        "forks": 246,
         "repo_created_at": "2026-07-08T07:40:43Z",
-        "repo_pushed_at": "2026-10-28T15:22:10Z",
+        "repo_pushed_at": "2026-10-28T15:27:24Z",
         "category": "agent-interface",
         "ai_related": true,
         "tags": [
@@ -8760,12 +8760,8 @@
           "MCP"
         ],
         "url": "https://github.com/JetBrains/thinkrail",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T14:41:13Z",
-            "stars": 3647
-          },
           {
             "at": "2026-10-27T15:21:57Z",
             "stars": 3679
@@ -8809,6 +8805,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 4705
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 4734
           }
         ]
       },
@@ -8818,8 +8818,8 @@
         "stars_today": 1395,
         "description": "",
         "language": "",
-        "stars": 10746,
-        "forks": 763,
+        "stars": 10792,
+        "forks": 766,
         "repo_created_at": "2026-07-29T06:43:16Z",
         "repo_pushed_at": "2026-10-27T16:02:10Z",
         "category": "ai-tools",
@@ -8830,7 +8830,7 @@
           "GitHub"
         ],
         "url": "https://github.com/elayadesign/ai-design-skills",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-27T20:48:36Z",
@@ -8875,6 +8875,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 10746
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 10792
           }
         ]
       },
@@ -8884,8 +8888,8 @@
         "stars_today": 1096,
         "description": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
-        "stars": 307107,
-        "forks": 27330,
+        "stars": 307140,
+        "forks": 27333,
         "repo_created_at": "2025-10-09T19:45:18Z",
         "repo_pushed_at": "2026-10-23T03:48:57Z",
         "category": "agent-skills",
@@ -8896,12 +8900,8 @@
           "Workflow"
         ],
         "url": "https://github.com/obra/superpowers",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T14:41:13Z",
-            "stars": 306044
-          },
           {
             "at": "2026-10-27T15:21:57Z",
             "stars": 306082
@@ -8945,6 +8945,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 307107
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 307140
           }
         ]
       },
@@ -8954,10 +8958,10 @@
         "stars_today": 2376,
         "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
-        "stars": 47509,
-        "forks": 5909,
+        "stars": 47562,
+        "forks": 5913,
         "repo_created_at": "2025-12-28T15:35:54Z",
-        "repo_pushed_at": "2026-10-28T14:43:15Z",
+        "repo_pushed_at": "2026-10-28T15:55:19Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8966,12 +8970,8 @@
           "GitHub"
         ],
         "url": "https://github.com/HKUDS/DeepTutor",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T15:21:57Z",
-            "stars": 45276
-          },
           {
             "at": "2026-10-27T19:18:50Z",
             "stars": 45612
@@ -9015,6 +9015,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 47509
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 47562
           }
         ]
       },
@@ -9024,10 +9028,10 @@
         "stars_today": 106,
         "description": "Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory.",
         "language": "Rust",
-        "stars": 5260,
-        "forks": 512,
+        "stars": 5272,
+        "forks": 513,
         "repo_created_at": "2025-11-08T15:18:27Z",
-        "repo_pushed_at": "2026-10-28T15:17:18Z",
+        "repo_pushed_at": "2026-10-28T15:58:10Z",
         "category": "agent-memory",
         "ai_related": true,
         "tags": [
@@ -9036,7 +9040,7 @@
           "AI"
         ],
         "url": "https://github.com/macro-inc/macro",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-28T11:21:14Z",
@@ -9049,6 +9053,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 5260
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 5272
           }
         ]
       },
@@ -9058,8 +9066,8 @@
         "stars_today": 2109,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
-        "stars": 40215,
-        "forks": 2092,
+        "stars": 40266,
+        "forks": 2095,
         "repo_created_at": "2026-04-27T20:47:10Z",
         "repo_pushed_at": "2026-10-28T14:52:03Z",
         "category": "agent-skills",
@@ -9070,12 +9078,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T17:25:05Z",
-            "stars": 38488
-          },
           {
             "at": "2026-10-27T19:18:50Z",
             "stars": 38661
@@ -9119,6 +9123,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 40215
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 40266
           }
         ]
       },
@@ -9128,8 +9136,8 @@
         "stars_today": 1471,
         "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
-        "stars": 91822,
-        "forks": 5429,
+        "stars": 91950,
+        "forks": 5437,
         "repo_created_at": "2025-11-16T01:52:04Z",
         "repo_pushed_at": "2026-10-28T15:22:56Z",
         "category": "agent-harness",
@@ -9140,12 +9148,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T15:21:57Z",
-            "stars": 90084
-          },
           {
             "at": "2026-10-27T19:18:50Z",
             "stars": 90306
@@ -9189,6 +9193,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 91822
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 91950
           }
         ]
       },
@@ -9198,10 +9206,10 @@
         "stars_today": 740,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 7895,
-        "forks": 927,
+        "stars": 7903,
+        "forks": 928,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-28T15:00:06Z",
+        "repo_pushed_at": "2026-10-28T15:57:00Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -9210,12 +9218,8 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T15:21:57Z",
-            "stars": 7246
-          },
           {
             "at": "2026-10-27T19:18:50Z",
             "stars": 7354
@@ -9259,6 +9263,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 7895
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 7903
           }
         ]
       },
@@ -9268,10 +9276,10 @@
         "stars_today": 1053,
         "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
         "language": "TypeScript",
-        "stars": 3006,
-        "forks": 297,
+        "stars": 3024,
+        "forks": 299,
         "repo_created_at": "2026-08-12T21:32:03Z",
-        "repo_pushed_at": "2026-10-28T15:21:29Z",
+        "repo_pushed_at": "2026-10-28T15:59:26Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -9280,12 +9288,8 @@
           "GitHub"
         ],
         "url": "https://github.com/nightly-labs/openbot",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T17:25:05Z",
-            "stars": 2163
-          },
           {
             "at": "2026-10-27T19:18:50Z",
             "stars": 2245
@@ -9329,6 +9333,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 3006
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 3024
           }
         ]
       },
@@ -9338,8 +9346,8 @@
         "stars_today": 1478,
         "description": "LIST OF ALL MY JAILBREAKS",
         "language": "",
-        "stars": 6612,
-        "forks": 958,
+        "stars": 6657,
+        "forks": 964,
         "repo_created_at": "2026-06-18T18:21:25Z",
         "repo_pushed_at": "2026-10-28T12:31:33Z",
         "category": "other",
@@ -9349,12 +9357,8 @@
           "GitHub"
         ],
         "url": "https://github.com/togg53192-cmd/jailbreaks",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
-          {
-            "at": "2026-10-27T14:41:13Z",
-            "stars": 5037
-          },
           {
             "at": "2026-10-27T15:21:57Z",
             "stars": 5067
@@ -9398,6 +9402,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 6612
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 6657
           }
         ]
       },
@@ -9407,8 +9415,8 @@
         "stars_today": 3209,
         "description": "一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘 / 阿里云盘 / 中国移动云盘 / 天翼云盘 / 迅雷云盘 / 夸克网盘 / UC网盘 / 123云盘 八大网盘",
         "language": "JavaScript",
-        "stars": 34015,
-        "forks": 2398,
+        "stars": 34048,
+        "forks": 2401,
         "repo_created_at": "2022-08-10T11:59:44Z",
         "repo_pushed_at": "2026-10-27T15:14:58Z",
         "category": "other",
@@ -9418,7 +9426,7 @@
           "GitHub"
         ],
         "url": "https://github.com/hmjz100/LinkSwift",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-28T11:21:14Z",
@@ -9431,6 +9439,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 34015
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 34048
           }
         ]
       },
@@ -9440,10 +9452,10 @@
         "stars_today": 212,
         "description": "A collection of AI agent skills for working with Expo projects and Expo Application Services",
         "language": "Shell",
-        "stars": 3412,
-        "forks": 218,
+        "stars": 3425,
+        "forks": 219,
         "repo_created_at": "2025-11-30T03:57:18Z",
-        "repo_pushed_at": "2026-10-28T14:42:42Z",
+        "repo_pushed_at": "2026-10-28T15:57:35Z",
         "category": "agent-skills",
         "ai_related": true,
         "tags": [
@@ -9452,7 +9464,7 @@
           "Workflow"
         ],
         "url": "https://github.com/expo/skills",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-28T11:21:14Z",
@@ -9465,6 +9477,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 3412
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 3425
           }
         ]
       },
@@ -9474,8 +9490,8 @@
         "stars_today": 596,
         "description": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
         "language": "Rust",
-        "stars": 100682,
-        "forks": 13135,
+        "stars": 100711,
+        "forks": 13137,
         "repo_created_at": "2025-06-07T04:32:30Z",
         "repo_pushed_at": "2026-10-28T14:24:33Z",
         "category": "agent-skills",
@@ -9486,7 +9502,7 @@
           "Workflow"
         ],
         "url": "https://github.com/ruvnet/RuView",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-28T11:21:14Z",
@@ -9499,6 +9515,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 100682
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 100711
           }
         ]
       },
@@ -9508,8 +9528,8 @@
         "stars_today": 143,
         "description": "One has no future if one couldn't teach themself.",
         "language": "Jupyter Notebook",
-        "stars": 18364,
-        "forks": 17872,
+        "stars": 18379,
+        "forks": 17874,
         "repo_created_at": "2019-03-14T14:12:13Z",
         "repo_pushed_at": "2026-05-20T23:38:19Z",
         "category": "other",
@@ -9519,7 +9539,7 @@
           "GitHub"
         ],
         "url": "https://github.com/xiaolai/the-craft-of-selfteaching",
-        "metadata_verified_at": "2026-10-28T15:22:24Z",
+        "metadata_verified_at": "2026-10-28T15:59:04Z",
         "star_history": [
           {
             "at": "2026-10-28T11:21:14Z",
@@ -9532,6 +9552,10 @@
           {
             "at": "2026-10-28T15:22:24Z",
             "stars": 18364
+          },
+          {
+            "at": "2026-10-28T15:59:04Z",
+            "stars": 18379
           }
         ]
       }
@@ -9610,19 +9634,18 @@
     },
     "sync": {
       "mode": "official_trending_plus_repository_api",
-      "status": "error",
-      "last_checked_at": "2026-10-28T15:25:56Z",
-      "last_success_at": "2026-10-28T15:22:24Z",
+      "status": "success",
+      "last_checked_at": "2026-10-28T15:59:04Z",
+      "last_success_at": "2026-10-28T15:59:04Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-28T15:22:24Z",
+      "watchlist_checked_at": "2026-10-28T15:59:04Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 14,
       "verified_count": 14,
       "metadata_failed_count": 0,
       "metadata_status": "success",
-      "skipped": [],
-      "error": "<urlopen error timed out>"
+      "skipped": []
     },
     "watchlist": [
       {
@@ -9636,27 +9659,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 400865,
-        "forks": 100533,
+        "stars": 401015,
+        "forks": 100573,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-28T15:22:20Z",
+        "repo_pushed_at": "2026-10-28T15:43:46Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-28T15:22:24Z",
+        "verified_at": "2026-10-28T15:59:04Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T15:25:56Z",
+    "checked_at": "2026-10-28T15:59:51Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-28T15:25:56Z",
-    "web_fetched_at": "2026-10-28T15:25:56Z",
+    "api_fetched_at": "2026-10-28T15:59:51Z",
+    "web_fetched_at": "2026-10-28T15:59:51Z",
     "web_order_matches_api": true,
     "web_order": [
       "RecursiveSI/flint",
@@ -9665,11 +9688,11 @@
       "XHToken/Spark-X2.6-4B",
       "black-forest-labs/flux-3-image-klein-comfy",
       "MiniMaxAI/MiniMax-M3.1-Flash",
-      "Lightricks/LTX-2.5",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "Lightricks/LTX-2.5",
       "Qwen/Qwen3.8-27B",
-      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "LiquidAI/LFM3-1.7B",
+      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "baidu/Unlimited-OCR-2",
       "unsloth/flint-GGUF",
       "tencent/Hy-SimulMT-30B-A3B-FP8",
@@ -9677,8 +9700,8 @@
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "InternScience/Sage-A1.5",
       "HuggingFaceBio/Carbon-X",
-      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-      "ccore/Qwen3.5-4B-3D-Coder"
+      "ccore/Qwen3.5-4B-3D-Coder",
+      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
     ],
     "web_rank_changes": [
       {
@@ -9686,140 +9709,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
-      },
-      {
-        "id": "Lightricks/LTX-2.5",
-        "rank": 7,
-        "previous_rank": 7,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "rank": 8,
+        "rank": 7,
         "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
+      },
+      {
+        "id": "Lightricks/LTX-2.5",
+        "rank": 8,
+        "previous_rank": 7,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
-      },
-      {
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 10,
-        "previous_rank": 10,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
-        "rank": 11,
+        "rank": 10,
         "previous_rank": 11,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
+      },
+      {
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 11,
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 12,
-        "previous_rank": 13,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 13,
-        "previous_rank": 12,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "rank": 14,
-        "previous_rank": 17,
-        "rank_change": 3,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_rank": 14,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 17,
-        "previous_rank": 14,
-        "rank_change": -3,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
-      },
-      {
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "rank": 19,
-        "previous_rank": 19,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
-        "rank": 20,
+        "rank": 19,
         "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T13:22:08Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
+      },
+      {
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "rank": 20,
+        "previous_rank": 19,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-28T15:25:56Z"
       }
     ],
     "web_outgoing": [],
@@ -9828,8 +9851,8 @@
         "rank": 1,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 980,
-        "likes": 1133,
+        "trending_score": 972,
+        "likes": 1135,
         "downloads": 14047,
         "task": "text-generation",
         "library": "transformers",
@@ -9845,8 +9868,8 @@
         "rank": 2,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 917,
-        "likes": 3487,
+        "trending_score": 918,
+        "likes": 3490,
         "downloads": 116770,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9879,8 +9902,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 547,
-        "likes": 834,
+        "trending_score": 549,
+        "likes": 837,
         "downloads": 8222,
         "task": "text-generation",
         "library": "transformers",
@@ -9896,8 +9919,8 @@
         "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 411,
-        "likes": 1920,
+        "trending_score": 413,
+        "likes": 1924,
         "downloads": 798943,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -9913,8 +9936,8 @@
         "rank": 6,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 410,
-        "likes": 435,
+        "trending_score": 412,
+        "likes": 437,
         "downloads": 13247,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9928,27 +9951,10 @@
       },
       {
         "rank": 7,
-        "id": "Lightricks/LTX-2.5",
-        "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 399,
-        "likes": 9660,
-        "downloads": 2234788,
-        "task": "image-to-video",
-        "library": "diffusion-single-file",
-        "created_at": "2026-07-23T07:55:24.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "image-to-video",
-          "text-to-video",
-          "video-to-video"
-        ]
-      },
-      {
-        "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 399,
-        "likes": 422,
+        "trending_score": 402,
+        "likes": 425,
         "downloads": 1377570,
         "task": "text-generation",
         "library": "gguf",
@@ -9958,6 +9964,23 @@
           "gsq",
           "rco",
           "quantization"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "Lightricks/LTX-2.5",
+        "url": "https://huggingface.co/Lightricks/LTX-2.5",
+        "trending_score": 400,
+        "likes": 9666,
+        "downloads": 2234788,
+        "task": "image-to-video",
+        "library": "diffusion-single-file",
+        "created_at": "2026-07-23T07:55:24.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "image-to-video",
+          "text-to-video",
+          "video-to-video"
         ]
       },
       {
@@ -9979,27 +10002,10 @@
       },
       {
         "rank": 10,
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 313,
-        "likes": 5234,
-        "downloads": 2182980,
-        "task": "text-to-image",
-        "library": "gguf",
-        "created_at": "2026-09-20T15:51:13.000Z",
-        "tags": [
-          "gguf",
-          "qwen",
-          "image-generation",
-          "comfyui"
-        ]
-      },
-      {
-        "rank": 11,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 310,
-        "likes": 311,
+        "trending_score": 318,
+        "likes": 319,
         "downloads": 8892,
         "task": "text-generation",
         "library": "transformers",
@@ -10012,11 +10018,28 @@
         ]
       },
       {
+        "rank": 11,
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "trending_score": 313,
+        "likes": 5235,
+        "downloads": 2182980,
+        "task": "text-to-image",
+        "library": "gguf",
+        "created_at": "2026-09-20T15:51:13.000Z",
+        "tags": [
+          "gguf",
+          "qwen",
+          "image-generation",
+          "comfyui"
+        ]
+      },
+      {
         "rank": 12,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 291,
-        "likes": 305,
+        "trending_score": 293,
+        "likes": 307,
         "downloads": 8357,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10032,7 +10055,7 @@
         "rank": 13,
         "id": "unsloth/flint-GGUF",
         "url": "https://huggingface.co/unsloth/flint-GGUF",
-        "trending_score": 288,
+        "trending_score": 283,
         "likes": 306,
         "downloads": 178000,
         "task": "text-generation",
@@ -10049,8 +10072,8 @@
         "rank": 14,
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
-        "trending_score": 260,
-        "likes": 265,
+        "trending_score": 266,
+        "likes": 271,
         "downloads": 165,
         "task": "translation",
         "library": "transformers",
@@ -10083,8 +10106,8 @@
         "rank": 16,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 246,
-        "likes": 293,
+        "trending_score": 248,
+        "likes": 296,
         "downloads": 27056,
         "task": "text-generation",
         "library": "gguf",
@@ -10100,8 +10123,8 @@
         "rank": 17,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 241,
-        "likes": 352,
+        "trending_score": 232,
+        "likes": 353,
         "downloads": 8218,
         "task": "text-generation",
         "library": "transformers",
@@ -10117,8 +10140,8 @@
         "rank": 18,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 228,
-        "likes": 239,
+        "trending_score": 230,
+        "likes": 241,
         "downloads": 2305,
         "task": "text-generation",
         "library": "transformers",
@@ -10132,6 +10155,23 @@
       },
       {
         "rank": 19,
+        "id": "ccore/Qwen3.5-4B-3D-Coder",
+        "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+        "trending_score": 207,
+        "likes": 213,
+        "downloads": 6944,
+        "task": "未标注",
+        "library": "未标注",
+        "created_at": "2026-10-25T05:43:34.000Z",
+        "tags": [
+          "gguf",
+          "qwen3_5",
+          "code",
+          "threejs"
+        ]
+      },
+      {
+        "rank": 20,
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "trending_score": 206,
@@ -10146,28 +10186,11 @@
           "fine tune",
           "heretic"
         ]
-      },
-      {
-        "rank": 20,
-        "id": "ccore/Qwen3.5-4B-3D-Coder",
-        "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 204,
-        "likes": 210,
-        "downloads": 6944,
-        "task": "未标注",
-        "library": "未标注",
-        "created_at": "2026-10-25T05:43:34.000Z",
-        "tags": [
-          "gguf",
-          "qwen3_5",
-          "code",
-          "threejs"
-        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-28T15:25:56Z",
+      "last_checked_at": "2026-10-28T15:59:51Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -23095,9 +23118,9 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-28T15:25:56Z",
+    "last_attempt": "2026-10-28T15:59:57Z",
     "last_success": "2026-10-28T15:22:24Z",
-    "repositories_succeeded": 1,
+    "repositories_succeeded": 4,
     "repositories_total": 19,
     "releases": [
       {
@@ -24368,111 +24391,93 @@
     ],
     "errors": [
       {
-        "task": "huggingface-hub-cli-2-3",
-        "repo": "huggingface/huggingface_hub",
-        "at": "2026-10-28T15:25:56Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-nemo-automodel-0-7",
-        "repo": "NVIDIA-NeMo/Automodel",
-        "at": "2026-10-28T15:25:56Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "allenai-olmoearth-v1-3",
-        "repo": "allenai/olmoearth_pretrain",
-        "at": "2026-10-28T15:25:56Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
         "task": "microsoft-flint-interactive",
         "repo": "microsoft/flint-chart",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "agent4sci",
         "repo": "maszhongming/agent4sci",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "ibm-granite-timeseries-ensemble-r1",
         "repo": "ibm-granite/granite-tsfm",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "nvidia-auto-ontology",
         "repo": "NVIDIA/auto-ontology",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "nvidia-kumo-relational",
         "repo": "NVIDIA/structured-data-models",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "nvidia-rfd4-proteina",
         "repo": "RosettaCommons/RFD4-Proteina",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "nvidia-kumo-forecast",
         "repo": "NVIDIA/Kumo-TS",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "timestral",
         "repo": "mistralai/timestral",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "openhands",
         "repo": "OpenHands/OpenHands",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "graphrag",
         "repo": "microsoft/graphrag",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "docling",
         "repo": "docling-project/docling",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "browser-use",
         "repo": "browser-use/browser-use",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "whisper",
         "repo": "openai/whisper",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "ai-scientist",
         "repo": "SakanaAI/AI-Scientist",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       },
       {
         "task": "mathlib",
         "repo": "leanprover-community/mathlib4",
-        "at": "2026-10-28T15:25:56Z",
+        "at": "2026-10-28T15:59:57Z",
         "message": "GitHub HTTP 403"
       }
     ],
