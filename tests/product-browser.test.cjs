@@ -69,6 +69,7 @@ check('Arena is an evergreen AI evaluation platform with evidence-backed history
 check('map is separate and contains every product',()=>{
  const html=pb.page(read('pview=map'));assert.equal((html.match(/data-product-id=/g)||[]).length,data.items.length);assert(!html.includes('data-product-event'));
  assert(html.includes('产品说明'));assert(html.includes('客户采用'));assert(html.includes('投资背景'));assert(html.includes('完整时间线'));
+ assert(html.includes('class="pb-latest-kind"'),'latest summary must expose the change type before the timeline is expanded');
 });
 check('complete chronological history, not a last-event-only card',()=>{
  const p=data.items.find(x=>x.id==='harvey'),html=pb.page(read('pview=map&product=harvey'));

@@ -1,7 +1,35 @@
 {
   "version": 2,
-  "snapshot": "2026-10-28",
+  "snapshot": "2026-10-29",
   "items": [
+    {
+      "id": "openai-servicenow-mcp",
+      "name": "ServiceNow · ChatGPT MCP",
+      "title": "先用只读查询核对企业记录，再验证受权限控制的更新动作",
+      "category": "Agent / 企业工作流",
+      "mark": "SN",
+      "accent": "blue",
+      "summary": "ServiceNow MCP 插件把组织实例中的业务上下文和允许动作带入 ChatGPT；Action Fabric 沿用现有业务规则和权限。",
+      "scope": "OpenAI 2026-10-28 官方公告确认插件已在 OpenAI marketplace 开放；增强插件能力预计 2026 年底，安全、语音与 Codex 集成仍按 2027 年计划推进。",
+      "boundary": "当前可用插件不等于所有预告能力已上线。公告没有提供任务成功率、误操作率、支持地区、套餐或独立安全评测；客户实例、Action Fabric 配置与组织权限共同决定可见记录和可执行动作。本站未连接实例或执行写入。",
+      "repo": null,
+      "sources": ["openai-servicenow-partnership-20261028"],
+      "requirements": "一个已获组织批准的测试 ServiceNow 实例、OpenAI marketplace 中可见的插件、只含合成记录的测试队列，以及可查看 Action Fabric 权限和审计日志的管理员协作。",
+      "test": "先用最低权限角色只读查找一条指定测试 incident，并验证相似事件和变更风险的引用；随后仅在合成记录上尝试允许和拒绝的更新动作，逐项核对动作前确认、权限拒绝、最终记录与审计日志。",
+      "checks": [
+        "账号与组织实际出现 ServiceNow MCP 插件入口",
+        "只读回答引用正确实例、记录和时间范围",
+        "允许与越权动作分别按 Action Fabric 规则成功或拒绝",
+        "写入前有人确认，失败可回滚，最终状态与审计日志一致"
+      ],
+      "command": "无需命令行；在组织批准的 ChatGPT 与 ServiceNow 测试实例中连接插件，并从只读 incident 查询开始。",
+      "effort": "OpenAI marketplace 插件已开放；地区、套餐、ServiceNow 许可与组织配置以实际账号为准",
+      "evidence": "OpenAI 官方合作与可用性公告",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T03:20:00+08:00"
+    },
     {
       "id": "openai-icloud-mail-calendar",
       "name": "ChatGPT · iCloud Mail + Calendar",
@@ -1044,6 +1072,16 @@
   ],
   "sources": [
     {
+      "id": "openai-servicenow-partnership-20261028",
+      "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T03:20:00+08:00",
+      "kind": "官方合作、可用性与分期路线图公告"
+    },
+    {
       "id": "openai-icloud-mail-calendar-release-notes",
       "title": "ChatGPT release notes — iCloud Mail and Calendar plugins",
       "publisher": "OpenAI",
@@ -1740,6 +1778,18 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-servicenow-mcp-release",
+      "task": "openai-servicenow-mcp",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "ServiceNow MCP 插件进入 OpenAI marketplace",
+      "summary": "当前插件把 ServiceNow 业务上下文与受组织权限控制的动作带入 ChatGPT；增强能力、安全、语音与 Codex 集成仍按 2026 年底至 2027 年的分期计划推进。",
+      "delta": "企业 Agent 获得一个连接真实工作流的当前入口，但验收必须把现已开放插件与未来路线图分开，并逐项检查权限拒绝、确认、审计和回滚。",
+      "sources": ["openai-servicenow-partnership-20261028"],
+      "reviewed": "2026-10-29",
+      "short_title": "ServiceNow 工作流进入 ChatGPT"
+    },
     {
       "id": "openai-icloud-mail-calendar-release",
       "task": "openai-icloud-mail-calendar",

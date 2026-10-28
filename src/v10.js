@@ -188,7 +188,7 @@ const PB=(()=>{
  }
  function card(x,s){
   const history=chronology(x),latest=history[0],adoption=history.find(e=>e.kind==='Adoption'),backers=INVESTORS.filter(([id])=>id!=='all'&&ids(x).includes(id));
-  const latestHTML=latest?'<time datetime="'+latest.date+'">'+latest.date.replaceAll('-','.')+'</time><p>'+esc(latest.title)+'</p>':'<p class="pb-muted">暂无带日期的进展</p>';
+  const latestHTML=latest?'<span class="pb-latest-kind" data-kind="'+esc(latest.kind)+'">'+esc(KINDS[latest.kind]||latest.kind)+'</span><time datetime="'+latest.date+'">'+latest.date.replaceAll('-','.')+'</time><p>'+esc(latest.title)+'</p>':'<p class="pb-muted">暂无带日期的进展</p>';
   return '<article class="pb-card" data-product-id="'+esc(x.id)+'"><header><span class="pb-monogram" aria-hidden="true">'+esc(x.name.slice(0,2).toUpperCase())+'</span><div><h2>'+esc(x.name)+'</h2><span>'+esc(sceneName(x))+(x.company!==x.name?' · '+esc(x.company):'')+'</span></div><div class="pb-backers">'+backers.map(([id,name])=>link(s,{investor:id,product:''},esc(name),'pb-backer')).join('')+'</div></header>'+
    '<div class="pb-capability"><span class="pb-label">现在能做</span><p>'+esc(x.summary)+'</p></div>'+
    '<div class="pb-latest"><span class="pb-label">最新记录</span>'+latestHTML+'</div>'+

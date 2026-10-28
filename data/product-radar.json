@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-28",
+  "checked": "2026-10-29",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,41 @@
     }
   ],
   "items": [
+    {
+      "id": "servicenow-chatgpt-workflows",
+      "name": "ServiceNow in ChatGPT",
+      "company": "ServiceNow / OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["Enterprise Workflow", "MCP", "Security"],
+      "summary": "把 ServiceNow 业务上下文和受组织权限控制的动作带进 ChatGPT，并分期扩展到开发、安全与语音工作流。",
+      "product_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "source_label": "OpenAI 官方合作与可用性公告",
+      "evidence": "OpenAI 2026-10-28 官方公告确认 ServiceNow MCP 插件已在 OpenAI marketplace 开放，并给出增强插件、安全、语音和 Codex 集成的分期计划。",
+      "boundary": "只有当前 MCP 插件可确认已开放；增强能力、安全方案、语音体验与 Codex Workflow Factory 集成仍是未来计划。公告未给出任务成功率、误操作率、支持地区、套餐或独立安全评测；本站未连接客户实例。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Product",
+          "title": "ServiceNow MCP 插件开放，后续能力进入分期路线图",
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "summary": "当前插件把 ServiceNow 上下文与受权限控制的动作带入 ChatGPT；增强插件、安全、语音和 Codex 集成分别计划在 2026 年底至 2027 年推进。",
+          "facts": [
+            {"label": "现在可用", "value": "ServiceNow MCP plugin"},
+            {"label": "2026 年底", "value": "增强插件能力（预计）"},
+            {"label": "2027 Q1 / Q2", "value": "语音 / 安全早期访问与 GA（计划）"},
+            {"label": "2027", "value": "Codex in AI Workflow Factory（预计）"}
+          ],
+          "interpretation": "企业 Agent 的关键不只是能否调用动作，而是 Action Fabric 的业务规则、实例权限、动作确认和审计是否在真实流程里保持一致。",
+          "scope": "OpenAI 2026-10-28 公告所列的当前插件与未来时间表。",
+          "limitations": "不能把未来计划写成现已上线，也不能从合作公告推出端到端自动化可靠性或安全效果；本站未连接实例或执行写入。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T03:20:00+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "chatgpt-icloud-connected-apps",
       "name": "ChatGPT iCloud Connected Apps",

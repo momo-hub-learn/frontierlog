@@ -48,6 +48,13 @@ class ToolkitTests(unittest.TestCase):
         task=next(x for x in self.catalog['items'] if x['id']==row['id'])
         self.assertEqual(task['sources'],['openai-icloud-mail-calendar-release-notes'])
         validate_toolkit(self.data,self.catalog)
+    def test_servicenow_guide_separates_current_plugin_from_roadmap(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-servicenow-mcp')
+        self.assertIn('当前可确认开放',row['limitation'])
+        self.assertIn('未来计划',row['limitation'])
+        self.assertIn('越权动作被拒绝',row['steps'][2]['body'])
+        self.assertFalse(row['runtime_tested'])
+        validate_toolkit(self.data,self.catalog)
     def test_openhands_1_34_guide_preserves_runtime_and_secret_boundaries(self):
         row=next(x for x in self.data['items'] if x['id']=='openhands')
         self.assertFalse(row['runtime_tested'])

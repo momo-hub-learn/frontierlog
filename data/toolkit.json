@@ -42,6 +42,44 @@
   ],
   "items": [
     {
+      "id": "openai-servicenow-mcp",
+      "publisher": "OpenAI / ServiceNow",
+      "group": "office",
+      "access": "web",
+      "headline": "先验证只读记录，再验证 Action Fabric 权限下的单个测试动作",
+      "input": "组织批准的 ServiceNow 测试实例 + 合成 incident + 最低权限测试角色",
+      "output": "可追溯的查询结果、允许与拒绝动作结果、ServiceNow 最终记录及审计日志",
+      "requirements": "ChatGPT 组织账号已出现 ServiceNow MCP 插件；使用不含生产数据的测试实例，并由管理员预先配置最低权限角色、允许动作和审计日志访问。",
+      "limitation": "当前可确认开放的是 ServiceNow MCP 插件；增强插件、安全方案、语音体验和 Codex Workflow Factory 集成仍是未来计划。官方未公布任务成功率、误操作率、支持地区或套餐；本站未连接实例或执行写入。",
+      "cost": "插件入口已在 OpenAI marketplace 开放；ChatGPT 计划、ServiceNow 许可、地区、实例配置和实际费用以组织账号为准。",
+      "steps": [
+        {
+          "title": "确认当前入口与最低权限",
+          "body": "在组织批准的 ChatGPT 环境确认 ServiceNow MCP 插件真实可见；连接只含合成记录的测试实例，记录测试角色、可见表、允许动作和 Action Fabric 规则，不使用生产凭据或用户数据。"
+        },
+        {
+          "title": "先验收只读查询",
+          "body": "查找一条编号唯一的测试 incident、相似记录和指定变更风险；逐项核对实例、记录 ID、时间范围与引用，不把聊天摘要当成 ServiceNow 最终状态。"
+        },
+        {
+          "title": "分别验证允许与拒绝动作",
+          "body": "在合成记录上提交一个已允许更新，再尝试一个明确越权动作；写入前复核目标与字段，确认允许动作落盘、越权动作被拒绝，并核对审计日志和回滚路径。"
+        }
+      ],
+      "troubleshooting": "看不到入口时先核对组织计划、marketplace 可见性和管理员设置，不反复重连；查到错误实例或记录时立即断开；动作结果与 ServiceNow 最终状态或审计日志不一致时停止写入并由管理员人工回滚。",
+      "sources": [
+        {
+          "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://chatgpt.com/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false
+    },
+    {
       "id": "openai-icloud-mail-calendar",
       "publisher": "OpenAI",
       "group": "office",

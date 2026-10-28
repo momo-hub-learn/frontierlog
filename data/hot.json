@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-28",
+  "checked": "2026-10-29",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,55 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-servicenow-workflows-20261028",
+      "category": "product",
+      "title": "ServiceNow 工作流进入 ChatGPT，首个 MCP 插件已开放",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T03:20:00+08:00",
+      "first_seen_at": "2026-10-29T03:20:00+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 32,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是插件成功率、自动化准确率、安全能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方公告 · 插件现已开放 / 其余分期预告",
+      "summary": "OpenAI 宣布扩大与 ServiceNow 的合作：ServiceNow MCP 插件已在 OpenAI marketplace 开放，可把组织允许的记录与动作带入 ChatGPT；更强插件能力预计 2026 年底，安全方案、语音控制塔与 Codex Workflow Factory 则分期排到 2027 年。",
+      "why": "这是企业 Agent 从读取业务上下文走向在既有权限和业务规则下执行工作流的具体信号。真正的产品价值要用正确记录命中率、动作前确认、权限拒绝、审计日志和失败回滚验收，而不是把伙伴公告当成端到端可靠性证明。",
+      "boundary": "当前可确认立即开放的是 ServiceNow MCP 插件；增强能力、安全方案、语音体验和 Codex 集成仍是未来计划，不能写成已经上线。公告没有给出任务成功率、误操作率、支持地区、套餐或独立安全评测；组织权限由客户实例与 Action Fabric 配置决定。本站未连接 ServiceNow 实例或执行写入。",
+      "source": "OpenAI / ServiceNow",
+      "source_kind": "OpenAI 官方合作与可用性公告 / 本轮编辑核验",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "link": "#/toolkit?task=openai-servicenow-mcp&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 OpenAI 官方公告",
+          "note": "核对当前插件、权限边界与各项未来时间表",
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "kind": "product"
+        },
+        {
+          "label": "查看最小权限验证清单",
+          "note": "把已开放插件与 2027 年计划分开测试",
+          "url": "#/toolkit?task=openai-servicenow-mcp&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
     {
       "id": "artificial-analysis-index-v5-20261027",
       "category": "benchmark",
