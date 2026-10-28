@@ -37,6 +37,55 @@
     ],
     "items": [
       {
+        "id": "nvidia-meta-muse-collaboration-20261027",
+        "category": "industry",
+        "title": "NVIDIA 与 Meta 扩大 Muse Agent 合作",
+        "published": "2026-10-27",
+        "checked": "2026-10-28",
+        "verified_at": "2026-10-28T17:25:45+08:00",
+        "first_seen_at": "2026-10-28T17:25:45+08:00",
+        "heat": 89,
+        "heat_components": {
+          "impact": 32,
+          "availability": 17,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Muse 能力、下载量、推理性能或本站实测分数。",
+        "trend": "up",
+        "verification_status": "双方合作公告 · 性能优化与基础设施计划",
+        "summary": "NVIDIA 与 Meta 宣布扩大 Muse 及其模型家族合作，计划联合优化训练、推理和总体拥有成本，并考虑把 OpenShell 与 Sentry 用于 Agent 安全部署和行为监控；Meta 还计划扩大 Vera Rubin、Vera CPU、Spectrum-X 与 BlueField-4 部署。",
+        "why": "这把个人 Agent 的竞争从单一模型继续推向训练、推理、网络、隔离与行为监控的整套基础设施。若后续形成可复验的交付，Muse 的规模化路径会更清楚，也会给安全 Agent 栈带来新的真实部署信号。",
+        "boundary": "公告描述的是合作与计划，不是新的 Muse 模型发布，也没有给出优化后的 Benchmark、成本、上线时间或独立安全评测。厂商称已有前沿级表现和下载增长，本站未复核这些营销性主张；考虑合作不等于 OpenShell、Sentry 或新硬件已经在 Muse 全量生产环境部署。",
+        "source": "NVIDIA / Meta",
+        "source_kind": "官方合作公告 / 本轮编辑核验",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+        "link": "#/toolkit?task=nvidia-openshell&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 NVIDIA 官方公告",
+            "note": "核对已宣布的合作范围、基础设施计划与前瞻性声明",
+            "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+            "kind": "industry"
+          },
+          {
+            "label": "查看 OpenShell 验证指南",
+            "note": "把合作计划与当前可验证的权限、拒绝和审计路径分开阅读",
+            "url": "#/toolkit?task=nvidia-openshell&tab=run",
+            "kind": "internal"
+          }
+        ],
+        "related": [
+          {
+            "source": "NVIDIA",
+            "title": "NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models",
+            "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+            "date": "2026-10-27"
+          }
+        ]
+      },
+      {
         "id": "openai-icloud-mail-calendar-20261027",
         "category": "product",
         "title": "ChatGPT 接入 iCloud 邮件与日历",
@@ -7582,11 +7631,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-28T08:59:05Z",
+    "checked_at": "2026-10-28T09:22:24Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-28T08:59:05Z",
+      "last_success": "2026-10-28T09:22:24Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -8632,7 +8681,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T08:44:28Z",
+    "checked_at": "2026-10-28T09:21:57Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -8643,8 +8692,8 @@
         "stars_today": 1395,
         "description": "",
         "language": "",
-        "stars": 10244,
-        "forks": 738,
+        "stars": 10309,
+        "forks": 741,
         "repo_created_at": "2026-07-29T06:43:16Z",
         "repo_pushed_at": "2026-10-27T16:02:10Z",
         "category": "ai-tools",
@@ -8655,7 +8704,7 @@
           "GitHub"
         ],
         "url": "https://github.com/elayadesign/ai-design-skills",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T20:48:36Z",
@@ -8680,6 +8729,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 10244
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 10309
           }
         ]
       },
@@ -8689,10 +8742,10 @@
         "stars_today": 2830,
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
-        "stars": 39621,
-        "forks": 2074,
+        "stars": 39678,
+        "forks": 2075,
         "repo_created_at": "2026-04-27T20:47:10Z",
-        "repo_pushed_at": "2026-10-27T15:05:53Z",
+        "repo_pushed_at": "2026-10-28T08:48:31Z",
         "category": "agent-skills",
         "ai_related": true,
         "tags": [
@@ -8701,12 +8754,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Nutlope/hallmark",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T09:21:00Z",
-            "stars": 37530
-          },
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 37795
@@ -8750,6 +8799,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 39621
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 39678
           }
         ]
       },
@@ -8759,10 +8812,10 @@
         "stars_today": 777,
         "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
         "language": "TypeScript",
-        "stars": 2763,
-        "forks": 277,
+        "stars": 2796,
+        "forks": 280,
         "repo_created_at": "2026-08-12T21:32:03Z",
-        "repo_pushed_at": "2026-10-28T08:42:33Z",
+        "repo_pushed_at": "2026-10-28T09:01:05Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8771,12 +8824,8 @@
           "GitHub"
         ],
         "url": "https://github.com/nightly-labs/openbot",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T11:21:55Z",
-            "stars": 1836
-          },
           {
             "at": "2026-10-27T13:22:28Z",
             "stars": 1939
@@ -8820,6 +8869,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 2763
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 2796
           }
         ]
       },
@@ -8829,7 +8882,7 @@
         "stars_today": 617,
         "description": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
-        "stars": 306785,
+        "stars": 306806,
         "forks": 27309,
         "repo_created_at": "2025-10-09T19:45:18Z",
         "repo_pushed_at": "2026-10-23T03:48:57Z",
@@ -8841,7 +8894,7 @@
           "Workflow"
         ],
         "url": "https://github.com/obra/superpowers",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -8882,6 +8935,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 306785
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 306806
           }
         ]
       },
@@ -8891,10 +8948,10 @@
         "stars_today": 1449,
         "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
-        "stars": 91100,
-        "forks": 5397,
+        "stars": 91142,
+        "forks": 5399,
         "repo_created_at": "2025-11-16T01:52:04Z",
-        "repo_pushed_at": "2026-10-28T07:03:08Z",
+        "repo_pushed_at": "2026-10-28T08:57:03Z",
         "category": "agent-harness",
         "ai_related": true,
         "tags": [
@@ -8903,12 +8960,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T09:21:00Z",
-            "stars": 89700
-          },
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 89814
@@ -8952,6 +9005,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 91100
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 91142
           }
         ]
       },
@@ -8961,10 +9018,10 @@
         "stars_today": 1465,
         "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
         "language": "TypeScript",
-        "stars": 7738,
-        "forks": 919,
+        "stars": 7762,
+        "forks": 921,
         "repo_created_at": "2026-07-22T17:49:34Z",
-        "repo_pushed_at": "2026-10-28T08:42:40Z",
+        "repo_pushed_at": "2026-10-28T09:19:02Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -8973,12 +9030,8 @@
           "GitHub"
         ],
         "url": "https://github.com/makecindy/cindy",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T09:21:00Z",
-            "stars": 7010
-          },
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 7090
@@ -9022,6 +9075,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 7738
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 7762
           }
         ]
       },
@@ -9031,8 +9088,8 @@
         "stars_today": 951,
         "description": "📨 The ultimate agentic social media scheduling tool 🤖",
         "language": "TypeScript",
-        "stars": 39728,
-        "forks": 7542,
+        "stars": 39756,
+        "forks": 7544,
         "repo_created_at": "2023-07-08T17:24:22Z",
         "repo_pushed_at": "2026-10-24T18:27:21Z",
         "category": "agent-interface",
@@ -9043,12 +9100,8 @@
           "MCP"
         ],
         "url": "https://github.com/gitroomhq/postiz-app",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T09:21:00Z",
-            "stars": 38770
-          },
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 38843
@@ -9092,6 +9145,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 39728
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 39756
           }
         ]
       },
@@ -9101,8 +9158,8 @@
         "stars_today": 1165,
         "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
         "language": "JavaScript",
-        "stars": 291198,
-        "forks": 43112,
+        "stars": 291221,
+        "forks": 43118,
         "repo_created_at": "2026-01-18T00:51:51Z",
         "repo_pushed_at": "2026-10-26T04:56:56Z",
         "category": "agent-memory",
@@ -9113,12 +9170,8 @@
           "AI"
         ],
         "url": "https://github.com/affaan-m/ECC",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T09:21:00Z",
-            "stars": 290209
-          },
           {
             "at": "2026-10-27T11:21:55Z",
             "stars": 290316
@@ -9162,6 +9215,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 291198
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 291221
           }
         ]
       },
@@ -9171,8 +9228,8 @@
         "stars_today": 1598,
         "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
-        "stars": 46828,
-        "forks": 5845,
+        "stars": 46920,
+        "forks": 5853,
         "repo_created_at": "2025-12-28T15:35:54Z",
         "repo_pushed_at": "2026-10-28T04:28:33Z",
         "category": "other",
@@ -9182,7 +9239,7 @@
           "GitHub"
         ],
         "url": "https://github.com/HKUDS/DeepTutor",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -9227,6 +9284,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 46828
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 46920
           }
         ]
       },
@@ -9236,10 +9297,10 @@
         "stars_today": 1204,
         "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
         "language": "TypeScript",
-        "stars": 4412,
-        "forks": 235,
+        "stars": 4441,
+        "forks": 236,
         "repo_created_at": "2026-07-08T07:40:43Z",
-        "repo_pushed_at": "2026-10-28T08:43:38Z",
+        "repo_pushed_at": "2026-10-28T09:19:40Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -9247,12 +9308,8 @@
           "GitHub"
         ],
         "url": "https://github.com/JetBrains/thinkrail",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
-          {
-            "at": "2026-10-27T08:02:51Z",
-            "stars": 3312
-          },
           {
             "at": "2026-10-27T09:21:00Z",
             "stars": 3374
@@ -9296,6 +9353,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 4412
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 4441
           }
         ]
       },
@@ -9305,8 +9366,8 @@
         "stars_today": 902,
         "description": "LIST OF ALL MY JAILBREAKS",
         "language": "",
-        "stars": 6135,
-        "forks": 887,
+        "stars": 6172,
+        "forks": 892,
         "repo_created_at": "2026-06-18T18:21:25Z",
         "repo_pushed_at": "2026-10-25T15:21:20Z",
         "category": "other",
@@ -9316,7 +9377,7 @@
           "GitHub"
         ],
         "url": "https://github.com/togg53192-cmd/jailbreaks",
-        "metadata_verified_at": "2026-10-28T08:44:28Z",
+        "metadata_verified_at": "2026-10-28T09:21:57Z",
         "star_history": [
           {
             "at": "2026-10-27T11:21:55Z",
@@ -9357,6 +9418,10 @@
           {
             "at": "2026-10-28T08:44:28Z",
             "stars": 6135
+          },
+          {
+            "at": "2026-10-28T09:21:57Z",
+            "stars": 6172
           }
         ]
       }
@@ -9436,10 +9501,10 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-28T08:44:28Z",
-      "last_success_at": "2026-10-28T08:44:28Z",
+      "last_checked_at": "2026-10-28T09:21:57Z",
+      "last_success_at": "2026-10-28T09:21:57Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-28T08:44:28Z",
+      "watchlist_checked_at": "2026-10-28T09:21:57Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 11,
@@ -9460,27 +9525,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 399207,
-        "forks": 100154,
+        "stars": 399389,
+        "forks": 100195,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-28T08:31:56Z",
+        "repo_pushed_at": "2026-10-28T09:16:54Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-28T08:44:28Z",
+        "verified_at": "2026-10-28T09:21:57Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-28T07:21:57Z",
+    "checked_at": "2026-10-28T09:21:57Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-28T07:21:57Z",
-    "web_fetched_at": "2026-10-28T07:21:57Z",
+    "api_fetched_at": "2026-10-28T09:21:57Z",
+    "web_fetched_at": "2026-10-28T09:21:57Z",
     "web_order_matches_api": true,
     "web_order": [
       "RecursiveSI/flint",
@@ -9497,8 +9562,8 @@
       "unsloth/flint-GGUF",
       "baidu/Unlimited-OCR-2",
       "OpenMOSS-Team/MOSS-Image-SFT",
-      "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "LiquidAI/LFM3-1.7B",
+      "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "HuggingFaceBio/Carbon-X",
       "tencent/Hy-SimulMT-30B-A3B-FP8",
       "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
@@ -9508,158 +9573,152 @@
       {
         "id": "RecursiveSI/flint",
         "rank": 1,
-        "previous_rank": 2,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 1,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "rank": 2,
-        "previous_rank": 1,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 2,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "InternScience/Sage-A1.5",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "unsloth/flint-GGUF",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 13,
-        "previous_rank": 14,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 14,
-        "previous_rank": 13,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
-      },
-      {
-        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "rank": 15,
-        "previous_rank": 15,
+        "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
-        "rank": 16,
-        "previous_rank": 17,
+        "rank": 15,
+        "previous_rank": 16,
         "rank_change": 1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
+      },
+      {
+        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "rank": 16,
+        "previous_rank": 15,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
         "rank": 17,
-        "previous_rank": 16,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 17,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "rank": 18,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 18,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 19,
-        "previous_rank": 18,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_rank": 19,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "rank": 20,
         "previous_rank": 20,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
+        "previous_fetched_at": "2026-10-28T07:21:57Z"
       }
     ],
-    "web_outgoing": [
-      {
-        "id": "fishaudio/drama-3",
-        "previous_rank": 19,
-        "previous_fetched_at": "2026-10-28T05:17:23Z"
-      }
-    ],
+    "web_outgoing": [],
     "items": [
       {
         "rank": 1,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 948,
-        "likes": 1086,
+        "trending_score": 956,
+        "likes": 1098,
         "downloads": 10574,
         "task": "text-generation",
         "library": "transformers",
@@ -9675,8 +9734,8 @@
         "rank": 2,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 946,
-        "likes": 3439,
+        "trending_score": 942,
+        "likes": 3457,
         "downloads": 105667,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9692,8 +9751,8 @@
         "rank": 3,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 676,
-        "likes": 684,
+        "trending_score": 677,
+        "likes": 686,
         "downloads": 4785,
         "task": "text-generation",
         "library": "transformers",
@@ -9709,8 +9768,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 591,
-        "likes": 817,
+        "trending_score": 590,
+        "likes": 823,
         "downloads": 6191,
         "task": "text-generation",
         "library": "transformers",
@@ -9726,8 +9785,8 @@
         "rank": 5,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 415,
-        "likes": 1884,
+        "trending_score": 418,
+        "likes": 1895,
         "downloads": 750694,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -9743,8 +9802,8 @@
         "rank": 6,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 404,
-        "likes": 428,
+        "trending_score": 406,
+        "likes": 431,
         "downloads": 11075,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9760,8 +9819,8 @@
         "rank": 7,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 395,
-        "likes": 9608,
+        "trending_score": 394,
+        "likes": 9621,
         "downloads": 2163739,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -9777,8 +9836,8 @@
         "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 384,
-        "likes": 407,
+        "trending_score": 388,
+        "likes": 411,
         "downloads": 1105751,
         "task": "text-generation",
         "library": "gguf",
@@ -9794,8 +9853,8 @@
         "rank": 9,
         "id": "InternScience/Sage-A1.5",
         "url": "https://huggingface.co/InternScience/Sage-A1.5",
-        "trending_score": 328,
-        "likes": 347,
+        "trending_score": 327,
+        "likes": 350,
         "downloads": 6613,
         "task": "text-generation",
         "library": "transformers",
@@ -9811,8 +9870,8 @@
         "rank": 10,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 320,
-        "likes": 18561,
+        "trending_score": 323,
+        "likes": 18569,
         "downloads": 7522728,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9829,7 +9888,7 @@
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "trending_score": 305,
-        "likes": 5213,
+        "likes": 5218,
         "downloads": 2201569,
         "task": "text-to-image",
         "library": "gguf",
@@ -9862,8 +9921,8 @@
         "rank": 13,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 267,
-        "likes": 279,
+        "trending_score": 274,
+        "likes": 287,
         "downloads": 513,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -9879,8 +9938,8 @@
         "rank": 14,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 257,
-        "likes": 790,
+        "trending_score": 258,
+        "likes": 794,
         "downloads": 13253,
         "task": "text-to-image",
         "library": "diffusers",
@@ -9894,27 +9953,10 @@
       },
       {
         "rank": 15,
-        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 239,
-        "likes": 286,
-        "downloads": 13441,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-10-22T04:06:52.000Z",
-        "tags": [
-          "gguf",
-          "llama.cpp",
-          "local",
-          "deepseek"
-        ]
-      },
-      {
-        "rank": 16,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 232,
-        "likes": 233,
+        "trending_score": 255,
+        "likes": 256,
         "downloads": 6311,
         "task": "text-generation",
         "library": "transformers",
@@ -9927,11 +9969,28 @@
         ]
       },
       {
+        "rank": 16,
+        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "trending_score": 240,
+        "likes": 287,
+        "downloads": 13441,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-10-22T04:06:52.000Z",
+        "tags": [
+          "gguf",
+          "llama.cpp",
+          "local",
+          "deepseek"
+        ]
+      },
+      {
         "rank": 17,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 224,
-        "likes": 235,
+        "trending_score": 225,
+        "likes": 236,
         "downloads": 1595,
         "task": "text-generation",
         "library": "transformers",
@@ -9947,8 +10006,8 @@
         "rank": 18,
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
-        "trending_score": 206,
-        "likes": 209,
+        "trending_score": 220,
+        "likes": 224,
         "downloads": 93,
         "task": "translation",
         "library": "transformers",
@@ -9964,8 +10023,8 @@
         "rank": 19,
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "trending_score": 204,
-        "likes": 2176,
+        "trending_score": 206,
+        "likes": 2178,
         "downloads": 1713544,
         "task": "image-text-to-text",
         "library": "未标注",
@@ -9997,7 +10056,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-28T07:21:57Z",
+      "last_checked_at": "2026-10-28T09:21:57Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -19914,8 +19973,41 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-27",
+    "checked": "2026-10-28",
     "account": "thsottiaux",
+    "guidance": [
+      {
+        "id": "banked-reset",
+        "title": "Banked reset · 留存后主动使用",
+        "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；发到账号不等于额度已恢复。",
+        "action": "先看用量页是否显示可用 reset，再核对适用窗口、资格和有效期。",
+        "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度。",
+        "sources": [
+          "oa-banked"
+        ]
+      },
+      {
+        "id": "automatic-reset",
+        "title": "Automatic / global reset · 官方直接应用",
+        "summary": "OpenAI 可能把一次重置直接应用到符合条件的限额；这里的 global 不代表所有账号、所有套餐或所有用量窗口。",
+        "action": "用账号用量页或 Codex /status 核对实际窗口，不根据公告标题推断个人余额。",
+        "boundary": "公告时间、Tibo 原帖或本站记录都不能单独证明每个账户已完成传播。",
+        "sources": [
+          "oa-banked",
+          "oa-usage"
+        ]
+      },
+      {
+        "id": "purchased-reset",
+        "title": "Purchased reset · 单独付费提前开启新周期",
+        "summary": "符合资格的个人 Plus / Pro 完成购买后，五小时和周窗口立即恢复；新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
+        "action": "只在网页或桌面用量页确认入口、价格和资格；购买前先判断是否确实需要提前开启新周期。",
+        "boundary": "这是把周额度拉到当前使用，不是额外赠送一整周，也不消耗 banked reset；Free、Go、Business、Enterprise 和 Edu 不在当前官方说明范围。",
+        "sources": [
+          "oa-paid-weekly-reset"
+        ]
+      }
+    ],
     "events": [
       {
         "id": "banked-2026-09-03",
@@ -19939,21 +20031,22 @@
       },
       {
         "id": "openai-paid-weekly-reset-2026-10-26",
-        "kind": "announcement",
-        "status": "announced",
+        "kind": "guidance",
+        "status": "confirmed",
         "date": "2026-10-26",
         "published_at": null,
         "effective_at": null,
         "precision": "source_date",
         "source_timezone": null,
-        "title": "官方说明：符合资格的 Plus / Pro 可购买即时周额度重置",
-        "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后，符合范围的五小时和周用量窗口立即刷新。",
+        "title": "官方使用说明：符合资格的 Plus / Pro 可购买即时周额度重置",
+        "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后五小时和周窗口立即刷新，新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
         "scope": "符合资格的个人 ChatGPT Plus / Pro · 取决于账号与账单国家/地区",
-        "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它会把周额度提前到当前时点并改变下次周重置日期，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。官方说明不能证明每个账户都有购买入口；价格、可见性与资格只能以个人用量页为准。",
+        "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它把周额度提前到当前使用，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。当前官方范围不含 Free、Go、Business、Enterprise 或 Edu；价格、入口与资格只能以个人用量页为准。",
         "sources": [
           "oa-paid-weekly-reset"
         ],
-        "reviewed": "2026-10-27",
+        "reviewed": "2026-10-28",
+        "verified_at": "2026-10-28T17:25:45+08:00",
         "review_basis": "primary_source",
         "related_ids": []
       },
@@ -20438,18 +20531,18 @@
         "publisher": "OpenAI Help Center",
         "title": "Paid weekly Work and Codex rate limit resets",
         "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
-        "checked": "2026-10-27",
+        "checked": "2026-10-28",
         "kind": "官方说明",
-        "note": "2026-10-26 官方说明更新；记录购买资格、即时生效、banked reset 独立性与周重置日期变化，不把它写成 Tibo 全局 reset。"
+        "note": "本轮核验购买资格、即时生效、banked reset 独立性，以及新周周期从购买后的第一次请求开始、七天后再自动周重置；不把它写成 Tibo 全局 reset。"
       },
       {
         "id": "oa-banked",
         "publisher": "OpenAI Help Center",
-        "title": "How banked Codex resets work",
-        "url": "https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work",
-        "checked": "2026-09-21",
+        "title": "How resets work in Codex",
+        "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
+        "checked": "2026-10-28",
         "kind": "官方说明",
-        "note": "日期是官方文中记日，未给出精确发生时刻；不把它补成北京时间零点。"
+        "note": "本轮核验 banked、automatic/global 与 purchased 三类 reset 的官方定义、资格和不叠加边界；日期记录仍不补成虚构的北京时间零点。"
       },
       {
         "id": "oa-usage",
@@ -23173,9 +23266,9 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-28T07:22:52Z",
-    "last_success": "2026-10-27T21:22:24Z",
-    "repositories_succeeded": 17,
+    "last_attempt": "2026-10-28T09:21:57Z",
+    "last_success": "2026-10-28T09:21:57Z",
+    "repositories_succeeded": 19,
     "repositories_total": 19,
     "releases": [
       {
@@ -23201,6 +23294,28 @@
         "review_status": "unreviewed"
       },
       {
+        "id": "upstream-425499416",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/think@0.22.0",
+        "title": "@cloudflare/think@0.22.0",
+        "published_at": "2026-10-27T13:29:15Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/think%400.22.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-425499353",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.31.0",
+        "title": "agents@0.31.0",
+        "published_at": "2026-10-27T13:29:12Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+        "review_status": "unreviewed"
+      },
+      {
         "id": "upstream-424894279",
         "task": "docling",
         "repo": "docling-project/docling",
@@ -23220,6 +23335,17 @@
         "published_at": "2026-10-26T22:00:34Z",
         "observed_at": "2026-10-27T01:20:18Z",
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-422013472",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.30.1",
+        "title": "agents@0.30.1",
+        "published_at": "2026-10-23T15:36:02Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.30.1",
         "review_status": "unreviewed"
       },
       {
@@ -23286,6 +23412,17 @@
         "published_at": "2026-10-22T12:38:29Z",
         "observed_at": "2026-10-27T01:20:18Z",
         "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.3.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-420639423",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.30.0",
+        "title": "agents@0.30.0",
+        "published_at": "2026-10-22T11:29:39Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.30.0",
         "review_status": "unreviewed"
       },
       {
@@ -23363,6 +23500,61 @@
         "published_at": "2026-10-20T21:27:15Z",
         "observed_at": "2026-10-26T11:23:55Z",
         "url": "https://github.com/docling-project/docling/releases/tag/v2.141.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-418550595",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/think@0.21.0",
+        "title": "@cloudflare/think@0.21.0",
+        "published_at": "2026-10-20T15:20:12Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/think%400.21.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-418550523",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/codemode@0.5.5",
+        "title": "@cloudflare/codemode@0.5.5",
+        "published_at": "2026-10-20T15:20:08Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/codemode%400.5.5",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-418550468",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/ai-chat@0.12.2",
+        "title": "@cloudflare/ai-chat@0.12.2",
+        "published_at": "2026-10-20T15:20:05Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/ai-chat%400.12.2",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-418550419",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.29.0",
+        "title": "agents@0.29.0",
+        "published_at": "2026-10-20T15:20:02Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.29.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-418550357",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/shell@0.5.0",
+        "title": "@cloudflare/shell@0.5.0",
+        "published_at": "2026-10-20T15:20:00Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/shell%400.5.0",
         "review_status": "unreviewed"
       },
       {
@@ -23473,6 +23665,17 @@
         "published_at": "2026-10-13T15:11:23Z",
         "observed_at": "2026-10-26T11:23:55Z",
         "url": "https://github.com/leanprover-community/mathlib4/releases/tag/v4.35.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-411705668",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.28.1",
+        "title": "agents@0.28.1",
+        "published_at": "2026-10-13T13:28:30Z",
+        "observed_at": "2026-10-28T09:21:57Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.28.1",
         "review_status": "unreviewed"
       },
       {
@@ -24323,20 +24526,7 @@
         "review_status": "unreviewed"
       }
     ],
-    "errors": [
-      {
-        "task": "cloudflare-agents-0-31",
-        "repo": "cloudflare/agents",
-        "at": "2026-10-28T07:22:52Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-rfd4-proteina",
-        "repo": "RosettaCommons/RFD4-Proteina",
-        "at": "2026-10-28T07:22:52Z",
-        "message": "GitHub HTTP 403"
-      }
-    ],
+    "errors": [],
     "note": "Official release metadata only. Capability assessments require editorial review."
   },
   "site": {
@@ -26158,9 +26348,9 @@
     "note": "首批专题资料；历史日期保留，持续更新文档不伪造发布日期。全部为公开材料整理，未代替实测。"
   },
   "intake": {
-    "last_attempt": "2026-10-28T09:01:33.983778Z",
-    "last_success": "2026-10-28T09:01:33.983778Z",
-    "last_full_success": "2026-10-28T09:01:33.983778Z",
+    "last_attempt": "2026-10-28T09:38:28.291931Z",
+    "last_success": "2026-10-28T09:38:28.291931Z",
+    "last_full_success": "2026-10-28T09:38:28.291931Z",
     "items": [
       {
         "title": "Release Anomalib Library v2.7.0",
@@ -26177,7 +26367,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26197,7 +26387,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26217,7 +26407,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26237,7 +26427,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26257,7 +26447,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26277,7 +26467,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26297,7 +26487,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26317,7 +26507,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26337,7 +26527,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26357,7 +26547,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26377,7 +26567,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26397,7 +26587,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26417,7 +26607,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26437,7 +26627,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26457,7 +26647,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26477,7 +26667,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26496,7 +26686,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26516,7 +26706,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26536,7 +26726,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26555,7 +26745,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26575,7 +26765,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26594,7 +26784,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26613,7 +26803,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26632,7 +26822,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26651,7 +26841,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26670,7 +26860,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26689,7 +26879,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26709,7 +26899,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26729,7 +26919,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26748,7 +26938,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26768,7 +26958,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26788,7 +26978,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26808,7 +26998,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26828,7 +27018,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26848,7 +27038,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26868,7 +27058,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26888,7 +27078,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26908,7 +27098,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -26927,7 +27117,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26947,7 +27137,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -26966,7 +27156,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -26986,7 +27176,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -27005,7 +27195,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27024,7 +27214,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27043,7 +27233,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27062,7 +27252,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27082,7 +27272,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -27101,7 +27291,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27120,7 +27310,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -27140,7 +27330,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -27160,7 +27350,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-22T23:23:21.173912Z",
-        "last_seen": "2026-10-28T09:01:33.983778Z",
+        "last_seen": "2026-10-28T09:38:28.291931Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -27171,7 +27361,7 @@
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
         "status": "success",
-        "checked_at": "2026-10-28T09:01:33.983778Z",
+        "checked_at": "2026-10-28T09:38:28.291931Z",
         "parsed": 14,
         "matched": 14
       },
@@ -27179,7 +27369,7 @@
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-28T09:01:33.983778Z",
+        "checked_at": "2026-10-28T09:38:28.291931Z",
         "parsed": 17,
         "matched": 17
       },
@@ -27187,7 +27377,7 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-28T09:01:33.983778Z",
+        "checked_at": "2026-10-28T09:38:28.291931Z",
         "parsed": 20,
         "matched": 20
       }
