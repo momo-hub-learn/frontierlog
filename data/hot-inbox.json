@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-28T21:46:48Z",
+  "generated_at": "2026-10-28T23:34:33Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 91,
+    "merge": 92,
     "hold": 5
   },
   "candidates": [
@@ -164,6 +164,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-servicenow-mcp",
       "first_seen_at": "2026-10-28T19:29:22Z"
+    },
+    {
+      "id": "candidate-47e4ac87235f5ab6",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "Copilot harness 进入 Foundry Agent Service 公开预览",
+      "summary": "Foundry 托管 Agent loop 与 sandbox；开发者提供 instructions、skills、工具和模型选择，并可使用文件、代码执行和受限子 Agent。",
+      "why": "统一 Harness 降低多模型编排和运行维护成本，但产品差异仍要落在任务定义、权限、评测、恢复幂等与失败处理上。",
+      "boundary": "现有 Agent 创建后暂不支持切换 Harness；预览的地区、模型、工具和限制需逐项核对。恢复只重新启动工作，进度保存、外部写入去重和最终验收仍由应用负责。",
+      "source": "Microsoft / GitHub",
+      "source_kind": "官方产品节点",
+      "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "microsoft-copilot-harness",
+      "first_seen_at": "2026-10-28T23:34:33Z"
     },
     {
       "id": "candidate-495e989e586ae762",
@@ -990,29 +1014,6 @@
         "Privacy"
       ],
       "first_seen_at": "2026-10-27T01:23:34Z"
-    },
-    {
-      "id": "candidate-2e1dbc4df560deae",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "DSX AI 工厂：效率数字必须保留测试边界",
-      "summary": "NVIDIA 发布 DSX 参考设计、MaxLPS、Flex、Sim 与开放 DSX OS 组件，目标是在冷却、功率分配、并网响应和设施数字孪生之间形成同一套 AI 工厂运营路径。",
-      "why": "同一公告同时给出设计、仿真、运行和电网协同接口，为设施团队提供可验证的分层架构；它也揭示“每兆瓦产出”正成为 AI 基础设施的核心指标。",
-      "boundary": "近零冷却用水、最多 30% 节电及吞吐提升来自参考设计、厂商估算或特定 PoC，受气候、机型、负载和设施边界影响；不能直接外推到任意数据中心，也不是独立本站实测。",
-      "source": "NVIDIA",
-      "source_kind": "官方 AI 工厂平台发布",
-      "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T19:42:10Z"
     }
   ]
 }
