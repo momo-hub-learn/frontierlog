@@ -42,6 +42,46 @@
   ],
   "items": [
     {
+      "id": "cloudflare-agents-0-31",
+      "publisher": "Cloudflare",
+      "group": "agents",
+      "access": "web",
+      "headline": "先用隔离预览验证内部主机，再迁移 Browser Tool 与 MCP 依赖",
+      "input": "一个无生产凭据的 Worker 测试项目、固定测试页，以及允许和拒绝的内部主机、目录与端口样本",
+      "output": "内部主机访问结果、未知主机与超时回退、Browser Tool API 迁移记录，以及 MCP 依赖和构建回归清单",
+      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；使用 MCP、x402 或 WebMCP 时，另按 Release 安装匹配依赖。",
+      "limitation": "本站只核验 Cloudflare 官方 Release，未部署软件。internalHosts 由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问；升级还会改变 browserTool、browser.cdp 与结果字段，并弃用一组旧 helper，不能只改版本号。",
+      "cost": "SDK 开源；Browser Run、Workers、模型、存储和网络的权限、限制与费用取决于 Cloudflare 实际账号和用量。",
+      "steps": [
+        {
+          "title": "固定版本并列出迁移项",
+          "body": "在隔离分支固定 agents@0.31.0；记录是否使用 MCP、x402、WebMCP、旧 Browser Tool helper、cdp.send 或旧结果字段，先形成迁移清单。",
+          "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖"
+        },
+        {
+          "title": "只暴露受控测试主机",
+          "body": "把 preview.internal 指向返回固定测试内容的 fetch；分别验证允许主机、未知主机、目录/端口 target 和超时，不连接生产内网、密钥或用户数据。"
+        },
+        {
+          "title": "完成 API 与构建回归",
+          "body": "把 cdp.send 迁移为 browser.cdp，读取 notice 替代旧结果字段；显式补齐 MCP 依赖并运行现有单元、集成与构建检查，再决定是否扩大范围。"
+        }
+      ],
+      "troubleshooting": "构建出现 unresolved import 时先核对 Release 要求的 MCP SDK/server 版本；浏览器无法访问内部主机时检查 internalHosts、fetch/target 和允许数量；旧代码报错时逐项排查弃用 helper、ctx、cdp.send 与旧结果字段。",
+      "sources": [
+        {
+          "title": "Cloudflare Agents：agents@0.31.0",
+          "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28"
+        }
+      ],
+      "entry_url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-28T13:23:04+08:00"
+    },
+    {
       "id": "openai-coderabbit-secure",
       "publisher": "CodeRabbit / OpenAI",
       "group": "agents",
