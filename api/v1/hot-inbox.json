@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-28T13:37:46Z",
+  "generated_at": "2026-10-28T15:40:27Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 1,
+    "publish": 2,
     "merge": 88,
     "hold": 4
   },
@@ -32,6 +32,30 @@
       "action": "publish",
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "browser-use",
+      "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-c999163fce628094",
+      "category": "product",
+      "published": "2026-10-26",
+      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
+      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
+      "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
+      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "source": "Docling project",
+      "source_kind": "官方发布",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
+      "publishable": true,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.919,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "docling",
       "first_seen_at": "2026-10-27T01:23:34Z"
     },
     {
@@ -95,7 +119,7 @@
       "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
       "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
       "why": "扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
+      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
@@ -111,6 +135,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "docling",
       "first_seen_at": "2026-10-28T01:30:28Z"
+    },
+    {
+      "id": "candidate-c350a4ab40cdf279",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
+      "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
+      "why": "文档流水线可更明确地处理“存在但不可用”的文字层；仍需用损坏层、并发转换、多语与复杂版面样本逐项复核，官方修复清单不等于本站实测。",
+      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "source": "Docling project",
+      "source_kind": "官方发布",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "docling",
+      "first_seen_at": "2026-10-28T15:40:27Z"
     },
     {
       "id": "candidate-52b59234fd7a3b71",
@@ -362,30 +410,6 @@
       "first_seen_at": "2026-10-27T11:28:21Z"
     },
     {
-      "id": "candidate-c999163fce628094",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
-      "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
-      "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
-      "source": "Docling project",
-      "source_kind": "官方发布",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.857,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.783,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "docling",
-      "first_seen_at": "2026-10-27T01:23:34Z"
-    },
-    {
       "id": "candidate-f1807b40775d91b3",
       "category": "product",
       "published": "2026-10-26",
@@ -568,7 +592,7 @@
       "title": "Docling 收紧归档、图片与复杂格式输入边界",
       "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
       "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
-      "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
+      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
@@ -975,29 +999,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-22T01:32:24Z"
-    },
-    {
-      "id": "candidate-a9f05ade665ffc32",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "自适应放疗协同仍处探索期：先拆开计划、剂量与实时控制",
-      "summary": "Siemens Healthineers 与 NVIDIA 正在探索以 Nemotron 辅助放疗共同规划、用 CUDA 加速患者级剂量模拟，并以 Holoscan 连接实时传感数据、AI 与仿真。",
-      "why": "公告把临床 Agent、患者级仿真和机器人控制拆成可分别验证的环节，适合建立安全边界与逐阶段验收，而不是把它们笼统包装成自动放疗。",
-      "boundary": "这是合作与研发方向，不是已获监管批准、已完成临床验证或可以自主给出治疗方案的产品声明；患者选择、处方剂量、计划审核和设备控制必须由有资质团队与适用监管流程负责。",
-      "source": "NVIDIA",
-      "source_kind": "官方医疗与生命科学发布",
-      "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T19:42:10Z"
     }
   ]
 }
