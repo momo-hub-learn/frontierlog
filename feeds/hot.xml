@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
 
 为什么值得看：主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。
 
@@ -292,6 +292,12 @@
 为什么值得看：团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。
 
 边界：IBM 在 97 个 GIFT-Eval 配置上的公开比较显示点预测增益很小，且最佳 CRPS 仍来自单个 PatchTST 成员；当前配方不利用跨通道关系，加载四个检查点会增加内存和时延，也不保证区间校准或分布漂移下稳健。本站未运行模型。
+
+站内热度 92；不是全网流量。</description></item><item><title>ServiceNow 工作流进入 ChatGPT，首个 MCP 插件已开放</title><guid isPermaLink="false">frontierlog:hot:openai-servicenow-workflows-20261028</guid><link>https://openai.com/index/openai-servicenow-partnership-expansion/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 宣布扩大与 ServiceNow 的合作：ServiceNow MCP 插件已在 OpenAI marketplace 开放，可把组织允许的记录与动作带入 ChatGPT；更强插件能力预计 2026 年底，安全方案、语音控制塔与 Codex Workflow Factory 则分期排到 2027 年。
+
+为什么值得看：这是企业 Agent 从读取业务上下文走向在既有权限和业务规则下执行工作流的具体信号。真正的产品价值要用正确记录命中率、动作前确认、权限拒绝、审计日志和失败回滚验收，而不是把伙伴公告当成端到端可靠性证明。
+
+边界：当前可确认立即开放的是 ServiceNow MCP 插件；增强能力、安全方案、语音体验和 Codex 集成仍是未来计划，不能写成已经上线。公告没有给出任务成功率、误操作率、支持地区、套餐或独立安全评测；组织权限由客户实例与 Action Fabric 配置决定。本站未连接 ServiceNow 实例或执行写入。
 
 站内热度 92；不是全网流量。</description></item><item><title>AEON：把视频生成连接到可渲染的4D世界表示</title><guid isPermaLink="false">frontierlog:hot:aeon-world-model-20261020</guid><link>https://arxiv.org/abs/2610.28631</link><pubDate>Tue, 20 Oct 2026 17:59:51 +0000</pubDate><description>论文提出在视频潜空间生成，再通过域适配与4D解码器输出动态高斯表示和相机位姿，连接视频外观与三维一致性。
 

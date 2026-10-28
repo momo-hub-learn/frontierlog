@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-28T17:29:36Z",
+  "generated_at": "2026-10-28T19:29:22Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 88,
-    "hold": 4
+    "merge": 90,
+    "hold": 5
   },
   "candidates": [
     {
@@ -57,6 +57,35 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "docling",
       "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-3069c896a5b94322",
+      "category": "research",
+      "published": "2026-10-28",
+      "title": "AI 进入组织图，可能在员工之下、旁边或中间",
+      "summary": "两位作者在 OpenAI 的 Intelligence Age 栏目提出三种说明性情景：AI 作为个人下属、作为人类同事，或夹在人类层级之间承担协调与监控。作者明确说明文章代表个人观点，三种情景都不会按原样发生。",
+      "why": "这套框架适合把企业 Agent 的产品路线拆成三类可验证任务：个人委派、团队协作、组织协调。每一类都需要不同的权限、问责、独立复核与员工可见性，不能只用一个“自动化率”概括。",
+      "boundary": "这是面向未来的署名文章，不是 OpenAI 公司立场、随机实验、劳动力预测或已部署组织结构的证据。文中的示例与趋势判断不能推出就业、薪酬、生产率或管理质量会按特定方向变化；本站只把它作为待检验的组织设计假设。",
+      "source": "Hemanth Asirvatham / Elliott Mokski",
+      "source_kind": "作者署名观点、情景与免责声明",
+      "url": "https://openai.com/index/the-future-of-the-firm",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 0.72,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.876,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "openai-future-of-firm-20261028",
+      "topic_tags": [
+        "Future of Work",
+        "Organization Design",
+        "Agent Adoption"
+      ],
+      "first_seen_at": "2026-10-28T19:29:22Z"
     },
     {
       "id": "candidate-c8c3b03ffb4a37da",
@@ -113,6 +142,30 @@
       "first_seen_at": "2026-10-27T19:42:14Z"
     },
     {
+      "id": "candidate-004315ff57b1ddba",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "ServiceNow MCP 插件进入 OpenAI marketplace",
+      "summary": "当前插件把 ServiceNow 业务上下文与受组织权限控制的动作带入 ChatGPT；增强能力、安全、语音与 Codex 集成仍按 2026 年底至 2027 年的分期计划推进。",
+      "why": "企业 Agent 获得一个连接真实工作流的当前入口，但验收必须把现已开放插件与未来路线图分开，并逐项检查权限拒绝、确认、审计和回滚。",
+      "boundary": "当前可用插件不等于所有预告能力已上线。公告没有提供任务成功率、误操作率、支持地区、套餐或独立安全评测；客户实例、Action Fabric 配置与组织权限共同决定可见记录和可执行动作。本站未连接实例或执行写入。",
+      "source": "OpenAI",
+      "source_kind": "官方合作、可用性与分期路线图公告",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "openai-servicenow-mcp",
+      "first_seen_at": "2026-10-28T19:29:22Z"
+    },
+    {
       "id": "candidate-495e989e586ae762",
       "category": "product",
       "published": "2026-10-28",
@@ -159,6 +212,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "docling",
       "first_seen_at": "2026-10-28T15:40:27Z"
+    },
+    {
+      "id": "candidate-faa6f196ae372b3c",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "ServiceNow MCP 插件开放，后续能力进入分期路线图",
+      "summary": "当前插件把 ServiceNow 上下文与受权限控制的动作带入 ChatGPT；增强插件、安全、语音和 Codex 集成分别计划在 2026 年底至 2027 年推进。",
+      "why": "企业 Agent 的关键不只是能否调用动作，而是 Action Fabric 的业务规则、实例权限、动作确认和审计是否在真实流程里保持一致。",
+      "boundary": "不能把未来计划写成现已上线，也不能从合作公告推出端到端自动化可靠性或安全效果；本站未连接实例或执行写入。",
+      "source": "ServiceNow / OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "servicenow-chatgpt-workflows",
+      "first_seen_at": "2026-10-28T19:29:22Z"
     },
     {
       "id": "candidate-52b59234fd7a3b71",
@@ -930,75 +1007,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-21T19:42:10Z"
-    },
-    {
-      "id": "candidate-69d9d0b50530c4d3",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "Kumo Anomaly：先把工艺与设备异常检测变成可复现基线",
-      "summary": "NVIDIA 与 Kumo AI 开放约 800 万参数的多变量时序异常检测模型，输出 MAE 异常分和二值标签，并提供 SCS、MACS 两种阈值方法。",
-      "why": "半导体工艺与设备传感器可以从同一模型、同一时间切分和透明阈值开始比较，再决定是否微调或接入维护流程。",
-      "boundary": "异常不等于根因。官方 12.5 倍 AP 改善来自单一半导体案例、三组配对 seed 和一张 H100，不能外推到其他机台、产品或厂区；本站未运行。",
-      "source": "NVIDIA / Kumo AI",
-      "source_kind": "官方技术发布、代码与模型卡",
-      "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-21T17:48:39Z"
-    },
-    {
-      "id": "candidate-7a4e5ed9c4a05600",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释",
-      "summary": "Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。",
-      "why": "统一的 DNA—语言接口可能降低变体解释、序列问答和研究原型的接线成本；更值得跟踪的是坐标与碱基操作能否被确定性工具约束，而不是只看平台热度。",
-      "boundary": "本站未运行权重。模型卡明确说明模型未做临床验证、不可用于医疗决策，且可能误计碱基和坐标、产生幻觉，在剪接与组蛋白任务上较弱；作者汇总分数和 Hugging Face Trending 均不等于临床有效性或独立能力排名。",
-      "source": "Hugging Face Bio",
-      "source_kind": "官方模型卡、架构、训练规模、使用方式与限制",
-      "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-26T19:34:25Z"
-    },
-    {
-      "id": "candidate-7e5edc5a0d94b32f",
-      "category": "industry",
-      "published": "2026-10-21",
-      "title": "DSX POD：用预制集成压缩 AI 工厂现场工期",
-      "summary": "NVIDIA 发布 DSX POD 参考设计：合作伙伴在工厂内把 Vera Rubin 计算、网络、布线、机柜供电与液冷集成到模块并先行验证，再运到已准备的场地连接。",
-      "why": "产品化预制可以让模块集成与场地电力、冷却和网络准备并行，把 AI 基础设施的竞争点从单一系统扩展到制造、物流、现场接口和验收节拍。",
-      "boundary": "六个月缩短到最短 14 天是 NVIDIA 针对已准备场地的厂商声明，不是现有交付项目的独立统计。它不包含前期电力、并网、审批、土建与运输所需全部时间；生态伙伴计划 2027 年初交付，不等于当前可用。",
-      "source": "NVIDIA",
-      "source_kind": "官方 AI 基础设施参考设计公告",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-22T01:32:24Z"
     }
   ]
 }

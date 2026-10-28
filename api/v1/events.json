@@ -1,6 +1,20 @@
 {
-  "snapshot": "2026-10-28",
+  "snapshot": "2026-10-29",
   "events": [
+    {
+      "id": "openai-servicenow-mcp-release",
+      "task": "openai-servicenow-mcp",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "ServiceNow MCP 插件进入 OpenAI marketplace",
+      "summary": "当前插件把 ServiceNow 业务上下文与受组织权限控制的动作带入 ChatGPT；增强能力、安全、语音与 Codex 集成仍按 2026 年底至 2027 年的分期计划推进。",
+      "delta": "企业 Agent 获得一个连接真实工作流的当前入口，但验收必须把现已开放插件与未来路线图分开，并逐项检查权限拒绝、确认、审计和回滚。",
+      "sources": [
+        "openai-servicenow-partnership-20261028"
+      ],
+      "reviewed": "2026-10-29",
+      "short_title": "ServiceNow 工作流进入 ChatGPT"
+    },
     {
       "id": "openai-icloud-mail-calendar-release",
       "task": "openai-icloud-mail-calendar",
@@ -639,6 +653,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-servicenow-partnership-20261028",
+      "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T03:20:00+08:00",
+      "kind": "官方合作、可用性与分期路线图公告"
+    },
     {
       "id": "openai-icloud-mail-calendar-release-notes",
       "title": "ChatGPT release notes — iCloud Mail and Calendar plugins",
