@@ -62,6 +62,8 @@ test('latest verified activity covers every profile without inventing updates',(
  const recent=P.latestSignal(data.people.find(p=>p.id==='harrison-chase'),data,current);assert.equal(recent.date,'2026-10-24');
  const older=P.latestSignal(data.people.find(p=>p.id==='geoffrey-hinton'),data,current);assert.equal(older,null);
  assert(P.page(data,read('person=shreya-shankar'),new Set(),current).includes('Quail'));
+ assert(P.page(data,read('person=shreya-shankar'),new Set(),Date.parse('2026-10-28T02:30:00Z')).includes('Evals 汇报不该只给仪表盘'));
+ assert(P.page(data,read('person=hamel-husain'),new Set(),Date.parse('2026-10-28T02:30:00Z')).includes('Evals 汇报不该只给仪表盘'));
  const round=P.read(P.href(read('view=influence&dim=research'),{person:'kaiming-he'}),data);assert.equal(round.dim,'research');assert.equal(round.view,'influence');
 });
 // Synthetic fixtures isolate the ordering contract from changing news and profile counts.
