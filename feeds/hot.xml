@@ -359,6 +359,12 @@
 
 边界：作者报告 Claude Opus 平均相对改进 10.4%、Codex 4.4%，加技能后为 20.1% 和 8.1%；本站未运行。任务方差高，主要收益来自 ML 工程技巧，不能推出 Agent 已能稳定自主研究或发现新的科学机制。
 
+站内热度 90；不是全网流量。</description></item><item><title>新颖性评审：同一模型只换提示，准确率从 93.5% 跌到 40.9%</title><guid isPermaLink="false">frontierlog:hot:ai2-novelty-judge-instability-20261027</guid><link>https://huggingface.co/blog/allenai/novelty-judge</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Ai2 发布 Novelty Judge Bench：论文报告 GPT-5.4 在同一 Human+Generated 配对上，仅改变评审提示，准确率便从 93.5% 降至 40.9%；Claude Opus 4.6 在 Human-Only 设置也出现 21 个百分点的波动。
+
+为什么值得看：自动化科研、论文筛选和研究 Agent 正在把“大模型当评审”写进工作流。这组公开数据说明，分数可能强烈依赖提示和对照样本，而增加搜索或推理不一定让评审更稳定。
+
+边界：数字来自作者论文与官方发布，本站没有运行模型或复现实验。Human+Generated 中的“非新颖”负例由生成流程构造，作者明确提示其标签较弱；结果不能外推为模型能可靠判断所有学科、真实论文价值或同行评审质量，也不能把单一提示下的高分当作稳定能力。
+
 站内热度 90；不是全网流量。</description></item><item><title>Dual Exam：把 Agent 行动与世界模型预测放进同一受控考场</title><guid isPermaLink="false">frontierlog:hot:dual-exam-controlled-agent-world-model-20261022</guid><link>https://arxiv.org/abs/2610.31066</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate><description>Dual Exam 用固定环境回复测试多模态 Agent，用固定动作干预测试世界模型，分别覆盖 1,088 道 Agent 题和 400 个世界模型案例。作者报告 GPT 6 Astra 的 Agent Index 为 31.3，GPT-Image-2 的全覆盖 WM Overall 为 21.7；两条轨道的任务和指标不同，不能横向比较。
 
 为什么值得看：同一个交互环境里，能选择动作与能预测动作后果是两种不同能力。把两者用固定输入分别测量，可以更快定位失败来自决策、状态理解还是后果建模，而不是只看一个端到端成功率。
