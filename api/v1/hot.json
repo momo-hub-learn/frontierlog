@@ -36,6 +36,55 @@
   ],
   "items": [
     {
+      "id": "nvidia-meta-muse-collaboration-20261027",
+      "category": "industry",
+      "title": "NVIDIA 与 Meta 扩大 Muse Agent 合作",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T17:25:45+08:00",
+      "first_seen_at": "2026-10-28T17:25:45+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 32,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 Muse 能力、下载量、推理性能或本站实测分数。",
+      "trend": "up",
+      "verification_status": "双方合作公告 · 性能优化与基础设施计划",
+      "summary": "NVIDIA 与 Meta 宣布扩大 Muse 及其模型家族合作，计划联合优化训练、推理和总体拥有成本，并考虑把 OpenShell 与 Sentry 用于 Agent 安全部署和行为监控；Meta 还计划扩大 Vera Rubin、Vera CPU、Spectrum-X 与 BlueField-4 部署。",
+      "why": "这把个人 Agent 的竞争从单一模型继续推向训练、推理、网络、隔离与行为监控的整套基础设施。若后续形成可复验的交付，Muse 的规模化路径会更清楚，也会给安全 Agent 栈带来新的真实部署信号。",
+      "boundary": "公告描述的是合作与计划，不是新的 Muse 模型发布，也没有给出优化后的 Benchmark、成本、上线时间或独立安全评测。厂商称已有前沿级表现和下载增长，本站未复核这些营销性主张；考虑合作不等于 OpenShell、Sentry 或新硬件已经在 Muse 全量生产环境部署。",
+      "source": "NVIDIA / Meta",
+      "source_kind": "官方合作公告 / 本轮编辑核验",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+      "link": "#/toolkit?task=nvidia-openshell&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 NVIDIA 官方公告",
+          "note": "核对已宣布的合作范围、基础设施计划与前瞻性声明",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+          "kind": "industry"
+        },
+        {
+          "label": "查看 OpenShell 验证指南",
+          "note": "把合作计划与当前可验证的权限、拒绝和审计路径分开阅读",
+          "url": "#/toolkit?task=nvidia-openshell&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Meta-to-Expand-Collaboration-on-Muse-and-Muse-Family-of-Models-Amid-Robust-Growth/default.aspx",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
       "id": "openai-icloud-mail-calendar-20261027",
       "category": "product",
       "title": "ChatGPT 接入 iCloud 邮件与日历",
