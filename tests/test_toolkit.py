@@ -26,6 +26,16 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(row['publisher'],'OpenAI')
         self.assertEqual(row['access'],'web')
         self.assertIn('交互',row['headline'])
+    def test_cloudflare_agents_0_31_preserves_upgrade_and_network_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='cloudflare-agents-0-31')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('不是任意内网访问',row['limitation'])
+        self.assertIn('unresolved import',row['troubleshooting'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-27')
+        self.assertEqual(row['sources'][0]['url'],'https://github.com/cloudflare/agents/releases/tag/agents%400.31.0')
+        task=next(x for x in self.catalog['items'] if x['id']=='cloudflare-agents-0-31')
+        self.assertIn('MCP',task['boundary'])
+        validate_toolkit(self.data,self.catalog)
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
         self.assertEqual(row['publisher'],'OpenAI')

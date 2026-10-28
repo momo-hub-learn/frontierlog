@@ -3,6 +3,34 @@
   "snapshot": "2026-10-28",
   "items": [
     {
+      "id": "cloudflare-agents-0-31",
+      "name": "Cloudflare · Agents 0.31",
+      "title": "让浏览器 Agent 访问受控内部预览，并显式迁移 Browser Tool 与 MCP 依赖",
+      "category": "Agent / 基础设施",
+      "mark": "CF",
+      "accent": "lime",
+      "summary": "Cloudflare Agents 0.31 为 Browser Run 加入最多 8 个内部主机名，可把预览服务、工作区目录或同一 Worker 暴露给 Agent 浏览器；同时稳定两套模型适配器，并调整 Browser Tool 与 MCP 依赖接口。",
+      "scope": "Cloudflare 官方 GitHub Release 于 2026-10-27 发布 agents@0.31.0；Release 给出 internalHosts、browser.assignHost、稳定模型适配器，以及 Browser Tool 和 MCP 依赖迁移清单。",
+      "boundary": "内部主机由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问或安全边界替代品。升级会改变 browserTool 调用与结果字段；使用 MCP、x402 或 WebMCP 的项目还必须显式安装匹配依赖。本站未部署该版本。",
+      "repo": "cloudflare/agents",
+      "sources": ["cloudflare-agents-0-31-release"],
+      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；如使用 MCP、x402 或 WebMCP，还需按 Release 显式安装匹配的 Model Context Protocol 包。",
+      "test": "先把只返回固定测试页的 preview.internal 接进 Browser Run，核对允许主机、未知主机、目录与端口映射；再逐项迁移 browserTool API 和 MCP 依赖，运行现有测试与构建后才接近生产环境。",
+      "checks": [
+        "固定 agents、MCP SDK/server 和 Cloudflare Worker 版本",
+        "只暴露无凭据、无生产数据的测试主机与目录",
+        "分别验证允许主机、未知主机、超时和错误回退",
+        "核对 browser.cdp、notice 字段与弃用 API 的迁移结果"
+      ],
+      "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖",
+      "effort": "开源 SDK / Browser Run、Workers、模型与网络费用按 Cloudflare 实际账号计算",
+      "evidence": "Cloudflare Agents 官方 GitHub Release、升级说明与已验证签名提交",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-28",
+      "verified_at": "2026-10-28T13:23:04+08:00"
+    },
+    {
       "id": "openai-coderabbit-secure",
       "name": "CodeRabbit · Secure",
       "title": "跨文件与关联仓库调查代码安全问题，并把修复草案交给人审",
@@ -986,6 +1014,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "cloudflare-agents-0-31-release",
+      "title": "agents@0.31.0",
+      "publisher": "Cloudflare",
+      "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+      "published": "2026-10-27",
+      "checked": "2026-10-28",
+      "verified_at": "2026-10-28T13:23:04+08:00",
+      "kind": "官方 GitHub Release、升级说明与签名提交"
+    },
     {
       "id": "openai-coderabbit-sol-security",
       "title": "GPT-6.1 Sol helps CodeRabbit strengthen security with advanced code reasoning",

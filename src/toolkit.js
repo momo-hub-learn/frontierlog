@@ -5,16 +5,19 @@ const TK = (()=>{
  const guides=new Map(data.items.map(x=>[x.id,x]));
  const openIds=new Set();
  const groupIds=new Set(data.groups.map(x=>x.id)),modeIds=new Set(data.access_modes.map(x=>x.id));
+ const sortIds=new Set(['recent','curated']),editorialOrder=new Map(data.items.map((x,i)=>[x.id,i]));
  const label=(rows,id)=>rows.find(x=>x.id===id)?.label||'';
+ const latestDate=g=>g.sources.map(x=>x.published_at||x.verified_at||'').filter(Boolean).sort().at(-1)||g.verified_at.slice(0,10);
  function read(hash=location.hash){
   const p=new URLSearchParams(hash.split('?')[1]||'');
   const tool=p.get('tool')||p.get('task')||'';
-  return {group:groupIds.has(p.get('group'))?p.get('group'):'all',access:modeIds.has(p.get('access'))?p.get('access'):'all',q:(p.get('q')||'').slice(0,300),only:p.get('saved')==='1',tool:guides.has(tool)?tool:''};
+  return {group:groupIds.has(p.get('group'))?p.get('group'):'all',access:modeIds.has(p.get('access'))?p.get('access'):'all',sort:sortIds.has(p.get('sort'))?p.get('sort'):'recent',q:(p.get('q')||'').slice(0,300),only:p.get('saved')==='1',tool:guides.has(tool)?tool:''};
  }
  function href(s,patch={}){
   const next={...s,...patch},p=new URLSearchParams();
   if(groupIds.has(next.group))p.set('group',next.group);
   if(modeIds.has(next.access))p.set('access',next.access);
+  if(next.sort==='curated')p.set('sort','curated');
   if(next.q)p.set('q',next.q.slice(0,300));
   if(next.only)p.set('saved','1');
   if(guides.has(next.tool))p.set('tool',next.tool);
@@ -22,10 +25,11 @@ const TK = (()=>{
  }
  function rows(s){
   const q=s.q.trim().toLocaleLowerCase();
-  return data.items.filter(g=>{
+  const visible=data.items.filter(g=>{
    const t=tasks.get(g.id);
    return (s.group==='all'||g.group===s.group)&&(s.access==='all'||g.access===s.access)&&(!s.only||saved.has(g.id))&&(!q||[t.name,g.publisher,g.headline,g.input,g.output,label(data.groups,g.group)].join(' ').toLocaleLowerCase().includes(q));
   });
+  return s.sort==='recent'?visible.sort((a,b)=>latestDate(b).localeCompare(latestDate(a))||editorialOrder.get(a.id)-editorialOrder.get(b.id)):visible;
  }
  function route(patch,replace=false,resultsOnly=false){
   const hash=href(read(),patch);
@@ -71,8 +75,8 @@ const TK = (()=>{
   const content=$('#content');content.setAttribute('aria-live','off');
   content.innerHTML=`<div class="tk-wrap"><header class="tk-head"><div><h1>今天能跑<span class="accent">.</span></h1><p>先选任务，再看输入、输出和使用条件。</p></div><span class="tk-boundary"><span class="tk-boundary-wide">官方上手路径 · </span>未实测</span></header>
    <nav class="tk-groups" aria-label="按任务筛选"><button type="button" data-tk-group="all" aria-pressed="${s.group==='all'}">全部 <small>${data.items.length}</small></button>${data.groups.map(g=>`<button type="button" data-tk-group="${g.id}" aria-pressed="${s.group===g.id}">${esc(g.label)} <small>${data.items.filter(x=>x.group===g.id).length}</small></button>`).join('')}</nav>
-   <div class="tk-toolbar"><label class="tk-search">${icon('search')}<input id="tk-search" type="search" aria-label="搜索工具、任务、输入或输出" placeholder="搜索工具、任务、输入或输出…" maxlength="300" value="${esc(s.q)}"></label><label class="tk-access"><span class="tk-sr">使用方式</span><select id="tk-access" aria-label="使用方式"><option value="all">全部使用方式</option>${data.access_modes.map(x=>`<option value="${x.id}" ${s.access===x.id?'selected':''}>${esc(x.label)}</option>`).join('')}</select></label><label class="tk-saved"><input id="tk-only" type="checkbox" ${s.only?'checked':''}>只看关注</label></div>
-   <div class="tk-resultline"><span id="tk-count" role="status"></span><span class="tk-order">按上手路径编排，非能力排名</span><button type="button" id="tk-clear" data-tk-clear>清除筛选</button></div>
+   <div class="tk-toolbar"><label class="tk-search">${icon('search')}<input id="tk-search" type="search" aria-label="搜索工具、任务、输入或输出" placeholder="搜索工具、任务、输入或输出…" maxlength="300" value="${esc(s.q)}"></label><label class="tk-access"><span class="tk-sr">使用方式</span><select id="tk-access" aria-label="使用方式"><option value="all">全部使用方式</option>${data.access_modes.map(x=>`<option value="${x.id}" ${s.access===x.id?'selected':''}>${esc(x.label)}</option>`).join('')}</select></label><label class="tk-sort"><span class="tk-sr">排序</span><select id="tk-sort" aria-label="上手路径排序"><option value="recent" ${s.sort==='recent'?'selected':''}>最近发布</option><option value="curated" ${s.sort==='curated'?'selected':''}>编选顺序</option></select></label><label class="tk-saved"><input id="tk-only" type="checkbox" ${s.only?'checked':''}>只看关注</label></div>
+   <div class="tk-resultline"><span id="tk-count" role="status"></span><span class="tk-order">${s.sort==='recent'?'按最近原文发布排序':'按编选顺序展示'}，非能力排名</span><button type="button" id="tk-clear" data-tk-clear>清除筛选</button></div>
    <div class="tk-grid" id="tk-results"></div><p class="tk-footnote">网页能力以账号内实际开放为准；命令需在自己的环境运行。清单与关注仅保存在当前浏览器，不会改变证据等级。</p></div>`;
   renderResults();document.body.classList.remove('nav-open');renderTray();
  }
@@ -94,13 +98,14 @@ const TK = (()=>{
  document.addEventListener('change',e=>{
   if(state.view!=='toolkit')return;
   if(e.target.id==='tk-access'){route({access:e.target.value,tool:''});$('#tk-access').focus()}
+  if(e.target.id==='tk-sort'){route({sort:e.target.value,tool:''});$('#tk-sort').focus()}
   if(e.target.id==='tk-only'){route({only:e.target.checked,tool:''});$('#tk-only').focus()}
  });
  document.addEventListener('click',e=>{
   if(state.view!=='toolkit')return;
   const b=e.target.closest('button');if(!b)return;
   if(b.hasAttribute('data-tk-group')){route({group:b.dataset.tkGroup,tool:''});$(`[data-tk-group="${read().group}"]`).focus()}
-  if(b.hasAttribute('data-tk-clear')){route({q:'',group:'all',access:'all',only:false,tool:''});$('#tk-search').focus()}
+  if(b.hasAttribute('data-tk-clear')){route({q:'',group:'all',access:'all',sort:'recent',only:false,tool:''});$('#tk-search').focus()}
   if(b.hasAttribute('data-tk-copy'))copy(b);
   if(b.hasAttribute('data-tk-save')){
    const id=b.dataset.tkSave;if(!guides.has(id))return;

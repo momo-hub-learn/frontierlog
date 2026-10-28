@@ -11,24 +11,27 @@ vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'src/toolki
 const tk=ctx.tk,total=data.items.length;let tests=0;function test(name,fn){fn();tests++;console.log('PASS',name)}
 const read=q=>tk.read('#/toolkit'+(q?'?'+q:''));
 const ids=r=>Array.from(r,g=>g.id);
-test('default and invalid facets',()=>{assert.equal(tk.rows(read('')).length,total);assert.equal(read('group=bad&access=bad').group,'all');assert.equal(read('group=bad&access=bad').access,'all')});
+const latest=g=>g.sources.map(x=>x.published_at||x.verified_at||'').filter(Boolean).sort().at(-1)||g.verified_at.slice(0,10);
+const recent=rows=>[...rows].sort((a,b)=>latest(b).localeCompare(latest(a))||data.items.indexOf(a)-data.items.indexOf(b));
+test('default and invalid facets',()=>{assert.equal(tk.rows(read('')).length,total);assert.equal(read('group=bad&access=bad&sort=bad').group,'all');assert.equal(read('group=bad&access=bad&sort=bad').access,'all');assert.equal(read('group=bad&access=bad&sort=bad').sort,'recent')});
+test('recent is the honest default and curated order remains available',()=>{assert.deepEqual(ids(tk.rows(read(''))),ids(recent(data.items)));assert.deepEqual(ids(tk.rows(read('sort=curated'))),ids(data.items))});
 test('all five task categories are effective',()=>{for(const g of data.groups)assert.equal(tk.rows(read('group='+g.id)).length,data.items.filter(x=>x.group===g.id).length)});
 test('usage filter is independent of task filter',()=>{
  for(const [group,access] of [['documents','local'],['audio','web']]){
-  const expected=data.items.filter(x=>x.group===group&&x.access===access).map(x=>x.id);
+  const expected=recent(data.items.filter(x=>x.group===group&&x.access===access)).map(x=>x.id);
   assert.deepEqual(ids(tk.rows(read(`group=${group}&access=${access}`))),expected)
  }
 });
 test('publisher and input/output search',()=>{
- const pdfExpected=data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('pdf')}).map(x=>x.id);
+ const pdfExpected=recent(data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('pdf')})).map(x=>x.id);
  assert.deepEqual(ids(tk.rows(read('q=PDF'))),pdfExpected);
- const expected=data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('openai')}).map(x=>x.id);
+ const expected=recent(data.items.filter(g=>{const t=ctx.tasks.get(g.id);return [t.name,g.publisher,g.headline,g.input,g.output,data.groups.find(x=>x.id===g.group)?.label].join(' ').toLocaleLowerCase().includes('openai')})).map(x=>x.id);
  assert.deepEqual(new Set(ids(tk.rows(read('q=OPENAI')))),new Set(expected));
  assert.deepEqual(ids(tk.rows(read('q=字幕'))),['whisper'])
 });
 test('whitespace and 300 character query bound',()=>{assert.equal(tk.rows(read('q=%20%20')).length,total);assert.equal(read('q='+'x'.repeat(400)).q.length,300)});
 test('bookmarks use shared catalogue IDs',()=>{ctx.saved.add('docling');assert.deepEqual(ids(tk.rows(read('saved=1'))),['docling']);ctx.saved.clear();assert.equal(tk.rows(read('saved=1')).length,0)});
-test('route serialization retains independent filters',()=>{const s=read('group=audio&access=local&q=录音&saved=1');const next=tk.read(tk.href(s,{access:'all'}));assert.equal(next.group,'audio');assert.equal(next.access,'all');assert.equal(next.q,'录音');assert.equal(next.only,true)});
+test('route serialization retains independent filters',()=>{const s=read('group=audio&access=local&sort=curated&q=录音&saved=1');const next=tk.read(tk.href(s,{access:'all'}));assert.equal(next.group,'audio');assert.equal(next.access,'all');assert.equal(next.sort,'curated');assert.equal(next.q,'录音');assert.equal(next.only,true)});
 test('legacy task route identifies guide not old modal',()=>{assert.equal(read('task=docling&tab=run').tool,'docling');assert.equal(read('tool=not-real').tool,'')});
 test('true publisher no arbitrary fallback',()=>{const html=tk.card(data.items.find(x=>x.id==='chatgpt-voice-work'));assert(html.includes('OpenAI'));assert(!html.includes('Google DeepMind'))});
 test('duplicate source and entry links collapse to one action',()=>{
