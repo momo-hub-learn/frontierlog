@@ -4222,7 +4222,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-28T15:40:27Z",
+    "generated_at": "2026-10-28T15:47:17Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -8711,7 +8711,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-28T15:40:27Z",
+    "last_evaluated": "2026-10-28T15:47:17Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 94,
@@ -22931,6 +22931,7 @@
         "id": "docling-v2-143-1-table-ocr",
         "task": "docling",
         "date": "2026-10-28",
+        "published_at": "2026-10-27T17:11:51Z",
         "kind": "release",
         "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
         "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
@@ -22946,6 +22947,7 @@
         "id": "docling-v2-144-broken-text-ocr",
         "task": "docling",
         "date": "2026-10-28",
+        "published_at": "2026-10-28T12:03:10Z",
         "kind": "release",
         "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
         "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
