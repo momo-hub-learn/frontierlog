@@ -47,6 +47,16 @@ class ActivityFeatureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'end date'):
             self.load(feature=feature)
 
+    def test_next_session_must_be_offset_aware_and_within_source_local_range(self):
+        feature = copy.deepcopy(self.feature)
+        medtech = feature['events']['nvidia-medtech-days-2026']
+        medtech['next_session_at'] = '2026-10-29T08:00:00-07:00'
+        with self.assertRaisesRegex(ValueError, 'Next session'):
+            self.load(feature=feature)
+        medtech['next_session_at'] = '2026-10-28T08:00:00'
+        with self.assertRaisesRegex(ValueError, 'Next session'):
+            self.load(feature=feature)
+
 
 if __name__ == '__main__':
     unittest.main()

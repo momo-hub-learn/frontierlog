@@ -31,7 +31,9 @@ with sync_playwright() as pw:
  p.locator('#h-search').fill('not-found-xyz');expect(p.locator('.h-empty')).to_have_count(1);expect(p.locator('[data-ha="hot-clear-search"]')).to_be_visible();p.locator('[data-ha="hot-clear-search"]').click();expect(p.locator('#h-search')).to_have_value('');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']))
  route(p,'#/hot');ok('category and search filters preserve compact ranking')
  route(p,'#/hot?tab=github');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
- route(p,'#/hot?tab=hf');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page');ok('platform switch exposes the current page to assistive technology')
+ route(p,'#/hot?tab=hf');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
+ first_metrics=p.locator('.hf-row .hf-sub').first.inner_text();assert '赞 ' in first_metrics and '下载 ' in first_metrics and '♥' not in first_metrics and '↓' not in first_metrics
+ ok('platform switch exposes the current page and HF metrics use unambiguous text labels')
  route(p,'#/hot')
  p.locator('.intraday-row [data-ha="detail"]').first.click();assert 'item=' in p.evaluate('location.hash');expect(p.locator('dialog[open]')).to_have_count(1);assert '为什么值得看' in p.locator('#modal-body').inner_text();assert '不要过度解读' in p.locator('#modal-body').inner_text();p.keyboard.press('Escape');p.wait_for_function("!location.hash.includes('item=')");ok('deep-linked evidence drawer keeps rationale and boundary separate and clears its route when closed')
  gated=next(x for x in HOT_DATA['items'] if any(r.get('kind')=='product' for r in x.get('access',[])) and not any(r.get('kind') in {'try','demo','gateway'} for r in x.get('access',[])))

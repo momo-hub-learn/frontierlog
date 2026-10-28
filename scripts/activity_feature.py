@@ -47,6 +47,16 @@ def load_feature(root: Path, radar: dict) -> dict:
                 raise ValueError('Event time needs an official source')
             if date.fromisoformat(item['checked']) > editorial_today:
                 raise ValueError('Future time review date')
+        if item.get('next_session_at'):
+            if not item.get('start_at') or not item.get('time_zone'):
+                raise ValueError('Next session requires a verified event start and time zone')
+            next_dt = datetime.fromisoformat(item['next_session_at'].replace('Z', '+00:00'))
+            if next_dt.tzinfo is None:
+                raise ValueError('Next session must be offset-aware, later than the opening, and within the event range')
+            local_date = next_dt.astimezone(ZoneInfo(item['time_zone'])).date()
+            last_date = date.fromisoformat(item.get('end_date', item['date']))
+            if local_date < start_date or local_date > last_date or next_dt <= dt:
+                raise ValueError('Next session must be offset-aware, later than the opening, and within the event range')
         art = item.get('artwork', {})
         # Artwork is optional: the UI has a labelled text fallback. Do not delay
         # a verified event just because no reusable official art is available.

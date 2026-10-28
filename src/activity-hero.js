@@ -5,6 +5,11 @@ const ActivityHero = (() => {
  const h = x => String(x ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const https = x => {try {const u = new URL(x); return u.protocol === 'https:' && !u.username && !u.password ? u.href : ''} catch {return ''}};
  const stamp = x => typeof x === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(x) && Number.isFinite(Date.parse(x)) ? Date.parse(x) : null;
+ const eventStart = (e, now = Date.now()) => {
+  const opening = stamp(e.start_at), next = stamp(e.next_session_at);
+  return next !== null && opening !== null && now >= opening ? next : opening;
+ };
+ const eventStartValue = (e, now = Date.now()) => stamp(e.next_session_at) === eventStart(e,now) ? e.next_session_at : e.start_at;
  const dateOK = x => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) && Number.isFinite(Date.parse(x)) && new Date(x).toISOString().slice(0,10) === x;
  function dayIn(now, zone = 'Asia/Shanghai') {
   try {return new Intl.DateTimeFormat('en-CA', {timeZone:zone, year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now))} catch {return new Date(now).toISOString().slice(0,10)}
@@ -26,7 +31,13 @@ const ActivityHero = (() => {
    if (start > now) return 'upcoming';
    // Never infer "live" from a countdown alone, or extend it indefinitely.
    if (e.status === 'live' && end !== null && end > now) return 'live';
-   if (end !== null && end <= now) return 'ended';
+   if (end !== null) return end <= now ? 'ended' : 'started';
+   // A source-local, inclusive end date is stronger evidence than the generic
+   // six-hour fallback. This keeps a multi-day event active across UTC/BJT
+   // boundaries without inventing an exact closing time.
+   if (dateOK(e.end_date) && e.end_date >= e.date) {
+    return dayIn(now, e.time_zone || 'Asia/Shanghai') <= e.end_date ? 'today' : 'ended';
+   }
    return now - start < 6*3600000 ? 'started' : 'ended';
   }
   if (!dateOK(e.date)) return 'unknown';
@@ -60,23 +71,26 @@ const ActivityHero = (() => {
   return {kind:'empty',mode:'empty'};
  }
  function remaining(e, now = Date.now()) {
-  const mode = phase(e,now), ms = stamp(e.start_at);
+  const mode = phase(e,now), ms = eventStart(e,now);
   if (mode === 'live') return '官方已确认直播';
   if (mode === 'started') return '以官方现场为准';
-  if (mode === 'today') return '今日 · 时间待公布';
-  if (mode !== 'upcoming') return '已过开场时间';
+  if (mode === 'today' && ms === null) return '今日 · 时间待公布';
+  if (mode === 'today' && ms <= now) return '今日 · 以官方现场为准';
+  if (!['upcoming','today'].includes(mode)) return '已过开场时间';
   if (ms === null) return '日期已定';
   const seconds = Math.max(0,Math.ceil((ms-now)/1000));
   if (seconds >= 86400) return '约 '+Math.floor(seconds/86400)+' 天后';
   if (seconds >= 3600) return Math.floor(seconds/3600)+' 小时后';
   return Math.max(1,Math.ceil(seconds/60))+' 分钟后';
  }
- function times(e) {
-  if (stamp(e.start_at) === null) return {primary:e.date+' · 时间待公布',secondary:'活动日期以举办地为准'};
-  const d = new Date(e.start_at), fmt = zone => new Intl.DateTimeFormat('zh-CN',{timeZone:zone,month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d).replace(/\//g,'/');
+ function times(e, now = Date.now()) {
+  const start = eventStart(e,now);
+  if (start === null) return {primary:e.date+' · 时间待公布',secondary:'活动日期以举办地为准'};
+  const d = new Date(start), fmt = zone => new Intl.DateTimeFormat('zh-CN',{timeZone:zone,month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d).replace(/\//g,'/');
   let local = '';
   try {local = fmt(e.time_zone || 'UTC')} catch {local = fmt('UTC')}
-  return {primary:'北京时间 '+fmt('Asia/Shanghai'),secondary:'当地 '+local+' · '+(e.location || e.time_zone || 'UTC')};
+  const prefix = stamp(e.next_session_at) === start ? '下一节 · ' : '';
+  return {primary:prefix+'北京时间 '+fmt('Asia/Shanghai'),secondary:'当地 '+local+' · '+(e.location || e.time_zone || 'UTC')};
  }
  const escapeICS = x => String(x ?? '').replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
  function fold(line) {
@@ -90,7 +104,8 @@ const ActivityHero = (() => {
  }
  function calendar(e, now = Date.now()) {
   if (!['upcoming','today'].includes(phase(e,now)) || !dateOK(e.date) || !https(e.url)) return null;
-  const start = stamp(e.start_at), dt = n => new Date(n).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const start = eventStart(e,now), dt = n => new Date(n).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  if (start !== null && start <= now) return null;
   const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI Coordinates//Event Reminder//ZH','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',
    'UID:'+String(e.id).replace(/[^a-zA-Z0-9_-]/g,'')+'@frontierlog.github.io','DTSTAMP:'+dt(now),
    start === null ? 'DTSTART;VALUE=DATE:'+e.date.replaceAll('-','') : 'DTSTART:'+dt(start),
@@ -113,8 +128,9 @@ const ActivityHero = (() => {
   if (f.kind === 'empty') return '<aside class="ah-feature ah-feature-empty"><span class="ah-eyebrow">等待下一场官宣</span><h2>好内容，不必等发布会</h2><p>先看官方技术文章与深度对谈。</p><a class="ah-secondary" href="#/activity?type=technical">查看技术深读 <span aria-hidden="true">↗</span></a></aside>';
   const e = f.item, event = f.kind === 'event';
   const label = event ? ({upcoming:'下一场重点事件',live:'官方直播中',started:'开场时间已到',today:'今天的重点事件'}[f.mode]) : f.mode === 'week' ? '本周值得看' : '近期值得看';
-  const t = event ? times(e) : {primary:e.published.replaceAll('-','.')+' · '+e.source.name,secondary:''};
-  return '<aside class="ah-feature" data-ah-feature="'+h(e.id)+'"><div class="ah-feature-top"><span class="ah-eyebrow">'+label+'</span><span class="ah-countdown" data-ah-countdown>'+h(event?remaining(e,now):'编辑精选')+'</span></div><div class="ah-feature-main"><div class="ah-feature-copy"><span class="ah-provider">'+h(e.source.publisher || e.source.name)+'</span><h2><a href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+h(e.display_title || e.title)+'</a></h2><time class="ah-start"'+(e.start_at?' datetime="'+h(e.start_at)+'"':'')+'>'+h(t.primary)+'</time>'+(t.secondary?'<small class="ah-local">'+h(t.secondary)+'</small>':'')+'<p class="ah-feature-topics">'+h((e.tags||[]).filter(tag => tag!==e.source.publisher).slice(0,3).join(' · ') || e.value_hint || '查看一手材料')+'</p></div>'+art(e,true)+'</div><div class="ah-feature-actions">'+(event&&['upcoming','today'].includes(f.mode)?'<button type="button" class="ah-calendar" data-ah-calendar="'+h(e.id)+'" title="下载日历文件；导入后提醒生效，不会自动同步改期"><span aria-hidden="true">＋</span> 添加日历</button>':'')+'<a class="ah-secondary" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+(event?'官方详情':'阅读原文')+' <span aria-hidden="true">↗</span></a>'+(event&&e.time_source_url?'<a class="ah-proof" href="'+h(https(e.time_source_url))+'" target="_blank" rel="noopener noreferrer" title="时间核对：'+h(e.checked)+'">官方时间已核对</a>':'')+'</div></aside>';
+  const t = event ? times(e,now) : {primary:e.published.replaceAll('-','.')+' · '+e.source.name,secondary:''};
+  const shownStart = event ? eventStart(e,now) : null;
+  return '<aside class="ah-feature" data-ah-feature="'+h(e.id)+'"><div class="ah-feature-top"><span class="ah-eyebrow">'+label+'</span><span class="ah-countdown" data-ah-countdown>'+h(event?remaining(e,now):'编辑精选')+'</span></div><div class="ah-feature-main"><div class="ah-feature-copy"><span class="ah-provider">'+h(e.source.publisher || e.source.name)+'</span><h2><a href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+h(e.display_title || e.title)+'</a></h2><time class="ah-start"'+(shownStart!==null?' datetime="'+h(eventStartValue(e,now))+'"':'')+'>'+h(t.primary)+'</time>'+(t.secondary?'<small class="ah-local">'+h(t.secondary)+'</small>':'')+'<p class="ah-feature-topics">'+h((e.tags||[]).filter(tag => tag!==e.source.publisher).slice(0,3).join(' · ') || e.value_hint || '查看一手材料')+'</p></div>'+art(e,true)+'</div><div class="ah-feature-actions">'+(event&&calendar(e,now)?'<button type="button" class="ah-calendar" data-ah-calendar="'+h(e.id)+'" title="下载日历文件；导入后提醒生效，不会自动同步改期"><span aria-hidden="true">＋</span> 添加日历</button>':'')+'<a class="ah-secondary" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+(event?'官方详情':'阅读原文')+' <span aria-hidden="true">↗</span></a>'+(event&&e.time_source_url?'<a class="ah-proof" href="'+h(https(e.time_source_url))+'" target="_blank" rel="noopener noreferrer" title="时间核对：'+h(e.checked)+'">官方时间已核对</a>':'')+'</div></aside>';
  }
  function introHTML(radar, config) {
   const sourceCount = new Set((radar.sources||[]).map(s=>s.id)).size;
@@ -125,7 +141,7 @@ const ActivityHero = (() => {
  }
  function eventHTML(e,now) {
   const mode=phase(e,now), labels={upcoming:'待开始',today:'今日',live:'直播中',started:'已到开场时间',ended:'已结束',replay:'回放',unknown:'时间待核验',unavailable:'安排变更'};
-  const exact=stamp(e.start_at)!==null?'<small class="ah-event-clock"><time datetime="'+h(e.start_at)+'">'+h(times(e).primary)+'</time></small>':'';
+  const shownStart=eventStart(e,now), exact=shownStart!==null?'<small class="ah-event-clock"><time datetime="'+h(eventStartValue(e,now))+'">'+h(times(e,now).primary)+'</time></small>':'';
   return '<a class="v2-event-card ah-event '+h(mode)+'" data-ah-date="'+h(e.date)+'" data-ah-id="'+h(e.id)+'" href="'+h(https(e.url))+'" target="_blank" rel="noopener noreferrer">'+art(e)+'<div class="ah-event-copy"><div class="ah-event-meta"><time>'+h(dateLabel(e))+'</time><small>'+h(e.date.slice(0,4))+'</small>'+exact+'<span>'+h(labels[mode])+'</span></div><h3>'+h(e.title)+'</h3><p>'+h(e.short_summary || e.summary)+'</p><div class="v2-radar-tags">'+(e.tags||[]).slice(0,3).map(tag=>'<span>'+h(tag)+'</span>').join('')+'</div></div><span class="ah-out" aria-hidden="true">↗</span></a>';
  }
  return {events,phase,dateLabel,select,remaining,times,calendar,fold,featureHTML,introHTML,eventHTML,https};
