@@ -3917,13 +3917,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-27T23:30:57Z",
+    "generated_at": "2026-10-28T01:30:28Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 84,
+      "merge": 85,
       "hold": 3
     },
     "candidates": [
@@ -3940,12 +3940,12 @@
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.941,
+        "priority_score": 0.919,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "browser-use",
@@ -3964,17 +3964,64 @@
         "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
         "publishable": false,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.94,
           "novelty": 0.15
         },
-        "priority_score": 0.848,
+        "priority_score": 0.826,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "track_id": "world-models",
         "maker": "Google DeepMind",
         "first_seen_at": "2026-10-27T19:42:14Z"
+      },
+      {
+        "id": "candidate-495e989e586ae762",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
+        "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
+        "why": "扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。",
+        "boundary": "复杂表格的错位、跨页关系和扫描质量仍需逐项检查；v2.143.1 已修复全页 OCR 表格 token、Tesseract 渲染分辨率与 PPTX 边界，但本站未运行。",
+        "source": "Docling project",
+        "source_kind": "官方发布",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "docling",
+        "first_seen_at": "2026-10-28T01:30:28Z"
+      },
+      {
+        "id": "candidate-52b59234fd7a3b71",
+        "category": "industry",
+        "published": "2026-10-27",
+        "title": "Claude 进入六个药物项目：先分开实验结果、流程效率与临床证据",
+        "summary": "Anthropic 披露与 BigHat、BMS、Divergence Labs、Enveda、Generate Biomedicines 和 The Column Group 的合作，覆盖分子设计、先导优化、制造文档、公司创建与临床试验规划，并链接合作方技术报告。",
+        "why": "这把通用模型接入药物研发的多个真实环节，并给出从设计数量、实验命中到文档复核工时的可追踪节点；团队可据此建立分任务、分证据阶段的验证清单，而不是只看一个综合演示。",
+        "boundary": "本站未复现实验。数据与结果来自 Anthropic 及合作方阶段报告，官方明确多数仍在临床前；蛋白结合、实验室命中、流程提速、小鼠结果或临床计划分析都不能推出人体疗效、获批药物或普遍生产率提升。敏感数据治理、独立实验复现、监管审查和临床终点仍需分别验证。",
+        "source": "Anthropic",
+        "source_kind": "官方药物研发合作阶段报告、合作方技术报告入口与临床前限制",
+        "url": "https://www.anthropic.com/research/early-progress-drug-development",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.816,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-28T01:30:28Z"
       },
       {
         "id": "candidate-f505d828cc1e6f14",
@@ -3989,12 +4036,12 @@
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
@@ -4013,12 +4060,12 @@
         "url": "https://openai.com/index/oracle-apps-in-chatgpt",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "oracle-ai-workspace",
@@ -4037,12 +4084,12 @@
         "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
         "publishable": false,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.823,
+        "priority_score": 0.801,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "stateful-agentic-ad-stack",
@@ -4066,12 +4113,12 @@
         "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
         "publishable": false,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.815,
+        "priority_score": 0.794,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "google-deepmind-genie-4-20261027",
@@ -4095,12 +4142,12 @@
         "url": "https://openai.com/index/introducing-gpt-6-1-terra",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-gpt-6-1-terra",
@@ -4119,12 +4166,12 @@
         "url": "https://openai.com/index/introducing-gpt-6-1-terra",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-gpt-6-1-terra",
@@ -4143,12 +4190,12 @@
         "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-coderabbit-secure",
@@ -4167,12 +4214,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -4191,12 +4238,12 @@
         "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "huggingface-hub-cli-2-3",
@@ -4215,12 +4262,12 @@
         "url": "https://arxiv.org/abs/2610.29435",
         "publishable": false,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 0.88,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.79,
+        "priority_score": 0.769,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "event-transitions-world-model-return-error",
@@ -4244,12 +4291,12 @@
         "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 0.88,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-academic-science-claims-20261026",
@@ -4273,12 +4320,12 @@
         "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.751,
+        "priority_score": 0.73,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-23T23:24:48Z"
@@ -4296,12 +4343,12 @@
         "url": "https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.751,
+        "priority_score": 0.73,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-24T19:34:33Z"
@@ -4319,12 +4366,12 @@
         "url": "https://huggingface.co/blog/torch-neuronx-model-support",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.74,
+        "priority_score": 0.719,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "hf-trainium-model-support",
@@ -4343,12 +4390,12 @@
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.74,
+        "priority_score": 0.719,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
@@ -4367,12 +4414,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.74,
+        "priority_score": 0.719,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -4391,12 +4438,12 @@
         "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T23:36:20Z"
@@ -4414,12 +4461,12 @@
         "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T11:33:11Z"
@@ -4437,12 +4484,12 @@
         "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-25T13:23:40Z"
@@ -4460,12 +4507,12 @@
         "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
         "publishable": false,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "anthropic-aisi-cyber-alignment-assessment",
@@ -4489,12 +4536,12 @@
         "url": "https://allenai.org/blog/olmoearth-v1-3",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "allenai-olmoearth-v1-3",
@@ -4513,12 +4560,12 @@
         "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "claude-models-google-cloud",
@@ -4537,12 +4584,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "microsoft-flint-interactive",
@@ -4561,12 +4608,12 @@
         "url": "https://openai.com/index/decisions-api",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-decisions-api",
@@ -4585,12 +4632,12 @@
         "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "ibm-granite-timeseries-ensemble-r1",
@@ -4609,12 +4656,12 @@
         "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.718,
+        "priority_score": 0.697,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-signals-v3-work-activities-20261026",
@@ -4638,12 +4685,12 @@
         "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T19:42:10Z"
@@ -4661,12 +4708,12 @@
         "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T19:42:10Z"
@@ -4684,12 +4731,12 @@
         "url": "https://huggingface.co/blog/nvidia/kumo-anomaly",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T17:48:39Z"
@@ -4707,12 +4754,12 @@
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-26T19:34:25Z"
@@ -4730,12 +4777,12 @@
         "url": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T01:32:24Z"
@@ -4753,12 +4800,12 @@
         "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T19:42:10Z"
@@ -4776,12 +4823,12 @@
         "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T21:30:26Z"
@@ -4799,12 +4846,12 @@
         "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T13:33:09Z"
@@ -4822,12 +4869,12 @@
         "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T17:48:39Z"
@@ -4845,67 +4892,15 @@
         "url": "https://huggingface.co/blog/nvidia/kumo-forecast",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-21T15:29:58Z"
-      },
-      {
-        "id": "candidate-f1788e9b0f10048c",
-        "category": "industry",
-        "published": "2026-10-21",
-        "title": "SimReady Central：先核对资产 profile，再组装数字孪生",
-        "summary": "免费、免门槛的 Hugging Face 库汇集 2,000+ 带碰撞、质量、摩擦、关节或语义等属性的 OpenUSD 资产。",
-        "why": "机器人工作站和 AI 工厂场景可以复用带规格的 OEM 资产，减少从普通 CAD 补仿真元数据的重复工作。",
-        "boundary": "单个资产满足某个 SimReady profile 不代表适配所有运行时、传感器或现场精度；官方示例也不证明布局、碰撞和热设计已通过真实设施验收。",
-        "source": "NVIDIA / Hugging Face",
-        "source_kind": "官方发布与规范入口",
-        "url": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
-        "publishable": true,
-        "features": {
-          "freshness": 0.571,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.708,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-21T15:29:58Z"
-      },
-      {
-        "id": "candidate-1c6f9d76a7f2dbb5",
-        "category": "research",
-        "published": "2026-10-22",
-        "title": "Agent 生成交互界面开始转向语义事件，而不只是拼前端代码",
-        "summary": "Microsoft 发布 Flint-interactive 与 Flint 1.0：交互规范用语义事件和高层更新算子描述点击、刷选、缩放、联动高亮及外部应用状态，底层命中测试、依赖和渲染更新由编译器处理；官方仓库提供 23 个交互预设、MCP 服务和编程 API。",
-        "why": "如果 Agent 输出的是可读、可组合的交互规范，评测可以从“截图像不像”前移到数据编码、事件状态和更新结果；这可能成为聊天内生成式 UI 与现有应用状态之间更稳定的接口层。",
-        "boundary": "这是 Microsoft 的官方发布与开源实现，本站未运行。更可靠、降低成本属于产品方主张；一套图表语言不能自动保证数据正确、交互可达、响应性能、跨后端一致或生产安全。",
-        "source": "Microsoft Research / Microsoft",
-        "source_kind": "官方发布、工作原理与使用路径",
-        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
-        "publishable": false,
-        "features": {
-          "freshness": 0.643,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.708,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "flint-semantic-interaction-language",
-        "topic_tags": [
-          "Generative UI",
-          "Data Visualization",
-          "Semantic Interaction"
-        ],
-        "first_seen_at": "2026-10-23T13:37:36Z"
       }
     ]
   },
@@ -8235,12 +8230,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-27T23:30:57Z",
+    "last_evaluated": "2026-10-28T01:30:28Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 88,
+      "candidate_count": 89,
       "publish_ready_count": 1,
-      "merge_count": 84,
+      "merge_count": 85,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
