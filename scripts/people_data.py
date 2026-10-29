@@ -54,10 +54,15 @@ def validate_people(data: dict, now: datetime | None = None) -> None:
     text(data.get('note'))
     roles = records(data.get('roles'))
     areas = records(data.get('areas'))
+    influence_types = records(data.get('influence_types'))
+    if influence_types != {'ideas', 'technology', 'research', 'industry', 'future'}:
+        raise ValueError('People influence taxonomy must stay complete')
     ids = records(data.get('people'))
     records(data.get('events'))
-    for row in data['roles'] + data['areas']:
+    for row in data['roles'] + data['areas'] + data['influence_types']:
         text(row.get('title'))
+        if row in data['influence_types']:
+            text(row.get('description'))
     for p in data['people']:
         for key in ('name', 'intro', 'watch'):
             text(p.get(key))

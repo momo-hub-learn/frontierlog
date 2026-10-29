@@ -6,7 +6,7 @@ const snapshot=JSON.stringify(data),now=Date.parse('2026-10-11T10:00:00Z');
 const read=q=>P.read('#/people'+(q?'?'+q:''),data);
 let n=0;function test(name,f){f();n++;console.log('PASS',name)}
 test('URL normalization and round trip',()=>{
- const s=read('view=bad&area=bad&role=bad');assert.equal(s.view,'directory');assert.equal(s.area,'all');assert.equal(s.role,'all');
+ const s=read('view=bad&type=bad&area=bad&role=bad');assert.equal(s.view,'directory');assert.equal(s.type,'all');assert.equal(s.area,'all');assert.equal(s.role,'all');
  const a=read('view=updates&area=agents&following=1&q=VISTA'),b=P.read(P.href(a,{person:'keya-hu'}),data);
  assert.equal(b.q,'VISTA');assert.equal(b.area,'agents');assert.equal(b.following,true);assert.equal(b.person,'keya-hu');
 });
@@ -24,6 +24,7 @@ test('independent role, direction, work-discovery and following filters',()=>{
  const saved=new Set(['tri-dao']);assert.equal(P.rows(data,read('following=1'),saved).length,1);
  assert.equal(P.rows(data,read('following=1&area=product'),saved).length,0);
  assert(P.rows(data,read('role=founder')).every(p=>p.roles.includes('founder')));
+ for(const type of data.influence_types){const matches=P.rows(data,read('type='+type.id));assert(matches.length);assert(matches.every(p=>P.influenceTypes(p).includes(type.id)));}
 });
 test('corrupt/unknown local IDs do not become follows',()=>{
  assert.equal(P.followIds({},data).size,0);assert.equal(P.followIds(['tri-dao','tri-dao',{},'unknown'],data).size,1);
@@ -57,7 +58,7 @@ test('latest verified activity covers every profile without inventing updates',(
  const current=Date.parse('2026-10-26T02:30:00Z');
  assert.equal(P.rows(data,read('view=influence&dim=research')).length,data.people.filter(p=>p.impact.dimensions.includes('research')).length);
  const page=P.page(data,read('view=influence'),new Set(),current);
- assert(page.includes('影响力地图'));assert(page.includes('学术与研究'));assert(page.includes('开源与技术生态'));assert(page.includes('产品与产业落地'));
+ assert(page.includes('影响力证据'));assert(page.includes('学术与研究'));assert(page.includes('开源与技术生态'));assert(page.includes('产品与产业落地'));
  assert.equal((page.match(/class="pp-latest/g)||[]).length,data.people.length);
  const recent=P.latestSignal(data.people.find(p=>p.id==='harrison-chase'),data,current);assert.equal(recent.date,'2026-10-24');
  const older=P.latestSignal(data.people.find(p=>p.id==='geoffrey-hinton'),data,current);assert.equal(older,null);
@@ -84,7 +85,7 @@ test('one complete card per person exposes all representative works and achievem
  assert.deepEqual([...html.matchAll(/data-person-card="([^"]+)"/g)].map(m=>m[1]),['recent-a','recent-b','old','unknown']);
  assert(html.includes('最近更新优先'));assert(!html.includes('编辑编选顺序'));
  assert.equal((html.match(/class="pp-achievements"/g)||[]).length,f.people.length);
- for(const p of f.people){const card=P.card(p,f,read(''),new Set(),at);assert(card.includes('主要成就与贡献'));for(const w of p.works)assert(card.includes('href="'+w.url+'"'));}
+ for(const p of f.people){const card=P.card(p,f,read(''),new Set(),at);assert(card.includes('为什么值得关注'));assert(card.includes('接下来验证'));for(const w of p.works)assert(card.includes('href="'+w.url+'"'));}
 });
 test('sort and visible latest event share one clock, including Beijing midnight',()=>{
  const f=fixture();f.events.push({...f.events[0],id:'new-day',title:'MIDNIGHT-EVENT',date:'2026-10-28',people:['unknown']});
