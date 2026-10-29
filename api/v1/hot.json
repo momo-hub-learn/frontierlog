@@ -36,6 +36,60 @@
   ],
   "items": [
     {
+      "id": "world-model-faithfulness-failure-benchmarks-20261027",
+      "category": "benchmark",
+      "title": "世界模型评测开始核对“怎样失败”，不只看画面像不像",
+      "published": "2026-10-27",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T07:30:02+08:00",
+      "first_seen_at": "2026-10-30T07:30:02+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 35,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型质量、机器人成功率或本站实测分数。",
+      "trend": "up",
+      "summary": "Latent Rollout Consistency、WMEval 与 WorldFailBench 分别把潜在动力学、Unity 状态物理因果、策略失败原因—阶段—边界变成可检查对象；三组作者实验都显示只看任务成败或画面观感会漏掉关键缺口。",
+      "why": "如果世界模型要替代部分机器人实测或数字孪生仿真，它必须复现动作后的状态变化和策略怎样失败。把“成功/失败”拆成因果轨迹与失败边界，能更早发现看似可用但诊断错误的模型。",
+      "boundary": "三项工作都是作者预印本与作者实验，本站没有运行代码或复现结果；题集、场景、模型集合和指标不同，不能跨论文拼总分，也不能据此断言所有世界模型都不理解物理或不能用于任何部署。",
+      "source": "arXiv / LRC / WMEval / WorldFailBench authors",
+      "source_kind": "作者预印本与公开评测协议 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.37588",
+      "link": "#/benchmarks?bench=world-model-faithfulness-failure-protocols",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看本站协议拆解",
+          "note": "分开看潜在动力学、模拟器物理因果与失败原因—阶段—边界，不跨协议拼分",
+          "url": "#/benchmarks?bench=world-model-faithfulness-failure-protocols",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 LRC 原论文",
+          "note": "核对 faithful latent dynamics 定义、评测范围和作者实验限制",
+          "url": "https://arxiv.org/abs/2610.37588",
+          "kind": "paper"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "WMEval: Evaluating Interactive World Models Grounded on Physical Simulations",
+          "url": "https://arxiv.org/abs/2610.33894",
+          "date": "2026-10-24"
+        },
+        {
+          "source": "arXiv",
+          "title": "WorldFailBench: Do World Models Understand Policy Failures?",
+          "url": "https://arxiv.org/abs/2610.33565",
+          "date": "2026-10-24"
+        }
+      ]
+    },
+    {
       "id": "huggingface-protostar-open-science-20261029",
       "category": "research",
       "title": "ProtoStar 推动公共科研成果变成 AI 可复用资产",

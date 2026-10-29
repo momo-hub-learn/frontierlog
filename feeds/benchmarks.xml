@@ -1,11 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Gemini 4 Carbon 把漏洞发现、利用验证与修复放进同一发布</title><guid isPermaLink="false">frontierlog:benchmark:gemini-4-carbon-cyber-benchmarks-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=cwe-bench-v1</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；三项分别覆盖漏洞发现、利用验证和根因修复，本站未复跑。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Gemini 4 Carbon 把漏洞发现、利用验证与修复放进同一发布</title><guid isPermaLink="false">frontierlog:benchmark:gemini-4-carbon-cyber-benchmarks-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=cwe-bench-v1</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；三项分别覆盖漏洞发现、利用验证和根因修复，本站未复跑。
 
 编辑解读：安全 Agent 不能用一个“网络安全分数”替代三段能力。比较时必须分别锁定题集、Harness、运行时限、工具、保护措施与通过标准；无 guardrails 结果也不能外推为部署时的可用成功率或安全性。
 
 来源：
 https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/
-https://cwe-bench.com/</description></item><item><title>Novelty Judge Bench 暴露提示词与标签来源的高敏感性</title><guid isPermaLink="false">frontierlog:benchmark:novelty-judge-instability-20261026</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=novelty-judge-bench</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>作者在六类 Judge 上发现，同一批 Human+Generated 题仅改变提示即可让 GPT-5.4 准确率从 93.5% 降至 40.9%；更高推理预算和实时检索也未稳定胜出。
+https://cwe-bench.com/</description></item><item><title>世界模型评测从画面相似度走向动力学与失败边界</title><guid isPermaLink="false">frontierlog:benchmark:world-model-faithfulness-failure-protocols-20261027</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=world-model-faithfulness-failure-protocols</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>LRC、WMEval 与 WorldFailBench 分别公开潜在动力学一致性、模拟器状态物理因果、以及失败原因—阶段—边界三类协议；作者实验都显示只看任务成败或画面观感会漏掉关键缺口。
+
+编辑解读：机器人与数字孪生验收应保存逐状态、逐动作和逐失败阶段证据；三套协议的场景、指标和模型集合不同，不能跨论文拼总分，也不能把作者实验写成本站复测。
+
+来源：
+https://arxiv.org/abs/2610.37588
+https://arxiv.org/abs/2610.33894
+https://arxiv.org/abs/2610.33565</description></item><item><title>Novelty Judge Bench 暴露提示词与标签来源的高敏感性</title><guid isPermaLink="false">frontierlog:benchmark:novelty-judge-instability-20261026</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=novelty-judge-bench</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate><description>作者在六类 Judge 上发现，同一批 Human+Generated 题仅改变提示即可让 GPT-5.4 准确率从 93.5% 降至 40.9%；更高推理预算和实时检索也未稳定胜出。
 
 编辑解读：科研 Agent 的“新颖性得分”必须同时披露题集来源、弱标签、提示词、检索范围与逐题翻转；不能把一次 Judge 结果直接当成创新性事实或跨系统总排名。
 

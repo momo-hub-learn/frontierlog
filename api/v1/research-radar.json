@@ -21,6 +21,44 @@
   ],
   "items": [
     {
+      "id": "world-model-faithfulness-and-failure-benchmarks-20261027",
+      "lane": "paradigm",
+      "title": "世界模型评测开始追问动力学是否真实、失败是否真实",
+      "maker": "Laiz & Schneider / WMEval / WorldFailBench",
+      "date": "2026-10-27",
+      "verified_at": "2026-10-30T07:30:02+08:00",
+      "verification_status": "作者预印本与公开协议 · 本站未复现",
+      "tags": [
+        "World Models",
+        "Physical Causality",
+        "Failure Analysis"
+      ],
+      "fact": "三组新预印本把世界模型评测从画面相似度或任务成败推进到可检验的内部与失败结构：Latent Rollout Consistency 检查潜在动力学是否与环境转移保持等变；WMEval 用 9 个 Unity 场景的模拟器状态核对物理因果；WorldFailBench 分别检查失败原因、失败阶段和成功—失败边界。作者实验分别报告现有样本仍有显著缺口。",
+      "insight": "未来几个月更值得追踪的不是又一个视频观感分，而是模型能否在干预后保持可预测动力学，并复现策略怎样失败。只有这些信号稳定，世界模型才更有资格承担机器人策略筛选、数字孪生或长时规划的低成本代理。",
+      "boundary": "三项工作均为作者预印本与作者实验，本站没有运行代码、复现结果或做独立同行评议；题集、场景、模型集合和指标不同，不能跨论文拼成统一分数，也不能据此断言所有世界模型都不理解物理或不能用于任何策略评估。",
+      "next_watch": "跟踪代码与数据是否完整公开、第三方复现、对未见环境和长时干预的稳定性、失败边界的小扰动鲁棒性，以及指标与真实机器人部署事故之间的相关性。",
+      "sources": [
+        {
+          "label": "arXiv · Understanding the limits of latent world models",
+          "url": "https://arxiv.org/abs/2610.37588",
+          "kind": "作者预印本 · faithful latent dynamics 与 LRC",
+          "strength": "primary"
+        },
+        {
+          "label": "arXiv · WMEval",
+          "url": "https://arxiv.org/abs/2610.33894",
+          "kind": "作者预印本 · Unity 状态与物理因果评测",
+          "strength": "primary"
+        },
+        {
+          "label": "arXiv · WorldFailBench",
+          "url": "https://arxiv.org/abs/2610.33565",
+          "kind": "作者预印本 · 失败原因、阶段与边界评测",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "huggingface-protostar-open-science-20261029",
       "lane": "science",
       "title": "公共科研资产开始面向 AI 建立可复用发布规范",
