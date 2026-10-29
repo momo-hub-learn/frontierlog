@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "github-agentic-workflows",
+      "publisher": "GitHub",
+      "group": "agents",
+      "access": "web",
+      "headline": "先编译并审查只读工作流，再允许 Agent 修改仓库",
+      "input": "可删除的测试仓库 + 固定 issue / CI 样本 + 最低权限 Actions 配置",
+      "output": "编译后的 Actions YAML、只读分析结果、权限与成本日志、失败轨迹",
+      "requirements": "GitHub.com 测试仓库、Actions 权限、GitHub CLI 与 Agentic Workflows 工具；默认 Copilot CLI 引擎需 Copilot 许可，也可按官方说明配置自带 coding agent。",
+      "limitation": "GA 和默认只读不代表自动生成的工作流可直接用于生产。完整性过滤、隔离容器与防火墙不能替代对触发器、permissions、第三方 actions、提示注入、费用和生成变更的人工审查；本站未运行。",
+      "cost": "开源项目；仍会产生 Actions runner、模型或 Copilot 许可、存储与人工审查成本，官方成本预测应与实际运行日志核对。",
+      "steps": [
+        {
+          "title": "从只读 Markdown 任务开始",
+          "body": "只汇总固定标签的测试 issue，不授予写权限，不读取生产 secrets；明确输出格式、停止条件和允许来源。",
+          "command": "gh aw compile"
+        },
+        {
+          "title": "审查编译后的 Actions YAML",
+          "body": "逐行检查 on、permissions、runner、container、第三方 actions、网络访问、模型和预计成本；编译产物与自然语言意图不一致就停止。"
+        },
+        {
+          "title": "在测试分支做注入与失败回归",
+          "body": "加入恶意 issue 文本、空结果、超时和模型失败样本，核对完整性过滤、只读边界、日志与退出状态；任何写入另开审批。"
+        }
+      ],
+      "troubleshooting": "编译失败先核对 CLI 版本、Markdown 语法与仓库权限。运行结果异常时先查看生成 YAML、Actions 权限和完整性过滤日志；不要通过扩大 token 权限或关闭安全层来绕过失败。",
+      "sources": [
+        {
+          "title": "GitHub Agentic Workflows GA 公告",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        },
+        {
+          "title": "GitHub Next · Agentics",
+          "url": "https://github.com/githubnext/agentics",
+          "published_at": null,
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://github.com/githubnext/agentics",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-29T13:19:31+08:00"
+    },
+    {
       "id": "nvidia-nemotron-3-5-transcribe",
       "publisher": "NVIDIA",
       "group": "audio",

@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Nemotron 3.5 Transcribe 开放多语录播音频处理权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-nemotron-3-5-transcribe&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-nemotron-3-5-transcribe-release</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Agentic Workflows 在 github.com 正式可用</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=github-agentic-workflows&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:github-agentic-workflows-ga-20261028</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>GitHub 把自然语言工作流编译成标准 Actions YAML，并支持 Copilot CLI 或自带 coding agent；Free、Team 与 Enterprise 可使用。
+
+编辑解读：仓库推理任务进入现有 CI/CD 控制面；默认只读和多层防护降低起步风险，但权限、编译 YAML、成本和输出仍需逐项验收。
+
+公开资料，本站未复测。
+来源：https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/</description></item><item><title>Nemotron 3.5 Transcribe 开放多语录播音频处理权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=nvidia-nemotron-3-5-transcribe&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:nvidia-nemotron-3-5-transcribe-release</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。
 
 编辑解读：长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。
 
@@ -247,7 +252,14 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：开发者可以沿公开实现检查构建和查询流程。
 
 公开资料，本站未复测。
-来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>Claude 进入六个药物项目：先分开实验结果、流程效率与临床证据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=anthropic-claude-drug-development-20261027</link><guid isPermaLink="false">frontierlog:topic:anthropic-claude-drug-development-20261027</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 披露与 BigHat、BMS、Divergence Labs、Enveda、Generate Biomedicines 和 The Column Group 的合作，覆盖分子设计、先导优化、制造文档、公司创建与临床试验规划，并链接合作方技术报告。
+来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=anthropic-ai-for-science-expansion-20261028</link><guid isPermaLink="false">frontierlog:topic:anthropic-ai-for-science-expansion-20261028</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。
+
+编辑解读：科研 Agent 开始从文献、代码和数据分析走向实验设备接口。生命科学团队可据此把设备权限、协议版本、样本血缘、异常停机、结果复现和人工放行拆成明确验收点。
+
+边界：这是一项项目扩展和 research preview，不是获批医疗产品或已验证的自动实验室。合作方的速度与案例来自官方材料，多数仍早期；MHS 兼容性、安全模型、临床适用性和独立复验尚未建立，本站未接入仪器。
+资料核对：2026-10-29；本站未实测。
+原始来源：
+https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions</description><category>靶点发现与验证</category><category>分子设计与筛选</category><category>临床试验与数据</category></item><item><title>Claude 进入六个药物项目：先分开实验结果、流程效率与临床证据</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=anthropic-claude-drug-development-20261027</link><guid isPermaLink="false">frontierlog:topic:anthropic-claude-drug-development-20261027</guid><pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 披露与 BigHat、BMS、Divergence Labs、Enveda、Generate Biomedicines 和 The Column Group 的合作，覆盖分子设计、先导优化、制造文档、公司创建与临床试验规划，并链接合作方技术报告。
 
 编辑解读：这把通用模型接入药物研发的多个真实环节，并给出从设计数量、实验命中到文档复核工时的可追踪节点；团队可据此建立分任务、分证据阶段的验证清单，而不是只看一个综合演示。
 

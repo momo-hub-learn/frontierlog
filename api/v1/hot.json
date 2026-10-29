@@ -36,6 +36,142 @@
   ],
   "items": [
     {
+      "id": "github-copilot-cloud-connected-20261028",
+      "category": "product",
+      "title": "Copilot 云端会话连通网页、IDE、CLI 与协作工具",
+      "published": "2026-10-28",
+      "published_at": null,
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "first_seen_at": "2026-10-29T13:19:31+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 34,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是任务成功率、沙箱安全分或本站实测分数。",
+      "trend": "up",
+      "verification_status": "GitHub 官方 Changelog · 付费 Copilot 套餐 GA / 分批开放",
+      "summary": "GitHub 把 Copilot 云端会话连到 github.com、Mobile、CLI、Copilot app、VS Code、Slack 与 Teams；任务在 GitHub 管理的临时隔离沙箱运行，并可跨入口恢复。",
+      "why": "Coding Agent 正从单一客户端变成可跨端续接的云端执行层。团队现在需要同时核对会话接力、沙箱快照、工具审批、组织策略和 11 月开始的云沙箱计费。",
+      "boundary": "只确认付费 Copilot 套餐分批开放，不代表所有账号、地区或入口已同时可用。隔离沙箱、审批和只读默认来自 GitHub 官方说明，不等于独立安全审计；组织策略、允许列表和写权限仍会改变行为。云沙箱计费计划于 2026 年 11 月开始，本站未接入或运行。",
+      "source": "GitHub",
+      "source_kind": "官方 Changelog / 本轮编辑核验",
+      "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 GitHub 官方发布",
+          "note": "核对套餐、跨端入口、沙箱、审批、组织策略与计费边界",
+          "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "GitHub Changelog",
+          "title": "Work from anywhere with a new, connected Copilot cloud experience",
+          "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "github-agentic-workflows-ga-20261028",
+      "category": "product",
+      "title": "GitHub Agentic Workflows 正式可用：自然语言编译为 Actions",
+      "published": "2026-10-28",
+      "published_at": null,
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "first_seen_at": "2026-10-29T13:19:31+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 32,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是自动化成功率、节省工时或本站实测分数。",
+      "trend": "up",
+      "verification_status": "GitHub 官方 Changelog · GA / 开源项目",
+      "summary": "GitHub Agentic Workflows 已 GA：团队可用 Markdown 描述 issue 分流、CI 分析、文档或测试任务，再编译为标准 Actions YAML；默认只读，并提供完整性过滤、隔离容器、防火墙与安全输出。",
+      "why": "Agent 自动化进入现有 Actions 权限、runner 与审计体系，降低接线成本；真正上线前仍要审查编译后的 YAML、权限、触发条件、成本预测和外部写入。",
+      "boundary": "GitHub.com Free、Team 与 Enterprise 可使用，但默认 Copilot CLI 引擎仍需 Copilot 许可；也可自带 coding agent。默认只读和防护不代表零风险，权限提升后的工具调用、提示注入、生成文件与第三方动作仍需复核。客户效率数字属于客户陈述，本站未复现。",
+      "source": "GitHub",
+      "source_kind": "官方 Changelog / 本轮编辑核验",
+      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "link": "#/toolkit?task=github-agentic-workflows&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开站内最小验收指南",
+          "note": "从只读 issue 摘要开始，检查编译 YAML、权限、成本与输出",
+          "url": "#/toolkit?task=github-agentic-workflows&tab=run",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 GitHub 官方 GA 公告",
+          "note": "核对可用范围、执行引擎与安全边界",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "GitHub Changelog",
+          "title": "GitHub Agentic Workflows generally available",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-ai-for-science-expansion-20261028",
+      "category": "research",
+      "title": "Anthropic 扩展 AI for Science，并预览实验仪器开放标准",
+      "published": "2026-10-28",
+      "published_at": null,
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "first_seen_at": "2026-10-29T13:19:31+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 32,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研产出、实验成功率、临床有效性或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Anthropic 官方项目公告 · credits 计划扩展 / MHS research preview",
+      "summary": "Anthropic 把 AI for Science credits 扩展到 20 家基金会、研究机构与研究团队，并与 HHMI Janelia 预览 Model Hardware Standard（MHS），探索让 Agent 在明确接口下操作实验仪器。",
+      "why": "科研 Agent 的边界正在从文献与分析走向可审计的实验设备接口。更关键的不是合作数量，而是仪器权限、实验协议、结果复现、失败停机与研究人员审批能否形成标准链路。",
+      "boundary": "这是项目扩展与研究预览公告，不是通用实验室自动化产品，也不能证明 AI 已产生可复现科学发现。合作方的提速与案例来自参与机构或 Anthropic 描述，多数项目仍早期；MHS 的兼容范围、安全模型、独立复验和临床适用性尚未建立。",
+      "source": "Anthropic",
+      "source_kind": "官方项目公告 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Anthropic 官方公告",
+          "note": "核对 20 家合作范围、credits 与 MHS research preview 边界",
+          "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "AI for Science expands to foundations and research institutions",
+          "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "nvidia-nemotron-3-5-transcribe-20261028",
       "category": "model",
       "title": "Nemotron 3.5 Transcribe：40 语种录播转写进入开放权重链",

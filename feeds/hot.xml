@@ -125,6 +125,12 @@
 
 边界：功能、可用范围与安全机制来自 Google 官方发布；Google 同文引用 Hume AI Voice Design Benchmark 与 Voice Arena 的领先结果，但本站本轮未用这些厂商引用值改写现有独立 TTS 榜单，也不据此宣称其已在所有语音 Benchmark 上绝对第一。声音复制要求权利与同意验证，生成音频带 SynthID，企业可用性仍在分阶段 rollout。
 
+站内热度 96；不是全网流量。</description></item><item><title>Copilot 云端会话连通网页、IDE、CLI 与协作工具</title><guid isPermaLink="false">frontierlog:hot:github-copilot-cloud-connected-20261028</guid><link>https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>GitHub 把 Copilot 云端会话连到 github.com、Mobile、CLI、Copilot app、VS Code、Slack 与 Teams；任务在 GitHub 管理的临时隔离沙箱运行，并可跨入口恢复。
+
+为什么值得看：Coding Agent 正从单一客户端变成可跨端续接的云端执行层。团队现在需要同时核对会话接力、沙箱快照、工具审批、组织策略和 11 月开始的云沙箱计费。
+
+边界：只确认付费 Copilot 套餐分批开放，不代表所有账号、地区或入口已同时可用。隔离沙箱、审批和只读默认来自 GitHub 官方说明，不等于独立安全审计；组织策略、允许列表和写权限仍会改变行为。云沙箱计费计划于 2026 年 11 月开始，本站未接入或运行。
+
 站内热度 96；不是全网流量。</description></item><item><title>Granite Speech 5.0：多语转写、翻译与关键词偏置进入开放语音模型</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-speech-5-20261021</guid><link>https://huggingface.co/blog/ibm-granite/granite-speech-5</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>IBM 发布 Granite Speech 5.0：新增 2B 多语转写与双向英语翻译模型，并更新 470M TurboCTC 与 2B Plus；支持语言提示、最多 2,000 个关键词偏置、标点与大小写恢复。
 
 为什么值得看：三款模型都以 Apache 2.0 开放并接入 Transformers；2B 模型还覆盖 vLLM、llama.cpp 与 MLX-Audio，适合为会议、客服或现场语音建立可审计的本地基线。
@@ -214,6 +220,12 @@
 为什么值得看：这次不是普通榜位波动，而是评测集合和权重整体变化。v4 与 v5 分数不能直接纵向比较；模型选型时也应先看九项任务是否覆盖自己的真实工作，而不是只看一个整数总分。
 
 边界：官方指数仍主要覆盖英文文本模型，多模态、语音和多语言需另看专项评测。部分测试集为私有或答案留出集，本站没有独立复现；当前模型页只公开展示部分配置，本站仅摘录本轮可直接核实的榜首五个配置与已发布权重前三名，不把旧 v4 分数混入当前榜。
+
+站内热度 94；不是全网流量。</description></item><item><title>GitHub Agentic Workflows 正式可用：自然语言编译为 Actions</title><guid isPermaLink="false">frontierlog:hot:github-agentic-workflows-ga-20261028</guid><link>https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>GitHub Agentic Workflows 已 GA：团队可用 Markdown 描述 issue 分流、CI 分析、文档或测试任务，再编译为标准 Actions YAML；默认只读，并提供完整性过滤、隔离容器、防火墙与安全输出。
+
+为什么值得看：Agent 自动化进入现有 Actions 权限、runner 与审计体系，降低接线成本；真正上线前仍要审查编译后的 YAML、权限、触发条件、成本预测和外部写入。
+
+边界：GitHub.com Free、Team 与 Enterprise 可使用，但默认 Copilot CLI 引擎仍需 Copilot 许可；也可自带 coding agent。默认只读和防护不代表零风险，权限提升后的工具调用、提示注入、生成文件与第三方动作仍需复核。客户效率数字属于客户陈述，本站未复现。
 
 站内热度 94；不是全网流量。</description></item><item><title>GitHub intelligence：Memory 正式可用，Dreaming 进入预览</title><guid isPermaLink="false">frontierlog:hot:github-intelligence-memory-dreaming-20261028</guid><link>https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>GitHub 把 Memory、Dreaming 与跨仓代码搜索归为 Copilot 的上下文层：Memory 已面向付费 Copilot 套餐正式可用；Dreaming 以需显式开启的公开预览运行，并可提出仓库 skills 与指令更新。
 
@@ -334,6 +346,12 @@
 为什么值得看：Agent 不只影响效率，也可能改变负责最终签字的人怎样形成判断。对高风险分析流程，更稳妥的做法是先记录人的初始判断、显式展示模型倾向，并安排真正独立的复核。
 
 边界：作者刻意加强了 Agent 的倾向，且只研究一个分析任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户也不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能推出所有专家、所有 Agent 或真实业务场景都会以同样比例被影响。本站未复现实验。
+
+站内热度 91；不是全网流量。</description></item><item><title>Anthropic 扩展 AI for Science，并预览实验仪器开放标准</title><guid isPermaLink="false">frontierlog:hot:anthropic-ai-for-science-expansion-20261028</guid><link>https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 把 AI for Science credits 扩展到 20 家基金会、研究机构与研究团队，并与 HHMI Janelia 预览 Model Hardware Standard（MHS），探索让 Agent 在明确接口下操作实验仪器。
+
+为什么值得看：科研 Agent 的边界正在从文献与分析走向可审计的实验设备接口。更关键的不是合作数量，而是仪器权限、实验协议、结果复现、失败停机与研究人员审批能否形成标准链路。
+
+边界：这是项目扩展与研究预览公告，不是通用实验室自动化产品，也不能证明 AI 已产生可复现科学发现。合作方的提速与案例来自参与机构或 Anthropic 描述，多数项目仍早期；MHS 的兼容范围、安全模型、独立复验和临床适用性尚未建立。
 
 站内热度 91；不是全网流量。</description></item><item><title>Anthropic 提交 S-1：拟以 ANT 登陆纳斯达克</title><guid isPermaLink="false">frontierlog:hot:anthropic-s1-proposed-ipo-20261026</guid><link>https://www.anthropic.com/news/s1-sec</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic PBC 已向美国 SEC 提交 Form S-1，拟让 A 类普通股在纳斯达克全球精选市场以 ANT 为代码上市；发行股数与价格区间尚未确定。
 

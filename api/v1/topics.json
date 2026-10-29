@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-28",
+  "checked": "2026-10-29",
   "sectors": [
     {
       "id": "pharma",
@@ -173,6 +173,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "anthropic-ai-for-science-expansion-20261028",
+      "title": "AI for Science expands to foundations and research institutions",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "kind": "官方项目扩展、参与机构、研究 credits 与 MHS research preview"
+    },
     {
       "id": "anthropic-claude-drug-development-20261027",
       "title": "Early progress on accelerating drug development with Claude",
@@ -604,6 +614,41 @@
     }
   ],
   "articles": [
+    {
+      "id": "anthropic-ai-for-science-expansion-20261028",
+      "sector": "pharma",
+      "topics": [
+        "targets",
+        "molecules",
+        "clinical"
+      ],
+      "title": "AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现",
+      "summary": "Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。",
+      "why": "科研 Agent 开始从文献、代码和数据分析走向实验设备接口。生命科学团队可据此把设备权限、协议版本、样本血缘、异常停机、结果复现和人工放行拆成明确验收点。",
+      "boundary": "这是一项项目扩展和 research preview，不是获批医疗产品或已验证的自动实验室。合作方的速度与案例来自官方材料，多数仍早期；MHS 兼容性、安全模型、临床适用性和独立复验尚未建立，本站未接入仪器。",
+      "sources": [
+        "anthropic-ai-for-science-expansion-20261028"
+      ],
+      "kind": "update",
+      "access": "研究 credits 计划与 MHS research preview；具体资格、设备兼容和开放代码以官方后续材料为准",
+      "published": "2026-10-28",
+      "steps": [
+        "从只读设备状态与模拟器开始，冻结仪器、固件、协议和样本版本",
+        "为每个工具调用设置最小权限、参数上限、人工审批和硬件急停",
+        "用独立实验、盲样和重复批次核对结果，保留失败轨迹与数据血缘"
+      ],
+      "metrics": [
+        "协议遵循率、越权与急停触发、设备异常恢复",
+        "重复实验一致性、样本与数据血缘完整性",
+        "人工审批时间、失败复现率与独立实验室复验"
+      ],
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "first_seen_at": "2026-10-29T13:19:31+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "anthropic-claude-drug-development-20261027",
       "sector": "pharma",

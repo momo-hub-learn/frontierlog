@@ -21,6 +21,32 @@
   ],
   "items": [
     {
+      "id": "anthropic-ai-for-science-mhs-20261028",
+      "lane": "science",
+      "title": "科研 Agent 开始走向可审计的实验仪器接口",
+      "maker": "Anthropic / HHMI Janelia",
+      "date": "2026-10-28",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "verification_status": "公司官方项目公告 · MHS research preview",
+      "tags": [
+        "AI for Science",
+        "Lab Automation",
+        "Agent Safety"
+      ],
+      "fact": "Anthropic 把 AI for Science credits 计划扩展到 20 家基金会、研究机构与研究团队，并与 HHMI Janelia 预览 Model Hardware Standard（MHS），探索让 Agent 通过统一接口操作实验仪器。",
+      "insight": "真正值得跟踪的是仪器接口能否同时表达权限、实验协议、状态、异常停机、数据血缘和人工审批；没有这些约束，语言模型连上硬件只会放大不可审计风险。",
+      "boundary": "公告不能证明通用实验室自动化已可用，也不能推出 AI 已产生可复现科学发现。合作方案例与提速来自发布方材料，多数项目仍在早期；MHS 的安全模型、兼容性和独立复验尚未公开完整结果。",
+      "next_watch": "跟踪 MHS 规范、参考实现、支持仪器、权限与故障模型、独立实验室复验，以及实验产物能否保留可追溯协议和人工放行。",
+      "sources": [
+        {
+          "label": "Anthropic · AI for Science expands",
+          "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+          "kind": "官方项目范围、合作方、MHS research preview 与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "google-gemini-4-carbon-long-horizon-cyber-20261028",
       "lane": "paradigm",
       "title": "长时 Agent 开始同时面对工程坚持性与网络安全边界",

@@ -17,6 +17,114 @@
   ],
   "items": [
     {
+      "id": "github-connected-copilot-cloud",
+      "name": "Connected Copilot cloud",
+      "company": "GitHub",
+      "group": "enterprise-agent",
+      "tags": [
+        "Coding Agent",
+        "Cloud Sandbox",
+        "Cross-surface"
+      ],
+      "summary": "让同一个 Copilot 云端任务在 github.com、Mobile、CLI、Copilot app、VS Code、Slack 与 Teams 之间续接。",
+      "product_url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+      "source_url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+      "source_label": "GitHub 官方 Changelog",
+      "evidence": "GitHub 2026-10-28 官方发布确认付费 Copilot 套餐开始分批获得跨入口云端会话、临时隔离沙箱、快照恢复、审批和组织策略控制。",
+      "boundary": "不代表所有付费账号或入口已同时开放。沙箱与审批是官方设计说明，不是独立安全审计；云沙箱计费计划于 2026 年 11 月开始，组织策略和写权限会改变实际行为，本站未接入。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "GA rollout",
+          "title": "Connected Copilot cloud 向付费套餐分批开放",
+          "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/",
+          "summary": "云端编码会话可跨网页、移动端、CLI、IDE 与协作工具恢复，并运行在 GitHub 管理的临时隔离沙箱。",
+          "facts": [
+            {
+              "label": "当前对象",
+              "value": "Paid Copilot plans · rolling out"
+            },
+            {
+              "label": "执行环境",
+              "value": "Ephemeral isolated sandbox"
+            },
+            {
+              "label": "控制",
+              "value": "Approvals / org policies / allowlists"
+            },
+            {
+              "label": "计费",
+              "value": "Cloud sandbox billing starts Nov 2026"
+            }
+          ],
+          "interpretation": "跨端 Agent 需要把会话连续性、权限升级、沙箱恢复、费用和最终仓库状态放进同一条验收链。",
+          "scope": "GitHub 2026-10-28 Changelog 列出的付费套餐云端 Copilot 体验。",
+          "limitations": "不能从分批开放推出所有账号已可用，也不能从临时沙箱推出所有工具调用安全；本站未连接或运行。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T13:19:31+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "github-agentic-workflows",
+      "name": "GitHub Agentic Workflows",
+      "company": "GitHub",
+      "group": "enterprise-agent",
+      "tags": [
+        "Agent Workflow",
+        "GitHub Actions",
+        "Open Source"
+      ],
+      "summary": "用 Markdown 描述推理型仓库任务，再编译为标准 GitHub Actions YAML，并沿用 runner、策略与审计体系。",
+      "product_url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "source_url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "source_label": "GitHub 官方 Changelog",
+      "evidence": "GitHub 2026-10-28 宣布 Agentic Workflows GA，列出 Markdown 到 Actions YAML、Copilot 或自带 coding agent、默认只读和多层安全防护。",
+      "boundary": "Free、Team 与 Enterprise 可用不等于默认 Copilot CLI 引擎无需许可。默认只读、防火墙与完整性过滤不能替代对编译 YAML、触发条件、第三方动作和权限提升的人工审查；本站未运行。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "GA",
+          "title": "GitHub Agentic Workflows 正式可用",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+          "summary": "自然语言工作流编译为标准 Actions YAML，可使用 Copilot 或自带 coding agent，并沿用现有 runner 与组织策略。",
+          "facts": [
+            {
+              "label": "状态",
+              "value": "GA · github.com"
+            },
+            {
+              "label": "计划",
+              "value": "Free / Team / Enterprise"
+            },
+            {
+              "label": "默认权限",
+              "value": "Read-only"
+            },
+            {
+              "label": "执行引擎",
+              "value": "Copilot CLI or BYO agent"
+            }
+          ],
+          "interpretation": "仓库 Agent 自动化进入成熟 CI/CD 控制面，但安全和质量仍取决于编译产物、权限、输入完整性与回归测试。",
+          "scope": "GitHub 2026-10-28 GA 公告所列的 github.com Agentic Workflows。",
+          "limitations": "Copilot 引擎仍需许可；安全层不保证零风险，客户效率数字也不是独立 Benchmark。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T13:19:31+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "openai-dot-texting",
       "name": "ChatGPT dot Texting",
       "company": "OpenAI / Linq",
