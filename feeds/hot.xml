@@ -461,6 +461,12 @@
 
 边界：这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，仍需按本地人群、设备和转诊流程验证误报漏报。
 
+站内热度 90；不是全网流量。</description></item><item><title>Swift 应用可换用本地语音与结构化决策模型</title><guid isPermaLink="false">frontierlog:hot:huggingface-anyspeech-anydecision-20261029</guid><link>https://huggingface.co/blog/anydecisionmodel</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>AnySpeechRecognizer 让 Apple Speech API 切换到 Parakeet、Qwen3-ASR 与本地说话人分离；AnyDecisionModel 用 MLX、Core AI、llama.cpp、Jev 或 Ollama 返回带概率的类型化选择。
+
+为什么值得看：端侧 AI 正从通用文本生成扩展到专用语音和可校准决策组件；统一 Swift 接口让团队更容易比较引擎、隐私、延迟和错误边界，而不必把每个任务都交给云端大模型。
+
+边界：官方基准和示例不是本站实测。两包要求 Swift 6.2 及 macOS/iOS 26 以上，部分后端要求 Apple silicon、更新的 Xcode 或 6.2GB 量级模型；Qwen3-ASR 当前不提供实时中间结果、词级时间和置信度，概率集中也不代表答案正确。
+
 站内热度 90；不是全网流量。</description></item><item><title>Inside-JEPA：预测本身不会自动长出关系理解</title><guid isPermaLink="false">frontierlog:hot:inside-jepa-relational-grounding-20261022</guid><link>https://arxiv.org/abs/2610.31194</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate><description>Inside-JEPA 在 JEPA 潜在状态中为有序实体对加入 16 个关系通道，并用逆动力学目标从关系变化恢复动作；作者报告，只做潜在预测的关系探针不优于随机头，加入关系 grounding 后，Something-Something V2 十组设置的关系 AUROC 提升 0.065–0.103，RH20T 留出任务提升 0.081。
 
 为什么值得看：世界模型能预测未来，不等于内部状态已经编码可读、可用于决策的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。
@@ -502,6 +508,12 @@
 为什么值得看：公开权重、单张 80GB GPU 可运行和明确 DNA tokenizer，让团队能把敏感序列留在自有基础设施做受控复核；它也提示生物模型正在从专用编码器走向可被 Agent 调用的语言接口。
 
 边界：模型卡明确说明未经过临床验证、不可用于医疗决策，并可能错数碱基、混淆坐标或编造功能。66.7% 五项 DNA Benchmark 均值、成本比较和 ClinVar 估算来自发布团队，本站未复跑；HF Trending 只表示平台关注，不代表生物能力领先。
+
+站内热度 89；不是全网流量。</description></item><item><title>ProtoStar 推动公共科研成果变成 AI 可复用资产</title><guid isPermaLink="false">frontierlog:hot:huggingface-protostar-open-science-20261029</guid><link>https://huggingface.co/blog/announcing-project-protostar</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>Hugging Face 与高校、研究机构和开放科学组织发起 ProtoStar，推动公共资助的数据、模型和代码以可发现、带元数据与来源链的 AI-ready 形式发布。
+
+为什么值得看：科研 Agent 的上限越来越受数据文档、许可、版本和来源链约束；把公共研究产物变成机器可发现、可组合又可追溯的基础设施，可能比再造一个单点模型更影响后续科学工作流。
+
+边界：这是基础设施倡议和开放挑战安排，不是已经产生科学突破或证明 AI 方法优于基线。首个气候挑战计划于 11 月 2–13 日进行，结果要到 2027 年初才能用完整 2026 观测数据评估；公开可下载也不等于数据适合任意用途。
 
 站内热度 89；不是全网流量。</description></item><item><title>Mistral × NVIDIA：CAE / EDA Agent 将补公开评测与开放数据集</title><guid isPermaLink="false">frontierlog:hot:mistral-nvidia-engineering-ai-20261021</guid><link>https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Mistral 与 NVIDIA 宣布把 Mistral Large 4 接入 CUDA-X、Warp 与 Omniverse 工程管线，并计划为物理模型、CAE 与 EDA Agent 建立公开 Benchmark 和开放数据集。
 
@@ -580,6 +592,12 @@
 为什么值得看：下载、计算、调度和存储开始被压进同一套 Hub CLI / Python 接口，能减少跨仓库重复缓存，也让小型 Agent 工作流有更清晰的自动化入口。
 
 边界：本站核验官方博客与 GitHub Release，但未运行命令。Sandboxes 仍标为实验性；Jobs、Buckets、算力与存储受账号、权限、区域和费用约束。官方用 DeepSeek V4.1 Flash 与 Kimi K3 做的 28 项 CLI skill 对照是供应商自测，不能外推为模型综合能力或本站 Benchmark。
+
+站内热度 87；不是全网流量。</description></item><item><title>Granite Switch 4.1.1 用适配器补丁更新语音与决策</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-switch-4-1-1-20261029</guid><link>https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>Granite Switch 4.1.1 保持 4.1 向后兼容，只更新 10 语种带标点与大小写的 Speech ASR 模型及 granitelib-core 决策适配器，不重训基础模型。
+
+为什么值得看：模型组件开始像软件依赖一样按版本独立更新；如果适配器能在冻结基础模型的情况下迭代，部署团队就需要把基础权重、适配器、评测集和回滚分别纳入版本账本。
+
+边界：这是补丁发布，不是新的基础模型或普遍能力跃迁。决策改进来自官方 Jev Decision Index，语音范围、延迟和准确率仍需按语言与业务音频验证；Adapter SDK 与教程仍在后续计划中。
 
 站内热度 87；不是全网流量。</description></item><item><title>NeMo AutoModel 0.7：训练栈扩展到更多 MoE、VLM 与离散扩散路径</title><guid isPermaLink="false">frontierlog:hot:nvidia-nemo-automodel-0-7-20261021</guid><link>https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>NVIDIA 发布 NeMo AutoModel 0.7，扩大 DeepSeek、GLM、Qwen、MiMo 与视觉语言模型覆盖，并加入更多 MoE、推测解码、离散扩散、图像微调、FlashAttention-4 和低内存检查点加载路径。
 

@@ -36,6 +36,148 @@
   ],
   "items": [
     {
+      "id": "huggingface-protostar-open-science-20261029",
+      "category": "research",
+      "title": "ProtoStar 推动公共科研成果变成 AI 可复用资产",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "first_seen_at": "2026-10-30T05:16:05+08:00",
+      "heat": 89,
+      "heat_components": {
+        "impact": 34,
+        "availability": 15,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是科研质量、下载量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Hugging Face 官方计划公告 · 首个挑战尚未开始",
+      "summary": "Hugging Face 与高校、研究机构和开放科学组织发起 ProtoStar，推动公共资助的数据、模型和代码以可发现、带元数据与来源链的 AI-ready 形式发布。",
+      "why": "科研 Agent 的上限越来越受数据文档、许可、版本和来源链约束；把公共研究产物变成机器可发现、可组合又可追溯的基础设施，可能比再造一个单点模型更影响后续科学工作流。",
+      "boundary": "这是基础设施倡议和开放挑战安排，不是已经产生科学突破或证明 AI 方法优于基线。首个气候挑战计划于 11 月 2–13 日进行，结果要到 2027 年初才能用完整 2026 观测数据评估；公开可下载也不等于数据适合任意用途。",
+      "source": "Hugging Face / Project ProtoStar",
+      "source_kind": "官方计划公告 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/announcing-project-protostar",
+      "link": "#/progress?view=research&research=huggingface-protostar-open-science-20261029",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看研究雷达档案",
+          "note": "区分计划范围、开放挑战、数据来源链与尚未验证的成效",
+          "url": "#/progress?view=research&research=huggingface-protostar-open-science-20261029",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+          "url": "https://huggingface.co/blog/announcing-project-protostar",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "huggingface-anyspeech-anydecision-20261029",
+      "category": "product",
+      "title": "Swift 应用可换用本地语音与结构化决策模型",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "first_seen_at": "2026-10-30T05:16:05+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 31,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是准确率、生态采用率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Hugging Face 官方发布 · GitHub 包可获取 · 本站未运行",
+      "summary": "AnySpeechRecognizer 让 Apple Speech API 切换到 Parakeet、Qwen3-ASR 与本地说话人分离；AnyDecisionModel 用 MLX、Core AI、llama.cpp、Jev 或 Ollama 返回带概率的类型化选择。",
+      "why": "端侧 AI 正从通用文本生成扩展到专用语音和可校准决策组件；统一 Swift 接口让团队更容易比较引擎、隐私、延迟和错误边界，而不必把每个任务都交给云端大模型。",
+      "boundary": "官方基准和示例不是本站实测。两包要求 Swift 6.2 及 macOS/iOS 26 以上，部分后端要求 Apple silicon、更新的 Xcode 或 6.2GB 量级模型；Qwen3-ASR 当前不提供实时中间结果、词级时间和置信度，概率集中也不代表答案正确。",
+      "source": "Hugging Face / AnySpeechRecognizer / AnyDecisionModel",
+      "source_kind": "官方发布 / 官方开源仓库 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/anydecisionmodel",
+      "link": "#/toolkit?task=anyspeech-anydecision&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开上手与验收指南",
+          "note": "核对系统版本、后端差异、音频授权、校准与错误率",
+          "url": "#/toolkit?task=anyspeech-anydecision&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "Introducing AnySpeechRecognizer and AnyDecisionModel",
+          "url": "https://huggingface.co/blog/anydecisionmodel",
+          "date": "2026-10-29"
+        },
+        {
+          "source": "GitHub",
+          "title": "AnySpeechRecognizer",
+          "url": "https://github.com/mattt/AnySpeechRecognizer"
+        },
+        {
+          "source": "GitHub",
+          "title": "AnyDecisionModel",
+          "url": "https://github.com/mattt/AnyDecisionModel"
+        }
+      ]
+    },
+    {
+      "id": "ibm-granite-switch-4-1-1-20261029",
+      "category": "model",
+      "title": "Granite Switch 4.1.1 用适配器补丁更新语音与决策",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "first_seen_at": "2026-10-30T05:16:05+08:00",
+      "heat": 87,
+      "heat_components": {
+        "impact": 29,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、下载量或本站实测分数。",
+      "trend": "flat",
+      "verification_status": "IBM Granite / Hugging Face 官方补丁说明 · 本站未运行",
+      "summary": "Granite Switch 4.1.1 保持 4.1 向后兼容，只更新 10 语种带标点与大小写的 Speech ASR 模型及 granitelib-core 决策适配器，不重训基础模型。",
+      "why": "模型组件开始像软件依赖一样按版本独立更新；如果适配器能在冻结基础模型的情况下迭代，部署团队就需要把基础权重、适配器、评测集和回滚分别纳入版本账本。",
+      "boundary": "这是补丁发布，不是新的基础模型或普遍能力跃迁。决策改进来自官方 Jev Decision Index，语音范围、延迟和准确率仍需按语言与业务音频验证；Adapter SDK 与教程仍在后续计划中。",
+      "source": "IBM Granite / Hugging Face",
+      "source_kind": "官方补丁发布 / 官方模型页 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+      "link": "#/toolkit?task=ibm-granite-speech-5&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 Granite Speech 验收卡",
+          "note": "把基础模型、语音版本、决策适配器和官方评测分开记录",
+          "url": "#/toolkit?task=ibm-granite-speech-5&tab=run",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "IBM Granite / Hugging Face",
+          "title": "Granite Switch 4.1.1 — Update models like you update software",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "google-singapore-public-health-ai-20261029",
       "category": "industry",
       "title": "Google 在新加坡推进公共卫生 AI 与本地研究中心",

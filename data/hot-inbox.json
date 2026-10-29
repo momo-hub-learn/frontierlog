@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T19:49:37Z",
+  "generated_at": "2026-10-29T21:23:10Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 5,
-    "merge": 107,
+    "merge": 110,
     "hold": 5
   },
   "candidates": [
@@ -231,6 +231,54 @@
       "first_seen_at": "2026-10-29T17:28:06Z"
     },
     {
+      "id": "candidate-8bda0feb7eb6a18b",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "AnySpeechRecognizer 与 AnyDecisionModel 开放 Swift 包",
+      "summary": "两个包分别提供 Apple 风格的可替换语音引擎与返回概率的类型化决策接口，可从 Hugging Face Hub 下载开放模型并在设备上运行。",
+      "why": "Apple 平台可在同一 Swift 接口下比较本地语音、说话人分离与多种决策后端；系统版本、模型能力、校准、隐私和资源要求仍需逐项验收。",
+      "boundary": "官方示例与测量不是本站实测。部分后端要求 Apple silicon、较新的 macOS/iOS、Xcode 或大模型下载；Qwen3-ASR 当前没有实时中间结果、词级时间和置信度。模型概率通常需要独立校准，置信度高不代表答案正确。",
+      "source": "Hugging Face",
+      "source_kind": "官方发布、系统要求、后端差异、校准与限制",
+      "url": "https://huggingface.co/blog/anydecisionmodel",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "anyspeech-anydecision",
+      "first_seen_at": "2026-10-29T21:23:10Z"
+    },
+    {
+      "id": "candidate-bb247b2e27883594",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "Granite Switch 4.1.1 更新语音与决策适配器",
+      "summary": "补丁保持 4.1 向后兼容，只更新 10 语种语音识别模型与 granitelib-core 决策适配器，基础模型没有重训。",
+      "why": "模型部署需要开始分别记录基础权重与适配器版本；10 语种标点与大小写、Jev Decision Index 改进仍是官方说明，需用业务样本回归。",
+      "boundary": "厂商 WER、速度、Jev Decision Index 与对比图不等于本站实测或所有口音、噪声和领域的结果；4.1.1 是适配器补丁而非基础模型重训，关键词偏置也可能放大误识别，需用业务录音和人工转写复核。",
+      "source": "IBM Granite / Hugging Face",
+      "source_kind": "官方补丁说明、模型与适配器更新边界",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "ibm-granite-speech-5",
+      "first_seen_at": "2026-10-29T21:23:10Z"
+    },
+    {
       "id": "candidate-d3e83555e3861aa4",
       "category": "industry",
       "published": "2026-10-28",
@@ -252,6 +300,35 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-29T05:26:10Z"
+    },
+    {
+      "id": "candidate-7da35f48fcff16fc",
+      "category": "research",
+      "published": "2026-10-29",
+      "title": "公共科研资产开始面向 AI 建立可复用发布规范",
+      "summary": "ProtoStar 联合高校、研究机构、Hugging Face 与开放科学组织，推动公共资助的数据、模型和代码以带文档、元数据和来源链的 AI-ready 形式发布，并计划用连续开放挑战检验复用条件。",
+      "why": "科学 Agent 能否可靠组合跨机构资产，取决于版本、许可、数据字典、实验条件和来源链是否机器可读；研究基础设施的可复用性可能成为比单次榜分更持久的能力约束。",
+      "boundary": "倡议规模、仓库下载量和数据集增速不能证明科研质量或 AI 已带来发现。首个气候挑战将在 11 月 2–13 日进行，完整结果要等 2027 年初用真实观测数据对照基线；其他学科挑战与机构执行质量尚待公开。",
+      "source": "Hugging Face / Project ProtoStar",
+      "source_kind": "官方计划范围、合作方、开放挑战与时间边界",
+      "url": "https://huggingface.co/blog/announcing-project-protostar",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "huggingface-protostar-open-science-20261029",
+      "topic_tags": [
+        "Open Science",
+        "Data Provenance",
+        "AI for Science"
+      ],
+      "first_seen_at": "2026-10-29T21:23:10Z"
     },
     {
       "id": "candidate-a3241ec928c5b936",
@@ -935,78 +1012,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "openai-gpt-6-1-terra",
       "first_seen_at": "2026-10-26T19:34:25Z"
-    },
-    {
-      "id": "candidate-5e18b2d6ee331cdb",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "GPT-6.1 Terra 在 ChatGPT Work、Codex 与 API 上线",
-      "summary": "OpenAI 发布主打视觉理解、电脑操作、写作与编码的快速模型，并公布 API 模型名、标准价格与系统卡补充。",
-      "why": "高频电脑工作获得新的成本/速度档位；厂商自测仍需用真实工具、权限和业务验收重跑，不能并入独立综合能力榜。",
-      "boundary": "官方 Agents’ Last Exam、MMMU-Pro、OSWorld 2.1、Terminal-Bench 4.0 与内部事实性结果均是厂商自测，本站未运行，也未并入独立能力榜。模型可用不等于你的账号、工具和环境已满足生产要求；系统卡的网络安全 Critical、生化 High 分级要求更严格的权限、监控与人工审批。",
-      "source": "OpenAI",
-      "source_kind": "官方产品发布",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.762,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-gpt-6-1-terra",
-      "first_seen_at": "2026-10-26T19:34:25Z"
-    },
-    {
-      "id": "candidate-7c429a5ac7334da4",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "CodeRabbit 把 GPT-6.1 Sol 接入跨仓库安全审查",
-      "summary": "安全 Agent 在 PR、全仓扫描与关联仓库上下文中调查跨文件问题，并可对用户选中的发现做隔离验证、起草修复 PR。",
-      "why": "代码审查正从单文件建议走向可追踪的跨仓库调查与修复草案；案例仍是合作方自报，缺少可复现的统一准确率，且生产变更必须保留人工审批。",
-      "boundary": "利用验证只针对用户选中且受支持的发现，在隔离环境而非生产系统中运行；修复草案必须由人审决定是否合入。案例没有给出可复现的统一数据集、召回率或误报率，不能证明 GPT-6.1 Sol 单独完成全部检测，也不能替代 SAST、DAST、依赖扫描与人工审查。",
-      "source": "OpenAI",
-      "source_kind": "官方安全案例 / 合作方部署说明",
-      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.762,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-coderabbit-secure",
-      "first_seen_at": "2026-10-27T11:28:21Z"
-    },
-    {
-      "id": "candidate-f1807b40775d91b3",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "Hugging Face 汇总 Hub CLI 2.3 的缓存与任务编排升级",
-      "summary": "共享 Xet 缓存、缓存清理、Jobs 重试/定时/Webhook、实验性 Sandboxes 与 Storage Buckets 进入同一套官方工作流。",
-      "why": "Hub 自动化从下载客户端扩展为可调度的运行与存储入口；实验状态、权限、费用和供应商自测边界仍需在真实环境逐项验证。",
-      "boundary": "2.4 不支持从 Bucket 复制回 repo；共享缓存不会消除网络、磁盘和依赖故障，Sandboxes 仍为实验能力。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
-      "source": "Hugging Face",
-      "source_kind": "官方功能综述、示例与限制",
-      "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
-      "publishable": true,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.762,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "huggingface-hub-cli-2-3",
-      "first_seen_at": "2026-10-26T23:32:41Z"
     }
   ]
 }

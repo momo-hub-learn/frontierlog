@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,32 @@
     }
   ],
   "items": [
+    {
+      "id": "huggingface-protostar-open-science-20261029",
+      "lane": "science",
+      "title": "公共科研资产开始面向 AI 建立可复用发布规范",
+      "maker": "Hugging Face / Project ProtoStar",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "verification_status": "官方计划公告 · 首个开放挑战尚未开始",
+      "tags": [
+        "Open Science",
+        "Data Provenance",
+        "AI for Science"
+      ],
+      "fact": "ProtoStar 联合高校、研究机构、Hugging Face 与开放科学组织，推动公共资助的数据、模型和代码以带文档、元数据和来源链的 AI-ready 形式发布，并计划用连续开放挑战检验复用条件。",
+      "insight": "科学 Agent 能否可靠组合跨机构资产，取决于版本、许可、数据字典、实验条件和来源链是否机器可读；研究基础设施的可复用性可能成为比单次榜分更持久的能力约束。",
+      "boundary": "倡议规模、仓库下载量和数据集增速不能证明科研质量或 AI 已带来发现。首个气候挑战将在 11 月 2–13 日进行，完整结果要等 2027 年初用真实观测数据对照基线；其他学科挑战与机构执行质量尚待公开。",
+      "next_watch": "跟踪参与机构实际发布的元数据与许可、挑战基线和复现包、失败案例、跨仓库组合能力，以及 NIH/NSF 等领域仓库与通用平台之间的来源链互操作。",
+      "sources": [
+        {
+          "label": "Hugging Face · Project ProtoStar",
+          "url": "https://huggingface.co/blog/announcing-project-protostar",
+          "kind": "官方计划范围、合作方、开放挑战与时间边界",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "openai-model-spec-values-20261029",
       "lane": "science",

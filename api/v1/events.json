@@ -2,6 +2,38 @@
   "snapshot": "2026-10-30",
   "events": [
     {
+      "id": "anyspeech-anydecision-release",
+      "task": "anyspeech-anydecision",
+      "date": "2026-10-29",
+      "kind": "release",
+      "title": "AnySpeechRecognizer 与 AnyDecisionModel 开放 Swift 包",
+      "summary": "两个包分别提供 Apple 风格的可替换语音引擎与返回概率的类型化决策接口，可从 Hugging Face Hub 下载开放模型并在设备上运行。",
+      "delta": "Apple 平台可在同一 Swift 接口下比较本地语音、说话人分离与多种决策后端；系统版本、模型能力、校准、隐私和资源要求仍需逐项验收。",
+      "sources": [
+        "anyspeech-anydecision-release",
+        "anyspeech-repo",
+        "anydecision-repo"
+      ],
+      "reviewed": "2026-10-30",
+      "tag": "0.1.0 / 0.6.0",
+      "short_title": "本地语音与类型化决策"
+    },
+    {
+      "id": "ibm-granite-switch-4-1-1-release",
+      "task": "ibm-granite-speech-5",
+      "date": "2026-10-29",
+      "kind": "release",
+      "title": "Granite Switch 4.1.1 更新语音与决策适配器",
+      "summary": "补丁保持 4.1 向后兼容，只更新 10 语种语音识别模型与 granitelib-core 决策适配器，基础模型没有重训。",
+      "delta": "模型部署需要开始分别记录基础权重与适配器版本；10 语种标点与大小写、Jev Decision Index 改进仍是官方说明，需用业务样本回归。",
+      "sources": [
+        "ibm-granite-switch-4-1-1-release"
+      ],
+      "reviewed": "2026-10-30",
+      "tag": "4.1.1",
+      "short_title": "语音与决策适配器补丁"
+    },
+    {
       "id": "cloudflare-agents-0-32-release",
       "task": "cloudflare-agents-0-31",
       "date": "2026-10-29",
@@ -756,6 +788,50 @@
     }
   ],
   "sources": [
+    {
+      "id": "anyspeech-anydecision-release",
+      "publisher": "Hugging Face",
+      "title": "Introducing AnySpeechRecognizer and AnyDecisionModel",
+      "url": "https://huggingface.co/blog/anydecisionmodel",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "kind": "官方发布、系统要求、后端差异、校准与限制"
+    },
+    {
+      "id": "anyspeech-repo",
+      "publisher": "AnySpeechRecognizer",
+      "title": "AnySpeechRecognizer",
+      "url": "https://github.com/mattt/AnySpeechRecognizer",
+      "published": null,
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "kind": "官方 GitHub 仓库与 README"
+    },
+    {
+      "id": "anydecision-repo",
+      "publisher": "AnyDecisionModel",
+      "title": "AnyDecisionModel",
+      "url": "https://github.com/mattt/AnyDecisionModel",
+      "published": null,
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "kind": "官方 GitHub 仓库与 README"
+    },
+    {
+      "id": "ibm-granite-switch-4-1-1-release",
+      "publisher": "IBM Granite / Hugging Face",
+      "title": "Granite Switch 4.1.1",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T05:16:05+08:00",
+      "kind": "官方补丁说明、模型与适配器更新边界"
+    },
     {
       "id": "cloudflare-agents-0-32-release",
       "publisher": "Cloudflare",

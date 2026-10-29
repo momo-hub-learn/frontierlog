@@ -42,6 +42,58 @@
   ],
   "items": [
     {
+      "id": "anyspeech-anydecision",
+      "publisher": "AnySpeechRecognizer / AnyDecisionModel",
+      "group": "audio",
+      "access": "local",
+      "headline": "先用授权音频和独立标签验收本地语音与类型化决策",
+      "input": "已获授权的多语言音频、人工转写与说话人标签；另准备带正确选项和概率校准留出集的结构化决策样本",
+      "output": "转写、时间信息、说话人分段，或 yes/no、选择、量表的类型化结果、各选项概率与置信度",
+      "requirements": "Swift 6.2+ 与 macOS 26 / iOS 26+；Parakeet、Sortformer 与 MLX 后端要求 Apple silicon。部分 MLX 构建需 Xcode Swift 6.4 与 Metal toolchain，Core AI 需 Xcode 27 和 OS 27 runtime。",
+      "limitation": "本站只核验官方发布与仓库，未编译或运行。Qwen3-ASR 当前不提供实时中间结果、词级时间或置信度；部分模型体积较大。决策概率可能过度自信且受选项顺序影响，置信度只表示概率集中，不代表答案正确。",
+      "cost": "包与开放模型的许可各自核对；模型下载、设备存储、编译、标注、音频授权和人工复核都有成本。Jev 或云端 Ollama 等后端还可能产生服务费用。",
+      "steps": [
+        {
+          "title": "冻结平台、包与模型版本",
+          "body": "记录 Swift、OS、Xcode、包版本、trait、后端、模型 ID 与 revision；先核对音频授权、模型许可和设备资源，再把两个包加入 Package.swift。",
+          "command": ".package(url: \"https://github.com/mattt/AnySpeechRecognizer\", from: \"0.1.0\")\n.package(url: \"https://github.com/mattt/AnyDecisionModel\", from: \"0.6.0\", traits: [\"MLX\"])"
+        },
+        {
+          "title": "先分开验收语音链路",
+          "body": "用同一批授权录音分别跑 Apple、Parakeet 或 Qwen 后端；按语言、口音、噪声与说话人数记录 WER、分离错误、实时性、缺失字段和失败样本。"
+        },
+        {
+          "title": "再验收决策误差与校准",
+          "body": "在独立留出集上记录错误率、Brier 分数或校准曲线，并轮换选项顺序检查偏差；阈值根据业务损失设定，低置信度与高风险结果交给人工。"
+        }
+      ],
+      "troubleshooting": "编译失败先核对 Swift/Xcode/OS 与 package trait 组合；官方说明当前 AnyDecisionModel CoreAI trait 与 AnySpeechRecognizer 不能同时组合。模型加载失败检查 revision、磁盘和 Apple silicon 要求；语音缺词级时间或实时结果时先核对所选引擎能力，不要把缺失字段补造出来。",
+      "sources": [
+        {
+          "title": "AnySpeechRecognizer 与 AnyDecisionModel 官方发布",
+          "url": "https://huggingface.co/blog/anydecisionmodel",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        },
+        {
+          "title": "AnySpeechRecognizer 官方仓库",
+          "url": "https://github.com/mattt/AnySpeechRecognizer",
+          "published_at": null,
+          "verified_at": "2026-10-30"
+        },
+        {
+          "title": "AnyDecisionModel 官方仓库",
+          "url": "https://github.com/mattt/AnyDecisionModel",
+          "published_at": null,
+          "verified_at": "2026-10-30"
+        }
+      ],
+      "entry_url": "https://github.com/mattt/AnySpeechRecognizer",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-30T05:16:05+08:00"
+    },
+    {
       "id": "mistral-large-4",
       "publisher": "Mistral AI",
       "group": "agents",
@@ -1138,11 +1190,11 @@
       "publisher": "IBM",
       "group": "audio",
       "access": "local",
-      "headline": "先用一组授权录音验收 Granite Speech 5.0",
+      "headline": "先冻结基础权重与 4.1.1 适配器，再用授权录音回归 Granite Speech",
       "input": "已获授权的短音频，以及独立人工转写；按目标语言准备专有名词、数字、口音与噪声样本",
       "output": "转写或英语言对翻译结果；按配置可检查语言提示、时间戳、标点与关键词偏置",
       "requirements": "Python、Transformers 与音频依赖；下载所选 2B 或 470M 权重。本地运行资源按模型和音频长度评估。",
-      "limitation": "本站只核验 IBM 官方发布和模型卡，未运行模型。厂商 WER 与速度不保证在你的语言、口音、噪声和硬件上复现；关键词偏置可能引入误识别。",
+      "limitation": "本站只核验 IBM 官方发布和模型卡，未运行模型。4.1.1 是向后兼容适配器补丁，不是基础模型重训；厂商 WER、速度与 Jev Decision Index 不保证在你的语言、口音、噪声、任务和硬件上复现。",
       "cost": "模型与代码 Apache 2.0；本地下载、存储、CPU/GPU 和人工标注成本自理。",
       "steps": [
         {
@@ -1171,13 +1223,19 @@
           "title": "Granite Speech 5.0 2B 官方模型卡",
           "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
           "published_at": "2026-10-21",
-          "verified_at": "2026-10-22"
+          "verified_at": "2026-10-30"
+        },
+        {
+          "title": "Granite Switch 4.1.1 官方补丁说明",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
         }
       ],
       "entry_url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b",
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-22T01:21:52+08:00"
+      "verified_at": "2026-10-30T05:16:05+08:00"
     },
     {
       "id": "nvidia-kumo-anomaly",
