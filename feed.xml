@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Mistral Large 4 发布 FP8 与 NVFP4 权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=mistral-large-4&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:mistral-large-4-open-weights-20261029</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Cloudflare Agents 0.32 重做 Skills 加载接口</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=cloudflare-agents-0-31&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:cloudflare-agents-0-32-release</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>agents/skills 改用目录加载与工具生成接口，并加入实验性 OpenTelemetry 注册器、错误 span 和依赖更新。
+
+编辑解读：Skills 可以从 workspace、R2 或代码来源加载，但旧 SkillRegistry、Vite/compile 与 runner 路径需要显式迁移；遥测仍属实验性。
+
+公开资料，本站未复测。
+来源：https://github.com/cloudflare/agents/releases/tag/agents%400.32.0</description></item><item><title>huggingface_hub 2.4 增加 Bucket 文件操作</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=huggingface-hub-cli-2-3&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:hf-hub-2-4-release</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>HfFileSystem 支持 Bucket 内及 repo 到 Bucket 的 copy/mv，CLI 扩展加入版本状态与 repair，并包含路径校验等修复。
+
+编辑解读：Hub 工作流的存储与扩展维护更完整；Bucket 仍不能直接复制回 repo，权限、费用和实验性服务边界不变。
+
+公开资料，本站未复测。
+来源：https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0</description></item><item><title>Docling 2.145 增加 RapidOCR 页面方向处理</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=docling&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:docling-v2-145-release</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>v2.145.0 为 RapidOCR 路径加入页面方向能力，并修复多项解析器、VLM 与文档释放边界。
+
+编辑解读：旋转扫描件的进入路径更明确；方向判断、表格、跨页与低清样本仍需逐页回归，官方修复清单不是本站实测。
+
+公开资料，本站未复测。
+来源：https://github.com/docling-project/docling/releases/tag/v2.145.0</description></item><item><title>Mistral Large 4 发布 FP8 与 NVFP4 权重</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=mistral-large-4&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:mistral-large-4-open-weights-20261029</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。
 
 编辑解读：此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。
 
@@ -263,7 +278,14 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：开发者可以沿公开实现检查构建和查询流程。
 
 公开资料，本站未复测。
-来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=anthropic-ai-for-science-expansion-20261028</link><guid isPermaLink="false">frontierlog:topic:anthropic-ai-for-science-expansion-20261028</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。
+来源：https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/</description></item><item><title>新加坡公共卫生 AI 合作：先把研究、临床查询和人口预测分开验收</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=google-singapore-public-health-ai-20261029</link><guid isPermaLink="false">frontierlog:topic:google-singapore-public-health-ai-20261029</guid><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>Google 宣布设立新加坡 Research hub，并披露 MedGemma 前线场景、AI co-clinician 评估、人口健康风险预测和公共卫生情报资助等合作。
+
+编辑解读：这组计划把基础模型、本地研究、临床知识检索、人口健康和数据主权放进同一公共卫生体系；医药团队可据此建立从研究原型到临床工作流和公共治理的分层证据清单。
+
+边界：这是公司官方合作与评估公告，不是获批医疗产品、临床结局改善或全国部署完成证明。AI co-clinician 仍在评估；预测、健康教练和疾病情报需由当地机构独立验证，数据主权、偏差、安全、医生责任与患者结果不能由合作规模推出。
+资料核对：2026-10-30；本站未实测。
+原始来源：
+https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/</description><category>临床试验与数据</category><category>CSR 与医学写作</category></item><item><title>AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=anthropic-ai-for-science-expansion-20261028</link><guid isPermaLink="false">frontierlog:topic:anthropic-ai-for-science-expansion-20261028</guid><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。
 
 编辑解读：科研 Agent 开始从文献、代码和数据分析走向实验设备接口。生命科学团队可据此把设备权限、协议版本、样本血缘、异常停机、结果复现和人工放行拆成明确验收点。
 

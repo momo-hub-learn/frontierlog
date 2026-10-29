@@ -263,6 +263,12 @@
 
 边界：只支持数值时序与指定输入长度；DARR 上下文维度需相近。检索增强并不保证优于直接预测，必须在同一留出窗口、不同工况和预测跨度下比较，本站未实测。
 
+站内热度 94；不是全网流量。</description></item><item><title>OpenAI 更新 Model Spec：把五项价值写进目标行为</title><guid isPermaLink="false">frontierlog:hot:openai-model-spec-values-20261029</guid><link>https://openai.com/index/updated-model-spec/</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 将新版 Model Spec 围绕忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组，并强化上下文、监督与控制。
+
+为什么值得看：前沿模型的产品边界正从零散规则转向可公开审查的价值、指令层级和可控性框架；这会影响模型训练、系统提示、评测和上线治理。
+
+边界：Model Spec 是公开的目标行为，不是对当前模型逐项达标的证明，也不是法律或安全保证。OpenAI 明确表示现有模型尚未完全体现新版规范；具体产品仍要用真实版本、工具和高风险场景单独验证。
+
 站内热度 94；不是全网流量。</description></item><item><title>Genie 4：实时世界模拟开始原生生成声音与对话</title><guid isPermaLink="false">frontierlog:hot:google-deepmind-genie-4-20261027</guid><link>https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Google DeepMind 发布 Genie 4：世界模型可实时生成可探索场景、环境音与互动对话，并接受文本实时修改；官方演示还让 Gemini 3.8 Flash 在循环中观察画面、拆解步骤并核验进度。
 
 为什么值得看：这把世界模拟从无声、短片式生成推进到可操控的多模态环境，并把语言模型的规划与像素级模拟接进同一闭环。若后续开放并经独立复验，它可能成为机器人、Agent 训练环境与交互原型的新底座。
@@ -323,11 +329,23 @@
 
 边界：这是 Anthropic 与合作方的官方研究，本站未复跑证明。结论只覆盖具体定理与受信组件，并假设单线程、静态二进制、固定内存预算、RISC-V 和建模的 Linux 响应；不代表 123 个库没有其他 bug，也不证明 Claude 生成的规格或 ISA/OS 语义必然正确。
 
+站内热度 92；不是全网流量。</description></item><item><title>Google 在新加坡推进公共卫生 AI 与本地研究中心</title><guid isPermaLink="false">frontierlog:hot:google-singapore-public-health-ai-20261029</guid><link>https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>Google 宣布在新加坡设立本地 Research hub，并与公共机构推进 MedGemma 前线场景、AI co-clinician 评估、人口健康预测和公共卫生情报项目。
+
+为什么值得看：公共卫生 AI 正从单一模型演示走向研究、临床知识检索、数据主权、人口风险预测和本地治理的系统协作；这类部署会暴露真正影响落地的证据与责任边界。
+
+边界：公告描述合作、资助与评估计划，不是获批医疗器械、临床结局改善或全国部署完成证明。AI co-clinician 尚在评估，预测洞见和健康建议必须由当地机构验证；数据主权、安全、偏差、医生责任和患者结果仍需独立审查。
+
 站内热度 92；不是全网流量。</description></item><item><title>Granite 时间序列 Ensemble：四个开放模型给出同一组概率预测</title><guid isPermaLink="false">frontierlog:hot:ibm-granite-timeseries-ensemble-r1-20261022</guid><link>https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate><description>IBM Research 发布 Granite Timeseries Ensemble R1：以统一接口组合 PatchTST、FlowState 与 TTM 四个开放检查点，默认用等权概率池输出中位数和 0.1–0.9 分位数，不需在用户数据上重新训练组合权重。
 
 为什么值得看：团队可先用一个可复现的开放配方建立零样本概率预测基线，再决定是否需要为特定产线、需求或能源序列选单模型或训练专用组合器。
 
 边界：IBM 在 97 个 GIFT-Eval 配置上的公开比较显示点预测增益很小，且最佳 CRPS 仍来自单个 PatchTST 成员；当前配方不利用跨通道关系，加载四个检查点会增加内存和时延，也不保证区间校准或分布漂移下稳健。本站未运行模型。
+
+站内热度 92；不是全网流量。</description></item><item><title>OpenAI 公开前沿模型失配监测栈</title><guid isPermaLink="false">frontierlog:hot:openai-frontier-misalignment-monitoring-20261029</guid><link>https://openai.com/index/detecting-frontier-model-misalignment/</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 公开从激活探针、模型审阅者、调查 Agent、运行遥测到人工响应的分层监测，用于训练、评测、工具沙箱和内部 Codex 流程。
+
+为什么值得看：前沿安全正在从发布前评测扩展到运行期可观测性；分层证据、告警升级与人工响应能否覆盖工具调用和越权行为，将直接影响 Agent 上线边界。
+
+边界：这是 OpenAI 对内部系统的披露，不是独立审计，也不能证明未知失配都能被发现。文中的事件重放约 30 分钟告警来自特定历史案例和配置；外部产品、隐私约束、覆盖范围与响应时延可能不同。
 
 站内热度 92；不是全网流量。</description></item><item><title>ServiceNow 工作流进入 ChatGPT，首个 MCP 插件已开放</title><guid isPermaLink="false">frontierlog:hot:openai-servicenow-workflows-20261028</guid><link>https://openai.com/index/openai-servicenow-partnership-expansion/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 宣布扩大与 ServiceNow 的合作：ServiceNow MCP 插件已在 OpenAI marketplace 开放，可把组织允许的记录与动作带入 ChatGPT；更强插件能力预计 2026 年底，安全方案、语音控制塔与 Codex Workflow Factory 则分期排到 2027 年。
 

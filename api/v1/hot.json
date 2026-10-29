@@ -36,6 +36,136 @@
   ],
   "items": [
     {
+      "id": "google-singapore-public-health-ai-20261029",
+      "category": "industry",
+      "title": "Google 在新加坡推进公共卫生 AI 与本地研究中心",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:34:00+08:00",
+      "first_seen_at": "2026-10-30T03:34:00+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 35,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床效果、采用率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Google 官方公告 · 多项合作仍在建立或评估阶段",
+      "summary": "Google 宣布在新加坡设立本地 Research hub，并与公共机构推进 MedGemma 前线场景、AI co-clinician 评估、人口健康预测和公共卫生情报项目。",
+      "why": "公共卫生 AI 正从单一模型演示走向研究、临床知识检索、数据主权、人口风险预测和本地治理的系统协作；这类部署会暴露真正影响落地的证据与责任边界。",
+      "boundary": "公告描述合作、资助与评估计划，不是获批医疗器械、临床结局改善或全国部署完成证明。AI co-clinician 尚在评估，预测洞见和健康建议必须由当地机构验证；数据主权、安全、偏差、医生责任和患者结果仍需独立审查。",
+      "source": "Google",
+      "source_kind": "公司官方公告 / 本轮编辑核验",
+      "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
+      "link": "#/pharma?q=Singapore",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看医药核验卡",
+          "note": "按研究、临床评估、人口健康和数据治理拆开验证",
+          "url": "#/pharma?q=Singapore",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google",
+          "title": "Partnering with Singapore to bring frontier AI to public health",
+          "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "openai-model-spec-values-20261029",
+      "category": "research",
+      "title": "OpenAI 更新 Model Spec：把五项价值写进目标行为",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "first_seen_at": "2026-10-30T03:19:20+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 34,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方 Model Spec 更新 · 公开目标行为",
+      "summary": "OpenAI 将新版 Model Spec 围绕忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组，并强化上下文、监督与控制。",
+      "why": "前沿模型的产品边界正从零散规则转向可公开审查的价值、指令层级和可控性框架；这会影响模型训练、系统提示、评测和上线治理。",
+      "boundary": "Model Spec 是公开的目标行为，不是对当前模型逐项达标的证明，也不是法律或安全保证。OpenAI 明确表示现有模型尚未完全体现新版规范；具体产品仍要用真实版本、工具和高风险场景单独验证。",
+      "source": "OpenAI",
+      "source_kind": "官方规范更新 / 本轮编辑核验",
+      "url": "https://openai.com/index/updated-model-spec/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读新版 Model Spec",
+          "note": "核对五项价值、指令层级、上下文与人类控制边界",
+          "url": "https://model-spec.openai.com/",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "An updated Model Spec for more capable and beneficial AI",
+          "url": "https://openai.com/index/updated-model-spec/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "openai-frontier-misalignment-monitoring-20261029",
+      "category": "research",
+      "title": "OpenAI 公开前沿模型失配监测栈",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "first_seen_at": "2026-10-30T03:19:20+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 35,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方研究与部署说明 · 未独立复验",
+      "summary": "OpenAI 公开从激活探针、模型审阅者、调查 Agent、运行遥测到人工响应的分层监测，用于训练、评测、工具沙箱和内部 Codex 流程。",
+      "why": "前沿安全正在从发布前评测扩展到运行期可观测性；分层证据、告警升级与人工响应能否覆盖工具调用和越权行为，将直接影响 Agent 上线边界。",
+      "boundary": "这是 OpenAI 对内部系统的披露，不是独立审计，也不能证明未知失配都能被发现。文中的事件重放约 30 分钟告警来自特定历史案例和配置；外部产品、隐私约束、覆盖范围与响应时延可能不同。",
+      "source": "OpenAI",
+      "source_kind": "官方研究 / 官方部署说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读监测方法",
+          "note": "核对 L0–L3 分层、覆盖范围、事件重放与人工响应限制",
+          "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "How we detect frontier model misalignment",
+          "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "mistral-large-4-open-weights-20261029",
       "category": "model",
       "title": "Mistral Large 4 开放 FP8 与 NVFP4 权重",

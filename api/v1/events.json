@@ -2,6 +2,54 @@
   "snapshot": "2026-10-30",
   "events": [
     {
+      "id": "cloudflare-agents-0-32-release",
+      "task": "cloudflare-agents-0-31",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T18:53:07Z",
+      "kind": "release",
+      "title": "Cloudflare Agents 0.32 重做 Skills 加载接口",
+      "summary": "agents/skills 改用目录加载与工具生成接口，并加入实验性 OpenTelemetry 注册器、错误 span 和依赖更新。",
+      "delta": "Skills 可以从 workspace、R2 或代码来源加载，但旧 SkillRegistry、Vite/compile 与 runner 路径需要显式迁移；遥测仍属实验性。",
+      "sources": [
+        "cloudflare-agents-0-32-release"
+      ],
+      "reviewed": "2026-10-30",
+      "tag": "0.32.0",
+      "short_title": "Skills 加载与实验性遥测"
+    },
+    {
+      "id": "hf-hub-2-4-release",
+      "task": "huggingface-hub-cli-2-3",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T14:56:07Z",
+      "kind": "release",
+      "title": "huggingface_hub 2.4 增加 Bucket 文件操作",
+      "summary": "HfFileSystem 支持 Bucket 内及 repo 到 Bucket 的 copy/mv，CLI 扩展加入版本状态与 repair，并包含路径校验等修复。",
+      "delta": "Hub 工作流的存储与扩展维护更完整；Bucket 仍不能直接复制回 repo，权限、费用和实验性服务边界不变。",
+      "sources": [
+        "hf-hub-2-4-release"
+      ],
+      "reviewed": "2026-10-30",
+      "tag": "v2.4.0",
+      "short_title": "Bucket copy/mv 与扩展修复"
+    },
+    {
+      "id": "docling-v2-145-release",
+      "task": "docling",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T14:40:25Z",
+      "kind": "release",
+      "title": "Docling 2.145 增加 RapidOCR 页面方向处理",
+      "summary": "v2.145.0 为 RapidOCR 路径加入页面方向能力，并修复多项解析器、VLM 与文档释放边界。",
+      "delta": "旋转扫描件的进入路径更明确；方向判断、表格、跨页与低清样本仍需逐页回归，官方修复清单不是本站实测。",
+      "sources": [
+        "docling-v2-145-release"
+      ],
+      "reviewed": "2026-10-30",
+      "tag": "v2.145.0",
+      "short_title": "页面方向与解析修复"
+    },
+    {
       "id": "mistral-large-4-open-weights-20261029",
       "task": "mistral-large-4",
       "date": "2026-10-29",
@@ -708,6 +756,39 @@
     }
   ],
   "sources": [
+    {
+      "id": "cloudflare-agents-0-32-release",
+      "publisher": "Cloudflare",
+      "title": "agents@0.32.0",
+      "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T18:53:07Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、Skills 破坏性迁移、实验性遥测与依赖变更"
+    },
+    {
+      "id": "hf-hub-2-4-release",
+      "publisher": "Hugging Face",
+      "title": "huggingface_hub v2.4.0",
+      "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T14:56:07Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、Bucket 文件操作、CLI 扩展与安全修复"
+    },
+    {
+      "id": "docling-v2-145-release",
+      "publisher": "Docling project",
+      "title": "Docling v2.145.0",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T14:40:25Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、RapidOCR 页面方向与解析/VLM 修复"
+    },
     {
       "id": "mistral-large-4-hf-release-20261029",
       "publisher": "Hugging Face / Mistral AI",

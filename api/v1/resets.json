@@ -827,10 +827,10 @@
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
   "sync": {
     "status": "not_configured",
-    "last_attempt": null,
+    "last_attempt": "2026-10-30T03:32:31+08:00",
     "last_success": null,
-    "error": null,
-    "note": "GitHub Actions 可每小时通过 X 官方 API 读取 @thsottiaux 的新公开帖子、回复和引用关系（需配置 X_BEARER_TOKEN）；新内容先进入待核验候选，不会自动升级为已确认。第三方站点只用于定位线索。"
+    "error": "X_BEARER_TOKEN not configured",
+    "note": "本轮只记录官方 X 采集失败；没有读取到本人原帖正文，因此不更新 checked、事件或最后成功时间。"
   },
   "inbox": [],
   "profile_url": "https://x.com/thsottiaux",

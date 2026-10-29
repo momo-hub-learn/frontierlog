@@ -21,6 +21,58 @@
   ],
   "items": [
     {
+      "id": "openai-model-spec-values-20261029",
+      "lane": "science",
+      "title": "模型规范从规则清单转向五项公开价值",
+      "maker": "OpenAI",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "verification_status": "官方 Model Spec 更新 · 目标行为",
+      "tags": [
+        "Model Behavior",
+        "Alignment",
+        "Governance"
+      ],
+      "fact": "OpenAI 用忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组 Model Spec，并更新指令层级、上下文与监督控制。",
+      "insight": "可公开审查的规范只有与训练信号、版本化评测、系统提示和上线监测相连才有产品意义；值得追踪的是规范变化能否映射到可复现行为，而不只是文档措辞。",
+      "boundary": "OpenAI 明确说明现有模型尚未完全体现新版规范。它不是当前模型达标证明、独立安全审计或法律保证，也不能替代具体产品和高风险用例测试。",
+      "next_watch": "跟踪规范版本差异、公开评测、模型行为变化、指令冲突处理、用户控制与第三方复验。",
+      "sources": [
+        {
+          "label": "OpenAI · An updated Model Spec",
+          "url": "https://openai.com/index/updated-model-spec/",
+          "kind": "官方规范更新、五项价值与适用边界",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "openai-frontier-misalignment-monitoring-20261029",
+      "lane": "science",
+      "title": "前沿失配监测开始形成分层运行期证据链",
+      "maker": "OpenAI",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "verification_status": "官方研究与部署说明 · 未独立复验",
+      "tags": [
+        "Alignment Monitoring",
+        "Agent Safety",
+        "Security"
+      ],
+      "fact": "OpenAI 披露 L0 激活探针、L1 模型审阅者、L2 调查 Agent、L3 运行遥测与人工响应组成的监测栈，覆盖部分前沿训练、评测、工具沙箱和内部 Codex 流程。",
+      "insight": "Agent 安全的关键不只是单次拒答率，而是能否把内部表征、行为轨迹、环境遥测和人工升级串成可追溯证据；跨层误报、漏报和隐私权衡将成为下一阶段评测对象。",
+      "boundary": "材料来自系统建设者，未构成独立审计。历史事件重放中约 30 分钟告警不能外推到未知攻击、外部产品或所有模型；不同部署的覆盖、隐私约束和响应能力可能显著不同。",
+      "next_watch": "跟踪公开数据集、误报与漏报、探针鲁棒性、跨模型迁移、隐私治理、告警到处置时延及外部独立复验。",
+      "sources": [
+        {
+          "label": "OpenAI · How we detect frontier model misalignment",
+          "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+          "kind": "官方监测架构、覆盖范围、事件重放与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "anthropic-ai-for-science-mhs-20261028",
       "lane": "science",
       "title": "科研 Agent 开始走向可审计的实验仪器接口",
