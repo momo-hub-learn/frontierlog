@@ -37,6 +37,136 @@
     ],
     "items": [
       {
+        "id": "google-singapore-public-health-ai-20261029",
+        "category": "industry",
+        "title": "Google 在新加坡推进公共卫生 AI 与本地研究中心",
+        "published": "2026-10-29",
+        "published_at": null,
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:34:00+08:00",
+        "first_seen_at": "2026-10-30T03:34:00+08:00",
+        "heat": 92,
+        "heat_components": {
+          "impact": 35,
+          "availability": 17,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床效果、采用率或本站实测分数。",
+        "trend": "up",
+        "verification_status": "Google 官方公告 · 多项合作仍在建立或评估阶段",
+        "summary": "Google 宣布在新加坡设立本地 Research hub，并与公共机构推进 MedGemma 前线场景、AI co-clinician 评估、人口健康预测和公共卫生情报项目。",
+        "why": "公共卫生 AI 正从单一模型演示走向研究、临床知识检索、数据主权、人口风险预测和本地治理的系统协作；这类部署会暴露真正影响落地的证据与责任边界。",
+        "boundary": "公告描述合作、资助与评估计划，不是获批医疗器械、临床结局改善或全国部署完成证明。AI co-clinician 尚在评估，预测洞见和健康建议必须由当地机构验证；数据主权、安全、偏差、医生责任和患者结果仍需独立审查。",
+        "source": "Google",
+        "source_kind": "公司官方公告 / 本轮编辑核验",
+        "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
+        "link": "#/pharma?q=Singapore",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看医药核验卡",
+            "note": "按研究、临床评估、人口健康和数据治理拆开验证",
+            "url": "#/pharma?q=Singapore",
+            "kind": "internal"
+          }
+        ],
+        "related": [
+          {
+            "source": "Google",
+            "title": "Partnering with Singapore to bring frontier AI to public health",
+            "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
+            "date": "2026-10-29"
+          }
+        ]
+      },
+      {
+        "id": "openai-model-spec-values-20261029",
+        "category": "research",
+        "title": "OpenAI 更新 Model Spec：把五项价值写进目标行为",
+        "published": "2026-10-29",
+        "published_at": null,
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "first_seen_at": "2026-10-30T03:19:20+08:00",
+        "heat": 94,
+        "heat_components": {
+          "impact": 34,
+          "availability": 20,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方 Model Spec 更新 · 公开目标行为",
+        "summary": "OpenAI 将新版 Model Spec 围绕忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组，并强化上下文、监督与控制。",
+        "why": "前沿模型的产品边界正从零散规则转向可公开审查的价值、指令层级和可控性框架；这会影响模型训练、系统提示、评测和上线治理。",
+        "boundary": "Model Spec 是公开的目标行为，不是对当前模型逐项达标的证明，也不是法律或安全保证。OpenAI 明确表示现有模型尚未完全体现新版规范；具体产品仍要用真实版本、工具和高风险场景单独验证。",
+        "source": "OpenAI",
+        "source_kind": "官方规范更新 / 本轮编辑核验",
+        "url": "https://openai.com/index/updated-model-spec/",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读新版 Model Spec",
+            "note": "核对五项价值、指令层级、上下文与人类控制边界",
+            "url": "https://model-spec.openai.com/",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "An updated Model Spec for more capable and beneficial AI",
+            "url": "https://openai.com/index/updated-model-spec/",
+            "date": "2026-10-29"
+          }
+        ]
+      },
+      {
+        "id": "openai-frontier-misalignment-monitoring-20261029",
+        "category": "research",
+        "title": "OpenAI 公开前沿模型失配监测栈",
+        "published": "2026-10-29",
+        "published_at": null,
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "first_seen_at": "2026-10-30T03:19:20+08:00",
+        "heat": 92,
+        "heat_components": {
+          "impact": 35,
+          "availability": 17,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方研究与部署说明 · 未独立复验",
+        "summary": "OpenAI 公开从激活探针、模型审阅者、调查 Agent、运行遥测到人工响应的分层监测，用于训练、评测、工具沙箱和内部 Codex 流程。",
+        "why": "前沿安全正在从发布前评测扩展到运行期可观测性；分层证据、告警升级与人工响应能否覆盖工具调用和越权行为，将直接影响 Agent 上线边界。",
+        "boundary": "这是 OpenAI 对内部系统的披露，不是独立审计，也不能证明未知失配都能被发现。文中的事件重放约 30 分钟告警来自特定历史案例和配置；外部产品、隐私约束、覆盖范围与响应时延可能不同。",
+        "source": "OpenAI",
+        "source_kind": "官方研究 / 官方部署说明 / 本轮编辑核验",
+        "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读监测方法",
+            "note": "核对 L0–L3 分层、覆盖范围、事件重放与人工响应限制",
+            "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+            "kind": "research"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "How we detect frontier model misalignment",
+            "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+            "date": "2026-10-29"
+          }
+        ]
+      },
+      {
         "id": "mistral-large-4-open-weights-20261029",
         "category": "model",
         "title": "Mistral Large 4 开放 FP8 与 NVFP4 权重",
@@ -7279,6 +7409,58 @@
     ],
     "items": [
       {
+        "id": "openai-model-spec-values-20261029",
+        "lane": "science",
+        "title": "模型规范从规则清单转向五项公开价值",
+        "maker": "OpenAI",
+        "date": "2026-10-29",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "verification_status": "官方 Model Spec 更新 · 目标行为",
+        "tags": [
+          "Model Behavior",
+          "Alignment",
+          "Governance"
+        ],
+        "fact": "OpenAI 用忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组 Model Spec，并更新指令层级、上下文与监督控制。",
+        "insight": "可公开审查的规范只有与训练信号、版本化评测、系统提示和上线监测相连才有产品意义；值得追踪的是规范变化能否映射到可复现行为，而不只是文档措辞。",
+        "boundary": "OpenAI 明确说明现有模型尚未完全体现新版规范。它不是当前模型达标证明、独立安全审计或法律保证，也不能替代具体产品和高风险用例测试。",
+        "next_watch": "跟踪规范版本差异、公开评测、模型行为变化、指令冲突处理、用户控制与第三方复验。",
+        "sources": [
+          {
+            "label": "OpenAI · An updated Model Spec",
+            "url": "https://openai.com/index/updated-model-spec/",
+            "kind": "官方规范更新、五项价值与适用边界",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "openai-frontier-misalignment-monitoring-20261029",
+        "lane": "science",
+        "title": "前沿失配监测开始形成分层运行期证据链",
+        "maker": "OpenAI",
+        "date": "2026-10-29",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "verification_status": "官方研究与部署说明 · 未独立复验",
+        "tags": [
+          "Alignment Monitoring",
+          "Agent Safety",
+          "Security"
+        ],
+        "fact": "OpenAI 披露 L0 激活探针、L1 模型审阅者、L2 调查 Agent、L3 运行遥测与人工响应组成的监测栈，覆盖部分前沿训练、评测、工具沙箱和内部 Codex 流程。",
+        "insight": "Agent 安全的关键不只是单次拒答率，而是能否把内部表征、行为轨迹、环境遥测和人工升级串成可追溯证据；跨层误报、漏报和隐私权衡将成为下一阶段评测对象。",
+        "boundary": "材料来自系统建设者，未构成独立审计。历史事件重放中约 30 分钟告警不能外推到未知攻击、外部产品或所有模型；不同部署的覆盖、隐私约束和响应能力可能显著不同。",
+        "next_watch": "跟踪公开数据集、误报与漏报、探针鲁棒性、跨模型迁移、隐私治理、告警到处置时延及外部独立复验。",
+        "sources": [
+          {
+            "label": "OpenAI · How we detect frontier model misalignment",
+            "url": "https://openai.com/index/detecting-frontier-model-misalignment/",
+            "kind": "官方监测架构、覆盖范围、事件重放与限制",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "anthropic-ai-for-science-mhs-20261028",
         "lane": "science",
         "title": "科研 Agent 开始走向可审计的实验仪器接口",
@@ -10582,37 +10764,37 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-29T17:15:22Z",
+    "checked_at": "2026-10-29T19:19:40Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-29T17:15:22Z",
-    "web_fetched_at": "2026-10-29T17:15:22Z",
+    "api_fetched_at": "2026-10-29T19:19:40Z",
+    "web_fetched_at": "2026-10-29T19:19:40Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "Nanbeige/Nanbeige4.3-33B",
       "RecursiveSI/flint",
       "XHToken/Spark-X2.6-4B",
-      "tencent/Hy-SimulMT-30B-A3B-FP8",
       "LiquidAI/LFM3-1.7B",
       "MiniMaxAI/MiniMax-M3.1-Flash",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "Lightricks/LTX-2.5",
+      "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "black-forest-labs/flux-3-image-klein-comfy",
       "baidu/Unlimited-OCR-2",
-      "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-      "ccore/Qwen3.5-4B-3D-Coder",
       "mistralai/Mistral-Large-4-1T-A52B",
+      "ccore/Qwen3.5-4B-3D-Coder",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
       "OpenMOSS-Team/MOSS-Image-SFT",
-      "HuggingFaceBio/Carbon-X"
+      "HuggingFaceBio/Carbon-X",
+      "LiquidAI/LFM3-Omni-2B"
     ],
     "web_rank_changes": [
       {
@@ -10620,147 +10802,147 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
-      },
-      {
-        "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
-        "rank": 5,
-        "previous_rank": 5,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
-        "rank": 6,
+        "rank": 5,
         "previous_rank": 6,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "rank": 7,
+        "rank": 6,
         "previous_rank": 7,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "rank": 8,
+        "rank": 7,
         "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
-        "rank": 9,
+        "rank": 8,
         "previous_rank": 9,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
+      },
+      {
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "rank": 9,
+        "previous_rank": 12,
+        "rank_change": 3,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
-      },
-      {
-        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "rank": 12,
-        "previous_rank": 12,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 13,
+        "rank": 12,
         "previous_rank": 13,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
-        "rank": 14,
+        "rank": 13,
         "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "rank": 15,
+        "rank": 14,
         "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
+      },
+      {
+        "id": "mistralai/Mistral-Large-4-1T-A52B",
+        "rank": 15,
+        "previous_rank": 17,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
-      },
-      {
-        "id": "mistralai/Mistral-Large-4-1T-A52B",
-        "rank": 17,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "rank": 18,
-        "previous_rank": 17,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank": 17,
+        "previous_rank": 18,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "rank": 19,
-        "previous_rank": 18,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "rank": 18,
+        "previous_rank": 19,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
+        "rank": 19,
+        "previous_rank": 20,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
+      },
+      {
+        "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 20,
-        "previous_rank": 19,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       }
     ],
     "web_outgoing": [
       {
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "previous_rank": 20,
-        "previous_fetched_at": "2026-10-29T15:16:43Z"
+        "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
+        "previous_rank": 5,
+        "previous_fetched_at": "2026-10-29T17:15:22Z"
       }
     ],
     "items": [
@@ -10768,8 +10950,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 871,
-        "likes": 3722,
+        "trending_score": 873,
+        "likes": 3740,
         "downloads": 131062,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10786,7 +10968,7 @@
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
         "trending_score": 747,
-        "likes": 759,
+        "likes": 762,
         "downloads": 9655,
         "task": "text-generation",
         "library": "transformers",
@@ -10802,8 +10984,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 556,
-        "likes": 1232,
+        "trending_score": 544,
+        "likes": 1236,
         "downloads": 16598,
         "task": "text-generation",
         "library": "transformers",
@@ -10819,8 +11001,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 466,
-        "likes": 896,
+        "trending_score": 465,
+        "likes": 899,
         "downloads": 10163,
         "task": "text-generation",
         "library": "transformers",
@@ -10834,27 +11016,10 @@
       },
       {
         "rank": 5,
-        "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
-        "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
-        "trending_score": 448,
-        "likes": 457,
-        "downloads": 396,
-        "task": "translation",
-        "library": "transformers",
-        "created_at": "2026-10-22T07:29:37.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "hy_v3",
-          "text-generation"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 447,
-        "likes": 453,
+        "trending_score": 454,
+        "likes": 463,
         "downloads": 15885,
         "task": "text-generation",
         "library": "transformers",
@@ -10867,11 +11032,11 @@
         ]
       },
       {
-        "rank": 7,
+        "rank": 6,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 425,
-        "likes": 482,
+        "trending_score": 426,
+        "likes": 483,
         "downloads": 15738,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10884,11 +11049,11 @@
         ]
       },
       {
-        "rank": 8,
+        "rank": 7,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 412,
-        "likes": 463,
+        "trending_score": 415,
+        "likes": 466,
         "downloads": 1578937,
         "task": "text-generation",
         "library": "gguf",
@@ -10901,11 +11066,11 @@
         ]
       },
       {
-        "rank": 9,
+        "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 394,
-        "likes": 9816,
+        "trending_score": 392,
+        "likes": 9824,
         "downloads": 2269999,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -10918,11 +11083,28 @@
         ]
       },
       {
+        "rank": 9,
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "trending_score": 368,
+        "likes": 382,
+        "downloads": 4276,
+        "task": "automatic-speech-recognition",
+        "library": "nemo",
+        "created_at": "2026-10-07T22:50:21.000Z",
+        "tags": [
+          "nemo",
+          "safetensors",
+          "nemo_speechlm",
+          "text2text-generation"
+        ]
+      },
+      {
         "rank": 10,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 368,
-        "likes": 2020,
+        "trending_score": 365,
+        "likes": 2032,
         "downloads": 832197,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -10939,7 +11121,7 @@
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
         "trending_score": 354,
-        "likes": 370,
+        "likes": 371,
         "downloads": 18141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10953,27 +11135,10 @@
       },
       {
         "rank": 12,
-        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 350,
-        "likes": 363,
-        "downloads": 4276,
-        "task": "automatic-speech-recognition",
-        "library": "nemo",
-        "created_at": "2026-10-07T22:50:21.000Z",
-        "tags": [
-          "nemo",
-          "safetensors",
-          "nemo_speechlm",
-          "text2text-generation"
-        ]
-      },
-      {
-        "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 313,
-        "likes": 5299,
+        "trending_score": 314,
+        "likes": 5305,
         "downloads": 2172670,
         "task": "text-to-image",
         "library": "gguf",
@@ -10986,11 +11151,11 @@
         ]
       },
       {
-        "rank": 14,
+        "rank": 13,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 310,
-        "likes": 18668,
+        "trending_score": 311,
+        "likes": 18670,
         "downloads": 7509924,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11003,10 +11168,10 @@
         ]
       },
       {
-        "rank": 15,
+        "rank": 14,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 276,
+        "trending_score": 271,
         "likes": 335,
         "downloads": 28763,
         "task": "text-generation",
@@ -11020,11 +11185,28 @@
         ]
       },
       {
+        "rank": 15,
+        "id": "mistralai/Mistral-Large-4-1T-A52B",
+        "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "trending_score": 258,
+        "likes": 1172,
+        "downloads": 278,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-30T18:35:13.000Z",
+        "tags": [
+          "transformers",
+          "mistral_large4",
+          "image-text-to-text",
+          "vLLM"
+        ]
+      },
+      {
         "rank": 16,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
         "trending_score": 258,
-        "likes": 267,
+        "likes": 271,
         "downloads": 12237,
         "task": "未标注",
         "library": "未标注",
@@ -11038,27 +11220,10 @@
       },
       {
         "rank": 17,
-        "id": "mistralai/Mistral-Large-4-1T-A52B",
-        "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 229,
-        "likes": 1138,
-        "downloads": 278,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-09-30T18:35:13.000Z",
-        "tags": [
-          "transformers",
-          "mistral_large4",
-          "image-text-to-text",
-          "vLLM"
-        ]
-      },
-      {
-        "rank": 18,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "trending_score": 228,
-        "likes": 241,
+        "trending_score": 229,
+        "likes": 245,
         "downloads": 57228,
         "task": "text-generation",
         "library": "transformers",
@@ -11071,11 +11236,11 @@
         ]
       },
       {
-        "rank": 19,
+        "rank": 18,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 210,
-        "likes": 821,
+        "trending_score": 205,
+        "likes": 822,
         "downloads": 14950,
         "task": "text-to-image",
         "library": "diffusers",
@@ -11088,11 +11253,11 @@
         ]
       },
       {
-        "rank": 20,
+        "rank": 19,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 204,
-        "likes": 268,
+        "trending_score": 200,
+        "likes": 269,
         "downloads": 2808,
         "task": "text-generation",
         "library": "transformers",
@@ -11103,11 +11268,28 @@
           "qwen3",
           "text-generation"
         ]
+      },
+      {
+        "rank": 20,
+        "id": "LiquidAI/LFM3-Omni-2B",
+        "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
+        "trending_score": 186,
+        "likes": 190,
+        "downloads": 1814,
+        "task": "any-to-any",
+        "library": "transformers",
+        "created_at": "2026-10-21T16:58:40.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "lfm3_omni",
+          "image-text-to-text"
+        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-29T17:15:22Z",
+      "last_checked_at": "2026-10-29T19:19:40Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -22083,10 +22265,10 @@
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
     "sync": {
       "status": "not_configured",
-      "last_attempt": null,
+      "last_attempt": "2026-10-30T03:32:31+08:00",
       "last_success": null,
-      "error": null,
-      "note": "GitHub Actions 可每小时通过 X 官方 API 读取 @thsottiaux 的新公开帖子、回复和引用关系（需配置 X_BEARER_TOKEN）；新内容先进入待核验候选，不会自动升级为已确认。第三方站点只用于定位线索。"
+      "error": "X_BEARER_TOKEN not configured",
+      "note": "本轮只记录官方 X 采集失败；没有读取到本人原帖正文，因此不更新 checked、事件或最后成功时间。"
     },
     "inbox": [],
     "profile_url": "https://x.com/thsottiaux",
@@ -22342,33 +22524,34 @@
       },
       {
         "id": "cloudflare-agents-0-31",
-        "name": "Cloudflare · Agents 0.31",
-        "title": "让浏览器 Agent 访问受控内部预览，并显式迁移 Browser Tool 与 MCP 依赖",
+        "name": "Cloudflare · Agents 0.32",
+        "title": "迁移 Skills 加载接口，并给 Agent 接入实验性 OpenTelemetry",
         "category": "Agent / 基础设施",
         "mark": "CF",
         "accent": "lime",
-        "summary": "Cloudflare Agents 0.31 为 Browser Run 加入最多 8 个内部主机名，可把预览服务、工作区目录或同一 Worker 暴露给 Agent 浏览器；同时稳定两套模型适配器，并调整 Browser Tool 与 MCP 依赖接口。",
-        "scope": "Cloudflare 官方 GitHub Release 于 2026-10-27 发布 agents@0.31.0；Release 给出 internalHosts、browser.assignHost、稳定模型适配器，以及 Browser Tool 和 MCP 依赖迁移清单。",
-        "boundary": "内部主机由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问或安全边界替代品。升级会改变 browserTool 调用与结果字段；使用 MCP、x402 或 WebMCP 的项目还必须显式安装匹配依赖。本站未部署该版本。",
+        "summary": "Cloudflare Agents 0.32 用 loadSkillCatalog / createSkillTools 重做 agents/skills 的目录加载与工具生成，并加入实验性 OpenTelemetry 注册入口；0.31 的受控内部主机与 Browser Tool 迁移仍是升级基线。",
+        "scope": "Cloudflare 官方 GitHub Release 于 2026-10-29 18:53:07Z 发布 agents@0.32.0，列出 Skills 破坏性迁移、workspace / R2 / code 来源、实验性遥测与依赖更新。",
+        "boundary": "0.32 移除旧 SkillRegistry、Vite/compile 与旧 runner 路径，不能只改版本号；实验性遥测不等于完整生产可观测性。内部主机仍须由显式 fetch 提供，不是任意内网访问或安全边界替代品。本站未部署。",
         "repo": "cloudflare/agents",
         "sources": [
+          "cloudflare-agents-0-32-release",
           "cloudflare-agents-0-31-release"
         ],
-        "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；如使用 MCP、x402 或 WebMCP，还需按 Release 显式安装匹配的 Model Context Protocol 包。",
-        "test": "先把只返回固定测试页的 preview.internal 接进 Browser Run，核对允许主机、未知主机、目录与端口映射；再逐项迁移 browserTool API 和 MCP 依赖，运行现有测试与构建后才接近生产环境。",
+        "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.32.0、受控 Skills 目录与非生产数据；如使用 MCP、x402 或 WebMCP，还需固定匹配依赖。",
+        "test": "先用只含测试 SKILL.md 的 workspace / R2 / code 来源验证目录和工具生成，再核对无效 frontmatter、实验性遥测、受控内部主机与构建回归。",
         "checks": [
           "固定 agents、MCP SDK/server 和 Cloudflare Worker 版本",
-          "只暴露无凭据、无生产数据的测试主机与目录",
-          "分别验证允许主机、未知主机、超时和错误回退",
-          "核对 browser.cdp、notice 字段与弃用 API 的迁移结果"
+          "逐项迁移 SkillRegistry、loader、runner 与 Vite/compile 路径",
+          "只加载无凭据、无生产数据的测试 Skills 与测试主机",
+          "核对工具生成、span 错误状态、browser.cdp 与构建结果"
         ],
-        "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖",
+        "command": "npm install agents@0.32.0\n# 使用 Skills 时，按 Release 迁移 loadSkillCatalog / createSkillTools",
         "effort": "开源 SDK / Browser Run、Workers、模型与网络费用按 Cloudflare 实际账号计算",
         "evidence": "Cloudflare Agents 官方 GitHub Release、升级说明与已验证签名提交",
         "status": "code",
         "tested": false,
-        "reviewed": "2026-10-28",
-        "verified_at": "2026-10-28T13:23:04+08:00"
+        "reviewed": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "openai-coderabbit-secure",
@@ -22402,34 +22585,35 @@
       },
       {
         "id": "huggingface-hub-cli-2-3",
-        "name": "Hugging Face · Hub CLI 2.3",
-        "title": "把共享缓存、定时 Jobs 与隔离 Sandbox 接进可回滚的模型工作流",
+        "name": "Hugging Face · Hub CLI 2.4",
+        "title": "验证 Bucket 复制与 CLI 扩展修复，再接共享缓存和 Jobs",
         "category": "Agent / 基础设施",
         "mark": "HF",
         "accent": "violet",
-        "summary": "huggingface_hub 2.3 将跨仓库共享 Xet 缓存、缓存清理命令、Jobs 重试/重跑/定时调度、Webhook 触发、实验性 Sandboxes 和 Storage Buckets 汇入同一套 Hub CLI 与 Python 客户端。",
-        "scope": "Hugging Face 2026-10-26 发布功能综述；GitHub v2.3.0 Release 日期为 2026-10-22。官方还公开了一组供应商自测：给 Agent 安装 CLI skill 后，在 28 个 Hub 任务上用更少轮次完成，但不是本站 Benchmark。",
-        "boundary": "共享缓存能减少重复字节，不等于磁盘、网络或依赖问题自动消失；Sandboxes 仍标为实验性，Jobs、Buckets 与算力会受账号、区域、硬件、权限和费用约束。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
+        "summary": "huggingface_hub 2.4 为 HfFileSystem 增加 Bucket 内及 repo 到 Bucket 的 copy/mv，扩充 CLI 扩展版本检查与 repair，并延续 2.3 的共享缓存、Jobs、Sandboxes 和 Storage Buckets。",
+        "scope": "Hugging Face 官方 GitHub Release 于 2026-10-29 14:56:07Z 发布 v2.4.0；此前 2026-10-26 博客解释 2.3 的缓存、Jobs、Sandbox 与 Bucket 工作流。",
+        "boundary": "2.4 不支持从 Bucket 复制回 repo；共享缓存不会消除网络、磁盘和依赖故障，Sandboxes 仍为实验能力。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
         "repo": "huggingface/huggingface_hub",
         "sources": [
+          "hf-hub-2-4-release",
           "hf-hub-cli-20261026-blog",
           "hf-hub-2-3-release"
         ],
-        "requirements": "Python 3.10+、huggingface_hub 2.3.0、独立测试缓存目录；测试 Jobs、Buckets 或 Sandboxes 时还需相应 Hugging Face 账号权限、配额与非敏感样本。",
-        "test": "先在临时环境比较两个仓库下载前后的缓存占用，并验证 hf cache rm/prune；再用一个无敏感数据的小 Job 测试重试、日志、调度和取消，最后才评估 Sandbox 或 Bucket 接入。",
+        "requirements": "Python 3.10+、huggingface_hub 2.4.0、独立测试缓存目录；测试 Jobs、Buckets 或 Sandboxes 时还需相应账号权限、配额与非敏感样本。",
+        "test": "先用无敏感样本验证 Bucket 内 copy/mv 和 repo 到 Bucket 的单向路径，再检查扩展 version/latest/outdated 与 repair；最后回归共享缓存和一条可取消 Job。",
         "checks": [
           "固定 huggingface_hub 版本、Python、缓存目录和样本仓库",
           "分别记录下载命中、磁盘占用、清理前后结果和退出状态",
           "Jobs、Webhook、Sandbox 与 Bucket 使用最小权限和无敏感样本",
           "把官方供应商测试、本站资料核验和自己的运行结果分开"
         ],
-        "command": "python -m pip install \"huggingface_hub==2.3.0\"",
+        "command": "python -m pip install \"huggingface_hub==2.4.0\"",
         "effort": "开源客户端 / Hub 服务、计算、存储与网络费用按实际账号和任务计算",
         "evidence": "Hugging Face 官方博客与 huggingface_hub 官方 GitHub Release",
         "status": "code",
         "tested": false,
-        "reviewed": "2026-10-27",
-        "verified_at": "2026-10-27T07:21:54+08:00"
+        "reviewed": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "openai-gpt-6-1-terra",
@@ -23283,7 +23467,7 @@
         "accent": "orange",
         "summary": "解析版面、表格和图表，导出结构化文档。",
         "scope": "官方实现支持多格式文档处理，提供 CLI 与 Python 接口。",
-        "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+        "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
         "repo": "docling-project/docling",
         "sources": [
           "docling",
@@ -23292,7 +23476,8 @@
           "docling-v2-142-1-release",
           "docling-v2-143-release",
           "docling-v2-143-1-release",
-          "docling-v2-144-release"
+          "docling-v2-144-release",
+          "docling-v2-145-release"
         ],
         "requirements": "Python 3.10+；首次运行可能下载模型。准备有使用权限的 sample.pdf。",
         "test": "选择三页带合并单元格的 PDF，对照人工标注检查导出的结构。",
@@ -23306,7 +23491,8 @@
         "evidence": "官方资料",
         "status": "code",
         "tested": false,
-        "reviewed": "2026-10-28"
+        "reviewed": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "browser-use",
@@ -23454,6 +23640,39 @@
       }
     ],
     "sources": [
+      {
+        "id": "cloudflare-agents-0-32-release",
+        "publisher": "Cloudflare",
+        "title": "agents@0.32.0",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+        "published": "2026-10-29",
+        "published_at": "2026-10-29T18:53:07Z",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "kind": "官方 GitHub Release、Skills 破坏性迁移、实验性遥测与依赖变更"
+      },
+      {
+        "id": "hf-hub-2-4-release",
+        "publisher": "Hugging Face",
+        "title": "huggingface_hub v2.4.0",
+        "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+        "published": "2026-10-29",
+        "published_at": "2026-10-29T14:56:07Z",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "kind": "官方 GitHub Release、Bucket 文件操作、CLI 扩展与安全修复"
+      },
+      {
+        "id": "docling-v2-145-release",
+        "publisher": "Docling project",
+        "title": "Docling v2.145.0",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+        "published": "2026-10-29",
+        "published_at": "2026-10-29T14:40:25Z",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:19:20+08:00",
+        "kind": "官方 GitHub Release、RapidOCR 页面方向与解析/VLM 修复"
+      },
       {
         "id": "mistral-large-4-hf-release-20261029",
         "publisher": "Hugging Face / Mistral AI",
@@ -24262,6 +24481,54 @@
     ],
     "events": [
       {
+        "id": "cloudflare-agents-0-32-release",
+        "task": "cloudflare-agents-0-31",
+        "date": "2026-10-29",
+        "published_at": "2026-10-29T18:53:07Z",
+        "kind": "release",
+        "title": "Cloudflare Agents 0.32 重做 Skills 加载接口",
+        "summary": "agents/skills 改用目录加载与工具生成接口，并加入实验性 OpenTelemetry 注册器、错误 span 和依赖更新。",
+        "delta": "Skills 可以从 workspace、R2 或代码来源加载，但旧 SkillRegistry、Vite/compile 与 runner 路径需要显式迁移；遥测仍属实验性。",
+        "sources": [
+          "cloudflare-agents-0-32-release"
+        ],
+        "reviewed": "2026-10-30",
+        "tag": "0.32.0",
+        "short_title": "Skills 加载与实验性遥测"
+      },
+      {
+        "id": "hf-hub-2-4-release",
+        "task": "huggingface-hub-cli-2-3",
+        "date": "2026-10-29",
+        "published_at": "2026-10-29T14:56:07Z",
+        "kind": "release",
+        "title": "huggingface_hub 2.4 增加 Bucket 文件操作",
+        "summary": "HfFileSystem 支持 Bucket 内及 repo 到 Bucket 的 copy/mv，CLI 扩展加入版本状态与 repair，并包含路径校验等修复。",
+        "delta": "Hub 工作流的存储与扩展维护更完整；Bucket 仍不能直接复制回 repo，权限、费用和实验性服务边界不变。",
+        "sources": [
+          "hf-hub-2-4-release"
+        ],
+        "reviewed": "2026-10-30",
+        "tag": "v2.4.0",
+        "short_title": "Bucket copy/mv 与扩展修复"
+      },
+      {
+        "id": "docling-v2-145-release",
+        "task": "docling",
+        "date": "2026-10-29",
+        "published_at": "2026-10-29T14:40:25Z",
+        "kind": "release",
+        "title": "Docling 2.145 增加 RapidOCR 页面方向处理",
+        "summary": "v2.145.0 为 RapidOCR 路径加入页面方向能力，并修复多项解析器、VLM 与文档释放边界。",
+        "delta": "旋转扫描件的进入路径更明确；方向判断、表格、跨页与低清样本仍需逐页回归，官方修复清单不是本站实测。",
+        "sources": [
+          "docling-v2-145-release"
+        ],
+        "reviewed": "2026-10-30",
+        "tag": "v2.145.0",
+        "short_title": "页面方向与解析修复"
+      },
+      {
         "id": "mistral-large-4-open-weights-20261029",
         "task": "mistral-large-4",
         "date": "2026-10-29",
@@ -24969,11 +25236,77 @@
     ]
   },
   "upstream": {
-    "last_attempt": "2026-10-29T05:16:18Z",
-    "last_success": "2026-10-28T21:19:35Z",
-    "repositories_succeeded": 1,
-    "repositories_total": 19,
+    "last_attempt": "2026-10-29T19:14:23Z",
+    "last_success": "2026-10-29T19:14:23Z",
+    "repositories_succeeded": 20,
+    "repositories_total": 20,
     "releases": [
+      {
+        "id": "upstream-428272251",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/think@0.23.0",
+        "title": "@cloudflare/think@0.23.0",
+        "published_at": "2026-10-29T18:53:13Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/think%400.23.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-428272207",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "@cloudflare/codemode@0.5.6",
+        "title": "@cloudflare/codemode@0.5.6",
+        "published_at": "2026-10-29T18:53:10Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/%40cloudflare/codemode%400.5.6",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-428272161",
+        "task": "cloudflare-agents-0-31",
+        "repo": "cloudflare/agents",
+        "tag": "agents@0.32.0",
+        "title": "agents@0.32.0",
+        "published_at": "2026-10-29T18:53:07Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-427944082",
+        "task": "huggingface-hub-cli-2-3",
+        "repo": "huggingface/huggingface_hub",
+        "tag": "v2.4.0",
+        "title": "[v2.4.0] Copy files into Buckets with `HfFileSystem`, outdated CLI extension hints",
+        "published_at": "2026-10-29T14:56:07Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-427986395",
+        "task": "docling",
+        "repo": "docling-project/docling",
+        "tag": "v2.145.0",
+        "title": "v2.145.0",
+        "published_at": "2026-10-29T14:40:25Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+        "review_status": "unreviewed"
+      },
+      {
+        "id": "upstream-427982080",
+        "task": "ibm-granite-timeseries-ensemble-r1",
+        "repo": "ibm-granite/granite-tsfm",
+        "tag": "v0.3.12",
+        "title": "v0.3.12",
+        "published_at": "2026-10-29T14:36:59Z",
+        "observed_at": "2026-10-29T19:14:23Z",
+        "url": "https://github.com/ibm-granite/granite-tsfm/releases/tag/v0.3.12",
+        "review_status": "unreviewed"
+      },
       {
         "id": "upstream-426615904",
         "task": "docling",
@@ -26174,116 +26507,7 @@
         "review_status": "unreviewed"
       }
     ],
-    "errors": [
-      {
-        "task": "cloudflare-agents-0-31",
-        "repo": "cloudflare/agents",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "huggingface-hub-cli-2-3",
-        "repo": "huggingface/huggingface_hub",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-nemo-automodel-0-7",
-        "repo": "NVIDIA-NeMo/Automodel",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "microsoft-flint-interactive",
-        "repo": "microsoft/flint-chart",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "agent4sci",
-        "repo": "maszhongming/agent4sci",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "ibm-granite-timeseries-ensemble-r1",
-        "repo": "ibm-granite/granite-tsfm",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-auto-ontology",
-        "repo": "NVIDIA/auto-ontology",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-kumo-relational",
-        "repo": "NVIDIA/structured-data-models",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-rfd4-proteina",
-        "repo": "RosettaCommons/RFD4-Proteina",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "nvidia-kumo-forecast",
-        "repo": "NVIDIA/Kumo-TS",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "timestral",
-        "repo": "mistralai/timestral",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "openhands",
-        "repo": "OpenHands/OpenHands",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "graphrag",
-        "repo": "microsoft/graphrag",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "docling",
-        "repo": "docling-project/docling",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "browser-use",
-        "repo": "browser-use/browser-use",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "whisper",
-        "repo": "openai/whisper",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "ai-scientist",
-        "repo": "SakanaAI/AI-Scientist",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      },
-      {
-        "task": "mathlib",
-        "repo": "leanprover-community/mathlib4",
-        "at": "2026-10-29T05:16:18Z",
-        "message": "GitHub HTTP 403"
-      }
-    ],
+    "errors": [],
     "note": "Official release metadata only. Capability assessments require editorial review."
   },
   "site": {
@@ -26296,7 +26520,7 @@
   },
   "industry": {
     "version": 1,
-    "checked": "2026-10-29",
+    "checked": "2026-10-30",
     "sectors": [
       {
         "id": "pharma",
@@ -26469,6 +26693,16 @@
       }
     ],
     "sources": [
+      {
+        "id": "google-singapore-public-health-ai-20261029",
+        "title": "Partnering with Singapore to bring frontier AI to public health",
+        "publisher": "Google",
+        "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
+        "published": "2026-10-29",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:34:00+08:00",
+        "kind": "公司官方研究中心、公共卫生合作、MedGemma 场景、临床评估与数据主权说明"
+      },
       {
         "id": "anthropic-ai-for-science-expansion-20261028",
         "title": "AI for Science expands to foundations and research institutions",
@@ -26910,6 +27144,40 @@
       }
     ],
     "articles": [
+      {
+        "id": "google-singapore-public-health-ai-20261029",
+        "sector": "pharma",
+        "topics": [
+          "clinical",
+          "csr"
+        ],
+        "title": "新加坡公共卫生 AI 合作：先把研究、临床查询和人口预测分开验收",
+        "summary": "Google 宣布设立新加坡 Research hub，并披露 MedGemma 前线场景、AI co-clinician 评估、人口健康风险预测和公共卫生情报资助等合作。",
+        "why": "这组计划把基础模型、本地研究、临床知识检索、人口健康和数据主权放进同一公共卫生体系；医药团队可据此建立从研究原型到临床工作流和公共治理的分层证据清单。",
+        "boundary": "这是公司官方合作与评估公告，不是获批医疗产品、临床结局改善或全国部署完成证明。AI co-clinician 仍在评估；预测、健康教练和疾病情报需由当地机构独立验证，数据主权、偏差、安全、医生责任与患者结果不能由合作规模推出。",
+        "sources": [
+          "google-singapore-public-health-ai-20261029"
+        ],
+        "kind": "update",
+        "access": "官方项目公告；研究中心、MedGemma 场景和 AI co-clinician 评估的具体开放范围以合作机构后续材料为准",
+        "published": "2026-10-29",
+        "steps": [
+          "分别登记研究中心、模型、临床查询、人口预测和公共卫生情报的责任主体与数据边界",
+          "用脱敏、本地代表性数据验证检索证据、误报漏报、亚群偏差和医生接管，不用公告案例替代临床评估",
+          "上线前建立数据主权、患者告知、审计、回滚和不良事件处理，并持续跟踪真实患者与公共卫生结果"
+        ],
+        "metrics": [
+          "临床查询证据完整性、错误建议率、医生接管与纠错时间",
+          "人口风险预测的校准、亚群偏差、漂移与误报漏报",
+          "数据驻留、访问审计、患者影响和独立机构复验"
+        ],
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T03:34:00+08:00",
+        "first_seen_at": "2026-10-30T03:34:00+08:00",
+        "evidence_level": "primary-source",
+        "featured": true,
+        "tested": false
+      },
       {
         "id": "anthropic-ai-for-science-expansion-20261028",
         "sector": "pharma",
@@ -28151,14 +28419,14 @@
   },
   "intake": {
     "version": 1,
-    "last_attempt": "2026-10-29T13:46:28.266295Z",
+    "last_attempt": "2026-10-29T19:49:21.131596Z",
     "errors": [],
     "sources": [
       {
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
         "status": "success",
-        "checked_at": "2026-10-29T13:46:28.266295Z",
+        "checked_at": "2026-10-29T19:49:21.131596Z",
         "parsed": 14,
         "matched": 14
       },
@@ -28166,7 +28434,7 @@
         "id": "github-boltz",
         "name": "Boltz releases",
         "status": "success",
-        "checked_at": "2026-10-29T13:46:28.266295Z",
+        "checked_at": "2026-10-29T19:49:21.131596Z",
         "parsed": 17,
         "matched": 17
       },
@@ -28174,13 +28442,13 @@
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
         "status": "success",
-        "checked_at": "2026-10-29T13:46:28.266295Z",
+        "checked_at": "2026-10-29T19:49:21.131596Z",
         "parsed": 20,
         "matched": 20
       }
     ],
-    "last_success": "2026-10-29T13:46:28.266295Z",
-    "last_full_success": "2026-10-29T13:46:28.266295Z",
+    "last_success": "2026-10-29T19:49:21.131596Z",
+    "last_full_success": "2026-10-29T19:49:21.131596Z",
     "items": [
       {
         "title": "Release Anomalib Library v2.7.0",
@@ -28197,7 +28465,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28217,7 +28485,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28237,7 +28505,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28257,7 +28525,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28277,7 +28545,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28297,7 +28565,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28317,7 +28585,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28337,7 +28605,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28357,7 +28625,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28377,7 +28645,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28397,7 +28665,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28417,7 +28685,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28437,7 +28705,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28457,7 +28725,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28477,7 +28745,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28497,7 +28765,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28516,7 +28784,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28536,7 +28804,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28556,7 +28824,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28575,7 +28843,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28595,7 +28863,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28614,7 +28882,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28633,7 +28901,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28652,7 +28920,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28671,7 +28939,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28690,7 +28958,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28709,7 +28977,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28729,7 +28997,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28749,7 +29017,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28768,7 +29036,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28788,7 +29056,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28808,7 +29076,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28828,7 +29096,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28848,7 +29116,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28868,7 +29136,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28888,7 +29156,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28908,7 +29176,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28928,7 +29196,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -28947,7 +29215,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -28967,7 +29235,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-anomalib"
         ]
@@ -28986,7 +29254,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29006,7 +29274,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -29025,7 +29293,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29044,7 +29312,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29063,7 +29331,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29082,7 +29350,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29102,7 +29370,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -29121,7 +29389,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29140,7 +29408,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-boltz"
         ]
@@ -29160,7 +29428,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -29180,7 +29448,7 @@
         ],
         "review_status": "unreviewed",
         "first_seen": "2026-10-28T21:19:35.647613Z",
-        "last_seen": "2026-10-29T13:46:28.266295Z",
+        "last_seen": "2026-10-29T19:49:21.131596Z",
         "source_ids": [
           "github-bionemo-framework"
         ]
@@ -29685,29 +29953,35 @@
         "publisher": "Cloudflare",
         "group": "agents",
         "access": "web",
-        "headline": "先用隔离预览验证内部主机，再迁移 Browser Tool 与 MCP 依赖",
+        "headline": "先迁移 0.32 的 Skills 加载接口，再用隔离预览和遥测验收 Agent",
         "input": "一个无生产凭据的 Worker 测试项目、固定测试页，以及允许和拒绝的内部主机、目录与端口样本",
-        "output": "内部主机访问结果、未知主机与超时回退、Browser Tool API 迁移记录，以及 MCP 依赖和构建回归清单",
-        "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；使用 MCP、x402 或 WebMCP 时，另按 Release 安装匹配依赖。",
-        "limitation": "本站只核验 Cloudflare 官方 Release，未部署软件。internalHosts 由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问；升级还会改变 browserTool、browser.cdp 与结果字段，并弃用一组旧 helper，不能只改版本号。",
+        "output": "Skills 目录加载、工具生成、内部主机访问、OpenTelemetry span 与构建回归记录",
+        "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.32.0、受控预览服务和非生产数据；使用 Skills 时需把 SKILL.md 放入受控 workspace / R2 / code 来源，并按新接口迁移。",
+        "limitation": "本站只核验 Cloudflare 官方 Release，未部署软件。0.32 的 agents/skills 是破坏性变更：旧 SkillRegistry 与 Vite/compile 路径被替换；实验性 OpenTelemetry 注册器也不等于完整生产可观测性。0.31 的 internalHosts 仍由显式 fetch 提供，不是任意内网访问或安全边界替代品。",
         "cost": "SDK 开源；Browser Run、Workers、模型、存储和网络的权限、限制与费用取决于 Cloudflare 实际账号和用量。",
         "steps": [
           {
-            "title": "固定版本并列出迁移项",
-            "body": "在隔离分支固定 agents@0.31.0；记录是否使用 MCP、x402、WebMCP、旧 Browser Tool helper、cdp.send 或旧结果字段，先形成迁移清单。",
-            "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖"
+            "title": "固定 0.32 并列出破坏性迁移",
+            "body": "在隔离分支固定 agents@0.32.0；搜索 SkillRegistry、agents/skills 旧 loader、Vite/compile 路径以及 0.31 的 Browser Tool 迁移项，先形成逐项清单。",
+            "command": "npm install agents@0.32.0\n# 使用 Skills 时，按官方 Release 迁移 loadSkillCatalog / createSkillTools"
           },
           {
-            "title": "只暴露受控测试主机",
-            "body": "把 preview.internal 指向返回固定测试内容的 fetch；分别验证允许主机、未知主机、目录/端口 target 和超时，不连接生产内网、密钥或用户数据。"
+            "title": "用受控目录验证 Skills 与内部主机",
+            "body": "从只含测试 SKILL.md 的 workspace / R2 / code 来源加载目录，验证无效 frontmatter 和缺失文件；再把 preview.internal 指向固定测试内容，不连接生产内网、密钥或用户数据。"
           },
           {
-            "title": "完成 API 与构建回归",
-            "body": "把 cdp.send 迁移为 browser.cdp，读取 notice 替代旧结果字段；显式补齐 MCP 依赖并运行现有单元、集成与构建检查，再决定是否扩大范围。"
+            "title": "验证工具、遥测与构建回归",
+            "body": "用 createSkillTools 生成工具，核对实验性 OpenTelemetry span 和错误状态；同时回归 browser.cdp、MCP 依赖、单元、集成与构建，再决定是否扩大范围。"
           }
         ],
-        "troubleshooting": "构建出现 unresolved import 时先核对 Release 要求的 MCP SDK/server 版本；浏览器无法访问内部主机时检查 internalHosts、fetch/target 和允许数量；旧代码报错时逐项排查弃用 helper、ctx、cdp.send 与旧结果字段。",
+        "troubleshooting": "Skills 加载失败先核对来源目录、SKILL.md frontmatter 与 loadSkillCatalog/createSkillTools 调用；构建出现 unresolved import 时检查已移除的 Vite/compile 路径和 MCP 依赖。遥测缺失时先确认注册器仍属 experimental，再核对 exporter 与 span 错误状态。",
         "sources": [
+          {
+            "title": "Cloudflare Agents：agents@0.32.0",
+            "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30"
+          },
           {
             "title": "Cloudflare Agents：agents@0.31.0",
             "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
@@ -29715,10 +29989,10 @@
             "verified_at": "2026-10-28"
           }
         ],
-        "entry_url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+        "entry_url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
         "evidence_level": "primary-docs",
         "runtime_tested": false,
-        "verified_at": "2026-10-28T13:23:04+08:00"
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "openai-coderabbit-secure",
@@ -29764,29 +30038,35 @@
         "publisher": "Hugging Face",
         "group": "agents",
         "access": "local",
-        "headline": "先验证共享缓存与清理，再接入 Jobs、Bucket 或 Sandbox",
+        "headline": "先验证 2.4 的 Bucket 复制与 CLI 扩展修复，再接入共享缓存和 Jobs",
         "input": "两个可公开下载的小模型仓库、独立缓存目录，以及一个无敏感数据、可取消的小型批处理任务",
         "output": "缓存命中和磁盘占用记录、清理结果、Job 的日志/重试/取消证据，以及权限与费用边界清单",
-        "requirements": "Python 3.10+、huggingface_hub 2.3.0、独立测试缓存目录；Jobs、Buckets 或 Sandboxes 还需要相应 Hugging Face 账号权限和可用服务。",
-        "limitation": "本站核验官方博客与 v2.3.0 Release，但未运行命令。Sandboxes 仍是实验能力；共享缓存不会消除网络、磁盘和依赖故障。官方 Agent skill 的 28 项测试是供应商自测，不能当作本站 Benchmark 或模型能力排名。",
+        "requirements": "Python 3.10+、huggingface_hub 2.4.0、独立测试缓存目录；Buckets、Jobs 或 Sandboxes 还需要相应 Hugging Face 账号权限和可用服务。",
+        "limitation": "本站核验官方博客与 v2.3.0 / v2.4.0 Release，但未运行命令。2.4 支持 HfFileSystem 在 Buckets 内及 repo 到 Bucket 的复制/移动，不支持 Bucket 复制回 repo；Sandboxes 仍是实验能力。官方 Agent skill 的 28 项测试是供应商自测，不能当作本站 Benchmark。",
         "cost": "客户端开源；模型下载、Jobs 算力、Sandbox、Storage Buckets、网络和存储的实际费用与限制取决于账号、硬件、区域和用量。",
         "steps": [
           {
             "title": "固定版本与隔离缓存",
-            "body": "在临时环境安装 2.3.0，记录 Python、客户端版本、缓存目录和两个样本仓库；不要先迁移生产缓存。",
-            "command": "python -m venv .venv-hf23\n. .venv-hf23/bin/activate\npython -m pip install \"huggingface_hub==2.3.0\"\nhf version"
+            "body": "在临时环境安装 2.4.0，记录 Python、客户端版本、缓存目录和两个样本仓库；不要先迁移生产缓存。",
+            "command": "python -m venv .venv-hf24\n. .venv-hf24/bin/activate\npython -m pip install \"huggingface_hub==2.4.0\"\nhf version"
           },
           {
             "title": "验证共享缓存与清理",
             "body": "依次下载两个含重复文件的公开小仓库，比较缓存占用；先 dry-run 或列出目标，再验证 hf cache rm 和 hf cache prune 的退出状态与剩余文件。"
           },
           {
-            "title": "再接一条可取消任务",
-            "body": "用无敏感数据的小任务测试 Job 日志、重试、调度、Webhook 或取消；Sandbox 和 Bucket 单独评估权限、隔离、持久化、费用与回滚。"
+            "title": "再验证 Bucket 与 CLI 扩展",
+            "body": "在无敏感样本上验证 Bucket 内 copy/mv 和 repo 到 Bucket 的单向路径；运行扩展 version/latest/outdated 与 repair，最后才接一条可取消的 Job 或 Sandbox。"
           }
         ],
-        "troubleshooting": "缓存未复用时核对客户端版本、HF_HOME、文件哈希与 Xet 后端；清理前先列出目标并保留回滚样本。Job 或 Sandbox 失败时分别检查账号权限、区域、硬件、镜像、日志和费用，不把服务端失败归因成模型能力。",
+        "troubleshooting": "Bucket 复制失败先确认方向：2.4 不支持 Bucket 回写 repo；扩展状态异常时用 version/latest/outdated 定位后再 repair。缓存未复用时核对客户端版本、HF_HOME、文件哈希与 Xet 后端；服务端失败不要归因成模型能力。",
         "sources": [
+          {
+            "title": "huggingface_hub v2.4.0 官方 Release",
+            "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30"
+          },
           {
             "title": "Hugging Face：What's new in the hf CLI and huggingface_hub library",
             "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
@@ -29803,7 +30083,7 @@
         "entry_url": "https://huggingface.co/docs/huggingface_hub/main/en/guides/cli",
         "evidence_level": "primary-docs",
         "runtime_tested": false,
-        "verified_at": "2026-10-27T07:21:54+08:00"
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "openai-gpt-6-1-terra",
@@ -30648,8 +30928,8 @@
         "headline": "把 PDF 变成可用文本与表格",
         "input": "一份获授权的 PDF",
         "output": "结构化文档 / Markdown",
-        "requirements": "独立 Python 环境；初次运行需下载模型。升级到 v2.144.0 后先用损坏文字层、并发 OCR、多语与复杂版面回归样本验收。",
-        "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.144.0 增加损坏 PDF 文字层的 OCR 回退，并修复 tesserocr 并发、阿拉伯文字规范化与阅读顺序边界；仍不保证合并单元格、跨页表格、手写体或低清扫描全部正确，本站未运行本版本。",
+        "requirements": "独立 Python 环境；初次运行需下载模型。升级到 v2.145.0 后先用旋转页面、损坏文字层、并发 OCR、多语与复杂版面回归样本验收。",
+        "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.145.0 为 RapidOCR 增加页面方向处理并继续修复解析器与 VLM 路径；仍不保证合并单元格、跨页表格、手写体、低清或错误旋转扫描全部正确，本站未运行本版本。",
         "cost": "本地计算；预留模型下载与存储空间。",
         "steps": [
           {
@@ -30663,11 +30943,17 @@
           },
           {
             "title": "对照原文验收",
-            "body": "检查导出的文本和表格，优先核对损坏文字层是否正确回退到 OCR、表头、单位和关键数字；再用并发转换、阿拉伯文与跨栏标题样本复验，把失败页留作下一次回归样本。"
+            "body": "检查导出的文本和表格，优先核对旋转页方向、损坏文字层 OCR 回退、表头、单位和关键数字；再用并发转换、多语与跨栏标题样本复验，把失败页留作下一次回归样本。"
           }
         ],
         "troubleshooting": "安装失败先查 Python / PyTorch 平台兼容性；首次运行卡住先检查模型下载；表格错位则保留错误页，不要直接进入业务计算。",
         "sources": [
+          {
+            "title": "Docling v2.145.0：RapidOCR 页面方向与解析修复",
+            "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30"
+          },
           {
             "title": "官方快速开始",
             "url": "https://docling-project.github.io/docling/getting_started/quickstart/",
@@ -30702,7 +30988,7 @@
         "entry_url": null,
         "evidence_level": "primary-docs",
         "runtime_tested": false,
-        "verified_at": "2026-10-28T23:22:24+08:00"
+        "verified_at": "2026-10-30T03:19:20+08:00"
       },
       {
         "id": "whisper",
