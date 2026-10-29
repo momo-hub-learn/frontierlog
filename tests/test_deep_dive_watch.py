@@ -14,7 +14,8 @@ class DeepDiveFreshnessTests(unittest.TestCase):
     def setUpClass(cls):
         cls.deep=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
         cls.hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
-        cls.before_containment=dict(cls.deep,articles=[a for a in cls.deep['articles'] if a['id']!='frontier-training-containment'])
+        cls.before_credits=dict(cls.deep,articles=[a for a in cls.deep['articles'] if a['id']!='openai-api-credits-ledger'])
+        cls.before_containment=dict(cls.before_credits,articles=[a for a in cls.before_credits['articles'] if a['id']!='frontier-training-containment'])
         cls.legacy=dict(cls.deep,articles=[a for a in cls.before_containment['articles'] if a['id']!='decisions-api-bounded-decision-layer'])
 
     def test_three_day_cycle_in_beijing_calendar_days(self):
@@ -71,10 +72,10 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         self.assertEqual(prior['updated'],'2026-10-15')
 
     def test_current_article_resets_due_date_on_beijing_calendar(self):
-        x=report(self.deep,self.hot,date(2026,10,26))
-        self.assertEqual(x['latest_id'],'frontier-training-containment')
-        self.assertEqual(x['latest_published'],'2026-10-26')
-        self.assertEqual(x['next_due'],'2026-10-29')
+        x=report(self.deep,self.hot,date(2026,10,29))
+        self.assertEqual(x['latest_id'],'openai-api-credits-ledger')
+        self.assertEqual(x['latest_published'],'2026-10-29')
+        self.assertEqual(x['next_due'],'2026-11-01')
         self.assertFalse(x['stale'])
 
     def test_empty_archive_remains_overdue(self):
