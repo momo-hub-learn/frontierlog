@@ -1,6 +1,20 @@
 {
-  "snapshot": "2026-10-29",
+  "snapshot": "2026-10-30",
   "events": [
+    {
+      "id": "mistral-large-4-open-weights-20261029",
+      "task": "mistral-large-4",
+      "date": "2026-10-29",
+      "kind": "release",
+      "title": "Mistral Large 4 发布 FP8 与 NVFP4 权重",
+      "summary": "Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。",
+      "delta": "此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。",
+      "sources": [
+        "mistral-large-4-hf-release-20261029",
+        "mistral-large-4-model-card"
+      ],
+      "reviewed": "2026-10-30"
+    },
     {
       "id": "openai-chatgpt-api-credits-release",
       "task": "openai-chatgpt-api-credits",
@@ -694,6 +708,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "mistral-large-4-hf-release-20261029",
+      "publisher": "Hugging Face / Mistral AI",
+      "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+      "url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00",
+      "kind": "官方权重发布、变体、运行器、上下文与部署入口"
+    },
+    {
+      "id": "mistral-large-4-model-card",
+      "publisher": "Mistral AI",
+      "title": "Mistral-Large-4-1T-A52B model card",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00",
+      "kind": "官方模型卡、架构、任务、许可、部署与厂商评测口径"
+    },
     {
       "id": "openai-chatgpt-api-credits-20261028",
       "publisher": "OpenAI",

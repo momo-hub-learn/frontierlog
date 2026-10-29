@@ -24,6 +24,9 @@
 .tk-provenance{margin:10px 0 0!important;font:.75rem/1.6 var(--mono)!important;color:var(--muted)!important}
 .tk-provenance time{color:var(--sub)}
 .tk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:18px}
+.tk-more-wrap{display:flex;justify-content:center;margin:18px 0 0}
+#tk-more{min-height:44px;border:1px solid var(--line);border-radius:9px;padding:9px 16px;background:var(--panel);color:var(--accent);font-size:.875rem;font-weight:600}
+#tk-more:hover{border-color:var(--accent);background:var(--accent-bg)}
 .tk-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 0;min-width:0;overflow-wrap:anywhere}
 .tk-card.is-open{grid-column:1/-1;border-color:var(--accent)}
 .tk-cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}

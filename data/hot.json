@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,51 @@
     }
   ],
   "items": [
+    {
+      "id": "mistral-large-4-open-weights-20261029",
+      "category": "model",
+      "title": "Mistral Large 4 开放 FP8 与 NVFP4 权重",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00",
+      "first_seen_at": "2026-10-30T01:19:44+08:00",
+      "heat": 93,
+      "heat_components": {"impact": 33, "availability": 20, "evidence": 25, "recency": 15},
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Hugging Face / Mistral 官方发布 · 权重已上线",
+      "summary": "Mistral Large 4 的 FP8 与 NVFP4 权重已发布，约 1T 总参数、49B 激活参数，支持文本与图像输入、1M 上下文和工具调用。",
+      "why": "此前“月底开放权重”的预告已经转为真实可下载发布；旗舰开放权重模型正在把多模态、长上下文与 Agent 工具调用整合到同一部署栈。",
+      "boundary": "开放权重不等于低成本本地运行或无条件开源。官方上手示例采用 8 路 tensor parallel；显存、互联、下载和长上下文成本需单独核算。许可为 Mistral Ecosystem Open-Weight License，对模型即服务等用途有附加限制。模型卡 Benchmark 是官方报告，不是本站实测。",
+      "source": "Hugging Face / Mistral AI",
+      "source_kind": "官方发布 / 官方模型卡 / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "link": "#/toolkit?task=mistral-large-4&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开官方模型卡",
+          "note": "核对权重、许可、运行器、硬件和厂商评测边界",
+          "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+          "kind": "model"
+        }
+      ],
+      "related": [
+        {
+          "source": "Hugging Face",
+          "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+          "url": "https://huggingface.co/blog/mistral-ai/large-4",
+          "date": "2026-10-29"
+        },
+        {
+          "source": "Mistral AI",
+          "title": "Mistral-Large-4-1T-A52B model card",
+          "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+          "date": "2026-10-29"
+        }
+      ]
+    },
     {
       "id": "github-copilot-cloud-connected-20261028",
       "category": "product",

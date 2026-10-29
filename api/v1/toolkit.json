@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "mistral-large-4",
+      "publisher": "Mistral AI",
+      "group": "agents",
+      "access": "model",
+      "headline": "先固定开放权重版本与多卡配置，再验收长上下文和工具调用",
+      "input": "固定 revision 的 FP8 / NVFP4 权重 + 文本、图像、长上下文与工具调用留出集",
+      "output": "结构化响应、工具调用轨迹，以及按任务拆分的正确率、延迟、吞吐、显存和失败样本",
+      "requirements": "官方 vLLM 示例采用 8 路 tensor parallel；需可承载模型的多卡 GPU 环境或受控托管端点、足够存储与下载带宽，并固定运行器、精度、聊天模板和工具 schema。",
+      "limitation": "本站只核验官方发布与模型卡，未下载或运行。开放权重不等于普通个人电脑可轻松运行；1M 上下文是支持上限，不代表所有长度下质量、成本和延迟相同。官方 Benchmark 不是本站实测。Mistral Ecosystem Open-Weight License 对模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+      "cost": "权重可下载，但多卡 GPU、存储、带宽、长上下文 KV cache、运行器适配、评测和人工复核都有实际成本；托管端点价格与可用性需在供应商页面单独核对。",
+      "steps": [
+        {
+          "title": "冻结权重、运行器与许可范围",
+          "body": "记录模型 ID、revision、FP8 / NVFP4 精度、vLLM 版本、GPU 与 tensor parallel 配置；在下载或部署前逐条核对 Mistral Ecosystem Open-Weight License 和依赖许可。",
+          "command": "vllm serve mistralai/Mistral-Large-4-1T-A52B --tensor-parallel-size 8 --tool-call-parser mistral --reasoning-parser mistral --enable-auto-tool-choice"
+        },
+        {
+          "title": "先跑短文本、单图和单工具",
+          "body": "用固定提示分别验证文本、图像理解、结构化输出和一次工具调用；保存原始请求、工具参数、响应、显存、首 token 与总耗时。"
+        },
+        {
+          "title": "再扩到长上下文与多步任务",
+          "body": "逐档增加上下文长度和工具步骤，加入冲突信息、坏图、超长输入与工具失败；按任务和长度分组报告，不把官方榜分或不同 Harness 拼成总分。"
+        }
+      ],
+      "troubleshooting": "加载失败先核对 revision、权重精度、磁盘、运行器版本、GPU 拓扑与并行参数；显存不足先缩短上下文并减少并发，而不是把量化或降配结果冒充原配置。工具调用格式错误时固定聊天模板、parser 和 schema，保留失败请求。",
+      "sources": [
+        {
+          "title": "Mistral Large 4 官方 Hugging Face 发布",
+          "url": "https://huggingface.co/blog/mistral-ai/large-4",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        },
+        {
+          "title": "Mistral Large 4 官方模型卡",
+          "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        }
+      ],
+      "entry_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-30T01:19:44+08:00"
+    },
+    {
       "id": "openai-chatgpt-api-credits",
       "publisher": "OpenAI",
       "group": "agents",

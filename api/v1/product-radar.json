@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,60 @@
     }
   ],
   "items": [
+    {
+      "id": "mistral-large-4-open-weights",
+      "name": "Mistral Large 4",
+      "company": "Mistral AI",
+      "group": "enterprise-agent",
+      "tags": [
+        "Open Weights",
+        "Multimodal",
+        "Agent"
+      ],
+      "summary": "把 Mistral Large 4 从“月底开放权重”预告推进到可下载的 FP8 / NVFP4 权重、模型卡与推理入口。",
+      "product_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "source_url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "source_label": "Hugging Face / Mistral 官方发布",
+      "evidence": "2026-10-29 官方发布确认约 1T 总参数、49B 激活参数、文本与图像输入、1M 上下文，以及 Transformers、vLLM、SGLang 和 llama.cpp 支持。",
+      "boundary": "这是开放权重与部署路径上线，不是本站实测、无条件开源或低成本本地运行。官方示例采用 8 路 tensor parallel；许可、显存、互联、长上下文成本和模型即服务限制需单独核对。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-29",
+          "kind": "Open-weight release",
+          "title": "FP8 与 NVFP4 权重正式上线",
+          "url": "https://huggingface.co/blog/mistral-ai/large-4",
+          "summary": "Hugging Face 与 Mistral 上线模型权重、模型卡和 day-0 推理路径，预告状态转为可下载发布。",
+          "facts": [
+            {
+              "label": "规模",
+              "value": "约 1T 总参数 · 49B 激活"
+            },
+            {
+              "label": "输入",
+              "value": "文本 + 图像 → 文本"
+            },
+            {
+              "label": "上下文",
+              "value": "1M tokens"
+            },
+            {
+              "label": "权重",
+              "value": "FP8 / NVFP4"
+            }
+          ],
+          "interpretation": "旗舰级开放权重模型继续向多模态、长上下文和 Agent 工具调用合流，但部署门槛也把评测、基础设施与许可审查变成同一条上线链。",
+          "scope": "Hugging Face 与 Mistral 2026-10-29 官方发布及模型卡确认的权重、架构、任务和部署范围。",
+          "limitations": "不能从厂商 Benchmark 推出跨榜总分，也不能从开放权重推出普通设备可运行或许可无限制；本站未下载、部署或复现。",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30T01:19:44+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "openai-chatgpt-api-credits",
       "name": "ChatGPT API credits benefit",

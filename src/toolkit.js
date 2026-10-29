@@ -4,6 +4,8 @@ const TK = (()=>{
  const data=APP.toolkit;
  const guides=new Map(data.items.map(x=>[x.id,x]));
  const openIds=new Set();
+ const PAGE_SIZE=12;
+ let visibleLimit=PAGE_SIZE,lastResultKey='';
  const groupIds=new Set(data.groups.map(x=>x.id)),modeIds=new Set(data.access_modes.map(x=>x.id));
  const sortIds=new Set(['recent','curated']),editorialOrder=new Map(data.items.map((x,i)=>[x.id,i]));
  const label=(rows,id)=>rows.find(x=>x.id===id)?.label||'';
@@ -31,6 +33,7 @@ const TK = (()=>{
   });
   return s.sort==='recent'?visible.sort((a,b)=>latestDate(b).localeCompare(latestDate(a))||editorialOrder.get(a.id)-editorialOrder.get(b.id)):visible;
  }
+ const resultKey=s=>[s.group,s.access,s.sort,s.q.trim(),s.only?'1':'0'].join('|');
  function route(patch,replace=false,resultsOnly=false){
   const hash=href(read(),patch);
   if(location.hash!==hash)history[replace?'replaceState':'pushState'](null,'',hash);
@@ -63,9 +66,19 @@ const TK = (()=>{
  function renderResults(){
   const s=read(),visible=rows(s),target=document.getElementById('tk-results');
   if(!target)return;
-  document.getElementById('tk-count').textContent=`${visible.length} / ${data.items.length} 条上手路径`;
+  const key=resultKey(s);
+  if(key!==lastResultKey){visibleLimit=PAGE_SIZE;lastResultKey=key}
+  if(s.tool){
+   const targetIndex=visible.findIndex(x=>x.id===s.tool);
+   if(targetIndex>=0)visibleLimit=Math.max(visibleLimit,targetIndex+1);
+  }
+  const shown=visible.slice(0,visibleLimit),remaining=visible.length-shown.length;
+  document.getElementById('tk-count').textContent=`${visible.length} 条匹配 · 已显示 ${shown.length}`;
   document.getElementById('tk-clear').hidden=!(s.q||s.group!=='all'||s.access!=='all'||s.only);
-  target.innerHTML=visible.length?visible.map(card).join(''):`<div class="tk-empty"><h2>没有匹配的上手路径</h2><p>试试项目名、输入文件或想完成的任务，也可以清除当前筛选。</p><button type="button" class="button" data-tk-clear>清除筛选</button></div>`;
+  target.innerHTML=visible.length?shown.map(card).join(''):`<div class="tk-empty"><h2>没有匹配的上手路径</h2><p>试试项目名、输入文件或想完成的任务，也可以清除当前筛选。</p><button type="button" class="button" data-tk-clear>清除筛选</button></div>`;
+  const more=document.getElementById('tk-more');
+  more.hidden=remaining<=0;
+  more.textContent=remaining>0?`再显示 ${Math.min(PAGE_SIZE,remaining)} 条（剩余 ${remaining}）`:'';
  }
  function revealTool(id){
   if(!id)return;
@@ -85,7 +98,7 @@ const TK = (()=>{
    <nav class="tk-groups" aria-label="按任务筛选"><button type="button" data-tk-group="all" aria-pressed="${s.group==='all'}">全部 <small>${data.items.length}</small></button>${data.groups.map(g=>`<button type="button" data-tk-group="${g.id}" aria-pressed="${s.group===g.id}">${esc(g.label)} <small>${data.items.filter(x=>x.group===g.id).length}</small></button>`).join('')}</nav>
    <div class="tk-toolbar"><label class="tk-search">${icon('search')}<input id="tk-search" type="search" aria-label="搜索工具、任务、输入或输出" placeholder="搜索工具、任务、输入或输出…" maxlength="300" value="${esc(s.q)}"></label><label class="tk-access"><span class="tk-sr">使用方式</span><select id="tk-access" aria-label="使用方式"><option value="all">全部使用方式</option>${data.access_modes.map(x=>`<option value="${x.id}" ${s.access===x.id?'selected':''}>${esc(x.label)}</option>`).join('')}</select></label><label class="tk-sort"><span class="tk-sr">排序</span><select id="tk-sort" aria-label="上手路径排序"><option value="recent" ${s.sort==='recent'?'selected':''}>最近发布</option><option value="curated" ${s.sort==='curated'?'selected':''}>编选顺序</option></select></label><label class="tk-saved"><input id="tk-only" type="checkbox" ${s.only?'checked':''}>只看关注</label></div>
    <div class="tk-resultline"><span id="tk-count" role="status"></span><span class="tk-order">${s.sort==='recent'?'按最近原文发布排序':'按编选顺序展示'}，非能力排名</span><button type="button" id="tk-clear" data-tk-clear>清除筛选</button></div>
-   <div class="tk-grid" id="tk-results"></div><p class="tk-footnote">网页能力以账号内实际开放为准；命令需在自己的环境运行。清单与关注仅保存在当前浏览器，不会改变证据等级。</p></div>`;
+   <div class="tk-grid" id="tk-results"></div><div class="tk-more-wrap"><button type="button" id="tk-more" data-tk-more aria-controls="tk-results" hidden></button></div><p class="tk-footnote">网页能力以账号内实际开放为准；命令需在自己的环境运行。清单与关注仅保存在当前浏览器，不会改变证据等级。</p></div>`;
   renderResults();revealTool(s.tool);document.body.classList.remove('nav-open');renderTray();
  }
  async function copy(button){
@@ -112,6 +125,7 @@ const TK = (()=>{
  document.addEventListener('click',e=>{
   if(state.view!=='toolkit')return;
   const b=e.target.closest('button');if(!b)return;
+  if(b.hasAttribute('data-tk-more')){visibleLimit+=PAGE_SIZE;renderResults();$('#tk-more').focus({preventScroll:true})}
   if(b.hasAttribute('data-tk-group')){route({group:b.dataset.tkGroup,tool:''});$(`[data-tk-group="${read().group}"]`).focus()}
   if(b.hasAttribute('data-tk-clear')){route({q:'',group:'all',access:'all',sort:'recent',only:false,tool:''});$('#tk-search').focus()}
   if(b.hasAttribute('data-tk-copy'))copy(b);

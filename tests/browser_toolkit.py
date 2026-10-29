@@ -13,6 +13,8 @@ CATALOG_DATA=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
 TASKS={x['id']:x for x in CATALOG_DATA['items']}
 GROUPS={x['id']:x['label'] for x in TOOLKIT_DATA['groups']}
 TOOLKIT_COUNT=len(TOOLKIT_DATA['items'])
+PAGE_SIZE=12
+INITIAL_COUNT=min(PAGE_SIZE,TOOLKIT_COUNT)
 def latest_date(guide):
     values=[source.get('published_at') or source.get('verified_at') or '' for source in guide['sources']]
     return max(values,default='')
@@ -49,13 +51,24 @@ try:
             if MEMORY:page.evaluate('(hash)=>{location.hash=hash;lastMain="";parseRoute()}',route)
             else:page.goto(base+route,wait_until='domcontentloaded')
             page.wait_for_timeout(200)
+        def show_all():
+            while page.locator('#tk-more').is_visible():
+                page.locator('#tk-more').click()
         go('#/toolkit')
-        expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
+        expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
+        expect(page.locator('#tk-count')).to_have_text(f'{TOOLKIT_COUNT} 条匹配 · 已显示 {INITIAL_COUNT}')
+        if TOOLKIT_COUNT>INITIAL_COUNT:
+            page.locator('#tk-more').click()
+            expect(page.locator('.tk-card')).to_have_count(min(PAGE_SIZE*2,TOOLKIT_COUNT))
+            expect(page.locator('#tk-more')).to_be_focused()
+            expect(page.locator('#tk-more')).to_have_attribute('aria-controls','tk-results')
         expect(page.locator('#tk-sort')).to_have_value('recent')
         expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id',RECENT_FIRST)
         page.locator('#tk-sort').select_option('curated')
+        expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
         expect(page.locator('.tk-card').first).to_have_attribute('data-tk-id',CURATED_FIRST)
         page.locator('#tk-sort').select_option('recent')
+        show_all()
         expect(page.locator('.tk-card h2')).to_have_count(TOOLKIT_COUNT)
         expect(page.locator('.tk-conditions dd')).to_have_count(TOOLKIT_COUNT*2)
         expect(page.locator('.tk-provenance')).to_have_count(TOOLKIT_COUNT)
@@ -76,7 +89,7 @@ try:
         page.locator('[data-tk-group=documents]').click();expect(page.locator('.tk-card')).to_have_count(document_count)
         page.locator('#tk-access').select_option('local');expect(page.locator('.tk-card')).to_have_count(local_document_count)
         expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','docling')
-        page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
+        page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
         page.locator('#tk-search').fill('OPENAI');expect(page.locator('.tk-card')).to_have_count(OPENAI_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
@@ -86,7 +99,7 @@ try:
         passed('Task, access and publisher filters, empty/reset states, escaped input and retained search focus')
         # Composition must not replace the search node or filter a partially committed IME string.
         page.locator('#tk-search').dispatch_event('compositionstart')
-        page.locator('#tk-search').fill('字幕');expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
+        page.locator('#tk-search').fill('字幕');expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
         page.locator('#tk-search').dispatch_event('compositionend');expect(page.locator('.tk-card')).to_have_count(1)
         expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','whisper')
         page.locator('#tk-clear').click()
@@ -157,18 +170,19 @@ try:
         for width in [1920,1440,1280,1100,1024,820,620,390,360,320]:
             go('#/toolkit');page.set_viewport_size({'width':width,'height':1000 if width>620 else 844})
             page.wait_for_timeout(300)
-            if page.locator('[data-tk-guide=docling]').get_attribute('open') is not None:
-                page.locator('[data-tk-guide=docling]>summary').click();page.wait_for_timeout(100)
+            layout_guide=page.locator(f'[data-tk-guide="{RECENT_FIRST}"]')
+            if layout_guide.get_attribute('open') is not None:
+                layout_guide.locator('summary').click();page.wait_for_timeout(100)
             page.evaluate('scrollTo(0,0)')
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,'page overflow')
             assert all(v>=16 for v in page.locator('.tk-identity strong').evaluate_all('(els)=>els.map(e=>parseFloat(getComputedStyle(e).fontSize))'))
             for card in page.locator('.tk-card').all():assert card.evaluate('e=>e.scrollWidth<=e.clientWidth+1'),(width,'card overflow')
             if width in [1440,1280,390,320]:page.screenshot(path=str(OUT/f'toolkit-{width}.png'),full_page=width==1440,timeout=45000)
-            page.locator('[data-tk-guide=docling]>summary').click()
+            layout_guide.locator('summary').click()
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,'expanded page overflow')
-            expect(page.locator('[data-tk-id=docling] .tk-command code')).to_be_visible()
+            expect(page.locator(f'[data-tk-id="{RECENT_FIRST}"] .tk-command code')).to_be_visible()
             if width in [1280,390]:page.screenshot(path=str(OUT/f'toolkit-guide-{width}.png'),full_page=width==1280,timeout=45000)
-            page.locator('[data-tk-guide=docling]>summary').click()
+            layout_guide.locator('summary').click()
             layouts.append({'width':width,'no_page_overflow':True,'no_card_overflow':True})
         passed('Ten widths, 16px project names and collapsed/expanded layouts without page overflow')
         page.set_viewport_size({'width':1280,'height':1000})
@@ -184,7 +198,7 @@ try:
             go(route)
             # These routes evolve separately; require nonempty content and an intact toolkit on return.
             assert len(page.locator('#content').inner_text())+len(page.locator('#vertical-root').inner_text())>80,route
-            if route.endswith('toolkit'):expect(page.locator('.tk-card')).to_have_count(TOOLKIT_COUNT)
+            if route.endswith('toolkit'):expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
         assert not errors,errors
         passed('Navigation to Arena, products, capabilities and activity remains error-free')
         browser.close()

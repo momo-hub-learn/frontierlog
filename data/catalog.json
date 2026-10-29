@@ -1,7 +1,35 @@
 {
   "version": 2,
-  "snapshot": "2026-10-29",
+  "snapshot": "2026-10-30",
   "items": [
+    {
+      "id": "mistral-large-4",
+      "name": "Mistral · Mistral Large 4",
+      "title": "先固定开放权重版本与多卡配置，再验收长上下文和工具调用",
+      "category": "多模态 Agent / 开放权重",
+      "mark": "M4",
+      "accent": "violet",
+      "summary": "Mistral Large 4 的 FP8 与 NVFP4 权重已发布到 Hugging Face，支持文本和图像输入、1M 上下文及工具调用。",
+      "scope": "Hugging Face 与 Mistral 2026-10-29 官方发布；模型约 1T 总参数、49B 激活参数（含嵌入与输出层约 52B），提供 Transformers、vLLM、SGLang 与 llama.cpp 路径。",
+      "boundary": "这是开放权重发布，不等于普通个人电脑可轻松运行。官方上手示例使用 8 路 tensor parallel；显存、互联、下载、许可和推理成本需单独核算。模型卡与发布页 Benchmark 是官方报告，不是本站实测。许可为 Mistral Ecosystem Open-Weight License，模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+      "repo": null,
+      "sources": ["mistral-large-4-hf-release-20261029", "mistral-large-4-model-card"],
+      "requirements": "固定模型 revision 和 FP8 / NVFP4 权重；准备可承载多卡 tensor parallel 的 GPU 环境或受控托管端点、足够存储与下载带宽，以及含长上下文、图像、工具调用和失败样本的留出集。",
+      "test": "先用短文本与单张图验证模板、工具调用和输出结构，再逐步增加上下文长度；记录 GPU、精度、并行度、吞吐、首 token、显存与失败样本，并把官方 Benchmark 与自己的留出集结果分开。",
+      "checks": [
+        "固定模型 ID、revision、权重精度、运行器版本和聊天模板",
+        "文本、图像、长上下文与工具调用分项验收，不拼成单一能力分",
+        "记录多卡拓扑、显存、吞吐、首 token 时间与失败样本",
+        "上线前逐条核对 Mistral Ecosystem Open-Weight License 与下游依赖"
+      ],
+      "command": "vllm serve mistralai/Mistral-Large-4-1T-A52B --tensor-parallel-size 8 --tool-call-parser mistral --reasoning-parser mistral --enable-auto-tool-choice",
+      "effort": "开放权重 / 需多卡 GPU、模型下载、运行器适配与许可核对",
+      "evidence": "Hugging Face 官方发布与 Mistral 官方模型卡",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00"
+    },
     {
       "id": "openai-chatgpt-api-credits",
       "name": "OpenAI · ChatGPT API credits",
@@ -1207,6 +1235,26 @@
   ],
   "sources": [
     {
+      "id": "mistral-large-4-hf-release-20261029",
+      "publisher": "Hugging Face / Mistral AI",
+      "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+      "url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00",
+      "kind": "官方权重发布、变体、运行器、上下文与部署入口"
+    },
+    {
+      "id": "mistral-large-4-model-card",
+      "publisher": "Mistral AI",
+      "title": "Mistral-Large-4-1T-A52B model card",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T01:19:44+08:00",
+      "kind": "官方模型卡、架构、任务、许可、部署与厂商评测口径"
+    },
+    {
       "id": "openai-chatgpt-api-credits-20261028",
       "publisher": "OpenAI",
       "title": "API credits benefit for eligible ChatGPT subscriptions",
@@ -1993,6 +2041,17 @@
     }
   ],
   "events": [
+    {
+      "id": "mistral-large-4-open-weights-20261029",
+      "task": "mistral-large-4",
+      "date": "2026-10-29",
+      "kind": "release",
+      "title": "Mistral Large 4 发布 FP8 与 NVFP4 权重",
+      "summary": "Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。",
+      "delta": "此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。",
+      "sources": ["mistral-large-4-hf-release-20261029", "mistral-large-4-model-card"],
+      "reviewed": "2026-10-30"
+    },
     {
       "id": "openai-chatgpt-api-credits-release",
       "task": "openai-chatgpt-api-credits",
