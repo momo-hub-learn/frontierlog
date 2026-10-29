@@ -114,6 +114,19 @@ vm.runInContext('this.__allFailed=fcGithubPanel();',view);
 assert.match(view.__allFailed,/仓库资料全部沿用旧快照/);
 assert.match(view.__allFailed,/仓库 API 全部失败：10 个上榜项、1 个长期关注项沿用旧值/);
 
+view.APP.github_hot={
+ checked_at:new Date().toISOString(),
+ sync:{metadata_status:'partial',metadata_failed_count:10,watchlist_failed_count:0},
+ items:Array.from({length:10},(_,i)=>({repo:'example/agent-'+i,ai_related:true,stars_today:51-i,rank:i+1,url:'https://github.com/example/agent-'+i,description:'Agent tools',metadata_status:'stale'})),
+ watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:403678,verified_at:new Date().toISOString()}]
+};
+vm.runInContext('this.__trendingFailedWatchVerified=fcGithubPanel();',view);
+assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料全部沿用旧快照/);
+assert.match(view.__trendingFailedWatchVerified,/长期关注项已核验/);
+assert.match(view.__trendingFailedWatchVerified,/上榜仓库 API 全部失败：10 个上榜项沿用旧值；长期关注项已核验/);
+assert.doesNotMatch(view.__trendingFailedWatchVerified,/role="status">仓库资料全部沿用旧快照/);
+assert.doesNotMatch(view.__trendingFailedWatchVerified,/长期关注项沿用旧值/);
+
 const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
 const hfView={APP:{huggingface_hot:{
  checked_at:new Date().toISOString(),web_fetched_at:new Date().toISOString(),api_fetched_at:new Date().toISOString(),
