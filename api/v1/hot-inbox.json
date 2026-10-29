@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T17:06:47Z",
+  "generated_at": "2026-10-29T17:28:06Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 102,
+    "merge": 104,
     "hold": 5
   },
   "candidates": [
@@ -86,6 +86,54 @@
         "Agent Adoption"
       ],
       "first_seen_at": "2026-10-28T19:29:22Z"
+    },
+    {
+      "id": "candidate-3f395ba221877d3d",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "FP8 与 NVFP4 权重正式上线",
+      "summary": "Hugging Face 与 Mistral 上线模型权重、模型卡和 day-0 推理路径，预告状态转为可下载发布。",
+      "why": "旗舰级开放权重模型继续向多模态、长上下文和 Agent 工具调用合流，但部署门槛也把评测、基础设施与许可审查变成同一条上线链。",
+      "boundary": "不能从厂商 Benchmark 推出跨榜总分，也不能从开放权重推出普通设备可运行或许可无限制；本站未下载、部署或复现。",
+      "source": "Mistral AI",
+      "source_kind": "官方产品节点",
+      "url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "mistral-large-4-open-weights",
+      "first_seen_at": "2026-10-29T17:28:06Z"
+    },
+    {
+      "id": "candidate-5af70496afbbe535",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "Mistral Large 4 发布 FP8 与 NVFP4 权重",
+      "summary": "Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。",
+      "why": "此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。",
+      "boundary": "这是开放权重发布，不等于普通个人电脑可轻松运行。官方上手示例使用 8 路 tensor parallel；显存、互联、下载、许可和推理成本需单独核算。模型卡与发布页 Benchmark 是官方报告，不是本站实测。许可为 Mistral Ecosystem Open-Weight License，模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+      "source": "Hugging Face / Mistral AI",
+      "source_kind": "官方权重发布、变体、运行器、上下文与部署入口",
+      "url": "https://huggingface.co/blog/mistral-ai/large-4",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "mistral-large-4",
+      "first_seen_at": "2026-10-29T17:28:06Z"
     },
     {
       "id": "candidate-d3e83555e3861aa4",
@@ -958,59 +1006,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openhands",
       "first_seen_at": "2026-10-25T03:31:45Z"
-    },
-    {
-      "id": "candidate-992c25b561cbf0fc",
-      "category": "product",
-      "published": "2026-10-23",
-      "title": "Docling 收紧归档、图片与复杂格式输入边界",
-      "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
-      "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
-      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
-      "source": "Docling project",
-      "source_kind": "官方发布",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "docling",
-      "first_seen_at": "2026-10-24T23:39:02Z"
-    },
-    {
-      "id": "candidate-1f0f2de773198368",
-      "category": "research",
-      "published": "2026-10-27",
-      "title": "Agent 的建议会不会悄悄变成专家自己的判断？",
-      "summary": "研究让 50 名专业分析师用 Claude Code 完成因果分析，并以隐藏随机硬币设定 Agent 的倾向。分析师在四类选择中有 86% 与 Agent 倾向一致；原有偏好与 Agent 不一致时，60% 改变选择，一致时只有 6%。77% 的人复用了 Agent 的论据，但只有 15% 明确注明来源。",
-      "why": "高风险 Agent 的监督不能只问“最后有没有人签字”。如果人的判断会被同一个 Agent 预先塑形，签字就不再是独立证据；流程需要先记录人的判断、显式暴露模型倾向，并把二次复核放到独立上下文中。",
-      "boundary": "作者刻意加强了 Agent 的倾向，且只研究一个任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能外推为所有专家、Agent 或真实业务都会出现相同比例的从众。本站未复现。",
-      "source": "Anthropic / London School of Economics",
-      "source_kind": "实验设计、主要结果与作者限制",
-      "url": "https://www.anthropic.com/research/agents-judgment-calls",
-      "publishable": false,
-      "features": {
-        "freshness": 0.857,
-        "authority": 0.72,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.697,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "anthropic-agent-judgment-calls",
-      "topic_tags": [
-        "Agent Oversight",
-        "Human Judgment",
-        "Evaluation"
-      ],
-      "first_seen_at": "2026-10-28T07:42:05Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-29",
+    "checked": "2026-10-30",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -36,6 +36,56 @@
       }
     ],
     "items": [
+      {
+        "id": "mistral-large-4-open-weights-20261029",
+        "category": "model",
+        "title": "Mistral Large 4 开放 FP8 与 NVFP4 权重",
+        "published": "2026-10-29",
+        "published_at": null,
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T01:19:44+08:00",
+        "first_seen_at": "2026-10-30T01:19:44+08:00",
+        "heat": 93,
+        "heat_components": {
+          "impact": 33,
+          "availability": 20,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是能力成绩、下载量或本站实测分数。",
+        "trend": "up",
+        "verification_status": "Hugging Face / Mistral 官方发布 · 权重已上线",
+        "summary": "Mistral Large 4 的 FP8 与 NVFP4 权重已发布，约 1T 总参数、49B 激活参数，支持文本与图像输入、1M 上下文和工具调用。",
+        "why": "此前“月底开放权重”的预告已经转为真实可下载发布；旗舰开放权重模型正在把多模态、长上下文与 Agent 工具调用整合到同一部署栈。",
+        "boundary": "开放权重不等于低成本本地运行或无条件开源。官方上手示例采用 8 路 tensor parallel；显存、互联、下载和长上下文成本需单独核算。许可为 Mistral Ecosystem Open-Weight License，对模型即服务等用途有附加限制。模型卡 Benchmark 是官方报告，不是本站实测。",
+        "source": "Hugging Face / Mistral AI",
+        "source_kind": "官方发布 / 官方模型卡 / 本轮编辑核验",
+        "url": "https://huggingface.co/blog/mistral-ai/large-4",
+        "link": "#/toolkit?task=mistral-large-4&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "打开官方模型卡",
+            "note": "核对权重、许可、运行器、硬件和厂商评测边界",
+            "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+            "kind": "model"
+          }
+        ],
+        "related": [
+          {
+            "source": "Hugging Face",
+            "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+            "url": "https://huggingface.co/blog/mistral-ai/large-4",
+            "date": "2026-10-29"
+          },
+          {
+            "source": "Mistral AI",
+            "title": "Mistral-Large-4-1T-A52B model card",
+            "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+            "date": "2026-10-29"
+          }
+        ]
+      },
       {
         "id": "github-copilot-cloud-connected-20261028",
         "category": "product",
@@ -4725,13 +4775,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-29T17:06:47Z",
+    "generated_at": "2026-10-29T17:28:06Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 2,
-      "merge": 102,
+      "merge": 104,
       "hold": 5
     },
     "candidates": [
@@ -4811,6 +4861,54 @@
           "Agent Adoption"
         ],
         "first_seen_at": "2026-10-28T19:29:22Z"
+      },
+      {
+        "id": "candidate-3f395ba221877d3d",
+        "category": "product",
+        "published": "2026-10-29",
+        "title": "FP8 与 NVFP4 权重正式上线",
+        "summary": "Hugging Face 与 Mistral 上线模型权重、模型卡和 day-0 推理路径，预告状态转为可下载发布。",
+        "why": "旗舰级开放权重模型继续向多模态、长上下文和 Agent 工具调用合流，但部署门槛也把评测、基础设施与许可审查变成同一条上线链。",
+        "boundary": "不能从厂商 Benchmark 推出跨榜总分，也不能从开放权重推出普通设备可运行或许可无限制；本站未下载、部署或复现。",
+        "source": "Mistral AI",
+        "source_kind": "官方产品节点",
+        "url": "https://huggingface.co/blog/mistral-ai/large-4",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "mistral-large-4-open-weights",
+        "first_seen_at": "2026-10-29T17:28:06Z"
+      },
+      {
+        "id": "candidate-5af70496afbbe535",
+        "category": "product",
+        "published": "2026-10-29",
+        "title": "Mistral Large 4 发布 FP8 与 NVFP4 权重",
+        "summary": "Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。",
+        "why": "此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。",
+        "boundary": "这是开放权重发布，不等于普通个人电脑可轻松运行。官方上手示例使用 8 路 tensor parallel；显存、互联、下载、许可和推理成本需单独核算。模型卡与发布页 Benchmark 是官方报告，不是本站实测。许可为 Mistral Ecosystem Open-Weight License，模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+        "source": "Hugging Face / Mistral AI",
+        "source_kind": "官方权重发布、变体、运行器、上下文与部署入口",
+        "url": "https://huggingface.co/blog/mistral-ai/large-4",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "mistral-large-4",
+        "first_seen_at": "2026-10-29T17:28:06Z"
       },
       {
         "id": "candidate-d3e83555e3861aa4",
@@ -5683,65 +5781,12 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
         "first_seen_at": "2026-10-25T03:31:45Z"
-      },
-      {
-        "id": "candidate-992c25b561cbf0fc",
-        "category": "product",
-        "published": "2026-10-23",
-        "title": "Docling 收紧归档、图片与复杂格式输入边界",
-        "summary": "v2.142.1 限制压缩文档成员的解压大小、图片解码像素、电子表格范围和 LaTeX 行列跨度，并要求 Tectonic TikZ 只处理受信输入。",
-        "why": "处理外部文档的团队应升级并加入异常样本回归；官方修复清单不等于所有解析风险已消失。",
-        "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
-        "source": "Docling project",
-        "source_kind": "官方发布",
-        "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
-        "publishable": true,
-        "features": {
-          "freshness": 0.571,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.698,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "docling",
-        "first_seen_at": "2026-10-24T23:39:02Z"
-      },
-      {
-        "id": "candidate-1f0f2de773198368",
-        "category": "research",
-        "published": "2026-10-27",
-        "title": "Agent 的建议会不会悄悄变成专家自己的判断？",
-        "summary": "研究让 50 名专业分析师用 Claude Code 完成因果分析，并以隐藏随机硬币设定 Agent 的倾向。分析师在四类选择中有 86% 与 Agent 倾向一致；原有偏好与 Agent 不一致时，60% 改变选择，一致时只有 6%。77% 的人复用了 Agent 的论据，但只有 15% 明确注明来源。",
-        "why": "高风险 Agent 的监督不能只问“最后有没有人签字”。如果人的判断会被同一个 Agent 预先塑形，签字就不再是独立证据；流程需要先记录人的判断、显式暴露模型倾向，并把二次复核放到独立上下文中。",
-        "boundary": "作者刻意加强了 Agent 的倾向，且只研究一个任务、一个专业领域和一个模型；50 名 Agent 用户与 11 名无 Agent 用户不能直接等同比较。实验未预先测量参与者完整观点，只记录二元选择，不能外推为所有专家、Agent 或真实业务都会出现相同比例的从众。本站未复现。",
-        "source": "Anthropic / London School of Economics",
-        "source_kind": "实验设计、主要结果与作者限制",
-        "url": "https://www.anthropic.com/research/agents-judgment-calls",
-        "publishable": false,
-        "features": {
-          "freshness": 0.857,
-          "authority": 0.72,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.697,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "anthropic-agent-judgment-calls",
-        "topic_tags": [
-          "Agent Oversight",
-          "Human Judgment",
-          "Evaluation"
-        ],
-        "first_seen_at": "2026-10-28T07:42:05Z"
       }
     ]
   },
   "product_radar": {
     "version": 1,
-    "checked": "2026-10-29",
+    "checked": "2026-10-30",
     "title": "AI 产品雷达",
     "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
     "groups": [
@@ -5757,6 +5802,60 @@
       }
     ],
     "items": [
+      {
+        "id": "mistral-large-4-open-weights",
+        "name": "Mistral Large 4",
+        "company": "Mistral AI",
+        "group": "enterprise-agent",
+        "tags": [
+          "Open Weights",
+          "Multimodal",
+          "Agent"
+        ],
+        "summary": "把 Mistral Large 4 从“月底开放权重”预告推进到可下载的 FP8 / NVFP4 权重、模型卡与推理入口。",
+        "product_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "source_url": "https://huggingface.co/blog/mistral-ai/large-4",
+        "source_label": "Hugging Face / Mistral 官方发布",
+        "evidence": "2026-10-29 官方发布确认约 1T 总参数、49B 激活参数、文本与图像输入、1M 上下文，以及 Transformers、vLLM、SGLang 和 llama.cpp 支持。",
+        "boundary": "这是开放权重与部署路径上线，不是本站实测、无条件开源或低成本本地运行。官方示例采用 8 路 tensor parallel；许可、显存、互联、长上下文成本和模型即服务限制需单独核对。",
+        "filter_ids": [
+          "enterprise-agent",
+          "knowledge-work"
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-29",
+            "kind": "Open-weight release",
+            "title": "FP8 与 NVFP4 权重正式上线",
+            "url": "https://huggingface.co/blog/mistral-ai/large-4",
+            "summary": "Hugging Face 与 Mistral 上线模型权重、模型卡和 day-0 推理路径，预告状态转为可下载发布。",
+            "facts": [
+              {
+                "label": "规模",
+                "value": "约 1T 总参数 · 49B 激活"
+              },
+              {
+                "label": "输入",
+                "value": "文本 + 图像 → 文本"
+              },
+              {
+                "label": "上下文",
+                "value": "1M tokens"
+              },
+              {
+                "label": "权重",
+                "value": "FP8 / NVFP4"
+              }
+            ],
+            "interpretation": "旗舰级开放权重模型继续向多模态、长上下文和 Agent 工具调用合流，但部署门槛也把评测、基础设施与许可审查变成同一条上线链。",
+            "scope": "Hugging Face 与 Mistral 2026-10-29 官方发布及模型卡确认的权重、架构、任务和部署范围。",
+            "limitations": "不能从厂商 Benchmark 推出跨榜总分，也不能从开放权重推出普通设备可运行或许可无限制；本站未下载、部署或复现。",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30T01:19:44+08:00",
+            "evidence_level": "primary_source"
+          }
+        ]
+      },
       {
         "id": "openai-chatgpt-api-credits",
         "name": "ChatGPT API credits benefit",
@@ -9715,12 +9814,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-29T17:06:47Z",
+    "last_evaluated": "2026-10-29T17:28:06Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 109,
+      "candidate_count": 111,
       "publish_ready_count": 2,
-      "merge_count": 102,
+      "merge_count": 104,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
@@ -9741,7 +9840,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-29T15:16:01Z",
+    "checked_at": "2026-10-29T17:15:22Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -9814,7 +9913,8 @@
             "at": "2026-10-29T15:16:01Z",
             "stars": 49386
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "obra/superpowers",
@@ -9884,7 +9984,8 @@
             "at": "2026-10-29T15:16:01Z",
             "stars": 308094
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "pbakaus/impeccable",
@@ -10440,23 +10541,23 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-29T15:16:01Z",
-      "last_success_at": "2026-10-29T15:16:01Z",
+      "last_checked_at": "2026-10-29T17:15:22Z",
+      "last_success_at": "2026-10-29T17:15:22Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-29T15:16:01Z",
+      "watchlist_checked_at": "2026-10-29T17:15:22Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 11,
-      "verified_count": 2,
-      "metadata_failed_count": 9,
+      "verified_count": 0,
+      "metadata_failed_count": 11,
       "metadata_status": "partial",
       "skipped": [
+        "HKUDS/DeepTutor: HTTP Error 403: Forbidden",
+        "obra/superpowers: HTTP Error 403: Forbidden",
         "pbakaus/impeccable: HTTP Error 403: Forbidden",
         "JetBrains/thinkrail: HTTP Error 403: Forbidden",
         "milind-soni/OpenMausBot: HTTP Error 403: Forbidden",
-        "nightly-labs/openbot: HTTP Error 403: Forbidden",
-        "elayadesign/ai-design-skills: HTTP Error 403: Forbidden",
-        "thedotmack/claude-mem: HTTP Error 403: Forbidden"
+        "nightly-labs/openbot: HTTP Error 403: Forbidden"
       ]
     },
     "watchlist": [
@@ -10471,27 +10572,27 @@
           "Agent",
           "MCP"
         ],
-        "stars": 406173,
-        "forks": 101712,
+        "stars": 406629,
+        "forks": 101827,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-29T15:09:25Z",
+        "repo_pushed_at": "2026-10-29T16:07:42Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-29T15:16:01Z",
+        "verified_at": "2026-10-29T17:15:22Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。"
       }
     ]
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-29T15:16:43Z",
+    "checked_at": "2026-10-29T17:15:22Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-29T15:16:43Z",
-    "web_fetched_at": "2026-10-29T15:16:43Z",
+    "api_fetched_at": "2026-10-29T17:15:22Z",
+    "web_fetched_at": "2026-10-29T17:15:22Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -10510,10 +10611,10 @@
       "Qwen/Qwen3.8-27B",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "ccore/Qwen3.5-4B-3D-Coder",
+      "mistralai/Mistral-Large-4-1T-A52B",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
       "OpenMOSS-Team/MOSS-Image-SFT",
-      "HuggingFaceBio/Carbon-X",
-      "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
+      "HuggingFaceBio/Carbon-X"
     ],
     "web_rank_changes": [
       {
@@ -10521,150 +10622,156 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 13,
-        "previous_rank": 14,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 14,
-        "previous_rank": 13,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_rank": 14,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
+      },
+      {
+        "id": "mistralai/Mistral-Large-4-1T-A52B",
+        "rank": 17,
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "rank": 17,
-        "previous_rank": 18,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "rank": 18,
+        "previous_rank": 17,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "rank": 18,
-        "previous_rank": 19,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "rank": 19,
+        "previous_rank": 18,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       },
       {
         "id": "HuggingFaceBio/Carbon-X",
-        "rank": 19,
-        "previous_rank": 17,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
-      },
-      {
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 20,
-        "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T13:22:21Z"
+        "previous_rank": 19,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
       }
     ],
-    "web_outgoing": [],
+    "web_outgoing": [
+      {
+        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "previous_rank": 20,
+        "previous_fetched_at": "2026-10-29T15:16:43Z"
+      }
+    ],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 874,
-        "likes": 3706,
+        "trending_score": 871,
+        "likes": 3722,
         "downloads": 131062,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10680,8 +10787,8 @@
         "rank": 2,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 743,
-        "likes": 755,
+        "trending_score": 747,
+        "likes": 759,
         "downloads": 9655,
         "task": "text-generation",
         "library": "transformers",
@@ -10697,8 +10804,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 583,
-        "likes": 1228,
+        "trending_score": 556,
+        "likes": 1232,
         "downloads": 16598,
         "task": "text-generation",
         "library": "transformers",
@@ -10714,8 +10821,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 468,
-        "likes": 895,
+        "trending_score": 466,
+        "likes": 896,
         "downloads": 10163,
         "task": "text-generation",
         "library": "transformers",
@@ -10731,8 +10838,8 @@
         "rank": 5,
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
-        "trending_score": 447,
-        "likes": 456,
+        "trending_score": 448,
+        "likes": 457,
         "downloads": 396,
         "task": "translation",
         "library": "transformers",
@@ -10748,8 +10855,8 @@
         "rank": 6,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 444,
-        "likes": 450,
+        "trending_score": 447,
+        "likes": 453,
         "downloads": 15885,
         "task": "text-generation",
         "library": "transformers",
@@ -10765,8 +10872,8 @@
         "rank": 7,
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 423,
-        "likes": 479,
+        "trending_score": 425,
+        "likes": 482,
         "downloads": 15738,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10800,7 +10907,7 @@
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
         "trending_score": 394,
-        "likes": 9800,
+        "likes": 9816,
         "downloads": 2269999,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -10816,8 +10923,8 @@
         "rank": 10,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 373,
-        "likes": 2015,
+        "trending_score": 368,
+        "likes": 2020,
         "downloads": 832197,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -10833,8 +10940,8 @@
         "rank": 11,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 352,
-        "likes": 368,
+        "trending_score": 354,
+        "likes": 370,
         "downloads": 18141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10850,8 +10957,8 @@
         "rank": 12,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 340,
-        "likes": 351,
+        "trending_score": 350,
+        "likes": 363,
         "downloads": 4276,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -10867,8 +10974,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 315,
-        "likes": 5294,
+        "trending_score": 313,
+        "likes": 5299,
         "downloads": 2172670,
         "task": "text-to-image",
         "library": "gguf",
@@ -10884,8 +10991,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 314,
-        "likes": 18665,
+        "trending_score": 310,
+        "likes": 18668,
         "downloads": 7509924,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10901,8 +11008,8 @@
         "rank": 15,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 275,
-        "likes": 334,
+        "trending_score": 276,
+        "likes": 335,
         "downloads": 28763,
         "task": "text-generation",
         "library": "gguf",
@@ -10918,8 +11025,8 @@
         "rank": 16,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 256,
-        "likes": 265,
+        "trending_score": 258,
+        "likes": 267,
         "downloads": 12237,
         "task": "未标注",
         "library": "未标注",
@@ -10933,6 +11040,23 @@
       },
       {
         "rank": 17,
+        "id": "mistralai/Mistral-Large-4-1T-A52B",
+        "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "trending_score": 229,
+        "likes": 1138,
+        "downloads": 278,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-09-30T18:35:13.000Z",
+        "tags": [
+          "transformers",
+          "mistral_large4",
+          "image-text-to-text",
+          "vLLM"
+        ]
+      },
+      {
+        "rank": 18,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "trending_score": 228,
@@ -10949,10 +11073,10 @@
         ]
       },
       {
-        "rank": 18,
+        "rank": 19,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 216,
+        "trending_score": 210,
         "likes": 821,
         "downloads": 14950,
         "task": "text-to-image",
@@ -10966,11 +11090,11 @@
         ]
       },
       {
-        "rank": 19,
+        "rank": 20,
         "id": "HuggingFaceBio/Carbon-X",
         "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 216,
-        "likes": 266,
+        "trending_score": 204,
+        "likes": 268,
         "downloads": 2808,
         "task": "text-generation",
         "library": "transformers",
@@ -10981,28 +11105,11 @@
           "qwen3",
           "text-generation"
         ]
-      },
-      {
-        "rank": 20,
-        "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "trending_score": 189,
-        "likes": 2215,
-        "downloads": 1726051,
-        "task": "image-text-to-text",
-        "library": "未标注",
-        "created_at": "2026-09-01T07:01:09.000Z",
-        "tags": [
-          "gguf",
-          "unsloth",
-          "fine tune",
-          "heretic"
-        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-29T15:16:43Z",
+      "last_checked_at": "2026-10-29T17:15:22Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -21989,8 +22096,39 @@
   },
   "catalog": {
     "version": 2,
-    "snapshot": "2026-10-29",
+    "snapshot": "2026-10-30",
     "items": [
+      {
+        "id": "mistral-large-4",
+        "name": "Mistral · Mistral Large 4",
+        "title": "先固定开放权重版本与多卡配置，再验收长上下文和工具调用",
+        "category": "多模态 Agent / 开放权重",
+        "mark": "M4",
+        "accent": "violet",
+        "summary": "Mistral Large 4 的 FP8 与 NVFP4 权重已发布到 Hugging Face，支持文本和图像输入、1M 上下文及工具调用。",
+        "scope": "Hugging Face 与 Mistral 2026-10-29 官方发布；模型约 1T 总参数、49B 激活参数（含嵌入与输出层约 52B），提供 Transformers、vLLM、SGLang 与 llama.cpp 路径。",
+        "boundary": "这是开放权重发布，不等于普通个人电脑可轻松运行。官方上手示例使用 8 路 tensor parallel；显存、互联、下载、许可和推理成本需单独核算。模型卡与发布页 Benchmark 是官方报告，不是本站实测。许可为 Mistral Ecosystem Open-Weight License，模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+        "repo": null,
+        "sources": [
+          "mistral-large-4-hf-release-20261029",
+          "mistral-large-4-model-card"
+        ],
+        "requirements": "固定模型 revision 和 FP8 / NVFP4 权重；准备可承载多卡 tensor parallel 的 GPU 环境或受控托管端点、足够存储与下载带宽，以及含长上下文、图像、工具调用和失败样本的留出集。",
+        "test": "先用短文本与单张图验证模板、工具调用和输出结构，再逐步增加上下文长度；记录 GPU、精度、并行度、吞吐、首 token、显存与失败样本，并把官方 Benchmark 与自己的留出集结果分开。",
+        "checks": [
+          "固定模型 ID、revision、权重精度、运行器版本和聊天模板",
+          "文本、图像、长上下文与工具调用分项验收，不拼成单一能力分",
+          "记录多卡拓扑、显存、吞吐、首 token 时间与失败样本",
+          "上线前逐条核对 Mistral Ecosystem Open-Weight License 与下游依赖"
+        ],
+        "command": "vllm serve mistralai/Mistral-Large-4-1T-A52B --tensor-parallel-size 8 --tool-call-parser mistral --reasoning-parser mistral --enable-auto-tool-choice",
+        "effort": "开放权重 / 需多卡 GPU、模型下载、运行器适配与许可核对",
+        "evidence": "Hugging Face 官方发布与 Mistral 官方模型卡",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-30",
+        "verified_at": "2026-10-30T01:19:44+08:00"
+      },
       {
         "id": "openai-chatgpt-api-credits",
         "name": "OpenAI · ChatGPT API credits",
@@ -23319,6 +23457,26 @@
     ],
     "sources": [
       {
+        "id": "mistral-large-4-hf-release-20261029",
+        "publisher": "Hugging Face / Mistral AI",
+        "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+        "url": "https://huggingface.co/blog/mistral-ai/large-4",
+        "published": "2026-10-29",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T01:19:44+08:00",
+        "kind": "官方权重发布、变体、运行器、上下文与部署入口"
+      },
+      {
+        "id": "mistral-large-4-model-card",
+        "publisher": "Mistral AI",
+        "title": "Mistral-Large-4-1T-A52B model card",
+        "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "published": "2026-10-29",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T01:19:44+08:00",
+        "kind": "官方模型卡、架构、任务、许可、部署与厂商评测口径"
+      },
+      {
         "id": "openai-chatgpt-api-credits-20261028",
         "publisher": "OpenAI",
         "title": "API credits benefit for eligible ChatGPT subscriptions",
@@ -24105,6 +24263,20 @@
       }
     ],
     "events": [
+      {
+        "id": "mistral-large-4-open-weights-20261029",
+        "task": "mistral-large-4",
+        "date": "2026-10-29",
+        "kind": "release",
+        "title": "Mistral Large 4 发布 FP8 与 NVFP4 权重",
+        "summary": "Hugging Face 与 Mistral 上线 Mistral Large 4 开放权重、模型卡和多种推理路径，覆盖文本、图像、1M 上下文与工具调用。",
+        "delta": "此前“月底开放权重”的预告已转为可下载发布；这仍不代表低成本本地运行，也不能把厂商 Benchmark 写成本站实测或跨榜总分。",
+        "sources": [
+          "mistral-large-4-hf-release-20261029",
+          "mistral-large-4-model-card"
+        ],
+        "reviewed": "2026-10-30"
+      },
       {
         "id": "openai-chatgpt-api-credits-release",
         "task": "openai-chatgpt-api-credits",
@@ -29158,6 +29330,52 @@
       }
     ],
     "items": [
+      {
+        "id": "mistral-large-4",
+        "publisher": "Mistral AI",
+        "group": "agents",
+        "access": "model",
+        "headline": "先固定开放权重版本与多卡配置，再验收长上下文和工具调用",
+        "input": "固定 revision 的 FP8 / NVFP4 权重 + 文本、图像、长上下文与工具调用留出集",
+        "output": "结构化响应、工具调用轨迹，以及按任务拆分的正确率、延迟、吞吐、显存和失败样本",
+        "requirements": "官方 vLLM 示例采用 8 路 tensor parallel；需可承载模型的多卡 GPU 环境或受控托管端点、足够存储与下载带宽，并固定运行器、精度、聊天模板和工具 schema。",
+        "limitation": "本站只核验官方发布与模型卡，未下载或运行。开放权重不等于普通个人电脑可轻松运行；1M 上下文是支持上限，不代表所有长度下质量、成本和延迟相同。官方 Benchmark 不是本站实测。Mistral Ecosystem Open-Weight License 对模型即服务等用途有附加限制，不能简写成 MIT 或无条件开源。",
+        "cost": "权重可下载，但多卡 GPU、存储、带宽、长上下文 KV cache、运行器适配、评测和人工复核都有实际成本；托管端点价格与可用性需在供应商页面单独核对。",
+        "steps": [
+          {
+            "title": "冻结权重、运行器与许可范围",
+            "body": "记录模型 ID、revision、FP8 / NVFP4 精度、vLLM 版本、GPU 与 tensor parallel 配置；在下载或部署前逐条核对 Mistral Ecosystem Open-Weight License 和依赖许可。",
+            "command": "vllm serve mistralai/Mistral-Large-4-1T-A52B --tensor-parallel-size 8 --tool-call-parser mistral --reasoning-parser mistral --enable-auto-tool-choice"
+          },
+          {
+            "title": "先跑短文本、单图和单工具",
+            "body": "用固定提示分别验证文本、图像理解、结构化输出和一次工具调用；保存原始请求、工具参数、响应、显存、首 token 与总耗时。"
+          },
+          {
+            "title": "再扩到长上下文与多步任务",
+            "body": "逐档增加上下文长度和工具步骤，加入冲突信息、坏图、超长输入与工具失败；按任务和长度分组报告，不把官方榜分或不同 Harness 拼成总分。"
+          }
+        ],
+        "troubleshooting": "加载失败先核对 revision、权重精度、磁盘、运行器版本、GPU 拓扑与并行参数；显存不足先缩短上下文并减少并发，而不是把量化或降配结果冒充原配置。工具调用格式错误时固定聊天模板、parser 和 schema，保留失败请求。",
+        "sources": [
+          {
+            "title": "Mistral Large 4 官方 Hugging Face 发布",
+            "url": "https://huggingface.co/blog/mistral-ai/large-4",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30"
+          },
+          {
+            "title": "Mistral Large 4 官方模型卡",
+            "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+            "published_at": "2026-10-29",
+            "verified_at": "2026-10-30"
+          }
+        ],
+        "entry_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-30T01:19:44+08:00"
+      },
       {
         "id": "openai-chatgpt-api-credits",
         "publisher": "OpenAI",
