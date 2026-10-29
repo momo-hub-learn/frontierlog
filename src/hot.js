@@ -176,7 +176,7 @@ function hTimeline(x){
 function hDetail(id){
  const x=HOT_ITEMS.get(id);if(!x)return;
  const t=H_TREND[x.trend]||H_TREND.flat;
- const access=hAccessRows(x),primary=access.find(r=>['try','demo','gateway'].includes(r.kind))||access[0];
+ const access=hAccessRows(x),primary=access.find(r=>['try','demo','gateway'].includes(r.kind)&&!String(r.url||'').startsWith('#/'))||access.find(r=>!String(r.url||'').startsWith('#/'))||access[0];
  const heroCta=hPrimaryCta(primary)+
    '<a class="button" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">官方 / 原始来源 '+icon('external')+'</a>'+
    (x.link?'<a class="button subtle" href="'+esc(x.link)+'" onclick="document.getElementById(\'modal\').close();document.body.style.overflow=\'\'">相关专题 '+icon('arrow')+'</a>':'');
