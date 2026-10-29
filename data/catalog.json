@@ -223,31 +223,31 @@
     },
     {
       "id": "cloudflare-agents-0-31",
-      "name": "Cloudflare · Agents 0.31",
-      "title": "让浏览器 Agent 访问受控内部预览，并显式迁移 Browser Tool 与 MCP 依赖",
+      "name": "Cloudflare · Agents 0.32",
+      "title": "迁移 Skills 加载接口，并给 Agent 接入实验性 OpenTelemetry",
       "category": "Agent / 基础设施",
       "mark": "CF",
       "accent": "lime",
-      "summary": "Cloudflare Agents 0.31 为 Browser Run 加入最多 8 个内部主机名，可把预览服务、工作区目录或同一 Worker 暴露给 Agent 浏览器；同时稳定两套模型适配器，并调整 Browser Tool 与 MCP 依赖接口。",
-      "scope": "Cloudflare 官方 GitHub Release 于 2026-10-27 发布 agents@0.31.0；Release 给出 internalHosts、browser.assignHost、稳定模型适配器，以及 Browser Tool 和 MCP 依赖迁移清单。",
-      "boundary": "内部主机由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问或安全边界替代品。升级会改变 browserTool 调用与结果字段；使用 MCP、x402 或 WebMCP 的项目还必须显式安装匹配依赖。本站未部署该版本。",
+      "summary": "Cloudflare Agents 0.32 用 loadSkillCatalog / createSkillTools 重做 agents/skills 的目录加载与工具生成，并加入实验性 OpenTelemetry 注册入口；0.31 的受控内部主机与 Browser Tool 迁移仍是升级基线。",
+      "scope": "Cloudflare 官方 GitHub Release 于 2026-10-29 18:53:07Z 发布 agents@0.32.0，列出 Skills 破坏性迁移、workspace / R2 / code 来源、实验性遥测与依赖更新。",
+      "boundary": "0.32 移除旧 SkillRegistry、Vite/compile 与旧 runner 路径，不能只改版本号；实验性遥测不等于完整生产可观测性。内部主机仍须由显式 fetch 提供，不是任意内网访问或安全边界替代品。本站未部署。",
       "repo": "cloudflare/agents",
-      "sources": ["cloudflare-agents-0-31-release"],
-      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；如使用 MCP、x402 或 WebMCP，还需按 Release 显式安装匹配的 Model Context Protocol 包。",
-      "test": "先把只返回固定测试页的 preview.internal 接进 Browser Run，核对允许主机、未知主机、目录与端口映射；再逐项迁移 browserTool API 和 MCP 依赖，运行现有测试与构建后才接近生产环境。",
+      "sources": ["cloudflare-agents-0-32-release", "cloudflare-agents-0-31-release"],
+      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.32.0、受控 Skills 目录与非生产数据；如使用 MCP、x402 或 WebMCP，还需固定匹配依赖。",
+      "test": "先用只含测试 SKILL.md 的 workspace / R2 / code 来源验证目录和工具生成，再核对无效 frontmatter、实验性遥测、受控内部主机与构建回归。",
       "checks": [
         "固定 agents、MCP SDK/server 和 Cloudflare Worker 版本",
-        "只暴露无凭据、无生产数据的测试主机与目录",
-        "分别验证允许主机、未知主机、超时和错误回退",
-        "核对 browser.cdp、notice 字段与弃用 API 的迁移结果"
+        "逐项迁移 SkillRegistry、loader、runner 与 Vite/compile 路径",
+        "只加载无凭据、无生产数据的测试 Skills 与测试主机",
+        "核对工具生成、span 错误状态、browser.cdp 与构建结果"
       ],
-      "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖",
+      "command": "npm install agents@0.32.0\n# 使用 Skills 时，按 Release 迁移 loadSkillCatalog / createSkillTools",
       "effort": "开源 SDK / Browser Run、Workers、模型与网络费用按 Cloudflare 实际账号计算",
       "evidence": "Cloudflare Agents 官方 GitHub Release、升级说明与已验证签名提交",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-10-28",
-      "verified_at": "2026-10-28T13:23:04+08:00"
+      "reviewed": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "openai-coderabbit-secure",
@@ -279,31 +279,31 @@
     },
     {
       "id": "huggingface-hub-cli-2-3",
-      "name": "Hugging Face · Hub CLI 2.3",
-      "title": "把共享缓存、定时 Jobs 与隔离 Sandbox 接进可回滚的模型工作流",
+      "name": "Hugging Face · Hub CLI 2.4",
+      "title": "验证 Bucket 复制与 CLI 扩展修复，再接共享缓存和 Jobs",
       "category": "Agent / 基础设施",
       "mark": "HF",
       "accent": "violet",
-      "summary": "huggingface_hub 2.3 将跨仓库共享 Xet 缓存、缓存清理命令、Jobs 重试/重跑/定时调度、Webhook 触发、实验性 Sandboxes 和 Storage Buckets 汇入同一套 Hub CLI 与 Python 客户端。",
-      "scope": "Hugging Face 2026-10-26 发布功能综述；GitHub v2.3.0 Release 日期为 2026-10-22。官方还公开了一组供应商自测：给 Agent 安装 CLI skill 后，在 28 个 Hub 任务上用更少轮次完成，但不是本站 Benchmark。",
-      "boundary": "共享缓存能减少重复字节，不等于磁盘、网络或依赖问题自动消失；Sandboxes 仍标为实验性，Jobs、Buckets 与算力会受账号、区域、硬件、权限和费用约束。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
+      "summary": "huggingface_hub 2.4 为 HfFileSystem 增加 Bucket 内及 repo 到 Bucket 的 copy/mv，扩充 CLI 扩展版本检查与 repair，并延续 2.3 的共享缓存、Jobs、Sandboxes 和 Storage Buckets。",
+      "scope": "Hugging Face 官方 GitHub Release 于 2026-10-29 14:56:07Z 发布 v2.4.0；此前 2026-10-26 博客解释 2.3 的缓存、Jobs、Sandbox 与 Bucket 工作流。",
+      "boundary": "2.4 不支持从 Bucket 复制回 repo；共享缓存不会消除网络、磁盘和依赖故障，Sandboxes 仍为实验能力。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
       "repo": "huggingface/huggingface_hub",
-      "sources": ["hf-hub-cli-20261026-blog", "hf-hub-2-3-release"],
-      "requirements": "Python 3.10+、huggingface_hub 2.3.0、独立测试缓存目录；测试 Jobs、Buckets 或 Sandboxes 时还需相应 Hugging Face 账号权限、配额与非敏感样本。",
-      "test": "先在临时环境比较两个仓库下载前后的缓存占用，并验证 hf cache rm/prune；再用一个无敏感数据的小 Job 测试重试、日志、调度和取消，最后才评估 Sandbox 或 Bucket 接入。",
+      "sources": ["hf-hub-2-4-release", "hf-hub-cli-20261026-blog", "hf-hub-2-3-release"],
+      "requirements": "Python 3.10+、huggingface_hub 2.4.0、独立测试缓存目录；测试 Jobs、Buckets 或 Sandboxes 时还需相应账号权限、配额与非敏感样本。",
+      "test": "先用无敏感样本验证 Bucket 内 copy/mv 和 repo 到 Bucket 的单向路径，再检查扩展 version/latest/outdated 与 repair；最后回归共享缓存和一条可取消 Job。",
       "checks": [
         "固定 huggingface_hub 版本、Python、缓存目录和样本仓库",
         "分别记录下载命中、磁盘占用、清理前后结果和退出状态",
         "Jobs、Webhook、Sandbox 与 Bucket 使用最小权限和无敏感样本",
         "把官方供应商测试、本站资料核验和自己的运行结果分开"
       ],
-      "command": "python -m pip install \"huggingface_hub==2.3.0\"",
+      "command": "python -m pip install \"huggingface_hub==2.4.0\"",
       "effort": "开源客户端 / Hub 服务、计算、存储与网络费用按实际账号和任务计算",
       "evidence": "Hugging Face 官方博客与 huggingface_hub 官方 GitHub Release",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-10-27",
-      "verified_at": "2026-10-27T07:21:54+08:00"
+      "reviewed": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "openai-gpt-6-1-terra",
@@ -1063,7 +1063,7 @@
       "accent": "orange",
       "summary": "解析版面、表格和图表，导出结构化文档。",
       "scope": "官方实现支持多格式文档处理，提供 CLI 与 Python 接口。",
-      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
       "repo": "docling-project/docling",
       "sources": [
         "docling",
@@ -1072,7 +1072,8 @@
         "docling-v2-142-1-release",
         "docling-v2-143-release",
         "docling-v2-143-1-release",
-        "docling-v2-144-release"
+        "docling-v2-144-release",
+        "docling-v2-145-release"
       ],
       "requirements": "Python 3.10+；首次运行可能下载模型。准备有使用权限的 sample.pdf。",
       "test": "选择三页带合并单元格的 PDF，对照人工标注检查导出的结构。",
@@ -1086,7 +1087,8 @@
       "evidence": "官方资料",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-10-28"
+      "reviewed": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "browser-use",
@@ -1234,6 +1236,39 @@
     }
   ],
   "sources": [
+    {
+      "id": "cloudflare-agents-0-32-release",
+      "publisher": "Cloudflare",
+      "title": "agents@0.32.0",
+      "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T18:53:07Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、Skills 破坏性迁移、实验性遥测与依赖变更"
+    },
+    {
+      "id": "hf-hub-2-4-release",
+      "publisher": "Hugging Face",
+      "title": "huggingface_hub v2.4.0",
+      "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T14:56:07Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、Bucket 文件操作、CLI 扩展与安全修复"
+    },
+    {
+      "id": "docling-v2-145-release",
+      "publisher": "Docling project",
+      "title": "Docling v2.145.0",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T14:40:25Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T03:19:20+08:00",
+      "kind": "官方 GitHub Release、RapidOCR 页面方向与解析/VLM 修复"
+    },
     {
       "id": "mistral-large-4-hf-release-20261029",
       "publisher": "Hugging Face / Mistral AI",
@@ -2041,6 +2076,48 @@
     }
   ],
   "events": [
+    {
+      "id": "cloudflare-agents-0-32-release",
+      "task": "cloudflare-agents-0-31",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T18:53:07Z",
+      "kind": "release",
+      "title": "Cloudflare Agents 0.32 重做 Skills 加载接口",
+      "summary": "agents/skills 改用目录加载与工具生成接口，并加入实验性 OpenTelemetry 注册器、错误 span 和依赖更新。",
+      "delta": "Skills 可以从 workspace、R2 或代码来源加载，但旧 SkillRegistry、Vite/compile 与 runner 路径需要显式迁移；遥测仍属实验性。",
+      "sources": ["cloudflare-agents-0-32-release"],
+      "reviewed": "2026-10-30",
+      "tag": "0.32.0",
+      "short_title": "Skills 加载与实验性遥测"
+    },
+    {
+      "id": "hf-hub-2-4-release",
+      "task": "huggingface-hub-cli-2-3",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T14:56:07Z",
+      "kind": "release",
+      "title": "huggingface_hub 2.4 增加 Bucket 文件操作",
+      "summary": "HfFileSystem 支持 Bucket 内及 repo 到 Bucket 的 copy/mv，CLI 扩展加入版本状态与 repair，并包含路径校验等修复。",
+      "delta": "Hub 工作流的存储与扩展维护更完整；Bucket 仍不能直接复制回 repo，权限、费用和实验性服务边界不变。",
+      "sources": ["hf-hub-2-4-release"],
+      "reviewed": "2026-10-30",
+      "tag": "v2.4.0",
+      "short_title": "Bucket copy/mv 与扩展修复"
+    },
+    {
+      "id": "docling-v2-145-release",
+      "task": "docling",
+      "date": "2026-10-29",
+      "published_at": "2026-10-29T14:40:25Z",
+      "kind": "release",
+      "title": "Docling 2.145 增加 RapidOCR 页面方向处理",
+      "summary": "v2.145.0 为 RapidOCR 路径加入页面方向能力，并修复多项解析器、VLM 与文档释放边界。",
+      "delta": "旋转扫描件的进入路径更明确；方向判断、表格、跨页与低清样本仍需逐页回归，官方修复清单不是本站实测。",
+      "sources": ["docling-v2-145-release"],
+      "reviewed": "2026-10-30",
+      "tag": "v2.145.0",
+      "short_title": "页面方向与解析修复"
+    },
     {
       "id": "mistral-large-4-open-weights-20261029",
       "task": "mistral-large-4",

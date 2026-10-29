@@ -27,9 +27,10 @@ with sync_playwright() as pw:
  assert p.locator('#nav a.active').inner_text().startswith('热点榜');assert '热度只表示信号强度' in p.locator('.h-head').inner_text();assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
  shot(p,'hot-first-screen.png');ok('hot ranking, unique source-link labels, six categories, newest available day first and expanded, older days collapsed, no desktop overflow')
  p.locator('[data-ha="cat"][data-id="model"]').click();assert p.locator('.intraday-row').count()==sum(x['category']=='model' for x in HOT_DATA['items'])
+ expect(p.locator('[data-ha="cat"][data-id="model"]')).to_have_attribute('aria-pressed','true');expect(p.locator('[data-ha="cat"][data-id="all"]')).to_have_attribute('aria-pressed','false');assert p.locator('[data-ha="cat"][aria-pressed="true"]').count()==1
  p.locator('#h-search').fill('Gemini');assert p.locator('.intraday-row').count()==sum('gemini' in ' '.join([x['title'],x['source'],x['summary']]).lower() for x in HOT_DATA['items'] if x['category']=='model')
  p.locator('#h-search').fill('not-found-xyz');expect(p.locator('.h-empty')).to_have_count(1);expect(p.locator('[data-ha="hot-clear-search"]')).to_be_visible();p.locator('[data-ha="hot-clear-search"]').click();expect(p.locator('#h-search')).to_have_value('');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']))
- route(p,'#/hot');ok('category and search filters preserve compact ranking')
+ route(p,'#/hot');expect(p.locator('[data-ha="cat"][data-id="all"]')).to_have_attribute('aria-pressed','true');ok('category and search filters preserve compact ranking and expose the selected button to assistive technology')
  route(p,'#/hot?tab=github');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
  route(p,'#/hot?tab=hf');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
  first_metrics=p.locator('.hf-row .hf-sub').first.inner_text();assert '赞 ' in first_metrics and '下载 ' in first_metrics and '♥' not in first_metrics and '↓' not in first_metrics

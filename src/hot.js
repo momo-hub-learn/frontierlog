@@ -53,7 +53,7 @@ function hTabs(s){
  return '<nav class="h-tabs" aria-label="热点分类">'+H_PRIMARY_TABS.map(t=>{
   const active=t.id==='open'?openActive:!openActive&&s.cat===t.id;
   if(t.href)return '<a class="h-tab '+(active?'active':'')+'" href="'+t.href+'" '+(active?'aria-current="page"':'')+'>'+icon(t.icon)+esc(t.title)+'<small>'+hCategoryCount(t.id)+'</small></a>';
-  return '<button class="h-tab '+(active?'active':'')+'" data-ha="cat" data-id="'+t.id+'" '+(active?'aria-current="page"':'')+'>'+icon(t.icon)+esc(t.title)+'<small>'+hCategoryCount(t.id)+'</small></button>'
+  return '<button class="h-tab '+(active?'active':'')+'" data-ha="cat" data-id="'+t.id+'" aria-pressed="'+(active?'true':'false')+'">'+icon(t.icon)+esc(t.title)+'<small>'+hCategoryCount(t.id)+'</small></button>'
  }).join('')+'</nav>'
 }
 function hOpenTabs(active){

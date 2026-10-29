@@ -371,29 +371,35 @@
       "publisher": "Cloudflare",
       "group": "agents",
       "access": "web",
-      "headline": "先用隔离预览验证内部主机，再迁移 Browser Tool 与 MCP 依赖",
+      "headline": "先迁移 0.32 的 Skills 加载接口，再用隔离预览和遥测验收 Agent",
       "input": "一个无生产凭据的 Worker 测试项目、固定测试页，以及允许和拒绝的内部主机、目录与端口样本",
-      "output": "内部主机访问结果、未知主机与超时回退、Browser Tool API 迁移记录，以及 MCP 依赖和构建回归清单",
-      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.31.0、受控预览服务和非生产数据；使用 MCP、x402 或 WebMCP 时，另按 Release 安装匹配依赖。",
-      "limitation": "本站只核验 Cloudflare 官方 Release，未部署软件。internalHosts 由 Agent 或另一个 Worker 的 fetch 显式提供，不是任意内网访问；升级还会改变 browserTool、browser.cdp 与结果字段，并弃用一组旧 helper，不能只改版本号。",
+      "output": "Skills 目录加载、工具生成、内部主机访问、OpenTelemetry span 与构建回归记录",
+      "requirements": "一个隔离的 Cloudflare Worker 测试项目、agents@0.32.0、受控预览服务和非生产数据；使用 Skills 时需把 SKILL.md 放入受控 workspace / R2 / code 来源，并按新接口迁移。",
+      "limitation": "本站只核验 Cloudflare 官方 Release，未部署软件。0.32 的 agents/skills 是破坏性变更：旧 SkillRegistry 与 Vite/compile 路径被替换；实验性 OpenTelemetry 注册器也不等于完整生产可观测性。0.31 的 internalHosts 仍由显式 fetch 提供，不是任意内网访问或安全边界替代品。",
       "cost": "SDK 开源；Browser Run、Workers、模型、存储和网络的权限、限制与费用取决于 Cloudflare 实际账号和用量。",
       "steps": [
         {
-          "title": "固定版本并列出迁移项",
-          "body": "在隔离分支固定 agents@0.31.0；记录是否使用 MCP、x402、WebMCP、旧 Browser Tool helper、cdp.send 或旧结果字段，先形成迁移清单。",
-          "command": "npm install agents@0.31.0\n# 使用 MCP server 时，另按官方 Release 安装匹配依赖"
+          "title": "固定 0.32 并列出破坏性迁移",
+          "body": "在隔离分支固定 agents@0.32.0；搜索 SkillRegistry、agents/skills 旧 loader、Vite/compile 路径以及 0.31 的 Browser Tool 迁移项，先形成逐项清单。",
+          "command": "npm install agents@0.32.0\n# 使用 Skills 时，按官方 Release 迁移 loadSkillCatalog / createSkillTools"
         },
         {
-          "title": "只暴露受控测试主机",
-          "body": "把 preview.internal 指向返回固定测试内容的 fetch；分别验证允许主机、未知主机、目录/端口 target 和超时，不连接生产内网、密钥或用户数据。"
+          "title": "用受控目录验证 Skills 与内部主机",
+          "body": "从只含测试 SKILL.md 的 workspace / R2 / code 来源加载目录，验证无效 frontmatter 和缺失文件；再把 preview.internal 指向固定测试内容，不连接生产内网、密钥或用户数据。"
         },
         {
-          "title": "完成 API 与构建回归",
-          "body": "把 cdp.send 迁移为 browser.cdp，读取 notice 替代旧结果字段；显式补齐 MCP 依赖并运行现有单元、集成与构建检查，再决定是否扩大范围。"
+          "title": "验证工具、遥测与构建回归",
+          "body": "用 createSkillTools 生成工具，核对实验性 OpenTelemetry span 和错误状态；同时回归 browser.cdp、MCP 依赖、单元、集成与构建，再决定是否扩大范围。"
         }
       ],
-      "troubleshooting": "构建出现 unresolved import 时先核对 Release 要求的 MCP SDK/server 版本；浏览器无法访问内部主机时检查 internalHosts、fetch/target 和允许数量；旧代码报错时逐项排查弃用 helper、ctx、cdp.send 与旧结果字段。",
+      "troubleshooting": "Skills 加载失败先核对来源目录、SKILL.md frontmatter 与 loadSkillCatalog/createSkillTools 调用；构建出现 unresolved import 时检查已移除的 Vite/compile 路径和 MCP 依赖。遥测缺失时先确认注册器仍属 experimental，再核对 exporter 与 span 错误状态。",
       "sources": [
+        {
+          "title": "Cloudflare Agents：agents@0.32.0",
+          "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        },
         {
           "title": "Cloudflare Agents：agents@0.31.0",
           "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
@@ -401,10 +407,10 @@
           "verified_at": "2026-10-28"
         }
       ],
-      "entry_url": "https://github.com/cloudflare/agents/releases/tag/agents%400.31.0",
+      "entry_url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-28T13:23:04+08:00"
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "openai-coderabbit-secure",
@@ -450,29 +456,35 @@
       "publisher": "Hugging Face",
       "group": "agents",
       "access": "local",
-      "headline": "先验证共享缓存与清理，再接入 Jobs、Bucket 或 Sandbox",
+      "headline": "先验证 2.4 的 Bucket 复制与 CLI 扩展修复，再接入共享缓存和 Jobs",
       "input": "两个可公开下载的小模型仓库、独立缓存目录，以及一个无敏感数据、可取消的小型批处理任务",
       "output": "缓存命中和磁盘占用记录、清理结果、Job 的日志/重试/取消证据，以及权限与费用边界清单",
-      "requirements": "Python 3.10+、huggingface_hub 2.3.0、独立测试缓存目录；Jobs、Buckets 或 Sandboxes 还需要相应 Hugging Face 账号权限和可用服务。",
-      "limitation": "本站核验官方博客与 v2.3.0 Release，但未运行命令。Sandboxes 仍是实验能力；共享缓存不会消除网络、磁盘和依赖故障。官方 Agent skill 的 28 项测试是供应商自测，不能当作本站 Benchmark 或模型能力排名。",
+      "requirements": "Python 3.10+、huggingface_hub 2.4.0、独立测试缓存目录；Buckets、Jobs 或 Sandboxes 还需要相应 Hugging Face 账号权限和可用服务。",
+      "limitation": "本站核验官方博客与 v2.3.0 / v2.4.0 Release，但未运行命令。2.4 支持 HfFileSystem 在 Buckets 内及 repo 到 Bucket 的复制/移动，不支持 Bucket 复制回 repo；Sandboxes 仍是实验能力。官方 Agent skill 的 28 项测试是供应商自测，不能当作本站 Benchmark。",
       "cost": "客户端开源；模型下载、Jobs 算力、Sandbox、Storage Buckets、网络和存储的实际费用与限制取决于账号、硬件、区域和用量。",
       "steps": [
         {
           "title": "固定版本与隔离缓存",
-          "body": "在临时环境安装 2.3.0，记录 Python、客户端版本、缓存目录和两个样本仓库；不要先迁移生产缓存。",
-          "command": "python -m venv .venv-hf23\n. .venv-hf23/bin/activate\npython -m pip install \"huggingface_hub==2.3.0\"\nhf version"
+          "body": "在临时环境安装 2.4.0，记录 Python、客户端版本、缓存目录和两个样本仓库；不要先迁移生产缓存。",
+          "command": "python -m venv .venv-hf24\n. .venv-hf24/bin/activate\npython -m pip install \"huggingface_hub==2.4.0\"\nhf version"
         },
         {
           "title": "验证共享缓存与清理",
           "body": "依次下载两个含重复文件的公开小仓库，比较缓存占用；先 dry-run 或列出目标，再验证 hf cache rm 和 hf cache prune 的退出状态与剩余文件。"
         },
         {
-          "title": "再接一条可取消任务",
-          "body": "用无敏感数据的小任务测试 Job 日志、重试、调度、Webhook 或取消；Sandbox 和 Bucket 单独评估权限、隔离、持久化、费用与回滚。"
+          "title": "再验证 Bucket 与 CLI 扩展",
+          "body": "在无敏感样本上验证 Bucket 内 copy/mv 和 repo 到 Bucket 的单向路径；运行扩展 version/latest/outdated 与 repair，最后才接一条可取消的 Job 或 Sandbox。"
         }
       ],
-      "troubleshooting": "缓存未复用时核对客户端版本、HF_HOME、文件哈希与 Xet 后端；清理前先列出目标并保留回滚样本。Job 或 Sandbox 失败时分别检查账号权限、区域、硬件、镜像、日志和费用，不把服务端失败归因成模型能力。",
+      "troubleshooting": "Bucket 复制失败先确认方向：2.4 不支持 Bucket 回写 repo；扩展状态异常时用 version/latest/outdated 定位后再 repair。缓存未复用时核对客户端版本、HF_HOME、文件哈希与 Xet 后端；服务端失败不要归因成模型能力。",
       "sources": [
+        {
+          "title": "huggingface_hub v2.4.0 官方 Release",
+          "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        },
         {
           "title": "Hugging Face：What's new in the hf CLI and huggingface_hub library",
           "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
@@ -489,7 +501,7 @@
       "entry_url": "https://huggingface.co/docs/huggingface_hub/main/en/guides/cli",
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-27T07:21:54+08:00"
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "openai-gpt-6-1-terra",
@@ -1251,8 +1263,8 @@
       "headline": "把 PDF 变成可用文本与表格",
       "input": "一份获授权的 PDF",
       "output": "结构化文档 / Markdown",
-      "requirements": "独立 Python 环境；初次运行需下载模型。升级到 v2.144.0 后先用损坏文字层、并发 OCR、多语与复杂版面回归样本验收。",
-      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.144.0 增加损坏 PDF 文字层的 OCR 回退，并修复 tesserocr 并发、阿拉伯文字规范化与阅读顺序边界；仍不保证合并单元格、跨页表格、手写体或低清扫描全部正确，本站未运行本版本。",
+      "requirements": "独立 Python 环境；初次运行需下载模型。升级到 v2.145.0 后先用旋转页面、损坏文字层、并发 OCR、多语与复杂版面回归样本验收。",
+      "limitation": "复杂表格与扫描件仍需逐页核对，解析成功不等于数字正确。v2.145.0 为 RapidOCR 增加页面方向处理并继续修复解析器与 VLM 路径；仍不保证合并单元格、跨页表格、手写体、低清或错误旋转扫描全部正确，本站未运行本版本。",
       "cost": "本地计算；预留模型下载与存储空间。",
       "steps": [
         {
@@ -1266,11 +1278,17 @@
         },
         {
           "title": "对照原文验收",
-          "body": "检查导出的文本和表格，优先核对损坏文字层是否正确回退到 OCR、表头、单位和关键数字；再用并发转换、阿拉伯文与跨栏标题样本复验，把失败页留作下一次回归样本。"
+          "body": "检查导出的文本和表格，优先核对旋转页方向、损坏文字层 OCR 回退、表头、单位和关键数字；再用并发转换、多语与跨栏标题样本复验，把失败页留作下一次回归样本。"
         }
       ],
       "troubleshooting": "安装失败先查 Python / PyTorch 平台兼容性；首次运行卡住先检查模型下载；表格错位则保留错误页，不要直接进入业务计算。",
       "sources": [
+        {
+          "title": "Docling v2.145.0：RapidOCR 页面方向与解析修复",
+          "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30"
+        },
         {
           "title": "官方快速开始",
           "url": "https://docling-project.github.io/docling/getting_started/quickstart/",
@@ -1305,7 +1323,7 @@
       "entry_url": null,
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-10-28T23:22:24+08:00"
+      "verified_at": "2026-10-30T03:19:20+08:00"
     },
     {
       "id": "whisper",

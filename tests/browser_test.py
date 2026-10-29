@@ -123,13 +123,17 @@ try:
         passed("exact research deep link, visible return path and 390px reflow")
 
         go("#/toolkit")
+        initial=min(12,len(TOOLKIT["items"]))
+        expect(page.locator(".tk-card")).to_have_count(initial)
+        while page.locator("#tk-more").is_visible():
+            page.locator("#tk-more").click()
         expect(page.locator(".tk-card")).to_have_count(len(TOOLKIT["items"]))
         expect(page.locator(".tk-runtime")).to_have_count(len(TOOLKIT["items"]))
         assert set(page.locator(".tk-runtime").all_inner_texts()) == {"资料核验 · 本站未运行"}
         page.locator("#tk-search").fill("no-such-guide-xyz")
         expect(page.locator(".tk-empty")).to_be_visible()
         page.locator(".tk-empty button").click()
-        passed("toolkit catalog, search, empty state and reset")
+        passed("toolkit progressive disclosure, complete catalog, search, empty state and reset")
 
         for route, selector in [
             ("#/hot", ".h-wrap"),

@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from urllib.parse import unquote
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from toolkit_data import validate_toolkit
@@ -35,15 +36,18 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(row['publisher'],'OpenAI')
         self.assertEqual(row['access'],'web')
         self.assertIn('交互',row['headline'])
-    def test_cloudflare_agents_0_31_preserves_upgrade_and_network_boundaries(self):
+    def test_cloudflare_agents_tracks_current_release_and_network_boundaries(self):
         row=next(x for x in self.data['items'] if x['id']=='cloudflare-agents-0-31')
         self.assertFalse(row['runtime_tested'])
         self.assertIn('不是任意内网访问',row['limitation'])
-        self.assertIn('unresolved import',row['troubleshooting'])
-        self.assertEqual(row['sources'][0]['published_at'],'2026-10-27')
-        self.assertEqual(row['sources'][0]['url'],'https://github.com/cloudflare/agents/releases/tag/agents%400.31.0')
         task=next(x for x in self.catalog['items'] if x['id']=='cloudflare-agents-0-31')
-        self.assertIn('MCP',task['boundary'])
+        sources={x['id']:x for x in self.catalog['sources']}
+        current=sources[task['sources'][0]]
+        self.assertEqual(row['sources'][0]['url'],current['url'])
+        self.assertEqual(row['sources'][0]['published_at'],current['published'])
+        version=unquote(current['url']).rsplit('@',1)[-1]
+        self.assertIn(version,row['requirements'])
+        self.assertIn('破坏性',row['limitation'])
         validate_toolkit(self.data,self.catalog)
     def test_chatgpt_publisher(self):
         row=next(x for x in self.data['items'] if x['id']=='chatgpt-voice-work')
@@ -165,10 +169,13 @@ class ToolkitTests(unittest.TestCase):
         row=next(x for x in self.data['items'] if x['id']=='docling')
         command=row['steps'][1]['command']
         self.assertIn('\n',command);self.assertIn('docling ./sample.pdf',command)
-        self.assertEqual(row['sources'][-1]['published_at'],'2026-10-28')
-        self.assertIn('v2.144.0',row['requirements'])
-        self.assertIn('损坏 PDF 文字层',row['limitation'])
-        self.assertIn('tesserocr',row['limitation'])
+        latest=max((s for s in row['sources'] if s['published_at']),key=lambda s:s['published_at'])
+        version=latest['url'].rsplit('/',1)[-1]
+        self.assertIn(version,row['requirements'])
+        self.assertIn('页面方向',row['limitation'])
+        task=next(x for x in self.catalog['items'] if x['id']=='docling')
+        sources={x['id']:x for x in self.catalog['sources']}
+        self.assertEqual(latest['url'],sources[task['sources'][-1]]['url'])
         self.assertFalse(row['runtime_tested'])
         browser=next(x for x in self.data['items'] if x['id']=='browser-use')
         self.assertEqual(browser['sources'][-1]['published_at'],'2026-10-26')
