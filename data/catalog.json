@@ -3,6 +3,29 @@
   "snapshot": "2026-10-29",
   "items": [
     {
+      "id": "github-agentic-workflows",
+      "name": "GitHub · Agentic Workflows",
+      "title": "先编译并审查只读工作流，再允许 Agent 修改仓库",
+      "category": "Coding Agent / CI",
+      "mark": "AW",
+      "accent": "lime",
+      "summary": "用 Markdown 描述 issue 分流、CI 分析、文档或测试任务，再编译为标准 GitHub Actions YAML；可使用 Copilot CLI 或自带 coding agent。",
+      "scope": "GitHub 2026-10-28 官方公告确认 Agentic Workflows 在 github.com GA，覆盖 Free、Team 与 Enterprise，并沿用 Actions runner、策略与审计体系。",
+      "boundary": "默认只读、完整性过滤、隔离容器与防火墙不代表零风险。默认 Copilot CLI 引擎需要 Copilot 许可；权限提升、第三方 actions、提示注入、成本和生成变更仍须人工审查。本站未在真实仓库运行。",
+      "repo": "githubnext/agentics",
+      "sources": ["github-agentic-workflows-ga-20261028"],
+      "requirements": "一个可删除的测试仓库、GitHub Actions 权限、最低权限令牌或默认 GITHUB_TOKEN、固定的 issue/CI 小样本，以及可审查生成 YAML、日志和费用的维护者。",
+      "test": "先写只读 Markdown 工作流，只汇总固定测试 issue；编译后逐行检查权限、触发器、外部 action 和网络访问，再在测试分支运行。只有只读结果与日志一致后，才单独评审任何写入。",
+      "checks": ["编译后的 YAML、触发器和 permissions 与 Markdown 意图一致", "默认只读；越权、提示注入与未批准网络访问被阻止", "固定样本重复运行结果可解释，成本预测与实际日志可追踪", "写入只在测试分支与人工审批后开启，失败可回滚"],
+      "command": "gh aw compile",
+      "effort": "github.com GA / Actions 用量、Copilot 或自带 Agent 许可与人工审查成本",
+      "evidence": "GitHub 官方 GA 公告与开源项目",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00"
+    },
+    {
       "id": "nvidia-nemotron-3-5-transcribe",
       "name": "NVIDIA · Nemotron 3.5 Transcribe",
       "title": "先用授权录音分项验收多语转写、翻译与说话人归属",
@@ -1156,6 +1179,16 @@
   ],
   "sources": [
     {
+      "id": "github-agentic-workflows-ga-20261028",
+      "publisher": "GitHub",
+      "title": "GitHub Agentic Workflows generally available",
+      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T13:19:31+08:00",
+      "kind": "官方 GA、可用范围、执行引擎、安全层与限制"
+    },
+    {
       "id": "nvidia-nemotron-3-5-transcribe-release",
       "publisher": "NVIDIA / Hugging Face",
       "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2",
@@ -1922,6 +1955,17 @@
     }
   ],
   "events": [
+    {
+      "id": "github-agentic-workflows-ga-20261028",
+      "task": "github-agentic-workflows",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Agentic Workflows 在 github.com 正式可用",
+      "summary": "GitHub 把自然语言工作流编译成标准 Actions YAML，并支持 Copilot CLI 或自带 coding agent；Free、Team 与 Enterprise 可使用。",
+      "delta": "仓库推理任务进入现有 CI/CD 控制面；默认只读和多层防护降低起步风险，但权限、编译 YAML、成本和输出仍需逐项验收。",
+      "sources": ["github-agentic-workflows-ga-20261028"],
+      "reviewed": "2026-10-29"
+    },
     {
       "id": "nvidia-nemotron-3-5-transcribe-release",
       "task": "nvidia-nemotron-3-5-transcribe",

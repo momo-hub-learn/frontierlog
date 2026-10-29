@@ -88,6 +88,7 @@ class ToolkitTests(unittest.TestCase):
                 with self.assertRaises(ValueError):validate_toolkit(data,self.catalog)
     def test_reviewed_vendor_newsrooms_are_accepted(self):
         rows={row['id']:row for row in self.data['items']}
+        self.assertEqual(rows['github-agentic-workflows']['sources'][0]['url'].split('/')[2],'github.blog')
         self.assertEqual(rows['anthropic-claude-security']['sources'][0]['url'].split('/')[2],'claude.com')
         self.assertEqual(rows['nvidia-openshell']['sources'][0]['url'].split('/')[2],'nvidianews.nvidia.com')
         self.assertEqual(rows['nvidia-auto-ontology']['sources'][0]['url'].split('/')[2],'blogs.nvidia.com')

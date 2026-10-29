@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 # Explicit primary-source hosts, reviewed alongside each guide. No arbitrary redirects.
-HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com',
+HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com','github.blog',
     'www.microsoft.com','allenai.org','olmoearth.allenai.org',
     'blog.google','aistudio.google.com','gemini.google.com','help.openai.com',
     'chatgpt.com','openai.com','docs.openhands.dev','docs.browser-use.com',
