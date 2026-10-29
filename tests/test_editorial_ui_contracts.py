@@ -95,6 +95,14 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("if(x.semantic_type==='explicit_reset_confirmation')return 'Tibo：reset 已确认'",text)
   self.assertIn("'explicit_reset_confirmation'",text)
 
+ def test_tibo_loads_history_embeds_only_near_the_viewport(self):
+  text=(ROOT/'src/tibo-intel.js').read_text()
+  self.assertIn('data-x-priority="eager"',text)
+  self.assertIn('data-x-priority="deferred"',text)
+  self.assertIn("new IntersectionObserver",text)
+  self.assertIn("{rootMargin:'500px 0px'}",text)
+  self.assertIn("m.dataset.xState='deferred'",text)
+
  def test_unreviewed_upstream_releases_require_an_explicit_queue_view(self):
   legacy=(ROOT/'src/app.js').read_text()
   current=(ROOT/'src/v2.js').read_text()

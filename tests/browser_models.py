@@ -115,8 +115,10 @@ with sync_playwright() as p:
  ok('desktop capability metrics stay fully visible and expose their selected state without relying on color')
  page.evaluate("window.twttr={widgets:{createTweet:()=>new Promise(()=>{})}}")
  route(page,'#/tibo');expect(page.locator('.tibo-featured')).to_have_count(1)
- expect(page.locator('.tibo-x-fallback').first).to_be_visible(timeout=7000)
- expect(page.locator('.tibo-x-loading')).to_have_count(0, timeout=7000)
+ expect(page.locator('.tibo-featured-x[data-x-priority="eager"]')).to_have_count(1)
+ assert page.locator('.tibo-x-embed[data-x-state="deferred"]').count()>=1
+ expect(page.locator('.tibo-x-embed[data-x-state="deferred"]').first).to_contain_text('滚动到这里再载入 X 官方原帖')
+ expect(page.locator('.tibo-featured-x .tibo-x-fallback')).to_be_visible(timeout=7000)
  expect(page.locator('.tibo-evidence-card')).not_to_have_count(0)
  tibo=page.locator('#vertical-root').inner_text()
  assert '待核验' in tibo and 'X 当前无法直连' in tibo and '不模拟 X 界面' in tibo

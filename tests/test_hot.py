@@ -86,6 +86,13 @@ class HotDataTests(unittest.TestCase):
   internal=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(internal['url'],item['link'])
   validate_hot(self.data)
+ def test_world_model_failure_benchmarks_keep_protocols_separate(self):
+  item=next(x for x in self.data['items'] if x['id']=='world-model-faithfulness-failure-benchmarks-20261027')
+  self.assertEqual(item['link'],'#/benchmarks?bench=world-model-faithfulness-failure-protocols')
+  self.assertIn('不能跨论文拼总分',item['boundary'])
+  self.assertIn('本站没有运行代码或复现结果',item['boundary'])
+  self.assertEqual(item['evidence_level'],'primary-source')
+  validate_hot(self.data)
  def test_microsoft_copilot_harness_links_preview_to_exact_verification_guide(self):
   item=next(x for x in self.data['items'] if x['id']=='microsoft-copilot-harness-foundry-20261028')
   self.assertEqual(item['published'],'2026-10-28')

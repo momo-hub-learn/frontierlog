@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,36 @@
     }
   ],
   "items": [
+    {
+      "id": "world-model-faithfulness-failure-protocols",
+      "name": "World Model Faithfulness · LRC / WMEval / WorldFailBench",
+      "group": "agent",
+      "edition": "arXiv 2026-10-24—27 · three protocol families",
+      "subtitle": "世界模型不只要生成像真的画面，还要按真实动力学与失败边界演化。",
+      "summary": "LRC 检查潜在状态转移是否忠实反映环境动力学；WMEval 用 Unity 模拟器状态核对物理因果；WorldFailBench 检查策略失败原因、阶段和边界。三者是互补协议，不是同一榜单。",
+      "metric": "latent rollout consistency / simulator-state physical causality / failure reason-stage-boundary",
+      "metric_note": "每个协议必须保留自己的场景、动作、模型输入、模拟器或真实机器人条件与指标；禁止把不同论文的结果相加或拼成世界模型总分。",
+      "protocol": "固定论文版本、代码、场景、动作序列、采样设置与被测模型；LRC 单独检查潜在动力学，WMEval 对齐生成环境和 Unity 状态，WorldFailBench 分别报告失败原因、阶段与边界，不用画面观感替代状态验证。",
+      "boundary": "本站未运行任何一项评测。当前证据来自作者预印本与作者实验，尚无本站复现或独立复核；不同场景与模型集合不可横向拼分，作者报告的缺口也不能外推为所有世界模型或所有部署场景。",
+      "business": "机器人或数字孪生团队可据此补一层部署前验证：不仅看任务是否成功，还要核对失败发生在哪里、为什么发生，以及小幅环境变化是否越过真实失败边界。",
+      "setup": "先选择与自身环境最接近的一项公开协议，在隔离模拟环境固定动作序列、随机种子、模型版本和状态观测；在代码与数据完整可得、许可明确前不宣称可复跑。",
+      "topics": ["robotics", "world-models"],
+      "sources": ["b-latent-world-model-limits", "b-wmeval", "b-worldfailbench"],
+      "result_url": "https://arxiv.org/abs/2610.33894",
+      "kind": "benchmark",
+      "flag": "作者预印本 / 三套独立协议 / 本站未运行",
+      "checked": "2026-10-30",
+      "tested": false,
+      "checks": [
+        "固定论文、代码、场景、模型与采样版本",
+        "区分潜在动力学、物理因果与失败边界",
+        "保存逐场景状态、动作和失败轨迹",
+        "不跨协议拼总分，不把作者结果写成本站实测"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
     {
       "id": "agents-last-exam-openai-terra",
       "name": "Agents’ Last Exam · GPT-6.1 Terra 发布快照",
@@ -1188,6 +1218,36 @@
   ],
   "sources": [
     {
+      "id": "b-latent-world-model-limits",
+      "title": "Understanding the limits of latent world models",
+      "publisher": "Rodrigo Gonzalez Laiz / Steffen Schneider",
+      "url": "https://arxiv.org/abs/2610.37588",
+      "published": "2026-10-27",
+      "checked": "2026-10-30",
+      "kind": "作者预印本与 LRC 评测协议",
+      "note": "论文提出 faithful latent world model 的等变条件与 Latent Rollout Consistency；结论来自作者实验，本站未复现。"
+    },
+    {
+      "id": "b-wmeval",
+      "title": "WMEval: Evaluating Interactive World Models Grounded on Physical Simulations",
+      "publisher": "WMEval authors",
+      "url": "https://arxiv.org/abs/2610.33894",
+      "published": "2026-10-24",
+      "checked": "2026-10-30",
+      "kind": "作者预印本与公开 Benchmark 协议",
+      "note": "9 个 Unity 场景以模拟器状态核对可控性、一致性、运动学、流体、物理因果与光照；作者实验不是本站复跑。"
+    },
+    {
+      "id": "b-worldfailbench",
+      "title": "WorldFailBench: Do World Models Understand Policy Failures?",
+      "publisher": "WorldFailBench authors",
+      "url": "https://arxiv.org/abs/2610.33565",
+      "published": "2026-10-24",
+      "checked": "2026-10-30",
+      "kind": "作者预印本与失败分析 Benchmark",
+      "note": "协议分开评估失败原因、失败阶段和失败边界，覆盖 LIBERO、RoboTwin 与 G1 实机任务；作者实验不是本站复跑。"
+    },
+    {
       "id": "b-google-gemini-4-carbon",
       "title": "Introducing Gemini 4 Carbon",
       "publisher": "Google",
@@ -1744,6 +1804,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "world-model-faithfulness-failure-protocols-20261027",
+      "date": "2026-10-27",
+      "title": "世界模型评测从画面相似度走向动力学与失败边界",
+      "summary": "LRC、WMEval 与 WorldFailBench 分别公开潜在动力学一致性、模拟器状态物理因果、以及失败原因—阶段—边界三类协议；作者实验都显示只看任务成败或画面观感会漏掉关键缺口。",
+      "implication": "机器人与数字孪生验收应保存逐状态、逐动作和逐失败阶段证据；三套协议的场景、指标和模型集合不同，不能跨论文拼总分，也不能把作者实验写成本站复测。",
+      "benchmarks": ["world-model-faithfulness-failure-protocols"],
+      "sources": ["b-latent-world-model-limits", "b-wmeval", "b-worldfailbench"],
+      "kind": "新公开世界模型评测协议"
+    },
     {
       "id": "gemini-4-carbon-cyber-benchmarks-20261028",
       "date": "2026-10-28",

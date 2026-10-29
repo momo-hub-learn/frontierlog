@@ -1,6 +1,6 @@
 'use strict';
 (()=>{
-let loading=false,xWidgetsPromise=null;
+let loading=false,xWidgetsPromise=null,xEmbedObserver=null;
 const X_EMBED_TIMEOUT_MS=5000;
 const strengthLabel={high:'强',medium:'中',low:'低'};
 const semanticLabel={timing_hint:'时间暗示',explicit_announcement:'明确预告',explicit_reset_confirmation:'明确确认',reset_executed:'已执行表述',global_reset_completion_claim:'已执行表述',propagation_complete:'传播完成',banked_delivery:'重置卡发放',banked_announcement:'重置卡预告',usage_explanation:'用量/修复解释',denial:'否认/纠正',reset_related:'重置相关',non_reset_context:'无关 / 误读纠正'};
@@ -19,7 +19,7 @@ function withXTimeout(promise,message){
 }
 function evidencePanel(x){
   const url=originalUrl(x),canEmbed=Boolean(x.post_id)&&url!=='#';
-  const body=canEmbed?'<div class="tibo-x-embed" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'"><div class="tibo-x-loading"><span>正在载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div>':fallbackQuote(x,url,'没有可嵌入的 X 原帖 ID');
+  const body=canEmbed?'<div class="tibo-x-embed" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'" data-x-priority="deferred"><div class="tibo-x-loading"><span>滚动到这里再载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div>':fallbackQuote(x,url,'没有可嵌入的 X 原帖 ID');
   return '<div class="tibo-evidence-source">'+body+'<div class="tibo-source-meta"><span>'+esc(relationLabel(x))+'</span>'+(x.post_id?'<code>'+esc(x.post_id)+'</code>':'')+'<small>'+esc(sourceState(x))+'</small></div></div>'
 }
 function readingPanel(x){
@@ -77,7 +77,7 @@ function heroBoundary(x){
 function featuredEvidence(x){
   const url=originalUrl(x);
   if(!x.post_id||url==='#')return fallbackQuote(x,url,'没有可直连的 X 原帖');
-  return '<div class="tibo-x-embed tibo-featured-x" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'" data-x-conversation="none"><div class="tibo-x-loading"><span>正在载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div>'
+  return '<div class="tibo-x-embed tibo-featured-x" data-x-post-id="'+esc(x.post_id)+'" data-x-url="'+url+'" data-x-conversation="none" data-x-priority="eager"><div class="tibo-x-loading"><span>正在载入 X 官方原帖…</span><a href="'+url+'" target="_blank" rel="noopener noreferrer">直接打开 '+icon('external')+'</a></div></div>'
 }
 function featuredHero(){
   const x=featuredSignal();if(!x)return '';
@@ -117,8 +117,7 @@ function loadXWidgets(){
   }),'X widgets timed out');
   return xWidgetsPromise
 }
-async function renderXEmbeds(){
-  const mounts=[...document.querySelectorAll('.tibo-x-embed[data-x-post-id]:not([data-x-state])')];
+async function renderXMounts(mounts){
   if(!mounts.length)return;
   let api;try{api=await loadXWidgets()}catch{mounts.forEach(m=>{m.dataset.xState='failed';const id=m.dataset.xPostId,url=m.dataset.xUrl||'#';const x=signalRows().find(v=>String(v.post_id||'')===id);m.innerHTML=fallbackQuote(x||{},url);const live=m.closest('.tibo-featured-proof')?.querySelector('[data-tibo-live-state]');if(live)live.textContent='X 当前无法直连 · 状态保持待核验'});return}
   await Promise.all(mounts.map(async mount=>{
@@ -133,6 +132,22 @@ async function renderXEmbeds(){
       const x=signalRows().find(v=>String(v.post_id||'')===id);mount.dataset.xState='failed';mount.innerHTML=fallbackQuote(x||{},url);const live=mount.closest('.tibo-featured-proof')?.querySelector('[data-tibo-live-state]');if(live)live.textContent='X 当前无法直连 · 状态保持待核验'
     }
   }))
+}
+function renderXEmbeds(){
+  xEmbedObserver?.disconnect();xEmbedObserver=null;
+  const mounts=[...document.querySelectorAll('.tibo-x-embed[data-x-post-id]:not([data-x-state])')];
+  if(!mounts.length)return;
+  const eager=mounts.filter(m=>m.dataset.xPriority==='eager');
+  const deferred=mounts.filter(m=>m.dataset.xPriority!=='eager');
+  renderXMounts(eager);
+  if(!deferred.length)return;
+  if(!('IntersectionObserver' in window)){renderXMounts(deferred);return}
+  xEmbedObserver=new IntersectionObserver(entries=>{
+    const visible=entries.filter(entry=>entry.isIntersecting).map(entry=>entry.target);
+    visible.forEach(m=>xEmbedObserver?.unobserve(m));
+    renderXMounts(visible)
+  },{rootMargin:'500px 0px'});
+  deferred.forEach(m=>{m.dataset.xState='deferred';xEmbedObserver.observe(m)})
 }
 const baseResetPage=resetPage;
 resetPage=function(){
