@@ -80,8 +80,8 @@ const PeopleUI = (() => {
  function card(p,data,s,saved,now=Date.now()) {
   const roles=labels(data.roles),e=latestSignal(p,data,now),source=p.sources[0];
   return '<article class="pp-card" data-person-card="'+h(p.id)+'" data-latest-date="'+h(e?.date||'')+'"><header><span class="pp-avatar" aria-hidden="true">'+h(initials(p))+'</span><div class="pp-identity">'+nav(s,{person:p.id},'<h2>'+h(p.name)+'</h2>','pp-name')+'<p>'+h(p.aliases.join(' · ') || p.roles.map(id=>roles.get(id)).join(' · '))+'</p></div>'+follow(p,saved)+'</header>'+influenceBlock(p,data,s)+chips(p,data,s)+
-   latestBlock(p,data,now)+'<section class="pp-work-preview"><h3>代表作</h3><ul>'+p.works.map(w=>'<li><strong>'+outgoing(w.url,w.title)+'</strong><small>'+h(w.relation)+'</small></li>').join('')+'</ul></section>'+
    '<section class="pp-achievements"><h3>为什么值得关注</h3><p class="pp-intro">'+h(p.intro)+'</p><p class="pp-card-watch"><strong>接下来验证：</strong>'+h(p.watch)+'</p>'+(source?'<div class="pp-achievement-source">'+outgoing(source.url,'查看人物资料')+'</div>':'')+'</section>'+
+   latestBlock(p,data,now)+'<section class="pp-work-preview"><h3>代表作</h3><ul>'+p.works.map(w=>'<li><strong>'+outgoing(w.url,w.title)+'</strong><small>'+h(w.relation)+'</small></li>').join('')+'</ul></section>'+
    ((s.view==='influence')?impactBlock(p,true):'')+
    '<footer><span>'+h(p.discovery==='work'?'从作品发现':'公开贡献档案')+'</span>'+nav(s,{person:p.id},'人物档案 <span aria-hidden="true">→</span>','pp-more')+'</footer></article>';
  }

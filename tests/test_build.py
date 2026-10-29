@@ -44,6 +44,13 @@ class BuildTests(unittest.TestCase):
             self.assertNotIn('@@DATA@@',html)
             self.assertNotIn('<link rel="alternate"',html)
             self.assertNotIn('<script src=',html)
+    def test_copytree_skips_same_build_target_but_copies_distinct_target(self):
+        with tempfile.TemporaryDirectory() as td:
+            source=Path(td)/'activity';source.mkdir();(source/'hero.svg').write_text('<svg/>')
+            build.copytree_if_distinct(source,source)
+            target=Path(td)/'out'/'activity'
+            build.copytree_if_distinct(source,target)
+            self.assertEqual((target/'hero.svg').read_text(),'<svg/>')
     def test_deployed_build_supports_project_subpath(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'test-owner/ai-progress','https://test-owner.github.io/ai-progress')

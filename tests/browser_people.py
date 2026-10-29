@@ -56,6 +56,8 @@ with sync_playwright() as pw:
  dated=page.locator('[data-person-card]').evaluate_all("els=>els.map(e=>e.dataset.latestDate)")
  assert dated==sorted(dated,reverse=True)
  expect(page.locator('.pp-achievements')).to_have_count(len(DATA['people']))
+ first=page.locator('[data-person-card]').first
+ assert first.locator('.pp-achievements').evaluate("e=>e.compareDocumentPosition(e.parentElement.querySelector('.pp-latest'))&Node.DOCUMENT_POSITION_FOLLOWING")
  for person in DATA['people']:
   card=page.locator('[data-person-card="'+person['id']+'"]')
   expect(card.locator('.pp-work-preview li')).to_have_count(len(person['works']))
@@ -65,7 +67,7 @@ with sync_playwright() as pw:
  page.locator('.pp-type-filters a').filter(has_text='思想与判断').click()
  expect(page.locator('[data-person-card]')).to_have_count(sum('ideas' in page.evaluate('(id)=>PeopleUI.influenceTypes(APP.people.people.find(p=>p.id===id))',p['id']) for p in DATA['people']))
  route('#/people')
- ok('One complete card per person, newest real activity first, all works and credited achievements visible')
+ ok('One complete card per person, decision context precedes latest activity, all works and credited achievements visible')
  page.evaluate("localStorage.setItem('aip.saved','[\"docling\"]')")
  page.locator('[data-people-follow="tri-dao"]').click()
  page.locator('#pp-following').check();expect(page.locator('[data-person-card]')).to_have_count(1)

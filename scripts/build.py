@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 from pathlib import Path
 from datetime import date, datetime, timezone
 from email.utils import format_datetime
@@ -19,6 +20,12 @@ from hot_data import validate_hot, validate_hot_inbox, hot_rss
 ROOT = Path(__file__).resolve().parents[1]
 REPO_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*$')
 REVIEW_TIMEZONE = ZoneInfo("Asia/Shanghai")
+
+def copytree_if_distinct(source: Path, target: Path) -> None:
+    """Copy a directory unless the build target is the source directory itself."""
+    if source.resolve() == target.resolve():
+        return
+    shutil.copytree(source, target, dirs_exist_ok=True)
 
 def https_url(value: str) -> bool:
     try:
@@ -383,8 +390,7 @@ def build(output: Path, repository: str|None=None,base_url: str|None=None) -> di
     (output/'.nojekyll').write_text('')
     (output/'assets').mkdir(exist_ok=True)
     (output/'assets/brand.svg').write_bytes((ROOT/'src/brand.svg').read_bytes())
-    from shutil import copytree
-    copytree(ROOT/'assets/activity', output/'assets/activity', dirs_exist_ok=True)
+    copytree_if_distinct(ROOT/'assets/activity', output/'assets/activity')
     write_json(output/'api/v1/activity-feature.json',app['activity_feature'])
     write_json(output/'api/v1/toolkit.json',app['toolkit'])
     write_json(output/'api/v1/people.json',app['people'])
