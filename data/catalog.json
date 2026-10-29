@@ -3,6 +3,34 @@
   "snapshot": "2026-10-29",
   "items": [
     {
+      "id": "openai-chatgpt-api-credits",
+      "name": "OpenAI · ChatGPT API credits",
+      "title": "先核对套餐、额度与组织绑定，再启用 API credits",
+      "category": "开发者工具 / 账单",
+      "mark": "AC",
+      "accent": "blue",
+      "summary": "符合条件的 ChatGPT Pro 与 Business 订阅可把促销 API credits 绑定到一个 API organization，用于构建应用与 Agent。",
+      "scope": "OpenAI 2026-10-28 Release Notes 与权益页列出 Pro 100 / 200 / 500，以及符合条件的 Business Standard / Premium 席位；订阅需已生效至少 7 天，实际资格和额度以 Billing claim 页面为准。",
+      "boundary": "这不是 Plus、Enterprise、Edu 或全部付费用户的通用权益。credits 与 ChatGPT、Business workspace 和 signed-in Codex 用量分开，不覆盖通过 API key 使用 Codex；一个订阅或 workspace 只能绑定一个 API organization，未用额度到期不结转，API 限流仍然适用。本站未绑定组织、领取或消耗额度。",
+      "repo": null,
+      "sources": ["openai-chatgpt-api-credits-20261028"],
+      "requirements": "符合条件且已生效至少 7 天的 Pro 或 Business 订阅；同一邮箱下的 API 账户；订阅 / workspace owner 与目标 API organization owner 权限。",
+      "test": "在 ChatGPT 或 API Platform Billing 查看实际资格、目标组织、按当前计费周期折算后的额度和到期日；确认组织后再领取，并用一个低成本测试请求核对 Credit grants 与 Usage，而不是从订阅价格推算余额。",
+      "checks": [
+        "领取前确认套餐、订阅生效天数、所有者角色与同一邮箱",
+        "逐字核对将被绑定的 API organization；不要把 ChatGPT seat 当作 API 项目权限",
+        "记录 claim 页面显示的实际额度、按比例折算和到期日",
+        "用 Credit grants 与 Usage 分别核对赠额和消耗，不把它写成 Codex 或 ChatGPT 额度"
+      ],
+      "command": "无需命令行；在 ChatGPT Settings → Billing 或 API Platform Billing 查看 API credits benefit，确认目标组织和实际额度后再领取。",
+      "effort": "限符合条件的 Pro / Business；额度、折算、国家与 cohort 以账号 Billing 为准",
+      "evidence": "OpenAI 官方 Release Notes 与 API credits 权益说明",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T17:20:57+08:00"
+    },
+    {
       "id": "github-agentic-workflows",
       "name": "GitHub · Agentic Workflows",
       "title": "先编译并审查只读工作流，再允许 Agent 修改仓库",
@@ -1179,6 +1207,16 @@
   ],
   "sources": [
     {
+      "id": "openai-chatgpt-api-credits-20261028",
+      "publisher": "OpenAI",
+      "title": "API credits benefit for eligible ChatGPT subscriptions",
+      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T17:20:57+08:00",
+      "kind": "官方权益、资格、额度、组织绑定、到期与不适用范围"
+    },
+    {
       "id": "github-agentic-workflows-ga-20261028",
       "publisher": "GitHub",
       "title": "GitHub Agentic Workflows generally available",
@@ -1955,6 +1993,18 @@
     }
   ],
   "events": [
+    {
+      "id": "openai-chatgpt-api-credits-release",
+      "task": "openai-chatgpt-api-credits",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+      "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
+      "delta": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
+      "sources": ["openai-chatgpt-api-credits-20261028"],
+      "reviewed": "2026-10-29",
+      "short_title": "ChatGPT 订阅连接 API credits"
+    },
     {
       "id": "github-agentic-workflows-ga-20261028",
       "task": "github-agentic-workflows",

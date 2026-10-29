@@ -17,6 +17,41 @@
   ],
   "items": [
     {
+      "id": "openai-chatgpt-api-credits",
+      "name": "ChatGPT API credits benefit",
+      "company": "OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["Developer Platform", "API Credits", "Billing"],
+      "summary": "把符合条件的 ChatGPT Pro / Business 订阅权益绑定到一个 API organization，降低首轮应用与 Agent API 验证成本。",
+      "product_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "source_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "source_label": "OpenAI 官方 Help Center",
+      "evidence": "OpenAI 2026-10-28 Release Notes 与权益页列出适用 Pro / Business 套餐、完整计费期额度、组织绑定、领取条件、到期以及不覆盖的产品。",
+      "boundary": "资格和额度以账号 claim 页面为准，不是全部付费套餐通用赠额。credits 只进入一个 API organization，与 ChatGPT、Business workspace、signed-in Codex 和 API-key Codex 用量分开；首笔可能按比例折算，未用额度不结转，API 限流仍适用。本站未领取或运行。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Subscription benefit",
+          "title": "符合条件的 Pro / Business 开放 API credits 领取",
+          "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+          "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
+          "facts": [
+            {"label": "Pro 完整月度额度", "value": "$100 / $200 / $500（按套餐）"},
+            {"label": "Business", "value": "$20 Standard / $100 Premium seat · 月度上限 $500"},
+            {"label": "绑定", "value": "1 subscription / workspace → 1 API organization"},
+            {"label": "到期", "value": "计费周期末 · 不结转"}
+          ],
+          "interpretation": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
+          "scope": "OpenAI 2026-10-28 官方 Release Notes 与 API credits benefit 页面列出的 eligible Pro / Business 范围。",
+          "limitations": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T17:20:57+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "github-connected-copilot-cloud",
       "name": "Connected Copilot cloud",
       "company": "GitHub",

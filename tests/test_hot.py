@@ -113,6 +113,14 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('没有宣布可直接发送 iCloud 邮件',item['boundary'])
   self.assertIn('本站未连接账户或执行写入',item['boundary'])
   validate_hot(self.data)
+ def test_chatgpt_api_credits_keep_subscription_api_and_codex_balances_separate(self):
+  item=next(x for x in self.data['items'] if x['id']=='openai-chatgpt-api-credits-20261028')
+  self.assertEqual(item['published'],'2026-10-28')
+  self.assertEqual(item['link'],'#/toolkit?task=openai-chatgpt-api-credits&tab=run')
+  self.assertIn('一个 API organization',item['boundary'])
+  self.assertIn('不覆盖通过 API key 使用 Codex',item['boundary'])
+  self.assertIn('本站未领取或运行',item['boundary'])
+  validate_hot(self.data)
  def test_nvidia_meta_muse_collaboration_stays_a_plan_not_a_capability_claim(self):
   item=next(x for x in self.data['items'] if x['id']=='nvidia-meta-muse-collaboration-20261027')
   self.assertEqual(item['published'],'2026-10-27')

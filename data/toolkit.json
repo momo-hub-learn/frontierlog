@@ -42,6 +42,51 @@
   ],
   "items": [
     {
+      "id": "openai-chatgpt-api-credits",
+      "publisher": "OpenAI",
+      "group": "agents",
+      "access": "web",
+      "headline": "先核对资格、目标组织与到期日，再领取 API credits",
+      "input": "符合条件的 Pro / Business 订阅 + 同邮箱 API 账户 + 目标 API organization",
+      "output": "claim 页面实际额度、目标组织、到期日，以及一次低成本 API 请求的 Credit grants / Usage 对账",
+      "requirements": "订阅需已生效至少 7 天；Pro 领取者须同时是订阅 owner 与目标 API organization owner，Business 领取者须同时是 workspace owner 与目标 organization owner。实际 offer 还取决于 enabled cohort 与国家。",
+      "limitation": "本站只核验官方文档，未领取或运行。Plus、试用、Enterprise、Edu 与 legacy Codex seat 不在已确认资格内；赠额不增加 ChatGPT、Business workspace 或 signed-in Codex 用量，也不覆盖通过 API key 使用 Codex。一个订阅 / workspace 只能绑定一个 API organization，未用额度不结转，限流仍适用。",
+      "cost": "官方列出的完整月度额度为 Pro 100 / 200 / 500 对应 $100 / $200 / $500；Business Standard 每付费席位 $20、Premium 每席位 $100，月度 workspace 上限 $500。首笔按剩余计费期折算，实际金额和到期日只以 claim 页面为准。",
+      "steps": [
+        {
+          "title": "先确认资格与所有者角色",
+          "body": "在 ChatGPT Billing 选择正确的 Pro 账户或 Business workspace，确认订阅生效至少 7 天；再到 API Platform 确认同邮箱和目标 organization 的 owner 身份。"
+        },
+        {
+          "title": "领取前核对组织、额度与到期日",
+          "body": "逐字核对接收额度的 API organization、claim 页面显示的折算后金额和到期日。若目标组织不对或角色不足就停止，不要为测试新建多余组织或扩大权限。"
+        },
+        {
+          "title": "用最小请求分开核对赠额与用量",
+          "body": "领取后在 Credit grants 确认赠额，在 Usage 查看一次低成本测试请求；把 API 余额、API 限流、ChatGPT 用量和 Codex 用量分开记录。"
+        }
+      ],
+      "troubleshooting": "看不到权益时先核对套餐、订阅生效天数、国家 / cohort、当前 workspace、同一邮箱与 owner 角色；不要通过切换账号或新建组织规避资格。组织绑定错误或余额不符时停止使用并联系官方支持。",
+      "sources": [
+        {
+          "title": "OpenAI API credits 权益说明",
+          "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        },
+        {
+          "title": "ChatGPT Release Notes · API credits",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-29T17:20:57+08:00"
+    },
+    {
       "id": "github-agentic-workflows",
       "publisher": "GitHub",
       "group": "agents",

@@ -57,6 +57,16 @@ class ToolkitTests(unittest.TestCase):
         task=next(x for x in self.catalog['items'] if x['id']==row['id'])
         self.assertEqual(task['sources'],['openai-icloud-mail-calendar-release-notes'])
         validate_toolkit(self.data,self.catalog)
+    def test_chatgpt_api_credits_guide_preserves_eligibility_org_and_codex_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-chatgpt-api-credits')
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('一个 API organization',row['limitation'])
+        self.assertIn('不覆盖通过 API key 使用 Codex',row['limitation'])
+        self.assertIn('实际金额和到期日只以 claim 页面为准',row['cost'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-28')
+        task=next(x for x in self.catalog['items'] if x['id']==row['id'])
+        self.assertEqual(task['sources'],['openai-chatgpt-api-credits-20261028'])
+        validate_toolkit(self.data,self.catalog)
     def test_servicenow_guide_separates_current_plugin_from_roadmap(self):
         row=next(x for x in self.data['items'] if x['id']=='openai-servicenow-mcp')
         self.assertIn('当前可确认开放',row['limitation'])
