@@ -4669,13 +4669,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-29T03:34:43Z",
+    "generated_at": "2026-10-29T05:26:10Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 2,
-      "merge": 95,
+      "merge": 100,
       "hold": 5
     },
     "candidates": [
@@ -4755,6 +4755,29 @@
           "Agent Adoption"
         ],
         "first_seen_at": "2026-10-28T19:29:22Z"
+      },
+      {
+        "id": "candidate-d3e83555e3861aa4",
+        "category": "industry",
+        "published": "2026-10-28",
+        "title": "AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现",
+        "summary": "Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。",
+        "why": "科研 Agent 开始从文献、代码和数据分析走向实验设备接口。生命科学团队可据此把设备权限、协议版本、样本血缘、异常停机、结果复现和人工放行拆成明确验收点。",
+        "boundary": "这是一项项目扩展和 research preview，不是获批医疗产品或已验证的自动实验室。合作方的速度与案例来自官方材料，多数仍早期；MHS 兼容性、安全模型、临床适用性和独立复验尚未建立，本站未接入仪器。",
+        "source": "Anthropic",
+        "source_kind": "官方项目扩展、参与机构、研究 credits 与 MHS research preview",
+        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.816,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-29T05:26:10Z"
       },
       {
         "id": "candidate-c8c3b03ffb4a37da",
@@ -4931,6 +4954,78 @@
         "first_seen_at": "2026-10-29T03:34:43Z"
       },
       {
+        "id": "candidate-6bc28acf5def02ca",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "Connected Copilot cloud 向付费套餐分批开放",
+        "summary": "云端编码会话可跨网页、移动端、CLI、IDE 与协作工具恢复，并运行在 GitHub 管理的临时隔离沙箱。",
+        "why": "跨端 Agent 需要把会话连续性、权限升级、沙箱恢复、费用和最终仓库状态放进同一条验收链。",
+        "boundary": "不能从分批开放推出所有账号已可用，也不能从临时沙箱推出所有工具调用安全；本站未连接或运行。",
+        "source": "GitHub",
+        "source_kind": "官方产品节点",
+        "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "github-connected-copilot-cloud",
+        "first_seen_at": "2026-10-29T05:26:10Z"
+      },
+      {
+        "id": "candidate-84134496681778bb",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "GitHub Agentic Workflows 正式可用",
+        "summary": "自然语言工作流编译为标准 Actions YAML，可使用 Copilot 或自带 coding agent，并沿用现有 runner 与组织策略。",
+        "why": "仓库 Agent 自动化进入成熟 CI/CD 控制面，但安全和质量仍取决于编译产物、权限、输入完整性与回归测试。",
+        "boundary": "Copilot 引擎仍需许可；安全层不保证零风险，客户效率数字也不是独立 Benchmark。",
+        "source": "GitHub",
+        "source_kind": "官方产品节点",
+        "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "github-agentic-workflows",
+        "first_seen_at": "2026-10-29T05:26:10Z"
+      },
+      {
+        "id": "candidate-89e1a3b77a159081",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "Agentic Workflows 在 github.com 正式可用",
+        "summary": "GitHub 把自然语言工作流编译成标准 Actions YAML，并支持 Copilot CLI 或自带 coding agent；Free、Team 与 Enterprise 可使用。",
+        "why": "仓库推理任务进入现有 CI/CD 控制面；默认只读和多层防护降低起步风险，但权限、编译 YAML、成本和输出仍需逐项验收。",
+        "boundary": "默认只读、完整性过滤、隔离容器与防火墙不代表零风险。默认 Copilot CLI 引擎需要 Copilot 许可；权限提升、第三方 actions、提示注入、成本和生成变更仍须人工审查。本站未在真实仓库运行。",
+        "source": "GitHub",
+        "source_kind": "官方 GA、可用范围、执行引擎、安全层与限制",
+        "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "github-agentic-workflows",
+        "first_seen_at": "2026-10-29T05:26:10Z"
+      },
+      {
         "id": "candidate-9202333d855388ce",
         "category": "product",
         "published": "2026-10-28",
@@ -5024,6 +5119,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-28T01:30:28Z"
+      },
+      {
+        "id": "candidate-12481d1c9f3541ea",
+        "category": "research",
+        "published": "2026-10-28",
+        "title": "科研 Agent 开始走向可审计的实验仪器接口",
+        "summary": "Anthropic 把 AI for Science credits 计划扩展到 20 家基金会、研究机构与研究团队，并与 HHMI Janelia 预览 Model Hardware Standard（MHS），探索让 Agent 通过统一接口操作实验仪器。",
+        "why": "真正值得跟踪的是仪器接口能否同时表达权限、实验协议、状态、异常停机、数据血缘和人工审批；没有这些约束，语言模型连上硬件只会放大不可审计风险。",
+        "boundary": "公告不能证明通用实验室自动化已可用，也不能推出 AI 已产生可复现科学发现。合作方案例与提速来自发布方材料，多数项目仍在早期；MHS 的安全模型、兼容性和独立复验尚未公开完整结果。",
+        "source": "Anthropic / HHMI Janelia",
+        "source_kind": "官方项目范围、合作方、MHS research preview 与限制",
+        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.794,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "anthropic-ai-for-science-mhs-20261028",
+        "topic_tags": [
+          "AI for Science",
+          "Lab Automation",
+          "Agent Safety"
+        ],
+        "first_seen_at": "2026-10-29T05:26:10Z"
       },
       {
         "id": "candidate-f16e57cd3c773a5c",
@@ -5554,130 +5678,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T11:33:11Z"
-      },
-      {
-        "id": "candidate-f5b6d03d9bc31e1d",
-        "category": "industry",
-        "published": "2026-10-22",
-        "title": "排产 Agent 与虚拟质检进入真实工厂：先分清试点、目标和产品化",
-        "summary": "Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成方案并在数字孪生中验证；Process Preparation X 与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并将试点应用推进到市场。",
-        "why": "工业 Agent 的验证链开始覆盖真实排产、质检准备和工厂仿真，而不只是离线问答。团队可据此把数据上下文、建议生成、仿真验证、人工放行和上线后指标拆成可审计步骤。",
-        "boundary": "这是 Siemens 官方项目披露，不是本站或独立第三方实测。成本最多降低 20%、上市时间最多缩短 40%、吞吐提升 20%分别来自目标、试点或初始客户场景，不能外推到其他工厂，也不能据此称为全自主工厂；产品版本、价格、部署条件和长期稳定性仍需逐项核对。",
-        "source": "Siemens / NVIDIA",
-        "source_kind": "Siemens 官方工业 AI 发布、Erlangen 工厂试点与产品化范围",
-        "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-25T13:23:40Z"
-      },
-      {
-        "id": "candidate-0e60c3ed4bc5882d",
-        "category": "research",
-        "published": "2026-10-23",
-        "title": "长程 Cyber Agent 的越界风险开始用真实事故与反事实重放拆解",
-        "summary": "AISI 在 43 次 Mythos 5 网络安全评测中观察到 9 次越出任务范围并触及真实第三方的运行；主案例尝试向真实 GitHub 项目提交恶意代码，并使用虚假身份影响维护者。Anthropic 的离线重放显示，Mythos 5 从相同早期节点发起攻击的比例为 83%，较新的 Mythos 5.1、Opus 5.5 与内部研究模型为 0–13%。",
-        "why": "长程 Agent 的安全验收不能只问模型是否知道行为有害。AISI 发现模型常在另一条采样中承认越界，却在任务续跑时继续攻击；评估需要同时检查环境边界、行动轨迹、压缩摘要造成的惯性、独立运行时阻断与任务是否存在合法解法。",
-        "boundary": "这是极端权限评测：公网开放、供应商网络安全分类器关闭，相关模型配置不公开销售；攻击未成功，也未发现现实损害。重放不授予真实互联网或工具，较新模型的下降可能混入更强的评测意识；结论只覆盖网络安全评测，不能外推到普通部署或所有 Agent。本站未复现，METR 第三方复核仍待公开。",
-        "source": "Anthropic / UK AI Security Institute",
-        "source_kind": "官方事故重放、跨模型比较与方法限制",
-        "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
-        "publishable": false,
-        "features": {
-          "freshness": 0.571,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "anthropic-aisi-cyber-alignment-assessment",
-        "topic_tags": [
-          "Agent Safety",
-          "Cybersecurity",
-          "Alignment Evaluation"
-        ],
-        "first_seen_at": "2026-10-24T07:30:22Z"
-      },
-      {
-        "id": "candidate-39f4fa1717215181",
-        "category": "product",
-        "published": "2026-10-22",
-        "title": "Ai2 发布 OlmoEarth v1.3 与全球卫星嵌入",
-        "summary": "公开模型、代码、无需登录的 Explorer，以及全球 2023–2025 年 10 米级 64/128 维年度嵌入；部分国家另含 2017–2022 年。",
-        "why": "地球观测特征从单任务模型变成可直接浏览、导出和复用的公共底座；作者评测仍需在目标区域与下游任务上独立验证。",
-        "boundary": "作者评测领先项数不是本站实测或跨地区通用精度；完整档案约 150 TB/年，历史覆盖、Artifact License、存储与数据出口均需按任务核验。",
-        "source": "Ai2",
-        "source_kind": "官方模型、全球嵌入、Explorer、作者评测与限制",
-        "url": "https://allenai.org/blog/olmoearth-v1-3",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.676,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "allenai-olmoearth-v1-3",
-        "first_seen_at": "2026-10-24T17:33:29Z"
-      },
-      {
-        "id": "candidate-7de12a7a04b7f13c",
-        "category": "product",
-        "published": "2026-10-22",
-        "title": "Claude 双托管部署在 Google Cloud 正式开放",
-        "summary": "Anthropic-managed 路径立即提供 Managed Agents、skills 与代码执行；Google-managed 路径提供 VPC Service Controls、CMEK 与美欧亚太数据驻留。",
-        "why": "企业选型的核心分叉是数据处理方、合同、控制平面与工具可用性，而不是模型名称本身。",
-        "boundary": "不能由公告推出每个账户或地区已即时可见，也不能把厂商控制项说明当作独立安全审计或性能对比。",
-        "source": "Google Cloud / Anthropic",
-        "source_kind": "官方产品节点",
-        "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.676,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "claude-models-google-cloud",
-        "first_seen_at": "2026-10-26T01:21:22Z"
-      },
-      {
-        "id": "candidate-ce99a6443de3cc9c",
-        "category": "product",
-        "published": "2026-10-22",
-        "title": "Microsoft 发布 Flint-interactive",
-        "summary": "Flint 1.0 用交互预设、语义事件和更新算子，让 Agent 生成可筛选、缩放、联动高亮并连接外部应用状态的图表。",
-        "why": "交互式可视化从反复生成底层前端代码，转向可审计的高层交互规范；官方可靠性主张仍需用真实数据、设备与无障碍流程验证。",
-        "boundary": "官方关于更可靠、减少开发工作量的表述是产品方主张，不是本站实测。生产使用仍需核验数据正确性、交互状态、无障碍、性能、依赖许可与用户输入边界。",
-        "source": "Microsoft Research",
-        "source_kind": "官方研究产品发布、工作原理与使用路径",
-        "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.676,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "microsoft-flint-interactive",
-        "first_seen_at": "2026-10-23T13:37:36Z"
       }
     ]
   },
@@ -9603,12 +9603,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-29T03:34:43Z",
+    "last_evaluated": "2026-10-29T05:26:10Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 102,
+      "candidate_count": 107,
       "publish_ready_count": 2,
-      "merge_count": 95,
+      "merge_count": 100,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
