@@ -215,6 +215,12 @@
 
 边界：官方指数仍主要覆盖英文文本模型，多模态、语音和多语言需另看专项评测。部分测试集为私有或答案留出集，本站没有独立复现；当前模型页只公开展示部分配置，本站仅摘录本轮可直接核实的榜首五个配置与已发布权重前三名，不把旧 v4 分数混入当前榜。
 
+站内热度 94；不是全网流量。</description></item><item><title>GitHub intelligence：Memory 正式可用，Dreaming 进入预览</title><guid isPermaLink="false">frontierlog:hot:github-intelligence-memory-dreaming-20261028</guid><link>https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>GitHub 把 Memory、Dreaming 与跨仓代码搜索归为 Copilot 的上下文层：Memory 已面向付费 Copilot 套餐正式可用；Dreaming 以需显式开启的公开预览运行，并可提出仓库 skills 与指令更新。
+
+为什么值得看：Coding Agent 的差异正在从单次生成转向长期上下文治理。团队现在需要把记忆来源、跨仓访问、自动整理、变更审批和 AI credits 一起纳入工程控制，而不只是给 Agent 更多上下文。
+
+边界：Memory 正式可用不等于所有客户端、组织策略和仓库权限完全相同；Dreaming 仍是 opt-in 公开预览并消耗 AI credits。GitHub 公布的 93% 偏好遵循改善与 42% 效率改善来自其预览审查，不能外推为所有团队的独立基准。跨仓搜索仍受可访问仓库与组织策略约束，本站未接入或复现。
+
 站内热度 94；不是全网流量。</description></item><item><title>Google 给云端 AI 加长期记忆：密钥只留在设备</title><guid isPermaLink="false">frontierlog:hot:google-private-ai-memory-20260923</guid><link>https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/</link><pubDate>Wed, 23 Sep 2026 00:00:00 +0800</pubDate><description>Google DeepMind 9 月 23 日披露 Private AI Compute 的持久化服务器端记忆架构：个人上下文存入专用加密存储，解密密钥只保留在用户设备；模型需要信息时，通过认证的端到端加密通道进入安全隔离环境，临时解密、更新上下文后立即重新加密。
 
 为什么值得看：个人 Agent 要持续数周乃至跨设备协作，长期记忆与隐私一直是基础设施瓶颈。Google 正把此前“任务结束即清空”的无状态私密云推理，推进到可跨设备延续上下文的持久记忆；如果按计划进入产品，这会直接改变个人 Agent 的记忆层设计。
@@ -376,6 +382,12 @@
 为什么值得看：AI 生成的候选研究开始进入“公开手稿—形式化材料—外部专家审阅”的可审计链条；真正的前瞻信号是核验机制，而不是厂商宣布了几个结果。
 
 边界：OpenAI 明确把这些稿件称为原始研究数据，不是学界共识或同行评审结论。Lean 只能检查被形式化的推理，不能自动证明科学前提与物理建模正确；物理底层产物尚未公开，独立工作组仍在核验。
+
+站内热度 91；不是全网流量。</description></item><item><title>ChatGPT dot 开始进入短信：美国 Pro 用户先行 beta</title><guid isPermaLink="false">frontierlog:hot:openai-dot-texting-beta-20261028</guid><link>https://help.openai.com/en/articles/6825453-chatgpt-release-notes</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 开始向美国 Pro 用户分批开放 dot 短信 beta：可通过 iMessage 或 RCS 与同一个 dot 对话，也可能接收主动更新；短信入口沿用 ChatGPT 内该 dot 的记忆与插件。
+
+为什么值得看：Agent 从应用内会话走向系统短信入口，意味着触达、主动提醒与跨端上下文开始成为产品能力；真正可用性要看账号开放、通知控制、第三方传输边界和误触发处理。
+
+边界：当前只确认美国 Pro 用户的 beta 分批开放，不代表其他地区、套餐或所有手机已可用。OpenAI 明确使用第三方消息服务 Linq 收发短信；仅能与自己的 dot 互发、不能读取其他短信，是官方说明而非本站独立安全审计。主动更新的准确率、频率、退订与失败处理未披露，本站未连接号码或测试。
 
 站内热度 91；不是全网流量。</description></item><item><title>OpenAI 公开前沿训练隔离方案：内部 RL 训练已恢复</title><guid isPermaLink="false">frontierlog:hot:openai-frontier-training-containment-20261023</guid><link>https://openai.com/index/securing-our-frontier-model-training-environment/</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 说明其前沿模型训练与多数评测采用无实时互联网的离线 Web 环境，并以容器、虚拟机、监控及网络边界做分层隔离；在红队 Agent 找到虚拟机逃逸、有限外网路径与跨任务通信通道并完成修补后，内部 RL 训练和推理已于 10 月 1 日恢复。
 

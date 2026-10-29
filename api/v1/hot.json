@@ -36,6 +36,90 @@
   ],
   "items": [
     {
+      "id": "openai-dot-texting-beta-20261028",
+      "category": "product",
+      "title": "ChatGPT dot 开始进入短信：美国 Pro 用户先行 beta",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T09:21:56+08:00",
+      "first_seen_at": "2026-10-29T09:21:56+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 29,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是短信送达率、主动提醒准确率、隐私强度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方 Release Notes · 美国 Pro beta 分批开放",
+      "summary": "OpenAI 开始向美国 Pro 用户分批开放 dot 短信 beta：可通过 iMessage 或 RCS 与同一个 dot 对话，也可能接收主动更新；短信入口沿用 ChatGPT 内该 dot 的记忆与插件。",
+      "why": "Agent 从应用内会话走向系统短信入口，意味着触达、主动提醒与跨端上下文开始成为产品能力；真正可用性要看账号开放、通知控制、第三方传输边界和误触发处理。",
+      "boundary": "当前只确认美国 Pro 用户的 beta 分批开放，不代表其他地区、套餐或所有手机已可用。OpenAI 明确使用第三方消息服务 Linq 收发短信；仅能与自己的 dot 互发、不能读取其他短信，是官方说明而非本站独立安全审计。主动更新的准确率、频率、退订与失败处理未披露，本站未连接号码或测试。",
+      "source": "OpenAI",
+      "source_kind": "官方 ChatGPT Release Notes / 本轮编辑核验",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 OpenAI Release Notes",
+          "note": "核对 beta 对象、iMessage / RCS、记忆与插件、Linq 传输边界",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "ChatGPT release notes · Texting your dot",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "github-intelligence-memory-dreaming-20261028",
+      "category": "product",
+      "title": "GitHub intelligence：Memory 正式可用，Dreaming 进入预览",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T09:21:56+08:00",
+      "first_seen_at": "2026-10-29T09:21:56+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 32,
+        "availability": 23,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是记忆准确率、开发效率、搜索召回率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "GitHub 官方发布 · Memory GA / Dreaming public preview",
+      "summary": "GitHub 把 Memory、Dreaming 与跨仓代码搜索归为 Copilot 的上下文层：Memory 已面向付费 Copilot 套餐正式可用；Dreaming 以需显式开启的公开预览运行，并可提出仓库 skills 与指令更新。",
+      "why": "Coding Agent 的差异正在从单次生成转向长期上下文治理。团队现在需要把记忆来源、跨仓访问、自动整理、变更审批和 AI credits 一起纳入工程控制，而不只是给 Agent 更多上下文。",
+      "boundary": "Memory 正式可用不等于所有客户端、组织策略和仓库权限完全相同；Dreaming 仍是 opt-in 公开预览并消耗 AI credits。GitHub 公布的 93% 偏好遵循改善与 42% 效率改善来自其预览审查，不能外推为所有团队的独立基准。跨仓搜索仍受可访问仓库与组织策略约束，本站未接入或复现。",
+      "source": "GitHub",
+      "source_kind": "官方 Changelog / 本轮编辑核验",
+      "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 GitHub 官方发布",
+          "note": "核对 Memory、Dreaming、跨仓搜索、开关、权限与 credits 边界",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+          "kind": "product"
+        }
+      ],
+      "related": [
+        {
+          "source": "GitHub Changelog",
+          "title": "GitHub intelligence puts your code, context, and history to work",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "microsoft-copilot-harness-foundry-20261028",
       "category": "product",
       "title": "Microsoft Copilot harness 进入 Foundry 公开预览",

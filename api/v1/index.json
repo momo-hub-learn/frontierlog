@@ -4477,13 +4477,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-28T23:34:33Z",
+    "generated_at": "2026-10-29T01:32:57Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 2,
-      "merge": 92,
+      "merge": 94,
       "hold": 5
     },
     "candidates": [
@@ -4500,12 +4500,12 @@
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.919,
+        "priority_score": 0.898,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "browser-use",
@@ -4524,12 +4524,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.919,
+        "priority_score": 0.898,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "docling",
@@ -4548,12 +4548,12 @@
         "url": "https://openai.com/index/the-future-of-the-firm",
         "publishable": false,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.876,
+        "priority_score": 0.854,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "openai-future-of-firm-20261028",
@@ -4577,12 +4577,12 @@
         "url": "https://huggingface.co/blog/allenai/novelty-bench",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.833,
+        "priority_score": 0.812,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "ai2-novelty-judge-instability-20261026",
@@ -4606,12 +4606,12 @@
         "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.94,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "track_id": "world-models",
@@ -4631,16 +4631,40 @@
         "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-servicenow-mcp",
         "first_seen_at": "2026-10-28T19:29:22Z"
+      },
+      {
+        "id": "candidate-046484529c8f562d",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "Memory 正式可用，Dreaming 进入公开预览",
+        "summary": "Memory 在付费 Copilot 套餐 GA；Dreaming 可整理个人与仓库记忆并提出 skills / instructions 变更，跨仓搜索用于补齐相关代码与历史上下文。",
+        "why": "长期 Agent 上下文需要像代码一样治理：明确来源、访问范围、自动变更审批、费用和错误记忆的修正路径。",
+        "boundary": "不能把厂商预览数据外推为所有团队效率，也不能从 Memory GA 推出所有客户端、组织和仓库默认开启；本站未连接账户或复现。",
+        "source": "GitHub",
+        "source_kind": "官方产品节点",
+        "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "github-intelligence",
+        "first_seen_at": "2026-10-29T01:32:57Z"
       },
       {
         "id": "candidate-47e4ac87235f5ab6",
@@ -4655,12 +4679,12 @@
         "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "microsoft-copilot-harness",
@@ -4679,16 +4703,40 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
         "first_seen_at": "2026-10-28T01:30:28Z"
+      },
+      {
+        "id": "candidate-9202333d855388ce",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "Texting your dot 开始向美国 Pro 用户分批开放",
+        "summary": "符合条件的用户可通过 iMessage 或 RCS 与自己的 dot 对话，并接收可能相关的主动更新；短信入口沿用 ChatGPT 内同一 dot 的记忆与插件。",
+        "why": "短信把 Agent 触达从应用内扩展到系统消息入口；产品判断要同时看账号开放、通知控制、上下文一致性、第三方传输与误提醒恢复。",
+        "boundary": "不能从公告推出全球可用、短信可读取其他对话，或主动更新已经稳定准确；本站未连接手机号或测试。",
+        "source": "OpenAI / Linq",
+        "source_kind": "官方产品节点",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "openai-dot-texting",
+        "first_seen_at": "2026-10-29T01:32:57Z"
       },
       {
         "id": "candidate-c350a4ab40cdf279",
@@ -4703,12 +4751,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -4727,12 +4775,12 @@
         "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
         "publishable": true,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.826,
+        "priority_score": 0.805,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "servicenow-chatgpt-workflows",
@@ -4751,12 +4799,12 @@
         "url": "https://www.anthropic.com/research/early-progress-drug-development",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.816,
+        "priority_score": 0.794,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-28T01:30:28Z"
@@ -4774,12 +4822,12 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
         "publishable": false,
         "features": {
-          "freshness": 1.0,
+          "freshness": 0.929,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.815,
+        "priority_score": 0.794,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "google-gemini-4-carbon-long-horizon-cyber-20261028",
@@ -4803,12 +4851,12 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "chatgpt-icloud-connected-apps",
@@ -4827,12 +4875,12 @@
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
@@ -4851,12 +4899,12 @@
         "url": "https://openai.com/index/oracle-apps-in-chatgpt",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "oracle-ai-workspace",
@@ -4875,12 +4923,12 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-icloud-mail-calendar",
@@ -4899,12 +4947,12 @@
         "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
         "publishable": false,
         "features": {
-          "freshness": 0.5,
+          "freshness": 0.429,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.801,
+        "priority_score": 0.78,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "stateful-agentic-ad-stack",
@@ -4928,12 +4976,12 @@
         "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.794,
+        "priority_score": 0.773,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "google-deepmind-genie-4-20261027",
@@ -4957,12 +5005,12 @@
         "url": "https://openai.com/index/introducing-gpt-6-1-terra",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-gpt-6-1-terra",
@@ -4981,12 +5029,12 @@
         "url": "https://openai.com/index/introducing-gpt-6-1-terra",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-gpt-6-1-terra",
@@ -5005,12 +5053,12 @@
         "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-coderabbit-secure",
@@ -5029,12 +5077,12 @@
         "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "huggingface-hub-cli-2-3",
@@ -5053,12 +5101,12 @@
         "url": "https://arxiv.org/abs/2610.29435",
         "publishable": false,
         "features": {
-          "freshness": 0.5,
+          "freshness": 0.429,
           "authority": 0.88,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.769,
+        "priority_score": 0.748,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "event-transitions-world-model-return-error",
@@ -5082,12 +5130,12 @@
         "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 0.88,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.74,
+        "priority_score": 0.719,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-academic-science-claims-20261026",
@@ -5111,12 +5159,12 @@
         "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-23T23:24:48Z"
@@ -5134,12 +5182,12 @@
         "url": "https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.73,
+        "priority_score": 0.708,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-24T19:34:33Z"
@@ -5157,12 +5205,12 @@
         "url": "https://huggingface.co/blog/torch-neuronx-model-support",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "hf-trainium-model-support",
@@ -5181,12 +5229,12 @@
         "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openhands",
@@ -5205,12 +5253,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.142.1",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.719,
+        "priority_score": 0.698,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -5229,12 +5277,12 @@
         "url": "https://www.anthropic.com/research/agents-judgment-calls",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.718,
+        "priority_score": 0.697,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "anthropic-agent-judgment-calls",
@@ -5258,12 +5306,12 @@
         "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T23:36:20Z"
@@ -5281,12 +5329,12 @@
         "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-22T11:33:11Z"
@@ -5304,12 +5352,12 @@
         "url": "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-25T13:23:40Z"
@@ -5327,12 +5375,12 @@
         "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
         "publishable": false,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.708,
+        "priority_score": 0.687,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "anthropic-aisi-cyber-alignment-assessment",
@@ -5356,12 +5404,12 @@
         "url": "https://allenai.org/blog/olmoearth-v1-3",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.698,
+        "priority_score": 0.676,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "allenai-olmoearth-v1-3",
@@ -5380,12 +5428,12 @@
         "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.698,
+        "priority_score": 0.676,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "claude-models-google-cloud",
@@ -5404,12 +5452,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.698,
+        "priority_score": 0.676,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "microsoft-flint-interactive",
@@ -5428,69 +5476,16 @@
         "url": "https://openai.com/index/decisions-api",
         "publishable": true,
         "features": {
-          "freshness": 0.571,
+          "freshness": 0.5,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.698,
+        "priority_score": 0.676,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-decisions-api",
         "first_seen_at": "2026-10-22T23:36:20Z"
-      },
-      {
-        "id": "candidate-f86089c70378a7ad",
-        "category": "product",
-        "published": "2026-10-22",
-        "title": "Granite Timeseries Ensemble R1 发布可复现开放配方",
-        "summary": "IBM Research 开放四模型等权概率池与 IQR 两种时间序列组合配方，并提供中位数、分位数输出和 GIFT-Eval 比较。",
-        "why": "零样本时间序列预测可先从统一的概率组合基线起步；仍需在自己的滚动窗口验证覆盖率、漂移、许可和四模型资源成本。",
-        "boundary": "公开 GIFT-Eval 结果是跨 97 个配置的聚合比较，不代表具体业务序列。当前实现逐通道预测、不利用跨通道关系；四模型增加时延和内存，IQR 权重还可能偏爱过度自信成员。本站未运行。",
-        "source": "IBM Research / Hugging Face",
-        "source_kind": "官方技术发布与使用说明",
-        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
-        "publishable": true,
-        "features": {
-          "freshness": 0.571,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.698,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "ibm-granite-timeseries-ensemble-r1",
-        "first_seen_at": "2026-10-22T11:33:11Z"
-      },
-      {
-        "id": "candidate-1bfcf23d68aaa488",
-        "category": "research",
-        "published": "2026-10-26",
-        "title": "ChatGPT 工作使用扩散到更多国家与更多任务类别",
-        "summary": "OpenAI Signals v3.0 汇总 2025 年第一季度至 2026 年第三季度近 100 个国家的 165 类工作活动；在持续观测的 74 个国家中，使用最集中的前十类活动占比由 56.0% 降至 51.1%。",
-        "why": "任务分布变得更分散，比单一总消息量更能提示开发者未来要面对的长尾工作流、区域差异和专业语境；但这仍是平台内部采用信号，不是生产率或就业因果证据。",
-        "boundary": "数据只覆盖个人 ChatGPT 计划，不含企业消息和 Codex 使用；活动由隐私保护后的聚合方法估计，小群体会被抑制并加入统计噪声。它不能证明完成质量、节省时间、工资或岗位变化，也不能代表所有 AI 产品用户。",
-        "source": "OpenAI Economic Research",
-        "source_kind": "聚合数据范围、季度趋势、隐私方法与明确排除项",
-        "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
-        "publishable": false,
-        "features": {
-          "freshness": 0.857,
-          "authority": 0.72,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.697,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "openai-signals-v3-work-activities-20261026",
-        "topic_tags": [
-          "AI Adoption",
-          "Labor Economics",
-          "Privacy"
-        ],
-        "first_seen_at": "2026-10-27T01:23:34Z"
       }
     ]
   },
@@ -9282,12 +9277,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-28T23:34:33Z",
+    "last_evaluated": "2026-10-29T01:32:57Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 99,
+      "candidate_count": 101,
       "publish_ready_count": 2,
-      "merge_count": 92,
+      "merge_count": 94,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
