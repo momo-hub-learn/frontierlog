@@ -32,6 +32,8 @@ with sync_playwright() as pw:
  assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
  shot(p,'benchmark-first-screen.png');ok(f'{TOTAL} catalog entries nested under model hub, readable protocol cards, no desktop overflow')
  p.locator('[data-ba="group"][data-id="pharma"]').first.click();expect(p.locator('[data-b-card]')).to_have_count(GROUP_COUNTS['pharma'])
+ expect(p.locator('.v2-bench-entry [data-id="pharma"]')).to_have_attribute('aria-pressed','true')
+ expect(p.locator('.v2-bench-entry [data-id="manufacturing"]')).to_have_attribute('aria-pressed','false')
  shot(p,'benchmark-pharma.png')
  p.locator('[data-ba="group"][data-id="manufacturing"]').first.click();expect(p.locator('[data-b-card]')).to_have_count(GROUP_COUNTS['manufacturing'])
  assert '数据集' in p.locator('[data-b-card="secom"]').inner_text()
@@ -141,6 +143,10 @@ with sync_playwright() as pw:
    assert not p.evaluate('document.documentElement.scrollWidth>innerWidth'),f'{width}:{path} overflow'
   if width==390:
    route(p,'#/benchmarks');shot(p,'benchmark-mobile.png')
+   entry=p.locator('.v2-bench-entry')
+   assert entry.evaluate("e=>getComputedStyle(e).overflowX==='auto'")
+   assert entry.evaluate('e=>e.scrollWidth>e.clientWidth')
+   assert p.locator('.v2-bench-entry button').first.evaluate('e=>e.getBoundingClientRect().height>=44')
    p.locator('[data-action="menu"]').click();p.locator('#nav a[href="#/models"]').click()
    assert not p.locator('body').evaluate('e=>e.classList.contains("nav-open")')
  route(p,'#/benchmarks?bench=secom');assert p.locator('dialog[open]').evaluate('e=>e.scrollWidth<=e.clientWidth+1')

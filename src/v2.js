@@ -308,7 +308,8 @@ sectorPage=function(sector){
 
 const v2OldBHeading=bHeading;
 bHeading=function(){
- const cards=BENCH.groups.filter(g=>g.id!=='all').map(g=>`<button data-ba="group" data-id="${g.id}"><span style="--tone:var(--${g.color==='green'?'accent':g.color})">${icon(B_ICON[g.id]||'gauge')}</span><strong>${esc(g.title)}</strong><small>${BENCH.items.filter(b=>b.group===g.id).length} 项</small></button>`).join('');
+ const selected=bState().group;
+ const cards=BENCH.groups.filter(g=>g.id!=='all').map(g=>`<button class="${selected===g.id?'active':''}" data-ba="group" data-id="${g.id}" aria-pressed="${selected===g.id}"><span style="--tone:var(--${g.color==='green'?'accent':g.color})">${icon(B_ICON[g.id]||'gauge')}</span><strong>${esc(g.title)}</strong><small>${BENCH.items.filter(b=>b.group===g.id).length} 项</small></button>`).join('');
  return `<header class="v2-bench-head"><div><p class="b-kicker"><i class="b-light"></i> MODEL CENTER / BENCHMARK</p><h1>你想测什么？</h1><p>先选能力问题，再看 Benchmark。每项都保留“测什么 / 不能证明什么 / 为什么值得看”。</p></div><div class="v2-bench-count"><b>${BENCH.items.length}</b><span>公开基准与数据集</span></div></header><div class="v2-bench-entry">${cards}</div>`;
 };
 
