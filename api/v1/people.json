@@ -2,7 +2,7 @@
   "version": 1,
   "checked": "2026-10-29",
   "mode": "manual",
-  "note": "基于本人主页、机构公告、论文与官方项目记录人工编选。影响力地图展示学术研究、技术生态、产业落地三种有作品支持的贡献方向，不生成跨领域总分或个人名次。最新进展仅指本站已核验且标注原始日期的公开记录；无新进展者显示最后已知作品与旧核验日期，不等于本人没有新工作。共同署名不代表同等贡献。",
+  "note": "基于本人主页、机构公告、论文与官方项目记录人工编选。五类影响力回答“为什么关注”，学术研究、技术生态、产业落地三种证据方向回答“依据是什么”；两者均可并列，不生成跨领域总分或个人名次。最新进展仅指本站已核验且标注原始日期的公开记录；无新进展者显示最后已知作品与旧核验日期，不等于本人没有新工作。共同署名不代表同等贡献。",
   "roles": [
     {
       "id": "researcher",
@@ -56,6 +56,230 @@
     }
   ],
   "people": [
+    {
+      "id": "ethan-mollick",
+      "name": "Ethan Mollick",
+      "aliases": [],
+      "roles": [
+        "educator"
+      ],
+      "areas": [
+        "evaluation",
+        "product",
+        "education"
+      ],
+      "intro": "以研究型写作持续解释生成式 AI 对工作、教育与组织的影响，并把使用方法与证据边界放在一起讨论。",
+      "watch": "关于能力增速和工作变化的判断，能否被独立评测、真实组织数据与长期结果持续验证？",
+      "sources": [
+        {
+          "label": "One Useful Thing · 本人简介",
+          "url": "https://www.oneusefulthing.org/about",
+          "kind": "personal"
+        }
+      ],
+      "works": [
+        {
+          "title": "One Useful Thing",
+          "url": "https://www.oneusefulthing.org/",
+          "relation": "作者"
+        },
+        {
+          "title": "Co-Existence",
+          "url": "https://co-existence.ai/",
+          "relation": "作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-29",
+      "impact": {
+        "dimensions": [
+          "research",
+          "ecosystem",
+          "industry"
+        ],
+        "basis": "One Useful Thing、Co-Existence（以本人公开资料与署名作品为依据）"
+      }
+    },
+    {
+      "id": "jensen-huang",
+      "name": "Jensen Huang",
+      "aliases": [
+        "黄仁勋"
+      ],
+      "roles": [
+        "founder",
+        "builder"
+      ],
+      "areas": [
+        "systems",
+        "product",
+        "robotics"
+      ],
+      "intro": "NVIDIA 创始人兼 CEO，以加速计算、AI 基础设施和物理 AI 路线影响模型训练、部署与产业投资。",
+      "watch": "“AI 工业化”路线的实际收益，能否在能耗、成本、供应约束和具体行业产出中被验证？",
+      "sources": [
+        {
+          "label": "NVIDIA GTC Berlin 官方主题演讲",
+          "url": "https://www.nvidia.com/en-eu/gtc/keynote/",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "relation": "创始人兼 CEO"
+        },
+        {
+          "title": "GTC Berlin 2026 主题演讲",
+          "url": "https://blogs.nvidia.com/blog/gtc-berlin-2026-keynote/",
+          "relation": "演讲者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-29",
+      "impact": {
+        "dimensions": [
+          "ecosystem",
+          "industry"
+        ],
+        "basis": "NVIDIA、GTC Berlin 2026 官方资料（以机构一手页面为依据）"
+      }
+    },
+    {
+      "id": "sam-altman",
+      "name": "Sam Altman",
+      "aliases": [],
+      "roles": [
+        "founder"
+      ],
+      "areas": [
+        "product",
+        "evaluation"
+      ],
+      "intro": "OpenAI 联合创始人兼 CEO，持续公开阐述通用 AI 的产品扩散、治理与社会分配路径。",
+      "watch": "更广泛的能力与代理权目标，如何落实为可审计的安全标准、访问规则和实际公共收益？",
+      "sources": [
+        {
+          "label": "OpenAI Forum · 官方讲者简介",
+          "url": "https://forum.openai.com/public/videos/event-replay-sam-altman-on-building-the-future-of-ai-2026-04-06",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "Our principles",
+          "url": "https://openai.com/index/our-principles/",
+          "relation": "署名作者"
+        },
+        {
+          "title": "Built to benefit everyone: our plan",
+          "url": "https://openai.com/index/built-to-benefit-everyone-our-plan/",
+          "relation": "共同署名作者"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-29",
+      "impact": {
+        "dimensions": [
+          "industry"
+        ],
+        "basis": "OpenAI 官方简介与本人署名文章（以机构一手页面为依据）"
+      }
+    },
+    {
+      "id": "dario-amodei",
+      "name": "Dario Amodei",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "learning",
+        "evaluation",
+        "product"
+      ],
+      "intro": "Anthropic 联合创始人兼 CEO，负责研究方向与战略，并公开讨论可控 AI、能力进展及其经济和安全影响。",
+      "watch": "关于能力时间线、风险与收益的判断，能否被透明评测、外部研究和实际治理结果持续校正？",
+      "sources": [
+        {
+          "label": "Anthropic 官方领导团队",
+          "url": "https://www.anthropic.com/company/leadership",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "Machines of Loving Grace",
+          "url": "https://darioamodei.com/machines-of-loving-grace",
+          "relation": "作者"
+        },
+        {
+          "title": "Anthropic",
+          "url": "https://www.anthropic.com/company/leadership",
+          "relation": "联合创始人兼 CEO"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-29",
+      "impact": {
+        "dimensions": [
+          "research",
+          "industry"
+        ],
+        "basis": "Anthropic 官方简介与本人署名文章（以一手页面为依据）"
+      }
+    },
+    {
+      "id": "demis-hassabis",
+      "name": "Demis Hassabis",
+      "aliases": [],
+      "roles": [
+        "researcher",
+        "founder"
+      ],
+      "areas": [
+        "learning",
+        "multimodal",
+        "robotics"
+      ],
+      "intro": "Google DeepMind 联合创始人兼 CEO，把通用智能研究与 AlphaGo、AlphaFold 等科学和产品成果连接起来。",
+      "watch": "从世界模型到科学发现的跨领域路线，能否形成可复现、可使用且责任边界清晰的进展？",
+      "sources": [
+        {
+          "label": "Google DeepMind 官方介绍",
+          "url": "https://deepmind.google/about/",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "Google DeepMind",
+          "url": "https://deepmind.google/about/",
+          "relation": "联合创始人兼 CEO"
+        },
+        {
+          "title": "AlphaFold",
+          "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/",
+          "relation": "组织领导与公开推动"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-29",
+      "impact": {
+        "dimensions": [
+          "research",
+          "industry"
+        ],
+        "basis": "Google DeepMind、AlphaFold（以机构一手页面为依据）"
+      }
+    },
     {
       "id": "kaiming-he",
       "name": "何恺明",
@@ -1939,6 +2163,47 @@
       "source": "arXiv · 原始论文 2026-02-25",
       "boundary": "合作署名不代表项目由其独立主导；游戏环境中的视觉一致性不等于现实机器人泛化，本站未实测。",
       "checked": "2026-10-26"
+    },
+    {
+      "id": "ethan-exponential-charts-20261020",
+      "date": "2026-10-20",
+      "title": "30 个月的能力曲线：用图表回看进步、成本与人机协作",
+      "people": [
+        "ethan-mollick"
+      ],
+      "kind": "article",
+      "summary": "Ethan Mollick 在本人博客用多组公开指标回顾近 30 个月的模型能力、成本与工作方式变化，并提出从聊天走向代理协作的判断。",
+      "url": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
+      "source": "One Useful Thing · Ethan Mollick 本人署名文章",
+      "boundary": "这是作者对公开评测、价格与个人实践的综合解读，不是统一口径的本站实测；不同任务、模型、组织与评测方法仍可能得到不同结论。",
+      "checked": "2026-10-29"
+    }
+  ],
+  "influence_types": [
+    {
+      "id": "ideas",
+      "title": "思想与判断",
+      "description": "公开解释趋势、风险、方法与社会选择。"
+    },
+    {
+      "id": "technology",
+      "title": "技术与创造",
+      "description": "建设模型、系统、工具与开放技术生态。"
+    },
+    {
+      "id": "research",
+      "title": "科研突破",
+      "description": "以论文、实验和可复现方法推进能力边界。"
+    },
+    {
+      "id": "industry",
+      "title": "产品与产业",
+      "description": "把技术转为产品、组织能力与规模化落地。"
+    },
+    {
+      "id": "future",
+      "title": "跨界与未来",
+      "description": "连接科学、教育、硬件、机器人与长期社会议题。"
     }
   ]
 }
