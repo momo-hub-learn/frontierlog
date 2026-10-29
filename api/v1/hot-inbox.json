@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T01:58:33Z",
+  "generated_at": "2026-10-29T03:34:43Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 94,
+    "merge": 95,
     "hold": 5
   },
   "candidates": [
@@ -236,6 +236,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "docling",
       "first_seen_at": "2026-10-28T01:30:28Z"
+    },
+    {
+      "id": "candidate-5514f859e2e05939",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "Nemotron 3.5 Transcribe 开放多语录播音频处理权重",
+      "summary": "NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。",
+      "why": "长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。",
+      "boundary": "官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不是本站实测或临床验证。模型为录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。",
+      "source": "NVIDIA / Hugging Face",
+      "source_kind": "官方发布、语言覆盖、运行入口、当前限制与评测口径",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "nvidia-nemotron-3-5-transcribe",
+      "first_seen_at": "2026-10-29T03:34:43Z"
     },
     {
       "id": "candidate-9202333d855388ce",
@@ -985,30 +1009,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "microsoft-flint-interactive",
       "first_seen_at": "2026-10-23T13:37:36Z"
-    },
-    {
-      "id": "candidate-de99d9964dc4e064",
-      "category": "product",
-      "published": "2026-10-22",
-      "title": "OpenAI Decisions API 正式可用",
-      "summary": "专用 endpoint 处理 predicate、choice 和 score 三类有界判断，支持文本、图像、JSON、提示缓存及 GPT-Live 原生接入。",
-      "why": "实时 Agent 可以把分类、路由和下一动作选择拆成单独可评测、可限权的决策层；开放式推理和高风险执行仍需更强模型或人工接管。",
-      "boundary": "仅适合答案空间已定义的有界判断；官方速度、成本和客户准确率案例不是本站实测。生产使用前必须按真实分布测错误率、概率校准、低置信度升级和漂移。",
-      "source": "OpenAI",
-      "source_kind": "官方产品发布、使用模式、定价与限制",
-      "url": "https://openai.com/index/decisions-api",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.676,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-decisions-api",
-      "first_seen_at": "2026-10-22T23:36:20Z"
     }
   ]
 }
