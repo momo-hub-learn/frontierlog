@@ -2,6 +2,20 @@
   "snapshot": "2026-10-29",
   "events": [
     {
+      "id": "openai-chatgpt-api-credits-release",
+      "task": "openai-chatgpt-api-credits",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+      "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
+      "delta": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
+      "sources": [
+        "openai-chatgpt-api-credits-20261028"
+      ],
+      "reviewed": "2026-10-29",
+      "short_title": "ChatGPT 订阅连接 API credits"
+    },
+    {
       "id": "github-agentic-workflows-ga-20261028",
       "task": "github-agentic-workflows",
       "date": "2026-10-28",
@@ -680,6 +694,16 @@
     }
   ],
   "sources": [
+    {
+      "id": "openai-chatgpt-api-credits-20261028",
+      "publisher": "OpenAI",
+      "title": "API credits benefit for eligible ChatGPT subscriptions",
+      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T17:20:57+08:00",
+      "kind": "官方权益、资格、额度、组织绑定、到期与不适用范围"
+    },
     {
       "id": "github-agentic-workflows-ga-20261028",
       "publisher": "GitHub",

@@ -271,6 +271,56 @@
         ]
       },
       {
+        "id": "openai-chatgpt-api-credits-20261028",
+        "category": "product",
+        "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+        "published": "2026-10-28",
+        "published_at": null,
+        "checked": "2026-10-29",
+        "verified_at": "2026-10-29T17:20:57+08:00",
+        "first_seen_at": "2026-10-29T17:20:57+08:00",
+        "heat": 88,
+        "heat_components": {
+          "impact": 27,
+          "availability": 22,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是赠额价值判断、API 性能、可用率或本站实测分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方 Release Notes 与权益页 · 条件式领取 / 本站未领取",
+        "summary": "符合条件的 ChatGPT Pro 与 Business 订阅可把促销 API credits 绑定到一个 API organization；官方列明完整计费期额度、所有者条件、到期与覆盖范围。",
+        "why": "ChatGPT 订阅开始直接连接 API 开发预算，能降低首轮应用与 Agent 验证成本；真正可用性取决于账号 cohort、订阅生效天数、组织所有权、项目权限和到期前的真实用量。",
+        "boundary": "Plus、试用、Enterprise、Edu 与 legacy Codex seat 不在已确认资格内。首笔额度可能按剩余计费期折算，一个订阅 / workspace 只能绑定一个 API organization，未用额度不结转。赠额不增加 ChatGPT、Business workspace 或 signed-in Codex 用量，也不覆盖通过 API key 使用 Codex；API 限流仍适用。本站未领取或运行。",
+        "source": "OpenAI",
+        "source_kind": "官方 Release Notes 与权益说明 / 本轮编辑核验",
+        "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "link": "#/toolkit?task=openai-chatgpt-api-credits&tab=run",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "打开站内领取与对账指南",
+            "note": "先核对资格、组织、折算额度、到期与一次最小 API 请求",
+            "url": "#/toolkit?task=openai-chatgpt-api-credits&tab=run",
+            "kind": "internal"
+          },
+          {
+            "label": "阅读 OpenAI 官方权益说明",
+            "note": "核对适用套餐、完整额度、组织绑定、到期和不覆盖范围",
+            "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+            "kind": "product"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "ChatGPT release notes · API credits for eligible plans",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+            "date": "2026-10-28"
+          }
+        ]
+      },
+      {
         "id": "github-intelligence-memory-dreaming-20261028",
         "category": "product",
         "title": "GitHub intelligence：Memory 正式可用，Dreaming 进入预览",
@@ -4669,13 +4719,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-29T08:59:36Z",
+    "generated_at": "2026-10-29T09:28:17Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 2,
-      "merge": 100,
+      "merge": 102,
       "hold": 5
     },
     "candidates": [
@@ -4978,6 +5028,30 @@
         "first_seen_at": "2026-10-29T05:26:10Z"
       },
       {
+        "id": "candidate-6fe2b96684b4a933",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "符合条件的 Pro / Business 开放 API credits 领取",
+        "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
+        "why": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
+        "boundary": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
+        "source": "OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "openai-chatgpt-api-credits",
+        "first_seen_at": "2026-10-29T09:28:17Z"
+      },
+      {
         "id": "candidate-84134496681778bb",
         "category": "product",
         "published": "2026-10-28",
@@ -5072,6 +5146,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
         "first_seen_at": "2026-10-28T15:40:27Z"
+      },
+      {
+        "id": "candidate-ed51204fd849fc09",
+        "category": "product",
+        "published": "2026-10-28",
+        "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+        "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
+        "why": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
+        "boundary": "这不是 Plus、Enterprise、Edu 或全部付费用户的通用权益。credits 与 ChatGPT、Business workspace 和 signed-in Codex 用量分开，不覆盖通过 API key 使用 Codex；一个订阅或 workspace 只能绑定一个 API organization，未用额度到期不结转，API 限流仍然适用。本站未绑定组织、领取或消耗额度。",
+        "source": "OpenAI",
+        "source_kind": "官方权益、资格、额度、组织绑定、到期与不适用范围",
+        "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openai-chatgpt-api-credits",
+        "first_seen_at": "2026-10-29T09:28:17Z"
       },
       {
         "id": "candidate-faa6f196ae372b3c",
@@ -5632,52 +5730,6 @@
           "Evaluation"
         ],
         "first_seen_at": "2026-10-28T07:42:05Z"
-      },
-      {
-        "id": "candidate-5b6012e7e08daff6",
-        "category": "industry",
-        "published": "2026-10-22",
-        "title": "Anthropic 生命科学客座研究：先把 8–12 周目标写成可公开验证的产物",
-        "summary": "Anthropic 邀请高校、非营利组织和政府实验室提交生命科学提案，提供研究人员协作及免费模型/Harness 运行，并计划公开分析、工具、数据和代码。",
-        "why": "这为靶点、分子与临床研究团队提供一个短周期验证窗口；真正的价值不是“使用最强模型”，而是能否在锁定数据权利和验证路径后产出可复核公共证据。",
-        "boundary": "这是申请和合作计划，不是研究结果或临床证据。官方要求申请材料仅含公开信息；8–12 周更适合初步证据、数据集或工具，结论仍需独立实验、合规审查和同行评议。",
-        "source": "Anthropic",
-        "source_kind": "官方生命科学合作招募、数据权利与公开成果边界",
-        "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-22T23:36:20Z"
-      },
-      {
-        "id": "candidate-657add4de8695366",
-        "category": "industry",
-        "published": "2026-10-22",
-        "title": "Granite 时间序列组合：先把产线概率预测做成可回测基线",
-        "summary": "IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。",
-        "why": "产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。",
-        "boundary": "GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。",
-        "source": "IBM Research / Hugging Face",
-        "source_kind": "官方开放模型、代码、评测与部署限制",
-        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
-        "publishable": true,
-        "features": {
-          "freshness": 0.5,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.687,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-22T11:33:11Z"
       }
     ]
   },
@@ -5699,6 +5751,60 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-chatgpt-api-credits",
+        "name": "ChatGPT API credits benefit",
+        "company": "OpenAI",
+        "group": "enterprise-agent",
+        "tags": [
+          "Developer Platform",
+          "API Credits",
+          "Billing"
+        ],
+        "summary": "把符合条件的 ChatGPT Pro / Business 订阅权益绑定到一个 API organization，降低首轮应用与 Agent API 验证成本。",
+        "product_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "source_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "source_label": "OpenAI 官方 Help Center",
+        "evidence": "OpenAI 2026-10-28 Release Notes 与权益页列出适用 Pro / Business 套餐、完整计费期额度、组织绑定、领取条件、到期以及不覆盖的产品。",
+        "boundary": "资格和额度以账号 claim 页面为准，不是全部付费套餐通用赠额。credits 只进入一个 API organization，与 ChatGPT、Business workspace、signed-in Codex 和 API-key Codex 用量分开；首笔可能按比例折算，未用额度不结转，API 限流仍适用。本站未领取或运行。",
+        "filter_ids": [
+          "enterprise-agent",
+          "knowledge-work"
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-28",
+            "kind": "Subscription benefit",
+            "title": "符合条件的 Pro / Business 开放 API credits 领取",
+            "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+            "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
+            "facts": [
+              {
+                "label": "Pro 完整月度额度",
+                "value": "$100 / $200 / $500（按套餐）"
+              },
+              {
+                "label": "Business",
+                "value": "$20 Standard / $100 Premium seat · 月度上限 $500"
+              },
+              {
+                "label": "绑定",
+                "value": "1 subscription / workspace → 1 API organization"
+              },
+              {
+                "label": "到期",
+                "value": "计费周期末 · 不结转"
+              }
+            ],
+            "interpretation": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
+            "scope": "OpenAI 2026-10-28 官方 Release Notes 与 API credits benefit 页面列出的 eligible Pro / Business 范围。",
+            "limitations": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
+            "published_at": "2026-10-28",
+            "verified_at": "2026-10-29T17:20:57+08:00",
+            "evidence_level": "primary_source"
+          }
+        ]
+      },
       {
         "id": "github-connected-copilot-cloud",
         "name": "Connected Copilot cloud",
@@ -9603,12 +9709,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-29T08:59:36Z",
+    "last_evaluated": "2026-10-29T09:28:17Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 107,
+      "candidate_count": 109,
       "publish_ready_count": 2,
-      "merge_count": 100,
+      "merge_count": 102,
       "best_candidate": "candidate-6b8e7800e9f3ce05",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
@@ -10746,15 +10852,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-29T07:17:42Z",
+    "checked_at": "2026-10-29T09:19:44Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-29T07:17:42Z",
-    "web_fetched_at": "2026-10-29T07:17:42Z",
+    "api_fetched_at": "2026-10-29T09:19:44Z",
+    "web_fetched_at": "2026-10-29T09:19:44Z",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -10768,14 +10874,14 @@
       "Lightricks/LTX-2.5",
       "black-forest-labs/flux-3-image-klein-comfy",
       "baidu/Unlimited-OCR-2",
-      "Qwen/Qwen3.8-27B",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "Qwen/Qwen3.8-27B",
+      "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "HuggingFaceBio/Carbon-X",
-      "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "ccore/Qwen3.5-4B-3D-Coder",
-      "OpenMOSS-Team/MOSS-Image-SFT",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "OpenMOSS-Team/MOSS-Image-SFT",
       "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"
     ],
     "web_rank_changes": [
@@ -10784,156 +10890,150 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "rank": 5,
-        "previous_rank": 8,
-        "rank_change": 3,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_rank": 5,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "MiniMaxAI/MiniMax-M3.1-Flash",
         "rank": 7,
-        "previous_rank": 5,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_rank": 7,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 8,
-        "previous_rank": 9,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_rank": 8,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 9,
-        "previous_rank": 7,
-        "rank_change": -2,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_rank": 9,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
-      },
-      {
-        "id": "Qwen/Qwen3.8-27B",
-        "rank": 12,
-        "previous_rank": 13,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 12,
+        "previous_rank": 13,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
+      },
+      {
+        "id": "Qwen/Qwen3.8-27B",
         "rank": 13,
         "previous_rank": 12,
         "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
-      },
-      {
-        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "rank": 14,
-        "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
-      },
-      {
-        "id": "HuggingFaceBio/Carbon-X",
-        "rank": 15,
-        "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "rank": 14,
+        "previous_rank": 16,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
+      },
+      {
+        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "rank": 15,
+        "previous_rank": 14,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
+      },
+      {
+        "id": "HuggingFaceBio/Carbon-X",
         "rank": 16,
-        "previous_rank": 17,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_rank": 15,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 17,
-        "previous_rank": 16,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
-      },
-      {
-        "id": "OpenMOSS-Team/MOSS-Image-SFT",
-        "rank": 18,
-        "previous_rank": 18,
+        "previous_rank": 17,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "rank": 19,
+        "rank": 18,
         "previous_rank": 19,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
+      },
+      {
+        "id": "OpenMOSS-Team/MOSS-Image-SFT",
+        "rank": 19,
+        "previous_rank": 18,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       },
       {
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
-      }
-    ],
-    "web_outgoing": [
-      {
-        "id": "unsloth/flint-GGUF",
         "previous_rank": 20,
-        "previous_fetched_at": "2026-10-29T05:16:18Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-29T07:17:42Z"
       }
     ],
+    "web_outgoing": [],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 887,
-        "likes": 3640,
+        "trending_score": 894,
+        "likes": 3662,
         "downloads": 116770,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -10949,8 +11049,8 @@
         "rank": 2,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 732,
-        "likes": 742,
+        "trending_score": 736,
+        "likes": 746,
         "downloads": 7412,
         "task": "text-generation",
         "library": "transformers",
@@ -10966,8 +11066,8 @@
         "rank": 3,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 672,
-        "likes": 1210,
+        "trending_score": 654,
+        "likes": 1217,
         "downloads": 14047,
         "task": "text-generation",
         "library": "transformers",
@@ -10983,8 +11083,8 @@
         "rank": 4,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 490,
-        "likes": 878,
+        "trending_score": 484,
+        "likes": 881,
         "downloads": 8222,
         "task": "text-generation",
         "library": "transformers",
@@ -11000,8 +11100,8 @@
         "rank": 5,
         "id": "tencent/Hy-SimulMT-30B-A3B-FP8",
         "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-FP8",
-        "trending_score": 421,
-        "likes": 428,
+        "trending_score": 439,
+        "likes": 446,
         "downloads": 165,
         "task": "translation",
         "library": "transformers",
@@ -11017,8 +11117,8 @@
         "rank": 6,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 419,
-        "likes": 423,
+        "trending_score": 423,
+        "likes": 427,
         "downloads": 8892,
         "task": "text-generation",
         "library": "transformers",
@@ -11051,8 +11151,8 @@
         "rank": 8,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 404,
-        "likes": 455,
+        "trending_score": 409,
+        "likes": 460,
         "downloads": 1377570,
         "task": "text-generation",
         "library": "gguf",
@@ -11069,7 +11169,7 @@
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
         "trending_score": 400,
-        "likes": 9758,
+        "likes": 9766,
         "downloads": 2234788,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -11085,8 +11185,8 @@
         "rank": 10,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 384,
-        "likes": 1981,
+        "trending_score": 379,
+        "likes": 1985,
         "downloads": 798943,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -11102,8 +11202,8 @@
         "rank": 11,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 334,
-        "likes": 350,
+        "trending_score": 336,
+        "likes": 352,
         "downloads": 8357,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11117,27 +11217,10 @@
       },
       {
         "rank": 12,
-        "id": "Qwen/Qwen3.8-27B",
-        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 318,
-        "likes": 18644,
-        "downloads": 7515620,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-08-05T08:22:59.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "qwen3_5",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 316,
-        "likes": 5278,
+        "trending_score": 319,
+        "likes": 5286,
         "downloads": 2182980,
         "task": "text-to-image",
         "library": "gguf",
@@ -11150,45 +11233,28 @@
         ]
       },
       {
-        "rank": 14,
-        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 267,
-        "likes": 319,
-        "downloads": 27056,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-10-22T04:06:52.000Z",
-        "tags": [
-          "gguf",
-          "llama.cpp",
-          "local",
-          "deepseek"
-        ]
-      },
-      {
-        "rank": 15,
-        "id": "HuggingFaceBio/Carbon-X",
-        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
-        "trending_score": 249,
-        "likes": 261,
-        "downloads": 2305,
-        "task": "text-generation",
+        "rank": 13,
+        "id": "Qwen/Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "trending_score": 317,
+        "likes": 18650,
+        "downloads": 7515620,
+        "task": "image-text-to-text",
         "library": "transformers",
-        "created_at": "2026-10-21T10:21:04.000Z",
+        "created_at": "2026-08-05T08:22:59.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "qwen3",
-          "text-generation"
+          "qwen3_5",
+          "image-text-to-text"
         ]
       },
       {
-        "rank": 16,
+        "rank": 14,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 246,
-        "likes": 251,
+        "trending_score": 275,
+        "likes": 281,
         "downloads": 338,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -11201,11 +11267,45 @@
         ]
       },
       {
+        "rank": 15,
+        "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+        "trending_score": 268,
+        "likes": 323,
+        "downloads": 27056,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-10-22T04:06:52.000Z",
+        "tags": [
+          "gguf",
+          "llama.cpp",
+          "local",
+          "deepseek"
+        ]
+      },
+      {
+        "rank": 16,
+        "id": "HuggingFaceBio/Carbon-X",
+        "url": "https://huggingface.co/HuggingFaceBio/Carbon-X",
+        "trending_score": 250,
+        "likes": 262,
+        "downloads": 2305,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-21T10:21:04.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "qwen3",
+          "text-generation"
+        ]
+      },
+      {
         "rank": 17,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 241,
-        "likes": 249,
+        "trending_score": 243,
+        "likes": 252,
         "downloads": 6944,
         "task": "未标注",
         "library": "未标注",
@@ -11219,9 +11319,26 @@
       },
       {
         "rank": 18,
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+        "trending_score": 223,
+        "likes": 235,
+        "downloads": 51721,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-05T04:26:43.000Z",
+        "tags": [
+          "transformers",
+          "gguf",
+          "nvidia",
+          "pytorch"
+        ]
+      },
+      {
+        "rank": 19,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 225,
+        "trending_score": 223,
         "likes": 819,
         "downloads": 14282,
         "task": "text-to-image",
@@ -11235,27 +11352,10 @@
         ]
       },
       {
-        "rank": 19,
-        "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "trending_score": 223,
-        "likes": 234,
-        "downloads": 51721,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-05T04:26:43.000Z",
-        "tags": [
-          "transformers",
-          "gguf",
-          "nvidia",
-          "pytorch"
-        ]
-      },
-      {
         "rank": 20,
         "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
         "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-        "trending_score": 198,
+        "trending_score": 197,
         "likes": 2212,
         "downloads": 1725108,
         "task": "image-text-to-text",
@@ -11271,7 +11371,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-29T07:17:42Z",
+      "last_checked_at": "2026-10-29T09:19:44Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -21788,6 +21888,36 @@
     "snapshot": "2026-10-29",
     "items": [
       {
+        "id": "openai-chatgpt-api-credits",
+        "name": "OpenAI · ChatGPT API credits",
+        "title": "先核对套餐、额度与组织绑定，再启用 API credits",
+        "category": "开发者工具 / 账单",
+        "mark": "AC",
+        "accent": "blue",
+        "summary": "符合条件的 ChatGPT Pro 与 Business 订阅可把促销 API credits 绑定到一个 API organization，用于构建应用与 Agent。",
+        "scope": "OpenAI 2026-10-28 Release Notes 与权益页列出 Pro 100 / 200 / 500，以及符合条件的 Business Standard / Premium 席位；订阅需已生效至少 7 天，实际资格和额度以 Billing claim 页面为准。",
+        "boundary": "这不是 Plus、Enterprise、Edu 或全部付费用户的通用权益。credits 与 ChatGPT、Business workspace 和 signed-in Codex 用量分开，不覆盖通过 API key 使用 Codex；一个订阅或 workspace 只能绑定一个 API organization，未用额度到期不结转，API 限流仍然适用。本站未绑定组织、领取或消耗额度。",
+        "repo": null,
+        "sources": [
+          "openai-chatgpt-api-credits-20261028"
+        ],
+        "requirements": "符合条件且已生效至少 7 天的 Pro 或 Business 订阅；同一邮箱下的 API 账户；订阅 / workspace owner 与目标 API organization owner 权限。",
+        "test": "在 ChatGPT 或 API Platform Billing 查看实际资格、目标组织、按当前计费周期折算后的额度和到期日；确认组织后再领取，并用一个低成本测试请求核对 Credit grants 与 Usage，而不是从订阅价格推算余额。",
+        "checks": [
+          "领取前确认套餐、订阅生效天数、所有者角色与同一邮箱",
+          "逐字核对将被绑定的 API organization；不要把 ChatGPT seat 当作 API 项目权限",
+          "记录 claim 页面显示的实际额度、按比例折算和到期日",
+          "用 Credit grants 与 Usage 分别核对赠额和消耗，不把它写成 Codex 或 ChatGPT 额度"
+        ],
+        "command": "无需命令行；在 ChatGPT Settings → Billing 或 API Platform Billing 查看 API credits benefit，确认目标组织和实际额度后再领取。",
+        "effort": "限符合条件的 Pro / Business；额度、折算、国家与 cohort 以账号 Billing 为准",
+        "evidence": "OpenAI 官方 Release Notes 与 API credits 权益说明",
+        "status": "code",
+        "tested": false,
+        "reviewed": "2026-10-29",
+        "verified_at": "2026-10-29T17:20:57+08:00"
+      },
+      {
         "id": "github-agentic-workflows",
         "name": "GitHub · Agentic Workflows",
         "title": "先编译并审查只读工作流，再允许 Agent 修改仓库",
@@ -23085,6 +23215,16 @@
     ],
     "sources": [
       {
+        "id": "openai-chatgpt-api-credits-20261028",
+        "publisher": "OpenAI",
+        "title": "API credits benefit for eligible ChatGPT subscriptions",
+        "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "published": "2026-10-28",
+        "checked": "2026-10-29",
+        "verified_at": "2026-10-29T17:20:57+08:00",
+        "kind": "官方权益、资格、额度、组织绑定、到期与不适用范围"
+      },
+      {
         "id": "github-agentic-workflows-ga-20261028",
         "publisher": "GitHub",
         "title": "GitHub Agentic Workflows generally available",
@@ -23861,6 +24001,20 @@
       }
     ],
     "events": [
+      {
+        "id": "openai-chatgpt-api-credits-release",
+        "task": "openai-chatgpt-api-credits",
+        "date": "2026-10-28",
+        "kind": "release",
+        "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+        "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
+        "delta": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
+        "sources": [
+          "openai-chatgpt-api-credits-20261028"
+        ],
+        "reviewed": "2026-10-29",
+        "short_title": "ChatGPT 订阅连接 API credits"
+      },
       {
         "id": "github-agentic-workflows-ga-20261028",
         "task": "github-agentic-workflows",
@@ -28900,6 +29054,51 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-chatgpt-api-credits",
+        "publisher": "OpenAI",
+        "group": "agents",
+        "access": "web",
+        "headline": "先核对资格、目标组织与到期日，再领取 API credits",
+        "input": "符合条件的 Pro / Business 订阅 + 同邮箱 API 账户 + 目标 API organization",
+        "output": "claim 页面实际额度、目标组织、到期日，以及一次低成本 API 请求的 Credit grants / Usage 对账",
+        "requirements": "订阅需已生效至少 7 天；Pro 领取者须同时是订阅 owner 与目标 API organization owner，Business 领取者须同时是 workspace owner 与目标 organization owner。实际 offer 还取决于 enabled cohort 与国家。",
+        "limitation": "本站只核验官方文档，未领取或运行。Plus、试用、Enterprise、Edu 与 legacy Codex seat 不在已确认资格内；赠额不增加 ChatGPT、Business workspace 或 signed-in Codex 用量，也不覆盖通过 API key 使用 Codex。一个订阅 / workspace 只能绑定一个 API organization，未用额度不结转，限流仍适用。",
+        "cost": "官方列出的完整月度额度为 Pro 100 / 200 / 500 对应 $100 / $200 / $500；Business Standard 每付费席位 $20、Premium 每席位 $100，月度 workspace 上限 $500。首笔按剩余计费期折算，实际金额和到期日只以 claim 页面为准。",
+        "steps": [
+          {
+            "title": "先确认资格与所有者角色",
+            "body": "在 ChatGPT Billing 选择正确的 Pro 账户或 Business workspace，确认订阅生效至少 7 天；再到 API Platform 确认同邮箱和目标 organization 的 owner 身份。"
+          },
+          {
+            "title": "领取前核对组织、额度与到期日",
+            "body": "逐字核对接收额度的 API organization、claim 页面显示的折算后金额和到期日。若目标组织不对或角色不足就停止，不要为测试新建多余组织或扩大权限。"
+          },
+          {
+            "title": "用最小请求分开核对赠额与用量",
+            "body": "领取后在 Credit grants 确认赠额，在 Usage 查看一次低成本测试请求；把 API 余额、API 限流、ChatGPT 用量和 Codex 用量分开记录。"
+          }
+        ],
+        "troubleshooting": "看不到权益时先核对套餐、订阅生效天数、国家 / cohort、当前 workspace、同一邮箱与 owner 角色；不要通过切换账号或新建组织规避资格。组织绑定错误或余额不符时停止使用并联系官方支持。",
+        "sources": [
+          {
+            "title": "OpenAI API credits 权益说明",
+            "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+            "published_at": "2026-10-28",
+            "verified_at": "2026-10-29"
+          },
+          {
+            "title": "ChatGPT Release Notes · API credits",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+            "published_at": "2026-10-28",
+            "verified_at": "2026-10-29"
+          }
+        ],
+        "entry_url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+        "evidence_level": "primary-docs",
+        "runtime_tested": false,
+        "verified_at": "2026-10-29T17:20:57+08:00"
+      },
       {
         "id": "github-agentic-workflows",
         "publisher": "GitHub",

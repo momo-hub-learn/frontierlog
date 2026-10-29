@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T08:59:36Z",
+  "generated_at": "2026-10-29T09:28:17Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 2,
-    "merge": 100,
+    "merge": 102,
     "hold": 5
   },
   "candidates": [
@@ -309,6 +309,30 @@
       "first_seen_at": "2026-10-29T05:26:10Z"
     },
     {
+      "id": "candidate-6fe2b96684b4a933",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "符合条件的 Pro / Business 开放 API credits 领取",
+      "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
+      "why": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
+      "boundary": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
+      "source": "OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "openai-chatgpt-api-credits",
+      "first_seen_at": "2026-10-29T09:28:17Z"
+    },
+    {
       "id": "candidate-84134496681778bb",
       "category": "product",
       "published": "2026-10-28",
@@ -403,6 +427,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "docling",
       "first_seen_at": "2026-10-28T15:40:27Z"
+    },
+    {
+      "id": "candidate-ed51204fd849fc09",
+      "category": "product",
+      "published": "2026-10-28",
+      "title": "部分 ChatGPT Pro / Business 可领取 API credits",
+      "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
+      "why": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
+      "boundary": "这不是 Plus、Enterprise、Edu 或全部付费用户的通用权益。credits 与 ChatGPT、Business workspace 和 signed-in Codex 用量分开，不覆盖通过 API key 使用 Codex；一个订阅或 workspace 只能绑定一个 API organization，未用额度到期不结转，API 限流仍然适用。本站未绑定组织、领取或消耗额度。",
+      "source": "OpenAI",
+      "source_kind": "官方权益、资格、额度、组织绑定、到期与不适用范围",
+      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "openai-chatgpt-api-credits",
+      "first_seen_at": "2026-10-29T09:28:17Z"
     },
     {
       "id": "candidate-faa6f196ae372b3c",
@@ -963,52 +1011,6 @@
         "Evaluation"
       ],
       "first_seen_at": "2026-10-28T07:42:05Z"
-    },
-    {
-      "id": "candidate-5b6012e7e08daff6",
-      "category": "industry",
-      "published": "2026-10-22",
-      "title": "Anthropic 生命科学客座研究：先把 8–12 周目标写成可公开验证的产物",
-      "summary": "Anthropic 邀请高校、非营利组织和政府实验室提交生命科学提案，提供研究人员协作及免费模型/Harness 运行，并计划公开分析、工具、数据和代码。",
-      "why": "这为靶点、分子与临床研究团队提供一个短周期验证窗口；真正的价值不是“使用最强模型”，而是能否在锁定数据权利和验证路径后产出可复核公共证据。",
-      "boundary": "这是申请和合作计划，不是研究结果或临床证据。官方要求申请材料仅含公开信息；8–12 周更适合初步证据、数据集或工具，结论仍需独立实验、合规审查和同行评议。",
-      "source": "Anthropic",
-      "source_kind": "官方生命科学合作招募、数据权利与公开成果边界",
-      "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-22T23:36:20Z"
-    },
-    {
-      "id": "candidate-657add4de8695366",
-      "category": "industry",
-      "published": "2026-10-22",
-      "title": "Granite 时间序列组合：先把产线概率预测做成可回测基线",
-      "summary": "IBM Research 开放四模型时间序列组合配方：用等权概率池或 IQR 权重输出中位数和多个分位数，不需先在工厂数据上拟合组合权重。",
-      "why": "产能、能耗、设备负载和备件需求都不只需要一个点预测；统一的开放配方让团队可以同时比较误差、区间覆盖和资源成本，再决定是否替换既有模型。",
-      "boundary": "GIFT-Eval 的 97 配置聚合结果不是制造现场验证，且组合对最佳单成员的点预测优势很小。当前实现逐通道预测、不利用传感器间关系；四模型增加时延和内存，也不保证漂移下区间校准。",
-      "source": "IBM Research / Hugging Face",
-      "source_kind": "官方开放模型、代码、评测与部署限制",
-      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
-      "publishable": true,
-      "features": {
-        "freshness": 0.5,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.687,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-22T11:33:11Z"
     }
   ]
 }
