@@ -171,6 +171,8 @@ class ValidationTests(unittest.TestCase):
   source=next(x for x in M['sources'] if x['id']==board['source'])
   self.assertEqual(source['published'],board['as_of'])
   self.assertEqual(source['checked'],board['checked'])
+  self.assertGreater(board['source_model_count'],len(board['rows']))
+  self.assertGreater(board['source_vote_count'],sum(x['votes'] for x in board['rows']))
   ranks=[x['source_rank'] for x in board['rows']]
   self.assertEqual(ranks,sorted(ranks))
   for row in board['rows']:

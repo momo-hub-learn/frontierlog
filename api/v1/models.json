@@ -107,10 +107,10 @@
       "publisher": "Arena",
       "title": "Text Arena · Overall",
       "url": "https://arena.ai/leaderboard/chat/text",
-      "checked": "2026-10-28",
-      "published": "2026-10-22",
+      "checked": "2026-10-29",
+      "published": "2026-10-27",
       "kind": "评测方公开榜单",
-      "note": "2026-10-28 复核时，页面仍标示 2026-10-22，共 8,946,356 票、418 个模型；站内 8 条摘录的来源名次、误差范围与票数未变。Gemini 4 Argon (High) 当前不再标 Preliminary；8 条摘录不是完整榜单。"
+      "note": "2026-10-29 复核时，页面标示 2026-10-27，共 9,003,272 票、419 个模型。站内摘录官方当前前 8 名；Gemini 4 Carbon (High) 位列第一且标为 Preliminary。本站摘录不是完整榜单。"
     },
     {
       "id": "aa-api",
@@ -571,28 +571,46 @@
       "title": "对话偏好",
       "provider": "Arena",
       "metric": "preference",
-      "as_of": "2026-10-22",
-      "checked": "2026-10-28",
-      "source_checked": "2026-10-28",
-      "verified_at": "2026-10-28T03:33:26+08:00",
+      "as_of": "2026-10-27",
+      "checked": "2026-10-29",
+      "source_checked": "2026-10-29",
+      "verified_at": "2026-10-29T19:22:36+08:00",
       "methodology": "Text Arena · Overall",
       "mode": "manual_excerpt",
       "source": "arena-text",
-      "scope": "8 条精选记录，保留来源名次；分数区间重叠不代表有显著差异。",
+      "source_model_count": 419,
+      "source_vote_count": 9003272,
+      "scope": "官方当前前 8 名的人工摘录，保留来源名次；分数区间重叠不代表有显著差异。",
       "rows": [
+        {
+          "id": "arena-gemini-4-carbon-high",
+          "name": "Gemini 4 Carbon (High)",
+          "maker": "Google",
+          "preference": 1528,
+          "score_error": 9,
+          "votes": 4403,
+          "rank_spread": [
+            1,
+            2
+          ],
+          "source_rank": 1,
+          "source_order": 1,
+          "source": "arena-text",
+          "preliminary": true
+        },
         {
           "id": "arena-gemini-4-argon-high",
           "name": "Gemini 4 Argon (High)",
           "maker": "Google",
-          "preference": 1517,
-          "score_error": 7,
-          "votes": 10083,
+          "preference": 1520,
+          "score_error": 6,
+          "votes": 11889,
           "rank_spread": [
             1,
-            3
+            4
           ],
-          "source_rank": 1,
-          "source_order": 1,
+          "source_rank": 2,
+          "source_order": 2,
           "source": "arena-text",
           "preliminary": false
         },
@@ -602,25 +620,9 @@
           "maker": "Anthropic",
           "preference": 1509,
           "score_error": 7,
-          "votes": 10322,
+          "votes": 11415,
           "rank_spread": [
-            1,
-            7
-          ],
-          "source_rank": 2,
-          "source_order": 2,
-          "source": "arena-text",
-          "preliminary": false
-        },
-        {
-          "id": "arena-muse-wonder-max",
-          "name": "Muse Wonder (Max)",
-          "maker": "Meta",
-          "preference": 1509,
-          "score_error": 8,
-          "votes": 6001,
-          "rank_spread": [
-            1,
+            2,
             8
           ],
           "source_rank": 3,
@@ -629,12 +631,12 @@
           "preliminary": false
         },
         {
-          "id": "arena-1",
-          "name": "Claude Fable 5 (High)",
-          "maker": "Anthropic",
-          "preference": 1503,
-          "score_error": 4,
-          "votes": 44253,
+          "id": "arena-muse-wonder-max",
+          "name": "Muse Wonder (Max)",
+          "maker": "Meta",
+          "preference": 1507,
+          "score_error": 7,
+          "votes": 7749,
           "rank_spread": [
             2,
             10
@@ -648,12 +650,12 @@
           "id": "arena-5",
           "name": "Claude Fable 5.1 (Max)",
           "maker": "Anthropic",
-          "preference": 1503,
+          "preference": 1504,
           "score_error": 6,
-          "votes": 16343,
+          "votes": 17178,
           "rank_spread": [
-            2,
-            12
+            3,
+            11
           ],
           "source_rank": 5,
           "source_order": 5,
@@ -661,50 +663,50 @@
           "preliminary": false
         },
         {
-          "id": "arena-17",
-          "name": "Kimi K3 (Max)",
-          "maker": "Moonshot",
-          "preference": 1487,
+          "id": "arena-1",
+          "name": "Claude Fable 5 (High)",
+          "maker": "Anthropic",
+          "preference": 1504,
           "score_error": 4,
-          "votes": 35379,
+          "votes": 45341,
           "rank_spread": [
-            9,
-            30
+            3,
+            10
           ],
-          "source_rank": 18,
-          "source_order": 18,
+          "source_rank": 6,
+          "source_order": 6,
           "source": "arena-text",
           "preliminary": false
         },
         {
-          "id": "arena-18",
-          "name": "GPT-5.6 Sol (xHigh)",
-          "maker": "OpenAI",
-          "preference": 1485,
-          "score_error": 4,
-          "votes": 42713,
+          "id": "arena-claude-opus-4-6-high",
+          "name": "Claude Opus 4.6 (High)",
+          "maker": "Anthropic",
+          "preference": 1503,
+          "score_error": 3,
+          "votes": 84512,
           "rank_spread": [
-            12,
-            33
+            3,
+            10
           ],
-          "source_rank": 21,
-          "source_order": 21,
+          "source_rank": 7,
+          "source_order": 7,
           "source": "arena-text",
           "preliminary": false
         },
         {
-          "id": "arena-19",
-          "name": "GLM-5.3 (Max)",
-          "maker": "Z.ai",
-          "preference": 1481,
-          "score_error": 5,
-          "votes": 25144,
+          "id": "arena-claude-opus-4-7-high",
+          "name": "Claude Opus 4.7 (High)",
+          "maker": "Anthropic",
+          "preference": 1501,
+          "score_error": 4,
+          "votes": 65110,
           "rank_spread": [
-            14,
-            44
+            3,
+            13
           ],
-          "source_rank": 26,
-          "source_order": 26,
+          "source_rank": 8,
+          "source_order": 8,
           "source": "arena-text",
           "preliminary": false
         }

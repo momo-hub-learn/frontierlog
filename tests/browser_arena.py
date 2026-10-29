@@ -57,7 +57,9 @@ try:
         expect(page.locator('.ar-provenance')).to_contain_text(f"人工摘录 {len(ARENA_ROWS)} 条 · 非完整榜")
         assert page.locator('.ar-provenance time').evaluate_all('(els)=>els.map(e=>e.dateTime)')==[ARENA['as_of'],ARENA['checked']]
         expected_preliminary=sum(bool(row.get('preliminary')) for row in ARENA_ROWS)
-        expect(page.locator('.ar-preliminary')).to_have_count(expected_preliminary)
+        # Desktop table and mobile cards coexist in the DOM; assert the active
+        # responsive view instead of freezing a zero-preliminary news snapshot.
+        expect(page.locator('.ar-preliminary:visible')).to_have_count(expected_preliminary)
         assert set(page.locator('.ar-preliminary').all_text_contents())<= {'初步结果'}
         assert not page.locator('.v2-current-first').count()
         assert '速度、成本' not in page.locator('.ar-wrap').inner_text()

@@ -38,6 +38,7 @@ check('search and saved-only filtering share the real model state',()=>{
 });
 check('provenance has separate original/verified dates and honest coverage',()=>{
  const html=render('');assert(html.includes('最近核验 <time datetime="'+arena.checked+'"'));assert(html.includes('来源日期 <time datetime="'+arena.as_of+'"'));
+ assert(html.includes('官方完整榜 <b>'+arena.source_model_count.toLocaleString('en-US')+' 个模型</b> · <b>'+arena.source_vote_count.toLocaleString('en-US')+' 票</b>'));
  assert(html.includes('人工摘录 '+arena.rows.length+' 条 · 非完整榜'));assert(!html.includes('实时全量'));
 });
 check('missing uncertainty and dates are not manufactured',()=>{
