@@ -116,6 +116,10 @@ function hResourceMeta(url){
  if(host.includes('huggingface.co'))return {source:'Hugging Face',title:'模型 / 数据资源'};
  return {source:host||'补充资料',title:'补充资料 / 延伸阅读'}
 }
+function hUrlKey(raw){
+ try{const u=new URL(raw);u.hash='';for(const k of [...u.searchParams.keys()])if(/^utm_/i.test(k))u.searchParams.delete(k);u.pathname=u.pathname.replace(/\/+$/,'')||'/';return u.toString().replace(/\/$/,'')}
+ catch{return String(raw||'').replace(/\/$/,'')}
+}
 function hAccessRows(x){
  const rows=Array.isArray(x.access)?x.access.map(r=>({...r})):[];
  const seen=new Set(rows.map(r=>r.url));
@@ -125,10 +129,10 @@ function hAccessRows(x){
  return rows.slice(0,5)
 }
 function hRelatedRows(x){
- const rows=Array.isArray(x.related)?x.related.map(r=>({...r})):[];
- const seen=new Set(rows.map(r=>r.url));
- if(x.secondary_url&&!seen.has(x.secondary_url)){const m=hResourceMeta(x.secondary_url);rows.push({source:m.source,title:m.title,url:x.secondary_url})}
- if(!rows.length)rows.push({source:x.source||'原始来源',date:x.published,title:'原始发布 / 官方材料',url:x.url});
+ const primary=hUrlKey(x.url),seen=new Set([primary]);
+ const rows=[];
+ for(const r of (Array.isArray(x.related)?x.related:[])){const key=hUrlKey(r.url);if(!key||seen.has(key))continue;seen.add(key);rows.push({...r})}
+ if(x.secondary_url){const key=hUrlKey(x.secondary_url);if(key&&!seen.has(key)){const m=hResourceMeta(x.secondary_url);seen.add(key);rows.push({source:m.source,title:m.title,url:x.secondary_url})}}
  return rows.slice(0,5)
 }
 function hAccessCards(x){
@@ -153,6 +157,7 @@ function hPrimaryCta(r){
 }
 function hRelatedCards(x){
  const rows=hRelatedRows(x);
+ if(!rows.length)return '';
  return '<section class="h-detail-panel"><div class="h-detail-panel-head"><span>相关报道 / 资料</span><small>'+rows.length+' 条</small></div><div class="h-news-list">'+rows.map(r=>'<a class="h-news-item" href="'+safeLink(r.url)+'" target="_blank" rel="noopener noreferrer"><span class="h-news-meta"><b>'+esc(r.source)+'</b>'+(r.date?'<time>'+esc(r.date)+'</time>':'')+'</span><strong>'+esc(r.title)+'</strong><span class="h-news-arrow">'+icon('external')+'</span></a>').join('')+'</div></section>'
 }
 function hMoment(raw){
@@ -161,7 +166,8 @@ function hMoment(raw){
 }
 function hTimelineRows(x){
  const rows=[];
- const add=(date,kind,title,url='')=>{if(date)rows.push({date,kind,title,url})};
+ const evidence=new Set();
+ const add=(date,kind,title,url='')=>{if(!date)return;const key=url?date+'|'+hUrlKey(url):'';if(key&&evidence.has(key))return;if(key)evidence.add(key);rows.push({date,kind,title,url})};
  add(x.published,'发布',x.source+' 发布 / 公布',x.url);
  for(const r of (Array.isArray(x.related)?x.related:[]))if(r.date)add(r.date,'跟进',r.source+'：'+r.title,r.url);
  for(const r of (Array.isArray(x.timeline)?x.timeline:[]))add(r.date||r.at,r.kind||'进展',r.title||r.note||'进展',r.url||'');

@@ -12,14 +12,15 @@ function extract(start,end){
  assert(a>=0&&b>a,{start,end});
  return source.slice(a,b);
 }
-const part=extract('function hAccessRows(x){','function hPrimaryCta(r){');
+const part=extract('function hResourceMeta(url){','function hDetail(id){');
 const ctx={
+ URL,
  esc:s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),
  safeLink:s=>String(s),
  icon:()=>'<svg></svg>'
 };
 vm.createContext(ctx);
-vm.runInContext(part+'\nthis.renderAccess=hAccessCards;',ctx);
+vm.runInContext(part+'\nthis.renderAccess=hAccessCards;this.relatedRows=hRelatedRows;this.renderRelated=hRelatedCards;this.timelineRows=hTimelineRows;',ctx);
 
 const transcribe=hot.items.find(x=>x.id==='nvidia-nemotron-3-5-transcribe-20261028');
 assert(transcribe);
@@ -34,4 +35,14 @@ assert.match(docsOnly,/当前没有独立可体验入口/);
 const runnable=ctx.renderAccess({source:'Official',source_kind:'官方入口',url:'https://example.com',access:[{label:'立即试用',note:'公开入口',url:'https://example.com/try',kind:'try'}]});
 assert.doesNotMatch(runnable,/h-access-status/);
 
-console.log('3 hot access-state contracts passed');
+const duplicate={source:'Official',source_kind:'官方资料',url:'https://example.com/release/',published:'2026-10-29',checked:'2026-10-30',first_seen_at:'2026-10-30T01:00:00+08:00',related:[
+ {source:'Official',title:'Same release',url:'https://example.com/release/?utm_source=feed',date:'2026-10-29'},
+ {source:'Independent',title:'Distinct analysis',url:'https://example.net/analysis',date:'2026-10-29'}
+]};
+assert.deepEqual(Array.from(ctx.relatedRows(duplicate),x=>x.url),['https://example.net/analysis']);
+assert.equal(ctx.timelineRows(duplicate).filter(x=>x.url.includes('example.com/release')).length,1);
+assert.match(ctx.renderRelated(duplicate),/Distinct analysis/);
+const primaryOnly={...duplicate,related:[]};
+assert.equal(ctx.renderRelated(primaryOnly),'');
+
+console.log('7 hot access and evidence-deduplication contracts passed');
