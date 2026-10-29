@@ -305,6 +305,12 @@
             "kind": "internal"
           },
           {
+            "label": "阅读站内深度拆解",
+            "note": "把资格、绑定、grant、Usage、账单与限流拆成六个独立状态",
+            "url": "#/deep?id=openai-api-credits-ledger",
+            "kind": "internal"
+          },
+          {
             "label": "阅读 OpenAI 官方权益说明",
             "note": "核对适用套餐、完整额度、组织绑定、到期和不覆盖范围",
             "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
@@ -4719,7 +4725,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-29T09:28:17Z",
+    "generated_at": "2026-10-29T09:35:12Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -9709,7 +9715,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-29T09:28:17Z",
+    "last_evaluated": "2026-10-29T09:35:12Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 109,
@@ -11378,9 +11384,480 @@
   },
   "deep_dives": {
     "version": 1,
-    "checked": "2026-10-26",
+    "checked": "2026-10-29",
     "series": "拆一下",
     "articles": [
+      {
+        "id": "openai-api-credits-ledger",
+        "hot_ids": [
+          "openai-chatgpt-api-credits-20261028"
+        ],
+        "title": "拆一下 ChatGPT API credits：订阅权益怎样进入组织账本",
+        "short_title": "API credits：从订阅到组织账本",
+        "subtitle": "把资格、所有者、组织绑定、赠额账本、Usage 与限流拆成六个独立状态，避免把订阅价格误写成可用余额。",
+        "dek": "这项权益真正改变的不是 API 计费规则，而是给部分 ChatGPT Pro / Business 增加一条受条件约束的促销额度入口；领取、到账、消耗和请求成功仍是不同结果。",
+        "published": "2026-10-29",
+        "updated": "2026-10-29",
+        "read_minutes": 9,
+        "tags": [
+          "API credits",
+          "组织账单",
+          "ChatGPT",
+          "Codex"
+        ],
+        "thesis": "ChatGPT 订阅只能提供领取资格，真正可用的 API 余额由目标 organization、grant 到期、项目权限与请求限流共同决定；任何一层都不能用另一层的成功状态代替。",
+        "mini_flow": [
+          {
+            "label": "资格",
+            "detail": "套餐 / 7 天 / cohort"
+          },
+          {
+            "label": "绑定",
+            "detail": "owner / API organization"
+          },
+          {
+            "label": "使用",
+            "detail": "grant / Usage / limits"
+          }
+        ],
+        "layout": "standard",
+        "background_refs": [
+          "benefit",
+          "release-notes"
+        ],
+        "opening": [
+          "OpenAI 在 10 月 28 日把 API credits 列为部分 ChatGPT Pro 与 Business 订阅的权益。符合条件的订阅可以把促销额度绑定到一个 API organization，用于该组织下符合范围的 API Platform 用量。",
+          "这不是把 ChatGPT 余额搬进 API，也不是所有付费套餐自动到账。官方把资格、领取、组织绑定、credit grant、Usage、到期和限流分别说明，意味着产品上必须把这些状态拆开核对。",
+          "本文只依据 OpenAI Release Notes 与官方权益说明整理。本站没有访问任何账号、组织或账单，没有领取额度，也没有发出 API 请求；具体 offer、折算金额和到期日只能以账号内 claim 页面为准。"
+        ],
+        "sections": [
+          {
+            "key": "entitlement",
+            "eyebrow": "01",
+            "kicker": "先看资格",
+            "title": "订阅名称不是余额证明，claim 页面才是当前状态",
+            "analysis": false,
+            "blocks": [
+              {
+                "type": "table",
+                "title": "官方列出的完整计费期额度与边界",
+                "headers": [
+                  "范围",
+                  "完整计费期额度",
+                  "不能直接推出"
+                ],
+                "rows": [
+                  [
+                    "Pro 100 / 200 / 500",
+                    "$100 / $200 / $500",
+                    "当前可领金额等于完整月度额度"
+                  ],
+                  [
+                    "Business Standard",
+                    "$20 / 付费席位",
+                    "每位成员都获得独立 API 余额"
+                  ],
+                  [
+                    "Business Premium",
+                    "$100 / 付费席位",
+                    "席位自动拥有 API 项目权限"
+                  ],
+                  [
+                    "Business workspace",
+                    "月度合计上限 $500；年付上限 $6,000",
+                    "上限等于已经到账或可结转"
+                  ]
+                ]
+              },
+              {
+                "type": "note",
+                "title": "首笔为什么常小于表格数字",
+                "text": "订阅需已生效至少 7 天，首笔 grant 还会按当前付费周期剩余时间折算；是否进入 enabled cohort、所在国家和账号内实际 offer 也会影响可见性。"
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "binding",
+            "eyebrow": "02",
+            "kicker": "组织绑定",
+            "title": "领取动作连接的是一个订阅与一个 API organization",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "architecture",
+                "id": "api-credits-ledger-boundary",
+                "version": "01",
+                "refs": [
+                  "benefit",
+                  "release-notes"
+                ],
+                "diagram": {
+                  "title": "从 ChatGPT 订阅到 API organization 账本",
+                  "intro": "订阅只打开资格门；绑定、grant、项目使用与限流仍分别保留状态。",
+                  "width": 1040,
+                  "height": 360,
+                  "zones": [
+                    {
+                      "x": 16,
+                      "y": 16,
+                      "w": 236,
+                      "h": 324,
+                      "label": "01 · 订阅资格"
+                    },
+                    {
+                      "x": 266,
+                      "y": 16,
+                      "w": 236,
+                      "h": 324,
+                      "label": "02 · 组织绑定"
+                    },
+                    {
+                      "x": 516,
+                      "y": 16,
+                      "w": 508,
+                      "h": 324,
+                      "label": "03 · API 账本与执行"
+                    }
+                  ],
+                  "nodes": [
+                    {
+                      "id": "plan",
+                      "x": 35,
+                      "y": 72,
+                      "w": 198,
+                      "h": 76,
+                      "label": "资格门",
+                      "detail": "套餐 / 7 天 / cohort",
+                      "kind": "boundary"
+                    },
+                    {
+                      "id": "owner",
+                      "x": 35,
+                      "y": 220,
+                      "w": 198,
+                      "h": 76,
+                      "label": "两侧所有者",
+                      "detail": "subscription / workspace + org"
+                    },
+                    {
+                      "id": "link",
+                      "x": 285,
+                      "y": 145,
+                      "w": 198,
+                      "h": 76,
+                      "label": "组织绑定",
+                      "detail": "1 benefit → 1 organization"
+                    },
+                    {
+                      "id": "grant",
+                      "x": 550,
+                      "y": 72,
+                      "w": 205,
+                      "h": 76,
+                      "label": "Credit grant",
+                      "detail": "金额 / 周期 / 到期",
+                      "kind": "verify"
+                    },
+                    {
+                      "id": "usage",
+                      "x": 550,
+                      "y": 220,
+                      "w": 205,
+                      "h": 76,
+                      "label": "Usage 与 Billing",
+                      "detail": "项目成本 / 抵扣 / 余额"
+                    },
+                    {
+                      "id": "limits",
+                      "x": 792,
+                      "y": 145,
+                      "w": 205,
+                      "h": 76,
+                      "label": "请求结果",
+                      "detail": "权限 / 余额 / 限流",
+                      "kind": "verify"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "plan",
+                      "to": "link"
+                    },
+                    {
+                      "from": "owner",
+                      "to": "link"
+                    },
+                    {
+                      "from": "link",
+                      "to": "grant"
+                    },
+                    {
+                      "from": "grant",
+                      "to": "usage"
+                    },
+                    {
+                      "from": "usage",
+                      "to": "limits"
+                    },
+                    {
+                      "from": "grant",
+                      "to": "limits",
+                      "dashed": true
+                    }
+                  ],
+                  "boundary": "依据 OpenAI 官方领取与计费说明整理的逻辑拓扑，并非其内部计费系统图；项目权限、账单结算和限流实现没有公开。"
+                },
+                "annotations": [
+                  {
+                    "title": "领取不等于到账",
+                    "detail": "组织 link 与 grant issuance 是两个结果，必须分别核对。"
+                  },
+                  {
+                    "title": "有余额不等于请求成功",
+                    "detail": "项目权限、模型可用性和速率限制仍可独立拒绝请求。"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "Pro 领取者需要同时拥有订阅和接收 organization；Business 领取者需要同时拥有 workspace 与 organization。管理员或 workspace 成员身份本身不等于 API organization owner，也不会自动获得项目访问权。",
+                "refs": [
+                  "benefit"
+                ]
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "ledgers",
+            "eyebrow": "03",
+            "kicker": "三本账",
+            "title": "Credit grants、Usage 与最终扣款回答的是不同问题",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "cards",
+                "title": "不要用一张页面代替全部账本",
+                "items": [
+                  {
+                    "title": "Credit grants",
+                    "detail": "回答赠额多少、何时到账、何时到期"
+                  },
+                  {
+                    "title": "Usage",
+                    "detail": "回答哪些项目产生了多少 API 成本"
+                  },
+                  {
+                    "title": "Billing",
+                    "detail": "回答赠额抵扣后是否还会使用购买额度或现金"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "官方说明促销 credits 会先于已购买 API credits 消耗。Usage 报告中的成本不必然等于最终现金扣款；额度耗尽且没有购买余额时，请求会以 credit_balance_exhausted 失败。",
+                "refs": [
+                  "benefit"
+                ]
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "product-boundaries",
+            "eyebrow": "04",
+            "kicker": "产品边界",
+            "title": "API credits 不会增加 ChatGPT 或 Codex 的使用额度",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "table",
+                "title": "相邻产品必须分开记录",
+                "headers": [
+                  "对象",
+                  "官方确认",
+                  "常见误读"
+                ],
+                "rows": [
+                  [
+                    "ChatGPT",
+                    "订阅与 API 账单分离",
+                    "API grant 可以恢复 ChatGPT 用量"
+                  ],
+                  [
+                    "signed-in Codex",
+                    "不会增加用量 allowance",
+                    "同一 OpenAI 账号就共用赠额"
+                  ],
+                  [
+                    "Codex via API key",
+                    "该权益不覆盖这类 Codex 用量",
+                    "所有 API key 请求都必然由赠额支付"
+                  ],
+                  [
+                    "Business workspace",
+                    "席位不自动授予 API organization / project 权限",
+                    "workspace owner 可代替 API owner"
+                  ]
+                ]
+              },
+              {
+                "type": "note",
+                "title": "credits 也不会解除限流",
+                "text": "余额只回答能否支付；request-rate、token-rate、模型、organization 与 project 限制仍分别生效。"
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "failure-states",
+            "eyebrow": "05",
+            "kicker": "故障分层",
+            "title": "看不到权益、绑定失败、没到账和请求失败不是同一个问题",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "table",
+                "title": "按阶段保留原始错误",
+                "headers": [
+                  "阶段",
+                  "先核对",
+                  "不要归并成"
+                ],
+                "rows": [
+                  [
+                    "未出现 offer",
+                    "套餐、7 天、workspace、邮箱、国家 / cohort",
+                    "API 服务故障"
+                  ],
+                  [
+                    "无法绑定",
+                    "两侧 owner、计费权限、既有 link",
+                    "账号没有额度"
+                  ],
+                  [
+                    "绑定后无 grant",
+                    "接收 organization、grant 记录、尝试时间",
+                    "领取已成功"
+                  ],
+                  [
+                    "金额或到期不符",
+                    "席位组合、计费周期、剩余时间",
+                    "官方表格错误"
+                  ],
+                  [
+                    "请求失败",
+                    "组织 / project、余额、到期、错误码与限流",
+                    "统一的额度不足"
+                  ]
+                ]
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "verification",
+            "eyebrow": "06",
+            "kicker": "最小验收",
+            "title": "一次低成本请求只能证明链路通了，不能证明预算可控",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "领取前保存目标 organization、claim 金额与到期日；领取后在 Credit grants 核对 grant，再用固定 project 发出一次低成本请求，并在 Usage 中核对记录。随后仍要设置项目权限、预算告警与自动充值边界。",
+                "refs": [
+                  "benefit"
+                ]
+              },
+              {
+                "type": "cards",
+                "title": "最小可复核证据",
+                "items": [
+                  {
+                    "title": "领取证据",
+                    "detail": "目标 organization、实际金额、起止周期"
+                  },
+                  {
+                    "title": "消耗证据",
+                    "detail": "固定 project、请求时间、Usage 记录"
+                  },
+                  {
+                    "title": "失败证据",
+                    "detail": "原始错误码、余额、限流与项目权限"
+                  }
+                ]
+              }
+            ],
+            "source_refs": [
+              "benefit"
+            ]
+          },
+          {
+            "key": "outlook",
+            "eyebrow": "07",
+            "kicker": "前瞻判断",
+            "title": "订阅正在变成开发者获客入口，但组织治理仍决定真实成本",
+            "analysis": true,
+            "blocks": [
+              {
+                "type": "text",
+                "text": "把 API credits 放进 ChatGPT 订阅，降低了个人和团队从聊天产品进入 API Platform 的首次预算门槛。未来更值得观察的是资格是否扩大、组织迁移是否更清晰，以及 grant、Usage、项目预算和模型限流能否形成统一但不混淆的控制面。",
+                "refs": [
+                  "release-notes",
+                  "benefit"
+                ]
+              },
+              {
+                "type": "note",
+                "title": "不能推出什么",
+                "text": "官方公告不能证明所有 Pro / Business 已获得权益，也不能证明赠额足以覆盖生产负载、提升模型性能或解除 API 限流。"
+              },
+              {
+                "type": "transition",
+                "text": "先把资格、绑定、到账、消耗和限流拆开，促销额度才不会变成一条误导性的“免费 API”标题。"
+              }
+            ],
+            "source_refs": [
+              "release-notes",
+              "benefit"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "benefit",
+            "publisher": "OpenAI",
+            "title": "API credits benefit for eligible ChatGPT subscriptions",
+            "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+            "published": "2026-10-28",
+            "checked": "2026-10-29",
+            "kind": "官方资格、额度、组织绑定、账本、到期与故障说明",
+            "note": "用于核验套餐、完整计费期额度、领取步骤、产品边界、到期、Usage 与错误处理；账号实际 offer 仍以 claim 页面为准。"
+          },
+          {
+            "id": "release-notes",
+            "publisher": "OpenAI",
+            "title": "ChatGPT release notes · API credits for eligible plans",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+            "published": "2026-10-28",
+            "checked": "2026-10-29",
+            "kind": "官方产品发布记录",
+            "note": "用于核验 2026-10-28 首次公开发布；详细资格与额度以权益说明为准。"
+          }
+        ],
+        "revision_note": "2026-10-29 首次发布；基于两份 OpenAI 官方材料拆分资格、组织绑定、grant、Usage、账单与限流，未访问账号、领取额度或运行 API。"
+      },
       {
         "id": "frontier-training-containment",
         "hot_ids": [
