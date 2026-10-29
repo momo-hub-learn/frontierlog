@@ -1,15 +1,87 @@
 {
   "version": 1,
-  "generated_at": "2026-10-29T17:28:06Z",
+  "generated_at": "2026-10-29T19:49:37Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 2,
-    "merge": 104,
+    "publish": 5,
+    "merge": 107,
     "hold": 5
   },
   "candidates": [
+    {
+      "id": "candidate-123e3f719aa75935",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "huggingface_hub 2.4 增加 Bucket 文件操作",
+      "summary": "HfFileSystem 支持 Bucket 内及 repo 到 Bucket 的 copy/mv，CLI 扩展加入版本状态与 repair，并包含路径校验等修复。",
+      "why": "Hub 工作流的存储与扩展维护更完整；Bucket 仍不能直接复制回 repo，权限、费用和实验性服务边界不变。",
+      "boundary": "2.4 不支持从 Bucket 复制回 repo；共享缓存不会消除网络、磁盘和依赖故障，Sandboxes 仍为实验能力。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
+      "source": "Hugging Face",
+      "source_kind": "官方 GitHub Release、Bucket 文件操作、CLI 扩展与安全修复",
+      "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.962,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "huggingface-hub-cli-2-3",
+      "first_seen_at": "2026-10-29T19:49:37Z"
+    },
+    {
+      "id": "candidate-72c3a075f7759e24",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "Cloudflare Agents 0.32 重做 Skills 加载接口",
+      "summary": "agents/skills 改用目录加载与工具生成接口，并加入实验性 OpenTelemetry 注册器、错误 span 和依赖更新。",
+      "why": "Skills 可以从 workspace、R2 或代码来源加载，但旧 SkillRegistry、Vite/compile 与 runner 路径需要显式迁移；遥测仍属实验性。",
+      "boundary": "0.32 移除旧 SkillRegistry、Vite/compile 与旧 runner 路径，不能只改版本号；实验性遥测不等于完整生产可观测性。内部主机仍须由显式 fetch 提供，不是任意内网访问或安全边界替代品。本站未部署。",
+      "source": "Cloudflare",
+      "source_kind": "官方 GitHub Release、Skills 破坏性迁移、实验性遥测与依赖变更",
+      "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.962,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "cloudflare-agents-0-31",
+      "first_seen_at": "2026-10-29T19:49:37Z"
+    },
+    {
+      "id": "candidate-9802ac10241c51f2",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "Docling 2.145 增加 RapidOCR 页面方向处理",
+      "summary": "v2.145.0 为 RapidOCR 路径加入页面方向能力，并修复多项解析器、VLM 与文档释放边界。",
+      "why": "旋转扫描件的进入路径更明确；方向判断、表格、跨页与低清样本仍需逐页回归，官方修复清单不是本站实测。",
+      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
+      "source": "Docling project",
+      "source_kind": "官方 GitHub Release、RapidOCR 页面方向与解析/VLM 修复",
+      "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.962,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "docling",
+      "first_seen_at": "2026-10-29T19:49:37Z"
+    },
     {
       "id": "candidate-6b8e7800e9f3ce05",
       "category": "product",
@@ -41,7 +113,7 @@
       "title": "Docling 增加混合格式 ZIP 与离线 ASR 预设",
       "summary": "v2.143.0 支持混合格式 ZIP 输入、从 artifacts-path 离线运行 WhisperS2T 预设，并扩充 ASR 与多格式解析修复。",
       "why": "批量文档和离线音频解析路径更完整；压缩包边界、格式准确率与本地模型依赖仍需在目标环境验收。",
-      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
@@ -86,6 +158,29 @@
         "Agent Adoption"
       ],
       "first_seen_at": "2026-10-28T19:29:22Z"
+    },
+    {
+      "id": "candidate-b8b5e213b414fd72",
+      "category": "industry",
+      "published": "2026-10-29",
+      "title": "新加坡公共卫生 AI 合作：先把研究、临床查询和人口预测分开验收",
+      "summary": "Google 宣布设立新加坡 Research hub，并披露 MedGemma 前线场景、AI co-clinician 评估、人口健康风险预测和公共卫生情报资助等合作。",
+      "why": "这组计划把基础模型、本地研究、临床知识检索、人口健康和数据主权放进同一公共卫生体系；医药团队可据此建立从研究原型到临床工作流和公共治理的分层证据清单。",
+      "boundary": "这是公司官方合作与评估公告，不是获批医疗产品、临床结局改善或全国部署完成证明。AI co-clinician 仍在评估；预测、健康教练和疾病情报需由当地机构独立验证，数据主权、偏差、安全、医生责任与患者结果不能由合作规模推出。",
+      "source": "Google",
+      "source_kind": "公司官方研究中心、公共卫生合作、MedGemma 场景、临床评估与数据主权说明",
+      "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.837,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-10-29T19:49:37Z"
     },
     {
       "id": "candidate-3f395ba221877d3d",
@@ -157,6 +252,64 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-29T05:26:10Z"
+    },
+    {
+      "id": "candidate-a3241ec928c5b936",
+      "category": "research",
+      "published": "2026-10-29",
+      "title": "模型规范从规则清单转向五项公开价值",
+      "summary": "OpenAI 用忠实于人类意图、减少伤害、诚实透明、维护人的自主性和关怀五项价值重组 Model Spec，并更新指令层级、上下文与监督控制。",
+      "why": "可公开审查的规范只有与训练信号、版本化评测、系统提示和上线监测相连才有产品意义；值得追踪的是规范变化能否映射到可复现行为，而不只是文档措辞。",
+      "boundary": "OpenAI 明确说明现有模型尚未完全体现新版规范。它不是当前模型达标证明、独立安全审计或法律保证，也不能替代具体产品和高风险用例测试。",
+      "source": "OpenAI",
+      "source_kind": "官方规范更新、五项价值与适用边界",
+      "url": "https://openai.com/index/updated-model-spec",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "openai-model-spec-values-20261029",
+      "topic_tags": [
+        "Model Behavior",
+        "Alignment",
+        "Governance"
+      ],
+      "first_seen_at": "2026-10-29T19:49:37Z"
+    },
+    {
+      "id": "candidate-de51bd6beb86b9eb",
+      "category": "research",
+      "published": "2026-10-29",
+      "title": "前沿失配监测开始形成分层运行期证据链",
+      "summary": "OpenAI 披露 L0 激活探针、L1 模型审阅者、L2 调查 Agent、L3 运行遥测与人工响应组成的监测栈，覆盖部分前沿训练、评测、工具沙箱和内部 Codex 流程。",
+      "why": "Agent 安全的关键不只是单次拒答率，而是能否把内部表征、行为轨迹、环境遥测和人工升级串成可追溯证据；跨层误报、漏报和隐私权衡将成为下一阶段评测对象。",
+      "boundary": "材料来自系统建设者，未构成独立审计。历史事件重放中约 30 分钟告警不能外推到未知攻击、外部产品或所有模型；不同部署的覆盖、隐私约束和响应能力可能显著不同。",
+      "source": "OpenAI",
+      "source_kind": "官方监测架构、覆盖范围、事件重放与限制",
+      "url": "https://openai.com/index/detecting-frontier-model-misalignment",
+      "publishable": false,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.815,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "openai-frontier-misalignment-monitoring-20261029",
+      "topic_tags": [
+        "Alignment Monitoring",
+        "Agent Safety",
+        "Security"
+      ],
+      "first_seen_at": "2026-10-29T19:49:37Z"
     },
     {
       "id": "candidate-c8c3b03ffb4a37da",
@@ -291,7 +444,7 @@
       "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
       "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
       "why": "扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。",
-      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
@@ -459,7 +612,7 @@
       "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
       "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
       "why": "文档流水线可更明确地处理“存在但不可用”的文字层；仍需用损坏层、并发转换、多语与复杂版面样本逐项复核，官方修复清单不等于本站实测。",
-      "boundary": "复杂表格、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.144.0 增加损坏 PDF 文字层的 OCR 回退并修复多项解析边界，但本站未运行。",
+      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
       "source": "Docling project",
       "source_kind": "官方发布",
       "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
@@ -838,7 +991,7 @@
       "title": "Hugging Face 汇总 Hub CLI 2.3 的缓存与任务编排升级",
       "summary": "共享 Xet 缓存、缓存清理、Jobs 重试/定时/Webhook、实验性 Sandboxes 与 Storage Buckets 进入同一套官方工作流。",
       "why": "Hub 自动化从下载客户端扩展为可调度的运行与存储入口；实验状态、权限、费用和供应商自测边界仍需在真实环境逐项验证。",
-      "boundary": "共享缓存能减少重复字节，不等于磁盘、网络或依赖问题自动消失；Sandboxes 仍标为实验性，Jobs、Buckets 与算力会受账号、区域、硬件、权限和费用约束。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
+      "boundary": "2.4 不支持从 Bucket 复制回 repo；共享缓存不会消除网络、磁盘和依赖故障，Sandboxes 仍为实验能力。官方 Agent 测试未由本站复跑，不能外推为模型综合能力或生产成功率。",
       "source": "Hugging Face",
       "source_kind": "官方功能综述、示例与限制",
       "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
@@ -854,158 +1007,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "huggingface-hub-cli-2-3",
       "first_seen_at": "2026-10-26T23:32:41Z"
-    },
-    {
-      "id": "candidate-92ca2707f4cec9ad",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "世界模型的关键误差不一定出现在最差画面，而在稀有事件",
-      "summary": "论文在 44 个通过可靠性检查的 Atari-100k 模型—数据集组合上，用真实转移替换想象转移；作者报告，修补获得奖励或回合结束的事件转移可消除中位数 70% 的回报误差，而按 MSE、SSIM 或 LPIPS 选出的高像素误差转移不及随机选择。",
-      "why": "世界模型用于规划时，评测重点需要从“帧看起来像不像”进一步转向“奖励、终止与关键事件是否正确”；这会影响训练数据采样、诊断预算和部署门禁。",
-      "boundary": "结论来自作者在 Atari-100k 与少量控制任务上的诊断，不代表所有视觉世界模型或真实机器人都遵循相同比例；论文也不是新的通用能力榜。",
-      "source": "Haoyue Liu / Xiaoying Tang",
-      "source_kind": "论文原文与实验口径",
-      "url": "https://arxiv.org/abs/2610.29435",
-      "publishable": false,
-      "features": {
-        "freshness": 0.429,
-        "authority": 0.88,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.748,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "research_id": "event-transitions-world-model-return-error",
-      "topic_tags": [
-        "World Model",
-        "Planning",
-        "Evaluation"
-      ],
-      "first_seen_at": "2026-10-22T03:33:57Z"
-    },
-    {
-      "id": "candidate-197fbdc842089a17",
-      "category": "research",
-      "published": "2026-10-26",
-      "title": "AI 生成的数学与物理结果开始进入外部学术核验",
-      "summary": "OpenAI 发布三组由模型参与形成的数学、计算机科学与理论物理结果，提供数学与计算机科学论文及 Lean 形式化材料；物理方向的底层产物暂未公开，并把这些稿件称为供学界检验的原始研究数据。",
-      "why": "重要信号不是“模型已成为科学家”，而是 AI 产出的候选结果开始被放进形式化证明、公开手稿和独立工作组组成的可审计核验链。未来价值取决于外部专家能否复现、修正或推翻这些结论。",
-      "boundary": "这是 OpenAI 的官方发布，不是学界共识或同行评审结论。Lean 可检查形式化表达中的推理链，但不能自动证明研究问题的前提、科学意义或物理建模正确；物理底层产物尚未公开，外部工作组也仍在核验。",
-      "source": "OpenAI",
-      "source_kind": "厂商声明、论文与形式化材料、外部核验安排和限制",
-      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 0.88,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "openai-academic-science-claims-20261026",
-      "topic_tags": [
-        "Formal Mathematics",
-        "Theoretical Physics",
-        "External Review"
-      ],
-      "first_seen_at": "2026-10-27T01:23:34Z"
-    },
-    {
-      "id": "candidate-43e740d17aae603a",
-      "category": "industry",
-      "published": "2026-10-23",
-      "title": "TB 筛查进入六国约 40 家机构：开放模型仍需本地验证",
-      "summary": "Google Research 披露，Nexus AI 的胸片筛查工具已在六国约 40 家医疗机构部署，90 多名临床人员处理了 2.5 万余张胸片；系统最快约 45 秒给出筛查结果，最终临床决定仍由医务人员作出。",
-      "why": "这把基础模型从论文和开放权重推进到前瞻性验证、医疗器械合规与一线流程；HAI-DEF、MedSigLIP、MedGemma 和 HeAR 也提供了可在本地继续适配的开放组件。",
-      "boundary": "这是 Google 与合作方的官方部署披露，不是新的独立随机临床试验。Nexus AI 已获 CE MDR IIb，并不等于已获 FDA clearance 或 WHO 预认证；胸片筛查和分诊不能替代确诊，必须核对本地人群、设备、转诊闭环与误报漏报。",
-      "source": "Google Research",
-      "source_kind": "官方研究、监管状态与临床部署更新",
-      "url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.708,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-23T23:24:48Z"
-    },
-    {
-      "id": "candidate-8ce9ea326f41a742",
-      "category": "industry",
-      "published": "2026-10-23",
-      "title": "神经疾病数据进入五年合作：用 Agent 假设连接试验设计",
-      "summary": "Pathos 宣布与 BMS、Tempus 建立多年合作：Tempus 将构建覆盖数十万神经疾病患者的去标识化纵向数据集，Pathos 以五年 5,500 万美元协议许可数据，并用 Foundry 分析疾病进展、生成与检验疾病生物学假设、辅助更有针对性的自适应试验设计。",
-      "why": "医药 Agent 的落点从单次文献问答推进到“纵向患者数据→疾病假设→临床试验设计”的持续工作流；协议金额、数据规模、平台权限和独占期都提供了后续可跟踪的交付节点。",
-      "boundary": "这是三家公司的一手合作公告，不是阿尔茨海默病疗效、获批产品或临床终点结果。患者规模、去标识化流程及 Foundry 的既有验证由合作方披露，本站未独立审计；五年数据许可和三年独家支持也不能证明模型能提高试验成功率，仍需看数据治理、方案注册、外部验证与真实试验结果。",
-      "source": "Pathos AI / Bristol Myers Squibb / Tempus AI",
-      "source_kind": "三家公司官方合作公告、数据许可与神经科学项目范围",
-      "url": "https://www.pathos.com/pathos-ai-announces-strategic-collaborations-with-bristol-myers-squibb-and-tempus-ai-to-advance-ai-driven-drug-development-beginning-with-alzheimers-disease-and-other-neurological-conditions",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.708,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-24T19:34:33Z"
-    },
-    {
-      "id": "candidate-0beb57c28961763f",
-      "category": "product",
-      "published": "2026-10-23",
-      "title": "Hugging Face 发布 Trainium 模型兼容性目录",
-      "summary": "公开 Space 与数据集记录热门 Transformers 模型在 Trainium2 上的短测结果、失败原因、软件栈、核心数和运行脚本。",
-      "why": "硬件兼容性开始变成可查询、可复跑的版本化数据；PASS 仍只表示 32-token 短测通过，不代表吞吐、长文本质量或成本。",
-      "boundary": "官方测试最多使用 4 台 Trainium2、16 个核心，只生成并检查 32 个 token；PASS 不代表吞吐、长文本稳定性、生成质量或成本，本站未复跑。",
-      "source": "Hugging Face",
-      "source_kind": "官方兼容性目录说明、测试口径与限制",
-      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "hf-trainium-model-support",
-      "first_seen_at": "2026-10-24T05:36:52Z"
-    },
-    {
-      "id": "candidate-4d3e9a701ec4aaae",
-      "category": "product",
-      "published": "2026-10-23",
-      "title": "OpenHands v1.33.0 收紧验证与机密展示边界",
-      "summary": "新增 verify-openhands 的 --mars-web 与 --lock-to-cloud 模式，Web 构建可在重启后保留登录，并在请求与 Settings 表单遮蔽机密值。",
-      "why": "验证接线和 UI 机密展示更可控；表单遮蔽仍不能替代日志、请求、存储与后端的凭据审计，macOS 构建也仍未签名和公证。",
-      "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
-      "source": "OpenHands",
-      "source_kind": "官方 GitHub Release",
-      "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.571,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.698,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openhands",
-      "first_seen_at": "2026-10-25T03:31:45Z"
     }
   ]
 }
