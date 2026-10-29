@@ -2,6 +2,20 @@
   "snapshot": "2026-10-29",
   "events": [
     {
+      "id": "nvidia-nemotron-3-5-transcribe-release",
+      "task": "nvidia-nemotron-3-5-transcribe",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Nemotron 3.5 Transcribe 开放多语录播音频处理权重",
+      "summary": "NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。",
+      "delta": "长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。",
+      "sources": [
+        "nvidia-nemotron-3-5-transcribe-release",
+        "nvidia-nemotron-3-5-transcribe-card"
+      ],
+      "reviewed": "2026-10-29"
+    },
+    {
       "id": "openai-servicenow-mcp-release",
       "task": "openai-servicenow-mcp",
       "date": "2026-10-28",
@@ -653,6 +667,26 @@
     }
   ],
   "sources": [
+    {
+      "id": "nvidia-nemotron-3-5-transcribe-release",
+      "publisher": "NVIDIA / Hugging Face",
+      "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00",
+      "kind": "官方发布、语言覆盖、运行入口、当前限制与评测口径"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-transcribe-card",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA-Nemotron-3.5-Transcribe-30B-A4B model card",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00",
+      "kind": "官方模型卡、架构、任务、上下文、部署与厂商评测"
+    },
     {
       "id": "microsoft-copilot-harness-foundry-20261028",
       "publisher": "Microsoft Foundry",

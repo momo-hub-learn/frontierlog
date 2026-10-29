@@ -36,6 +36,62 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemotron-3-5-transcribe-20261028",
+      "category": "model",
+      "title": "Nemotron 3.5 Transcribe：40 语种录播转写进入开放权重链",
+      "published": "2026-10-28",
+      "published_at": null,
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00",
+      "first_seen_at": "2026-10-29T11:21:14+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 29,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是 WER、Hugging Face Trending、临床有效性、运行速度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "NVIDIA 官方发布与模型卡 · 开放权重 / 录播音频 / 本站未运行",
+      "summary": "NVIDIA 开放 Nemotron 3.5 Transcribe：支持 40 种语言转写、31 种语言与英语互译、13 种语言说话人归属，并覆盖时间戳、语言识别和音频问答。模型同轮进入 Hugging Face Models Trending 官方网页第 19 位。",
+      "why": "多语、多人和长录音可在同一开放权重模型里离线处理，语音工作流开始从单项转写走向可组合验证；真正落地取决于显存、音频授权、按语言分组的错误和人工复核。",
+      "boundary": "官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不能写成本站实测或临床验证。模型为最长一小时的录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。Hugging Face 第 19 位只代表当时平台趋势，不是能力排名。",
+      "source": "NVIDIA / Hugging Face",
+      "source_kind": "官方技术发布、模型卡与 HF Trending 网页/API / 本轮编辑核验",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+      "link": "#/toolkit?task=nvidia-nemotron-3-5-transcribe&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开站内分项验收指南",
+          "note": "先固定模型与授权录音，分开检查转写、翻译、说话人和时间戳",
+          "url": "#/toolkit?task=nvidia-nemotron-3-5-transcribe&tab=run",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 NVIDIA 官方发布",
+          "note": "核对语言覆盖、录播边界、部署入口和仍未开放的量化路径",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+          "kind": "docs"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+          "date": "2026-10-28"
+        },
+        {
+          "source": "NVIDIA / Hugging Face",
+          "title": "NVIDIA-Nemotron-3.5-Transcribe-30B-A4B model card",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "openai-dot-texting-beta-20261028",
       "category": "product",
       "title": "ChatGPT dot 开始进入短信：美国 Pro 用户先行 beta",

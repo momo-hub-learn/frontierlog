@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "nvidia-nemotron-3-5-transcribe",
+      "publisher": "NVIDIA",
+      "group": "audio",
+      "access": "model",
+      "headline": "先用授权录音分项验收多语转写、翻译与说话人归属",
+      "input": "固定模型 revision + 已授权录播音频 + 独立人工转写、说话人和语言标注",
+      "output": "转写、翻译、说话人标签、时间戳与音频问答结果，以及 WER、延迟、显存和失败样本",
+      "requirements": "受支持的 vLLM 或 SGLang 环境、足够 GPU 显存与存储、Hugging Face 模型访问，以及已获授权并最小化的录播音频。先用短片段和单机隔离环境验证。",
+      "limitation": "模型面向录播音频，不支持实时流式。官方 WER、医学词汇适配和说话人分离结果不是本站实测或临床验证；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出，不能写成当前可用。",
+      "cost": "开放权重；模型下载、存储、大显存 GPU、运行器适配、音频授权、人工标注与复核仍有实际成本，许可和下游依赖需按模型卡核对。",
+      "steps": [
+        {
+          "title": "冻结模型、硬件与授权样本",
+          "body": "记录模型 ID、revision、精度、运行器、GPU 与解码参数；只选已获授权的短录播片段，另存人工转写、语言和说话人分段。",
+          "command": "vllm serve nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B --trust-remote-code"
+        },
+        {
+          "title": "先分任务跑最小验收",
+          "body": "分别验证转写、英语言对翻译、说话人归属和时间戳，不把多项输出合成一个分数；记录显存、首结果时间、总耗时和每项失败。"
+        },
+        {
+          "title": "再扩大到长录音与领域词汇",
+          "body": "加入多人、噪声、专有名词和接近一小时的留出录音；按语言、说话人数和音频长度分组报告，所有领域提示收益都用无提示基线对照并人工抽检。"
+        }
+      ],
+      "troubleshooting": "模型加载失败先核对 revision、trust_remote_code、运行器版本和显存；长录音失败时先缩短片段定位边界。说话人串线、时间戳漂移或领域提示提高召回却放大误词时，分项记录并停止把结果自动写入业务系统。",
+      "sources": [
+        {
+          "title": "Nemotron 3.5 Transcribe 官方发布",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        },
+        {
+          "title": "Nemotron 3.5 Transcribe 官方模型卡",
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29"
+        }
+      ],
+      "entry_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-10-29T11:21:14+08:00"
+    },
+    {
       "id": "microsoft-copilot-harness",
       "publisher": "Microsoft / GitHub",
       "group": "agents",

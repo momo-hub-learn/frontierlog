@@ -431,6 +431,12 @@
 
 边界：证据来自作者团队项目说明与演示，本站未运行；重建一个场景约需 10–20 分钟，作者报告在 8 张 A800、20 步采样下渲染约 1.5 fps。小物体仍可能漂浮或被幻觉补全，系统没有长时记忆，因此不能外推为实时、通用或高保真物理世界模型。
 
+站内热度 90；不是全网流量。</description></item><item><title>Nemotron 3.5 Transcribe：40 语种录播转写进入开放权重链</title><guid isPermaLink="false">frontierlog:hot:nvidia-nemotron-3-5-transcribe-20261028</guid><link>https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>NVIDIA 开放 Nemotron 3.5 Transcribe：支持 40 种语言转写、31 种语言与英语互译、13 种语言说话人归属，并覆盖时间戳、语言识别和音频问答。模型同轮进入 Hugging Face Models Trending 官方网页第 19 位。
+
+为什么值得看：多语、多人和长录音可在同一开放权重模型里离线处理，语音工作流开始从单项转写走向可组合验证；真正落地取决于显存、音频授权、按语言分组的错误和人工复核。
+
+边界：官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不能写成本站实测或临床验证。模型为最长一小时的录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。Hugging Face 第 19 位只代表当时平台趋势，不是能力排名。
+
 站内热度 90；不是全网流量。</description></item><item><title>ChatGPT 接入 iCloud 邮件与日历</title><guid isPermaLink="false">frontierlog:hot:openai-icloud-mail-calendar-20261027</guid><link>https://help.openai.com/en/articles/6825453-chatgpt-release-notes</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI Release Notes 确认 iCloud 用户现在可把 Mail 与 Calendar 连接到 ChatGPT，用于查找邮件、汇总收件箱、查看日程和更新日历事件；官方列出的入口为网页、桌面端和 iOS，覆盖全部 ChatGPT 套餐。
 
 为什么值得看：这让 ChatGPT 的个人工作流从读取文件继续延伸到邮件与日历上下文，并明确包含日历写入动作。真正价值不在“已连接”，而在能否用最小权限稳定读取正确账户并让变更准确落到目标事件。

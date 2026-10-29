@@ -135,7 +135,8 @@ function hAccessCards(x){
  const rows=hAccessRows(x);
  const hasTry=rows.some(r=>['try','demo','gateway'].includes(r.kind));
  const hasProductGate=rows.some(r=>r.kind==='product');
- const status=hasTry?'':hasProductGate?'当前入口是候补或产品资料页，尚不能直接体验；开放范围以官方页面为准。':'当前没有独立可体验入口，先提供官方材料 / 代码 / 论文。';
+ const hasInternalGuide=rows.some(r=>String(r.url||'').startsWith('#/'));
+ const status=hasTry?'':hasProductGate?'当前入口是候补或产品资料页，尚不能直接体验；开放范围以官方页面为准。':hasInternalGuide?'当前提供站内核验路径与官方资料；这是验证指南，不代表本站已经运行或产品可直接体验。':'当前没有独立可体验入口，先提供官方材料 / 代码 / 论文。';
  const card=(r,i)=>{
   const internal=String(r.url||'').startsWith('#/'),href=internal?esc(r.url):safeLink(r.url);
   const attrs=internal?' onclick="document.getElementById(\'modal\').close();document.body.style.overflow=\'\'"':' target="_blank" rel="noopener noreferrer"';

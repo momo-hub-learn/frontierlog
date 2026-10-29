@@ -96,6 +96,15 @@ class HotDataTests(unittest.TestCase):
   internal=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(internal['url'],item['link'])
   validate_hot(self.data)
+ def test_nemotron_transcribe_separates_trending_vendor_results_and_runtime_evidence(self):
+  item=next(x for x in self.data['items'] if x['id']=='nvidia-nemotron-3-5-transcribe-20261028')
+  self.assertEqual(item['published'],'2026-10-28')
+  self.assertEqual(item['link'],'#/toolkit?task=nvidia-nemotron-3-5-transcribe&tab=run')
+  self.assertIn('第 19 位只代表当时平台趋势',item['boundary'])
+  self.assertIn('不支持实时流式',item['boundary'])
+  self.assertIn('本站未运行',item['verification_status'])
+  self.assertEqual(next(x for x in item['access'] if x['kind']=='internal')['url'],item['link'])
+  validate_hot(self.data)
  def test_icloud_release_keeps_read_write_scope_and_runtime_evidence_separate(self):
   item=next(x for x in self.data['items'] if x['id']=='openai-icloud-mail-calendar-20261027')
   self.assertEqual(item['published'],'2026-10-27')

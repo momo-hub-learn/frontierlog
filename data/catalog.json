@@ -3,6 +3,34 @@
   "snapshot": "2026-10-29",
   "items": [
     {
+      "id": "nvidia-nemotron-3-5-transcribe",
+      "name": "NVIDIA · Nemotron 3.5 Transcribe",
+      "title": "先用授权录音分项验收多语转写、翻译与说话人归属",
+      "category": "语音处理 / 开放权重",
+      "mark": "NT",
+      "accent": "lime",
+      "summary": "开放权重离线语音模型，覆盖 40 种语言转写、31 种语言与英语互译、13 种语言说话人归属，以及时间戳、语言识别和音频问答。",
+      "scope": "NVIDIA 2026-10-28 官方发布；模型卡标注 34B 总参数、约 4.3B 激活参数、最长一小时录音和 65,536 上下文，并提供 vLLM 与 SGLang 路径。",
+      "boundary": "官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不是本站实测或临床验证。模型为录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。",
+      "repo": null,
+      "sources": ["nvidia-nemotron-3-5-transcribe-release", "nvidia-nemotron-3-5-transcribe-card"],
+      "requirements": "受支持的 vLLM 或 SGLang 环境、足够 GPU 显存与存储、固定模型 revision，以及已获授权并带独立人工转写的录播音频；先用短片段验证。",
+      "test": "固定模型、精度、提示和解码参数，用多语、多人、噪声、专有名词和长录音留出集分别检查 WER、翻译忠实度、说话人归属、时间戳、延迟与显存；人工抽检失败样本。",
+      "checks": [
+        "固定模型 revision、精度、运行器、硬件与解码参数",
+        "转写、翻译、说话人归属与时间戳分开验收",
+        "说话人标签只作片段归属，不推断真实身份",
+        "只处理已授权音频，并记录显存、耗时和失败样本"
+      ],
+      "command": "vllm serve nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B --trust-remote-code",
+      "effort": "开放权重 / 需大显存 GPU、模型下载与人工标注验收",
+      "evidence": "NVIDIA 官方 Hugging Face 发布与模型卡",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00"
+    },
+    {
       "id": "microsoft-copilot-harness",
       "name": "Microsoft · Copilot harness",
       "title": "先用合成任务验证托管 Harness 的权限、恢复和幂等，再接真实系统",
@@ -1128,6 +1156,26 @@
   ],
   "sources": [
     {
+      "id": "nvidia-nemotron-3-5-transcribe-release",
+      "publisher": "NVIDIA / Hugging Face",
+      "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00",
+      "kind": "官方发布、语言覆盖、运行入口、当前限制与评测口径"
+    },
+    {
+      "id": "nvidia-nemotron-3-5-transcribe-card",
+      "publisher": "NVIDIA",
+      "title": "NVIDIA-Nemotron-3.5-Transcribe-30B-A4B model card",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "published": "2026-10-28",
+      "checked": "2026-10-29",
+      "verified_at": "2026-10-29T11:21:14+08:00",
+      "kind": "官方模型卡、架构、任务、上下文、部署与厂商评测"
+    },
+    {
       "id": "microsoft-copilot-harness-foundry-20261028",
       "publisher": "Microsoft Foundry",
       "title": "Introducing the Microsoft Copilot harness in Foundry Agent Service",
@@ -1874,6 +1922,17 @@
     }
   ],
   "events": [
+    {
+      "id": "nvidia-nemotron-3-5-transcribe-release",
+      "task": "nvidia-nemotron-3-5-transcribe",
+      "date": "2026-10-28",
+      "kind": "release",
+      "title": "Nemotron 3.5 Transcribe 开放多语录播音频处理权重",
+      "summary": "NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。",
+      "delta": "长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。",
+      "sources": ["nvidia-nemotron-3-5-transcribe-release", "nvidia-nemotron-3-5-transcribe-card"],
+      "reviewed": "2026-10-29"
+    },
     {
       "id": "openai-servicenow-mcp-release",
       "task": "openai-servicenow-mcp",
