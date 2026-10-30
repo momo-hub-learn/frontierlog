@@ -21,6 +21,58 @@
   ],
   "items": [
     {
+      "id": "jepa-platonic-representation-good-views-20261029",
+      "lane": "paradigm",
+      "title": "JEPA 把跨模态对齐的关键从“更大”改写为“更好的视图”",
+      "maker": "Randall Balestriero / Yann LeCun",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T19:21:45+08:00",
+      "verification_status": "作者预印本与作者实验 · 本站未复现",
+      "tags": [
+        "JEPA",
+        "Multimodal Alignment",
+        "Representation Learning"
+      ],
+      "fact": "作者证明：当不同模态的正样本是同一场景的两种观测时，分别训练的 JEPA 可在一次旋转内收敛到共同表示；论文实验从 14.5 万条 caption 扩展到 9.4 亿张网页图像的文本，并报告 good-view JEPA 在同语料达到相同对齐水平所需样本比 next-token prediction 少 42 倍。",
+      "insight": "如果结论能被独立复现，多模态系统的核心设计变量将不再只是参数规模与配对数据量，而是怎样构造保留同一语义场景的正视图；这可能影响跨模态检索、无配对对齐和世界模型表征的训练路线。",
+      "boundary": "42 倍样本效率、对齐优于最高 72B 语言模型和 COCO CIDEr 0.838 都是作者在指定语料、编码器、旋转映射与评测协议下的结果。本站未运行代码或复现，预印本也尚未经过独立同行评议；不能推出 JEPA 普遍优于自回归模型、已经解决多模态理解，或可直接替代生成式语言模型。",
+      "next_watch": "跟踪代码与训练配方是否完整开放、第三方在新模态和非网页语料上的复现、good views 的构造成本、跨分布对齐稳定性，以及共同表示是否真正改善下游决策而非只改善表征相似度。",
+      "sources": [
+        {
+          "label": "arXiv · Proving and Improving the Platonic Representation Hypothesis with JEPAs",
+          "url": "https://arxiv.org/abs/2610.39302",
+          "kind": "作者预印本、理论条件、实验范围与量化结果",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "worldprobe-long-horizon-world-model-benchmark-20261029",
+      "lane": "paradigm",
+      "title": "WorldProbe 把世界模型评测拉到 180 秒主动探索",
+      "maker": "WorldProbe authors",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T19:21:45+08:00",
+      "verification_status": "作者预印本与公开代码入口 · 本站未运行",
+      "tags": [
+        "World Models",
+        "Long-Horizon Evaluation",
+        "Spatial Consistency"
+      ],
+      "fact": "WorldProbe 用目标条件多模态 Agent 在生成过程中在线选择相机动作，包含 4 类、164 个测试案例；作者对 10 个模型生成 1,600 余条、合计约 800 分钟的 rollout，最长探索 180 秒，并分四个维度检查局部质量与长程一致性。",
+      "insight": "世界模型评测正在从固定相机轨迹和短片观感，转向主动探索能否暴露记忆、空间连续性与状态演化问题。对机器人仿真和可交互环境而言，长程一致性比单帧逼真度更接近真正的部署门槛。",
+      "boundary": "所有结果来自作者论文，本站未运行公开代码。164 个案例、10 个模型、相机动作策略和四维指标仍是有限样本；“长程记忆与演化较弱”不能外推到所有世界模型、所有交互环境或真实机器人表现，也不能把四个维度拼成跨协议总分。",
+      "next_watch": "跟踪代码与案例版本、第三方复现、不同动作策略是否改变排名、180 秒以上的误差累积、失败轨迹能否定位到模型记忆或控制器，以及与真实交互任务成功率的相关性。",
+      "sources": [
+        {
+          "label": "arXiv · WorldProbe",
+          "url": "https://arxiv.org/abs/2610.39721",
+          "kind": "作者预印本、协议规模、评测维度、公开代码入口与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "nvidia-tensor-core-mlip-precision-20261029",
       "lane": "science",
       "title": "材料模拟开始把低精度吞吐与轨迹稳定性一起验收",

@@ -353,6 +353,12 @@
 
 边界：当前可确认立即开放的是 ServiceNow MCP 插件；增强能力、安全方案、语音体验和 Codex 集成仍是未来计划，不能写成已经上线。公告没有给出任务成功率、误操作率、支持地区、套餐或独立安全评测；组织权限由客户实例与 Action Fabric 配置决定。本站未连接 ServiceNow 实例或执行写入。
 
+站内热度 92；不是全网流量。</description></item><item><title>WorldProbe：世界模型主动探索到 180 秒后还一致吗</title><guid isPermaLink="false">frontierlog:hot:worldprobe-long-horizon-world-model-20261029</guid><link>https://arxiv.org/abs/2610.39721</link><pubDate>Thu, 29 Oct 2026 09:51:26 +0000</pubDate><description>WorldProbe 让目标条件多模态 Agent 在线选择相机动作，用 164 个案例检查 10 个世界模型；作者生成 1,600 余条、约 800 分钟 rollout，最长探索 180 秒。
+
+为什么值得看：固定轨迹和短片观感很难暴露空间闭合、对象持续性与状态演化问题。把相机决策交给探测 Agent，可更主动地寻找长程记忆和世界一致性的断点。
+
+边界：结果来自作者预印本，本站未运行代码。案例、模型、相机策略和四维指标均有限；不能外推为所有世界模型或真实机器人失败率，也不能把四个维度与其他协议拼成综合分。
+
 站内热度 92；不是全网流量。</description></item><item><title>AEON：把视频生成连接到可渲染的4D世界表示</title><guid isPermaLink="false">frontierlog:hot:aeon-world-model-20261020</guid><link>https://arxiv.org/abs/2610.28631</link><pubDate>Tue, 20 Oct 2026 17:59:51 +0000</pubDate><description>论文提出在视频潜空间生成，再通过域适配与4D解码器输出动态高斯表示和相机位姿，连接视频外观与三维一致性。
 
 为什么值得看：世界模型的输出开始从视频片段走向可换视角的持久场景；应继续跟踪复现与长期一致性。
@@ -478,6 +484,12 @@
 为什么值得看：世界模型能预测未来，不等于内部状态已经编码可读、可用于决策的实体关系。把关系通道放进状态，再用动作变化约束它们，为“预测准确”和“可做关系决策”之间增加了一条可检验链路。
 
 边界：结果来自作者预印本，本站未运行；证据集中在 Something-Something V2、RH20T 与一步关系目标。作者的一步动作排序 top-5 召回为 43%，不是任务成功率，也不能外推为长程规划、真实机器人可靠性或通用物理理解。
+
+站内热度 90；不是全网流量。</description></item><item><title>JEPA 论文：跨模态对齐关键可能是“更好的视图”</title><guid isPermaLink="false">frontierlog:hot:jepa-platonic-representation-good-views-20261029</guid><link>https://arxiv.org/abs/2610.39302</link><pubDate>Thu, 29 Oct 2026 03:49:53 +0000</pubDate><description>作者证明同一场景的“good views”可让不同模态 JEPA 在一次旋转内对齐；论文实验称同语料达到相同对齐水平所需样本比 next-token prediction 少 42 倍。
+
+为什么值得看：这把多模态训练的关键变量从单纯扩大参数和配对数据，转向怎样构造保留共同语义的正视图，可能影响跨模态检索、无配对对齐和世界模型表征路线。
+
+边界：42 倍样本效率、优于最高 72B 语言模型和 COCO CIDEr 0.838 均为作者在指定语料、编码器与协议下的结果。本站未复现，不能推出 JEPA 普遍优于自回归模型或已经解决多模态理解。
 
 站内热度 90；不是全网流量。</description></item><item><title>Mundo：几张照片变成可编辑、可模拟的专属世界</title><guid isPermaLink="false">frontierlog:hot:mundo-custom-interactive-world-20261023</guid><link>https://huggingface.co/blog/Luo-Yihang/mundo-world-model</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>Mundo 从少量场景照片建立显式 3D 代理，再用场景程序和 MuJoCo 承接编辑与物理模拟，最后由视频渲染器生成观察结果。作者报告训练使用约 4 万组数据，当前能做场景探索、对象编辑和短时交互模拟。
 
