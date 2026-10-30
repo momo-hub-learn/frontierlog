@@ -130,6 +130,10 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(harness['timeline'][0]['kind'],'Public Preview')
         self.assertIn('幂等',harness['boundary'])
         self.assertEqual(harness['timeline'][0]['evidence_level'],'primary_source')
+        allowance=next(x for x in radar['items'] if x['id']=='openai-work-codex-allowance')
+        self.assertEqual(allowance['timeline'][0]['evidence_level'],'primary_source')
+        self.assertEqual(set(allowance['filter_ids']),{'enterprise-agent','knowledge-work'})
+        self.assertIn('不增加 API credits',allowance['boundary'])
         self.assertGreaterEqual(sum(len(x.get('timeline',[])) for x in radar['items']),10)
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')

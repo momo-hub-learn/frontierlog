@@ -52,6 +52,41 @@
       ]
     },
     {
+      "id": "openai-work-codex-allowance",
+      "name": "ChatGPT Work / Codex plan usage",
+      "company": "OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["Work", "Codex", "Plan Usage"],
+      "summary": "跟踪 Pro 与 Business Premium 套餐内 Work / Codex 用量变化，并把套餐容量、模型能力、API credits 与 API 限流分开。",
+      "product_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_label": "OpenAI 官方 ChatGPT Release Notes",
+      "evidence": "OpenAI 2026-10-29 Release Notes 确认 Pro 100 与 Pro 500 的 Work / Codex allowance 翻倍，撤销此前宣布的 Pro 200 下调，并将处于较低额度的 Pro 200 翻倍到同一上限。",
+      "boundary": "公告没有给出具体 token、任务、并发或 Business Premium 统一倍数；实际额度以账号内显示为准。套餐容量变化不等于模型更强，也不增加 API credits、改变 API 限流或自动降低价格。本站未登录任何账号核验。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-29",
+          "kind": "Plan allowance update",
+          "title": "Pro 的 Work / Codex allowance 上调",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "summary": "Pro 100 与 Pro 500 变为此前额度的两倍；Pro 200 的已宣布下调被取消，处于较低额度的订阅者从 10 月 29 日起翻倍到同一上限。",
+          "facts": [
+            {"label": "Pro 100 / 500", "value": "2× previous allowance"},
+            {"label": "Pro 200", "value": "reduction canceled"},
+            {"label": "较低额度 Pro 200", "value": "2× from Oct 29"},
+            {"label": "Business Premium", "value": "用量上调；倍数未列出"}
+          ],
+          "interpretation": "真实可用性不仅取决于模型与工具，也取决于套餐容量；用量验收要记录账号显示、任务类型、时间窗和消耗，避免把套餐调整写成模型升级。",
+          "scope": "OpenAI 2026-10-29 ChatGPT Release Notes 明确列出的 Pro 与 Business Premium Work / Codex 用量变化。",
+          "limitations": "不能从公告补造精确额度、统一倍数或所有账号的即时可用状态；不覆盖 API credits、API rate limits、价格或模型能力。",
+          "published_at": "2026-10-29",
+          "verified_at": "2026-10-30T13:21:25+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "openai-chatgpt-api-credits",
       "name": "ChatGPT API credits benefit",
       "company": "OpenAI",

@@ -47,5 +47,11 @@ nodes['#palette-input'].value='not present';
 ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,0);
 assert.match(nodes['#palette-results'].innerHTML,/没有匹配结果/);
+assert.match(nodes['#palette-results'].innerHTML,/换个关键词，或按 Esc 返回/);
+assert.match(nodes['#palette-results'].innerHTML,/role="status"/);
 
-console.log('4 command palette scope and empty-state contracts passed');
+const template=fs.readFileSync(path.join(root,'src/index.html'),'utf8');
+assert.match(template,/class="palette-foot"[\s\S]*快速跳转/);
+assert.doesNotMatch(template,/QUICK NAVIGATION/);
+
+console.log('5 command palette scope, empty-state and readable-footer contracts passed');
