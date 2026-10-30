@@ -17,10 +17,15 @@ class PeopleTests(unittest.TestCase):
  def reject(self,fn):
   d=copy.deepcopy(self.data);fn(d)
   with self.assertRaises((ValueError,TypeError,KeyError)):validate_people(d)
+ def time_fixture(self):
+  d=copy.deepcopy(self.data);d['checked']='2026-10-29'
+  for row in d['people']+d['events']:
+   if row['checked']>'2026-10-29':row['checked']='2026-10-29'
+  return d
  def test_sources_and_contributions(self):
   validate_people(self.data)
   self.assertGreaterEqual(len(self.data['people']),38)
-  self.assertTrue({'kaiming-he','qiushi-han','shreya-shankar','shyam-sankar','ethan-mollick','jensen-huang','sam-altman','dario-amodei','demis-hassabis'}<=set(p['id'] for p in self.data['people']))
+  self.assertTrue({'kaiming-he','qiushi-han','shreya-shankar','shyam-sankar','ethan-mollick','jensen-huang','sam-altman','dario-amodei','demis-hassabis','elon-musk'}<=set(p['id'] for p in self.data['people']))
   self.assertGreaterEqual(sum(p['discovery']=='work' for p in self.data['people']),5)
  def test_duplicate_person(self):self.reject(lambda d:d['people'].append(copy.deepcopy(d['people'][0])))
  def test_missing_source(self):self.reject(lambda d:d['people'][0].update(sources=[]))
@@ -32,20 +37,20 @@ class PeopleTests(unittest.TestCase):
  def test_reference_type(self):self.reject(lambda d:d['events'][0].update(people='kaiming-he'))
  def test_future_event(self):self.reject(lambda d:d['events'][0].update(date='2099-01-01'))
  def test_beijing_editorial_date_is_valid_before_utc_midnight(self):
-  validate_people(self.data,now=datetime(2026,10,28,21,30,tzinfo=timezone.utc))
+  validate_people(self.time_fixture(),now=datetime(2026,10,28,21,30,tzinfo=timezone.utc))
  def test_same_instant_with_another_offset_keeps_beijing_day(self):
   instant=datetime(2026,10,28,21,30,tzinfo=timezone.utc)
-  validate_people(self.data,now=instant.astimezone(timezone(timedelta(hours=-4))))
+  validate_people(self.time_fixture(),now=instant.astimezone(timezone(timedelta(hours=-4))))
  def test_real_future_beijing_date_is_rejected(self):
   with self.assertRaises(ValueError):
-   validate_people(self.data,now=datetime(2026,10,28,15,30,tzinfo=timezone.utc))
+   validate_people(self.time_fixture(),now=datetime(2026,10,28,15,30,tzinfo=timezone.utc))
  def test_naive_validation_clock_is_rejected(self):
   with self.assertRaises(ValueError):validate_people(self.data,now=datetime(2026,10,29,5,30))
  def test_event_review_order(self):self.reject(lambda d:d['events'][0].update(checked='2000-01-01'))
  def test_calendar_invalid(self):self.reject(lambda d:d['events'][0].update(date='2026-02-30'))
  def test_people_not_ranked(self):self.reject(lambda d:d['people'][0].update(score=99))
  def test_every_person_has_source_backed_impact_facets(self):
-  self.assertEqual(len(self.data['people']),38)
+  self.assertEqual(len({p['id'] for p in self.data['people']}),len(self.data['people']))
   self.assertTrue(all(p['impact']['dimensions'] and p['impact']['basis'] for p in self.data['people']))
   self.reject(lambda d:d['people'][0].pop('impact'))
   self.reject(lambda d:d['people'][0]['impact'].update(dimensions=['global-ranking']))

@@ -22,7 +22,7 @@
 .pp-options{display:flex;flex-wrap:wrap;align-items:center;gap:22px;padding:17px 0 14px;border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
 .pp-options label{display:flex;align-items:center;gap:7px;min-height:30px}.pp-options input{accent-color:var(--accent);width:15px;height:15px}.pp-options label span{font-family:var(--mono,monospace);color:var(--muted)}.pp-reset{margin-left:auto;text-decoration:underline;text-underline-offset:3px}
 .pp-results{font-size:13px;color:var(--muted);margin:17px 0}
-.pp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.pp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .pp-card{border:1px solid var(--line);border-radius:12px;padding:19px;background:var(--panel);display:flex;flex-direction:column;min-width:0;transition:border-color .16s}
 .pp-card:hover{border-color:var(--accent)}.pp-card>header{display:flex;align-items:center;gap:11px;margin-bottom:15px}
 .pp-avatar{display:flex;align-items:center;justify-content:center;width:42px;height:44px;border-radius:10px;background:var(--accent-bg);color:var(--accent);font:700 16px var(--display,sans-serif);flex:none;border:1px solid var(--soft-line,var(--line))}
@@ -36,6 +36,11 @@
 .pp-section-title{font-size:20px;margin:25px 0 17px}.pp-section-title small{color:var(--muted);font-weight:400;font-size:12px;margin-left:10px}
 .pp-event{display:grid;grid-template-columns:110px minmax(0,1fr);gap:23px;border-top:1px solid var(--line);padding:23px 0}.pp-event>time{font:600 13px var(--mono,monospace);color:var(--muted);padding-top:4px}
 .pp-event-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px}.pp-event-meta span:first-child{color:var(--accent);background:var(--accent-bg);padding:3px 7px;border-radius:5px}
+.pp-format-filters{display:flex;gap:8px;overflow:auto;padding:1px 1px 13px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.pp-format{display:inline-flex;align-items:center;min-height:40px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;color:var(--sub);font-size:13px;white-space:nowrap;background:var(--panel)}
+.pp-format.active{border-color:var(--accent);background:var(--accent-bg);color:var(--accent);font-weight:700}
+.pp-read-cue{display:inline-flex!important;align-items:center;gap:8px;width:max-content;max-width:100%;margin:10px 0 0!important;padding:5px 9px;border-radius:6px;background:var(--raised);font-size:12px!important;line-height:1.5!important;color:var(--sub)!important}
+.pp-read-cue strong{color:var(--text);font-size:11px;letter-spacing:.03em}
 .pp-event h3{font-size:19px;line-height:1.6;margin:9px 0 8px}.pp-event>div>p{font-size:15px;line-height:1.8;color:var(--sub);margin:0 0 12px}.pp-event-people{display:flex;flex-wrap:wrap;gap:7px}
 .pp-person-chip{display:inline-block;border:1px solid var(--line);border-radius:7px;font-size:12px;padding:5px 9px;background:var(--panel);color:var(--sub)}.pp-person-chip:hover{color:var(--accent);border-color:var(--accent)}
 .pp-event details{font-size:12px;color:var(--muted);margin-top:14px}.pp-event summary{cursor:pointer;min-height:26px}.pp-event details p{line-height:1.8;margin:8px 0}.pp-event details a{text-decoration:underline;text-underline-offset:3px}
@@ -101,5 +106,9 @@
 .pp-card .pp-latest small{font-size:12px}
 .pp-card .pp-latest a{display:inline-block;padding:4px 0}
 .pp-card .pp-follow{min-height:44px}
+.pp-card-compact .pp-card-intro{font-size:13px;line-height:1.7;color:var(--sub);margin:11px 0 12px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.pp-card-compact .pp-latest{margin-top:auto}.pp-card-compact .pp-card-watch{margin-bottom:12px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.pp-card-compact>footer{margin-top:0}.pp-card-compact .pp-influence-types{margin-bottom:7px}.pp-card-compact>.pp-tags{margin-bottom:0}
 @media(max-width:900px){.pp-type-filters{display:flex;overflow:auto;padding-bottom:6px}.pp-type-filters .pp-filter{flex:0 0 auto}}
 @media(max-width:740px){.pp-grid{grid-template-columns:minmax(0,1fr)}.pp-principle strong{white-space:normal}.pp-filter,.pp-reset,.pp-options label{min-height:44px;display:inline-flex;align-items:center}.pp-head>div>p:last-child{font-size:16px;line-height:1.65}}
+@media(max-width:740px){.pp-format{min-height:44px}.pp-read-cue{width:100%}}

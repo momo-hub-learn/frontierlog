@@ -45,33 +45,36 @@ with sync_playwright() as pw:
  def no_overflow():
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'), page.evaluate('({innerWidth,scroll:document.documentElement.scrollWidth})')
  load('#/people')
- expect(page.locator('.pp-head h1')).to_have_text('AI 影响力人物图谱');expect(page.locator('[data-person-card]')).to_have_count(len(DATA['people']))
+ expect(page.locator('.pp-head h1')).to_have_text('AI 人物与前沿观点');expect(page.locator('[data-person-event]')).to_have_count(len(DATA['events']))
  expect(page.locator('#nav [data-people-nav]')).to_have_count(1)
  expect(page.locator('#nav [data-people-nav]')).to_have_attribute('aria-current','page')
- expect(page.locator('.pp-latest')).to_have_count(len(DATA['people']))
- ok('Direct people deep link, directory count and sidebar entry')
+ expect(page.locator('.pp-tabs a[aria-current="page"]')).to_have_text('最新观点与进展')
+ expect(page.locator('.pp-format')).to_have_count(4)
+ expect(page.locator('.pp-read-cue')).to_have_count(len(DATA['events']))
+ ok('Direct people deep link opens the latest evidence stream with format cues')
+ route('#/people?view=directory')
+ expect(page.locator('[data-person-card]')).to_have_count(len(DATA['people']))
  expected_order=page.evaluate("PeopleUI.rows(APP.people,PeopleUI.read('#/people',APP.people)).map(p=>p.id)")
  actual_order=page.locator('[data-person-card]').evaluate_all("els=>els.map(e=>e.dataset.personCard)")
  assert actual_order==expected_order
  dated=page.locator('[data-person-card]').evaluate_all("els=>els.map(e=>e.dataset.latestDate)")
  assert dated==sorted(dated,reverse=True)
- expect(page.locator('.pp-achievements')).to_have_count(len(DATA['people']))
- first=page.locator('[data-person-card]').first
- assert first.locator('.pp-achievements').evaluate("e=>e.compareDocumentPosition(e.parentElement.querySelector('.pp-latest'))&Node.DOCUMENT_POSITION_FOLLOWING")
+ expect(page.locator('.pp-card-compact')).to_have_count(len(DATA['people']))
+ expect(page.locator('.pp-achievements')).to_have_count(0)
+ expect(page.locator('.pp-work-preview')).to_have_count(0)
  for person in DATA['people']:
   card=page.locator('[data-person-card="'+person['id']+'"]')
-  expect(card.locator('.pp-work-preview li')).to_have_count(len(person['works']))
-  expect(card.locator('.pp-achievements')).to_contain_text(person['intro'])
+  expect(card.locator('.pp-card-intro')).to_contain_text(person['intro'])
  expect(page.locator('.pp-results')).to_contain_text('最近更新优先')
  expect(page.locator('.pp-type-filters .pp-filter')).to_have_count(len(DATA['influence_types'])+1)
  page.locator('.pp-type-filters a').filter(has_text='思想与判断').click()
  expect(page.locator('[data-person-card]')).to_have_count(sum('ideas' in page.evaluate('(id)=>PeopleUI.influenceTypes(APP.people.people.find(p=>p.id===id))',p['id']) for p in DATA['people']))
- route('#/people')
- ok('One complete card per person, decision context precedes latest activity, all works and credited achievements visible')
+ route('#/people?view=directory')
+ ok('Compact directory cards preserve evidence order without repeating complete work lists')
  page.evaluate("localStorage.setItem('aip.saved','[\"docling\"]')")
  page.locator('[data-people-follow="tri-dao"]').click()
  page.locator('#pp-following').check();expect(page.locator('[data-person-card]')).to_have_count(1)
- load('#/people?following=1')
+ load('#/people?view=directory&following=1')
  expect(page.locator('[data-people-follow="tri-dao"]')).to_have_attribute('aria-pressed','true')
  assert page.evaluate("localStorage.getItem('aip.saved')")=='["docling"]'
  ok('Local follows survive document reload and preserve existing project storage')
@@ -92,21 +95,24 @@ with sync_playwright() as pw:
  expect(page.locator('.pp-impact')).to_have_count(len(DATA['people']))
  page.locator('.pp-influence-guide a').filter(has_text='学术与研究').click()
  assert page.locator('[data-person-card]').count()==sum('research' in p['impact']['dimensions'] for p in DATA['people'])
- route('#/people')
+ route('#/people?view=directory')
  ok('Influence dimensions are transparent evidence facets; all people show latest or missing-evidence state')
- page.locator('.pp-tabs a').filter(has_text='人物动态').click()
+ page.locator('.pp-tabs a').filter(has_text='最新观点与进展').click()
  expect(page.locator('[data-person-event]')).to_have_count(len(DATA['events']))
  expect(page.locator('[data-person-event="vista-paper"]')).to_contain_text('2026.10.01')
+ page.locator('.pp-format').filter(has_text='观点 / 采访').click()
+ kinds=page.locator('[data-person-event]').evaluate_all("els=>els.map(e=>e.dataset.eventKind)")
+ assert kinds and set(kinds)<={'article','talk'}
  page.locator('.pp-reset').click()
  expect(page.locator('.pp-archive')).to_be_visible()
  expect(page.locator('.pp-archive')).to_contain_text('2023.12.01')
  ok('Original publication dates and separate historical activity')
- route('#/people?area=systems&role=builder')
+ route('#/people?view=directory&area=systems&role=builder')
  expected=[p for p in DATA['people'] if 'systems' in p['areas'] and 'builder' in p['roles']]
  expect(page.locator('[data-person-card]')).to_have_count(len(expected))
  page.locator('#pp-search').fill('<script>bad()</script>');expect(page.locator('.pp-empty')).to_be_visible()
  assert page.locator('.pp-page script').count()==0
- route('#/people?discover=1');expect(page.locator('[data-person-card]')).to_have_count(sum(p['discovery']=='work' for p in DATA['people']))
+ route('#/people?view=directory&discover=1');expect(page.locator('[data-person-card]')).to_have_count(sum(p['discovery']=='work' for p in DATA['people']))
  ok('Combined facets, work discovery and safely escaped empty search')
  route('#/people')
  page.locator('#main').focus();page.keyboard.press('/');expect(page.locator('#pp-search')).to_be_focused()
@@ -126,7 +132,7 @@ with sync_playwright() as pw:
  ok('Existing pages remain navigable after people view')
  for width in [1440,1100,768,390,320]:
   page.set_viewport_size({'width':width,'height':1080})
-  for hash in ['#/people','#/people?person=shreya-shankar','#/people?person=kaiming-he','#/people?view=influence','#/people?view=updates']:
+  for hash in ['#/people','#/people?view=directory','#/people?person=shreya-shankar','#/people?person=kaiming-he','#/people?view=influence']:
    route(hash);no_overflow()
   ok(f'{width}px: directory, profiles and activity have no horizontal overflow')
  page.set_viewport_size({'width':390,'height':1080});route('#/people')
@@ -135,8 +141,9 @@ with sync_playwright() as pw:
  assert all(x=='true' for x in active_filters.evaluate_all("els=>els.map(e=>e.getAttribute('aria-current'))"))
  assert min(page.locator('.pp-filter').evaluate_all("els=>els.map(e=>e.getBoundingClientRect().height)"))>=44
  assert page.locator('.pp-reset').evaluate("e=>e.getBoundingClientRect().height")>=44
+ assert min(page.locator('.pp-format').evaluate_all("els=>els.map(e=>e.getBoundingClientRect().height)"))>=44
  ok('Mobile people filters expose current state and 44px touch targets')
- for width,label,hash in [(1440,'directory-desktop','#/people'),(390,'directory-mobile','#/people'),(1440,'profile-desktop','#/people?person=kaiming-he'),(390,'profile-mobile','#/people?person=shyam-sankar'),(1440,'updates-desktop','#/people?view=updates')]:
+ for width,label,hash in [(1440,'updates-desktop','#/people'),(390,'updates-mobile','#/people'),(1440,'directory-desktop','#/people?view=directory'),(390,'directory-mobile','#/people?view=directory'),(1440,'profile-desktop','#/people?person=elon-musk'),(390,'profile-mobile','#/people?person=shyam-sankar')]:
   page.set_viewport_size({'width':width,'height':1080});route(hash);page.evaluate('scrollTo(0,0)')
   page.screenshot(path=str(OUT/(label+'.png')))
  page.evaluate("applyTheme('dark',true)");route('#/people');no_overflow()
@@ -148,11 +155,11 @@ with sync_playwright() as pw:
  if not OFFLINE:
   denied=browser.new_context();denied.add_init_script("Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage denied','SecurityError')}})")
   q=denied.new_page();q.on('pageerror',lambda e:errors.append(str(e)));q.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE) else r.abort())
-  q.goto(BASE+'#/people',wait_until='domcontentloaded');expect(q.locator('[data-person-card]')).to_have_count(len(DATA['people']))
+  q.goto(BASE+'#/people?view=directory',wait_until='domcontentloaded');expect(q.locator('[data-person-card]')).to_have_count(len(DATA['people']))
   q.locator('[data-people-follow="tri-dao"]').click();expect(q.locator('#toast')).to_contain_text('不允许持久保存');denied.close()
   corrupt=browser.new_context();corrupt.add_init_script("localStorage.setItem('aic.people.follows.v1','not-json')")
   q=corrupt.new_page();q.on('pageerror',lambda e:errors.append(str(e)));q.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE) else r.abort())
-  q.goto(BASE+'#/people?following=1',wait_until='domcontentloaded');expect(q.locator('.pp-empty')).to_contain_text('还没有关注人物');corrupt.close()
+  q.goto(BASE+'#/people?view=directory&following=1',wait_until='domcontentloaded');expect(q.locator('.pp-empty')).to_contain_text('还没有关注人物');corrupt.close()
   ok('Denied and corrupt browser storage degrade safely')
  assert not errors, errors
  (OUT/'report.json').write_text(json.dumps({'checks':checks,'errors':errors,'storage_mode':'explicit offline test double' if OFFLINE else 'real browser localStorage','people':len(DATA['people'])},ensure_ascii=False,indent=2))

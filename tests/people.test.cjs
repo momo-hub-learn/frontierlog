@@ -6,9 +6,9 @@ const snapshot=JSON.stringify(data),now=Date.parse('2026-10-11T10:00:00Z');
 const read=q=>P.read('#/people'+(q?'?'+q:''),data);
 let n=0;function test(name,f){f();n++;console.log('PASS',name)}
 test('URL normalization and round trip',()=>{
- const s=read('view=bad&type=bad&area=bad&role=bad');assert.equal(s.view,'directory');assert.equal(s.type,'all');assert.equal(s.area,'all');assert.equal(s.role,'all');
- const a=read('view=updates&area=agents&following=1&q=VISTA'),b=P.read(P.href(a,{person:'keya-hu'}),data);
- assert.equal(b.q,'VISTA');assert.equal(b.area,'agents');assert.equal(b.following,true);assert.equal(b.person,'keya-hu');
+ const s=read('view=bad&format=bad&type=bad&area=bad&role=bad');assert.equal(s.view,'updates');assert.equal(s.format,'all');assert.equal(s.type,'all');assert.equal(s.area,'all');assert.equal(s.role,'all');
+ const a=read('format=research&area=agents&following=1&q=VISTA'),b=P.read(P.href(a,{person:'keya-hu'}),data);
+ assert.equal(b.q,'VISTA');assert.equal(b.area,'agents');assert.equal(b.format,'research');assert.equal(b.following,true);assert.equal(b.person,'keya-hu');
 });
 test('directory includes all reviewed profiles without expiration',()=>{
  assert.equal(P.rows(data,read('')).length,data.people.length);
@@ -38,6 +38,12 @@ test('event time is original publication, not review date',()=>{
 });
 test('following events use exact author relationships',()=>{
  const ev=P.events(data,read('view=updates&following=1'),new Set(['keya-hu']),now);assert.equal(ev.length,1);assert.equal(ev[0].id,'vista-paper');
+});
+test('activity format filters are transparent kind groups, not depth scores',()=>{
+ const opinion=P.events(data,read('format=opinion'),new Set(),now);assert(opinion.length);assert(opinion.every(e=>['article','talk'].includes(e.kind)));
+ const research=P.events(data,read('format=research'),new Set(),now);assert(research.length);assert(research.every(e=>e.kind==='paper'));
+ const product=P.events(data,read('format=product'),new Set(),now);assert(product.length);assert(product.every(e=>e.kind==='release'));
+ const page=P.page(data,read('format=opinion'),new Set(),now);assert(page.includes('阅读价值'));assert(page.includes('不生成主观深度分'));assert(!page.includes('data-depth-score'));
 });
 test('profile coauthor links and empty activity are honest',()=>{
  const profile=P.page(data,read('person=qiushi-han'),new Set(),now);
@@ -80,19 +86,24 @@ test('profile cards sort by newest real event, not profile or source check dates
  f.people.reverse();assert.deepEqual(P.rows(f,read(''),new Set(),at).map(p=>p.id),['recent-a','recent-b','old','unknown']);
  assert.deepEqual(P.rows(f,read('following=1'),new Set(['old','recent-b']),at).map(p=>p.id),['recent-b','old']);
 });
-test('one complete card per person exposes all representative works and achievements',()=>{
- const f=fixture(),at=Date.parse('2026-10-27T00:00:00Z'),html=P.page(f,read(''),new Set(),at);
+test('compact directory cards preview current evidence while profiles keep complete works',()=>{
+ const f=fixture(),at=Date.parse('2026-10-27T00:00:00Z'),state=read('view=directory'),html=P.page(f,state,new Set(),at);
  assert.deepEqual([...html.matchAll(/data-person-card="([^"]+)"/g)].map(m=>m[1]),['recent-a','recent-b','old','unknown']);
  assert(html.includes('最近更新优先'));assert(!html.includes('编辑编选顺序'));
- assert.equal((html.match(/class="pp-achievements"/g)||[]).length,f.people.length);
- for(const p of f.people){const card=P.card(p,f,read(''),new Set(),at);assert(card.includes('为什么值得关注'));assert(card.includes('接下来验证'));for(const w of p.works)assert(card.includes('href="'+w.url+'"'));}
+ assert.equal((html.match(/class="pp-card pp-card-compact"/g)||[]).length,f.people.length);
+ for(const p of f.people){const card=P.card(p,f,state,new Set(),at);assert(card.includes('接下来验证'));assert(!card.includes('pp-work-preview'));const profile=P.profile(p,f,state,new Set(),at);for(const w of p.works)assert(profile.includes('href="'+w.url+'"'));}
 });
 test('sort and visible latest event share one clock, including Beijing midnight',()=>{
  const f=fixture();f.events.push({...f.events[0],id:'new-day',title:'MIDNIGHT-EVENT',date:'2026-10-28',people:['unknown']});
  const before=Date.parse('2026-10-27T15:59:00Z'),after=Date.parse('2026-10-27T16:01:00Z');
  assert.notEqual(P.rows(f,read(''),new Set(),before)[0].id,'unknown');assert.equal(P.rows(f,read(''),new Set(),after)[0].id,'unknown');
- assert(!P.page(f,read(''),new Set(),before).includes('MIDNIGHT-EVENT'));assert(P.page(f,read(''),new Set(),after).includes('MIDNIGHT-EVENT'));
+ assert(!P.page(f,read('view=directory'),new Set(),before).includes('MIDNIGHT-EVENT'));assert(P.page(f,read('view=directory'),new Set(),after).includes('MIDNIGHT-EVENT'));
  assert.equal(P.rows({...f,people:[],events:[]},read(''),new Set(),after).length,0);
+});
+test('Elon Musk uses first-party role and statement evidence with an explicit boundary',()=>{
+ const elon=data.people.find(p=>p.id==='elon-musk');assert(elon);assert(elon.roles.includes('founder'));assert(elon.sources.every(s=>/^https:\/\/(x\.ai|ir\.tesla\.com)\//.test(s.url)));
+ const event=data.events.find(e=>e.id==='elon-xai-onegov-20250925');assert(event);assert.equal(event.date,'2025-09-25');assert(event.source.includes('直接引语'));assert(event.boundary.includes('不是独立效果验证'));
+ assert(P.page(data,read('person=elon-musk'),new Set(),Date.parse('2026-10-30T03:00:00Z')).includes('OneGov'));
 });
 test('rendering never mutates source evidence',()=>{assert.equal(JSON.stringify(data),snapshot)});
 console.log(`People: ${n} behavioral checks passed.`);
