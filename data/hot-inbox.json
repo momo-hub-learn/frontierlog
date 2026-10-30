@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-30T02:53:54Z",
+  "generated_at": "2026-10-30T04:06:45Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 5,
-    "merge": 108,
+    "merge": 109,
     "hold": 5
   },
   "candidates": [
@@ -300,6 +300,35 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-29T05:26:10Z"
+    },
+    {
+      "id": "candidate-3b51c31df2723f39",
+      "category": "research",
+      "published": "2026-10-29",
+      "title": "模型行为更新开始同时公开风格目标与安全回归",
+      "summary": "OpenAI 更新 GPT-6 Luna，目标是让回答更简洁并减少过度迎合；更新覆盖 Free、Go 与未登录用户，也作为 Plus/Pro 达到消息上限后的回退模型。系统卡附录继续按网络与生物/化学高能力阈值管理该模型，并同时披露未成年人保护、指令层级、健康与心理健康评测中的改善和回退。",
+      "why": "模型版本账本不应只写“更好”或一条平均分，而应把适用用户、行为目标、固定评测、回退项和部署保护放在同一版本记录中；这样产品团队才能判断一次风格更新是否引入新的高风险场景缺口。",
+      "boundary": "全部量化结果来自 OpenAI 自评，本站未复现，也没有把不同指标拼成总分。部分指标改善与个别回退同时存在，不能据此断言模型整体更安全、更准确或适合医疗、心理健康和网络攻防等高风险决策；Plus/Pro 主 GPT-6 本次没有改变。",
+      "source": "OpenAI",
+      "source_kind": "官方适用范围、行为目标与主模型不变说明",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "research_id": "openai-gpt-6-luna-behavior-safety-update-20261029",
+      "topic_tags": [
+        "Model Behavior",
+        "Safety Evaluation",
+        "Release Governance"
+      ],
+      "first_seen_at": "2026-10-30T04:06:45Z"
     },
     {
       "id": "candidate-7da35f48fcff16fc",
@@ -988,30 +1017,6 @@
         "Interactive Simulation"
       ],
       "first_seen_at": "2026-10-27T19:42:14Z"
-    },
-    {
-      "id": "candidate-30929a7b4f37bb4f",
-      "category": "product",
-      "published": "2026-10-26",
-      "title": "GPT-6.1 Terra 进入 ChatGPT Work、Codex 与 API",
-      "summary": "OpenAI 将 Terra 定位为视觉推理、计算机操作与写作模型，并公布 gpt-6.1-terra API 与标准价格。",
-      "why": "更低价格与精确界面操作会扩大企业 Agent 的可测试任务面，但是否省时要看真实任务成功、接管、误操作与重试成本。",
-      "boundary": "厂商 Benchmark 不是本站实测；具体账户、地区、额度和高风险用例仍受产品与安全政策约束。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-gpt-6-1-terra",
-      "first_seen_at": "2026-10-26T19:34:25Z"
     }
   ]
 }
