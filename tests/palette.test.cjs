@@ -23,6 +23,7 @@ const ctx={
     huggingface_hot:{web_order:['deepseek-ai/DeepSeek-V4.1-Flash-1017'],items:[{id:'deepseek-ai/DeepSeek-V4.1-Flash-1017',task:'image-text-to-text'}]},
     research_radar:{items:[{id:'world2vec-latent-dynamics-20261029',title:'world2vec：从观测学习可解释动力学',maker:'world2vec authors',tags:['World Models','Control']}]}
   },
+  HOT:{items:[{id:'openai-work-codex-allowance-20261029',title:'OpenAI 上调 Pro 的 Work 与 Codex 用量',source:'OpenAI'}]},
   VSECTORS:new Map(),
   paletteIndex:0,
   paletteItems:[],
@@ -35,7 +36,7 @@ vm.runInContext(source.slice(start,end)+'\nthis.renderPalette=renderPalette;this
 
 ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,Object.keys(pages).length,'empty query should only expose page destinations');
-assert.match(nodes['#palette-results'].innerHTML,/输入关键词可搜索研究、模型/);
+assert.match(nodes['#palette-results'].innerHTML,/输入关键词可搜索热点、研究、模型/);
 assert.doesNotMatch(nodes['#palette-results'].innerHTML,/Match Benchmark/);
 
 nodes['#palette-input'].value='DeepTutor';
@@ -52,6 +53,12 @@ nodes['#palette-input'].value='world2vec';
 ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,1,'research radar entities must be globally searchable');
 assert.match(nodes['#palette-results'].innerHTML,/研究雷达/);
+
+nodes['#palette-input'].value='上调 Pro 的 Work 与 Codex 用量';
+ctx.renderPalette();
+assert.equal(ctx.getPaletteItems().length,1,'curated hot records must be globally searchable');
+assert.match(nodes['#palette-results'].innerHTML,/热点 · OpenAI/);
+assert.match(source,/r\.type==='hot'[\s\S]*#\/hot\?item=/,'hot search results must deep-link to the exact record');
 
 nodes['#palette-input'].value='match';
 ctx.renderPalette();
