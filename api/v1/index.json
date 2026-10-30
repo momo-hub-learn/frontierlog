@@ -5550,13 +5550,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-30T21:36:20Z",
+    "generated_at": "2026-10-30T23:37:06Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 5,
-      "merge": 117,
+      "merge": 120,
       "hold": 6
     },
     "candidates": [
@@ -5710,6 +5710,29 @@
         "first_seen_at": "2026-10-30T07:48:38Z"
       },
       {
+        "id": "candidate-a63f4dd504902848",
+        "category": "industry",
+        "published": "2026-10-30",
+        "title": "GPT-6 Rosalind Research：先核对审批、入口与数据边界",
+        "summary": "OpenAI 把 GPT-6 推理带入多步生命科学研究，并向少量获批组织在 Work、Codex 与 API 开放；API 模型名为 gpt-6-rosalind，Chat 页不可用。",
+        "why": "专业研究模型开始把推理、研究工作流和生物安全控制绑定到同一访问层级。团队可以据此把模型选择、机构资格、授权用户、数据治理与人工复核拆成可审计的上线条件。",
+        "boundary": "组织和用户都必须获得 Rosalind Research 批准；Discovery 批准不授予 Research，API 还需单独获批。Enterprise 两周 Admin Preview 默认关闭。官方允许已授权的内部研究，但不代表外部客户服务、临床决策或任何生物实验可以自动执行；本站未运行，也没有可跨模型混排的官方 Benchmark。",
+        "source": "OpenAI",
+        "source_kind": "官方模型发布、产品入口、模型名、审批与 Admin Preview 说明",
+        "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.837,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-30T23:37:06Z"
+      },
+      {
         "id": "candidate-3069c896a5b94322",
         "category": "research",
         "published": "2026-10-28",
@@ -5737,6 +5760,54 @@
           "Agent Adoption"
         ],
         "first_seen_at": "2026-10-28T19:29:22Z"
+      },
+      {
+        "id": "candidate-171d0d8c025cc08b",
+        "category": "product",
+        "published": "2026-10-30",
+        "title": "GPT-6 Rosalind Research 向获批机构限量开放",
+        "summary": "OpenAI 将 GPT-6 推理带入生命科学研究，并在 Work、Codex 与 API 向少量获批 Research 客户开放；Chat 页不可用。",
+        "why": "生命科学模型的上线条件从单纯模型选择扩展到 Research 审批、授权用户、入口分级、生物安全控制和数据治理；Limited rollout 不能写成公众可用。",
+        "boundary": "Research 访问需要组织和授权用户批准，Discovery 批准不继承，API 还需单独批准。Admin Preview 默认关闭；这不是公开模型、临床工具或自主实验系统。本站未获得访问、未运行，也未复现任何能力或安全结果。",
+        "source": "OpenAI",
+        "source_kind": "官方模型发布、入口、模型名、审批与 Admin Preview 说明",
+        "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "task_id": "openai-gpt6-rosalind-research",
+        "first_seen_at": "2026-10-30T23:37:06Z"
+      },
+      {
+        "id": "candidate-aa79d76e3c1a71df",
+        "category": "product",
+        "published": "2026-10-30",
+        "title": "GPT-6 Rosalind Research 进入获批机构",
+        "summary": "少量获批组织可在 Work、Codex 与 API 使用 GPT-6 Rosalind Research；Chat 页不提供该模型。",
+        "why": "生命科学专用模型的产品竞争不仅在推理能力，还在机构分级、授权用户、生物安全控制、数据处理和审计能否一起落地。",
+        "boundary": "不能从有限开放推出公众可用、Discovery 权限自动继承或外部客户场景已获准；也不能补造官方未披露的效果、价格和 Benchmark。",
+        "source": "OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 1.0,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.826,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "openai-gpt6-rosalind-research",
+        "first_seen_at": "2026-10-30T23:37:06Z"
       },
       {
         "id": "candidate-b8b5e213b414fd72",
@@ -6489,78 +6560,6 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "chatgpt-icloud-connected-apps",
-        "first_seen_at": "2026-10-28T07:42:05Z"
-      },
-      {
-        "id": "candidate-f505d828cc1e6f14",
-        "category": "product",
-        "published": "2026-10-27",
-        "title": "OpenHands v1.34.0 加入对话级 Docker Runtime",
-        "summary": "Agent Canvas 可为每段对话创建独立 Docker Runtime，并新增 Runtime 设置页、Automation 标签编辑与更清晰的团队分享开关；安全修复把会话 API key 从进程参数移到环境变量。",
-        "why": "运行时控制下沉到单个对话，命令行密钥暴露面缩小；仍需独立核对宿主机、网络、挂载、日志与模型后端，不能把 Release 清单当作隔离或安全认证。",
-        "boundary": "补丁通过不等于可以直接合并；对话级容器也不证明宿主机、网络、挂载与模型后端已经隔离。会话 API key 改走环境变量只减少命令行暴露面。macOS 应用仍未签名和公证。",
-        "source": "OpenHands",
-        "source_kind": "官方 GitHub Release",
-        "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.762,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "openhands",
-        "first_seen_at": "2026-10-27T15:35:36Z"
-      },
-      {
-        "id": "candidate-f6b46c9e56abcc96",
-        "category": "product",
-        "published": "2026-10-27",
-        "title": "Oracle 公布 ChatGPT 内的 AI Workspace 路线",
-        "summary": "Oracle 正在开发 AI Workspace，并同时公布安全、SMB 与应用构建方案；美国客户可通过 Oracle Marketplace 采购 OpenAI 产品。",
-        "why": "价值在于把模型能力接进既有权限、审批、采购与 Oracle 数据面；实际成效要等账户开放后验证跨系统检索、执行成功率和越权防护。",
-        "boundary": "不能从合作公告推出所有 Oracle 应用已经可在 ChatGPT 中执行，也不能把厂商效率案例当成独立生产力评测。",
-        "source": "Oracle / OpenAI",
-        "source_kind": "官方产品节点",
-        "url": "https://openai.com/index/oracle-apps-in-chatgpt",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.762,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "oracle-ai-workspace",
-        "first_seen_at": "2026-10-27T18:06:41Z"
-      },
-      {
-        "id": "candidate-fffc6e6a98a31682",
-        "category": "product",
-        "published": "2026-10-27",
-        "title": "ChatGPT 开放 iCloud Mail 与 Calendar 连接",
-        "summary": "iCloud 用户可在 ChatGPT 中查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口覆盖网页、桌面端和 iOS。",
-        "why": "个人工作流获得新的邮件与日历上下文及明确的日历写入路径；是否真正可用仍要以账号入口、Apple 授权和目标日历最终状态验收。",
-        "boundary": "公告没有宣布可直接发送 iCloud 邮件，也没有公布连接成功率、冲突处理或误写率。Apple 授权、Workspace 设置、账户和地区可能影响实际入口；任何写入都要核对目标账户、时区、参与者和最终日历状态。本站未连接账户或执行写入。",
-        "source": "OpenAI",
-        "source_kind": "官方 Release Notes",
-        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.762,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "openai-icloud-mail-calendar",
         "first_seen_at": "2026-10-28T07:42:05Z"
       }
     ]
@@ -11073,12 +11072,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-30T21:36:20Z",
+    "last_evaluated": "2026-10-30T23:37:06Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 128,
+      "candidate_count": 131,
       "publish_ready_count": 5,
-      "merge_count": 117,
+      "merge_count": 120,
       "best_candidate": "candidate-123e3f719aa75935",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
