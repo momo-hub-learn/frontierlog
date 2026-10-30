@@ -52,6 +52,41 @@
   ],
   "items": [
     {
+      "id": "worldprobe-long-horizon-world-model",
+      "name": "WorldProbe · Long-Horizon Spatial Exploration",
+      "group": "agent",
+      "edition": "arXiv v1 · 164 cases / 10 models / up to 180 seconds",
+      "subtitle": "世界模型在 Agent 主动移动相机时，能否维持长程空间与状态一致性？",
+      "summary": "WorldProbe 让目标条件多模态 Agent 在生成过程中在线选择相机动作，覆盖四类探测任务；作者生成 1,600 余条、约 800 分钟 rollout，并分四维报告局部质量退化与长程不一致。",
+      "metric": "four diagnostic dimensions / rollout horizon / per-case failure trace",
+      "metric_note": "四个维度、不同探测家族与时长必须分列；不能只留一个平均分，也不能与 WMEval、WorldFailBench 或视频质量指标拼成统一世界模型总分。",
+      "protocol": "固定论文与代码版本、164 个案例、被测模型、采样配置和 Agent 相机策略；保存完整动作与视频轨迹，按探测家族、时长和四个诊断维度报告，并单列失败轨迹。",
+      "boundary": "本站未运行该评测。规模、模型集合、动作策略与结果均来自作者预印本；最长 180 秒仍不是开放世界长期运行，作者观察到的长程记忆和演化缺口不能外推为所有模型或真实机器人失败率。",
+      "business": "适合为交互式视频生成、机器人仿真和数字孪生补充长程门禁：不仅看局部画质，还要验证主动探索后空间是否仍闭合、对象状态是否持续、失败是否可定位。",
+      "setup": "先固定作者代码与案例版本，在隔离环境运行一个模型和一个探测家族，保存相机动作、随机种子、逐帧输出与四维指标；协议未完整复跑前不发布跨模型排名。",
+      "topics": [
+        "world-models",
+        "simulation"
+      ],
+      "sources": [
+        "b-worldprobe-paper"
+      ],
+      "result_url": "https://arxiv.org/abs/2610.39721",
+      "kind": "benchmark",
+      "flag": "作者预印本与公开代码入口 / 本站未运行",
+      "checked": "2026-10-30",
+      "tested": false,
+      "checks": [
+        "固定案例、模型、采样配置与相机动作策略",
+        "按探测家族、时长与四个维度分列",
+        "保留完整动作、视频与失败轨迹",
+        "不跨协议拼总分，不写成本站实测"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "world-model-faithfulness-failure-protocols",
       "name": "World Model Faithfulness · LRC / WMEval / WorldFailBench",
       "group": "agent",
@@ -1218,6 +1253,16 @@
   ],
   "sources": [
     {
+      "id": "b-worldprobe-paper",
+      "title": "WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration",
+      "publisher": "WorldProbe authors",
+      "url": "https://arxiv.org/abs/2610.39721",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "kind": "作者预印本、Benchmark 协议与公开代码入口",
+      "note": "164 个案例、4 类探测、10 个模型、1,600 余条约 800 分钟 rollout，最长 180 秒；作者结果不是本站复跑。"
+    },
+    {
       "id": "b-latent-world-model-limits",
       "title": "Understanding the limits of latent world models",
       "publisher": "Rodrigo Gonzalez Laiz / Steffen Schneider",
@@ -1804,6 +1849,20 @@
     }
   ],
   "changes": [
+    {
+      "id": "worldprobe-release-20261029",
+      "date": "2026-10-29",
+      "title": "WorldProbe 用主动相机探索暴露世界模型的长程不一致",
+      "summary": "作者公开 164 个案例和四类探测协议，让目标条件多模态 Agent 在线选择相机动作；10 个模型的 1,600 余条 rollout 最长达到 180 秒。",
+      "implication": "世界模型验收应把局部画质、长程空间一致性、状态演化和完整失败轨迹分开；不能把四个维度或不同世界模型协议拼成单一实力分。",
+      "benchmarks": [
+        "worldprobe-long-horizon-world-model"
+      ],
+      "sources": [
+        "b-worldprobe-paper"
+      ],
+      "kind": "新公开长程世界模型评测协议"
+    },
     {
       "id": "world-model-faithfulness-failure-protocols-20261027",
       "date": "2026-10-27",

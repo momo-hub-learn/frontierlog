@@ -18,7 +18,7 @@ const watchPart=extract(gh,'function ghWatchPanel(){','function ghActive(){');
 const metadataPart=extract(gh,'function ghFmt(n){','function ghWhen(){');
 const stalePart=extract(gh,'function ghStaleNotice(){','function ghPartialNotice(){');
 const partialPart=extract(gh,'function ghPartialNotice(){','function ghWatchPanel(){');
-const inlinePart=extract(gh,'function ghInline(){','const ghBaseHotPage=hotPage;');
+const inlinePart=extract(gh,'function ghWhen(){','const ghBaseHotPage=hotPage;');
 const pagePart=extract(gh,'const ghBaseHotPage=hotPage;','document.addEventListener(\'input\'');
 const app={
  GH:data,ghQuery:()=>'',ghTopic:()=> 'all',
@@ -67,6 +67,8 @@ assert.doesNotMatch(failedSyncView.__notice,/正在自动重试/);
 assert.match(inlinePart,/role="status" aria-live="polite"/);
 assert.match(inlinePart,/显示 '\+rows\.length\+' \/ '\+\(GH\.items\|\|\[\]\)\.length\+' 个仓库/);
 assert.match(inlinePart,/保留 GitHub 官方榜位/);
+assert.match(inlinePart,/榜位 /);
+assert.match(inlinePart,/仓库 API /);
 assert.match(pagePart,/GitHub 热榜/);
 assert.match(pagePart,/DEVELOPER SIGNALS \/ OFFICIAL ORDER/);
 assert.match(pagePart,/不和新闻热度混排/);

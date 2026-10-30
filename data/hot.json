@@ -36,6 +36,94 @@
   ],
   "items": [
     {
+      "id": "worldprobe-long-horizon-world-model-20261029",
+      "category": "benchmark",
+      "title": "WorldProbe：世界模型主动探索到 180 秒后还一致吗",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T09:51:26Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T19:21:45+08:00",
+      "first_seen_at": "2026-10-30T19:21:45+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 35,
+        "availability": 17,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型质量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本与公开代码入口 · 本站未运行",
+      "summary": "WorldProbe 让目标条件多模态 Agent 在线选择相机动作，用 164 个案例检查 10 个世界模型；作者生成 1,600 余条、约 800 分钟 rollout，最长探索 180 秒。",
+      "why": "固定轨迹和短片观感很难暴露空间闭合、对象持续性与状态演化问题。把相机决策交给探测 Agent，可更主动地寻找长程记忆和世界一致性的断点。",
+      "boundary": "结果来自作者预印本，本站未运行代码。案例、模型、相机策略和四维指标均有限；不能外推为所有世界模型或真实机器人失败率，也不能把四个维度与其他协议拼成综合分。",
+      "source": "WorldProbe authors / arXiv",
+      "source_kind": "作者预印本、公开评测协议与代码入口 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.39721",
+      "link": "#/benchmarks?bench=worldprobe-long-horizon-world-model",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看本站协议拆解",
+          "note": "分开看案例、动作策略、时长、四维指标和本站未运行边界",
+          "url": "#/benchmarks?bench=worldprobe-long-horizon-world-model",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration",
+          "url": "https://arxiv.org/abs/2610.39721",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "jepa-platonic-representation-good-views-20261029",
+      "category": "research",
+      "title": "JEPA 论文：跨模态对齐关键可能是“更好的视图”",
+      "published": "2026-10-29",
+      "published_at": "2026-10-29T03:49:53Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T19:21:45+08:00",
+      "first_seen_at": "2026-10-30T19:21:45+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 35,
+        "availability": 15,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本与作者实验 · 本站未复现",
+      "summary": "作者证明同一场景的“good views”可让不同模态 JEPA 在一次旋转内对齐；论文实验称同语料达到相同对齐水平所需样本比 next-token prediction 少 42 倍。",
+      "why": "这把多模态训练的关键变量从单纯扩大参数和配对数据，转向怎样构造保留共同语义的正视图，可能影响跨模态检索、无配对对齐和世界模型表征路线。",
+      "boundary": "42 倍样本效率、优于最高 72B 语言模型和 COCO CIDEr 0.838 均为作者在指定语料、编码器与协议下的结果。本站未复现，不能推出 JEPA 普遍优于自回归模型或已经解决多模态理解。",
+      "source": "Randall Balestriero / Yann LeCun / arXiv",
+      "source_kind": "作者预印本、理论条件与作者实验 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.39302",
+      "link": "#/progress?view=research&research=jepa-platonic-representation-good-views-20261029",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看证据与不能推出什么",
+          "note": "保留理论条件、实验范围、作者报告结果与本站未复现边界",
+          "url": "#/progress?view=research&research=jepa-platonic-representation-good-views-20261029",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "arXiv",
+          "title": "Proving and Improving the Platonic Representation Hypothesis with JEPAs",
+          "url": "https://arxiv.org/abs/2610.39302",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "openai-gpt-6-luna-behavior-safety-update-20261029",
       "category": "model",
       "title": "GPT-6 Luna 更新：回复更简洁，减少过度迎合",

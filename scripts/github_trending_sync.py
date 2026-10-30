@@ -341,6 +341,8 @@ def update_state(data: dict, now: datetime, fetch_page=request_trending,
         status["verified_count"] = len(source) - len(misses)
         status["metadata_failed_count"] = len(misses)
         status["metadata_status"] = "partial" if misses else "success"
+        if not misses:
+            status["metadata_checked_at"] = stamp
         status["skipped"] = misses[:6]
     except (HTTPError, URLError, OSError, ValueError, KeyError) as exc:
         status["status"] = "error"

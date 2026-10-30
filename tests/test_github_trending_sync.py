@@ -63,9 +63,11 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertNotIn('rank',tracked)
         self.assertEqual(tracked['verified_at'],'2026-10-13T08:15:00Z')
         self.assertGreaterEqual(len(out['items'][0]['star_history']),1)
+        self.assertLessEqual(len(out['items'][0]['star_history']),12)
         self.assertEqual(out['items'][0]['star_history'][-1]['at'],'2026-10-13T08:15:00Z')
         self.assertEqual(out['items'][0]['metadata_verified_at'],'2026-10-13T08:15:00Z')
         self.assertEqual(out['sync']['metadata_status'],'success')
+        self.assertEqual(out['sync']['metadata_checked_at'],'2026-10-13T08:15:00Z')
 
     def test_api_limit_preserves_complete_official_ranking_and_old_metadata(self):
         previous=self.data['items'][0]
@@ -88,6 +90,7 @@ class GitHubSyncTests(unittest.TestCase):
         self.assertEqual(row['metadata_verified_at'],previous['metadata_verified_at'])
         self.assertEqual(row['metadata_status'],'stale')
         self.assertEqual(out['sync']['metadata_failed_count'],1)
+        self.assertNotIn('metadata_checked_at',out['sync'])
 
     def test_api_limit_keeps_new_official_row_with_unknown_metadata(self):
         def limited(repo):
