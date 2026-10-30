@@ -102,7 +102,19 @@ assert.match(view.__fresh,/GitHub AI 热仓/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
 assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/仓库资料旧快照/);
-assert.match(view.__fresh,/仓库 API 部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
+assert.match(view.__fresh,/上榜仓库资料更新部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
+
+view.APP.github_hot={
+ checked_at:new Date().toISOString(),
+ sync:{metadata_status:'success',metadata_failed_count:0,watchlist_failed_count:1,status:'error'},
+ items:[{repo:'example/agent',ai_related:true,stars_today:51,rank:1,url:'https://github.com/example/agent',description:'Agent tools',metadata_status:'verified'}],
+ watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:142000,verified_at:new Date().toISOString()}]
+};
+vm.runInContext('this.__watchOnlyFailed=fcGithubPanel();',view);
+assert.match(view.__watchOnlyFailed,/长期关注仓库资料沿用旧快照/);
+assert.match(view.__watchOnlyFailed,/长期关注仓库资料更新失败：1 个长期关注项沿用旧值/);
+assert.doesNotMatch(view.__watchOnlyFailed,/上榜仓库资料.*失败/);
+assert.doesNotMatch(view.__watchOnlyFailed,/仓库 API/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
@@ -112,7 +124,7 @@ view.APP.github_hot={
 };
 vm.runInContext('this.__allFailed=fcGithubPanel();',view);
 assert.match(view.__allFailed,/仓库资料全部沿用旧快照/);
-assert.match(view.__allFailed,/仓库 API 全部失败：10 个上榜项、1 个长期关注项沿用旧值/);
+assert.match(view.__allFailed,/仓库资料更新全部失败：10 个上榜项、1 个长期关注项沿用旧值/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
@@ -123,7 +135,7 @@ view.APP.github_hot={
 vm.runInContext('this.__trendingFailedWatchVerified=fcGithubPanel();',view);
 assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料全部沿用旧快照/);
 assert.match(view.__trendingFailedWatchVerified,/长期关注项已核验/);
-assert.match(view.__trendingFailedWatchVerified,/上榜仓库 API 全部失败：10 个上榜项沿用旧值；长期关注项已核验/);
+assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料更新全部失败：10 个上榜项沿用旧值；长期关注项已核验/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/role="status">仓库资料全部沿用旧快照/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/长期关注项沿用旧值/);
 

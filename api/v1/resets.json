@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "account": "thsottiaux",
   "guidance": [
     {
@@ -9,9 +9,7 @@
       "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；只有被覆盖的限额剩余不足 80% 时才能使用，发到账号不等于额度已恢复。",
       "action": "先在用量页查看可用 reset、覆盖的限额与有效期；近 30 天内已使用的 banked reset 可在 History 中核对。",
       "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度；全量覆盖还是部分覆盖取决于计划。",
-      "sources": [
-        "oa-banked"
-      ]
+      "sources": ["oa-banked"]
     },
     {
       "id": "automatic-reset",
@@ -19,10 +17,7 @@
       "summary": "OpenAI 可能把一次重置直接应用到符合条件的限额；若提供 Assistant 自动使用选项，官方说明的触发门槛是主限额剩余不高于 10%。这里的 global 不代表所有账号、所有套餐或所有用量窗口。",
       "action": "用账号用量页或 Codex /status 核对实际窗口，不根据公告标题推断个人余额。",
       "boundary": "官方没有承诺固定发放日程，时间与资格可能变化；公告时间、Tibo 原帖或本站记录都不能单独证明每个账户已完成传播。",
-      "sources": [
-        "oa-banked",
-        "oa-usage"
-      ]
+      "sources": ["oa-banked", "oa-usage"]
     },
     {
       "id": "purchased-reset",
@@ -30,9 +25,7 @@
       "summary": "符合资格的个人 Plus / Pro 完成购买后，五小时和周窗口立即恢复；新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
       "action": "只在网页或桌面用量页确认入口、价格和资格；购买前先判断是否确实需要提前开启新周期。",
       "boundary": "这是把周额度拉到当前使用，不是额外赠送一整周，也不消耗 banked reset；Free、Go、Business、Enterprise 和 Edu 不在当前官方说明范围。",
-      "sources": [
-        "oa-paid-weekly-reset"
-      ]
+      "sources": ["oa-paid-weekly-reset"]
     }
   ],
   "events": [
@@ -69,9 +62,7 @@
       "summary": "OpenAI 帮助中心说明，符合条件的个人 Plus / Pro 账号可在桌面或网页用量页购买一次即时重置；成功购买后五小时和周窗口立即刷新，新的周周期从购买后第一次 Work / Codex 请求开始，下一次自动周重置在该请求七天后。",
       "scope": "符合资格的个人 ChatGPT Plus / Pro · 取决于账号与账单国家/地区",
       "boundary": "这是单独付费购买，不会消耗已保存的 banked reset；它把周额度提前到当前使用，不等于额外增加一整周额度，也不是 Tibo 宣布的全局发放。当前官方范围不含 Free、Go、Business、Enterprise 或 Edu；价格、入口与资格只能以个人用量页为准。",
-      "sources": [
-        "oa-paid-weekly-reset"
-      ],
+      "sources": ["oa-paid-weekly-reset"],
       "reviewed": "2026-10-28",
       "verified_at": "2026-10-28T17:25:45+08:00",
       "review_basis": "primary_source",
@@ -550,6 +541,37 @@
       "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
       "post_id": "2114588174249071102",
       "relation": "original"
+    },
+    {
+      "id": "tibo-reset-pending-2026-10-28-day23",
+      "kind": "global",
+      "status": "pending",
+      "date": "2026-10-28",
+      "published_at": null,
+      "effective_at": null,
+      "precision": "source_date",
+      "source_timezone": null,
+      "title": "Day 23 reset 线索：原帖链接已定位，正文仍待一手直读",
+      "summary": "OpenAI Developer Community 的公开线程嵌入 Tibo 的 X 帖，并显示其把 Day 23 描述为 reset；本站已定位到状态 ID 2115273064481218829，但本轮直接读取 X 返回 403，因此不把社区转述升级为已确认 reset。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；套餐、账户范围与后台 reset 类型均未由可直读原帖确认",
+      "boundary": "这是官方社区中的二手定位线索，不是本站对 Tibo 原帖正文的直接核验。它不能证明 reset 已执行、已传播到每个账户、适用套餐、额度恢复幅度、banked / global 后台机制或个人余额；社区回复所称到账也不是个人账户证据。",
+      "sources": [
+        "tibo-post-2115273064481218829",
+        "openai-community-day23-reset"
+      ],
+      "reviewed": "2026-10-30",
+      "review_basis": "secondary_lead",
+      "related_ids": [
+        "tibo-global-confirmed-2026-10-26-day21"
+      ],
+      "original_text": "Day 23/ … today is a reset.",
+      "conversation_context": "OpenAI Developer Community 的嵌入卡片把该帖与 iCloud Mail / Calendar 官方发布放在同一 Day 23 语境；本站未直接读取 X 正文及完整线程。",
+      "interpretation": "这是值得继续追踪的 reset 候选，但证据级别不足以写成已执行或已到账，因此只进入待核验正文记录。",
+      "evidence_strength": "medium",
+      "semantic_type": "secondary_reset_lead",
+      "not_proves": "未证明 reset 已执行、传播完成、覆盖任一具体套餐或个人账户，也未确认精确发布时间。",
+      "post_id": "2115273064481218829",
+      "relation": "original_link_unreadable"
     }
   ],
   "sources": [
@@ -822,6 +844,24 @@
       "checked": "2026-10-27",
       "kind": "官方原帖",
       "note": "本人原帖明确写下“But today is a reset.”；状态 ID 的 Snowflake 时间对应 2026-10-26T05:21:22.546Z。原帖未声称传播已经完成。"
+    },
+    {
+      "id": "tibo-post-2115273064481218829",
+      "publisher": "Tibo / X",
+      "title": "Day 23 reset post",
+      "url": "https://x.com/thsottiaux/status/2115273064481218829",
+      "checked": "2026-10-30",
+      "kind": "原帖待直接核验",
+      "note": "OpenAI Developer Community 的嵌入卡片定位到状态 ID 与部分文本；本轮直接读取 X 返回 403，因此不作为第一方已确认记录，也不补造精确发布时间。"
+    },
+    {
+      "id": "openai-community-day23-reset",
+      "publisher": "OpenAI Developer Community",
+      "title": "Day 23 reset embedded-post thread",
+      "url": "https://community.openai.com/t/text-your-dot-day-24-of-28-days-of-quality-of-life-improvements-and-or-a-full-reset/1403525/110",
+      "checked": "2026-10-30",
+      "kind": "OpenAI 官方社区线索",
+      "note": "官方社区帖子嵌入 Tibo 的 X 卡片并保留 Day 23 reset 片段；用于定位候选与上下文，不替代 Tibo 原帖直读或 OpenAI 官方 reset 说明。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

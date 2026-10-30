@@ -18,6 +18,10 @@ const ctx={
   pages,
   DATA:{items:Array.from({length:40},(_,i)=>({id:'task-'+i,name:'Match Tool '+i,title:'可运行',category:'工具'}))},
   VERT:{topics:[],articles:[]},
+  APP:{
+    github_hot:{items:[{repo:'HKUDS/DeepTutor',description:'Personalized tutoring agent',rank:1,stars_today:1930}]},
+    huggingface_hot:{web_order:['deepseek-ai/DeepSeek-V4.1-Flash-1017'],items:[{id:'deepseek-ai/DeepSeek-V4.1-Flash-1017',task:'image-text-to-text'}]}
+  },
   VSECTORS:new Map(),
   paletteIndex:0,
   paletteItems:[],
@@ -32,6 +36,16 @@ ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,Object.keys(pages).length,'empty query should only expose page destinations');
 assert.match(nodes['#palette-results'].innerHTML,/输入关键词可搜索模型/);
 assert.doesNotMatch(nodes['#palette-results'].innerHTML,/Match Benchmark/);
+
+nodes['#palette-input'].value='DeepTutor';
+ctx.renderPalette();
+assert.equal(ctx.getPaletteItems().length,1,'current GitHub Trending entities must be searchable');
+assert.match(nodes['#palette-results'].innerHTML,/GitHub Trending #1/);
+
+nodes['#palette-input'].value='DeepSeek-V4.1';
+ctx.renderPalette();
+assert.equal(ctx.getPaletteItems().length,1,'current Hugging Face Trending entities must be searchable');
+assert.match(nodes['#palette-results'].innerHTML,/Hugging Face Trending #1/);
 
 nodes['#palette-input'].value='match';
 ctx.renderPalette();

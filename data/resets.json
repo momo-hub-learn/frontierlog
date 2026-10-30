@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "account": "thsottiaux",
   "guidance": [
     {
@@ -541,6 +541,37 @@
       "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
       "post_id": "2114588174249071102",
       "relation": "original"
+    },
+    {
+      "id": "tibo-reset-pending-2026-10-28-day23",
+      "kind": "global",
+      "status": "pending",
+      "date": "2026-10-28",
+      "published_at": null,
+      "effective_at": null,
+      "precision": "source_date",
+      "source_timezone": null,
+      "title": "Day 23 reset 线索：原帖链接已定位，正文仍待一手直读",
+      "summary": "OpenAI Developer Community 的公开线程嵌入 Tibo 的 X 帖，并显示其把 Day 23 描述为 reset；本站已定位到状态 ID 2115273064481218829，但本轮直接读取 X 返回 403，因此不把社区转述升级为已确认 reset。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；套餐、账户范围与后台 reset 类型均未由可直读原帖确认",
+      "boundary": "这是官方社区中的二手定位线索，不是本站对 Tibo 原帖正文的直接核验。它不能证明 reset 已执行、已传播到每个账户、适用套餐、额度恢复幅度、banked / global 后台机制或个人余额；社区回复所称到账也不是个人账户证据。",
+      "sources": [
+        "tibo-post-2115273064481218829",
+        "openai-community-day23-reset"
+      ],
+      "reviewed": "2026-10-30",
+      "review_basis": "secondary_lead",
+      "related_ids": [
+        "tibo-global-confirmed-2026-10-26-day21"
+      ],
+      "original_text": "Day 23/ … today is a reset.",
+      "conversation_context": "OpenAI Developer Community 的嵌入卡片把该帖与 iCloud Mail / Calendar 官方发布放在同一 Day 23 语境；本站未直接读取 X 正文及完整线程。",
+      "interpretation": "这是值得继续追踪的 reset 候选，但证据级别不足以写成已执行或已到账，因此只进入待核验正文记录。",
+      "evidence_strength": "medium",
+      "semantic_type": "secondary_reset_lead",
+      "not_proves": "未证明 reset 已执行、传播完成、覆盖任一具体套餐或个人账户，也未确认精确发布时间。",
+      "post_id": "2115273064481218829",
+      "relation": "original_link_unreadable"
     }
   ],
   "sources": [
@@ -813,6 +844,24 @@
       "checked": "2026-10-27",
       "kind": "官方原帖",
       "note": "本人原帖明确写下“But today is a reset.”；状态 ID 的 Snowflake 时间对应 2026-10-26T05:21:22.546Z。原帖未声称传播已经完成。"
+    },
+    {
+      "id": "tibo-post-2115273064481218829",
+      "publisher": "Tibo / X",
+      "title": "Day 23 reset post",
+      "url": "https://x.com/thsottiaux/status/2115273064481218829",
+      "checked": "2026-10-30",
+      "kind": "原帖待直接核验",
+      "note": "OpenAI Developer Community 的嵌入卡片定位到状态 ID 与部分文本；本轮直接读取 X 返回 403，因此不作为第一方已确认记录，也不补造精确发布时间。"
+    },
+    {
+      "id": "openai-community-day23-reset",
+      "publisher": "OpenAI Developer Community",
+      "title": "Day 23 reset embedded-post thread",
+      "url": "https://community.openai.com/t/text-your-dot-day-24-of-28-days-of-quality-of-life-improvements-and-or-a-full-reset/1403525/110",
+      "checked": "2026-10-30",
+      "kind": "OpenAI 官方社区线索",
+      "note": "官方社区帖子嵌入 Tibo 的 X 卡片并保留 Day 23 reset 片段；用于定位候选与上下文，不替代 Tibo 原帖直读或 OpenAI 官方 reset 说明。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

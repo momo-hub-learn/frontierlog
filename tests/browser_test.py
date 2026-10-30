@@ -65,12 +65,18 @@ try:
         expect(page.locator(".fc-hf-panel")).to_have_count(1)
         expect(page.locator(".fc-hf-row")).to_have_count(3)
         expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
-        github_partial = GITHUB.get("sync", {}).get("metadata_status") == "partial"
+        github_sync = GITHUB.get("sync", {})
+        github_partial = github_sync.get("metadata_status") == "partial" or int(github_sync.get("metadata_failed_count") or 0) > 0
+        github_watch_failed = int(github_sync.get("watchlist_failed_count") or 0) > 0
         if github_partial:
-            failed = int(GITHUB.get("sync", {}).get("metadata_failed_count") or 0)
+            failed = int(github_sync.get("metadata_failed_count") or 0)
             total = len(GITHUB.get("items", []))
             scope = "全部" if total and failed >= total else "部分"
-            expect(page.locator(".fc-gh-panel")).to_contain_text(f"仓库 API {scope}失败")
+            expect(page.locator(".fc-gh-panel")).to_contain_text(f"上榜仓库资料更新{scope}失败")
+            expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
+        elif github_watch_failed:
+            expect(page.locator(".fc-gh-panel")).to_contain_text("长期关注仓库资料更新失败")
+            expect(page.locator(".fc-gh-panel")).not_to_contain_text("仓库 API")
             expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
         else:
             expect(page.locator(".fc-gh-panel")).not_to_contain_text("仓库 API")

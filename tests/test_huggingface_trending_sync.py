@@ -65,6 +65,19 @@ class HuggingFaceTrendingSyncTests(unittest.TestCase):
         self.assertEqual(out.get("web_rank_changes"), before)
         self.assertEqual(out.get("web_outgoing"), outgoing)
 
+    def test_partial_source_failure_keeps_machine_readable_reason(self):
+        payload = [
+            {"id": f"api/model-{i}", "trendingScore": 20-i, "tags": []}
+            for i in range(20)
+        ]
+        out = sync.update_state(
+            self.base, self.now, None, payload, {"web": "<urlopen error timed out>"}
+        )
+        self.assertEqual(out["sync"]["status"], "partial")
+        self.assertEqual(out["sync"]["web_status"], "preserved")
+        self.assertEqual(out["sync"]["web_error"], "<urlopen error timed out>")
+        self.assertNotIn("api_error", out["sync"])
+
     def test_api_metrics_do_not_rewrite_web_order(self):
         payload = [{"id": f"api/model-{i}", "trendingScore": 20-i, "likes": i,
                     "downloads": i*10, "tags": [], "pipeline_tag": "text-generation"}

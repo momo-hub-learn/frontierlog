@@ -126,7 +126,13 @@ def web_outgoing(previous_order: object, current_order: list[str], previous_fetc
     ]
 
 
-def update_state(data: dict, now: datetime, web_page: str | None, api_payload: object | None) -> dict:
+def update_state(
+    data: dict,
+    now: datetime,
+    web_page: str | None,
+    api_payload: object | None,
+    source_errors: dict[str, str] | None = None,
+) -> dict:
     out = copy.deepcopy(data)
     now_text = stamp(now)
     web_ok = api_ok = False
@@ -154,6 +160,10 @@ def update_state(data: dict, now: datetime, web_page: str | None, api_payload: o
         "web_status": "success" if web_ok else "preserved",
         "api_status": "success" if api_ok else "preserved",
     }
+    for source in ("web", "api"):
+        error = (source_errors or {}).get(source)
+        if error:
+            out["sync"][source + "_error"] = error[:180]
     out["note"] = (
         "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、"
         "task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；"
@@ -180,23 +190,23 @@ def main() -> int:
     args = parser.parse_args()
     data = json.loads(args.data.read_text(encoding="utf-8"))
     now = datetime.now(timezone.utc)
-    errors = []
+    errors = {}
     try:
         page = fetch_text(WEB_URL)
         parse_web_order(page)
     except Exception as exc:  # independent source preservation is intentional
         page = None
-        errors.append("web: " + str(exc)[:180])
+        errors["web"] = str(exc)[:180]
     try:
         payload = fetch_json(API_URL)
         parse_api(payload)
     except Exception as exc:  # independent source preservation is intentional
         payload = None
-        errors.append("api: " + str(exc)[:180])
+        errors["api"] = str(exc)[:180]
     if page is None and payload is None:
         print(json.dumps({"status": "error", "errors": errors}, ensure_ascii=False))
         return 1
-    out = update_state(data, now, page, payload)
+    out = update_state(data, now, page, payload, errors)
     target = args.out or args.data
     target.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": out["sync"]["status"], "web": out["sync"]["web_status"],

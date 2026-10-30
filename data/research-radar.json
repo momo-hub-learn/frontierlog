@@ -21,6 +21,32 @@
   ],
   "items": [
     {
+      "id": "nvidia-tensor-core-mlip-precision-20261029",
+      "lane": "science",
+      "title": "材料模拟开始把低精度吞吐与轨迹稳定性一起验收",
+      "maker": "NVIDIA / Lab COSMO",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T15:29:41+08:00",
+      "verification_status": "NVIDIA 官方技术实验 · 本站未复现",
+      "tags": [
+        "Scientific ML",
+        "Materials",
+        "Numerical Precision"
+      ],
+      "fact": "NVIDIA 在 Point Edge Transformer（PET）机器学习原子间势上评估 Blackwell 的 BF16x9 与 Ampere 的 TF32x3 Tensor Core FP32 方法，并把内核、端到端分子动力学、轨迹行为、势能平滑性、能量守恒与结构弛豫放在同一验证链中；方法不要求重训或改动模型权重与架构。",
+      "insight": "科学计算里的低精度优化正在从单看矩阵吞吐，转向同时验证长期轨迹和物理不变量。对材料研发与数字孪生更有前瞻价值的信号，是性能提升能否在不同模型、硬件和时间尺度上保持数值稳定，而不是一次内核加速数字。",
+      "boundary": "结果来自 NVIDIA 与合作研究者在 PET 和指定 GPU、数值方法上的官方实验，本站未运行代码或复现轨迹；不能外推到所有 MLIP、分子动力学软件、材料体系或生产工作负载，也不能把接近 FP32 的行为写成完全等价或科学结论无误。",
+      "next_watch": "跟踪实现与配置是否完整公开、第三方在其他 MLIP 和更长轨迹上的复现、不同材料体系的能量漂移与结构误差，以及端到端成本、显存和吞吐收益。",
+      "sources": [
+        {
+          "label": "NVIDIA Technical Blog · Tensor Core performance for MLIPs",
+          "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+          "kind": "官方方法、实验对象、硬件范围、数值验证与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "openai-gpt-6-luna-behavior-safety-update-20261029",
       "lane": "science",
       "title": "模型行为更新开始同时公开风格目标与安全回归",
