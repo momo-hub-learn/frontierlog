@@ -341,6 +341,12 @@
 
 边界：这是 Anthropic 与合作方的官方研究，本站未复跑证明。结论只覆盖具体定理与受信组件，并假设单线程、静态二进制、固定内存预算、RISC-V 和建模的 Linux 响应；不代表 123 个库没有其他 bug，也不证明 Claude 生成的规格或 ISA/OS 语义必然正确。
 
+站内热度 92；不是全网流量。</description></item><item><title>Fight World Model：把战斗规则交给可执行引擎</title><guid isPermaLink="false">frontierlog:hot:fight-world-model-editable-combat-20261029</guid><link>https://arxiv.org/abs/2610.40607</link><pubDate>Thu, 29 Oct 2026 17:53:02 +0000</pubDate><description>作者把战斗状态和规则放进可执行引擎，再由视觉交互代理编码动作、技能窗口、受击反馈、生命值与角色身份；论文介绍的语料覆盖 52 种技能效果、187 个角色变体和 15 个场景。
+
+为什么值得看：它把规则正确性与视觉逼真度拆开，让世界模型在规则变化时无需重训渲染器，为可编辑、可检查的交互仿真提供了另一条路线。
+
+边界：所有结果来自作者在固定视角双角色战斗任务上的实验，本站未运行代码。规则可编辑不能外推为开放世界物理、多角色交互或实时可靠性已经解决；作者演示也不能替代独立复现。
+
 站内热度 92；不是全网流量。</description></item><item><title>Google 在新加坡推进公共卫生 AI 与本地研究中心</title><guid isPermaLink="false">frontierlog:hot:google-singapore-public-health-ai-20261029</guid><link>https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>Google 宣布在新加坡设立本地 Research hub，并与公共机构推进 MedGemma 前线场景、AI co-clinician 评估、人口健康预测和公共卫生情报项目。
 
 为什么值得看：公共卫生 AI 正从单一模型演示走向研究、临床知识检索、数据主权、人口风险预测和本地治理的系统协作；这类部署会暴露真正影响落地的证据与责任边界。
@@ -526,6 +532,12 @@
 为什么值得看：这直接改变高频编码与长任务用户的可用容量，也说明套餐用量会在不改变模型能力的情况下影响真实工作流；团队应把计划名称、当前账号显示额度和任务消耗分开记录。
 
 边界：官方 Release Notes 没有列出具体 token、任务或并发数，也没有说明 Business Premium 的统一倍数；不能据此推断所有账号立即显示相同额度。此次变化不是模型升级、API credits 增加、API 限流调整或价格变更，本站没有登录账号核验。
+
+站内热度 90；不是全网流量。</description></item><item><title>PulmoWorld：把肺炎纵向证据接到受约束规划</title><guid isPermaLink="false">frontierlog:hot:pulmoworld-pneumonia-dynamics-20261028</guid><link>https://arxiv.org/abs/2610.38289</link><pubDate>Wed, 28 Oct 2026 05:14:51 +0000</pubDate><description>PulmoWorld 连接异步多模态肺炎状态估计、递归模拟与证据约束规划；Cap-MBRL 仅在风险预算和成本裕度满足时替换冻结回退策略，作者在真实与合成数据上报告预测和选择后悔值结果。
+
+为什么值得看：它为医疗世界模型给出一条可审计的安全接口：把时间不齐的证据、可想象病程、风险预算与回退策略分开记录，而不是让模型直接给出不可追溯的治疗答案。
+
+边界：这是作者预印本，不是临床试验、获批医疗器械或治疗建议，本站未运行代码。指定队列、锁定面板和合成环境上的结果不能证明真实患者结局改善，也不能推出模型可在临床工作流中安全自治。
 
 站内热度 90；不是全网流量。</description></item><item><title>Siemens × NVIDIA：排产 Agent 与虚拟质检进入真实工厂</title><guid isPermaLink="false">frontierlog:hot:siemens-nvidia-industrial-ai-20261022</guid><link>https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-are-advancing-industrial-ai</link><pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate><description>Siemens 与 NVIDIA 披露 Erlangen 工厂的工业 AI 进展：排产 Agent 结合 ERP 与车间数据生成并验证生产方案，数字孪生与 Cosmos Data Factory 在首块实体 PCB 到线前生成质检训练数据，并把相关应用从试点推进到产品化。
 
