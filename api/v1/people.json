@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "mode": "manual",
   "note": "基于本人主页、机构公告、论文与官方项目记录人工编选。五类影响力回答“为什么关注”，学术研究、技术生态、产业落地三种证据方向回答“依据是什么”；两者均可并列，不生成跨领域总分或个人名次。最新进展仅指本站已核验且标注原始日期的公开记录；无新进展者显示最后已知作品与旧核验日期，不等于本人没有新工作。共同署名不代表同等贡献。",
   "roles": [
@@ -1815,6 +1815,56 @@
         ],
         "basis": "PagedAttention、LMSYS.org（以档案内原始作品链接为依据）"
       }
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "aliases": [
+        "埃隆·马斯克"
+      ],
+      "roles": [
+        "founder"
+      ],
+      "areas": [
+        "product",
+        "robotics",
+        "systems"
+      ],
+      "intro": "xAI 联合创始人兼 CEO、Tesla CEO，把前沿模型、算力、产品部署与物理世界的自动驾驶和机器人议题连接起来。",
+      "watch": "公司公开承诺能否转化为可独立复核的模型能力、安全性、成本效率与真实物理世界可靠性？",
+      "sources": [
+        {
+          "label": "Tesla 投资者关系 · Elon Musk",
+          "url": "https://ir.tesla.com/corporate/elon-musk",
+          "kind": "institution"
+        },
+        {
+          "label": "xAI 官方公告 · OneGov",
+          "url": "https://x.ai/news/onegov",
+          "kind": "institution"
+        }
+      ],
+      "works": [
+        {
+          "title": "xAI / Grok",
+          "url": "https://x.ai/company",
+          "relation": "联合创始人兼 CEO"
+        },
+        {
+          "title": "Tesla",
+          "url": "https://ir.tesla.com/corporate/elon-musk",
+          "relation": "CEO"
+        }
+      ],
+      "related": [],
+      "discovery": "editorial",
+      "checked": "2026-10-30",
+      "impact": {
+        "dimensions": [
+          "industry"
+        ],
+        "basis": "xAI 与 Tesla 官方公司资料、本人在 xAI 官方公告中的直接引语（仅作为公开职责与立场证据）"
+      }
     }
   ],
   "events": [
@@ -2177,6 +2227,20 @@
       "source": "One Useful Thing · Ethan Mollick 本人署名文章",
       "boundary": "这是作者对公开评测、价格与个人实践的综合解读，不是统一口径的本站实测；不同任务、模型、组织与评测方法仍可能得到不同结论。",
       "checked": "2026-10-29"
+    },
+    {
+      "id": "elon-xai-onegov-20250925",
+      "date": "2025-09-25",
+      "title": "谈 xAI 政府部署：强调前沿模型可及性与实施支持",
+      "people": [
+        "elon-musk"
+      ],
+      "kind": "article",
+      "summary": "Elon Musk 在 xAI 与美国 GSA 的 OneGov 官方公告中表示，希望让联邦机构获得 xAI 的前沿模型；公告同时承诺由专门的 Grok 工程师支持实施。",
+      "url": "https://x.ai/news/onegov",
+      "source": "xAI 官方公告 · Elon Musk 直接引语",
+      "boundary": "这是本人在公司公告中的产品与政策立场，以及厂商对支持能力的承诺；不是独立效果验证，也不能推出所有政府场景的安全性、成本收益或适用性。",
+      "checked": "2026-10-30"
     }
   ],
   "influence_types": [
