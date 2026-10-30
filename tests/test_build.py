@@ -16,6 +16,13 @@ class BuildTests(unittest.TestCase):
         self.u=json.loads((ROOT/'data/upstream.json').read_text())
         self.s=json.loads((ROOT/'data/site.json').read_text())
     def test_catalog_valid(self): build.validate(self.c,self.u,self.s)
+    def test_checked_in_trending_apis_match_reviewed_inputs(self):
+        for name in ('github-hot.json','huggingface-hot.json','activity-radar.json'):
+            self.assertEqual(
+                json.loads((ROOT/'api/v1'/name).read_text()),
+                json.loads((ROOT/'data'/name).read_text()),
+                f'api/v1/{name} must publish the same reviewed snapshot as data/{name}',
+            )
     def test_missing_source_rejected(self):
         self.c['items'][0]['sources']=['missing']
         with self.assertRaises(ValueError):build.validate(self.c,self.u,self.s)

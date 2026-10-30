@@ -67,6 +67,7 @@ jobs:
         run: |
           node tests/product-browser.test.cjs
           node tests/hot-access.test.cjs
+          node tests/palette.test.cjs
       - name: Build static site
         run: python scripts/build.py --out dist-ci --repo momo-hub-learn/frontierlog --base-url https://momo-hub-learn.github.io/frontierlog/
       - name: Verify v2 output
