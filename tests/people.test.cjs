@@ -7,6 +7,7 @@ const read=q=>P.read('#/people'+(q?'?'+q:''),data);
 let n=0;function test(name,f){f();n++;console.log('PASS',name)}
 test('URL normalization and round trip',()=>{
  const s=read('view=bad&format=bad&type=bad&area=bad&role=bad');assert.equal(s.view,'updates');assert.equal(s.format,'all');assert.equal(s.type,'all');assert.equal(s.area,'all');assert.equal(s.role,'all');
+ assert.equal(P.href(read(''),{}),'#/people');
  const a=read('format=research&area=agents&following=1&q=VISTA'),b=P.read(P.href(a,{person:'keya-hu'}),data);
  assert.equal(b.q,'VISTA');assert.equal(b.area,'agents');assert.equal(b.format,'research');assert.equal(b.following,true);assert.equal(b.person,'keya-hu');
 });
