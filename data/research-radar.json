@@ -21,6 +21,70 @@
   ],
   "items": [
     {
+      "id": "world2vec-mechanistic-world-model-20261029",
+      "lane": "paradigm",
+      "title": "world2vec 把世界模型目标改写为“忠实复现动力学”",
+      "maker": "world2vec authors",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T21:19:41+08:00",
+      "verification_status": "作者预印本、项目页与代码入口 · 本站未复现",
+      "tags": [
+        "World Models",
+        "Latent Dynamics",
+        "System Identification"
+      ],
+      "fact": "world2vec 从无奖励的观测—动作轨迹学习潜在动力学。作者报告它在像素控制与系统辨识任务上取得领先结果，可复现 71 个混沌吸引子的长程动力学，并使用比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数。",
+      "insight": "这条路线把世界模型从“为策略提供足够信息”推向“潜在状态是否真正对应系统机制”。如果能被独立复现，它可能让机器人控制、科学建模与因果干预共用一套更小、更可检查的动力学表示。",
+      "boundary": "所有性能、参数量与 71 个吸引子结果均来自作者在指定环境、数据与协议下的实验，本站未运行代码。忠实复现这些系统不能外推为开放世界视频生成、复杂真实机器人或任意科学过程已经解决；项目页的可视化也不能替代数值复现。",
+      "next_watch": "跟踪代码与训练数据是否完整开放、第三方能否复现长程稳定性、潜在变量是否具有可识别语义、噪声和分布外干预下是否仍忠实，以及动力学忠实与控制回报何时发生冲突。",
+      "sources": [
+        {
+          "label": "arXiv · world2vec: Mechanistic world models through latent dynamics learning",
+          "url": "https://arxiv.org/abs/2610.40637",
+          "kind": "作者预印本、方法、实验范围与量化结果",
+          "strength": "primary"
+        },
+        {
+          "label": "world2vec project page",
+          "url": "https://worldmodels.science/",
+          "kind": "作者项目页、可视化与代码入口",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "algebraic-world-model-lean-proofs-20261029",
+      "lane": "paradigm",
+      "title": "Algebraic World Model 把环境探索接到 Lean 证明",
+      "maker": "Algebraic World Model authors",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T21:19:41+08:00",
+      "verification_status": "作者预印本、项目页与公开 Lean 证明 · 本站未复现",
+      "tags": [
+        "World Models",
+        "Formal Verification",
+        "ARC-AGI-3"
+      ],
+      "fact": "系统先探索 ARC-AGI-3 环境，在 Python 中提出机制假设，再转成类型化规则和 Lean 4 定理。作者报告两个不可能关卡上 6/6 次 AWM 运行闭合证明、Claude Opus 5.5 与 GPT-6 Astra 基线共 0/12；183 个关卡的公开记录可在 Lean 中回放。",
+      "insight": "它展示了一种 Agent 评估的结构性变化：不再只问“最后得了多少分”，而是把世界模型中的机制假设显式化，让证明器定位不一致，并用新的反例继续探索。",
+      "boundary": "作者结果集中在 ARC-AGI-3 与两个不可能关卡，本站未复现。Lean 证明的是学习到的形式模型，不自动证明真实游戏；屏幕到状态的 Python 解析器位于证明边界之外，模型也可能比游戏更严格。6/6 与 0/12 不能外推为通用 Agent 优劣。",
+      "next_watch": "跟踪完整代码与证明工件、第三方复现、视觉解析器如何进入可信边界、模型与真实环境不一致时怎样产生反例，以及形式证明成本能否扩展到连续状态、噪声传感与真实机器人。",
+      "sources": [
+        {
+          "label": "arXiv · Algebraic World Model: From Exploration to Proofs",
+          "url": "https://arxiv.org/abs/2610.40503",
+          "kind": "作者预印本、系统结构、实验与证明边界",
+          "strength": "primary"
+        },
+        {
+          "label": "Algebraic World Model project page",
+          "url": "https://ephemeral6.github.io/awm-site/",
+          "kind": "作者项目页、逐步机制与公开结果",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "jepa-platonic-representation-good-views-20261029",
       "lane": "paradigm",
       "title": "JEPA 把跨模态对齐的关键从“更大”改写为“更好的视图”",

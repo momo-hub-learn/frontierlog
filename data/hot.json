@@ -36,6 +36,94 @@
   ],
   "items": [
     {
+      "id": "algebraic-world-model-lean-proofs-20261029",
+      "category": "benchmark",
+      "title": "Algebraic World Model：把游戏机制假设送进 Lean 证明",
+      "published": "2026-10-30",
+      "published_at": "2026-10-29T17:20:31Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T21:19:41+08:00",
+      "first_seen_at": "2026-10-30T21:19:41+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 35,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本、项目页与公开 Lean 证明 · 本站未复现",
+      "summary": "作者把 ARC-AGI-3 探索转为 Python 机制假设、类型化规则与 Lean 4 定理；论文报告 6/6 次 AWM 运行在两个不可能关卡上闭合证明，而两组基础 Agent 共 0/12。",
+      "why": "这提供了一条比“Agent 得分上涨”更可检查的路线：先显式学习环境机制，再让证明器验证模型内部是否自洽，并把探索错误、规则错误与执行错误分开。",
+      "boundary": "所有数字来自作者在两个不可能关卡与公开 ARC-AGI-3 游戏上的实验，本站未复现。Lean 证明的是学到的形式模型；屏幕到状态的 Python 解析器不在证明边界内，模型也可能比真实游戏更严格，因此不能把闭合证明写成真实环境已被完全证明。",
+      "source": "Algebraic World Model authors / arXiv",
+      "source_kind": "作者预印本、项目页、公开证明与实验边界 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.40503",
+      "link": "#/benchmarks?bench=algebraic-world-model-proof-protocol",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看证明协议与边界",
+          "note": "区分作者实验、Lean 证明边界与本站未复现状态",
+          "url": "#/benchmarks?bench=algebraic-world-model-proof-protocol",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "AWM authors",
+          "title": "Algebraic World Model project page",
+          "url": "https://ephemeral6.github.io/awm-site/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "world2vec-mechanistic-world-model-20261029",
+      "category": "research",
+      "title": "world2vec：用潜在动力学学一个可检查的机制世界模型",
+      "published": "2026-10-30",
+      "published_at": "2026-10-29T17:58:23Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T21:19:41+08:00",
+      "first_seen_at": "2026-10-30T21:19:41+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 35,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型质量或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本、项目页与代码入口 · 本站未复现",
+      "summary": "world2vec 从无奖励的观测—动作序列学习潜在动力学；作者报告在像素控制与 71 个混沌吸引子系统辨识上取得领先结果，并以比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数复现长程动力学。",
+      "why": "它把世界模型目标从“能产生高回报动作”推进到“潜在状态是否忠实复现真实系统”，对机器人控制、科学系统辨识和长程可预测性都有直接前瞻意义。",
+      "boundary": "参数量、控制结果与 71 个吸引子均为作者在指定环境和协议下的报告，本站未运行代码。高控制回报不等于动力学忠实，反过来在这些系统上重建动力学也不能推出开放世界视频或真实机器人已解决。",
+      "source": "world2vec authors / arXiv",
+      "source_kind": "作者预印本、项目页、代码入口与实验范围 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.40637",
+      "link": "#/progress?view=research&research=world2vec-mechanistic-world-model-20261029",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看研究档案",
+          "note": "分开看动力学忠实、控制结果、参数量与本站未复现边界",
+          "url": "#/progress?view=research&research=world2vec-mechanistic-world-model-20261029",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "world2vec authors",
+          "title": "world2vec project page",
+          "url": "https://worldmodels.science/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "worldprobe-long-horizon-world-model-20261029",
       "category": "benchmark",
       "title": "WorldProbe：世界模型主动探索到 180 秒后还一致吗",

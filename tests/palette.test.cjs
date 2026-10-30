@@ -20,7 +20,8 @@ const ctx={
   VERT:{topics:[],articles:[]},
   APP:{
     github_hot:{items:[{repo:'HKUDS/DeepTutor',description:'Personalized tutoring agent',rank:1,stars_today:1930}]},
-    huggingface_hot:{web_order:['deepseek-ai/DeepSeek-V4.1-Flash-1017'],items:[{id:'deepseek-ai/DeepSeek-V4.1-Flash-1017',task:'image-text-to-text'}]}
+    huggingface_hot:{web_order:['deepseek-ai/DeepSeek-V4.1-Flash-1017'],items:[{id:'deepseek-ai/DeepSeek-V4.1-Flash-1017',task:'image-text-to-text'}]},
+    research_radar:{items:[{id:'world2vec-latent-dynamics-20261029',title:'world2vec：从观测学习可解释动力学',maker:'world2vec authors',tags:['World Models','Control']}]}
   },
   VSECTORS:new Map(),
   paletteIndex:0,
@@ -34,7 +35,7 @@ vm.runInContext(source.slice(start,end)+'\nthis.renderPalette=renderPalette;this
 
 ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,Object.keys(pages).length,'empty query should only expose page destinations');
-assert.match(nodes['#palette-results'].innerHTML,/输入关键词可搜索模型/);
+assert.match(nodes['#palette-results'].innerHTML,/输入关键词可搜索研究、模型/);
 assert.doesNotMatch(nodes['#palette-results'].innerHTML,/Match Benchmark/);
 
 nodes['#palette-input'].value='DeepTutor';
@@ -46,6 +47,11 @@ nodes['#palette-input'].value='DeepSeek-V4.1';
 ctx.renderPalette();
 assert.equal(ctx.getPaletteItems().length,1,'current Hugging Face Trending entities must be searchable');
 assert.match(nodes['#palette-results'].innerHTML,/Hugging Face Trending #1/);
+
+nodes['#palette-input'].value='world2vec';
+ctx.renderPalette();
+assert.equal(ctx.getPaletteItems().length,1,'research radar entities must be globally searchable');
+assert.match(nodes['#palette-results'].innerHTML,/研究雷达/);
 
 nodes['#palette-input'].value='match';
 ctx.renderPalette();
