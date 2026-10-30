@@ -53,7 +53,7 @@ class EditorialContracts(unittest.TestCase):
   app=(ROOT/'src/app.js').read_text()
   self.assertIn('<main id="main" tabindex="-1">',html)
   self.assertIn('const previousView=state.view;',app)
-  self.assertIn("if(previousView!==state.view){window.scrollTo(0,0);$('#main').focus({preventScroll:true})}",app)
+  self.assertIn("if(previousView!==state.view)requestAnimationFrame(()=>{window.scrollTo(0,0);$('#main').focus({preventScroll:true})})",app)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)

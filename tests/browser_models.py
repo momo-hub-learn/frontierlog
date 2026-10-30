@@ -23,7 +23,10 @@ with sync_playwright() as p:
  route(page,'#/feed');page.evaluate('scrollTo(0,document.body.scrollHeight)');assert page.evaluate('scrollY')>100
  page.locator('#nav a[href="#/models"]').click();expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
  assert page.evaluate('scrollY')<5;assert page.evaluate('document.activeElement.id')=='main'
- shot(page,'models-route-focus.png');ok('top-level navigation resets stale scroll and moves focus to the new page landmark')
+ page.evaluate('scrollTo(0,750)');page.locator('#nav a[href="#/feed"]').click();page.evaluate('scrollTo(0,document.body.scrollHeight)')
+ page.locator('#nav a[href="#/models"]').click();page.wait_for_timeout(80)
+ assert page.evaluate('scrollY')<5;assert page.evaluate('document.activeElement.id')=='main'
+ shot(page,'models-route-focus.png');ok('first and repeat top-level navigation override stale history scroll and focus the new page landmark')
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  aa_headers=page.locator('.v2-model-table table th').all_text_contents()
  expected_aa_headers=5+int(any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('context'),str) and x['context'].strip() for x in AA['rows']))
