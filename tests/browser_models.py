@@ -20,6 +20,10 @@ with sync_playwright() as p:
  page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',intercept)
  test_html=HTML.replace("fetch('./api/v1/capabilities.json'","fetch('https://frontierlog.test/api/v1/capabilities.json'")
  page.set_content(test_html,wait_until='domcontentloaded');page.set_default_timeout(5000)
+ route(page,'#/feed');page.evaluate('scrollTo(0,document.body.scrollHeight)');assert page.evaluate('scrollY')>100
+ page.locator('#nav a[href="#/models"]').click();expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
+ assert page.evaluate('scrollY')<5;assert page.evaluate('document.activeElement.id')=='main'
+ shot(page,'models-route-focus.png');ok('top-level navigation resets stale scroll and moves focus to the new page landmark')
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  aa_headers=page.locator('.v2-model-table table th').all_text_contents()
  expected_aa_headers=5+int(any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('context'),str) and x['context'].strip() for x in AA['rows']))

@@ -48,6 +48,12 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<span>垂类资料核对</span><code id="snapshot-date">',html)
   self.assertNotIn('<span>资料快照</span><code id="snapshot-date">',html)
   self.assertIn("$('#snapshot-date').textContent=VERT.checked",app)
+ def test_top_level_navigation_resets_scroll_and_focuses_main(self):
+  html=(ROOT/'src/index.html').read_text()
+  app=(ROOT/'src/app.js').read_text()
+  self.assertIn('<main id="main" tabindex="-1">',html)
+  self.assertIn('const previousView=state.view;',app)
+  self.assertIn("if(previousView!==state.view){window.scrollTo(0,0);$('#main').focus({preventScroll:true})}",app)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)
