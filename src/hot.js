@@ -220,6 +220,7 @@ const beforeHotDetails=moduleDetailsFromRoute;
 moduleDetailsFromRoute=function(){if(state.view==='hot'){const id=hState().item;if(id)hDetail(id);else if(modal.open&&modal.dataset.type==='hot')hideModal(false);return}if(modal.open&&modal.dataset.type==='hot')hideModal(false);beforeHotDetails()};
 /* Closing a deep-linked drawer must leave a truthful, refresh-safe route. */
 modal.addEventListener('close',()=>{
+ if(modal.open)return;
  if(modal.dataset.type==='hot'&&state.view==='hot'&&hState().item)hRoute({item:null},true)
 });
 const beforeHotFeed=feedPage;

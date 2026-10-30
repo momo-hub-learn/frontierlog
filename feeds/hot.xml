@@ -437,6 +437,12 @@
 
 边界：这是 OpenAI 对自有内部环境的披露，本站未独立审计其隔离强度、漏洞覆盖或停止系统。文中即将推出的 GPT-6 Astra Cyber 仅用于红队叙述，不代表已经公开可用；内部训练恢复也不等于新模型完成、即将发布或已通过全部部署评测。
 
+站内热度 91；不是全网流量。</description></item><item><title>GPT-6 Luna 更新：回复更简洁，减少过度迎合</title><guid isPermaLink="false">frontierlog:hot:openai-gpt-6-luna-behavior-safety-update-20261029</guid><link>https://help.openai.com/en/articles/9624314-model-release-notes</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 更新 GPT-6 Luna，目标是让回复更简洁、减少过度迎合；当前用于 Free、Go 与未登录用户，在 Plus/Pro 达到消息上限后作为回退模型，Plus/Pro 主 GPT-6 不变。
+
+为什么值得看：同一模型版本同时公开产品范围、行为目标和安全评测变化，能帮助用户区分“聊天风格更新”与“能力或安全全面提升”，也为模型行为回归建立更清楚的版本证据。
+
+边界：发布方评测显示部分未成年人保护、指令层级与健康场景指标改善，也有个别健康与心理健康指标回退；这些是 OpenAI 的内部评测，不是本站复测，不能推出模型整体更安全、更强或适合高风险医疗决策。安全附录仍把该模型按 Preparedness Framework 的网络与生物/化学高能力阈值管理。
+
 站内热度 91；不是全网流量。</description></item><item><title>Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收</title><guid isPermaLink="false">frontierlog:hot:agent4sci-scientific-ml-benchmark-20261020</guid><link>https://arxiv.org/abs/2610.28763</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate><description>Agent4Sci 开放 11 个科学领域、20 个 benchmark、25 个任务：Agent 先在训练/验证集上改进 ML 方案，再由隐藏测试独立评分，并审计完整轨迹中的泄漏、取巧或不当操作。
 
 为什么值得看：这把科研 Agent 从“会写论文或代码”的展示推进到带预算、隐藏测试和过程审计的长程实验；更接近团队真正需要验收的可重复研发工作。

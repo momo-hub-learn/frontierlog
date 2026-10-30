@@ -32,6 +32,8 @@ with sync_playwright() as pw:
  p.locator('#h-search').fill('not-found-xyz');expect(p.locator('.h-empty')).to_have_count(1);expect(p.locator('[data-ha="hot-clear-search"]')).to_be_visible();p.locator('[data-ha="hot-clear-search"]').click();expect(p.locator('#h-search')).to_have_value('');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']))
  route(p,'#/hot');expect(p.locator('[data-ha="cat"][data-id="all"]')).to_have_attribute('aria-pressed','true');ok('category and search filters preserve compact ranking and expose the selected button to assistive technology')
  route(p,'#/hot?tab=github');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
+ first_rank=p.locator('.gh-row').first.bounding_box();watch=p.locator('.gh-watch').first.bounding_box();assert first_rank and watch and first_rank['y']<watch['y'] and first_rank['y']+first_rank['height']<=p.viewport_size['height']
+ ok('GitHub official ranking reaches the desktop first screen before the separate long-term watchlist')
  route(p,'#/hot?tab=hf');expect(p.locator('.h-open-tabs a.active')).to_have_attribute('aria-current','page')
  first_metrics=p.locator('.hf-row .hf-sub').first.inner_text();assert '赞 ' in first_metrics and '下载 ' in first_metrics and '♥' not in first_metrics and '↓' not in first_metrics
  ok('platform switch exposes the current page and HF metrics use unambiguous text labels')

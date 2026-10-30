@@ -166,7 +166,6 @@ function ghInline(){
     '<div class="gh-inline-head"><div><strong>'+(ghFreshness().stale?'GitHub Trending · 历史快照':'GitHub Trending · Today')+'</strong><span>'+(ghFreshness().stale?'该快照已过期，不代表当前榜位。':'官方榜位 + 今日新增 Star，作为开发者采用信号。')+'</span></div><div><span>核验 '+esc(ghWhen())+'</span><a href="'+safeLink(GH.source_url)+'" target="_blank" rel="noopener noreferrer">打开 GitHub 原榜 '+icon('external')+'</a></div></div>'+
     ghStaleNotice()+
     ghPartialNotice()+
-    ghWatchPanel()+
     '<div class="gh-method"><b>怎么看</b><span>左侧 # 是 GitHub Trending 官方榜位；右侧同时看“今日 Star”和最近几次快照的 Star 斜率；新上榜仓历史不足时不画趋势线。中间补“仓库创建 / 最近推送”，用来区分新仓爆发、老仓翻红和持续活跃。趋势来自连续快照，不是本站估算浏览量。</span></div>'+
     ghTopicTabs()+
     '<p class="gh-resultline" role="status" aria-live="polite">显示 '+rows.length+' / '+(GH.items||[]).length+' 个仓库 · 保留 GitHub 官方榜位</p>'+
@@ -178,6 +177,7 @@ function ghInline(){
       '</a>'
     ).join('')+'</div>':'<div class="h-empty"><h3>没有匹配的 GitHub 项目</h3><p>换个关键词或主题继续看。</p><button class="button" data-gh-clear>清除搜索与筛选</button></div>')+
     '<footer class="gh-note">'+esc(GH.note||'')+'</footer>'+
+    ghWatchPanel()+
   '</section>'
 }
 

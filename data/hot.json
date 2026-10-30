@@ -36,6 +36,56 @@
   ],
   "items": [
     {
+      "id": "openai-gpt-6-luna-behavior-safety-update-20261029",
+      "category": "model",
+      "title": "GPT-6 Luna 更新：回复更简洁，减少过度迎合",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T11:54:32+08:00",
+      "first_seen_at": "2026-10-30T11:54:32+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 34,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力、安全性或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方发布与安全附录 · 本站未独立复测",
+      "summary": "OpenAI 更新 GPT-6 Luna，目标是让回复更简洁、减少过度迎合；当前用于 Free、Go 与未登录用户，在 Plus/Pro 达到消息上限后作为回退模型，Plus/Pro 主 GPT-6 不变。",
+      "why": "同一模型版本同时公开产品范围、行为目标和安全评测变化，能帮助用户区分“聊天风格更新”与“能力或安全全面提升”，也为模型行为回归建立更清楚的版本证据。",
+      "boundary": "发布方评测显示部分未成年人保护、指令层级与健康场景指标改善，也有个别健康与心理健康指标回退；这些是 OpenAI 的内部评测，不是本站复测，不能推出模型整体更安全、更强或适合高风险医疗决策。安全附录仍把该模型按 Preparedness Framework 的网络与生物/化学高能力阈值管理。",
+      "source": "OpenAI",
+      "source_kind": "官方模型发布说明 / 官方部署安全附录 / 本轮编辑核验",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "link": "#/progress?view=research&research=openai-gpt-6-luna-behavior-safety-update-20261029",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看行为与安全评测拆解",
+          "note": "分开看适用用户、风格目标、改善项、回退项与发布方评测边界",
+          "url": "#/progress?view=research&research=openai-gpt-6-luna-behavior-safety-update-20261029",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI Help Center",
+          "title": "Model Release Notes · GPT-6 update",
+          "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+          "date": "2026-10-29"
+        },
+        {
+          "source": "OpenAI Deployment Safety Hub",
+          "title": "GPT-6 Luna System Card Addendum",
+          "url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "world-model-faithfulness-failure-benchmarks-20261027",
       "category": "benchmark",
       "title": "世界模型评测开始核对“怎样失败”，不只看画面像不像",

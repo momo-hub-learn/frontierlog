@@ -21,6 +21,38 @@
   ],
   "items": [
     {
+      "id": "openai-gpt-6-luna-behavior-safety-update-20261029",
+      "lane": "science",
+      "title": "模型行为更新开始同时公开风格目标与安全回归",
+      "maker": "OpenAI",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T11:54:32+08:00",
+      "verification_status": "官方模型说明与系统卡附录 · 本站未独立复测",
+      "tags": [
+        "Model Behavior",
+        "Safety Evaluation",
+        "Release Governance"
+      ],
+      "fact": "OpenAI 更新 GPT-6 Luna，目标是让回答更简洁并减少过度迎合；更新覆盖 Free、Go 与未登录用户，也作为 Plus/Pro 达到消息上限后的回退模型。系统卡附录继续按网络与生物/化学高能力阈值管理该模型，并同时披露未成年人保护、指令层级、健康与心理健康评测中的改善和回退。",
+      "insight": "模型版本账本不应只写“更好”或一条平均分，而应把适用用户、行为目标、固定评测、回退项和部署保护放在同一版本记录中；这样产品团队才能判断一次风格更新是否引入新的高风险场景缺口。",
+      "boundary": "全部量化结果来自 OpenAI 自评，本站未复现，也没有把不同指标拼成总分。部分指标改善与个别回退同时存在，不能据此断言模型整体更安全、更准确或适合医疗、心理健康和网络攻防等高风险决策；Plus/Pro 主 GPT-6 本次没有改变。",
+      "next_watch": "跟踪第三方行为复测、过度迎合与简洁度的可复现定义、健康场景回退是否修复、回退模型与主模型的可见标识，以及后续系统卡是否继续公开版本差异。",
+      "sources": [
+        {
+          "label": "OpenAI · Model Release Notes",
+          "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+          "kind": "官方适用范围、行为目标与主模型不变说明",
+          "strength": "primary"
+        },
+        {
+          "label": "OpenAI · GPT-6 Luna System Card Addendum",
+          "url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum",
+          "kind": "官方安全评测、能力阈值、保护措施与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "world-model-faithfulness-and-failure-benchmarks-20261027",
       "lane": "paradigm",
       "title": "世界模型评测开始追问动力学是否真实、失败是否真实",
