@@ -27,6 +27,21 @@ class EditorialContracts(unittest.TestCase):
     checked+=1
   self.assertGreaterEqual(checked,2)
 
+ def test_hot_industry_records_open_the_matching_evidence_drawer(self):
+  hot=json.loads((ROOT/'data/hot.json').read_text())
+  industry=json.loads((ROOT/'data/industry.json').read_text())
+  article_ids={x['id'] for x in industry['articles']}
+  matched=0
+  for item in hot['items']:
+   if item['category']!='industry' or item['id'] not in article_ids: continue
+   internal=[x for x in item.get('access',[]) if x.get('kind')=='internal']
+   if not internal: continue
+   query=parse_qs(urlsplit(item['link'][1:]).query)
+   self.assertEqual(query.get('article'),[item['id']],item['id'])
+   self.assertEqual(internal[0]['url'],item['link'],item['id'])
+   matched+=1
+  self.assertGreaterEqual(matched,2)
+
  def test_sidebar_date_names_the_dataset_it_actually_describes(self):
   html=(ROOT/'src/index.html').read_text()
   app=(ROOT/'src/app.js').read_text()

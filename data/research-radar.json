@@ -21,6 +21,64 @@
   ],
   "items": [
     {
+      "id": "fight-world-model-editable-combat-20261029",
+      "lane": "paradigm",
+      "title": "Fight World Model 把战斗规则拆进可执行引擎",
+      "maker": "Fight World Model authors",
+      "date": "2026-10-29",
+      "verified_at": "2026-10-30T23:15:09+08:00",
+      "verification_status": "作者预印本与项目页 · 本站未复现",
+      "tags": [
+        "World Models",
+        "Editable Rules",
+        "Game Simulation"
+      ],
+      "fact": "作者把战斗状态与规则放进可执行引擎，再由视觉交互代理编码动作和技能窗口、受击反馈、持续生命值与角色身份。论文介绍的 FightWorld Corpus 覆盖 52 种技能效果、187 个角色变体和 15 个场景，并报告修改规则时无需重训渲染器。",
+      "insight": "这条路线把世界模型中的“规则是否正确”与“画面是否逼真”分开，使交互系统可以先检查状态转移、技能窗口和角色约束，再单独评估视觉代理；它可能比端到端视频预测更适合需要频繁改规则的游戏原型。",
+      "boundary": "所有质量与一致性结果来自作者在固定视角、双角色战斗任务上的实验，本站未运行代码。可编辑状态和规则不能外推为开放世界物理、任意角色交互或实时可靠性已经解决；项目页演示也不能替代独立复现。",
+      "next_watch": "跟踪代码、语料与评测脚本是否完整开放，第三方能否复现规则变更后的身份、生命值和技能窗口一致性，以及视觉代理在长时程、遮挡、多角色和实时输入下是否仍稳定。",
+      "sources": [
+        {
+          "label": "arXiv · Fight World Model: Customizable Combat through Visual Interaction Proxies",
+          "url": "https://arxiv.org/abs/2610.40607",
+          "kind": "作者预印本、系统结构、语料范围与实验结果",
+          "strength": "primary"
+        },
+        {
+          "label": "Fight World Model project page",
+          "url": "https://fight-world-model.github.io/",
+          "kind": "作者项目页与可视化演示",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "pulmoworld-pneumonia-dynamics-20261028",
+      "lane": "science",
+      "title": "PulmoWorld 把肺炎纵向证据接到受约束规划",
+      "maker": "PulmoWorld authors",
+      "date": "2026-10-28",
+      "verified_at": "2026-10-30T23:15:09+08:00",
+      "verification_status": "作者预印本与公开数据说明 · 本站未复现、非临床验证",
+      "tags": [
+        "Medical AI",
+        "World Models",
+        "Longitudinal Modeling"
+      ],
+      "fact": "PulmoWorld 用异步多模态世界模型连接肺炎状态估计、递归模拟和证据约束规划；其中 Cap-MBRL 只在风险预算和成本裕度同时满足时替换冻结的回退策略。作者在 MASS、MIMIC-IV-CXR、锁定肺炎面板和 5 个已知机制的 MASS-Syn 环境上报告预测、预后判别与选择后悔值结果。",
+      "insight": "值得跟踪的不是“模型能否给治疗答案”，而是它把时间不齐的影像和临床证据、可想象的病程延续、风险预算与回退策略放进同一套可审计流程，为医疗世界模型提供了更明确的安全接口。",
+      "boundary": "这是作者预印本，不是临床试验、获批医疗器械或治疗建议。本站未运行代码；数据集、锁定面板与合成环境的结果不能证明真实患者结局改善，也不能推出模型可在分布漂移、缺失数据或临床工作流中安全自治。",
+      "next_watch": "跟踪代码与预处理是否开放、外部队列和前瞻性验证、风险预算怎样校准、冻结回退策略在漂移下是否仍可靠，以及规划建议能否被临床人员复核并与真实结局对齐。",
+      "sources": [
+        {
+          "label": "arXiv · PulmoWorld: An Asynchronous Multimodal Medical World Model for Longitudinal Pneumonia Dynamics",
+          "url": "https://arxiv.org/abs/2610.38289",
+          "kind": "作者预印本、数据范围、方法与实验边界",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "world2vec-mechanistic-world-model-20261029",
       "lane": "paradigm",
       "title": "world2vec 把世界模型目标改写为“忠实复现动力学”",

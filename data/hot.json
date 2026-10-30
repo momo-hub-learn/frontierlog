@@ -124,6 +124,94 @@
       ]
     },
     {
+      "id": "fight-world-model-editable-combat-20261029",
+      "category": "research",
+      "title": "Fight World Model：把战斗规则交给可执行引擎",
+      "published": "2026-10-30",
+      "published_at": "2026-10-29T17:53:02Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T23:15:09+08:00",
+      "first_seen_at": "2026-10-30T23:15:09+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 34,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型质量、游戏体验或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本与项目页 · 本站未复现",
+      "summary": "作者把战斗状态和规则放进可执行引擎，再由视觉交互代理编码动作、技能窗口、受击反馈、生命值与角色身份；论文介绍的语料覆盖 52 种技能效果、187 个角色变体和 15 个场景。",
+      "why": "它把规则正确性与视觉逼真度拆开，让世界模型在规则变化时无需重训渲染器，为可编辑、可检查的交互仿真提供了另一条路线。",
+      "boundary": "所有结果来自作者在固定视角双角色战斗任务上的实验，本站未运行代码。规则可编辑不能外推为开放世界物理、多角色交互或实时可靠性已经解决；作者演示也不能替代独立复现。",
+      "source": "Fight World Model authors / arXiv",
+      "source_kind": "作者预印本、项目页与实验范围 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.40607",
+      "link": "#/progress?view=research&research=fight-world-model-editable-combat-20261029",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看研究档案",
+          "note": "分开看可执行规则、视觉代理、语料范围与本站未复现边界",
+          "url": "#/progress?view=research&research=fight-world-model-editable-combat-20261029",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "Fight World Model authors",
+          "title": "Fight World Model project page",
+          "url": "https://fight-world-model.github.io/",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "pulmoworld-pneumonia-dynamics-20261028",
+      "category": "industry",
+      "title": "PulmoWorld：把肺炎纵向证据接到受约束规划",
+      "published": "2026-10-28",
+      "published_at": "2026-10-28T05:14:51Z",
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T23:15:09+08:00",
+      "first_seen_at": "2026-10-30T23:15:09+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 34,
+        "availability": 16,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是临床效果、医疗安全或本站实测分数。",
+      "trend": "up",
+      "verification_status": "作者预印本与公开数据说明 · 本站未复现、非临床验证",
+      "summary": "PulmoWorld 连接异步多模态肺炎状态估计、递归模拟与证据约束规划；Cap-MBRL 仅在风险预算和成本裕度满足时替换冻结回退策略，作者在真实与合成数据上报告预测和选择后悔值结果。",
+      "why": "它为医疗世界模型给出一条可审计的安全接口：把时间不齐的证据、可想象病程、风险预算与回退策略分开记录，而不是让模型直接给出不可追溯的治疗答案。",
+      "boundary": "这是作者预印本，不是临床试验、获批医疗器械或治疗建议，本站未运行代码。指定队列、锁定面板和合成环境上的结果不能证明真实患者结局改善，也不能推出模型可在临床工作流中安全自治。",
+      "source": "PulmoWorld authors / arXiv",
+      "source_kind": "作者预印本、公开数据说明与实验边界 / 本轮编辑核验",
+      "url": "https://arxiv.org/abs/2610.38289",
+      "link": "#/pharma?article=pulmoworld-pneumonia-dynamics-20261028",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看医药核验卡",
+          "note": "分开看纵向证据、风险预算、回退策略与非临床验证边界",
+          "url": "#/pharma?article=pulmoworld-pneumonia-dynamics-20261028",
+          "kind": "internal"
+        }
+      ],
+      "related": [
+        {
+          "source": "PulmoWorld authors",
+          "title": "PulmoWorld preprint",
+          "url": "https://arxiv.org/abs/2610.38289",
+          "date": "2026-10-28"
+        }
+      ]
+    },
+    {
       "id": "worldprobe-long-horizon-world-model-20261029",
       "category": "benchmark",
       "title": "WorldProbe：世界模型主动探索到 180 秒后还一致吗",
@@ -526,13 +614,13 @@
       "source": "Google",
       "source_kind": "公司官方公告 / 本轮编辑核验",
       "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore/",
-      "link": "#/pharma?q=Singapore",
+      "link": "#/pharma?article=google-singapore-public-health-ai-20261029",
       "evidence_level": "primary-source",
       "access": [
         {
           "label": "查看医药核验卡",
           "note": "按研究、临床评估、人口健康和数据治理拆开验证",
-          "url": "#/pharma?q=Singapore",
+          "url": "#/pharma?article=google-singapore-public-health-ai-20261029",
           "kind": "internal"
         }
       ],
