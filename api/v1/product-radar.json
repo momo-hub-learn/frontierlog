@@ -312,4 +312,1269 @@
           "kind": "GA",
           "title": "GitHub Agentic Workflows 正式可用",
           "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
-          "summary": "自然�
+          "summary": "自然语言工作流编译为标准 Actions YAML，可使用 Copilot 或自带 coding agent，并沿用现有 runner 与组织策略。",
+          "facts": [
+            {
+              "label": "状态",
+              "value": "GA · github.com"
+            },
+            {
+              "label": "计划",
+              "value": "Free / Team / Enterprise"
+            },
+            {
+              "label": "默认权限",
+              "value": "Read-only"
+            },
+            {
+              "label": "执行引擎",
+              "value": "Copilot CLI or BYO agent"
+            }
+          ],
+          "interpretation": "仓库 Agent 自动化进入成熟 CI/CD 控制面，但安全和质量仍取决于编译产物、权限、输入完整性与回归测试。",
+          "scope": "GitHub 2026-10-28 GA 公告所列的 github.com Agentic Workflows。",
+          "limitations": "Copilot 引擎仍需许可；安全层不保证零风险，客户效率数字也不是独立 Benchmark。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T13:19:31+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "openai-dot-texting",
+      "name": "ChatGPT dot Texting",
+      "company": "OpenAI / Linq",
+      "group": "enterprise-agent",
+      "tags": [
+        "Personal Agent",
+        "Messaging",
+        "Proactive Updates"
+      ],
+      "summary": "把同一个 ChatGPT dot 延伸到 iMessage 或 RCS，并可在短信中继续使用既有记忆与插件。",
+      "product_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_label": "OpenAI 官方 ChatGPT Release Notes",
+      "evidence": "OpenAI 2026-10-28 Release Notes 确认美国 Pro 用户开始分批获得短信 beta，列出 iMessage / RCS、主动更新、同一 dot 的记忆与插件，以及第三方消息服务 Linq。",
+      "boundary": "beta、美国与 Pro 是当前明确边界，不可写成全球或全套餐开放。短信仅能与自己的 dot 互发、不能读取其他对话，是官方说明；本站未连接号码，也没有独立验证送达、主动提醒质量、退订或第三方传输安全。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Beta rollout",
+          "title": "Texting your dot 开始向美国 Pro 用户分批开放",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "summary": "符合条件的用户可通过 iMessage 或 RCS 与自己的 dot 对话，并接收可能相关的主动更新；短信入口沿用 ChatGPT 内同一 dot 的记忆与插件。",
+          "facts": [
+            {
+              "label": "阶段",
+              "value": "Beta rollout"
+            },
+            {
+              "label": "当前对象",
+              "value": "美国 Pro 用户"
+            },
+            {
+              "label": "通道",
+              "value": "iMessage / RCS"
+            },
+            {
+              "label": "消息服务",
+              "value": "Linq（第三方）"
+            }
+          ],
+          "interpretation": "短信把 Agent 触达从应用内扩展到系统消息入口；产品判断要同时看账号开放、通知控制、上下文一致性、第三方传输与误提醒恢复。",
+          "scope": "OpenAI 2026-10-28 ChatGPT Release Notes 所列的美国 Pro beta 范围。",
+          "limitations": "不能从公告推出全球可用、短信可读取其他对话，或主动更新已经稳定准确；本站未连接手机号或测试。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T09:21:56+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "github-intelligence",
+      "name": "GitHub intelligence",
+      "company": "GitHub",
+      "group": "enterprise-agent",
+      "tags": [
+        "Coding Agent",
+        "Memory",
+        "Code Search"
+      ],
+      "summary": "用 Memory、Dreaming 与跨仓代码搜索给 Copilot 提供跨会话、持续整理和跨项目的工程上下文。",
+      "product_url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+      "source_url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+      "source_label": "GitHub 官方 Changelog",
+      "evidence": "GitHub 2026-10-28 官方发布确认 Copilot Memory 已在付费套餐正式可用，Dreaming 进入需显式开启的公开预览，并说明跨仓代码搜索、组织策略、skills / instructions 提案与 AI credits。",
+      "boundary": "Memory 的客户端与组织策略范围需按账号核对；Dreaming 是 opt-in 预览并消耗 AI credits。GitHub 的预览改善比例不是独立基准，跨仓搜索也不会绕过仓库访问控制；本站未接入。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "GA / Public Preview",
+          "title": "Memory 正式可用，Dreaming 进入公开预览",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+          "summary": "Memory 在付费 Copilot 套餐 GA；Dreaming 可整理个人与仓库记忆并提出 skills / instructions 变更，跨仓搜索用于补齐相关代码与历史上下文。",
+          "facts": [
+            {
+              "label": "Memory",
+              "value": "GA · paid Copilot plans"
+            },
+            {
+              "label": "Dreaming",
+              "value": "Public preview · opt-in"
+            },
+            {
+              "label": "跨仓上下文",
+              "value": "Code search / semantic search"
+            },
+            {
+              "label": "成本边界",
+              "value": "Dream runs consume AI credits"
+            }
+          ],
+          "interpretation": "长期 Agent 上下文需要像代码一样治理：明确来源、访问范围、自动变更审批、费用和错误记忆的修正路径。",
+          "scope": "GitHub 2026-10-28 Changelog 所列的 Memory、Dreaming 与代码搜索能力。",
+          "limitations": "不能把厂商预览数据外推为所有团队效率，也不能从 Memory GA 推出所有客户端、组织和仓库默认开启；本站未连接账户或复现。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T09:21:56+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-copilot-harness",
+      "name": "Microsoft Copilot harness",
+      "company": "Microsoft / GitHub",
+      "group": "enterprise-agent",
+      "tags": [
+        "Agent Harness",
+        "Multi-model",
+        "Microsoft Foundry"
+      ],
+      "summary": "把 GitHub 团队构建的多模型 Agent 执行层作为 Foundry 托管能力，组合 instructions、skills、工具、沙箱、文件、代码执行与受限委派。",
+      "product_url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "source_url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+      "source_label": "Microsoft Foundry 官方公开预览说明",
+      "evidence": "Microsoft 2026-10-28 官方发布确认 Copilot harness 在 Foundry Agent Service 进入公开预览，并将 hosted agents 的长任务恢复标为同周正式可用；开发者说明给出 skills、工具授权、委派、源码化定义、限制与计费。",
+      "boundary": "公开预览不等于所有地区、模型、工具和账号均已开放，也不等于现有 Agent 可原地切换 Harness。Microsoft 的性能、规模与客户引述属于厂商材料；本站未部署。恢复能力不会自动保存业务进度或防止重复外部动作，应用仍需持久化检查点与幂等。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Public Preview",
+          "title": "Copilot harness 进入 Foundry Agent Service 公开预览",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "summary": "Foundry 托管 Agent loop 与 sandbox；开发者提供 instructions、skills、工具和模型选择，并可使用文件、代码执行和受限子 Agent。",
+          "facts": [
+            {
+              "label": "Harness 状态",
+              "value": "Public preview"
+            },
+            {
+              "label": "组成",
+              "value": "Skills / tools / execution + delegation / source-controlled definitions"
+            },
+            {
+              "label": "恢复",
+              "value": "Hosted agents long-running resilience · GA"
+            },
+            {
+              "label": "计费",
+              "value": "Harness runtime 12 月 1 日起计费；模型与工具另计"
+            }
+          ],
+          "interpretation": "统一 Harness 降低多模型编排和运行维护成本，但产品差异仍要落在任务定义、权限、评测、恢复幂等与失败处理上。",
+          "scope": "Microsoft 2026-10-28 官方 Foundry 发布所列的公开预览与同周 GA 能力。",
+          "limitations": "现有 Agent 创建后暂不支持切换 Harness；预览的地区、模型、工具和限制需逐项核对。恢复只重新启动工作，进度保存、外部写入去重和最终验收仍由应用负责。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T07:20:34+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "servicenow-chatgpt-workflows",
+      "name": "ServiceNow in ChatGPT",
+      "company": "ServiceNow / OpenAI",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Workflow",
+        "MCP",
+        "Security"
+      ],
+      "summary": "把 ServiceNow 业务上下文和受组织权限控制的动作带进 ChatGPT，并分期扩展到开发、安全与语音工作流。",
+      "product_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "source_label": "OpenAI 官方合作与可用性公告",
+      "evidence": "OpenAI 2026-10-28 官方公告确认 ServiceNow MCP 插件已在 OpenAI marketplace 开放，并给出增强插件、安全、语音和 Codex 集成的分期计划。",
+      "boundary": "只有当前 MCP 插件可确认已开放；增强能力、安全方案、语音体验与 Codex Workflow Factory 集成仍是未来计划。公告未给出任务成功率、误操作率、支持地区、套餐或独立安全评测；本站未连接客户实例。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-28",
+          "kind": "Product",
+          "title": "ServiceNow MCP 插件开放，后续能力进入分期路线图",
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "summary": "当前插件把 ServiceNow 上下文与受权限控制的动作带入 ChatGPT；增强插件、安全、语音和 Codex 集成分别计划在 2026 年底至 2027 年推进。",
+          "facts": [
+            {
+              "label": "现在可用",
+              "value": "ServiceNow MCP plugin"
+            },
+            {
+              "label": "2026 年底",
+              "value": "增强插件能力（预计）"
+            },
+            {
+              "label": "2027 Q1 / Q2",
+              "value": "语音 / 安全早期访问与 GA（计划）"
+            },
+            {
+              "label": "2027",
+              "value": "Codex in AI Workflow Factory（预计）"
+            }
+          ],
+          "interpretation": "企业 Agent 的关键不只是能否调用动作，而是 Action Fabric 的业务规则、实例权限、动作确认和审计是否在真实流程里保持一致。",
+          "scope": "OpenAI 2026-10-28 公告所列的当前插件与未来时间表。",
+          "limitations": "不能把未来计划写成现已上线，也不能从合作公告推出端到端自动化可靠性或安全效果；本站未连接实例或执行写入。",
+          "published_at": "2026-10-28",
+          "verified_at": "2026-10-29T03:20:00+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt-icloud-connected-apps",
+      "name": "ChatGPT iCloud Connected Apps",
+      "company": "OpenAI / Apple iCloud",
+      "group": "enterprise-agent",
+      "tags": [
+        "Connected Apps",
+        "Mail",
+        "Calendar"
+      ],
+      "summary": "把 iCloud Mail 与 Calendar 接进 ChatGPT，用于查找邮件、汇总收件箱、查看日程，并在确认后更新日历事件。",
+      "product_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_label": "OpenAI 官方 Release Notes",
+      "evidence": "OpenAI 2026-10-27 Release Notes 明确列出 iCloud Mail 与 Calendar 的任务范围、网页/桌面端/iOS 入口和全部 ChatGPT 套餐可用范围。",
+      "boundary": "官方没有宣布可发送 iCloud 邮件，也没有披露连接成功率、冲突处理或误写率；实际入口、Apple 授权与 Workspace 设置须按账号核对。日历写入必须以目标日历最终状态验收。本站未连接账户。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-27",
+          "kind": "Released",
+          "title": "iCloud Mail 与 Calendar 连接进入 ChatGPT",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "summary": "iCloud 用户可查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口为网页、桌面端和 iOS。",
+          "facts": [
+            {
+              "label": "邮件范围",
+              "value": "查找邮件 / 汇总收件箱"
+            },
+            {
+              "label": "日历范围",
+              "value": "查看日程 / 更新事件"
+            },
+            {
+              "label": "官方入口",
+              "value": "Web / Desktop / iOS"
+            },
+            {
+              "label": "套餐范围",
+              "value": "全部 ChatGPT 套餐"
+            }
+          ],
+          "interpretation": "产品价值取决于能否在最小权限下稳定命中正确账户，并让日历写入准确落盘；“已连接”本身不是任务完成证据。",
+          "scope": "OpenAI 2026-10-27 ChatGPT Release Notes 所列能力与入口。",
+          "limitations": "不能从公告推出可发送邮件、处理所有冲突日程或所有账号已同时出现入口；本站未连接账户或测试写入。",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28T15:34:19+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "oracle-ai-workspace",
+      "name": "Oracle AI Workspace",
+      "company": "Oracle / OpenAI",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Workflow",
+        "ChatGPT",
+        "Governance"
+      ],
+      "summary": "计划把 Oracle 应用和获批数据带入 ChatGPT，并以组织权限、审批、统一登录和 Oracle Cloud 部署为边界连接企业工作流。",
+      "product_url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+      "source_url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+      "source_label": "OpenAI 官方公告 · 开发中",
+      "evidence": "OpenAI 2026-10-27 官方公告确认 Oracle 正在开发 AI Workspace，并列出 AI Security Mesh、AI SMB Bundle、App Composer 与美国 Marketplace 采购范围。",
+      "boundary": "AI Workspace 尚未被公告为全面可用，也未给出统一上线日期；合作页列出的现有插件入口不等于完整 Workspace 已开放。Marketplace 采购当前明确限于美国客户。公告中的工作效率案例来自 Oracle 自述，不是本站实测。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-27",
+          "kind": "Announced",
+          "title": "Oracle 公布 ChatGPT 内的 AI Workspace 路线",
+          "url": "https://openai.com/index/oracle-apps-in-chatgpt/",
+          "summary": "Oracle 正在开发 AI Workspace，并同时公布安全、SMB 与应用构建方案；美国客户可通过 Oracle Marketplace 采购 OpenAI 产品。",
+          "facts": [
+            {
+              "label": "Workspace 状态",
+              "value": "正在开发，未公布全面上线日期"
+            },
+            {
+              "label": "配套方案",
+              "value": "Security Mesh / SMB Bundle / App Composer"
+            },
+            {
+              "label": "当前入口",
+              "value": "合作页列出部分 NetSuite / Oracle Analytics 插件"
+            },
+            {
+              "label": "当前采购范围",
+              "value": "美国 Oracle Marketplace 客户"
+            }
+          ],
+          "interpretation": "价值在于把模型能力接进既有权限、审批、采购与 Oracle 数据面；实际成效要等账户开放后验证跨系统检索、执行成功率和越权防护。",
+          "scope": "OpenAI 2026-10-27 官方合作公告所列产品与地区范围。",
+          "limitations": "不能从合作公告推出所有 Oracle 应用已经可在 ChatGPT 中执行，也不能把厂商效率案例当成独立生产力评测。",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-28",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "openai-gpt-6-1-terra",
+      "name": "GPT-6.1 Terra",
+      "company": "OpenAI",
+      "group": "enterprise-agent",
+      "tags": [
+        "Computer Use",
+        "Visual Reasoning",
+        "API"
+      ],
+      "summary": "面向视觉推理、精确计算机操作和写作的快速模型，已进入 ChatGPT Work、Codex 与 API。",
+      "product_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "source_label": "OpenAI 官方发布",
+      "evidence": "OpenAI 2026-10-26 发布说明给出产品入口、API 模型 ID、标准价格与厂商评测；同日系统卡给出网络安全与生化能力分级。",
+      "boundary": "公开分数均为厂商评测，本站未独立运行；不能从发布稿推出特定企业工作流成功率，也不能忽略系统卡中的高能力风险与最小权限要求。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-26",
+          "kind": "Release",
+          "title": "GPT-6.1 Terra 进入 ChatGPT Work、Codex 与 API",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "summary": "OpenAI 将 Terra 定位为视觉推理、计算机操作与写作模型，并公布 gpt-6.1-terra API 与标准价格。",
+          "facts": [
+            {
+              "label": "入口",
+              "value": "ChatGPT Work / Codex / API"
+            },
+            {
+              "label": "API ID",
+              "value": "gpt-6.1-terra"
+            },
+            {
+              "label": "标准价格",
+              "value": "$1 输入 / $0.05 缓存 / $5 输出（每百万 token）"
+            }
+          ],
+          "interpretation": "更低价格与精确界面操作会扩大企业 Agent 的可测试任务面，但是否省时要看真实任务成功、接管、误操作与重试成本。",
+          "scope": "OpenAI 2026-10-26 官方发布和系统卡所述范围。",
+          "limitations": "厂商 Benchmark 不是本站实测；具体账户、地区、额度和高风险用例仍受产品与安全政策约束。",
+          "published_at": "2026-10-26",
+          "verified_at": "2026-10-27",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "claude-models-google-cloud",
+      "name": "Claude Models on Google Cloud",
+      "company": "Google Cloud / Anthropic",
+      "group": "enterprise-agent",
+      "tags": [
+        "Cloud Deployment",
+        "Managed Agents",
+        "Governance"
+      ],
+      "summary": "在 Google Cloud 上以 Anthropic-managed 或 Google-managed 路径部署 Claude：一条优先最新 Agent 平台能力，另一条优先 Google 数据处理协议与云治理控制。",
+      "product_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "source_label": "Google Cloud 官方 GA 公告",
+      "evidence": "Google Cloud 2026-10-22 官方公告确认两种路径均为正式可用、共享同日模型与定价，并逐项说明数据处理方、合同、治理控制和 Claude Platform 工具差异。",
+      "boundary": "这是厂商正式可用性与功能范围说明，不是独立安全或性能比较；账户、地区、配额、控制台可见性及后续功能仍需逐项核对。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-22",
+          "kind": "GA",
+          "title": "Claude 双托管部署在 Google Cloud 正式开放",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+          "summary": "Anthropic-managed 路径立即提供 Managed Agents、skills 与代码执行；Google-managed 路径提供 VPC Service Controls、CMEK 与美欧亚太数据驻留。",
+          "facts": [
+            {
+              "label": "Anthropic-managed",
+              "value": "Managed Agents / skills / code execution"
+            },
+            {
+              "label": "Google-managed",
+              "value": "VPC SC / CMEK / US-EU-APAC residency"
+            },
+            {
+              "label": "两者共有",
+              "value": "Day-zero models / same pricing / GCP billing"
+            }
+          ],
+          "interpretation": "企业选型的核心分叉是数据处理方、合同、控制平面与工具可用性，而不是模型名称本身。",
+          "scope": "Google Cloud 2026-10-22 官方 GA 公告所列的两种 Claude 部署路径。",
+          "limitations": "不能由公告推出每个账户或地区已即时可见，也不能把厂商控制项说明当作独立安全审计或性能对比。",
+          "published_at": "2026-10-22",
+          "verified_at": "2026-10-26",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "claude-duet",
+      "name": "Claude Duet",
+      "company": "Anthropic",
+      "group": "enterprise-agent",
+      "tags": [
+        "Proactive Agent",
+        "Connected Apps",
+        "Research Preview"
+      ],
+      "summary": "面向专业人士和小企业的主动 Agent：按周期检查连接应用、生成简报并在后台继续任务，关键外部动作保留人工批准。",
+      "product_url": "https://claude.com/resources/articles/claude-duet",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "source_label": "Anthropic 官方产品发布",
+      "evidence": "Anthropic 2026-10-21 官方说明确认研究预览范围、独立 App、后台虚拟机、连接应用、批准边界与已知限制。",
+      "boundary": "当前从美国 Pro/Max 候补用户开始，并与 Claude 共用套餐额度；官方明确它可能误读线程或误判紧急程度，个人事务和浏览器可见性仍有限。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-21",
+          "kind": "Preview",
+          "title": "Claude Duet 主动 Agent 开放研究预览候补",
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "summary": "独立 iOS、Android 与 claude.ai 入口可主动汇总连接应用、后台执行任务，并在发送、付款、签署和删除前等待批准。",
+          "facts": [
+            {
+              "label": "当前范围",
+              "value": "美国 Pro / Max 候补用户"
+            },
+            {
+              "label": "后台执行",
+              "value": "独立虚拟机与浏览器"
+            },
+            {
+              "label": "关键动作",
+              "value": "发送 / 付款 / 签署 / 删除前批准"
+            }
+          ],
+          "interpretation": "主动 Agent 的产品差异将更多来自通知判断、权限控制、可观察性和额度效率，而不只是模型回答质量。",
+          "scope": "Anthropic 2026-10-21 官方研究预览说明。",
+          "limitations": "不是正式普遍开放；官方承认可能误读、误判优先级，且后台检查会消耗共享额度。",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "google-antigravity",
+      "name": "Google Antigravity",
+      "company": "Google",
+      "group": "enterprise-agent",
+      "tags": [
+        "Developer Agent",
+        "App / CLI / IDE",
+        "Google"
+      ],
+      "summary": "Google 的 Agent-first 开发平台，覆盖多本地 Agent 管理、终端自治编码与 IDE 工作流；Gemini 4 Argon 已开放，OpenAI 模型也已预告接入。",
+      "product_url": "https://antigravity.google/",
+      "source_url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+      "source_label": "Google Antigravity 官方发布",
+      "evidence": "Antigravity 官方产品页说明 App、CLI 与 IDE 形态；2026-10-13 官方博客确认 Gemini 4 Argon 范围，OpenAI 2026-10-21 公告预告其模型将进入 Antigravity。",
+      "boundary": "OpenAI 模型接入仍是“即将提供”的计划，不等于当前账户已可选；具体模型、日期、地区、订阅与企业资格仍待上线文档，自治执行也需要权限、审查和回滚。",
+      "filter_ids": [
+        "enterprise-agent",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-10-21",
+          "kind": "Announcement",
+          "title": "OpenAI 模型预告进入 Antigravity 与 Gemini Agent",
+          "url": "https://openai.com/index/openai-models-google-cloud/",
+          "summary": "OpenAI 与 Google Cloud 宣布 Model Garden 合作，并预告 OpenAI 模型将进入 Google Antigravity 与 Gemini Agent。",
+          "facts": [
+            {
+              "label": "当前状态",
+              "value": "即将提供"
+            },
+            {
+              "label": "关联入口",
+              "value": "Antigravity / Gemini Agent"
+            },
+            {
+              "label": "云端采购",
+              "value": "Google Cloud Marketplace（计划）"
+            }
+          ],
+          "interpretation": "开发 Agent 产品开始跨模型供应商提供选择，但真正价值要等具体模型、工具权限、上下文和定价上线后再比较。",
+          "scope": "OpenAI 2026-10-21 官方合作公告中的未来开放计划。",
+          "limitations": "尚未全面 GA；公告没有给出每个模型、地区和账户的精确可用日期，不能标成现在可用。",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-10-22",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-10-13",
+          "kind": "Product",
+          "title": "Gemini 4 Argon 进入 Antigravity App、CLI 与企业入口",
+          "url": "https://antigravity.google/blog/gemini-4-argon-in-google-antigravity",
+          "summary": "Google AI Pro 与 Ultra 用户可在 Antigravity 桌面 App 和 CLI 使用 Gemini 4 Argon；企业可通过 Gemini platform API 与符合条件的 Gemini Enterprise 订阅接入。",
+          "facts": [
+            {
+              "label": "个人入口",
+              "value": "桌面 App / CLI"
+            },
+            {
+              "label": "企业入口",
+              "value": "API / eligible Gemini Enterprise"
+            },
+            {
+              "label": "平台形态",
+              "value": "App / CLI / IDE"
+            }
+          ],
+          "interpretation": "前沿模型与多 Agent 编排、终端和 IDE 被放进同一产品面，重点应从单次代码生成转向长任务监督、权限和失败恢复。",
+          "scope": "2026-10-13 Google Antigravity 官方发布所述的订阅及企业范围。",
+          "limitations": "正式开放不代表每个账户、地区或组织即时可见，也不能从 Google 内部采用数字推断外部团队 ROI。",
+          "published_at": "2026-10-13",
+          "verified_at": "2026-10-20",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "harvey",
+      "name": "Harvey",
+      "company": "Harvey",
+      "group": "legal",
+      "tags": [
+        "Legal",
+        "Sequoia",
+        "Law firms / In-house"
+      ],
+      "summary": "面向律所、企业法务和专业服务团队的生成式 AI 平台；Harvey 还在推进 Legal Agent Benchmark 与专用模型路线。",
+      "product_url": "https://www.harvey.ai/",
+      "source_url": "https://sequoiacap.com/companies/harvey",
+      "source_label": "Sequoia Portfolio",
+      "evidence": "Sequoia 公开 Portfolio 验证；Harvey 2026-09-09 官方融资公告披露现有投资者包含 Sequoia。",
+      "boundary": "投资关系与公司自报采用数据都不等于独立任务成功率；具体法律工作仍需权限、引用和人工复核。",
+      "filter_ids": [
+        "legal",
+        "sequoia",
+        "in-house"
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-23",
+          "kind": "Product",
+          "title": "Custom Harvey Agents 可直接在 Microsoft Word 中运行",
+          "url": "https://www.harvey.ai/blog/run-custom-harvey-agents-in-microsoft-word",
+          "summary": "在已打开的 Word 文档中运行团队自建 Agent，输出修改建议；应用后以修订模式写回文档。",
+          "facts": [
+            {
+              "label": "入口",
+              "value": "Harvey for Word 插件"
+            },
+            {
+              "label": "输入",
+              "value": "当前文档 / Vault 材料"
+            },
+            {
+              "label": "输出",
+              "value": "建议预览 / 修订痕迹"
+            }
+          ],
+          "interpretation": "值得关注的是审阅入口与人工确认环节的衔接，而不只是多了一个聊天窗口。",
+          "scope": "仅支持通过 Agent Builder 界面创建的 Custom Agents；需安装 Word 插件。",
+          "limitations": "此次发布暂不支持 Custom Workflows；不能由功能上线推出准确率、节时幅度或无需律师复核。",
+          "published_at": "2026-09-23",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-09-09",
+          "kind": "Company",
+          "title": "Harvey 完成 5.5 亿美元融资，估值 155 亿美元",
+          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+          "summary": "官方公告披露，本轮由 Diffusion 与 Lightspeed 共同领投，Sequoia 等现有投资者继续参与。",
+          "facts": [
+            {
+              "label": "融资额",
+              "value": "5.5 亿美元"
+            },
+            {
+              "label": "估值",
+              "value": "155 亿美元"
+            }
+          ],
+          "interpretation": "这是资本与公司扩张信号；判断产品价值仍需另看采用范围与独立任务评测。",
+          "scope": "2026 年 9 月 9 日公司融资公告；金额与估值为该轮披露口径。",
+          "limitations": "融资额、估值与投资关系不能证明模型能力、法律任务成功率或商业化效果。",
+          "published_at": "2026-09-09",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-05-06",
+          "kind": "Benchmark",
+          "title": "开源 Legal Agent Benchmark，评测长时程法律 Agent 工作",
+          "url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark",
+          "summary": "任务以指令和案件材料为输入，要求 Agent 交付可供审阅的工作成果；首版覆盖长流程法律工作。",
+          "facts": [
+            {
+              "label": "任务",
+              "value": "1,200+"
+            },
+            {
+              "label": "法律领域",
+              "value": "24 类"
+            },
+            {
+              "label": "专家评分标准",
+              "value": "75,000+"
+            }
+          ],
+          "interpretation": "评测对象从短问答转向完整工作产物，更适合观察 Agent 的任务完成过程。",
+          "scope": "2026 年 5 月 6 日首版 LAB 发布口径；官方公告附开源仓库入口。",
+          "limitations": "首发时未发布排行榜；此历史节点不能说明当前榜单状态，也不构成本站复现实验或 Harvey 能力领先的证据。",
+          "published_at": "2026-05-06",
+          "verified_at": "2026-09-25",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
+      "id": "lightfield",
+      "name": "Lightfield",
+      "company": "Lightfield",
+      "group": "legal",
+      "tags": [
+        "Legal",
+        "YC F26",
+        "In-house"
+      ],
+      "summary": "连接邮件、聊天和业务系统，先收集上下文、应用公司政策与历史决策，再把完成的法务工作交给内部律师审批。",
+      "product_url": "https://trylightfield.ai",
+      "source_url": "https://www.ycombinator.com/companies/lightfield",
+      "source_label": "Y Combinator",
+      "evidence": "YC 官方公司档案 · Fall 2026。",
+      "boundary": "处于早期公司阶段；YC 描述是公司档案，不等于独立评测或大规模部署证明。",
+      "filter_ids": [
+        "legal",
+        "yc",
+        "in-house"
+      ],
+      "timeline": []
+    },
+    {
+      "id": "general-legal",
+      "name": "General Legal",
+      "company": "General Legal",
+      "group": "legal",
+      "tags": [
+        "Legal",
+        "YC W26",
+        "AI-native law firm"
+      ],
+      "summary": "面向高增长公司的 AI-native 律所，覆盖商业、公司与雇佣法律工作。",
+      "product_url": "https://general.legal",
+      "source_url": "https://www.ycombinator.com/companies/general-legal",
+      "source_label": "Y Combinator",
+      "evidence": "YC 官方公司档案 · Winter 2026。",
+      "boundary": "服务质量、案件结果与价格优势没有在本站独立核验；法律结论仍由执业体系负责。",
+      "filter_ids": [
+        "legal",
+        "yc"
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-14",
+          "kind": "Market",
+          "title": "发布 2026 YC AI-native 律所对比，继续明确 AI-native law firm 类别",
+          "url": "https://general.legal/blog/yc-ai-native-law-firms"
+        },
+        {
+          "date": "2026-08-11",
+          "kind": "Research",
+          "title": "发布 AI-native law firm 完整指南，跟踪该服务模式的形成",
+          "url": "https://general.legal/blog/what-is-an-ai-native-law-firm"
+        }
+      ]
+    },
+    {
+      "id": "legora",
+      "name": "Legora",
+      "company": "Legora",
+      "group": "legal",
+      "tags": [
+        "Legal",
+        "YC W24",
+        "Lawyer workspace"
+      ],
+      "summary": "把法律研究、重复任务自动化、公共来源和机构私有数据放进一个律师工作空间。",
+      "product_url": "https://www.legora.com/",
+      "source_url": "https://www.ycombinator.com/companies/legora",
+      "source_label": "Y Combinator",
+      "evidence": "YC 官方公司档案 · Winter 2024。",
+      "boundary": "工作空间能力不等于法律判断正确率；需继续跟踪引用可追溯性、权限隔离和真实任务评测。",
+      "filter_ids": [
+        "legal",
+        "yc",
+        "in-house"
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-24",
+          "kind": "Adoption",
+          "title": "Veolia 选择 Legora 支撑全球法务团队的 AI 工作",
+          "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function"
+        },
+        {
+          "date": "2026-09-23",
+          "kind": "Data",
+          "title": "与 American Law Institute 合作，把 Restatements 接入法律研究平台",
+          "url": "https://legora.com/newsroom"
+        }
+      ]
+    },
+    {
+      "id": "sierra",
+      "name": "Sierra",
+      "company": "Sierra",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Agent",
+        "Sequoia",
+        "Customer experience"
+      ],
+      "summary": "面向企业客户体验的对话式 AI Agent，可按品牌与业务规则定制面向客户的执行代理。",
+      "product_url": "https://sierra.ai/",
+      "source_url": "https://sequoiacap.com/companies/sierra",
+      "source_label": "Sequoia Portfolio",
+      "evidence": "Sequoia 公开 Portfolio · Partnered 2023。",
+      "boundary": "公开产品定位不能替代跨渠道任务成功率、升级人工率和合规审计数据。",
+      "filter_ids": [
+        "enterprise-agent",
+        "sequoia",
+        "customer-experience"
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-17",
+          "kind": "Governance",
+          "title": "Sierra 宣布通过 AIUC-1 Agent 安全与治理认证",
+          "url": "https://sierra.ai/uk/blog/sierra-achieves-aiuc-1-certification"
+        },
+        {
+          "date": "2026-09-10",
+          "kind": "Product",
+          "title": "发布下一代多模态 Agent，把语音、文本和视觉合并到同一会话",
+          "url": "https://sierra.ai/blog"
+        }
+      ]
+    },
+    {
+      "id": "glean",
+      "name": "Glean",
+      "company": "Glean",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Agent",
+        "Sequoia",
+        "Knowledge / Work"
+      ],
+      "summary": "在企业内部跨应用聚合知识、权限与个性化上下文，向工作助手和可执行 Agent 延伸。",
+      "product_url": "https://www.glean.com/",
+      "source_url": "https://sequoiacap.com/companies/glean",
+      "source_label": "Sequoia Portfolio",
+      "evidence": "Sequoia 公开 Portfolio · Partnered 2022。",
+      "boundary": "企业搜索与 Agent 的效果高度依赖权限、连接器、数据质量和组织知识结构。",
+      "filter_ids": [
+        "enterprise-agent",
+        "sequoia",
+        "knowledge-work"
+      ],
+      "timeline": [
+        {
+          "date": "2026-08-26",
+          "kind": "Product",
+          "title": "Glean Agents 增加独立执行、Agent identity、A2A、evals 与治理能力",
+          "url": "https://www.glean.com/blog/glean-agents-go-2026"
+        }
+      ]
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "company": "Clay",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Agent",
+        "Sequoia",
+        "GTM"
+      ],
+      "summary": "面向 RevOps 与增长团队的数据与工作流平台，AI Agent 用于客户研究、个性化触达和 GTM 自动化。",
+      "product_url": "https://www.clay.com/",
+      "source_url": "https://sequoiacap.com/companies/clay",
+      "source_label": "Sequoia Portfolio",
+      "evidence": "Sequoia 公开 Portfolio · Partnered 2019。",
+      "boundary": "GTM 自动化的业务结果受数据源、名单质量和人工策略影响，不能把投资方描述当作本站效果验证。",
+      "filter_ids": [
+        "enterprise-agent",
+        "sequoia",
+        "gtm"
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-23",
+          "kind": "Product",
+          "title": "Agent Plugin 已面向客户 GA，可从 Claude Code / Codex 构建 GTM 工具和工作流",
+          "url": "https://www.clay.com/blog/clay-agent-plugin-use-cases"
+        },
+        {
+          "date": "2026-09-09",
+          "kind": "Company",
+          "title": "Clay 完成 1.15 亿美元 Series D，估值 71 亿美元",
+          "url": "https://www.clay.com/blog"
+        }
+      ]
+    },
+    {
+      "id": "inkeep",
+      "name": "Inkeep",
+      "company": "Inkeep",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise Agent",
+        "YC W23",
+        "Support / Automation"
+      ],
+      "summary": "提供代码与 no-code 的 Agent 平台，把知识检索、MCP / 集成、支持与自动化放在同一套工作流里。",
+      "product_url": "https://inkeep.com",
+      "source_url": "https://www.ycombinator.com/companies/inkeep",
+      "source_label": "Y Combinator",
+      "evidence": "YC 官方公司档案 · Winter 2023。",
+      "boundary": "YC 档案列出的客户与能力仍需按具体场景核验；Agent 的稳定性取决于连接器、工具权限与评测。",
+      "filter_ids": [
+        "enterprise-agent",
+        "yc",
+        "support-automation"
+      ],
+      "timeline": [
+        {
+          "date": "2026-06-02",
+          "kind": "Product",
+          "title": "AI teammates for customer experience 正式 GA，统一客户助手、内部 Coworker 与自动化",
+          "url": "https://inkeep.com/blog/ai-teammates-customer-experience"
+        },
+        {
+          "date": "2026-03-11",
+          "kind": "Product",
+          "title": "Inkeep Agents 进入 Slack，支持线程上下文与工具动作审批",
+          "url": "https://inkeep.com/blog/agent-in-slack"
+        }
+      ]
+    },
+    {
+      "id": "palantir-aip",
+      "name": "Palantir AIP",
+      "company": "Palantir",
+      "group": "enterprise-agent",
+      "tags": [
+        "Enterprise AI",
+        "Ontology",
+        "Operational AI"
+      ],
+      "summary": "把企业数据与权限沉到 Foundry / Ontology，再用 AIP 构建 Agent、自动化与评测，并由 Apollo 支撑跨环境部署；重点不是绑定某一个大模型，而是让模型进入受治理的业务操作闭环。",
+      "product_url": "https://www.palantir.com/docs/foundry/aip",
+      "source_url": "https://www.palantir.com/docs/foundry/architecture-center/aip-architecture",
+      "source_label": "Palantir 官方架构文档",
+      "evidence_label": "架构依据",
+      "evidence": "Palantir 官方文档明确把 AIP、Foundry 与 Apollo 组合为企业 AI 的完整运行栈，并说明 Ontology、Agent、Evals、模型接入、权限与部署如何协同。",
+      "boundary": "官方文档与客户发布可以证明产品能力、开放路径和公司披露的采用案例，但不能替代独立 ROI、跨客户任务成功率或迁移成本评估；不同 Foundry enrollment、权限和地区的功能开放范围也可能不同。",
+      "filter_ids": [
+        "enterprise-agent"
+      ],
+      "research": {
+        "thesis": "Palantir 最值得研究的不是“它用了哪个模型”，而是它把 Ontology 作为 AI 与真实业务之间的可执行中间层：模型可以换，但对象、权限、动作、评测和部署闭环留在企业系统里。",
+        "stack": [
+          "Foundry：接入、治理并持续更新企业数据与计算。",
+          "Ontology：把数据映射成业务对象、关系、动作和权限，成为 Agent 可操作的语义层。",
+          "AIP：接模型、构建 Agent / Logic / Analyst，并用 Evals 与 Evolve 做测试和迭代。",
+          "Apollo：把软件和 AI 工作负载持续部署到云、主权环境与边缘环境。"
+        ],
+        "watch": [
+          "Ontology MCP / Palantir MCP 能否成为外部 Agent 进入企业业务系统的标准受控接口。",
+          "AIP Evolve 这类“Agent 优化 Agent”的闭环，是否能稳定改善成本、延迟和评测结果。",
+          "客户案例是否逐步出现可独立比较的任务成功率、上线周期、ROI 与迁移成本。"
+        ]
+      },
+      "timeline": [
+        {
+          "date": "2026-09-10",
+          "kind": "Adoption",
+          "title": "AIPCon 11 集中展示企业 AI 客户落地",
+          "url": "https://www.palantir.com/newsroom/press-releases/",
+          "summary": "Palantir 官方新闻索引在 9 月 10 日发布 AIPCon 11 客户案例合集，并同步披露 Fujitsu、NVIDIA 等企业 AI / 主权 AI 合作。",
+          "facts": [
+            {
+              "label": "信号类型",
+              "value": "客户采用 / 产业合作"
+            },
+            {
+              "label": "来源",
+              "value": "Palantir 官方 Newsroom"
+            }
+          ],
+          "interpretation": "AIP 的价值主张正在从“接入 LLM”转向把模型嵌进供应链、运营和行业流程；但真正值得长期观察的是能否形成可比较的业务结果，而不是案例数量。",
+          "scope": "只记录 Palantir 官方 2026-09-10 新闻索引所列发布；本站未把所有 AIPCon 客户案例逐一做独立效果复核。",
+          "limitations": "公司新闻稿中的采用与合作不能自动推出 ROI、节省比例、任务成功率或相对其他平台的优势。",
+          "published_at": "2026-09-10",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-09-08",
+          "kind": "Product",
+          "title": "AIP Evolve GA：用 AI FDE Agent 迭代和优化 AI 系统",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-09",
+          "summary": "AIP Evolve 已 GA，可协调多组 AI FDE agents 围绕模型迁移、成本、延迟、eval 分数或自定义目标提出和迭代改动，并在合并前保留验证策略与约束。",
+          "facts": [
+            {
+              "label": "目标",
+              "value": "成本 / 延迟 / Evals / 模型迁移"
+            },
+            {
+              "label": "验证",
+              "value": "测试用例或既有 evaluation suites"
+            },
+            {
+              "label": "状态",
+              "value": "GA"
+            }
+          ],
+          "interpretation": "这是 Palantir 从“帮企业建 Agent”继续向“让 Agent 自动改进 Agent 系统”推进的信号；关键不在自动改代码，而在优化目标、约束和验收都被放进同一治理闭环。",
+          "scope": "适用于已启用 AIP 且具备 AI FDE 访问的 enrollment；具体可用能力以组织配置为准。",
+          "limitations": "GA 不代表自动优化一定优于人工工程；官方提到的 early adopter 改善仍是厂商披露，需看独立复现和长期回归稳定性。",
+          "published_at": "2026-09-08",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-07-09",
+          "kind": "Product",
+          "title": "Foundry 开始原生构建、配置和发布 pro-code Agent",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-07",
+          "summary": "Foundry 为 pro-code agents 提供模板、scoped permissions、Ontology binding 和 agent API，并支持 Claude Agent SDK、OpenAI Agents SDK 与 Google ADK。",
+          "facts": [
+            {
+              "label": "SDK",
+              "value": "Claude / OpenAI / Google ADK"
+            },
+            {
+              "label": "权限",
+              "value": "OSDK / Ontology MCP / Palantir MCP scoped permissions"
+            },
+            {
+              "label": "发布",
+              "value": "绑定 Ontology + Agent API"
+            }
+          ],
+          "interpretation": "Palantir 正把自己从“企业 AI 应用套件”变成 Agent runtime：外部 Agent 框架可以换，但业务对象、权限和动作仍落在 Ontology 上。",
+          "scope": "官方 2026-07-09 Foundry 公告所述 pro-code Agent 工作流。",
+          "limitations": "提供模板和权限集成不等于任意 Agent 能安全自治；每个工具、动作和数据范围仍取决于具体应用配置。",
+          "published_at": "2026-07-09",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-06-25",
+          "kind": "Governance",
+          "title": "Ontology MCP 与 Palantir MCP GA：把 Agent 接到受权限控制的业务对象和开发工具",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-06",
+          "summary": "Ontology MCP 已 GA，可让外部 MCP Agent 读取对象、查询数据和执行预定义 Actions；Palantir MCP 面向开发者，提供 70+ 工具用于数据集成、Ontology 配置和应用开发。",
+          "facts": [
+            {
+              "label": "Ontology MCP",
+              "value": "读对象 / 查询 / 执行动作"
+            },
+            {
+              "label": "Palantir MCP",
+              "value": "70+ 开发工具"
+            },
+            {
+              "label": "认证",
+              "value": "沿用 Foundry OAuth / 权限"
+            }
+          ],
+          "interpretation": "这是 Palantir 架构里很关键的一步：Ontology 不只是内部数据模型，而开始成为外部 Agent 与生产业务之间的受控工具边界。",
+          "scope": "Ontology MCP 与 Palantir MCP 在 2026-06-25 官方公告中标记为 GA；具体资源仍需在应用和 enrollment 中显式开放。",
+          "limitations": "MCP 标准化工具调用不能消除数据泄露、错误动作或权限配置风险；外部模型接入还需满足组织的数据治理政策。",
+          "published_at": "2026-06-25",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-03-31",
+          "kind": "Product",
+          "title": "AIP Analyst GA：自然语言分析直接落到 Ontology 上",
+          "url": "https://www.palantir.com/docs/foundry/announcements/2026-03",
+          "summary": "AIP Analyst 进入 GA，可搜索 Ontology、构建对象集、运行聚合与 SQL、分析文件并生成图表和地图。",
+          "facts": [
+            {
+              "label": "交互",
+              "value": "自然语言分析"
+            },
+            {
+              "label": "底座",
+              "value": "Ontology / Foundry tools"
+            },
+            {
+              "label": "输出",
+              "value": "对象集 / SQL / 图表 / 地图"
+            }
+          ],
+          "interpretation": "这说明 Palantir 的 Agent 路线并非独立聊天机器人，而是让自然语言入口直接调用企业已有的数据对象和分析工具。",
+          "scope": "官方公告称 2026-03-31 宣布，并从 4 月 13 日当周对启用 AIP 的用户 GA。",
+          "limitations": "GA 与工具覆盖范围不代表所有企业数据都已建好 Ontology，也不能推出分析结果无需人工核查。",
+          "published_at": "2026-03-31",
+          "verified_at": "2026-09-28",
+          "evidence_level": "primary_source"
+        }
+      ],
+      "long_term_watch": true
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "company": "Arena Intelligence",
+      "group": "enterprise-agent",
+      "tags": [
+        "AI Evaluation",
+        "Human Preference",
+        "Agent Alignment",
+        "Enterprise AI"
+      ],
+      "summary": "从公开的模型对战与人类偏好排行榜，扩展到企业级 AI Evaluations、Agent Arena 和 Alignment Index；重点用真实交互、任务证据和可审核反馈评价模型与 Agent，而不只看静态题集得分。",
+      "product_url": "https://arena.ai/",
+      "source_url": "https://arena.ai/blog/ai-evaluations",
+      "source_label": "Arena AI Evaluations 官方发布",
+      "evidence_label": "产品与评测方法",
+      "evidence": "Arena 于 2025-09-16 官方推出面向企业与模型实验室的 AI Evaluations，提供基于社区反馈的深度分析、可审核反馈样本与交付 SLA。2026-10-08 又推出 Alignment Index，覆盖未授权操作、错误归因与虚假完成三类可观察风险。",
+      "boundary": "公开 Arena 榜单衡量社区偏好与特定任务/评测协议，不等于所有企业内部任务的真实成功率。Alignment Index 目前为初步口径，只覆盖三类有证据的可观察错误，不代表总体安全性认证。融资、估值、年化收入是公司披露的商业指标，不能代替独立产品性能与客户 ROI 评测。",
+      "filter_ids": [
+        "enterprise-agent",
+        "ai-evaluation"
+      ],
+      "long_term_watch": true,
+      "research": {
+        "thesis": "Arena 的长期价值可能不在又一张模型总榜，而在把人类偏好、Agent 真实执行轨迹及失败行为转为持续更新、可审核的评测基础设施；企业应用还需验证其数据对自身业务的代表性。",
+        "stack": [
+          "公开 Arena：用户提交 Prompt，比较模型输出并投票，汇总为公开偏好榜。",
+          "AI Evaluations：把社区人类反馈组织成面向模型实验室与企业的性能分析，并提供可审核样本与 SLA。",
+          "Agent Arena：针对 Agent 真实任务与多轮交互开展能力评估。",
+          "Alignment Index：基于真实 Agent 会话的证据，追踪未授权操作、错误归因、虚假完成。"
+        ],
+        "watch": [
+          "Alignment Index 三类信号的样本选择、审计方法与置信区间是否足够稳健，能否扩展到更多行为风险。",
+          "商业 AI Evaluations 能否支持企业私有任务分布、权限、专家标准与数据合规要求。",
+          "公开社区偏好与企业 Agent 真实成功率之间的迁移程度，以及是否存在榜单过拟合或样本选择偏差。",
+          "产品营收规模增长与独立客户效果证据能否相互印证。"
+        ]
+      },
+      "timeline": [
+        {
+          "date": "2026-10-08",
+          "kind": "Benchmark",
+          "title": "发布 Alignment Index：跟踪三类可验证的 Agent 对齐问题",
+          "url": "https://arena.ai/blog/ai-alignment-index",
+          "summary": "Arena 发布初版 Alignment Index，以真实 Agent Arena 会话衡量 Unauthorized Action、False Attribution、Deceptive Completion，作为 Agent 能力榜的补充。",
+          "facts": [
+            {
+              "label": "观察对象",
+              "value": "真实 Agent 会话及执行证据"
+            },
+            {
+              "label": "风险维度",
+              "value": "未授权操作 / 错误归因 / 虚假完成"
+            },
+            {
+              "label": "状态",
+              "value": "Preliminary / 初版"
+            }
+          ],
+          "interpretation": "Arena 正从“哪一个回答更讨喜”转向“Agent 是否按授权执行、是否如实汇报结果”；值得持续追踪可观测证据与标签质量。",
+          "scope": "仅限 Arena 官方目前定义并能在会话轨迹中核验的三类对齐风险；与通用任务能力榜不同。",
+          "limitations": "不能据此宣称模型全面安全，也不能保证对所有企业工作流的泛化性。榜单和协议可能继续迭代。",
+          "published_at": "2026-10-08",
+          "verified_at": "2026-10-09",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-10-08",
+          "kind": "Company",
+          "title": "Arena 宣布 2 亿美元 B 轮融资，估值 31 亿美元",
+          "url": "https://arena.ai/blog/series-b",
+          "summary": "Arena 官方宣布完成 2 亿美元 B 轮融资、估值 31 亿美元，并称年化营收已超过 1 亿美元；此项为公司披露而非第三方审计。",
+          "facts": [
+            {
+              "label": "融资",
+              "value": "Series B · $200M"
+            },
+            {
+              "label": "估值",
+              "value": "$3.1B（公司披露）"
+            },
+            {
+              "label": "收入",
+              "value": "年化超过 $100M（公司披露）"
+            }
+          ],
+          "interpretation": "融资与营收是商业需求信号，不等于评测方法已获得独立验证；更需要观察企业可复现的真实效果。",
+          "scope": "Arena 于 2026-10-08 发布的融资与业务规模公告。",
+          "limitations": "不把融资估值、年化营收作为模型能力或企业客户 ROI 证据；年化营收不等于年度审计收入。",
+          "published_at": "2026-10-08",
+          "verified_at": "2026-10-09",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-06-29",
+          "kind": "Company",
+          "title": "Arena 称商业化评测服务八个月达到 1 亿美元年化营收",
+          "url": "https://arena.ai/blog/arena-100m-revenue",
+          "summary": "Arena 官方披露，商业产品推出约八个月后年化收入运行率达到 1 亿美元，同时其 Agent Arena 扩展到真实任务完成评测。",
+          "facts": [
+            {
+              "label": "商业指标",
+              "value": "$100M annualized revenue run rate"
+            },
+            {
+              "label": "口径",
+              "value": "公司公告，非经审计全年收入"
+            }
+          ],
+          "interpretation": "将人类偏好数据转化为企业评测服务已成为可观察的商业化方向，但仍需比较其实际评估效用。",
+          "scope": "2026-06-29 Arena 官方业务规模公告。",
+          "limitations": "公司自报的年化收入运行率不能当作经审计的收入，也不证明客户任务成功率。",
+          "published_at": "2026-06-29",
+          "verified_at": "2026-10-09",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2025-09-16",
+          "kind": "Product",
+          "title": "推出商业产品 AI Evaluations：社区反馈进入企业模型评测",
+          "url": "https://arena.ai/blog/ai-evaluations",
+          "summary": "Arena 宣布面向企业、模型实验室和开发者提供 AI Evaluations，包括基于真实人类反馈的深度评价、可审核样本与结果交付 SLA。",
+          "facts": [
+            {
+              "label": "客户",
+              "value": "企业 / 模型实验室 / 开发者"
+            },
+            {
+              "label": "产品特征",
+              "value": "社区反馈、可审核样本、SLA"
+            }
+          ],
+          "interpretation": "Arena 从公共众包榜单延伸为可交付的商业评测服务，构成长期产品跟踪的起点。",
+          "scope": "2025-09-16 Arena 官方 AI Evaluations 产品发布说明。",
+          "limitations": "官方服务能力与可用范围不构成特定企业的独立效果评估；数据覆盖与代表性需要按业务核验。",
+          "published_at": "2025-09-16",
+          "verified_at": "2026-10-09",
+          "evidence_level": "primary_source"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "legal",
+      "title": "Legal AI"
+    },
+    {
+      "id": "enterprise-agent",
+      "title": "Enterprise Agent"
+    },
+    {
+      "id": "sequoia",
+      "title": "Sequoia"
+    },
+    {
+      "id": "yc",
+      "title": "Y Combinator"
+    },
+    {
+      "id": "in-house",
+      "title": "In-house"
+    },
+    {
+      "id": "customer-experience",
+      "title": "Customer Experience"
+    },
+    {
+      "id": "knowledge-work",
+      "title": "Knowledge / Work"
+    },
+    {
+      "id": "gtm",
+      "title": "GTM"
+    },
+    {
+      "id": "support-automation",
+      "title": "Support / Automation"
+    },
+    {
+      "id": "ai-evaluation",
+      "title": "AI Evaluation"
+    }
+  ]
+}
