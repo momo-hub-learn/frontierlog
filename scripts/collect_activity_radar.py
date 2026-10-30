@@ -70,8 +70,15 @@ def tags(s):
     q=s.lower(); out=[]
     rules=[('agent','Agents'),('alignment','Alignment'),('ai安全','AI Safety'),('有效利他主义','Society'),('recursive','RSI'),('diffusion','Diffusion'),('inference','Inference'),('robot','Robotics'),('bio','BioAI'),('coding','Coding'),('programming','Coding'),('gpu','AI Infra'),('nvidia','AI Infra'),('safety','Safety'),('model','Models')]
     for k,v in rules:
-        if k in q and v not in out:out.append(v)
+        if keyword_match(q,k) and v not in out:out.append(v)
     return out[:4]
+
+def keyword_match(text, keyword):
+    """Match Latin keywords as terms, while retaining CJK substring matching."""
+    if re.search(r'[a-z0-9]', keyword, re.IGNORECASE):
+        pattern=r'(?<![a-z0-9])'+re.escape(keyword)+r'(?![a-z0-9])'
+        return re.search(pattern,text,re.IGNORECASE) is not None
+    return keyword in text
 
 def editorial_title_key(item):
     """Return a conservative key for feed aliases of the same episode.
@@ -139,7 +146,7 @@ def main():
         kept=0
         for x in rows:
             hay=(x['title'] if s.get('filter_scope')=='title' else x['title']+' '+x['summary']).lower()
-            if kws and not any(k in hay for k in kws):continue
+            if kws and not any(keyword_match(hay,k) for k in kws):continue
             if not x['title'] or not x['url'] or not x['date']:continue
             key=hashlib.sha1((sid+'|'+x['url']).encode()).hexdigest()[:12]
             auto.append({'id':sid+'-'+key,'source_id':sid,'published':x['date'],'title':clip_text(x['title'],220),'summary':clip_text(x['summary'],320),'url':x['url'],'tags':tags(hay),'origin':'rss'})

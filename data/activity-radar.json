@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-10-30T15:23:37Z",
+  "checked_at": "2026-10-30T17:25:58Z",
   "sync": {
     "mode": "public_rss",
     "interval_minutes": 120,
-    "last_success": "2026-10-30T15:23:37Z",
+    "last_success": "2026-10-30T17:25:58Z",
     "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
   },
   "sources": [
@@ -83,6 +83,26 @@
       ],
       "url": "https://www.dwarkesh.com/podcast",
       "feed_url": "https://www.dwarkesh.com/feed",
+      "include_keywords": [
+        "ai",
+        "artificial intelligence",
+        "model",
+        "agent",
+        "chip",
+        "semiconductor",
+        "gpu",
+        "alignment",
+        "recursive",
+        "inference",
+        "robot",
+        "coding",
+        "programming",
+        "software",
+        "deepmind",
+        "openai",
+        "anthropic",
+        "nvidia"
+      ],
       "authority": "first-party",
       "sync": "rss"
     },
@@ -447,16 +467,6 @@
       "origin": "rss"
     },
     {
-      "id": "dwarkesh-3b000ec4907e",
-      "source_id": "dwarkesh",
-      "published": "2026-10-29",
-      "title": "What I learned about power from LBJ and Robert Moses",
-      "summary": "Preparing to interview Robert Caro.",
-      "url": "https://www.dwarkesh.com/p/lessons-in-power",
-      "tags": [],
-      "origin": "rss"
-    },
-    {
       "id": "silicon-valley-101-95cd743f60bf",
       "source_id": "silicon-valley-101",
       "published": "2026-10-28",
@@ -614,16 +624,6 @@
       "title": "E255｜模型越来越强，为什么用户没感觉？再访阿里国际站总裁张阔",
       "summary": "模型在榜单上越来越强，为什么真正把工作交给AI，还是需要人反复解释、检查和兜底？ 半年前，我们与阿里国际站总裁张阔聊了Accio Work，以及Agent如何参与采购和日常经营。半年后，我们再次请到他，聊聊这半年来商家使用Accio Work的真实案例，试图回答这个问题：模型能力的提升，究竟有多少变成了商家工作里的进步？ 张阔分享，很多模型的通用评测成绩已经接近满分，但团队在真实经营中，并没有感受到同样幅度的提升。为此，他们从实际业务中整理了107个任务，包括比较供应商报价、识别钓鱼邮件、预订船期和处理交易纠纷。据他介绍，在这套特定评测中，最前沿模型在无人干预条件下的任务通过率约为61%。 这些任务没有数学竞赛那么耀眼，却直接关系到",
       "url": "https://sv101.fireside.fm/269",
-      "tags": [],
-      "origin": "rss"
-    },
-    {
-      "id": "dwarkesh-a285363b4a32",
-      "source_id": "dwarkesh",
-      "published": "2026-10-01",
-      "title": "Si Sheppard – How did a few hundred Spanish soldiers topple two empires?",
-      "summary": "Fall of the Incas & Aztecs.",
-      "url": "https://www.dwarkesh.com/p/si-sheppard",
       "tags": [],
       "origin": "rss"
     },
@@ -886,6 +886,30 @@
         "真正的规模化瓶颈并不都出现在模型推理层。",
         "这类工程文章适合判断 frontier 产品从 Demo 到全球服务之间差了什么。"
       ]
+    },
+    {
+      "id": "dwarkesh-3e0ac0110708",
+      "source_id": "dwarkesh",
+      "published": "2026-09-11",
+      "title": "AI researchers debate how close we are to recursive self-improvement",
+      "summary": "“We're nowhere near the ceiling.”",
+      "url": "https://www.dwarkesh.com/p/john-beren-charlie",
+      "tags": [
+        "RSI"
+      ],
+      "origin": "rss"
+    },
+    {
+      "id": "dwarkesh-c192d8d53f35",
+      "source_id": "dwarkesh",
+      "published": "2026-09-08",
+      "title": "Pretraining progress is mostly coming from data",
+      "summary": "Breaking down 6 years of pretraining progress into data vs model improvements",
+      "url": "https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data",
+      "tags": [
+        "Models"
+      ],
+      "origin": "rss"
     },
     {
       "id": "zhang-xiaojun-zengming-20260903",
