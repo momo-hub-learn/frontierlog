@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_at": "2026-10-30T06:03:34Z",
+  "checked_at": "2026-10-30T09:18:12Z",
   "source_url": "https://github.com/trending?since=daily",
   "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
   "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -73,7 +73,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 50657
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "obra/superpowers",
@@ -143,7 +144,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 308809
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "pbakaus/impeccable",
@@ -213,7 +215,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 95814
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "JetBrains/thinkrail",
@@ -283,7 +286,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 6160
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "milind-soni/OpenMausBot",
@@ -337,7 +341,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 7661
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "nightly-labs/openbot",
@@ -407,7 +412,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 4003
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "elayadesign/ai-design-skills",
@@ -477,13 +483,14 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 12432
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "thedotmack/claude-mem",
       "rank": 8,
       "stars_today": 336,
-      "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+      "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
       "language": "TypeScript",
       "stars": 105026,
       "forks": 9258,
@@ -531,7 +538,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 105026
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "CopilotKit/OpenBot",
@@ -585,7 +593,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 8294
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "togg53192-cmd/jailbreaks",
@@ -654,7 +663,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 9473
         }
-      ]
+      ],
+      "metadata_status": "stale"
     },
     {
       "repo": "Donchitos/Claude-Code-Game-Studios",
@@ -708,7 +718,8 @@
           "at": "2026-10-30T06:03:34Z",
           "stars": 29525
         }
-      ]
+      ],
+      "metadata_status": "stale"
     }
   ],
   "categories": [
@@ -785,16 +796,27 @@
   },
   "sync": {
     "mode": "official_trending_plus_repository_api",
-    "status": "error",
-    "last_checked_at": "2026-10-30T07:27:52Z",
-    "last_success_at": "2026-10-30T06:03:34Z",
+    "status": "success",
+    "last_checked_at": "2026-10-30T09:18:12Z",
+    "last_success_at": "2026-10-30T09:18:12Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-10-30T07:27:52Z",
+    "watchlist_checked_at": "2026-10-30T09:18:12Z",
     "watchlist_errors": [
-      "morluto/rea: <urlopen error timed out>"
+      "morluto/rea: HTTP Error 403: Forbidden"
     ],
     "watchlist_failed_count": 1,
-    "error": "<urlopen error timed out>"
+    "trending_count": 11,
+    "verified_count": 0,
+    "metadata_failed_count": 11,
+    "metadata_status": "partial",
+    "skipped": [
+      "HKUDS/DeepTutor: HTTP Error 403: Forbidden",
+      "obra/superpowers: HTTP Error 403: Forbidden",
+      "pbakaus/impeccable: HTTP Error 403: Forbidden",
+      "JetBrains/thinkrail: HTTP Error 403: Forbidden",
+      "milind-soni/OpenMausBot: HTTP Error 403: Forbidden",
+      "nightly-labs/openbot: HTTP Error 403: Forbidden"
+    ]
   },
   "watchlist": [
     {

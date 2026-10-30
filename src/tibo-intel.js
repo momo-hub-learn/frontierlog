@@ -102,7 +102,7 @@ function featuredHero(){
       '<p class="tibo-featured-sync">'+esc(officialSyncLabel())+'</p></div>'+
       '<div class="tibo-featured-proof"><div class="tibo-featured-proof-head"><span>原始证据 / X 官方原帖</span><small data-tibo-live-state>'+esc(sourceState(x))+'</small></div>'+
       featuredEvidence(x)+
-      '<div class="tibo-featured-proof-foot"><span>嵌入失败时退回原文摘录，不模拟截图。</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
+      '<div class="tibo-featured-proof-foot"><span>原帖嵌入可滚动；失败时退回原文摘录，不模拟截图。</span><span>'+esc(relationLabel(x))+'</span></div></div>'+
     '</div>'+
   '</section>'
 }

@@ -118,6 +118,16 @@ class ValidationTests(unittest.TestCase):
   self.assertIn('不能证明每个账户',row['boundary'])
   self.assertEqual(len(row['sources']),3)
   validate_resets(E)
+ def test_oct28_day23_original_embed_upgrades_the_existing_stable_record(self):
+  row=next(x for x in E['events'] if x['id']=='tibo-reset-pending-2026-10-28-day23')
+  self.assertEqual((row['status'],row['review_basis'],row['evidence_strength']),('confirmed','primary_source','high'))
+  self.assertEqual(row['published_at'],'2026-10-28T02:42:53.102Z')
+  self.assertTrue(row['verified_at'].endswith('+08:00'))
+  self.assertIn('today is a reset',row['original_text'])
+  self.assertIn('没有说明传播完成',row['boundary'])
+  source=next(x for x in E['sources'] if x['id']=='tibo-post-2115273064481218829')
+  self.assertEqual(source['kind'],'官方原帖')
+  validate_resets(E)
  def test_pending_not_confirmed(self):
   d=copy.deepcopy(E);next(x for x in d['events'] if x['review_basis']=='secondary_lead')['status']='confirmed'
   with self.assertRaises(ValueError):validate_resets(d)

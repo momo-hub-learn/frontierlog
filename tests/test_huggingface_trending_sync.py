@@ -32,6 +32,16 @@ class HuggingFaceTrendingSyncTests(unittest.TestCase):
         self.assertEqual(out["web_fetched_at"], "2026-10-22T03:30:00Z")
         self.assertEqual(out["api_fetched_at"], old_api_time)
         self.assertEqual(out["sync"]["api_status"], "preserved")
+        self.assertEqual(out["web_verification_method"], "official_web_server_html")
+
+    def test_api_only_refresh_preserves_reviewed_browser_provenance(self):
+        payload = [
+            {"id": f"api/model-{i}", "trendingScore": 20-i, "tags": []}
+            for i in range(20)
+        ]
+        self.base["web_verification_method"] = "official_web_browser_editorial"
+        out = sync.update_state(self.base, self.now, None, payload)
+        self.assertEqual(out["web_verification_method"], "official_web_browser_editorial")
 
     def test_web_rank_changes_only_compare_real_saved_snapshots(self):
         old_order = [f"org/model-{i}" for i in range(20)]

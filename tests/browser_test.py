@@ -72,7 +72,8 @@ try:
             failed = int(github_sync.get("metadata_failed_count") or 0)
             total = len(GITHUB.get("items", []))
             scope = "全部" if total and failed >= total else "部分"
-            expect(page.locator(".fc-gh-panel")).to_contain_text(f"上榜仓库资料更新{scope}失败")
+            expected = "仓库资料更新全部失败" if scope == "全部" else "上榜仓库资料更新部分失败"
+            expect(page.locator(".fc-gh-panel")).to_contain_text(expected)
             expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
         elif github_watch_failed:
             expect(page.locator(".fc-gh-panel")).to_contain_text("长期关注仓库资料更新失败")

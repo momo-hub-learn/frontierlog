@@ -103,6 +103,12 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("{rootMargin:'500px 0px'}",text)
   self.assertIn("m.dataset.xState='deferred'",text)
 
+ def test_tibo_featured_embed_stays_bounded_when_a_quote_has_large_media(self):
+  css=(ROOT/'src/tibo-intel.css').read_text()
+  js=(ROOT/'src/tibo-intel.js').read_text()
+  self.assertIn('.tibo-featured-x[data-x-state="loaded"]{max-height:520px;overflow-y:auto',css)
+  self.assertIn('原帖嵌入可滚动；失败时退回原文摘录，不模拟截图。',js)
+
  def test_unreviewed_upstream_releases_require_an_explicit_queue_view(self):
   legacy=(ROOT/'src/app.js').read_text()
   current=(ROOT/'src/v2.js').read_text()

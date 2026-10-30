@@ -146,6 +146,11 @@ def update_state(
         )
         out["web_order"] = current_order
         out["web_fetched_at"] = now_text
+        # urlopen observes Hugging Face's server HTML response.  It is an
+        # official snapshot, but it is not equivalent to the hydrated order
+        # a reviewer sees in a real browser; keep the provenance explicit so
+        # an automated run cannot impersonate an editorial browser check.
+        out["web_verification_method"] = "official_web_server_html"
         web_ok = True
     if api_payload is not None:
         out["items"] = parse_api(api_payload)
