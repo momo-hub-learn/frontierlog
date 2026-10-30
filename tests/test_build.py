@@ -23,6 +23,13 @@ class BuildTests(unittest.TestCase):
                 json.loads((ROOT/'data'/name).read_text()),
                 f'api/v1/{name} must publish the same reviewed snapshot as data/{name}',
             )
+    def test_successful_github_metadata_has_an_independent_success_clock(self):
+        data=json.loads((ROOT/'data/github-hot.json').read_text())
+        sync=data['sync']
+        if sync.get('metadata_status')=='success':
+            verified=[x['metadata_verified_at'] for x in data['items']]
+            self.assertTrue(all(verified))
+            self.assertEqual(sync.get('metadata_checked_at'),max(verified))
     def test_missing_source_rejected(self):
         self.c['items'][0]['sources']=['missing']
         with self.assertRaises(ValueError):build.validate(self.c,self.u,self.s)
