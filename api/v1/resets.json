@@ -554,33 +554,34 @@
     {
       "id": "tibo-reset-pending-2026-10-28-day23",
       "kind": "global",
-      "status": "pending",
+      "status": "confirmed",
       "date": "2026-10-28",
-      "published_at": null,
+      "published_at": "2026-10-28T02:42:53.102Z",
       "effective_at": null,
-      "precision": "source_date",
-      "source_timezone": null,
-      "title": "Day 23 reset 线索：原帖链接已定位，正文仍待一手直读",
-      "summary": "OpenAI Developer Community 的公开线程嵌入 Tibo 的 X 帖，并显示其把 Day 23 描述为 reset；本站已定位到状态 ID 2115273064481218829，但本轮直接读取 X 返回 403，因此不把社区转述升级为已确认 reset。",
-      "scope": "Codex / ChatGPT Work 社区 reset 语境；套餐、账户范围与后台 reset 类型均未由可直读原帖确认",
-      "boundary": "这是官方社区中的二手定位线索，不是本站对 Tibo 原帖正文的直接核验。它不能证明 reset 已执行、已传播到每个账户、适用套餐、额度恢复幅度、banked / global 后台机制或个人余额；社区回复所称到账也不是个人账户证据。",
+      "precision": "instant",
+      "source_timezone": "UTC",
+      "title": "Tibo 确认 Day 23 是 reset",
+      "summary": "Tibo 本人 X 原帖写下“Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset.”；X 官方嵌入已可直接读取，状态 ID 的 Snowflake 时间对应 2026-10-28T02:42:53.102Z。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；原帖未列出套餐、账户范围或后台 reset 类型",
+      "boundary": "原帖能确认 Tibo 宣布当日是 reset，但没有说明传播完成，也不能证明每个账户已经显示新额度、具体套餐、恢复幅度、banked / global 后台机制或个人余额。",
       "sources": [
         "tibo-post-2115273064481218829",
         "openai-community-day23-reset"
       ],
       "reviewed": "2026-10-30",
-      "review_basis": "secondary_lead",
+      "verified_at": "2026-10-30T17:21:30+08:00",
+      "review_basis": "primary_source",
       "related_ids": [
         "tibo-global-confirmed-2026-10-26-day21"
       ],
-      "original_text": "Day 23/ … today is a reset.",
-      "conversation_context": "OpenAI Developer Community 的嵌入卡片把该帖与 iCloud Mail / Calendar 官方发布放在同一 Day 23 语境；本站未直接读取 X 正文及完整线程。",
-      "interpretation": "这是值得继续追踪的 reset 候选，但证据级别不足以写成已执行或已到账，因此只进入待核验正文记录。",
-      "evidence_strength": "medium",
-      "semantic_type": "secondary_reset_lead",
-      "not_proves": "未证明 reset 已执行、传播完成、覆盖任一具体套餐或个人账户，也未确认精确发布时间。",
+      "original_text": "Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset. Still much requested though!",
+      "conversation_context": "本人原帖先以玩笑方式把 iCloud Mail / Calendar 插件发布与当日 reset 并列，随后明确写下“today is a reset”；原帖没有声称传播完成，也没有列出套餐与账户范围。",
+      "interpretation": "这是一条可直接核验的一手 reset 确认，因此记录原帖真实发布时间；由于没有传播完成表述，不把它升级为每个账户已到账。",
+      "evidence_strength": "high",
+      "semantic_type": "explicit_reset_confirmation",
+      "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
       "post_id": "2115273064481218829",
-      "relation": "original_link_unreadable"
+      "relation": "original"
     }
   ],
   "sources": [
@@ -860,8 +861,8 @@
       "title": "Day 23 reset post",
       "url": "https://x.com/thsottiaux/status/2115273064481218829",
       "checked": "2026-10-30",
-      "kind": "原帖待直接核验",
-      "note": "OpenAI Developer Community 的嵌入卡片定位到状态 ID 与部分文本；本轮直接读取 X 返回 403，因此不作为第一方已确认记录，也不补造精确发布时间。"
+      "kind": "官方原帖",
+      "note": "X 官方嵌入已直接读取本人完整原文；状态 ID 的 Snowflake 时间对应 2026-10-28T02:42:53.102Z。原帖明确确认当日是 reset，但没有声称传播已经完成。"
     },
     {
       "id": "openai-community-day23-reset",
