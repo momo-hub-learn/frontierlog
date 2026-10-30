@@ -36,6 +36,18 @@ class HotDataTests(unittest.TestCase):
  def test_nested_evidence_url_is_not_a_novel_candidate(self):
   self.assertIn('https://antigravity.google/blog/gemini-4-argon-in-google-antigravity',curated_urls(self.data))
 
+ def test_training_preference_signal_stays_a_future_voluntary_draft(self):
+  item=next(x for x in self.data['items'] if x['id']=='openai-ai-training-preference-signal-20261030')
+  self.assertEqual(item['published'],'2026-10-30')
+  self.assertEqual(item['url'],'https://openai.com/index/helping-websites-express-ai-training-preferences/')
+  self.assertNotIn('published_at',item)
+  self.assertIn('未来数月',item['summary'])
+  self.assertIn('自愿信号',item['boundary'])
+  self.assertIn('不是已经生效的法规或 IETF 正式标准',item['boundary'])
+  self.assertIn('不会被替代',item['boundary'])
+  self.assertEqual(item['related'][0]['source'],'IETF Datatracker')
+  validate_hot(self.data)
+
  def test_heat_range(self):self.reject(lambda d:d['items'][0].update(heat=145))
  def test_bad_trend(self):self.reject(lambda d:d['items'][0].update(trend='viral'))
  def test_unsafe_url(self):self.reject(lambda d:d['items'][0].update(url='javascript:alert(1)'))

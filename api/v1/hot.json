@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-30",
+  "checked": "2026-10-31",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -35,6 +35,48 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-ai-training-preference-signal-20261030",
+      "category": "industry",
+      "title": "OpenAI 将支持 robots.txt 的通用 AI 训练偏好信号",
+      "published": "2026-10-30",
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T05:27:43+08:00",
+      "first_seen_at": "2026-10-31T05:27:43+08:00",
+      "heat": 82,
+      "heat_components": {
+        "impact": 32,
+        "availability": 10,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是采用率、法律效力或全网共识分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方公告与 IETF Internet-Draft · 尚待厂商实现",
+      "summary": "OpenAI 宣布将支持 robots.txt 中面向基础生成式 AI 训练的通用偏好信号，让网站可用同一规则向多个参与方表达选择；公司称将在未来数月实现。",
+      "why": "如果更多提供方采用，网站运营者不必为每个训练抓取方分别维护规则；这也把内容使用偏好从厂商专有约定推进到可跨提供方讨论的开放标准路径。",
+      "boundary": "这是自愿信号和仍在推进的 Internet-Draft，不是已经生效的法规或 IETF 正式标准。OpenAI 尚未给出具体上线日期，现有 crawler controls 继续适用且不会被替代；不能据此声称所有 AI 提供方都会遵守，或该信号会阻止抓取本身。",
+      "source": "OpenAI / IETF Datatracker",
+      "source_kind": "OpenAI 官方公告与 IETF Internet-Draft / 本轮编辑核验",
+      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 OpenAI 公告",
+          "note": "核对承诺范围、实施时间与现有 crawler controls 的关系",
+          "url": "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "IETF Datatracker",
+          "title": "Machine-Readable Training Preference Signal",
+          "url": "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/",
+          "date": "2026-10-30"
+        }
+      ]
+    },
     {
       "id": "algebraic-world-model-lean-proofs-20261029",
       "category": "benchmark",
