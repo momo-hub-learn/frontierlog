@@ -37,6 +37,94 @@
     ],
     "items": [
       {
+        "id": "algebraic-world-model-lean-proofs-20261029",
+        "category": "benchmark",
+        "title": "Algebraic World Model：把游戏机制假设送进 Lean 证明",
+        "published": "2026-10-30",
+        "published_at": "2026-10-29T17:20:31Z",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T21:19:41+08:00",
+        "first_seen_at": "2026-10-30T21:19:41+08:00",
+        "heat": 94,
+        "heat_components": {
+          "impact": 35,
+          "availability": 19,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是模型能力或本站实测分数。",
+        "trend": "up",
+        "verification_status": "作者预印本、项目页与公开 Lean 证明 · 本站未复现",
+        "summary": "作者把 ARC-AGI-3 探索转为 Python 机制假设、类型化规则与 Lean 4 定理；论文报告 6/6 次 AWM 运行在两个不可能关卡上闭合证明，而两组基础 Agent 共 0/12。",
+        "why": "这提供了一条比“Agent 得分上涨”更可检查的路线：先显式学习环境机制，再让证明器验证模型内部是否自洽，并把探索错误、规则错误与执行错误分开。",
+        "boundary": "所有数字来自作者在两个不可能关卡与公开 ARC-AGI-3 游戏上的实验，本站未复现。Lean 证明的是学到的形式模型；屏幕到状态的 Python 解析器不在证明边界内，模型也可能比真实游戏更严格，因此不能把闭合证明写成真实环境已被完全证明。",
+        "source": "Algebraic World Model authors / arXiv",
+        "source_kind": "作者预印本、项目页、公开证明与实验边界 / 本轮编辑核验",
+        "url": "https://arxiv.org/abs/2610.40503",
+        "link": "#/benchmarks?bench=algebraic-world-model-proof-protocol",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看证明协议与边界",
+            "note": "区分作者实验、Lean 证明边界与本站未复现状态",
+            "url": "#/benchmarks?bench=algebraic-world-model-proof-protocol",
+            "kind": "internal"
+          }
+        ],
+        "related": [
+          {
+            "source": "AWM authors",
+            "title": "Algebraic World Model project page",
+            "url": "https://ephemeral6.github.io/awm-site/",
+            "date": "2026-10-29"
+          }
+        ]
+      },
+      {
+        "id": "world2vec-mechanistic-world-model-20261029",
+        "category": "research",
+        "title": "world2vec：用潜在动力学学一个可检查的机制世界模型",
+        "published": "2026-10-30",
+        "published_at": "2026-10-29T17:58:23Z",
+        "checked": "2026-10-30",
+        "verified_at": "2026-10-30T21:19:41+08:00",
+        "first_seen_at": "2026-10-30T21:19:41+08:00",
+        "heat": 93,
+        "heat_components": {
+          "impact": 35,
+          "availability": 18,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是世界模型质量或本站实测分数。",
+        "trend": "up",
+        "verification_status": "作者预印本、项目页与代码入口 · 本站未复现",
+        "summary": "world2vec 从无奖励的观测—动作序列学习潜在动力学；作者报告在像素控制与 71 个混沌吸引子系统辨识上取得领先结果，并以比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数复现长程动力学。",
+        "why": "它把世界模型目标从“能产生高回报动作”推进到“潜在状态是否忠实复现真实系统”，对机器人控制、科学系统辨识和长程可预测性都有直接前瞻意义。",
+        "boundary": "参数量、控制结果与 71 个吸引子均为作者在指定环境和协议下的报告，本站未运行代码。高控制回报不等于动力学忠实，反过来在这些系统上重建动力学也不能推出开放世界视频或真实机器人已解决。",
+        "source": "world2vec authors / arXiv",
+        "source_kind": "作者预印本、项目页、代码入口与实验范围 / 本轮编辑核验",
+        "url": "https://arxiv.org/abs/2610.40637",
+        "link": "#/progress?view=research&research=world2vec-mechanistic-world-model-20261029",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看研究档案",
+            "note": "分开看动力学忠实、控制结果、参数量与本站未复现边界",
+            "url": "#/progress?view=research&research=world2vec-mechanistic-world-model-20261029",
+            "kind": "internal"
+          }
+        ],
+        "related": [
+          {
+            "source": "world2vec authors",
+            "title": "world2vec project page",
+            "url": "https://worldmodels.science/",
+            "date": "2026-10-29"
+          }
+        ]
+      },
+      {
         "id": "worldprobe-long-horizon-world-model-20261029",
         "category": "benchmark",
         "title": "WorldProbe：世界模型主动探索到 180 秒后还一致吗",
@@ -5283,13 +5371,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-30T11:26:47Z",
+    "generated_at": "2026-10-30T13:28:15Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 5,
-      "merge": 112,
+      "merge": 114,
       "hold": 6
     },
     "candidates": [
@@ -7847,6 +7935,70 @@
     ],
     "items": [
       {
+        "id": "world2vec-mechanistic-world-model-20261029",
+        "lane": "paradigm",
+        "title": "world2vec 把世界模型目标改写为“忠实复现动力学”",
+        "maker": "world2vec authors",
+        "date": "2026-10-29",
+        "verified_at": "2026-10-30T21:19:41+08:00",
+        "verification_status": "作者预印本、项目页与代码入口 · 本站未复现",
+        "tags": [
+          "World Models",
+          "Latent Dynamics",
+          "System Identification"
+        ],
+        "fact": "world2vec 从无奖励的观测—动作轨迹学习潜在动力学。作者报告它在像素控制与系统辨识任务上取得领先结果，可复现 71 个混沌吸引子的长程动力学，并使用比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数。",
+        "insight": "这条路线把世界模型从“为策略提供足够信息”推向“潜在状态是否真正对应系统机制”。如果能被独立复现，它可能让机器人控制、科学建模与因果干预共用一套更小、更可检查的动力学表示。",
+        "boundary": "所有性能、参数量与 71 个吸引子结果均来自作者在指定环境、数据与协议下的实验，本站未运行代码。忠实复现这些系统不能外推为开放世界视频生成、复杂真实机器人或任意科学过程已经解决；项目页的可视化也不能替代数值复现。",
+        "next_watch": "跟踪代码与训练数据是否完整开放、第三方能否复现长程稳定性、潜在变量是否具有可识别语义、噪声和分布外干预下是否仍忠实，以及动力学忠实与控制回报何时发生冲突。",
+        "sources": [
+          {
+            "label": "arXiv · world2vec: Mechanistic world models through latent dynamics learning",
+            "url": "https://arxiv.org/abs/2610.40637",
+            "kind": "作者预印本、方法、实验范围与量化结果",
+            "strength": "primary"
+          },
+          {
+            "label": "world2vec project page",
+            "url": "https://worldmodels.science/",
+            "kind": "作者项目页、可视化与代码入口",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
+        "id": "algebraic-world-model-lean-proofs-20261029",
+        "lane": "paradigm",
+        "title": "Algebraic World Model 把环境探索接到 Lean 证明",
+        "maker": "Algebraic World Model authors",
+        "date": "2026-10-29",
+        "verified_at": "2026-10-30T21:19:41+08:00",
+        "verification_status": "作者预印本、项目页与公开 Lean 证明 · 本站未复现",
+        "tags": [
+          "World Models",
+          "Formal Verification",
+          "ARC-AGI-3"
+        ],
+        "fact": "系统先探索 ARC-AGI-3 环境，在 Python 中提出机制假设，再转成类型化规则和 Lean 4 定理。作者报告两个不可能关卡上 6/6 次 AWM 运行闭合证明、Claude Opus 5.5 与 GPT-6 Astra 基线共 0/12；183 个关卡的公开记录可在 Lean 中回放。",
+        "insight": "它展示了一种 Agent 评估的结构性变化：不再只问“最后得了多少分”，而是把世界模型中的机制假设显式化，让证明器定位不一致，并用新的反例继续探索。",
+        "boundary": "作者结果集中在 ARC-AGI-3 与两个不可能关卡，本站未复现。Lean 证明的是学习到的形式模型，不自动证明真实游戏；屏幕到状态的 Python 解析器位于证明边界之外，模型也可能比游戏更严格。6/6 与 0/12 不能外推为通用 Agent 优劣。",
+        "next_watch": "跟踪完整代码与证明工件、第三方复现、视觉解析器如何进入可信边界、模型与真实环境不一致时怎样产生反例，以及形式证明成本能否扩展到连续状态、噪声传感与真实机器人。",
+        "sources": [
+          {
+            "label": "arXiv · Algebraic World Model: From Exploration to Proofs",
+            "url": "https://arxiv.org/abs/2610.40503",
+            "kind": "作者预印本、系统结构、实验与证明边界",
+            "strength": "primary"
+          },
+          {
+            "label": "Algebraic World Model project page",
+            "url": "https://ephemeral6.github.io/awm-site/",
+            "kind": "作者项目页、逐步机制与公开结果",
+            "strength": "primary"
+          }
+        ]
+      },
+      {
         "id": "jepa-platonic-representation-good-views-20261029",
         "lane": "paradigm",
         "title": "JEPA 把跨模态对齐的关键从“更大”改写为“更好的视图”",
@@ -9556,11 +9708,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-30T11:27:23Z",
+    "checked_at": "2026-10-30T13:15:28Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-30T11:27:23Z",
+      "last_success": "2026-10-30T13:15:28Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -10606,12 +10758,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-30T11:26:47Z",
+    "last_evaluated": "2026-10-30T13:28:15Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 123,
+      "candidate_count": 125,
       "publish_ready_count": 5,
-      "merge_count": 112,
+      "merge_count": 114,
       "best_candidate": "candidate-123e3f719aa75935",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
@@ -11534,35 +11686,35 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-30T11:18:27Z",
+    "checked_at": "2026-10-30T13:21:23Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-30T11:18:27Z",
-    "web_fetched_at": "2026-10-30T11:18:27Z",
+    "api_fetched_at": "2026-10-30T13:21:23Z",
+    "web_fetched_at": "2026-10-30T13:21:23Z",
     "web_verification_method": "official_web_server_html",
     "web_order_matches_api": true,
     "web_order": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "Nanbeige/Nanbeige4.3-33B",
       "LiquidAI/LFM3-1.7B",
-      "RecursiveSI/flint",
-      "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "RecursiveSI/flint",
       "baidu/Unlimited-OCR-2",
       "Lightricks/LTX-2.5",
+      "mistralai/Mistral-Large-4-1T-A52B",
       "black-forest-labs/flux-3-image-klein-comfy",
       "XHToken/Spark-X2.6-4B",
-      "mistralai/Mistral-Large-4-1T-A52B",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "Qwen/Qwen3.8-27B",
       "ccore/Qwen3.5-4B-3D-Coder",
-      "MiniMaxAI/MiniMax-M3.1-Flash",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "MiniMaxAI/MiniMax-M3.1-Flash",
       "LiquidAI/LFM3-Omni-2B",
       "openbmb/MiniCPM-OCR-1.0",
       "facebook/sam3"
@@ -11573,156 +11725,150 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
-        "id": "RecursiveSI/flint",
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 4,
-        "previous_rank": 4,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 6,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 5,
-        "previous_rank": 6,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 5,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
-        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "id": "RecursiveSI/flint",
         "rank": 6,
-        "previous_rank": 7,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 4,
+        "rank_change": -2,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 7,
-        "previous_rank": 9,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 7,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
-      },
-      {
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "rank": 9,
-        "previous_rank": 10,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
-      },
-      {
-        "id": "XHToken/Spark-X2.6-4B",
-        "rank": 10,
-        "previous_rank": 5,
-        "rank_change": -5,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
+        "rank": 9,
+        "previous_rank": 11,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
+      },
+      {
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "rank": 10,
+        "previous_rank": 9,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
+      },
+      {
+        "id": "XHToken/Spark-X2.6-4B",
         "rank": 11,
-        "previous_rank": 12,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 12,
-        "previous_rank": 13,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 13,
-        "previous_rank": 15,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 15,
-        "previous_rank": 16,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
-      },
-      {
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "rank": 16,
-        "previous_rank": 11,
-        "rank_change": -5,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_rank": 15,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "rank": 17,
+        "rank": 16,
         "previous_rank": 17,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
+      },
+      {
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "rank": 17,
+        "previous_rank": 16,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "openbmb/MiniCPM-OCR-1.0",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       },
       {
         "id": "facebook/sam3",
         "rank": 20,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
-      }
-    ],
-    "web_outgoing": [
-      {
-        "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "previous_rank": 20,
-        "previous_fetched_at": "2026-10-30T09:22:54Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T11:18:27Z"
       }
     ],
+    "web_outgoing": [],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 851,
-        "likes": 3926,
+        "trending_score": 846,
+        "likes": 3944,
         "downloads": 145869,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11738,8 +11884,8 @@
         "rank": 2,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 771,
-        "likes": 787,
+        "trending_score": 774,
+        "likes": 791,
         "downloads": 12178,
         "task": "text-generation",
         "library": "transformers",
@@ -11755,8 +11901,8 @@
         "rank": 3,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 507,
-        "likes": 518,
+        "trending_score": 513,
+        "likes": 525,
         "downloads": 23694,
         "task": "text-generation",
         "library": "transformers",
@@ -11770,27 +11916,27 @@
       },
       {
         "rank": 4,
-        "id": "RecursiveSI/flint",
-        "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 440,
-        "likes": 1249,
-        "downloads": 19015,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-21T14:20:58.000Z",
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "trending_score": 439,
+        "likes": 462,
+        "downloads": 15980,
+        "task": "automatic-speech-recognition",
+        "library": "nemo",
+        "created_at": "2026-10-07T22:50:21.000Z",
         "tags": [
-          "transformers",
+          "nemo",
           "safetensors",
-          "flint",
-          "text-generation"
+          "nemo_speechlm",
+          "text2text-generation"
         ]
       },
       {
         "rank": 5,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 435,
-        "likes": 490,
+        "trending_score": 436,
+        "likes": 492,
         "downloads": 1747945,
         "task": "text-generation",
         "library": "gguf",
@@ -11804,27 +11950,27 @@
       },
       {
         "rank": 6,
-        "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+        "id": "RecursiveSI/flint",
+        "url": "https://huggingface.co/RecursiveSI/flint",
         "trending_score": 429,
-        "likes": 452,
-        "downloads": 15980,
-        "task": "automatic-speech-recognition",
-        "library": "nemo",
-        "created_at": "2026-10-07T22:50:21.000Z",
+        "likes": 1251,
+        "downloads": 19015,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-21T14:20:58.000Z",
         "tags": [
-          "nemo",
+          "transformers",
           "safetensors",
-          "nemo_speechlm",
-          "text2text-generation"
+          "flint",
+          "text-generation"
         ]
       },
       {
         "rank": 7,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 388,
-        "likes": 428,
+        "trending_score": 392,
+        "likes": 432,
         "downloads": 24276,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11840,8 +11986,8 @@
         "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 382,
-        "likes": 9894,
+        "trending_score": 373,
+        "likes": 9903,
         "downloads": 2335172,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -11855,44 +12001,10 @@
       },
       {
         "rank": 9,
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 351,
-        "likes": 2078,
-        "downloads": 886973,
-        "task": "image-to-image",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-14T12:00:13.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "comfyui",
-          "image-generation",
-          "image-editing"
-        ]
-      },
-      {
-        "rank": 10,
-        "id": "XHToken/Spark-X2.6-4B",
-        "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 350,
-        "likes": 914,
-        "downloads": 12515,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-19T03:19:51.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "spark2_5",
-          "text-generation"
-        ]
-      },
-      {
-        "rank": 11,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 347,
-        "likes": 1278,
+        "trending_score": 360,
+        "likes": 1292,
         "downloads": 1239,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11905,11 +12017,45 @@
         ]
       },
       {
+        "rank": 10,
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
+        "trending_score": 344,
+        "likes": 2081,
+        "downloads": 886973,
+        "task": "image-to-image",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-14T12:00:13.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "comfyui",
+          "image-generation",
+          "image-editing"
+        ]
+      },
+      {
+        "rank": 11,
+        "id": "XHToken/Spark-X2.6-4B",
+        "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
+        "trending_score": 344,
+        "likes": 915,
+        "downloads": 12515,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-19T03:19:51.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "spark2_5",
+          "text-generation"
+        ]
+      },
+      {
         "rank": 12,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 302,
-        "likes": 5337,
+        "trending_score": 301,
+        "likes": 5345,
         "downloads": 2516721,
         "task": "text-to-image",
         "library": "gguf",
@@ -11925,8 +12071,8 @@
         "rank": 13,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 289,
-        "likes": 356,
+        "trending_score": 292,
+        "likes": 360,
         "downloads": 30433,
         "task": "text-generation",
         "library": "gguf",
@@ -11942,8 +12088,8 @@
         "rank": 14,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 288,
-        "likes": 18706,
+        "trending_score": 287,
+        "likes": 18711,
         "downloads": 7624809,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11959,8 +12105,8 @@
         "rank": 15,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 276,
-        "likes": 292,
+        "trending_score": 278,
+        "likes": 295,
         "downloads": 20197,
         "task": "未标注",
         "library": "未标注",
@@ -11974,27 +12120,10 @@
       },
       {
         "rank": 16,
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 262,
-        "likes": 494,
-        "downloads": 18795,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-17T06:37:50.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "minimax_m3_vl",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 17,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "trending_score": 248,
-        "likes": 268,
+        "trending_score": 251,
+        "likes": 272,
         "downloads": 64263,
         "task": "text-generation",
         "library": "transformers",
@@ -12007,11 +12136,28 @@
         ]
       },
       {
+        "rank": 17,
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "trending_score": 244,
+        "likes": 496,
+        "downloads": 18795,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-10-17T06:37:50.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "minimax_m3_vl",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 18,
         "id": "LiquidAI/LFM3-Omni-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 212,
-        "likes": 217,
+        "trending_score": 214,
+        "likes": 219,
         "downloads": 3080,
         "task": "any-to-any",
         "library": "transformers",
@@ -12027,8 +12173,8 @@
         "rank": 19,
         "id": "openbmb/MiniCPM-OCR-1.0",
         "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
-        "trending_score": 207,
-        "likes": 344,
+        "trending_score": 212,
+        "likes": 352,
         "downloads": 2413,
         "task": "image-text-to-text",
         "library": "未标注",
@@ -12044,8 +12190,8 @@
         "rank": 20,
         "id": "facebook/sam3",
         "url": "https://huggingface.co/facebook/sam3",
-        "trending_score": 182,
-        "likes": 5465,
+        "trending_score": 180,
+        "likes": 5478,
         "downloads": 1886656,
         "task": "mask-generation",
         "library": "transformers",
@@ -12060,7 +12206,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-30T11:18:27Z",
+      "last_checked_at": "2026-10-30T13:21:23Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -19282,6 +19428,43 @@
     ],
     "items": [
       {
+        "id": "algebraic-world-model-proof-protocol",
+        "name": "Algebraic World Model · Exploration-to-Proof",
+        "group": "agent",
+        "edition": "arXiv v1 · ARC-AGI-3 / Lean 4 · 2026-10-29",
+        "subtitle": "Agent 学到的环境机制能否转为定理、闭合证明并暴露模型边界？",
+        "summary": "作者让 Agent 探索环境、生成 Python 机制假设，再转成类型化规则与 Lean 4 定理；公开结果把任务分数、模型预测、证明闭合和真实环境边界分开报告。",
+        "metric": "proof closure / transition prediction / counterexample rejection / action efficiency",
+        "metric_note": "闭合证明、机制变化后的拒绝、游戏得分和动作效率必须分列；证明的是形式模型，不是自动证明真实游戏，也不能与其他 ARC 或 Agent 榜单拼总分。",
+        "protocol": "固定公开游戏记录、Agent 与预算、Python 状态解析器、规则生成提示、Lean 版本和定理集合；保存探索轨迹、假设、编译错误、证明工件、反例与最终游戏回放。",
+        "boundary": "本站未运行代码。作者的 6/6 对 0/12 只覆盖两个不可能关卡与指定模型设置；屏幕到状态的 Python 解析器不在 Lean 证明边界内，模型也可能比真实游戏更严格，因此证明闭合不等于环境真相或通用 Agent 可靠性。",
+        "business": "适合高风险自动化团队借鉴为“可审计世界模型”验收：把规则假设、状态解析、证明器与执行器拆开，逐层记录哪一层产生错误；不应直接把论文比例用于采购比较。",
+        "setup": "先从作者公开工件复放一个关卡，锁定 Python、Lean、模型、提示、预算与轨迹版本；只有重放、证明与真实环境回验都一致后，才把方法迁移到私有流程。",
+        "topics": [
+          "agents",
+          "formal-verification",
+          "world-models"
+        ],
+        "sources": [
+          "b-algebraic-world-model-paper",
+          "b-algebraic-world-model-project"
+        ],
+        "result_url": "https://ephemeral6.github.io/awm-site/",
+        "kind": "benchmark",
+        "flag": "作者预印本与公开证明 / 本站未运行",
+        "checked": "2026-10-30",
+        "tested": false,
+        "checks": [
+          "固定游戏记录、Agent、预算、解析器与 Lean 版本",
+          "分列证明闭合、预测、反例拒绝、得分和动作效率",
+          "保存假设、编译错误、证明工件与环境回放",
+          "不把形式模型证明写成真实环境已完全证明"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
         "id": "worldprobe-long-horizon-world-model",
         "name": "WorldProbe · Long-Horizon Spatial Exploration",
         "group": "agent",
@@ -20521,6 +20704,26 @@
     ],
     "sources": [
       {
+        "id": "b-algebraic-world-model-paper",
+        "title": "Algebraic World Model: From Exploration to Proofs",
+        "publisher": "Algebraic World Model authors",
+        "url": "https://arxiv.org/abs/2610.40503",
+        "published": "2026-10-29",
+        "checked": "2026-10-30",
+        "kind": "作者预印本、系统协议与实验结果",
+        "note": "6/6 对 0/12、183 个关卡回放与动作效率均为作者实验；本站未复跑。"
+      },
+      {
+        "id": "b-algebraic-world-model-project",
+        "title": "Algebraic World Model project page",
+        "publisher": "Algebraic World Model authors",
+        "url": "https://ephemeral6.github.io/awm-site/",
+        "published": "2026-10-29",
+        "checked": "2026-10-30",
+        "kind": "作者项目页、证明工件与边界说明",
+        "note": "项目页明确说明 Lean 证明的是学习模型，Python 屏幕解析器在证明边界外，模型也可能比真实游戏更严格。"
+      },
+      {
         "id": "b-worldprobe-paper",
         "title": "WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration",
         "publisher": "WorldProbe authors",
@@ -21117,6 +21320,21 @@
       }
     ],
     "changes": [
+      {
+        "id": "algebraic-world-model-proof-protocol-20261029",
+        "date": "2026-10-29",
+        "title": "Algebraic World Model 把 Agent 的环境假设转为 Lean 证明",
+        "summary": "作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。",
+        "implication": "Agent 验收可以把任务得分、状态解析、机制预测、证明闭合与环境回放分层；但 Lean 证明只覆盖学习模型，不能把闭合证明写成真实环境已被完全证明。",
+        "benchmarks": [
+          "algebraic-world-model-proof-protocol"
+        ],
+        "sources": [
+          "b-algebraic-world-model-paper",
+          "b-algebraic-world-model-project"
+        ],
+        "kind": "新公开形式化 Agent 评测协议"
+      },
       {
         "id": "worldprobe-release-20261029",
         "date": "2026-10-29",

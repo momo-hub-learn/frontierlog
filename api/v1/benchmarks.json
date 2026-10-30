@@ -52,6 +52,43 @@
   ],
   "items": [
     {
+      "id": "algebraic-world-model-proof-protocol",
+      "name": "Algebraic World Model · Exploration-to-Proof",
+      "group": "agent",
+      "edition": "arXiv v1 · ARC-AGI-3 / Lean 4 · 2026-10-29",
+      "subtitle": "Agent 学到的环境机制能否转为定理、闭合证明并暴露模型边界？",
+      "summary": "作者让 Agent 探索环境、生成 Python 机制假设，再转成类型化规则与 Lean 4 定理；公开结果把任务分数、模型预测、证明闭合和真实环境边界分开报告。",
+      "metric": "proof closure / transition prediction / counterexample rejection / action efficiency",
+      "metric_note": "闭合证明、机制变化后的拒绝、游戏得分和动作效率必须分列；证明的是形式模型，不是自动证明真实游戏，也不能与其他 ARC 或 Agent 榜单拼总分。",
+      "protocol": "固定公开游戏记录、Agent 与预算、Python 状态解析器、规则生成提示、Lean 版本和定理集合；保存探索轨迹、假设、编译错误、证明工件、反例与最终游戏回放。",
+      "boundary": "本站未运行代码。作者的 6/6 对 0/12 只覆盖两个不可能关卡与指定模型设置；屏幕到状态的 Python 解析器不在 Lean 证明边界内，模型也可能比真实游戏更严格，因此证明闭合不等于环境真相或通用 Agent 可靠性。",
+      "business": "适合高风险自动化团队借鉴为“可审计世界模型”验收：把规则假设、状态解析、证明器与执行器拆开，逐层记录哪一层产生错误；不应直接把论文比例用于采购比较。",
+      "setup": "先从作者公开工件复放一个关卡，锁定 Python、Lean、模型、提示、预算与轨迹版本；只有重放、证明与真实环境回验都一致后，才把方法迁移到私有流程。",
+      "topics": [
+        "agents",
+        "formal-verification",
+        "world-models"
+      ],
+      "sources": [
+        "b-algebraic-world-model-paper",
+        "b-algebraic-world-model-project"
+      ],
+      "result_url": "https://ephemeral6.github.io/awm-site/",
+      "kind": "benchmark",
+      "flag": "作者预印本与公开证明 / 本站未运行",
+      "checked": "2026-10-30",
+      "tested": false,
+      "checks": [
+        "固定游戏记录、Agent、预算、解析器与 Lean 版本",
+        "分列证明闭合、预测、反例拒绝、得分和动作效率",
+        "保存假设、编译错误、证明工件与环境回放",
+        "不把形式模型证明写成真实环境已完全证明"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "worldprobe-long-horizon-world-model",
       "name": "WorldProbe · Long-Horizon Spatial Exploration",
       "group": "agent",
@@ -1291,6 +1328,26 @@
   ],
   "sources": [
     {
+      "id": "b-algebraic-world-model-paper",
+      "title": "Algebraic World Model: From Exploration to Proofs",
+      "publisher": "Algebraic World Model authors",
+      "url": "https://arxiv.org/abs/2610.40503",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "kind": "作者预印本、系统协议与实验结果",
+      "note": "6/6 对 0/12、183 个关卡回放与动作效率均为作者实验；本站未复跑。"
+    },
+    {
+      "id": "b-algebraic-world-model-project",
+      "title": "Algebraic World Model project page",
+      "publisher": "Algebraic World Model authors",
+      "url": "https://ephemeral6.github.io/awm-site/",
+      "published": "2026-10-29",
+      "checked": "2026-10-30",
+      "kind": "作者项目页、证明工件与边界说明",
+      "note": "项目页明确说明 Lean 证明的是学习模型，Python 屏幕解析器在证明边界外，模型也可能比真实游戏更严格。"
+    },
+    {
       "id": "b-worldprobe-paper",
       "title": "WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration",
       "publisher": "WorldProbe authors",
@@ -1887,6 +1944,21 @@
     }
   ],
   "changes": [
+    {
+      "id": "algebraic-world-model-proof-protocol-20261029",
+      "date": "2026-10-29",
+      "title": "Algebraic World Model 把 Agent 的环境假设转为 Lean 证明",
+      "summary": "作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。",
+      "implication": "Agent 验收可以把任务得分、状态解析、机制预测、证明闭合与环境回放分层；但 Lean 证明只覆盖学习模型，不能把闭合证明写成真实环境已被完全证明。",
+      "benchmarks": [
+        "algebraic-world-model-proof-protocol"
+      ],
+      "sources": [
+        "b-algebraic-world-model-paper",
+        "b-algebraic-world-model-project"
+      ],
+      "kind": "新公开形式化 Agent 评测协议"
+    },
     {
       "id": "worldprobe-release-20261029",
       "date": "2026-10-29",

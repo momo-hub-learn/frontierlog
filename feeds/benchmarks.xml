@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>WorldProbe 用主动相机探索暴露世界模型的长程不一致</title><guid isPermaLink="false">frontierlog:benchmark:worldprobe-release-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=worldprobe-long-horizon-world-model</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 164 个案例和四类探测协议，让目标条件多模态 Agent 在线选择相机动作；10 个模型的 1,600 余条 rollout 最长达到 180 秒。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Algebraic World Model 把 Agent 的环境假设转为 Lean 证明</title><guid isPermaLink="false">frontierlog:benchmark:algebraic-world-model-proof-protocol-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=algebraic-world-model-proof-protocol</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。
+
+编辑解读：Agent 验收可以把任务得分、状态解析、机制预测、证明闭合与环境回放分层；但 Lean 证明只覆盖学习模型，不能把闭合证明写成真实环境已被完全证明。
+
+来源：
+https://arxiv.org/abs/2610.40503
+https://ephemeral6.github.io/awm-site/</description></item><item><title>WorldProbe 用主动相机探索暴露世界模型的长程不一致</title><guid isPermaLink="false">frontierlog:benchmark:worldprobe-release-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=worldprobe-long-horizon-world-model</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开 164 个案例和四类探测协议，让目标条件多模态 Agent 在线选择相机动作；10 个模型的 1,600 余条 rollout 最长达到 180 秒。
 
 编辑解读：世界模型验收应把局部画质、长程空间一致性、状态演化和完整失败轨迹分开；不能把四个维度或不同世界模型协议拼成单一实力分。
 

@@ -215,7 +215,13 @@
 
 边界：这是 OpenAI 的官方声明，不是数学界已完成独立验证。公告本身未公开完整问题清单、证明文本或审稿结果，因此本站只记录为重大前沿信号，不写成“这些问题已被公认解决”。
 
-站内热度 95；不是全网流量。</description></item><item><title>Artificial Analysis 指数切换到 v5</title><guid isPermaLink="false">frontierlog:hot:artificial-analysis-index-v5-20261027</guid><link>https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Artificial Analysis 发布 Intelligence Index v5.0：新增 FrontierCode 2.0 与 Terminal-Bench-Science，升级 AA-Omniscience、HLE-Diamond 与 CritPt，并把 GDPval-AA、SciCode、AA-LCR 移出指数；知识工作、编程、科学、通用能力现在各占 25%。
+站内热度 95；不是全网流量。</description></item><item><title>Algebraic World Model：把游戏机制假设送进 Lean 证明</title><guid isPermaLink="false">frontierlog:hot:algebraic-world-model-lean-proofs-20261029</guid><link>https://arxiv.org/abs/2610.40503</link><pubDate>Thu, 29 Oct 2026 17:20:31 +0000</pubDate><description>作者把 ARC-AGI-3 探索转为 Python 机制假设、类型化规则与 Lean 4 定理；论文报告 6/6 次 AWM 运行在两个不可能关卡上闭合证明，而两组基础 Agent 共 0/12。
+
+为什么值得看：这提供了一条比“Agent 得分上涨”更可检查的路线：先显式学习环境机制，再让证明器验证模型内部是否自洽，并把探索错误、规则错误与执行错误分开。
+
+边界：所有数字来自作者在两个不可能关卡与公开 ARC-AGI-3 游戏上的实验，本站未复现。Lean 证明的是学到的形式模型；屏幕到状态的 Python 解析器不在证明边界内，模型也可能比真实游戏更严格，因此不能把闭合证明写成真实环境已被完全证明。
+
+站内热度 94；不是全网流量。</description></item><item><title>Artificial Analysis 指数切换到 v5</title><guid isPermaLink="false">frontierlog:hot:artificial-analysis-index-v5-20261027</guid><link>https://artificialanalysis.ai/es/articles/artificial-analysis-intelligence-index-v5</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Artificial Analysis 发布 Intelligence Index v5.0：新增 FrontierCode 2.0 与 Terminal-Bench-Science，升级 AA-Omniscience、HLE-Diamond 与 CritPt，并把 GDPval-AA、SciCode、AA-LCR 移出指数；知识工作、编程、科学、通用能力现在各占 25%。
 
 为什么值得看：这次不是普通榜位波动，而是评测集合和权重整体变化。v4 与 v5 分数不能直接纵向比较；模型选型时也应先看九项任务是否覆盖自己的真实工作，而不是只看一个整数总分。
 
@@ -304,6 +310,12 @@
 为什么值得看：Agent 后训练开始把“最终业务状态是否正确”直接做成可执行奖励，并把一次成功与重复可靠性分开；这比只奖励工具调用轨迹或模型自评更接近生产验收。
 
 边界：这是 Microsoft 与 Hugging Face 的官方实验，本站未复跑。训练需要三台、每台 8 张 H100 的参考配置；公开任务是合成业务流程。pass@20 从 89.35% 降至 87.97%，说明重复性提升没有同时扩大至少成功一次的覆盖，不能外推为真实企业部署成功率。
+
+站内热度 93；不是全网流量。</description></item><item><title>world2vec：用潜在动力学学一个可检查的机制世界模型</title><guid isPermaLink="false">frontierlog:hot:world2vec-mechanistic-world-model-20261029</guid><link>https://arxiv.org/abs/2610.40637</link><pubDate>Thu, 29 Oct 2026 17:58:23 +0000</pubDate><description>world2vec 从无奖励的观测—动作序列学习潜在动力学；作者报告在像素控制与 71 个混沌吸引子系统辨识上取得领先结果，并以比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数复现长程动力学。
+
+为什么值得看：它把世界模型目标从“能产生高回报动作”推进到“潜在状态是否忠实复现真实系统”，对机器人控制、科学系统辨识和长程可预测性都有直接前瞻意义。
+
+边界：参数量、控制结果与 71 个吸引子均为作者在指定环境和协议下的报告，本站未运行代码。高控制回报不等于动力学忠实，反过来在这些系统上重建动力学也不能推出开放世界视频或真实机器人已解决。
 
 站内热度 93；不是全网流量。</description></item><item><title>FairStress：把公平性评测扩展到 1,300 万种决策压力场景</title><guid isPermaLink="false">frontierlog:hot:allenai-fairstress-20261020</guid><link>https://huggingface.co/blog/allenai/fairstress</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate><description>Allen Institute for AI 发布 FairStress：从 29 个领域的 300 个现实两候选决策场景出发，组合人口属性和对抗前缀，扩展出 1,300 万以上压力测试实例，并提供 5 万条 Core 子集。
 
