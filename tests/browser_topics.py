@@ -42,6 +42,8 @@ try:
   assert page.locator('.v-latest').get_attribute('data-latest-id')==latest_pharma['id']
   assert latest_pharma['title'] in page.locator('.v-latest').inner_text()
   assert '官方一手 · 本站未实测' in page.locator('.v-latest .v-evidence-chip').inner_text()
+  expect(page.locator('.v-latest .v-access-chip')).to_have_text('访问：限量审批')
+  expect(page.locator(f'[data-article-id="{latest_pharma["id"]}"] .v-access-chip')).to_have_text('访问：限量审批')
   expect(page.locator('.v-article .v-evidence-chip')).to_have_count(SECTOR_COUNTS['pharma'])
   expect(page.locator('.v-topic-strip')).to_have_count(0)
   expect(page.locator('.v2-business-chain')).to_have_count(1)

@@ -71,6 +71,16 @@ class ToolkitTests(unittest.TestCase):
         task=next(x for x in self.catalog['items'] if x['id']==row['id'])
         self.assertEqual(task['sources'],['openai-chatgpt-api-credits-20261028'])
         validate_toolkit(self.data,self.catalog)
+    def test_gpt6_rosalind_guide_keeps_research_approval_and_chat_boundaries(self):
+        row=next(x for x in self.data['items'] if x['id']=='openai-gpt6-rosalind-research')
+        self.assertFalse(row['runtime_tested'])
+        self.assertEqual((row['group'],row['access']),('research','research'))
+        self.assertIn('Discovery 批准不授予 Research',row['limitation'])
+        self.assertIn('Chat 页不可用',row['limitation'])
+        self.assertEqual(row['sources'][0]['published_at'],'2026-10-30')
+        task=next(x for x in self.catalog['items'] if x['id']==row['id'])
+        self.assertEqual(task['status'],'code')
+        validate_toolkit(self.data,self.catalog)
     def test_servicenow_guide_separates_current_plugin_from_roadmap(self):
         row=next(x for x in self.data['items'] if x['id']=='openai-servicenow-mcp')
         self.assertIn('当前可确认开放',row['limitation'])

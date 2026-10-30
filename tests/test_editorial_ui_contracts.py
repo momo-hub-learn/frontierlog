@@ -59,6 +59,16 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("function articleEvidenceLabel(a)",text)
   self.assertIn("官方一手 · 本站未实测",text)
   self.assertIn("articleEvidenceChip(a)",text)
+ def test_limited_industry_access_is_visible_before_opening_detail(self):
+  industry=json.loads((ROOT/'data/industry.json').read_text())
+  row=next(x for x in industry['articles'] if x['id']=='openai-gpt6-rosalind-research-20261030')
+  self.assertEqual((row['access_status'],row['access_label']),('limited','访问：限量审批'))
+  self.assertIn('Chat 页不可用',row['access'])
+  js=(ROOT/'src/vertical.js').read_text()
+  css=(ROOT/'src/vertical.css').read_text()
+  self.assertIn('function articleAccessChip(a)',js)
+  self.assertIn('${articleAccessChip(a)}',js)
+  self.assertIn('.v-access-chip.status-limited',css)
  def test_topic_rss_grows_and_shrinks_without_losing_identity(self):
   base=json.loads((ROOT/'data/industry.json').read_text())
   source=copy.deepcopy(base['articles'][0])
