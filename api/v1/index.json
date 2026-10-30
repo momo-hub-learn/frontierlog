@@ -5195,14 +5195,14 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-30T06:33:06Z",
+    "generated_at": "2026-10-30T07:48:38Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 5,
       "merge": 110,
-      "hold": 5
+      "hold": 6
     },
     "candidates": [
       {
@@ -5324,6 +5324,35 @@
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "docling",
         "first_seen_at": "2026-10-27T01:23:34Z"
+      },
+      {
+        "id": "candidate-b3d0d4d92054cbfe",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "材料模拟开始把低精度吞吐与轨迹稳定性一起验收",
+        "summary": "NVIDIA 在 Point Edge Transformer（PET）机器学习原子间势上评估 Blackwell 的 BF16x9 与 Ampere 的 TF32x3 Tensor Core FP32 方法，并把内核、端到端分子动力学、轨迹行为、势能平滑性、能量守恒与结构弛豫放在同一验证链中；方法不要求重训或改动模型权重与架构。",
+        "why": "科学计算里的低精度优化正在从单看矩阵吞吐，转向同时验证长期轨迹和物理不变量。对材料研发与数字孪生更有前瞻价值的信号，是性能提升能否在不同模型、硬件和时间尺度上保持数值稳定，而不是一次内核加速数字。",
+        "boundary": "结果来自 NVIDIA 与合作研究者在 PET 和指定 GPU、数值方法上的官方实验，本站未运行代码或复现轨迹；不能外推到所有 MLIP、分子动力学软件、材料体系或生产工作负载，也不能把接近 FP32 的行为写成完全等价或科学结论无误。",
+        "source": "NVIDIA / Lab COSMO",
+        "source_kind": "官方方法、实验对象、硬件范围、数值验证与限制",
+        "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 1.0
+        },
+        "priority_score": 0.93,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "research_id": "nvidia-tensor-core-mlip-precision-20261029",
+        "topic_tags": [
+          "Scientific ML",
+          "Materials",
+          "Numerical Precision"
+        ],
+        "first_seen_at": "2026-10-30T07:48:38Z"
       },
       {
         "id": "candidate-3069c896a5b94322",
@@ -6178,35 +6207,6 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-icloud-mail-calendar",
         "first_seen_at": "2026-10-28T07:42:05Z"
-      },
-      {
-        "id": "candidate-b026f19029976dfa",
-        "category": "research",
-        "published": "2026-10-21",
-        "title": "广告排序成为独立的有状态 Agent 系统",
-        "summary": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
-        "why": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
-        "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
-        "source": "OpenAI",
-        "source_kind": "官方系统架构发布",
-        "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
-        "publishable": false,
-        "features": {
-          "freshness": 0.357,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.759,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "research_id": "stateful-agentic-ad-stack",
-        "topic_tags": [
-          "Agent Architecture",
-          "Retrieval",
-          "Ranking"
-        ],
-        "first_seen_at": "2026-10-21T19:23:10Z"
       }
     ]
   },
@@ -7758,6 +7758,32 @@
       }
     ],
     "items": [
+      {
+        "id": "nvidia-tensor-core-mlip-precision-20261029",
+        "lane": "science",
+        "title": "材料模拟开始把低精度吞吐与轨迹稳定性一起验收",
+        "maker": "NVIDIA / Lab COSMO",
+        "date": "2026-10-29",
+        "verified_at": "2026-10-30T15:29:41+08:00",
+        "verification_status": "NVIDIA 官方技术实验 · 本站未复现",
+        "tags": [
+          "Scientific ML",
+          "Materials",
+          "Numerical Precision"
+        ],
+        "fact": "NVIDIA 在 Point Edge Transformer（PET）机器学习原子间势上评估 Blackwell 的 BF16x9 与 Ampere 的 TF32x3 Tensor Core FP32 方法，并把内核、端到端分子动力学、轨迹行为、势能平滑性、能量守恒与结构弛豫放在同一验证链中；方法不要求重训或改动模型权重与架构。",
+        "insight": "科学计算里的低精度优化正在从单看矩阵吞吐，转向同时验证长期轨迹和物理不变量。对材料研发与数字孪生更有前瞻价值的信号，是性能提升能否在不同模型、硬件和时间尺度上保持数值稳定，而不是一次内核加速数字。",
+        "boundary": "结果来自 NVIDIA 与合作研究者在 PET 和指定 GPU、数值方法上的官方实验，本站未运行代码或复现轨迹；不能外推到所有 MLIP、分子动力学软件、材料体系或生产工作负载，也不能把接近 FP32 的行为写成完全等价或科学结论无误。",
+        "next_watch": "跟踪实现与配置是否完整公开、第三方在其他 MLIP 和更长轨迹上的复现、不同材料体系的能量漂移与结构误差，以及端到端成本、显存和吞吐收益。",
+        "sources": [
+          {
+            "label": "NVIDIA Technical Blog · Tensor Core performance for MLIPs",
+            "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+            "kind": "官方方法、实验对象、硬件范围、数值验证与限制",
+            "strength": "primary"
+          }
+        ]
+      },
       {
         "id": "openai-gpt-6-luna-behavior-safety-update-20261029",
         "lane": "science",
@@ -10440,10 +10466,10 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-30T06:33:06Z",
+    "last_evaluated": "2026-10-30T07:48:38Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 120,
+      "candidate_count": 121,
       "publish_ready_count": 5,
       "merge_count": 110,
       "best_candidate": "candidate-123e3f719aa75935",
@@ -11251,18 +11277,16 @@
     },
     "sync": {
       "mode": "official_trending_plus_repository_api",
-      "status": "success",
-      "last_checked_at": "2026-10-30T06:03:34Z",
+      "status": "error",
+      "last_checked_at": "2026-10-30T07:27:52Z",
       "last_success_at": "2026-10-30T06:03:34Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-30T06:03:34Z",
-      "watchlist_errors": [],
-      "watchlist_failed_count": 0,
-      "trending_count": 11,
-      "verified_count": 11,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "skipped": []
+      "watchlist_checked_at": "2026-10-30T07:27:52Z",
+      "watchlist_errors": [
+        "morluto/rea: <urlopen error timed out>"
+      ],
+      "watchlist_failed_count": 1,
+      "error": "<urlopen error timed out>"
     },
     "watchlist": [
       {
@@ -11288,15 +11312,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-30T05:23:47Z",
+    "checked_at": "2026-10-30T07:27:52Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-30T05:23:47Z",
-    "web_fetched_at": "2026-10-30T05:23:47Z",
+    "api_fetched_at": "2026-10-30T07:27:52Z",
+    "web_fetched_at": "2026-10-30T07:27:52Z",
     "web_verification_method": "official_web_browser_editorial",
     "web_order_matches_api": true,
     "web_order": [
@@ -11304,16 +11328,16 @@
       "Nanbeige/Nanbeige4.3-33B",
       "LiquidAI/LFM3-1.7B",
       "RecursiveSI/flint",
-      "XHToken/Spark-X2.6-4B",
       "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "Lightricks/LTX-2.5",
       "baidu/Unlimited-OCR-2",
+      "XHToken/Spark-X2.6-4B",
       "black-forest-labs/flux-3-image-klein-comfy",
-      "MiniMaxAI/MiniMax-M3.1-Flash",
       "mistralai/Mistral-Large-4-1T-A52B",
-      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+      "MiniMaxAI/MiniMax-M3.1-Flash",
       "Qwen/Qwen3.8-27B",
+      "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "ccore/Qwen3.5-4B-3D-Coder",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
@@ -11327,140 +11351,140 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 3,
-        "previous_rank": 4,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_rank": 3,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 4,
-        "previous_rank": 3,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
-      },
-      {
-        "id": "XHToken/Spark-X2.6-4B",
-        "rank": 5,
-        "previous_rank": 5,
+        "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "rank": 6,
+        "rank": 5,
         "previous_rank": 6,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "rank": 7,
+        "rank": 6,
         "previous_rank": 7,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
-        "rank": 8,
+        "rank": 7,
         "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
-        "rank": 9,
+        "rank": 8,
         "previous_rank": 9,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
+      },
+      {
+        "id": "XHToken/Spark-X2.6-4B",
+        "rank": 9,
+        "previous_rank": 5,
+        "rank_change": -4,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
-      },
-      {
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "rank": 11,
-        "previous_rank": 11,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
-        "rank": 12,
-        "previous_rank": 13,
+        "rank": 11,
+        "previous_rank": 12,
         "rank_change": 1,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 13,
-        "previous_rank": 12,
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "rank": 12,
+        "previous_rank": 11,
         "rank_change": -1,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
-        "rank": 14,
+        "rank": 13,
         "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
+      },
+      {
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 14,
+        "previous_rank": 13,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "rank": 17,
         "previous_rank": 17,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "openbmb/MiniCPM-OCR-1.0",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       },
       {
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "rank": 20,
         "previous_rank": 20,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-30T03:50:53Z"
+        "previous_fetched_at": "2026-10-30T05:23:47Z"
       }
     ],
     "web_outgoing": [],
@@ -11469,8 +11493,8 @@
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 870,
-        "likes": 3889,
+        "trending_score": 865,
+        "likes": 3907,
         "downloads": 131062,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11486,8 +11510,8 @@
         "rank": 2,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 767,
-        "likes": 782,
+        "trending_score": 768,
+        "likes": 783,
         "downloads": 9655,
         "task": "text-generation",
         "library": "transformers",
@@ -11503,8 +11527,8 @@
         "rank": 3,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 486,
-        "likes": 496,
+        "trending_score": 492,
+        "likes": 502,
         "downloads": 15885,
         "task": "text-generation",
         "library": "transformers",
@@ -11520,7 +11544,7 @@
         "rank": 4,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 471,
+        "trending_score": 455,
         "likes": 1247,
         "downloads": 16598,
         "task": "text-generation",
@@ -11535,27 +11559,10 @@
       },
       {
         "rank": 5,
-        "id": "XHToken/Spark-X2.6-4B",
-        "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 450,
-        "likes": 913,
-        "downloads": 10163,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-19T03:19:51.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "spark2_5",
-          "text-generation"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 425,
-        "likes": 479,
+        "trending_score": 427,
+        "likes": 481,
         "downloads": 1578937,
         "task": "text-generation",
         "library": "gguf",
@@ -11568,11 +11575,11 @@
         ]
       },
       {
-        "rank": 7,
+        "rank": 6,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 405,
-        "likes": 425,
+        "trending_score": 409,
+        "likes": 430,
         "downloads": 4276,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -11585,11 +11592,11 @@
         ]
       },
       {
-        "rank": 8,
+        "rank": 7,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 387,
-        "likes": 9877,
+        "trending_score": 386,
+        "likes": 9883,
         "downloads": 2269999,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -11602,11 +11609,11 @@
         ]
       },
       {
-        "rank": 9,
+        "rank": 8,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 379,
-        "likes": 417,
+        "trending_score": 386,
+        "likes": 425,
         "downloads": 18141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11619,11 +11626,28 @@
         ]
       },
       {
+        "rank": 9,
+        "id": "XHToken/Spark-X2.6-4B",
+        "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
+        "trending_score": 359,
+        "likes": 912,
+        "downloads": 10163,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-19T03:19:51.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "spark2_5",
+          "text-generation"
+        ]
+      },
+      {
         "rank": 10,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 356,
-        "likes": 2062,
+        "trending_score": 351,
+        "likes": 2065,
         "downloads": 832197,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -11637,27 +11661,10 @@
       },
       {
         "rank": 11,
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 332,
-        "likes": 491,
-        "downloads": 15738,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-17T06:37:50.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "minimax_m3_vl",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 12,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 315,
-        "likes": 1238,
+        "trending_score": 323,
+        "likes": 1247,
         "downloads": 278,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11670,28 +11677,28 @@
         ]
       },
       {
-        "rank": 13,
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 12,
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
         "trending_score": 308,
-        "likes": 5324,
-        "downloads": 2172670,
-        "task": "text-to-image",
-        "library": "gguf",
-        "created_at": "2026-09-20T15:51:13.000Z",
+        "likes": 492,
+        "downloads": 15738,
+        "task": "image-text-to-text",
+        "library": "transformers",
+        "created_at": "2026-10-17T06:37:50.000Z",
         "tags": [
-          "gguf",
-          "qwen",
-          "image-generation",
-          "comfyui"
+          "transformers",
+          "safetensors",
+          "minimax_m3_vl",
+          "image-text-to-text"
         ]
       },
       {
-        "rank": 14,
+        "rank": 13,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
         "trending_score": 302,
-        "likes": 18694,
+        "likes": 18700,
         "downloads": 7509924,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -11704,11 +11711,28 @@
         ]
       },
       {
+        "rank": 14,
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "trending_score": 302,
+        "likes": 5325,
+        "downloads": 2172670,
+        "task": "text-to-image",
+        "library": "gguf",
+        "created_at": "2026-09-20T15:51:13.000Z",
+        "tags": [
+          "gguf",
+          "qwen",
+          "image-generation",
+          "comfyui"
+        ]
+      },
+      {
         "rank": 15,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 280,
-        "likes": 346,
+        "trending_score": 284,
+        "likes": 351,
         "downloads": 28763,
         "task": "text-generation",
         "library": "gguf",
@@ -11724,8 +11748,8 @@
         "rank": 16,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 271,
-        "likes": 287,
+        "trending_score": 274,
+        "likes": 290,
         "downloads": 12237,
         "task": "未标注",
         "library": "未标注",
@@ -11741,8 +11765,8 @@
         "rank": 17,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "trending_score": 242,
-        "likes": 259,
+        "trending_score": 244,
+        "likes": 261,
         "downloads": 57228,
         "task": "text-generation",
         "library": "transformers",
@@ -11758,8 +11782,8 @@
         "rank": 18,
         "id": "LiquidAI/LFM3-Omni-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 207,
-        "likes": 212,
+        "trending_score": 209,
+        "likes": 214,
         "downloads": 1814,
         "task": "any-to-any",
         "library": "transformers",
@@ -11775,8 +11799,8 @@
         "rank": 19,
         "id": "openbmb/MiniCPM-OCR-1.0",
         "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
-        "trending_score": 196,
-        "likes": 331,
+        "trending_score": 198,
+        "likes": 333,
         "downloads": 1597,
         "task": "image-text-to-text",
         "library": "未标注",
@@ -11792,8 +11816,8 @@
         "rank": 20,
         "id": "OpenMOSS-Team/MOSS-Image-SFT",
         "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
-        "trending_score": 186,
-        "likes": 827,
+        "trending_score": 180,
+        "likes": 828,
         "downloads": 14950,
         "task": "text-to-image",
         "library": "diffusers",
@@ -11808,7 +11832,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-30T05:23:47Z",
+      "last_checked_at": "2026-10-30T07:27:52Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -22335,7 +22359,7 @@
   },
   "resets": {
     "version": 1,
-    "checked": "2026-10-29",
+    "checked": "2026-10-30",
     "account": "thsottiaux",
     "guidance": [
       {
@@ -22885,6 +22909,37 @@
         "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
         "post_id": "2114588174249071102",
         "relation": "original"
+      },
+      {
+        "id": "tibo-reset-pending-2026-10-28-day23",
+        "kind": "global",
+        "status": "pending",
+        "date": "2026-10-28",
+        "published_at": null,
+        "effective_at": null,
+        "precision": "source_date",
+        "source_timezone": null,
+        "title": "Day 23 reset 线索：原帖链接已定位，正文仍待一手直读",
+        "summary": "OpenAI Developer Community 的公开线程嵌入 Tibo 的 X 帖，并显示其把 Day 23 描述为 reset；本站已定位到状态 ID 2115273064481218829，但本轮直接读取 X 返回 403，因此不把社区转述升级为已确认 reset。",
+        "scope": "Codex / ChatGPT Work 社区 reset 语境；套餐、账户范围与后台 reset 类型均未由可直读原帖确认",
+        "boundary": "这是官方社区中的二手定位线索，不是本站对 Tibo 原帖正文的直接核验。它不能证明 reset 已执行、已传播到每个账户、适用套餐、额度恢复幅度、banked / global 后台机制或个人余额；社区回复所称到账也不是个人账户证据。",
+        "sources": [
+          "tibo-post-2115273064481218829",
+          "openai-community-day23-reset"
+        ],
+        "reviewed": "2026-10-30",
+        "review_basis": "secondary_lead",
+        "related_ids": [
+          "tibo-global-confirmed-2026-10-26-day21"
+        ],
+        "original_text": "Day 23/ … today is a reset.",
+        "conversation_context": "OpenAI Developer Community 的嵌入卡片把该帖与 iCloud Mail / Calendar 官方发布放在同一 Day 23 语境；本站未直接读取 X 正文及完整线程。",
+        "interpretation": "这是值得继续追踪的 reset 候选，但证据级别不足以写成已执行或已到账，因此只进入待核验正文记录。",
+        "evidence_strength": "medium",
+        "semantic_type": "secondary_reset_lead",
+        "not_proves": "未证明 reset 已执行、传播完成、覆盖任一具体套餐或个人账户，也未确认精确发布时间。",
+        "post_id": "2115273064481218829",
+        "relation": "original_link_unreadable"
       }
     ],
     "sources": [
@@ -23157,6 +23212,24 @@
         "checked": "2026-10-27",
         "kind": "官方原帖",
         "note": "本人原帖明确写下“But today is a reset.”；状态 ID 的 Snowflake 时间对应 2026-10-26T05:21:22.546Z。原帖未声称传播已经完成。"
+      },
+      {
+        "id": "tibo-post-2115273064481218829",
+        "publisher": "Tibo / X",
+        "title": "Day 23 reset post",
+        "url": "https://x.com/thsottiaux/status/2115273064481218829",
+        "checked": "2026-10-30",
+        "kind": "原帖待直接核验",
+        "note": "OpenAI Developer Community 的嵌入卡片定位到状态 ID 与部分文本；本轮直接读取 X 返回 403，因此不作为第一方已确认记录，也不补造精确发布时间。"
+      },
+      {
+        "id": "openai-community-day23-reset",
+        "publisher": "OpenAI Developer Community",
+        "title": "Day 23 reset embedded-post thread",
+        "url": "https://community.openai.com/t/text-your-dot-day-24-of-28-days-of-quality-of-life-improvements-and-or-a-full-reset/1403525/110",
+        "checked": "2026-10-30",
+        "kind": "OpenAI 官方社区线索",
+        "note": "官方社区帖子嵌入 Tibo 的 X 卡片并保留 Day 23 reset 片段；用于定位候选与上下文，不替代 Tibo 原帖直读或 OpenAI 官方 reset 说明。"
       }
     ],
     "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-30T06:33:06Z",
+  "generated_at": "2026-10-30T07:48:38Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 5,
     "merge": 110,
-    "hold": 5
+    "hold": 6
   },
   "candidates": [
     {
@@ -129,6 +129,35 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "docling",
       "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-b3d0d4d92054cbfe",
+      "category": "research",
+      "published": "2026-10-29",
+      "title": "材料模拟开始把低精度吞吐与轨迹稳定性一起验收",
+      "summary": "NVIDIA 在 Point Edge Transformer（PET）机器学习原子间势上评估 Blackwell 的 BF16x9 与 Ampere 的 TF32x3 Tensor Core FP32 方法，并把内核、端到端分子动力学、轨迹行为、势能平滑性、能量守恒与结构弛豫放在同一验证链中；方法不要求重训或改动模型权重与架构。",
+      "why": "科学计算里的低精度优化正在从单看矩阵吞吐，转向同时验证长期轨迹和物理不变量。对材料研发与数字孪生更有前瞻价值的信号，是性能提升能否在不同模型、硬件和时间尺度上保持数值稳定，而不是一次内核加速数字。",
+      "boundary": "结果来自 NVIDIA 与合作研究者在 PET 和指定 GPU、数值方法上的官方实验，本站未运行代码或复现轨迹；不能外推到所有 MLIP、分子动力学软件、材料体系或生产工作负载，也不能把接近 FP32 的行为写成完全等价或科学结论无误。",
+      "source": "NVIDIA / Lab COSMO",
+      "source_kind": "官方方法、实验对象、硬件范围、数值验证与限制",
+      "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
+      "publishable": false,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.93,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "nvidia-tensor-core-mlip-precision-20261029",
+      "topic_tags": [
+        "Scientific ML",
+        "Materials",
+        "Numerical Precision"
+      ],
+      "first_seen_at": "2026-10-30T07:48:38Z"
     },
     {
       "id": "candidate-3069c896a5b94322",
@@ -983,35 +1012,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "openai-icloud-mail-calendar",
       "first_seen_at": "2026-10-28T07:42:05Z"
-    },
-    {
-      "id": "candidate-b026f19029976dfa",
-      "category": "research",
-      "published": "2026-10-21",
-      "title": "广告排序成为独立的有状态 Agent 系统",
-      "summary": "OpenAI 公开 ChatGPT 广告栈：单独后训练的模型维持广告会话状态，并调用检索、排序、相关性和竞价工具；该服务、模型和代码路径与常规回答生成分离，也允许“无广告”作为成功结果。",
-      "why": "值得跟踪的是 Agent 编排从内容生成扩展到高约束决策系统：模型负责状态与工具选择，确定性服务承载候选、排序和竞价。",
-      "boundary": "这是厂商架构说明，不是独立质量、隐私或商业效果审计；分离路径也不自动证明偏差、相关性和数据治理风险已解决。",
-      "source": "OpenAI",
-      "source_kind": "官方系统架构发布",
-      "url": "https://openai.com/index/how-we-built-chatgpts-novel-ad-stack",
-      "publishable": false,
-      "features": {
-        "freshness": 0.357,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.759,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "research_id": "stateful-agentic-ad-stack",
-      "topic_tags": [
-        "Agent Architecture",
-        "Retrieval",
-        "Ranking"
-      ],
-      "first_seen_at": "2026-10-21T19:23:10Z"
     }
   ]
 }
