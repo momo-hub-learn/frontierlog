@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-10-30T04:06:45Z",
+  "generated_at": "2026-10-30T05:31:40Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 5,
-    "merge": 109,
+    "merge": 110,
     "hold": 5
   },
   "candidates": [
@@ -277,6 +277,30 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "ibm-granite-speech-5",
       "first_seen_at": "2026-10-29T21:23:10Z"
+    },
+    {
+      "id": "candidate-dceea9e61dcb09ab",
+      "category": "product",
+      "published": "2026-10-29",
+      "title": "Pro 的 Work / Codex allowance 上调",
+      "summary": "Pro 100 与 Pro 500 变为此前额度的两倍；Pro 200 的已宣布下调被取消，处于较低额度的订阅者从 10 月 29 日起翻倍到同一上限。",
+      "why": "真实可用性不仅取决于模型与工具，也取决于套餐容量；用量验收要记录账号显示、任务类型、时间窗和消耗，避免把套餐调整写成模型升级。",
+      "boundary": "不能从公告补造精确额度、统一倍数或所有账号的即时可用状态；不覆盖 API credits、API rate limits、价格或模型能力。",
+      "source": "OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "openai-work-codex-allowance",
+      "first_seen_at": "2026-10-30T05:31:40Z"
     },
     {
       "id": "candidate-d3e83555e3861aa4",
@@ -988,35 +1012,6 @@
         "Ranking"
       ],
       "first_seen_at": "2026-10-21T19:23:10Z"
-    },
-    {
-      "id": "candidate-1eca50e460595a54",
-      "category": "research",
-      "published": "2026-10-27",
-      "title": "世界模拟开始把像素、声音、实时操控与规划放进同一闭环",
-      "summary": "Genie 4 可实时生成可探索场景、环境音与互动对话，并接受文本实时修改。官方演示中，Gemini 3.8 Flash 持续观察场景、拆解目标并核验步骤；Google 同时说明该模型目前只面向可信测试者研究预览。",
-      "why": "值得跟踪的不是单段画质，而是语言规划器与感知生成器是否能在同一循环里保持因果、状态和任务进度。如果这条混合路线能经独立复验，它可能为机器人与 Agent 提供更可控的训练环境。",
-      "boundary": "本站未试用，证据来自发布方说明和演示，不是独立 Benchmark。Google 明确披露长时运行、复杂编辑、物体恒常性、复杂物理、音频准确性、可读文字、空间精度与长期一致性仍有限；即将面向 Ultra、API 与 AI Studio 伙伴开放不等于现在公众可用。",
-      "source": "Google DeepMind",
-      "source_kind": "官方能力、访问范围、演示、限制与后续路线",
-      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "google-deepmind-genie-4-20261027",
-      "topic_tags": [
-        "World Models",
-        "Native Audio",
-        "Interactive Simulation"
-      ],
-      "first_seen_at": "2026-10-27T19:42:14Z"
     }
   ]
 }

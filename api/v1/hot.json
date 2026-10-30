@@ -86,6 +86,50 @@
       ]
     },
     {
+      "id": "openai-work-codex-allowance-20261029",
+      "category": "product",
+      "title": "OpenAI 上调 Pro 的 Work 与 Codex 用量",
+      "published": "2026-10-29",
+      "published_at": null,
+      "checked": "2026-10-30",
+      "verified_at": "2026-10-30T13:21:25+08:00",
+      "first_seen_at": "2026-10-30T13:21:25+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 31,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 12
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；不是套餐价值、模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方 ChatGPT Release Notes · 本站未核对任何账号额度",
+      "summary": "OpenAI 上调 Pro 与 Business Premium 套餐内的 Work / Codex 用量：Pro 100 与 Pro 500 变为原来的两倍；撤销此前宣布的 Pro 200 下调，处于较低额度的 Pro 200 也从 10 月 29 日起翻倍。",
+      "why": "这直接改变高频编码与长任务用户的可用容量，也说明套餐用量会在不改变模型能力的情况下影响真实工作流；团队应把计划名称、当前账号显示额度和任务消耗分开记录。",
+      "boundary": "官方 Release Notes 没有列出具体 token、任务或并发数，也没有说明 Business Premium 的统一倍数；不能据此推断所有账号立即显示相同额度。此次变化不是模型升级、API credits 增加、API 限流调整或价格变更，本站没有登录账号核验。",
+      "source": "OpenAI",
+      "source_kind": "官方 ChatGPT Release Notes / 本轮编辑核验",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "link": "#/hot?cat=product&q=Work%20Codex",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看官方 Release Notes",
+          "note": "核对套餐名称、10 月 29 日生效范围与账号内实际显示额度",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "kind": "gateway"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI Help Center",
+          "title": "More Work and Codex usage on Pro and Business Premium Plans",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
       "id": "world-model-faithfulness-failure-benchmarks-20261027",
       "category": "benchmark",
       "title": "世界模型评测开始核对“怎样失败”，不只看画面像不像",
