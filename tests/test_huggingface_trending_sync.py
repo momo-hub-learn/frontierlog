@@ -84,6 +84,10 @@ class HuggingFaceTrendingSyncTests(unittest.TestCase):
         self.assertEqual(rows[0]["tags"], ["ok", "second"])
         self.assertTrue(all(1 <= len(x["tags"]) <= 4 for x in rows))
 
+    def test_reviewed_snapshot_change_triggers_static_rebuild(self):
+        workflow = (ROOT / ".github/workflows/hot-sync.yml").read_text(encoding="utf-8")
+        self.assertIn("- 'data/huggingface-hot.json'", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
