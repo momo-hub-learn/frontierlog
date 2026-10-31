@@ -59,6 +59,12 @@ function fcGithubPanel(){
  const allTrendingMetadataFailed=(gh.items||[]).length>0&&metadataFailures>=(gh.items||[]).length;
  const allRepositoryMetadataFailed=allTrendingMetadataFailed&&(!(gh.watchlist||[]).length||watchFailures>=(gh.watchlist||[]).length);
  const fmt=n=>{const v=Number(n)||0;return v>=1000?(v/1000).toFixed(v>=10000?0:1)+'k':String(v)};
+ const apiWhen=raw=>{try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.') }catch{return ''}};
+ const repoMeta=x=>[
+  x.language||'语言未标注',
+  Number.isInteger(x.stars)?'★ '+fmt(x.stars):'总 Star 待核验',
+  x.metadata_status==='unavailable'?'API 待首次核验':x.metadata_status==='stale'?'API 旧快照 '+apiWhen(x.metadata_verified_at):'API '+(apiWhen(x.metadata_verified_at)||'待核验')
+ ].join(' · ');
  const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
   '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub AI 热仓</h2></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
@@ -66,7 +72,7 @@ function fcGithubPanel(){
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
-    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>'+esc(x.description||x.language||'')+'</small>'+(x.metadata_status==='stale'?'<em class="fc-gh-data-state">仓库资料旧快照</em>':x.metadata_status==='unavailable'?'<em class="fc-gh-data-state">仓库资料待首次核验</em>':'')+'</span>'+
+    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small class="fc-gh-desc">'+esc(x.description||'仓库说明未标注')+'</small><small class="fc-gh-meta">'+esc(repoMeta(x))+'</small></span>'+
     '<span class="fc-gh-star"><b>+'+fmt(x.stars_today)+'</b><small>Today</small></span></a>'
   ).join('')+'</div>':
   '<div class="fc-gh-old"><strong>当前 Trending 未完成核验</strong><p>旧榜单已停止作为今日热门展示。可查看独立关注仓库或历史快照。</p></div>')+

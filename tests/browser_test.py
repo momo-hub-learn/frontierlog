@@ -103,6 +103,13 @@ try:
         expect(page.locator(".fc-hf-panel")).to_have_count(1)
         expect(page.locator(".fc-hf-row")).to_have_count(3)
         expect(page.locator(".fc-hf-panel")).to_contain_text("Trending 不等于能力榜")
+        expect(page.locator(".fc-gh-meta")).not_to_have_count(0)
+        first_ai_repo = next((row for row in GITHUB.get("items", []) if row.get("ai_related")), None)
+        if first_ai_repo:
+            first_meta = page.locator(".fc-gh-meta").first.inner_text()
+            assert (first_ai_repo.get("language") or "语言未标注") in first_meta
+            assert "★" in first_meta or "总 Star 待核验" in first_meta
+            assert "API" in first_meta
         github_sync = GITHUB.get("sync", {})
         github_partial = github_sync.get("metadata_status") == "partial" or int(github_sync.get("metadata_failed_count") or 0) > 0
         github_watch_failed = int(github_sync.get("watchlist_failed_count") or 0) > 0
@@ -208,6 +215,9 @@ try:
         page.locator('[data-action="theme"]').click()
         assert page.locator("html").get_attribute("data-theme") == "dark"
         assert page.locator('meta[name="theme-color"]').get_attribute("content") == "#101819"
+        page.wait_for_function(
+            """() => getComputedStyle(document.querySelector('#nav .active')).color === 'rgb(237, 242, 237)'"""
+        )
         assert active_nav_contrast() >= 4.5
         if not MEMORY:
             page.set_default_timeout(45000)

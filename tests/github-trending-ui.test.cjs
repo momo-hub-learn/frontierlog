@@ -103,8 +103,9 @@ assert.match(view.__fresh,/总 Star/);
 assert.match(view.__fresh,/GitHub AI 热仓/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
 assert.match(view.__fresh,/按当日新增 Star 排序/);
-assert.match(view.__fresh,/仓库资料旧快照/);
+assert.match(view.__fresh,/API 旧快照/);
 assert.match(view.__fresh,/上榜仓库资料更新部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
+assert.match(view.__fresh,/语言未标注 · 总 Star 待核验 · API 旧快照/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
@@ -140,6 +141,15 @@ assert.match(view.__trendingFailedWatchVerified,/长期关注项已核验/);
 assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料更新全部失败：10 个上榜项沿用旧值；长期关注项已核验/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/role="status">仓库资料全部沿用旧快照/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/长期关注项沿用旧值/);
+
+view.APP.github_hot={
+ checked_at:new Date().toISOString(),
+ sync:{metadata_status:'partial',metadata_failed_count:1,watchlist_failed_count:0},
+ items:[{repo:'example/new-agent',ai_related:true,stars_today:99,rank:3,url:'https://github.com/example/new-agent',description:'New agent',language:'Rust',metadata_status:'unavailable'}],
+ watchlist:[]
+};
+vm.runInContext('this.__newUnavailable=fcGithubPanel();',view);
+assert.match(view.__newUnavailable,/Rust · 总 Star 待核验 · API 待首次核验/);
 
 const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
 const hfView={APP:{huggingface_hot:{

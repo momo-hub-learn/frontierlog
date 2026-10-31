@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "checked_at": "2026-10-31T09:19:44Z",
+  "checked_at": "2026-10-31T11:18:10Z",
   "source_url": "https://huggingface.co/models?sort=trending",
   "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
   "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
   "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
   "rank_source": "official_web_models_trending_order",
   "api_rank_source": "official_api_trendingScore_desc",
-  "api_fetched_at": "2026-10-31T09:19:44Z",
-  "web_fetched_at": "2026-10-31T09:19:44Z",
+  "api_fetched_at": "2026-10-31T11:18:10Z",
+  "web_fetched_at": "2026-10-31T11:18:10Z",
   "web_verification_method": "official_web_server_html",
   "web_order_matches_api": true,
   "web_order": [
-    "deepseek-ai/DeepSeek-V4.1-Flash-1017",
     "Nanbeige/Nanbeige4.3-33B",
+    "deepseek-ai/DeepSeek-V4.1-Flash-1017",
     "LiquidAI/LFM3-1.7B",
     "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
     "baidu/Unlimited-OCR-2",
@@ -31,175 +31,164 @@
     "Pika-Labs/Pika-H3-Flex",
     "openbmb/MiniCPM-OCR-1.0",
     "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-    "facebook/sam3"
+    "LiquidAI/LFM3-VL-2B"
   ],
   "web_rank_changes": [
     {
-      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "id": "Nanbeige/Nanbeige4.3-33B",
       "rank": 1,
-      "previous_rank": 1,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 2,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
-      "id": "Nanbeige/Nanbeige4.3-33B",
+      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "rank": 2,
-      "previous_rank": 2,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 1,
+      "rank_change": -1,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "LiquidAI/LFM3-1.7B",
       "rank": 3,
       "previous_rank": 3,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "rank": 4,
       "previous_rank": 4,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "baidu/Unlimited-OCR-2",
       "rank": 5,
       "previous_rank": 5,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "mistralai/Mistral-Large-4-1T-A52B",
       "rank": 6,
       "previous_rank": 6,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "Lightricks/LTX-2.5",
       "rank": 7,
       "previous_rank": 7,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "RecursiveSI/flint",
       "rank": 8,
-      "previous_rank": 9,
-      "rank_change": 1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 8,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "rank": 9,
-      "previous_rank": 8,
-      "rank_change": -1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 9,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "ccore/Qwen3.5-4B-3D-Coder",
       "rank": 10,
-      "previous_rank": 12,
-      "rank_change": 2,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 10,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "XHToken/Spark-X2.6-4B",
       "rank": 11,
-      "previous_rank": 10,
-      "rank_change": -1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 11,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "black-forest-labs/flux-3-image-klein-comfy",
       "rank": 12,
-      "previous_rank": 11,
-      "rank_change": -1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 12,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "rank": 13,
       "previous_rank": 13,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "Qwen/Qwen3.8-27B",
       "rank": 14,
-      "previous_rank": 15,
-      "rank_change": 1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 14,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "rank": 15,
-      "previous_rank": 14,
-      "rank_change": -1,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": 15,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "LiquidAI/LFM3-Omni-2B",
       "rank": 16,
       "previous_rank": 16,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "Pika-Labs/Pika-H3-Flex",
       "rank": 17,
       "previous_rank": 17,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "openbmb/MiniCPM-OCR-1.0",
       "rank": 18,
       "previous_rank": 18,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
       "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
       "rank": 19,
       "previous_rank": 19,
       "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     },
     {
-      "id": "facebook/sam3",
+      "id": "LiquidAI/LFM3-VL-2B",
       "rank": 20,
-      "previous_rank": 20,
-      "rank_change": 0,
-      "previous_fetched_at": "2026-10-31T07:19:00Z"
+      "previous_rank": null,
+      "rank_change": null,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
     }
   ],
-  "web_outgoing": [],
+  "web_outgoing": [
+    {
+      "id": "facebook/sam3",
+      "previous_rank": 20,
+      "previous_fetched_at": "2026-10-31T09:19:44Z"
+    }
+  ],
   "items": [
     {
       "rank": 1,
-      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "trending_score": 797,
-      "likes": 4045,
-      "downloads": 156373,
-      "task": "image-text-to-text",
-      "library": "transformers",
-      "created_at": "2026-10-17T02:40:38.000Z",
-      "tags": [
-        "transformers",
-        "safetensors",
-        "deepseek_v41",
-        "text-generation"
-      ]
-    },
-    {
-      "rank": 2,
       "id": "Nanbeige/Nanbeige4.3-33B",
       "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-      "trending_score": 792,
-      "likes": 811,
+      "trending_score": 798,
+      "likes": 820,
       "downloads": 13832,
       "task": "text-generation",
       "library": "transformers",
@@ -212,11 +201,28 @@
       ]
     },
     {
+      "rank": 2,
+      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "trending_score": 780,
+      "likes": 4052,
+      "downloads": 156373,
+      "task": "image-text-to-text",
+      "library": "transformers",
+      "created_at": "2026-10-17T02:40:38.000Z",
+      "tags": [
+        "transformers",
+        "safetensors",
+        "deepseek_v41",
+        "text-generation"
+      ]
+    },
+    {
       "rank": 3,
       "id": "LiquidAI/LFM3-1.7B",
       "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-      "trending_score": 568,
-      "likes": 589,
+      "trending_score": 572,
+      "likes": 595,
       "downloads": 32933,
       "task": "text-generation",
       "library": "transformers",
@@ -232,8 +238,8 @@
       "rank": 4,
       "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-      "trending_score": 481,
-      "likes": 511,
+      "trending_score": 484,
+      "likes": 516,
       "downloads": 24357,
       "task": "automatic-speech-recognition",
       "library": "nemo",
@@ -249,8 +255,8 @@
       "rank": 5,
       "id": "baidu/Unlimited-OCR-2",
       "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-      "trending_score": 419,
-      "likes": 464,
+      "trending_score": 421,
+      "likes": 466,
       "downloads": 69231,
       "task": "image-text-to-text",
       "library": "transformers",
@@ -266,8 +272,8 @@
       "rank": 6,
       "id": "mistralai/Mistral-Large-4-1T-A52B",
       "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-      "trending_score": 418,
-      "likes": 1364,
+      "trending_score": 420,
+      "likes": 1367,
       "downloads": 2945,
       "task": "image-text-to-text",
       "library": "transformers",
@@ -284,7 +290,7 @@
       "id": "Lightricks/LTX-2.5",
       "url": "https://huggingface.co/Lightricks/LTX-2.5",
       "trending_score": 380,
-      "likes": 10001,
+      "likes": 10015,
       "downloads": 2441077,
       "task": "image-to-video",
       "library": "diffusion-single-file",
@@ -300,8 +306,8 @@
       "rank": 8,
       "id": "RecursiveSI/flint",
       "url": "https://huggingface.co/RecursiveSI/flint",
-      "trending_score": 358,
-      "likes": 1267,
+      "trending_score": 352,
+      "likes": 1269,
       "downloads": 23079,
       "task": "text-generation",
       "library": "transformers",
@@ -317,8 +323,8 @@
       "rank": 9,
       "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-      "trending_score": 352,
-      "likes": 510,
+      "trending_score": 333,
+      "likes": 511,
       "downloads": 2076624,
       "task": "text-generation",
       "library": "gguf",
@@ -334,8 +340,8 @@
       "rank": 10,
       "id": "ccore/Qwen3.5-4B-3D-Coder",
       "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-      "trending_score": 324,
-      "likes": 355,
+      "trending_score": 330,
+      "likes": 361,
       "downloads": 29615,
       "task": "未标注",
       "library": "未标注",
@@ -351,8 +357,8 @@
       "rank": 11,
       "id": "XHToken/Spark-X2.6-4B",
       "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-      "trending_score": 323,
-      "likes": 927,
+      "trending_score": 325,
+      "likes": 931,
       "downloads": 14515,
       "task": "text-generation",
       "library": "transformers",
@@ -369,7 +375,7 @@
       "id": "black-forest-labs/flux-3-image-klein-comfy",
       "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
       "trending_score": 317,
-      "likes": 2145,
+      "likes": 2151,
       "downloads": 925236,
       "task": "image-to-image",
       "library": "diffusion-single-file",
@@ -386,7 +392,7 @@
       "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "trending_score": 303,
-      "likes": 5387,
+      "likes": 5390,
       "downloads": 2558497,
       "task": "text-to-image",
       "library": "gguf",
@@ -403,7 +409,7 @@
       "id": "Qwen/Qwen3.8-27B",
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
       "trending_score": 278,
-      "likes": 18820,
+      "likes": 18824,
       "downloads": 7581050,
       "task": "image-text-to-text",
       "library": "transformers",
@@ -419,7 +425,7 @@
       "rank": 15,
       "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-      "trending_score": 275,
+      "trending_score": 261,
       "likes": 382,
       "downloads": 31320,
       "task": "text-generation",
@@ -436,8 +442,8 @@
       "rank": 16,
       "id": "LiquidAI/LFM3-Omni-2B",
       "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-      "trending_score": 228,
-      "likes": 236,
+      "trending_score": 229,
+      "likes": 237,
       "downloads": 5695,
       "task": "any-to-any",
       "library": "transformers",
@@ -453,8 +459,8 @@
       "rank": 17,
       "id": "Pika-Labs/Pika-H3-Flex",
       "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
-      "trending_score": 216,
-      "likes": 219,
+      "trending_score": 221,
+      "likes": 225,
       "downloads": 294,
       "task": "image-to-video",
       "library": "diffusers",
@@ -470,8 +476,8 @@
       "rank": 18,
       "id": "openbmb/MiniCPM-OCR-1.0",
       "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
-      "trending_score": 203,
-      "likes": 369,
+      "trending_score": 206,
+      "likes": 372,
       "downloads": 3050,
       "task": "image-text-to-text",
       "library": "未标注",
@@ -487,8 +493,8 @@
       "rank": 19,
       "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
       "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-      "trending_score": 191,
-      "likes": 293,
+      "trending_score": 189,
+      "likes": 294,
       "downloads": 75125,
       "task": "text-generation",
       "library": "transformers",
@@ -502,25 +508,25 @@
     },
     {
       "rank": 20,
-      "id": "facebook/sam3",
-      "url": "https://huggingface.co/facebook/sam3",
-      "trending_score": 180,
-      "likes": 5524,
-      "downloads": 1900570,
-      "task": "mask-generation",
+      "id": "LiquidAI/LFM3-VL-2B",
+      "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+      "trending_score": 181,
+      "likes": 183,
+      "downloads": 8091,
+      "task": "image-text-to-text",
       "library": "transformers",
-      "created_at": "2025-11-07T05:17:48.000Z",
+      "created_at": "2026-10-19T19:51:46.000Z",
       "tags": [
         "transformers",
         "safetensors",
-        "sam3_video",
-        "feature-extraction"
+        "lfm3_vl",
+        "image-text-to-text"
       ]
     }
   ],
   "sync": {
     "status": "success",
-    "last_checked_at": "2026-10-31T09:19:44Z",
+    "last_checked_at": "2026-10-31T11:18:10Z",
     "web_status": "success",
     "api_status": "success"
   }
