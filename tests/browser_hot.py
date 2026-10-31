@@ -39,7 +39,9 @@ with sync_playwright() as pw:
  first_metrics=p.locator('.hf-row .hf-sub').first.inner_text();assert '赞 ' in first_metrics and '下载 ' in first_metrics and '♥' not in first_metrics and '↓' not in first_metrics
  ok('platform switch exposes the current page and HF metrics use unambiguous text labels')
  route(p,'#/hot')
- p.locator('.intraday-row [data-ha="detail"]').first.click();assert 'item=' in p.evaluate('location.hash');expect(p.locator('dialog[open]')).to_have_count(1);assert '为什么值得看' in p.locator('#modal-body').inner_text();assert '不要过度解读' in p.locator('#modal-body').inner_text();p.keyboard.press('Escape');p.wait_for_function("!location.hash.includes('item=')");ok('deep-linked evidence drawer keeps rationale and boundary separate and clears its route when closed')
+ p.locator('.intraday-row [data-ha="detail"]').first.click();assert 'item=' in p.evaluate('location.hash');expect(p.locator('dialog[open]')).to_have_count(1);assert '为什么值得看' in p.locator('#modal-body').inner_text();assert '不要过度解读' in p.locator('#modal-body').inner_text()
+ hero_links=p.locator('.h-detail-cta a');hero_hrefs=hero_links.evaluate_all("els=>els.map(x=>x.href)");assert len(hero_hrefs)==len(set(hero_hrefs))
+ p.keyboard.press('Escape');p.wait_for_function("!location.hash.includes('item=')");ok('deep-linked evidence drawer keeps rationale and boundary separate, avoids duplicate hero URLs, and clears its route when closed')
  gated=next(x for x in HOT_DATA['items'] if any(r.get('kind')=='product' for r in x.get('access',[])) and not any(r.get('kind') in {'try','demo','gateway'} for r in x.get('access',[])))
  route(p,'#/hot?item='+gated['id']);expect(p.locator('dialog[open]')).to_have_count(1);status=p.locator('.h-access-status').inner_text();assert '候补或产品资料页' in status and '尚不能直接体验' in status
  primary=p.locator('.h-try-now');assert primary.get_attribute('href').startswith('https://');assert primary.get_attribute('href')!='https://momo-hub-learn.github.io/frontierlog/#';assert '阅读官方资料' in primary.inner_text();p.keyboard.press('Escape');ok('gated preview pages are not presented as directly usable experiences and the primary evidence CTA opens a real official URL')

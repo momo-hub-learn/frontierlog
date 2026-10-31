@@ -220,6 +220,8 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn("icon(interactive?'zap':'book')",text)
   self.assertIn("r.kind==='product'",text)
   self.assertIn("access.find(r=>!String(r.url||'').startsWith('#/'))",text)
+  self.assertIn('const primaryIsSource=primary&&hUrlKey(primary.url)===hUrlKey(x.url)',text)
+  self.assertIn("(primaryIsSource?'':'<a class=\"button\"",text)
   self.assertIn('当前入口是候补或产品资料页，尚不能直接体验',text)
  def test_vertical_sector_has_one_topic_navigation(self):
   legacy=(ROOT/'src/vertical.js').read_text()
