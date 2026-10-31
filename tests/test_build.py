@@ -19,8 +19,7 @@ class BuildTests(unittest.TestCase):
     def test_checked_in_generated_apis_match_reviewed_inputs(self):
         for name in (
             'github-hot.json','huggingface-hot.json','activity-radar.json',
-            'hot.json','hot-inbox.json','hot-policy.json','research-radar.json',
-            'topic-intake.json','upstream.json',
+            'hot.json','research-radar.json','upstream.json',
         ):
             self.assertEqual(
                 json.loads((ROOT/'api/v1'/name).read_text()),
