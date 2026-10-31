@@ -367,6 +367,13 @@ class BuildTests(unittest.TestCase):
             css,
         )
 
+    def test_active_navigation_uses_readable_theme_text(self):
+        css=(ROOT/'src/v2.css').read_text()
+        self.assertIn(
+            '.navitem.active{background:var(--accent-bg);color:var(--text);font-weight:650}',
+            css,
+        )
+
     def test_hot_tabs_are_compact_and_group_related_sources(self):
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);build.build(d,'','')

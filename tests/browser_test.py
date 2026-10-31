@@ -61,6 +61,44 @@ try:
             page.evaluate("route => location.hash = route", route)
             page.wait_for_timeout(150)
 
+        def active_nav_contrast():
+            return page.locator("#nav .active").evaluate(
+                """el => {
+                  const rgba = value => {
+                    const channels = value.match(/[\\d.]+/g).map(Number);
+                    return [channels[0], channels[1], channels[2], channels[3] ?? 1];
+                  };
+                  const composite = (front, back) => {
+                    const alpha = front[3] + back[3] * (1 - front[3]);
+                    return front.slice(0, 3).map(
+                      (channel, index) => (channel * front[3] +
+                        back[index] * back[3] * (1 - front[3])) / alpha
+                    ).concat(alpha);
+                  };
+                  const luminance = channels => {
+                    channels = channels.map(v => {
+                      v /= 255;
+                      return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4;
+                    });
+                    return .2126 * channels[0] + .7152 * channels[1] + .0722 * channels[2];
+                  };
+                  const style = getComputedStyle(el);
+                  const foreground = luminance(rgba(style.color).slice(0, 3));
+                  let backgroundLayer = rgba(style.backgroundColor);
+                  let node = el.parentElement;
+                  while (backgroundLayer[3] < 1 && node) {
+                    backgroundLayer = composite(
+                      backgroundLayer,
+                      rgba(getComputedStyle(node).backgroundColor)
+                    );
+                    node = node.parentElement;
+                  }
+                  const background = luminance(backgroundLayer.slice(0, 3));
+                  return (Math.max(foreground, background) + .05) /
+                    (Math.min(foreground, background) + .05);
+                }"""
+            )
+
         expect(page.locator(".fc-cockpit")).to_have_count(1)
         expect(page.locator(".fc-hf-panel")).to_have_count(1)
         expect(page.locator(".fc-hf-row")).to_have_count(3)
@@ -84,8 +122,9 @@ try:
             expect(page.locator(".fc-gh-data-state")).to_have_count(0)
         assert page.locator("#nav .active").inner_text().startswith("精选")
         assert page.locator("html").get_attribute("data-theme") == "light"
+        assert active_nav_contrast() >= 4.5
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
-        passed("current home cockpit, official HF top three, navigation and light theme render without overflow")
+        passed("current home cockpit, official HF top three, readable navigation and light theme render without overflow")
 
         go("#/progress")
         expect(page.locator(".p5-progress")).to_have_count(1)
@@ -169,6 +208,7 @@ try:
         page.locator('[data-action="theme"]').click()
         assert page.locator("html").get_attribute("data-theme") == "dark"
         assert page.locator('meta[name="theme-color"]').get_attribute("content") == "#101819"
+        assert active_nav_contrast() >= 4.5
         if not MEMORY:
             page.set_default_timeout(45000)
             page.reload(wait_until="domcontentloaded")
