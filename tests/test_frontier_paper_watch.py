@@ -74,6 +74,16 @@ class WorldModelCoverageTests(unittest.TestCase):
         self.assertIn('一个任务',judgment['boundary'])
         self.assertEqual([s['url'] for s in judgment['sources']],['https://www.anthropic.com/research/agents-judgment-calls'])
         self.assertTrue(all(s['strength']=='primary' for s in judgment['sources']))
+        security=next(x for x in RESEARCH['items'] if x['id']=='anthropic-critical-software-exploit-chains-20261027')
+        self.assertEqual(security['date'],'2026-10-27')
+        self.assertIn('62 个已修补 CVE',security['fact'])
+        self.assertIn('未发布内部研究模型',security['boundary'])
+        self.assertIn('本站没有获得模型',security['boundary'])
+        self.assertEqual(
+            [s['url'] for s in security['sources']],
+            ['https://www.anthropic.com/research/discovering-vulnerabilities-with-claude'],
+        )
+        self.assertTrue(all(s['strength']=='primary' for s in security['sources']))
 
     def test_known_arxiv_ids_are_cross_source_deduplicated(self):
         known=covered_ids(MODELS,RESEARCH)

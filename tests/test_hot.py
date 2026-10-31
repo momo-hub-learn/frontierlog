@@ -98,6 +98,18 @@ class HotDataTests(unittest.TestCase):
   internal=next(x for x in item['access'] if x['kind']=='internal')
   self.assertEqual(internal['url'],item['link'])
   validate_hot(self.data)
+ def test_anthropic_security_research_keeps_internal_model_and_case_scope_explicit(self):
+  item=next(x for x in self.data['items'] if x['id']=='anthropic-critical-software-exploit-chains-20261027')
+  self.assertEqual(item['published'],'2026-10-27')
+  self.assertEqual(item['url'],'https://www.anthropic.com/research/discovering-vulnerabilities-with-claude')
+  self.assertEqual(item['link'],'#/progress?view=research&research=anthropic-critical-software-exploit-chains-20261027')
+  self.assertEqual(item['heat'],sum(item['heat_components'].values()))
+  self.assertIn('未发布内部研究模型',item['summary'])
+  self.assertIn('不是公开 Claude 产品发布',item['boundary'])
+  self.assertIn('本站未获得模型',item['boundary'])
+  self.assertEqual(item['evidence_level'],'primary-source')
+  self.assertEqual(next(x for x in item['access'] if x['kind']=='internal')['url'],item['link'])
+  validate_hot(self.data)
  def test_world_model_failure_benchmarks_keep_protocols_separate(self):
   item=next(x for x in self.data['items'] if x['id']=='world-model-faithfulness-failure-benchmarks-20261027')
   self.assertEqual(item['link'],'#/benchmarks?bench=world-model-faithfulness-failure-protocols')
