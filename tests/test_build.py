@@ -399,6 +399,11 @@ class BuildTests(unittest.TestCase):
             '.navitem.active{background:var(--accent-bg);color:var(--text);font-weight:650}',
             css,
         )
+        base_css=(ROOT/'src/styles.css').read_text()
+        self.assertIn(
+            ':root[data-theme=light] .navitem.active small{background:var(--lime);color:var(--ink);font-weight:700',
+            base_css,
+        )
 
     def test_hot_tabs_are_compact_and_group_related_sources(self):
         with tempfile.TemporaryDirectory() as td:

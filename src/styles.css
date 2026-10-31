@@ -12,7 +12,7 @@
 .navitem{border-radius:7px}
 .navitem.active{font-weight:600}
 .navitem.active:before{background:var(--accent)}
-:root[data-theme=light] .navitem.active small{background:#fff;padding:1px 5px;border-radius:4px}
+:root[data-theme=light] .navitem.active small{background:var(--lime);color:var(--ink);font-weight:700;padding:1px 5px;border-radius:4px}
 :root[data-theme=light] .navitem[href="#/saved"].active{background:var(--lime);color:var(--ink)}
 :root[data-theme=light] .navitem[href="#/saved"].active small{color:var(--ink)}
 .hero-text h1{font-weight:700}

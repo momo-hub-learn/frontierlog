@@ -174,6 +174,16 @@
   ],
   "sources": [
     {
+      "id": "boehringer-microsoft-digital-patient-twins-20261022",
+      "title": "Boehringer Ingelheim and Microsoft partner to drive patient-centric and AI-backed clinical development",
+      "publisher": "Boehringer Ingelheim",
+      "url": "https://www.boehringer-ingelheim.com/about-us/boehringer-microsoft-partner-ai-backed-clinical-development?page=2",
+      "published": "2026-10-22",
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T03:19:19+08:00",
+      "kind": "公司官方合作公告、数字患者孪生研究范围、肺部健康起点与科学/监管边界"
+    },
+    {
       "id": "nvidia-ai-defined-fabs-20261014",
       "title": "NVIDIA and Semiconductor Leaders Advance AI Across Chip Design and Manufacturing for AI-Defined Fabs",
       "publisher": "NVIDIA Newsroom",
@@ -1121,6 +1131,41 @@
       "checked": "2026-10-23",
       "verified_at": "2026-10-23T07:20:00+08:00",
       "first_seen_at": "2026-10-23T07:20:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "boehringer-microsoft-digital-patient-twins-20261022",
+      "sector": "pharma",
+      "topics": [
+        "clinical"
+      ],
+      "title": "数字患者孪生进入临床试验探索：先验收预测，再谈替代对照组",
+      "summary": "Boehringer Ingelheim 与 Microsoft 将共同研究数字患者孪生，用临床及其他相关数据建模疾病进展、预测结局并模拟试验；首个研究方向是肺部健康。",
+      "why": "这把数字孪生从工业仿真带到临床开发，并明确指向合成或混合对照组。医药团队可以据此把疾病进展模型、患者分层、试验模拟、数据授权与监管接受拆成独立验收环节。",
+      "boundary": "这是双方官方公布的探索性合作，不是已验证的数字患者、已批准的合成对照组或临床结局改善证据。公告没有给出数据集、模型、基准、样本量或实施结果；任何用途都仍需科学验证、患者安全审查、数据授权和监管接受。",
+      "sources": [
+        "boehringer-microsoft-digital-patient-twins-20261022"
+      ],
+      "kind": "update",
+      "access": "合作研究与可行性探索；具体数据、模型、试验协议和开放入口未公布",
+      "access_status": "unavailable",
+      "access_label": "访问：研究合作，未公开入口",
+      "published": "2026-10-22",
+      "steps": [
+        "先固定疾病范围、数据授权、患者队列、时间窗和真实对照，不把回顾性拟合当作前瞻验证",
+        "分别验证疾病进展、结局预测、患者分层和试验模拟的校准、漂移与亚群误差",
+        "涉及合成或混合对照组时预先约定人工审批、偏倚审计、监管沟通和真实临床终点"
+      ],
+      "metrics": [
+        "外部队列下的校准、判别、时间一致性与亚群误差",
+        "模拟与真实试验在入组、事件率、治疗效应和不确定性上的偏差",
+        "数据授权、审计、人工否决、方案偏离及监管反馈"
+      ],
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T03:19:19+08:00",
+      "first_seen_at": "2026-11-01T03:19:19+08:00",
       "evidence_level": "primary-source",
       "featured": true,
       "tested": false
