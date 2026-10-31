@@ -161,8 +161,8 @@ const hfView={APP:{huggingface_hot:{
  ],
  web_outgoing:[{id:'org/model-old',previous_rank:20}],
  items:[
-  {id:'org/model-a',url:'https://huggingface.co/org/model-a',task:'text-generation',library:'transformers',trending_score:91},
-  {id:'org/model-b',url:'https://huggingface.co/org/model-b',task:'image-to-video',library:'diffusers',trending_score:72},
+  {id:'org/model-a',url:'https://huggingface.co/org/model-a',task:'text-generation',library:'transformers',trending_score:91,likes:1234,downloads:45678},
+  {id:'org/model-b',url:'https://huggingface.co/org/model-b',task:'image-to-video',library:'diffusers',trending_score:72,likes:89,downloads:123},
   {id:'org/model-c',url:'https://huggingface.co/org/model-c',task:null,library:null,trending_score:null}
  ]
 }},Date,Intl,Map,icon:()=>'',safeLink:x=>x,esc:x=>String(x)};
@@ -172,6 +172,7 @@ assert.match(hfView.__hf,/Hugging Face 热榜/);
 assert.match(hfView.__hf,/#01/);
 assert.match(hfView.__hf,/org\/model-a/);
 assert.match(hfView.__hf,/API Trending/);
+assert.match(hfView.__hf,/Likes 1\.2k · Downloads 45\.7k/);
 assert.match(hfView.__hf,/Trending 不等于能力榜/);
 assert.match(hfView.__hf,/本轮变化/);
 assert.match(hfView.__hf,/1 新上榜 · 1 位次变化 · 1 离榜/);

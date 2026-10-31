@@ -174,6 +174,16 @@
   ],
   "sources": [
     {
+      "id": "microsoft-industry-evaluation-data-20261030",
+      "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+      "publisher": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+      "published": "2026-10-30",
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T21:27:30+08:00",
+      "kind": "官方合成企业环境、行业查询生成、评估框架、内部结果与边界说明"
+    },
+    {
       "id": "openai-gpt6-rosalind-release-20261030",
       "title": "Model Release Notes: GPT-6 Rosalind Research",
       "publisher": "OpenAI",
@@ -654,6 +664,42 @@
     }
   ],
   "articles": [
+    {
+      "id": "microsoft-industry-evaluation-data-20261030",
+      "sector": "pharma",
+      "topics": [
+        "clinical",
+        "csr"
+      ],
+      "title": "合成企业评估：先验收工作流逼真度，再评 Copilot",
+      "summary": "Microsoft Research 用不含真实客户数据的全合成企业环境生成会议、邮件、文档和行业查询；官方列出的三类环境包括制药、资本市场与 IT / 软件。",
+      "why": "通用问答集很难覆盖临床试验讨论、安全信号审查和跨团队行动项。医药团队可以借鉴这套分层方法，把环境生成、查询溯源、答案依据、时间一致性、内容安全和版本回归分别验收。",
+      "boundary": "这是 Microsoft 内部平台的官方方法说明，未见公开数据集、代码、逐项协议或独立复现。39% 内部综合质量增幅、部分环境高于 0.9 和成本节省估算不能跨系统比较；全合成不等于覆盖真实制药组织，也不能证明 Copilot 可用于临床决策或自动满足隐私与合规要求。",
+      "sources": [
+        "microsoft-industry-evaluation-data-20261030"
+      ],
+      "kind": "update",
+      "access": "官方研究说明；平台已进入 Microsoft 内部共享目录，未见公开数据集、代码或外部使用入口",
+      "access_status": "unavailable",
+      "access_label": "访问：内部平台",
+      "published": "2026-10-30",
+      "steps": [
+        "先用获授权的公开或全合成数据定义组织、角色、时间线和制药工作流，不导入真实患者或客户资料",
+        "固定查询模板、生成版本、引用依据和预期答案，分别验收结构、语境、行为与内容安全",
+        "再做多轮与行动型 Agent 回归，记录错误来源、人工接管和跨版本变化，不把内部综合分当临床结论"
+      ],
+      "metrics": [
+        "合成组织与目标工作流的结构、时间和术语覆盖差异",
+        "答案依据、引用完整性、事实错误、内容安全与重复查询一致性",
+        "跨版本回归、人工修改量、接管率和真实流程中的关键失败类型"
+      ],
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T21:27:30+08:00",
+      "first_seen_at": "2026-10-31T21:27:30+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "openai-gpt6-rosalind-research-20261030",
       "sector": "pharma",

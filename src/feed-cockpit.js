@@ -108,7 +108,7 @@ function fcHuggingFacePanel(){
   (webFresh?'<div class="fc-hf-list">'+rows.map(x=>
    '<a class="fc-hf-row" href="'+safeLink(x.url||('https://huggingface.co/'+x.id))+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-hf-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
-    '<span class="fc-hf-main"><strong>'+esc(x.id)+'</strong><small>'+esc((x.task||'任务未标注')+' · '+(x.library||'库未标注'))+'</small></span>'+
+    '<span class="fc-hf-main"><strong>'+esc(x.id)+'</strong><small>'+esc((x.task||'任务未标注')+' · '+(x.library||'库未标注'))+'</small><small class="fc-hf-stats">Likes '+fmt(x.likes)+' · Downloads '+fmt(x.downloads)+'</small></span>'+
     '<span class="fc-hf-score"><b>'+fmt(x.trending_score)+'</b><small>API Trending'+(apiFresh?'':'（旧）')+'</small></span></a>'
   ).join('')+'</div>':'<div class="fc-gh-old"><strong>当前 Models Trending 未完成核验</strong><p>旧榜位已停止作为首页前列展示；仍可查看可追溯的历史快照。</p></div>')+
   '<div class="fc-hf-foot">'+(webFresh?'官方网页顺序 · '+esc(when(hf.web_fetched_at||hf.checked_at)):'历史榜已过期 · 等待新快照')+(webFresh&&!apiFresh?' · API 指标沿用旧快照':'')+' · Trending 不等于能力榜</div>'+

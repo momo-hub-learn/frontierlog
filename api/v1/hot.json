@@ -40,6 +40,55 @@
   ],
   "items": [
     {
+      "id": "microsoft-industry-evaluation-data-20261030",
+      "category": "industry",
+      "title": "Microsoft 用全合成企业环境评估行业 Copilot",
+      "published": "2026-10-30",
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T21:27:30+08:00",
+      "first_seen_at": "2026-10-31T21:27:30+08:00",
+      "heat": 82,
+      "heat_components": {
+        "impact": 31,
+        "availability": 11,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；内部平台未公开显著降低可操作性分。这不是 Copilot 能力、合规或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Microsoft Research 官方方法说明 · 内部平台，本站未复现",
+      "summary": "Microsoft Research 公布 Industry Evaluation Data Generation Platform：用公开信号构造不含真实客户数据的企业环境，再生成会议、邮件、文档、时间线与行业查询；官方列出的环境覆盖制药、资本市场与 IT / 软件。",
+      "why": "企业 Agent 的评估开始从孤立问答转向带组织结构、历史记录和跨团队流程的可重复环境。对医药团队，环境生成、查询溯源、质量门槛与版本回归可以被拆成独立验收环节。",
+      "boundary": "这是 Microsoft 对内部平台和内部结果的官方说明，未见公开数据集、代码、逐项协议或独立复现。39% 内部综合质量增幅、部分环境高于 0.9 和成本节省估算不能跨系统比较；全合成也不能证明真实制药流程已被完整覆盖，或 Copilot 可用于临床决策。",
+      "source": "Microsoft Research",
+      "source_kind": "官方平台方法、行业环境、质量框架、内部结果与限制 / 本轮编辑核验",
+      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+      "link": "#/pharma?article=microsoft-industry-evaluation-data-20261030",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看医药评估方法与边界",
+          "note": "核对合成环境、查询生成、指标和不能外推的结论",
+          "url": "#/pharma?article=microsoft-industry-evaluation-data-20261030",
+          "kind": "internal"
+        },
+        {
+          "label": "查看 Microsoft Research 原文",
+          "note": "核对平台方法、行业范围、内部结果与开放状态",
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "Microsoft Research",
+          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "date": "2026-10-30"
+        }
+      ]
+    },
+    {
       "id": "cursor-claude-code-extension-compromise-20261029",
       "category": "security",
       "title": "Cursor 扩展市场中的 Claude Code 2.1.312 / 2.1.313 被恶意篡改",

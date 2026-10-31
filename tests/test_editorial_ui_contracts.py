@@ -69,6 +69,22 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('function articleAccessChip(a)',js)
   self.assertIn('${articleAccessChip(a)}',js)
   self.assertIn('.v-access-chip.status-limited',css)
+ def test_microsoft_synthetic_enterprise_evaluation_keeps_internal_boundary(self):
+  hot=json.loads((ROOT/'data/hot.json').read_text())
+  research=json.loads((ROOT/'data/research-radar.json').read_text())
+  industry=json.loads((ROOT/'data/industry.json').read_text())
+  record_id='microsoft-industry-evaluation-data-20261030'
+  signal=next(x for x in hot['items'] if x['id']==record_id)
+  radar=next(x for x in research['items'] if x['id']==record_id)
+  article=next(x for x in industry['articles'] if x['id']==record_id)
+  self.assertEqual(signal['published'],'2026-10-30')
+  self.assertNotIn('published_at',signal)
+  self.assertEqual(signal['link'],'#/pharma?article='+record_id)
+  self.assertIn('内部平台',signal['verification_status'])
+  self.assertIn('未见公开数据集',radar['boundary'])
+  self.assertIn('不能跨系统比较',article['boundary'])
+  self.assertEqual((article['access_status'],article['access_label']),('unavailable','访问：内部平台'))
+  self.assertFalse(article['tested'])
  def test_topic_rss_grows_and_shrinks_without_losing_identity(self):
   base=json.loads((ROOT/'data/industry.json').read_text())
   source=copy.deepcopy(base['articles'][0])

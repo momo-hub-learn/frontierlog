@@ -21,6 +21,32 @@
   ],
   "items": [
     {
+      "id": "microsoft-industry-evaluation-data-20261030",
+      "lane": "science",
+      "title": "Microsoft 用全合成企业环境评估行业 Copilot",
+      "maker": "Microsoft Research / Microsoft",
+      "date": "2026-10-30",
+      "verified_at": "2026-10-31T21:27:30+08:00",
+      "verification_status": "Microsoft Research 官方方法说明 · 内部平台，本站未复现",
+      "tags": [
+        "Enterprise Evaluation",
+        "Synthetic Data",
+        "Agentic Workflows"
+      ],
+      "fact": "Microsoft Research 公布 Industry Evaluation Data Generation Platform：用 O*NET、公开职位信息和 SEC 文件等公开信号构造不含真实客户数据的企业环境，再生成会议、邮件、文档、时间线与行业查询。官方介绍的三类环境覆盖制药、资本市场和 IT / 软件，并用结构、语境、行为与内容安全检查支持 Copilot 回归评估。",
+      "insight": "这把企业 Agent 的评估单位从孤立问答推进到带组织结构、历史记录和跨团队流程的可重复环境。对医药等高约束场景，更值得借鉴的是把数据来源、查询生成、质量门槛和版本回归拆开，而不是把一次内部综合分当成产品能力结论。",
+      "boundary": "这是 Microsoft 对内部平台与内部结果的官方说明，未见公开数据集、代码、逐项评测协议或独立复现。文中 39% 内部综合质量增幅、部分环境高于 0.9 以及成本节省估算不能跨系统比较，也不能证明合成环境完全覆盖真实组织、消除隐私风险或保证 Copilot 在真实制药流程中可靠。",
+      "next_watch": "跟踪平台、样例环境和查询模板是否开放，合成组织与真实工作流的分布差异如何量化，第三方能否复现时间感知与多轮 Agent 评估，以及内部质量指标能否映射到真实用户错误、安全事件和人工复核成本。",
+      "sources": [
+        {
+          "label": "Microsoft Research · From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "kind": "官方平台方法、行业环境、质量框架、内部结果与限制",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "fight-world-model-editable-combat-20261029",
       "lane": "paradigm",
       "title": "Fight World Model 把战斗规则拆进可执行引擎",

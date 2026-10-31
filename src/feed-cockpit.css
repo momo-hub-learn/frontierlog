@@ -94,13 +94,14 @@
 .fc-hf-change span{font-variant-numeric:tabular-nums}
 .fc-hf-change .ico{width:12px;margin-left:auto;color:var(--accent)}
 .fc-hf-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.fc-hf-row{display:grid;grid-template-columns:40px minmax(0,1fr) 88px;gap:11px;align-items:center;min-height:84px;padding:14px 17px;border-right:1px solid var(--soft-line)}
+.fc-hf-row{display:grid;grid-template-columns:40px minmax(0,1fr) 88px;gap:11px;align-items:center;min-height:92px;padding:14px 17px;border-right:1px solid var(--soft-line)}
 .fc-hf-row:last-child{border-right:0}
 .fc-hf-row:hover{background:var(--hover)}
 .fc-hf-rank{font:700 .64rem var(--mono);color:var(--muted)}
 .fc-hf-main{min-width:0}
 .fc-hf-main strong{display:block;font:750 .82rem var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fc-hf-main small{display:block;margin-top:4px;font-size:.68rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc-hf-main .fc-hf-stats{color:var(--sub);font-variant-numeric:tabular-nums}
 .fc-hf-score{text-align:right;min-width:0}
 .fc-hf-score b{display:block;font:850 1rem var(--display,var(--sans));color:var(--accent);font-variant-numeric:tabular-nums}
 .fc-hf-score small{display:block;margin-top:2px;font-size:.57rem;color:var(--muted);white-space:nowrap}
