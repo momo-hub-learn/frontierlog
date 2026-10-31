@@ -23,6 +23,10 @@
         "title": "产品"
       },
       {
+        "id": "security",
+        "title": "安全"
+      },
+      {
         "id": "industry",
         "title": "行业"
       },
@@ -36,6 +40,48 @@
       }
     ],
     "items": [
+      {
+        "id": "cursor-claude-code-extension-compromise-20261029",
+        "category": "security",
+        "title": "Cursor 扩展市场中的 Claude Code 2.1.312 / 2.1.313 被恶意篡改",
+        "published": "2026-10-29",
+        "checked": "2026-10-31",
+        "verified_at": "2026-10-31T15:18:38+08:00",
+        "first_seen_at": "2026-10-31T15:18:38+08:00",
+        "heat": 98,
+        "heat_components": {
+          "impact": 35,
+          "availability": 23,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；高分来自明确受影响版本、时间窗、IOC 与修复路径，不代表攻击规模或本站安全实测。",
+        "trend": "up",
+        "verification_status": "Cursor 官方安全公告（10 月 30 日更新 IOC 与受影响版本）· 本站未执行修复脚本",
+        "summary": "Cursor 确认其 VS Code 扩展市场在 10 月 29 日约 02:27–13:35 PT 分发过被恶意修改的 Anthropic.claude-code 2.1.312 与 2.1.313（macOS / Windows）；载荷会收集主机信息，并尝试写入 SSH key、建立反向隧道和持久化。",
+        "why": "这直接改变了 Claude Code 用户的当前安全动作：仅卸载扩展不足以证明清除，受影响机器需要核对 IOC、隔离、移除持久化，并从可信设备轮换可访问的凭据和会话。",
+        "boundary": "Cursor 表示恶意版本不是 Anthropic 制作，当前没有证据显示其他版本或官方分发渠道受影响；攻击服务器已下线，且多数 macOS / Windows 主机上的 SSH 启用步骤会因无管理员权限失败。但载荷仍可能写入 SSH key、落地持久化并上报主机信息，所以不能把“服务器下线”写成机器已经安全，也不能把受影响范围外推到所有 Claude Code 安装。",
+        "source": "Cursor",
+        "source_kind": "Cursor 官方安全公告、IOC 与修复说明 / 本轮编辑核验",
+        "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看 Cursor 官方安全公告",
+            "note": "核对受影响版本、时间窗、IOC、检测与修复步骤",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+            "kind": "docs"
+          }
+        ],
+        "related": [
+          {
+            "source": "Cursor",
+            "title": "Remediation scripts and indicators of compromise",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+            "date": "2026-10-30"
+          }
+        ]
+      },
       {
         "id": "openai-gpt6-rosalind-research-20261030",
         "category": "industry",
@@ -5599,7 +5645,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-31T06:22:32Z",
+    "generated_at": "2026-10-31T07:27:05Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -10073,11 +10119,11 @@
   },
   "activity_radar": {
     "version": 1,
-    "checked_at": "2026-10-31T06:17:46Z",
+    "checked_at": "2026-10-31T07:14:33Z",
     "sync": {
       "mode": "public_rss",
       "interval_minutes": 120,
-      "last_success": "2026-10-31T06:17:46Z",
+      "last_success": "2026-10-31T07:14:33Z",
       "note": "有公开 RSS 的播客/访谈源每 2 小时检查；官方技术博客、发布会与暂无 RSS 的中文节目按一手页面核验。媒体观点只作为信号，不自动改写成产品已发布事实。"
     },
     "sources": [
@@ -11145,7 +11191,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-31T06:22:32Z",
+    "last_evaluated": "2026-10-31T07:27:05Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 131,
@@ -11171,7 +11217,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-10-31T05:58:12Z",
+    "checked_at": "2026-10-31T07:19:00Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -11182,8 +11228,8 @@
         "stars_today": 1140,
         "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
-        "stars": 106607,
-        "forks": 9381,
+        "stars": 106706,
+        "forks": 9388,
         "repo_created_at": "2025-08-31T20:50:03Z",
         "repo_pushed_at": "2026-10-31T02:09:54Z",
         "category": "agent-memory",
@@ -11194,12 +11240,8 @@
           "AI"
         ],
         "url": "https://github.com/thedotmack/claude-mem",
-        "metadata_verified_at": "2026-10-31T05:58:12Z",
+        "metadata_verified_at": "2026-10-31T07:19:00Z",
         "star_history": [
-          {
-            "at": "2026-10-30T06:03:34Z",
-            "stars": 105026
-          },
           {
             "at": "2026-10-30T11:20:40Z",
             "stars": 105287
@@ -11243,6 +11285,10 @@
           {
             "at": "2026-10-31T05:58:12Z",
             "stars": 106607
+          },
+          {
+            "at": "2026-10-31T07:19:00Z",
+            "stars": 106706
           }
         ]
       },
@@ -11252,10 +11298,10 @@
         "stars_today": 895,
         "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
         "language": "TypeScript",
-        "stars": 8901,
-        "forks": 1224,
+        "stars": 8966,
+        "forks": 1232,
         "repo_created_at": "2026-08-11T18:58:55Z",
-        "repo_pushed_at": "2026-10-30T22:54:18Z",
+        "repo_pushed_at": "2026-10-31T07:10:41Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -11264,12 +11310,8 @@
           "GitHub"
         ],
         "url": "https://github.com/milind-soni/OpenMausBot",
-        "metadata_verified_at": "2026-10-31T05:58:12Z",
+        "metadata_verified_at": "2026-10-31T07:19:00Z",
         "star_history": [
-          {
-            "at": "2026-10-30T06:03:34Z",
-            "stars": 7661
-          },
           {
             "at": "2026-10-30T11:20:40Z",
             "stars": 7901
@@ -11313,6 +11355,10 @@
           {
             "at": "2026-10-31T05:58:12Z",
             "stars": 8901
+          },
+          {
+            "at": "2026-10-31T07:19:00Z",
+            "stars": 8966
           }
         ]
       },
@@ -11384,7 +11430,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 97322
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "CopilotKit/OpenBot",
@@ -11454,7 +11501,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 8909
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "Renhuai123/ziwei-doushu",
@@ -11519,7 +11567,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 11496
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "expo/skills",
@@ -11585,7 +11634,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 3926
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "macro-inc/macro",
@@ -11651,7 +11701,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 5930
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "mattpocock/skills",
@@ -11717,7 +11768,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 307633
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "pingdotgg/t3code",
@@ -11782,7 +11834,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 32991
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "HKUDS/DeepTutor",
@@ -11852,7 +11905,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 51964
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "anthropics/skills",
@@ -11918,7 +11972,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 185481
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "JetBrains/thinkrail",
@@ -11988,7 +12043,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 6664
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "togg53192-cmd/jailbreaks",
@@ -12057,7 +12113,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 11469
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "obra/superpowers",
@@ -12127,7 +12184,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 309548
           }
-        ]
+        ],
+        "metadata_status": "stale"
       },
       {
         "repo": "lightpanda-io/browser",
@@ -12193,7 +12251,8 @@
             "at": "2026-10-31T05:58:12Z",
             "stars": 38585
           }
-        ]
+        ],
+        "metadata_status": "stale"
       }
     ],
     "categories": [
@@ -12271,18 +12330,24 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-10-31T05:58:12Z",
-      "last_success_at": "2026-10-31T05:58:12Z",
+      "last_checked_at": "2026-10-31T07:19:00Z",
+      "last_success_at": "2026-10-31T07:19:00Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-10-31T05:58:12Z",
+      "watchlist_checked_at": "2026-10-31T07:19:00Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 15,
-      "verified_count": 15,
-      "metadata_failed_count": 0,
-      "metadata_status": "success",
-      "metadata_checked_at": "2026-10-31T05:58:12Z",
-      "skipped": []
+      "verified_count": 2,
+      "metadata_failed_count": 13,
+      "metadata_status": "partial",
+      "skipped": [
+        "pbakaus/impeccable: HTTP Error 403: Forbidden",
+        "CopilotKit/OpenBot: HTTP Error 403: Forbidden",
+        "Renhuai123/ziwei-doushu: HTTP Error 403: Forbidden",
+        "expo/skills: HTTP Error 403: Forbidden",
+        "macro-inc/macro: HTTP Error 403: Forbidden",
+        "mattpocock/skills: HTTP Error 403: Forbidden"
+      ]
     },
     "watchlist": [
       {
@@ -12296,12 +12361,12 @@
           "Agent",
           "MCP"
         ],
-        "stars": 412971,
-        "forks": 103311,
+        "stars": 413164,
+        "forks": 103352,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-10-31T05:38:54Z",
+        "repo_pushed_at": "2026-10-31T07:11:17Z",
         "language": "TypeScript",
-        "verified_at": "2026-10-31T05:58:12Z",
+        "verified_at": "2026-10-31T07:19:00Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。",
         "metadata_status": "verified"
       }
@@ -12309,15 +12374,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-10-31T05:19:24Z",
+    "checked_at": "2026-10-31T07:19:00Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-10-31T05:19:24Z",
-    "web_fetched_at": "2026-10-31T05:19:24Z",
+    "api_fetched_at": "2026-10-31T07:19:00Z",
+    "web_fetched_at": "2026-10-31T07:19:00Z",
     "web_verification_method": "official_web_server_html",
     "web_order_matches_api": true,
     "web_order": [
@@ -12327,20 +12392,20 @@
       "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "baidu/Unlimited-OCR-2",
       "mistralai/Mistral-Large-4-1T-A52B",
-      "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "Lightricks/LTX-2.5",
+      "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
       "RecursiveSI/flint",
-      "black-forest-labs/flux-3-image-klein-comfy",
       "XHToken/Spark-X2.6-4B",
+      "black-forest-labs/flux-3-image-klein-comfy",
       "ccore/Qwen3.5-4B-3D-Coder",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
       "Qwen/Qwen3.8-27B",
       "LiquidAI/LFM3-Omni-2B",
-      "openbmb/MiniCPM-OCR-1.0",
       "Pika-Labs/Pika-H3-Flex",
+      "openbmb/MiniCPM-OCR-1.0",
       "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-      "MiniMaxAI/MiniMax-M3.1-Flash"
+      "facebook/sam3"
     ],
     "web_rank_changes": [
       {
@@ -12348,150 +12413,156 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
-      },
-      {
-        "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "rank": 7,
-        "previous_rank": 7,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
-        "rank": 8,
+        "rank": 7,
         "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
+      },
+      {
+        "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+        "rank": 8,
+        "previous_rank": 7,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
-      },
-      {
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "rank": 10,
-        "previous_rank": 10,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
-        "rank": 11,
+        "rank": 10,
         "previous_rank": 11,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
+      },
+      {
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "rank": 11,
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 12,
-        "previous_rank": 14,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_rank": 12,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 13,
-        "previous_rank": 12,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_rank": 13,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "rank": 14,
-        "previous_rank": 13,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_rank": 14,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
-      },
-      {
-        "id": "openbmb/MiniCPM-OCR-1.0",
-        "rank": 17,
-        "previous_rank": 17,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "Pika-Labs/Pika-H3-Flex",
-        "rank": 18,
+        "rank": 17,
         "previous_rank": 18,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
+      },
+      {
+        "id": "openbmb/MiniCPM-OCR-1.0",
+        "rank": 18,
+        "previous_rank": 17,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       },
       {
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "id": "facebook/sam3",
         "rank": 20,
-        "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-10-31T03:20:29Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
       }
     ],
-    "web_outgoing": [],
+    "web_outgoing": [
+      {
+        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
+        "previous_rank": 20,
+        "previous_fetched_at": "2026-10-31T05:19:24Z"
+      }
+    ],
     "items": [
       {
         "rank": 1,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 810,
-        "likes": 4025,
+        "trending_score": 805,
+        "likes": 4035,
         "downloads": 145869,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12507,8 +12578,8 @@
         "rank": 2,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 782,
-        "likes": 800,
+        "trending_score": 785,
+        "likes": 803,
         "downloads": 12178,
         "task": "text-generation",
         "library": "transformers",
@@ -12524,8 +12595,8 @@
         "rank": 3,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 555,
-        "likes": 575,
+        "trending_score": 562,
+        "likes": 583,
         "downloads": 23694,
         "task": "text-generation",
         "library": "transformers",
@@ -12541,8 +12612,8 @@
         "rank": 4,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 477,
-        "likes": 507,
+        "trending_score": 480,
+        "likes": 510,
         "downloads": 15980,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -12558,8 +12629,8 @@
         "rank": 5,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 413,
-        "likes": 457,
+        "trending_score": 416,
+        "likes": 460,
         "downloads": 24276,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12575,8 +12646,8 @@
         "rank": 6,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 409,
-        "likes": 1354,
+        "trending_score": 414,
+        "likes": 1360,
         "downloads": 1239,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12590,27 +12661,10 @@
       },
       {
         "rank": 7,
-        "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 383,
-        "likes": 508,
-        "downloads": 1747945,
-        "task": "text-generation",
-        "library": "gguf",
-        "created_at": "2026-10-23T09:43:05.000Z",
-        "tags": [
-          "gguf",
-          "gsq",
-          "rco",
-          "quantization"
-        ]
-      },
-      {
-        "rank": 8,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 380,
-        "likes": 9983,
+        "trending_score": 382,
+        "likes": 9992,
         "downloads": 2335172,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -12623,11 +12677,28 @@
         ]
       },
       {
+        "rank": 8,
+        "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+        "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+        "trending_score": 367,
+        "likes": 509,
+        "downloads": 1747945,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-10-23T09:43:05.000Z",
+        "tags": [
+          "gguf",
+          "gsq",
+          "rco",
+          "quantization"
+        ]
+      },
+      {
         "rank": 9,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 370,
-        "likes": 1262,
+        "trending_score": 364,
+        "likes": 1265,
         "downloads": 19015,
         "task": "text-generation",
         "library": "transformers",
@@ -12641,27 +12712,10 @@
       },
       {
         "rank": 10,
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 326,
-        "likes": 2131,
-        "downloads": 886973,
-        "task": "image-to-image",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-14T12:00:13.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "comfyui",
-          "image-generation",
-          "image-editing"
-        ]
-      },
-      {
-        "rank": 11,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
         "trending_score": 323,
-        "likes": 923,
+        "likes": 925,
         "downloads": 12515,
         "task": "text-generation",
         "library": "transformers",
@@ -12674,11 +12728,28 @@
         ]
       },
       {
+        "rank": 11,
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
+        "trending_score": 320,
+        "likes": 2136,
+        "downloads": 886973,
+        "task": "image-to-image",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-14T12:00:13.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "comfyui",
+          "image-generation",
+          "image-editing"
+        ]
+      },
+      {
         "rank": 12,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 309,
-        "likes": 338,
+        "trending_score": 316,
+        "likes": 345,
         "downloads": 20197,
         "task": "未标注",
         "library": "未标注",
@@ -12694,8 +12765,8 @@
         "rank": 13,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 302,
-        "likes": 5381,
+        "trending_score": 303,
+        "likes": 5383,
         "downloads": 2516721,
         "task": "text-to-image",
         "library": "gguf",
@@ -12711,8 +12782,8 @@
         "rank": 14,
         "id": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
         "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
-        "trending_score": 300,
-        "likes": 377,
+        "trending_score": 286,
+        "likes": 379,
         "downloads": 30433,
         "task": "text-generation",
         "library": "gguf",
@@ -12728,8 +12799,8 @@
         "rank": 15,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 276,
-        "likes": 18808,
+        "trending_score": 274,
+        "likes": 18811,
         "downloads": 7624809,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12745,8 +12816,8 @@
         "rank": 16,
         "id": "LiquidAI/LFM3-Omni-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 223,
-        "likes": 230,
+        "trending_score": 226,
+        "likes": 233,
         "downloads": 3080,
         "task": "any-to-any",
         "library": "transformers",
@@ -12760,27 +12831,10 @@
       },
       {
         "rank": 17,
-        "id": "openbmb/MiniCPM-OCR-1.0",
-        "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
-        "trending_score": 203,
-        "likes": 367,
-        "downloads": 2413,
-        "task": "image-text-to-text",
-        "library": "未标注",
-        "created_at": "2026-10-21T15:51:40.000Z",
-        "tags": [
-          "safetensors",
-          "minicpm_ocr",
-          "minicpm-ocr",
-          "ocr"
-        ]
-      },
-      {
-        "rank": 18,
         "id": "Pika-Labs/Pika-H3-Flex",
         "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
-        "trending_score": 202,
-        "likes": 205,
+        "trending_score": 207,
+        "likes": 210,
         "downloads": 87,
         "task": "image-to-video",
         "library": "diffusers",
@@ -12793,11 +12847,28 @@
         ]
       },
       {
+        "rank": 18,
+        "id": "openbmb/MiniCPM-OCR-1.0",
+        "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
+        "trending_score": 203,
+        "likes": 369,
+        "downloads": 2413,
+        "task": "image-text-to-text",
+        "library": "未标注",
+        "created_at": "2026-10-21T15:51:40.000Z",
+        "tags": [
+          "safetensors",
+          "minicpm_ocr",
+          "minicpm-ocr",
+          "ocr"
+        ]
+      },
+      {
         "rank": 19,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-        "trending_score": 195,
-        "likes": 289,
+        "trending_score": 193,
+        "likes": 292,
         "downloads": 64263,
         "task": "text-generation",
         "library": "transformers",
@@ -12811,25 +12882,25 @@
       },
       {
         "rank": 20,
-        "id": "MiniMaxAI/MiniMax-M3.1-Flash",
-        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
-        "trending_score": 185,
-        "likes": 508,
-        "downloads": 18795,
-        "task": "image-text-to-text",
+        "id": "facebook/sam3",
+        "url": "https://huggingface.co/facebook/sam3",
+        "trending_score": 182,
+        "likes": 5520,
+        "downloads": 1886656,
+        "task": "mask-generation",
         "library": "transformers",
-        "created_at": "2026-10-17T06:37:50.000Z",
+        "created_at": "2025-11-07T05:17:48.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "minimax_m3_vl",
-          "image-text-to-text"
+          "sam3_video",
+          "feature-extraction"
         ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-10-31T05:19:24Z",
+      "last_checked_at": "2026-10-31T07:19:00Z",
       "web_status": "success",
       "api_status": "success"
     }

@@ -29,6 +29,12 @@
 
 边界：Artificial Analysis 当前公开榜仍给出 Opus 5.5（max with fallback）Intelligence Index 58、Cost per Task $5.98、1M context。这是独立评测快照，不是本站实测；榜单后续可能继续更新。
 
+站内热度 98；不是全网流量。</description></item><item><title>Cursor 扩展市场中的 Claude Code 2.1.312 / 2.1.313 被恶意篡改</title><guid isPermaLink="false">frontierlog:hot:cursor-claude-code-extension-compromise-20261029</guid><link>https://cursor.com/blog/claude-code-extension-security-notice</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0800</pubDate><description>Cursor 确认其 VS Code 扩展市场在 10 月 29 日约 02:27–13:35 PT 分发过被恶意修改的 Anthropic.claude-code 2.1.312 与 2.1.313（macOS / Windows）；载荷会收集主机信息，并尝试写入 SSH key、建立反向隧道和持久化。
+
+为什么值得看：这直接改变了 Claude Code 用户的当前安全动作：仅卸载扩展不足以证明清除，受影响机器需要核对 IOC、隔离、移除持久化，并从可信设备轮换可访问的凭据和会话。
+
+边界：Cursor 表示恶意版本不是 Anthropic 制作，当前没有证据显示其他版本或官方分发渠道受影响；攻击服务器已下线，且多数 macOS / Windows 主机上的 SSH 启用步骤会因无管理员权限失败。但载荷仍可能写入 SSH key、落地持久化并上报主机信息，所以不能把“服务器下线”写成机器已经安全，也不能把受影响范围外推到所有 Claude Code 安装。
+
 站内热度 98；不是全网流量。</description></item><item><title>Jev 走红：TypeSafe 把 AI 从“生成文本”拆出一个高速决策层</title><guid isPermaLink="false">frontierlog:hot:jev-system-one-20260915</guid><link>https://typesafe.ai/blog/introducing-system-one-models-and-jev</link><pubDate>Tue, 15 Sep 2026 00:00:00 +0800</pubDate><description>TypeSafe AI 9 月 15 日发布首个 System One Model Jev：它不生成自由文本，而是接收程序状态和结构化问题，返回类型安全的选择、评分或概率，并给出置信度。TypeSafe 官方定价为每百万输入 Token $0.042、输出不计费，官方称典型端到端延迟约 70–500ms。
 
 为什么值得看：Jev 值得关注的不是“又一个小模型”，而是它在挑战当前 Agent 架构默认假设：并非每一步判断都需要调用生成式 LLM。若这种“LLM 负责生成 / Jev 类模型负责路由、判断、校验、打分”的分层成立，Agent 的成本、延迟、可控性和可观测性都可能明显改变。最近媒体和开发者讨论升温，说明它已从一次新品发布变成值得追踪的架构信号。
