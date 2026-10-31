@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-31T18:52:28Z",
+  "generated_at": "2026-10-31T19:22:48Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 5,
+    "publish": 6,
     "merge": 124,
     "hold": 5
   },
@@ -129,6 +129,29 @@
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "docling",
       "first_seen_at": "2026-10-27T01:23:34Z"
+    },
+    {
+      "id": "candidate-f5a86901ed45d8e7",
+      "category": "industry",
+      "published": "2026-10-22",
+      "title": "数字患者孪生进入临床试验探索：先验收预测，再谈替代对照组",
+      "summary": "Boehringer Ingelheim 与 Microsoft 将共同研究数字患者孪生，用临床及其他相关数据建模疾病进展、预测结局并模拟试验；首个研究方向是肺部健康。",
+      "why": "这把数字孪生从工业仿真带到临床开发，并明确指向合成或混合对照组。医药团队可以据此把疾病进展模型、患者分层、试验模拟、数据授权与监管接受拆成独立验收环节。",
+      "boundary": "这是双方官方公布的探索性合作，不是已验证的数字患者、已批准的合成对照组或临床结局改善证据。公告没有给出数据集、模型、基准、样本量或实施结果；任何用途都仍需科学验证、患者安全审查、数据授权和监管接受。",
+      "source": "Boehringer Ingelheim",
+      "source_kind": "公司官方合作公告、数字患者孪生研究范围、肺部健康起点与科学/监管边界",
+      "url": "https://www.boehringer-ingelheim.com/about-us/boehringer-microsoft-partner-ai-backed-clinical-development",
+      "publishable": true,
+      "features": {
+        "freshness": 0.357,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 1.0
+      },
+      "priority_score": 0.78,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "first_seen_at": "2026-10-31T19:22:48Z"
     },
     {
       "id": "candidate-b3d0d4d92054cbfe",
@@ -981,35 +1004,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-28T01:30:28Z"
-    },
-    {
-      "id": "candidate-12481d1c9f3541ea",
-      "category": "research",
-      "published": "2026-10-28",
-      "title": "科研 Agent 开始走向可审计的实验仪器接口",
-      "summary": "Anthropic 把 AI for Science credits 计划扩展到 20 家基金会、研究机构与研究团队，并与 HHMI Janelia 预览 Model Hardware Standard（MHS），探索让 Agent 通过统一接口操作实验仪器。",
-      "why": "真正值得跟踪的是仪器接口能否同时表达权限、实验协议、状态、异常停机、数据血缘和人工审批；没有这些约束，语言模型连上硬件只会放大不可审计风险。",
-      "boundary": "公告不能证明通用实验室自动化已可用，也不能推出 AI 已产生可复现科学发现。合作方案例与提速来自发布方材料，多数项目仍在早期；MHS 的安全模型、兼容性和独立复验尚未公开完整结果。",
-      "source": "Anthropic / HHMI Janelia",
-      "source_kind": "官方项目范围、合作方、MHS research preview 与限制",
-      "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
-      "publishable": false,
-      "features": {
-        "freshness": 0.786,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.751,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "anthropic-ai-for-science-mhs-20261028",
-      "topic_tags": [
-        "AI for Science",
-        "Lab Automation",
-        "Agent Safety"
-      ],
-      "first_seen_at": "2026-10-29T05:26:10Z"
     }
   ]
 }
