@@ -16,8 +16,12 @@ class BuildTests(unittest.TestCase):
         self.u=json.loads((ROOT/'data/upstream.json').read_text())
         self.s=json.loads((ROOT/'data/site.json').read_text())
     def test_catalog_valid(self): build.validate(self.c,self.u,self.s)
-    def test_checked_in_trending_apis_match_reviewed_inputs(self):
-        for name in ('github-hot.json','huggingface-hot.json','activity-radar.json'):
+    def test_checked_in_generated_apis_match_reviewed_inputs(self):
+        for name in (
+            'github-hot.json','huggingface-hot.json','activity-radar.json',
+            'hot.json','hot-inbox.json','hot-policy.json','research-radar.json',
+            'topic-intake.json','upstream.json',
+        ):
             self.assertEqual(
                 json.loads((ROOT/'api/v1'/name).read_text()),
                 json.loads((ROOT/'data'/name).read_text()),
