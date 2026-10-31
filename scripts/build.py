@@ -123,6 +123,16 @@ def validate_product_radar(data:dict, *, now:datetime|None=None)->None:
             for key in ('kind','title'):
                 if not isinstance(event.get(key),str) or not event[key].strip(): raise ValueError('Incomplete product radar timeline event')
             if not https_url(event.get('url','')): raise ValueError('Invalid product radar timeline URL')
+            verified_at=event.get('verified_at')
+            if verified_at:
+                if not isinstance(verified_at,str): raise ValueError('Invalid product radar verification timestamp')
+                if re.fullmatch(r'\d{4}-\d{2}-\d{2}',verified_at):
+                    if date.fromisoformat(verified_at)>checked: raise ValueError('Future product radar verification date')
+                else:
+                    try: verified=datetime.fromisoformat(verified_at.replace('Z','+00:00'))
+                    except ValueError as exc: raise ValueError('Invalid product radar verification timestamp') from exc
+                    if verified.tzinfo is None or verified.utcoffset() is None: raise ValueError('Product radar verification timestamp requires UTC offset')
+                    if verified>now: raise ValueError('Future product radar verification timestamp')
     filters=data.get('filters')
     if not isinstance(filters,list) or not filters: raise ValueError('Missing product radar filters')
     fids=[f.get('id') for f in filters]

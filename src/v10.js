@@ -77,6 +77,13 @@ const PB=(()=>{
  const plain=x=>String(x??'');
  const text=x=>[x.name,x.company,x.summary,...(x.tags||[]),x.research?.thesis,...(x.research?.stack||[]),...(x.research?.watch||[])].map(plain).join(' ').toLowerCase();
  const dateOK=d=>/^\d{4}-\d{2}-\d{2}$/.test(plain(d))&&!Number.isNaN(Date.parse(d+'T00:00:00Z'))&&new Date(d+'T00:00:00Z').toISOString().slice(0,10)===d;
+ const verificationText=raw=>{
+  const value=plain(raw);
+  if(dateOK(value))return value;
+  if(!/(?:Z|[+-]\d{2}:\d{2})$/.test(value)||!Number.isFinite(Date.parse(value)))return '';
+  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).map(x=>[x.type,x.value]));
+  return parts.month+'.'+parts.day+' '+parts.hour+':'+parts.minute+' 北京时间';
+ };
  const chronology=x=>[...(x.timeline||[])].filter(e=>dateOK(e.date)).sort((a,b)=>b.date.localeCompare(a.date)||plain(a.title).localeCompare(plain(b.title)));
  function read(hash=location.hash){
   const p=new URLSearchParams(hash.split('?')[1]||''),old=p.get('ptag');
@@ -165,7 +172,8 @@ const PB=(()=>{
   const cards=rows.map((e,i)=>{
    const last=i===rows.length-1,valid=canonical(e.url),precise=!!valid&&specific(e.url);
    const source=valid?new URL(valid).hostname.replace(/^www\./,''):'来源待补';
-   const rich=precise&&e.evidence_level==='primary_source'&&dateOK(e.verified_at);
+   const verified=verificationText(e.verified_at);
+   const rich=precise&&e.evidence_level==='primary_source'&&!!verified;
    const facts=rich&&Array.isArray(e.facts)?e.facts.filter(f=>f&&typeof f.label==='string'&&typeof f.value==='string').slice(0,3):[];
    const titleId=trackId+'-title-'+i;
    return '<li class="pb-milestone'+(last?' is-latest':'')+'" data-history-node>'+ 
@@ -178,7 +186,7 @@ const PB=(()=>{
     '<div class="pb-milestone-source">'+external(e.url,source)+(rich?'<span>一手原文 · 已核验</span>':'<span class="pb-warning">'+(precise?'沿用收录 · 未重新核验':'栏目页，精确原文待补')+'</span>')+'</div>'+
     '<details class="pb-node-evidence"><summary>证据与边界</summary>'+
     '<p>发布时间：'+e.date.replaceAll('-','.')+(rich?' · 原文日期已核对':' · 沿用已有记录')+'</p>'+
-    '<p>核验日期：'+(rich?esc(e.verified_at):'待核验；不沿用名录核对时间')+'</p>'+
+    '<p>核验记录：'+(rich?esc(verified):'待核验；不沿用名录核对时间')+'</p>'+ 
     (rich&&e.scope?'<p><b>适用范围：</b>'+esc(e.scope)+'</p>':'')+
     '<p><b>不能推出：</b>'+esc(rich&&e.limitations?e.limitations:'这条记录本身不能证明任务成功率、规模化可用性或本站实测效果。')+'</p></details></article></li>';
   }).join('');

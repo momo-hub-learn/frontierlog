@@ -129,6 +129,14 @@ check('verified detail fields are visible and missing evidence never gets upgrad
  p.timeline[0].verified_at='';p.timeline[0].summary='MUST_NOT_SHOW_UNVERIFIED';p.timeline[0].facts=[{label:'fake',value:'999%'}];
  html=pb.historyHTML(p,pb.chronology(p));assert(!html.includes('MUST_NOT_SHOW_UNVERIFIED'));assert(!html.includes('999%'));assert(html.includes('未重新核验'));
 });
+check('timezone-aware verification timestamps stay verified and naive timestamps do not',()=>{
+ const p=clone(data.items.find(x=>x.id==='nvidia-vera-rubin-oci'));
+ let html=pb.historyHTML(p,pb.chronology(p));
+ assert(html.includes('一手原文 · 已核验'));assert(html.includes('10.31 23:35 北京时间'));
+ p.timeline[0].verified_at='2026-10-31T23:35:29';
+ html=pb.historyHTML(p,pb.chronology(p));
+ assert(html.includes('沿用收录 · 未重新核验'));assert(!html.includes('10.31 23:35 北京时间'));
+});
 check('timeline extras escape text and source credentials remain blocked',()=>{
  const p=clone(data.items.find(x=>x.id==='harvey'));p.timeline[0].summary='<script>alert(1)</script>';p.timeline[0].facts=[{label:'<b>x</b>',value:'<img onerror=bad>'}];
  const html=pb.historyHTML(p,pb.chronology(p));assert(!html.includes('<script>'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('<img onerror'));

@@ -275,6 +275,7 @@ class BuildTests(unittest.TestCase):
         for item in product['items']:
             for event in item['timeline']:
                 if event['date']>'2026-10-21':event['date']='2026-10-21'
+                if event.get('verified_at') and event['verified_at']>'2026-10-21':event['verified_at']='2026-10-21'
         for item in research['items']:
             if item['date']>'2026-10-21':item['date']='2026-10-21'
         build.validate_product_radar(product,now=instant)
@@ -283,6 +284,19 @@ class BuildTests(unittest.TestCase):
             build.validate_product_radar(product,now=datetime(2026,10,20,15,30,tzinfo=timezone.utc))
         with self.assertRaises(ValueError):
             build.validate_research_radar(research,now=datetime(2026,10,20,15,30,tzinfo=timezone.utc))
+
+    def test_product_verification_timestamps_require_timezone_and_reject_the_future(self):
+        product=json.loads((ROOT/'data/product-radar.json').read_text())
+        event=next(x for x in product['items'] if x['id']=='nvidia-vera-rubin-oci')['timeline'][0]
+        now=datetime(2026,10,31,16,0,tzinfo=timezone.utc)
+        event['verified_at']='2026-10-31T23:35:29+08:00'
+        build.validate_product_radar(product,now=now)
+        event['verified_at']='2026-10-31T23:35:29'
+        with self.assertRaisesRegex(ValueError,'requires UTC offset'):
+            build.validate_product_radar(product,now=now)
+        event['verified_at']='2026-11-01T00:35:29+08:00'
+        with self.assertRaisesRegex(ValueError,'Future product radar verification timestamp'):
+            build.validate_product_radar(product,now=now)
 
     def test_gpt6_intelligent_ui_is_actionable_capability(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
