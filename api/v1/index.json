@@ -5755,13 +5755,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-31T22:04:18Z",
+    "generated_at": "2026-10-31T23:27:13Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 6,
-      "merge": 124,
+      "merge": 125,
       "hold": 5
     },
     "candidates": [
@@ -6035,6 +6035,30 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-gpt6-rosalind-research",
         "first_seen_at": "2026-10-30T23:37:06Z"
+      },
+      {
+        "id": "candidate-6d28ab8005f17a3e",
+        "category": "product",
+        "published": "2026-10-30",
+        "title": "iOS / Android 开始支持双账号切换",
+        "summary": "移动应用可同时保持最多两个 ChatGPT 账号登录，并在设置中切换；账号内容与订阅继续分开。",
+        "why": "个人、工作或测试账号的切换成本下降，但上线验收仍要逐账号核对数据边界、工作区策略和订阅状态，不能把同机登录误解为账号合并。",
+        "boundary": "不能从分批推出推断全部移动账号、Web 或桌面端已经开放；不能推出聊天、记忆、订阅可跨账号迁移或共享。",
+        "source": "OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "openai-chatgpt-account-switching",
+        "first_seen_at": "2026-10-31T23:27:13Z"
       },
       {
         "id": "candidate-aa79d76e3c1a71df",
@@ -6736,29 +6760,6 @@
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "servicenow-chatgpt-workflows",
         "first_seen_at": "2026-10-28T19:29:22Z"
-      },
-      {
-        "id": "candidate-52b59234fd7a3b71",
-        "category": "industry",
-        "published": "2026-10-27",
-        "title": "Claude 进入六个药物项目：先分开实验结果、流程效率与临床证据",
-        "summary": "Anthropic 披露与 BigHat、BMS、Divergence Labs、Enveda、Generate Biomedicines 和 The Column Group 的合作，覆盖分子设计、先导优化、制造文档、公司创建与临床试验规划，并链接合作方技术报告。",
-        "why": "这把通用模型接入药物研发的多个真实环节，并给出从设计数量、实验命中到文档复核工时的可追踪节点；团队可据此建立分任务、分证据阶段的验证清单，而不是只看一个综合演示。",
-        "boundary": "本站未复现实验。数据与结果来自 Anthropic 及合作方阶段报告，官方明确多数仍在临床前；蛋白结合、实验室命中、流程提速、小鼠结果或临床计划分析都不能推出人体疗效、获批药物或普遍生产率提升。敏感数据治理、独立实验复现、监管审查和临床终点仍需分别验证。",
-        "source": "Anthropic",
-        "source_kind": "官方药物研发合作阶段报告、合作方技术报告入口与临床前限制",
-        "url": "https://www.anthropic.com/research/early-progress-drug-development",
-        "publishable": true,
-        "features": {
-          "freshness": 0.714,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-28T01:30:28Z"
       }
     ]
   },
@@ -11430,12 +11431,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-31T22:04:18Z",
+    "last_evaluated": "2026-10-31T23:27:13Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 135,
+      "candidate_count": 136,
       "publish_ready_count": 6,
-      "merge_count": 124,
+      "merge_count": 125,
       "best_candidate": "candidate-123e3f719aa75935",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
