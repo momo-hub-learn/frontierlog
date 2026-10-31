@@ -1365,6 +1365,67 @@
       ]
     },
     {
+      "id": "nvidia-oracle-vera-rubin-oci-20261027",
+      "category": "industry",
+      "title": "Vera Rubin NVL72 与 Vera CPU 在 OCI 正式可用",
+      "published": "2026-10-27",
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T23:35:29+08:00",
+      "first_seen_at": "2026-10-31T23:35:29+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 33,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；GA 与多吉瓦扩容计划分开计入，不是性能、成本、容量交付或本站实测分数。",
+      "trend": "up",
+      "verification_status": "NVIDIA / Oracle 双方官方公告 · OCI GA 与扩容计划 · 本站未租用或压测",
+      "summary": "NVIDIA 与 Oracle 确认 Vera Rubin NVL72 和 Vera CPU 已在 OCI 正式可用；OCI 还计划把搭载 NVL72 的 Supercluster 扩到多吉瓦规模，并计划引入八卡 HGX Rubin NVL8。",
+      "why": "这把前沿训练、推理和 Agent 工具执行需要的 GPU、CPU、网络与数据中心规模放到同一云基础设施路径里。对准备迁移新一代集群的团队，当前可订购范围、独立扩缩 GPU / CPU 与未来容量交付需要分开验收。",
+      "boundary": "正式可用仅明确覆盖 NVIDIA Vera Rubin NVL72 与 Vera CPU 的 OCI 产品范围；多吉瓦 Supercluster 扩容和 HGX Rubin NVL8 仍是计划。公告未给出全部区域、实际排期、价格、可订购库存、客户侧成本或独立性能结果，也不能把厂商给出的代际性能主张当成本站实测。",
+      "source": "NVIDIA / Oracle",
+      "source_kind": "双方官方发布、当前 GA 范围与扩容计划 / 本轮编辑核验",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+      "link": "#/hot?cat=product&pview=map&product=nvidia-vera-rubin-oci",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看 OCI 产品节点与边界",
+          "note": "把已 GA 的 NVL72 / Vera CPU 与规划中的多吉瓦扩容、NVL8 分开阅读",
+          "url": "#/hot?cat=product&pview=map&product=nvidia-vera-rubin-oci",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 NVIDIA 官方公告",
+          "note": "核对 GA 范围、Supercluster 扩容计划与基础设施组成",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+          "kind": "industry"
+        },
+        {
+          "label": "阅读 Oracle 官方公告",
+          "note": "交叉核对 OCI 可用性、NVL8 计划与客户工作负载范围",
+          "url": "https://www.oracle.com/ca-en/news/announcement/ai-world-nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-2026-10-27/",
+          "kind": "industry"
+        }
+      ],
+      "related": [
+        {
+          "source": "NVIDIA",
+          "title": "NVIDIA and Oracle Expand NVIDIA Vera Rubin to Multi-Gigawatt Scale",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+          "date": "2026-10-27"
+        },
+        {
+          "source": "Oracle",
+          "title": "NVIDIA Vera Rubin NVL72 and Vera CPUs Are Now Generally Available on OCI",
+          "url": "https://www.oracle.com/ca-en/news/announcement/ai-world-nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-2026-10-27/",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
       "id": "openai-icloud-mail-calendar-20261027",
       "category": "product",
       "title": "ChatGPT 接入 iCloud 邮件与日历",

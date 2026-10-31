@@ -84,7 +84,7 @@ const PB=(()=>{
   const oldScene={legal:'legal','ai-evaluation':'evaluation','customer-experience':'support','support-automation':'support','knowledge-work':'knowledge',gtm:'sales'};
   if(!p.has('scene')&&oldScene[old])s.scene=oldScene[old];
   if(!p.has('investor')&&['sequoia','yc'].includes(old))s.investor=old;
-  if(['enterprise-agent','in-house','customer-experience','support-automation','ai-evaluation'].includes(old))s.legacy=old;
+  if((PRODUCT_RADAR.filters||[]).some(x=>x.id===old))s.legacy=old;
   if(!SCENES.some(([id])=>id===s.scene))s.scene='all';
   if(!INVESTORS.some(([id])=>id===s.investor))s.investor='all';
   if(!Object.hasOwn(KINDS,s.kind))s.kind='all';

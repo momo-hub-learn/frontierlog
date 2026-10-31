@@ -144,6 +144,11 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(allowance['timeline'][0]['evidence_level'],'primary_source')
         self.assertEqual(set(allowance['filter_ids']),{'enterprise-agent','knowledge-work'})
         self.assertIn('不增加 API credits',allowance['boundary'])
+        vera=next(x for x in radar['items'] if x['id']=='nvidia-vera-rubin-oci')
+        self.assertEqual(vera['timeline'][0]['evidence_level'],'primary_source')
+        self.assertIn('正式可用',vera['timeline'][0]['title'])
+        self.assertIn('仍待后续交付',vera['boundary'])
+        self.assertEqual(set(vera['filter_ids']),{'enterprise-agent','ai-infrastructure'})
         self.assertGreaterEqual(sum(len(x.get('timeline',[])) for x in radar['items']),10)
         with tempfile.TemporaryDirectory() as td:
             d=Path(td);app=build.build(d,'','')

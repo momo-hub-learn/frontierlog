@@ -174,6 +174,16 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('没有给出优化后的 Benchmark',item['boundary'])
   self.assertIn('本站未复核',item['boundary'])
   validate_hot(self.data)
+ def test_nvidia_oracle_oci_separates_current_ga_from_future_capacity(self):
+  item=next(x for x in self.data['items'] if x['id']=='nvidia-oracle-vera-rubin-oci-20261027')
+  self.assertEqual(item['published'],'2026-10-27')
+  self.assertNotIn('published_at',item)
+  self.assertIn('正式可用',item['summary'])
+  self.assertIn('仍是计划',item['boundary'])
+  self.assertIn('本站未租用或压测',item['verification_status'])
+  self.assertEqual(item['link'],'#/hot?cat=product&pview=map&product=nvidia-vera-rubin-oci')
+  self.assertEqual({x['source'] for x in item['related']},{'NVIDIA','Oracle'})
+  validate_hot(self.data)
  def test_hot_source_edits_trigger_checked_in_pages_rebuild(self):
   workflow=(R/'.github/workflows/hot-sync.yml').read_text()
   self.assertIn("      - 'data/hot.json'",workflow)

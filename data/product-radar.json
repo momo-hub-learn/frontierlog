@@ -453,6 +453,41 @@
       ]
     },
     {
+      "id": "nvidia-vera-rubin-oci",
+      "name": "NVIDIA Vera Rubin on OCI",
+      "company": "NVIDIA / Oracle",
+      "group": "enterprise-agent",
+      "tags": ["AI Infrastructure", "OCI", "Generally Available"],
+      "summary": "把 Vera Rubin NVL72 与 Vera CPU 作为 OCI 当前可用基础设施，并跟踪多吉瓦 Supercluster 与 HGX Rubin NVL8 的后续交付。",
+      "product_url": "https://www.oracle.com/cloud/compute/gpu/nvidia/",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+      "source_label": "NVIDIA / Oracle 双方官方发布",
+      "evidence": "NVIDIA 与 Oracle 2026-10-27 官方公告确认 Vera Rubin NVL72 与 Vera CPU 已在 OCI 正式可用，并公布多吉瓦 Supercluster 扩容及 HGX Rubin NVL8 的后续计划。",
+      "boundary": "当前 GA 与未来计划不能混写：已明确正式可用的是 Vera Rubin NVL72 与 Vera CPU；多吉瓦扩容和 HGX Rubin NVL8 仍待后续交付。公告未列出所有区域、库存、价格和独立性能结果，本站未租用、部署或压测。",
+      "filter_ids": ["enterprise-agent", "ai-infrastructure"],
+      "timeline": [
+        {
+          "date": "2026-10-27",
+          "kind": "GA + infrastructure plan",
+          "title": "Vera Rubin NVL72 与 Vera CPU 在 OCI 正式可用",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+          "summary": "OCI 上线 Vera Rubin NVL72 与 Vera CPU；双方同时公布多吉瓦 Supercluster 扩容和 HGX Rubin NVL8 计划。",
+          "facts": [
+            {"label": "当前状态", "value": "NVL72 + Vera CPU · GA on OCI"},
+            {"label": "GPU 集群", "value": "OCI Superclusters · NVL72"},
+            {"label": "后续计划", "value": "Multi-gigawatt scale / HGX Rubin NVL8"},
+            {"label": "工作负载", "value": "训练 / 推理 / Agent 工具执行"}
+          ],
+          "interpretation": "前沿模型基础设施正在把 GPU 密集型训练推理与 Agent 调用间的 CPU 工作解耦扩缩；选型应分别验收区域、配额、网络、成本和实际工作负载。",
+          "scope": "NVIDIA 与 Oracle 2026-10-27 官方发布中明确的 OCI GA 产品和后续基础设施计划。",
+          "limitations": "不能从 GA 公告推出所有区域已有库存，也不能把计划容量、厂商代际性能或客户引语写成已交付规模与独立 Benchmark。",
+          "published_at": "2026-10-27",
+          "verified_at": "2026-10-31T23:35:29+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "openai-gpt-6-1-terra",
       "name": "GPT-6.1 Terra",
       "company": "OpenAI",
@@ -1306,6 +1341,10 @@
     {
       "id": "ai-evaluation",
       "title": "AI Evaluation"
+    },
+    {
+      "id": "ai-infrastructure",
+      "title": "AI Infrastructure"
     }
   ]
 }
