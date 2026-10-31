@@ -238,6 +238,9 @@ try:
         ):
             box = mobile.locator(selector).bounding_box()
             assert box and box["width"] >= 44 and box["height"] >= 44, (selector, box)
+        expect(
+            mobile.get_by_role("button", name="快速跳转", exact=True)
+        ).to_be_visible()
         passed("mobile header actions expose 44px touch targets")
         for route in ("#/feed", "#/progress", "#/hot", "#/hot?tab=hf", "#/toolkit", "#/manufacturing"):
             mobile.evaluate("route => location.hash = route", route)

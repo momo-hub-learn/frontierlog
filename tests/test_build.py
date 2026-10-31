@@ -366,6 +366,13 @@ class BuildTests(unittest.TestCase):
             '.top-actions .button,.top-actions .iconbutton,.top-actions .command-trigger,.mobile-menu{min-width:44px;min-height:44px}',
             css,
         )
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td);build.build(d,'','')
+            html=(d/'index.html').read_text()
+            self.assertIn(
+                'class="command-trigger" data-action="command" aria-label="快速跳转"',
+                html,
+            )
 
     def test_active_navigation_uses_readable_theme_text(self):
         css=(ROOT/'src/v2.css').read_text()
