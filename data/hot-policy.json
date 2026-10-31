@@ -75,10 +75,10 @@
     "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
     "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
   },
-  "last_evaluated": "2026-10-30T23:37:06Z",
+  "last_evaluated": "2026-10-31T00:10:54Z",
   "last_decision": {
     "action": "publish",
-    "candidate_count": 131,
+    "candidate_count": 130,
     "publish_ready_count": 5,
     "merge_count": 120,
     "best_candidate": "candidate-123e3f719aa75935",
