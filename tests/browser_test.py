@@ -21,6 +21,7 @@ CATALOG = json.loads((ROOT / "data/catalog.json").read_text())
 TOOLKIT = json.loads((ROOT / "data/toolkit.json").read_text())
 RESEARCH = json.loads((ROOT / "data/research-radar.json").read_text())
 GITHUB = json.loads((ROOT / "data/github-hot.json").read_text())
+HUGGINGFACE = json.loads((ROOT / "data/huggingface-hot.json").read_text())
 HTML = (ROOT / "dist/index.html").read_text()
 MEMORY = os.environ.get("BROWSER_TEST_MODE") == "memory"
 
@@ -264,12 +265,16 @@ try:
         expect(mobile.locator(".fc-hf-panel")).to_have_count(1)
         expect(mobile.locator(".fc-hf-row")).to_have_count(3)
         expect(mobile.locator(".fc-hf-row").first.locator(".fc-hf-stats")).to_be_visible()
+        hf_model_id = mobile.locator(".fc-hf-row").first.locator(".fc-hf-main strong")
+        assert hf_model_id.evaluate("el => getComputedStyle(el).whiteSpace") == "normal"
+        assert hf_model_id.evaluate("el => el.scrollWidth <= el.clientWidth")
+        expect(hf_model_id).to_have_text(HUGGINGFACE["web_order"][0])
         mobile.locator(".fc-hf-panel").screenshot(path=str(OUT / "hf-signals-mobile.png"))
         mobile.locator('[data-action="menu"]').click()
         mobile.locator('#nav a[href="#/models"]').click()
         expect(mobile.locator("body")).not_to_have_class("nav-open")
         expect(mobile.locator(".m-wrap")).to_have_count(1)
-        passed("mobile navigation and representative routes avoid horizontal overflow")
+        passed("mobile navigation, full HF model IDs and representative routes avoid horizontal overflow")
 
         assert not errors, errors
         report = {
