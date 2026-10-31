@@ -98,7 +98,7 @@ vm.runInContext('this.__fresh=fcGithubPanel();',view);
 assert.match(view.__fresh,/#07/);
 assert.match(view.__fresh,/\+51/);
 assert.match(view.__fresh,/morluto\/rea/);
-assert.match(view.__fresh,/142k/);
+assert.match(view.__fresh,/142,000/);
 assert.match(view.__fresh,/总 Star/);
 assert.match(view.__fresh,/GitHub AI 热仓/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
@@ -106,6 +106,15 @@ assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/API 旧快照/);
 assert.match(view.__fresh,/上榜仓库资料更新部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
 assert.match(view.__fresh,/语言未标注 · 总 Star 待核验 · API 旧快照/);
+
+view.APP.github_hot={
+ checked_at:new Date().toISOString(),sync:{metadata_status:'success'},
+ items:[{repo:'example/precise-agent',ai_related:true,stars_today:1723,stars:107690,rank:1,url:'https://github.com/example/precise-agent',description:'Agent tools',language:'TypeScript',metadata_status:'verified',metadata_verified_at:new Date().toISOString()}],watchlist:[]
+};
+vm.runInContext('this.__precise=fcGithubPanel();',view);
+assert.match(view.__precise,/\+1,723/);
+assert.match(view.__precise,/★ 107,690/);
+assert.doesNotMatch(view.__precise,/\+1\.7k|★ 108k/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
