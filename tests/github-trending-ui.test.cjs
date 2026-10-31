@@ -114,6 +114,8 @@ view.APP.github_hot={
 vm.runInContext('this.__precise=fcGithubPanel();',view);
 assert.match(view.__precise,/\+1,723/);
 assert.match(view.__precise,/★ 107,690/);
+assert.match(view.__precise,/今日新增 Star/);
+assert.doesNotMatch(view.__precise,/<small>Today<\/small>/);
 assert.doesNotMatch(view.__precise,/\+1\.7k|★ 108k/);
 
 view.APP.github_hot={

@@ -4,7 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from xml.etree import ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -144,6 +144,11 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(allowance['timeline'][0]['evidence_level'],'primary_source')
         self.assertEqual(set(allowance['filter_ids']),{'enterprise-agent','knowledge-work'})
         self.assertIn('不增加 API credits',allowance['boundary'])
+        account_switch=next(x for x in radar['items'] if x['id']=='openai-chatgpt-account-switching')
+        self.assertEqual(account_switch['timeline'][0]['kind'],'Mobile rollout')
+        self.assertEqual(account_switch['timeline'][0]['evidence_level'],'primary_source')
+        self.assertIn('最多两个',account_switch['evidence'])
+        self.assertIn('不是团队空间合并',account_switch['boundary'])
         vera=next(x for x in radar['items'] if x['id']=='nvidia-vera-rubin-oci')
         self.assertEqual(vera['timeline'][0]['evidence_level'],'primary_source')
         self.assertIn('正式可用',vera['timeline'][0]['title'])
@@ -288,13 +293,15 @@ class BuildTests(unittest.TestCase):
     def test_product_verification_timestamps_require_timezone_and_reject_the_future(self):
         product=json.loads((ROOT/'data/product-radar.json').read_text())
         event=next(x for x in product['items'] if x['id']=='nvidia-vera-rubin-oci')['timeline'][0]
-        now=datetime(2026,10,31,16,0,tzinfo=timezone.utc)
-        event['verified_at']='2026-10-31T23:35:29+08:00'
+        verified=[datetime.fromisoformat(e['verified_at'].replace('Z','+00:00')) for item in product['items'] for e in item['timeline'] if 'T' in e.get('verified_at','')]
+        now=max(verified)+timedelta(minutes=1)
+        valid=(now-timedelta(seconds=1)).astimezone(timezone(timedelta(hours=8))).isoformat()
+        event['verified_at']=valid
         build.validate_product_radar(product,now=now)
-        event['verified_at']='2026-10-31T23:35:29'
+        event['verified_at']=valid.rsplit('+',1)[0]
         with self.assertRaisesRegex(ValueError,'requires UTC offset'):
             build.validate_product_radar(product,now=now)
-        event['verified_at']='2026-11-01T00:35:29+08:00'
+        event['verified_at']=(now+timedelta(seconds=1)).isoformat()
         with self.assertRaisesRegex(ValueError,'Future product radar verification timestamp'):
             build.validate_product_radar(product,now=now)
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-31",
+  "checked": "2026-11-01",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,41 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-chatgpt-account-switching",
+      "name": "ChatGPT mobile account switching",
+      "company": "OpenAI",
+      "group": "enterprise-agent",
+      "tags": ["iOS / Android", "Account isolation", "Rolling out"],
+      "summary": "让同一台手机在最多两个 ChatGPT 账号之间切换，并保持聊天、记忆、设置与订阅彼此隔离。",
+      "product_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source_label": "OpenAI 官方 ChatGPT Release Notes",
+      "evidence": "OpenAI 2026-10-30 Release Notes 确认账号切换正向 ChatGPT iOS 与 Android 应用推出；同一设备可保持最多两个账号登录，每个账号继续使用各自的聊天、记忆、设置和订阅。",
+      "boundary": "这是移动端分批推出的账号入口更新，不代表全部账号已经可见，也不是团队空间合并、数据迁移或跨账号共享。公告没有说明 Web、桌面端、企业策略、地区覆盖或具体完成时间；本站未登录账号核验。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-30",
+          "kind": "Mobile rollout",
+          "title": "iOS / Android 开始支持双账号切换",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "summary": "移动应用可同时保持最多两个 ChatGPT 账号登录，并在设置中切换；账号内容与订阅继续分开。",
+          "facts": [
+            {"label": "平台", "value": "ChatGPT iOS / Android"},
+            {"label": "同时登录", "value": "最多 2 个账号"},
+            {"label": "隔离", "value": "聊天 / 记忆 / 设置 / 订阅"},
+            {"label": "入口", "value": "Settings → Switch account"}
+          ],
+          "interpretation": "个人、工作或测试账号的切换成本下降，但上线验收仍要逐账号核对数据边界、工作区策略和订阅状态，不能把同机登录误解为账号合并。",
+          "scope": "OpenAI 2026-10-30 ChatGPT Release Notes 明确列出的 iOS / Android 双账号切换范围。",
+          "limitations": "不能从分批推出推断全部移动账号、Web 或桌面端已经开放；不能推出聊天、记忆、订阅可跨账号迁移或共享。",
+          "published_at": "2026-10-30",
+          "verified_at": "2026-11-01T07:22:28+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "openai-gpt6-rosalind-research",
       "name": "GPT-6 Rosalind Research",

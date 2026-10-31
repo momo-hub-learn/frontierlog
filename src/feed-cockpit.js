@@ -74,7 +74,7 @@ function fcGithubPanel(){
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
     '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small class="fc-gh-desc">'+esc(x.description||'仓库说明未标注')+'</small><small class="fc-gh-meta">'+esc(repoMeta(x))+'</small></span>'+
-    '<span class="fc-gh-star"><b>+'+exact(x.stars_today)+'</b><small>Today</small></span></a>'
+    '<span class="fc-gh-star"><b>+'+exact(x.stars_today)+'</b><small>今日新增 Star</small></span></a>'
   ).join('')+'</div>':
   '<div class="fc-gh-old"><strong>当前 Trending 未完成核验</strong><p>旧榜单已停止作为今日热门展示。可查看独立关注仓库或历史快照。</p></div>')+
   (followed.length?'<div class="fc-gh-watch">'+followed.map(x=>
