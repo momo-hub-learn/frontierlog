@@ -5694,13 +5694,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-31T13:08:13Z",
+    "generated_at": "2026-10-31T13:40:37Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 5,
-      "merge": 121,
+      "merge": 123,
       "hold": 5
     },
     "candidates": [
@@ -5854,6 +5854,29 @@
         "first_seen_at": "2026-10-30T07:48:38Z"
       },
       {
+        "id": "candidate-4b8088d956f48c6f",
+        "category": "industry",
+        "published": "2026-10-30",
+        "title": "合成企业评估：先验收工作流逼真度，再评 Copilot",
+        "summary": "Microsoft Research 用不含真实客户数据的全合成企业环境生成会议、邮件、文档和行业查询；官方列出的三类环境包括制药、资本市场与 IT / 软件。",
+        "why": "通用问答集很难覆盖临床试验讨论、安全信号审查和跨团队行动项。医药团队可以借鉴这套分层方法，把环境生成、查询溯源、答案依据、时间一致性、内容安全和版本回归分别验收。",
+        "boundary": "这是 Microsoft 内部平台的官方方法说明，未见公开数据集、代码、逐项协议或独立复现。39% 内部综合质量增幅、部分环境高于 0.9 和成本节省估算不能跨系统比较；全合成不等于覆盖真实制药组织，也不能证明 Copilot 可用于临床决策或自动满足隐私与合规要求。",
+        "source": "Microsoft Research",
+        "source_kind": "官方合成企业环境、行业查询生成、评估框架、内部结果与边界说明",
+        "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 0.15
+        },
+        "priority_score": 0.816,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "first_seen_at": "2026-10-31T13:40:37Z"
+      },
+      {
         "id": "candidate-a63f4dd504902848",
         "category": "industry",
         "published": "2026-10-30",
@@ -5975,6 +5998,35 @@
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-29T19:49:37Z"
+      },
+      {
+        "id": "candidate-c0c32eec03537e04",
+        "category": "research",
+        "published": "2026-10-30",
+        "title": "Microsoft 用全合成企业环境评估行业 Copilot",
+        "summary": "Microsoft Research 公布 Industry Evaluation Data Generation Platform：用 O*NET、公开职位信息和 SEC 文件等公开信号构造不含真实客户数据的企业环境，再生成会议、邮件、文档、时间线与行业查询。官方介绍的三类环境覆盖制药、资本市场和 IT / 软件，并用结构、语境、行为与内容安全检查支持 Copilot 回归评估。",
+        "why": "这把企业 Agent 的评估单位从孤立问答推进到带组织结构、历史记录和跨团队流程的可重复环境。对医药等高约束场景，更值得借鉴的是把数据来源、查询生成、质量门槛和版本回归拆开，而不是把一次内部综合分当成产品能力结论。",
+        "boundary": "这是 Microsoft 对内部平台与内部结果的官方说明，未见公开数据集、代码、逐项评测协议或独立复现。文中 39% 内部综合质量增幅、部分环境高于 0.9 以及成本节省估算不能跨系统比较，也不能证明合成环境完全覆盖真实组织、消除隐私风险或保证 Copilot 在真实制药流程中可靠。",
+        "source": "Microsoft Research / Microsoft",
+        "source_kind": "官方平台方法、行业环境、质量框架、内部结果与限制",
+        "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
+        "publishable": false,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.794,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "microsoft-industry-evaluation-data-20261030",
+        "topic_tags": [
+          "Enterprise Evaluation",
+          "Synthetic Data",
+          "Agentic Workflows"
+        ],
+        "first_seen_at": "2026-10-31T13:40:37Z"
       },
       {
         "id": "candidate-3f395ba221877d3d",
@@ -6652,59 +6704,6 @@
           "Agent Safety"
         ],
         "first_seen_at": "2026-10-29T05:26:10Z"
-      },
-      {
-        "id": "candidate-f16e57cd3c773a5c",
-        "category": "research",
-        "published": "2026-10-28",
-        "title": "长时 Agent 开始同时面对工程坚持性与网络安全边界",
-        "summary": "Google 发布 Gemini 4 Carbon，称内部团队观察到模型可持续运行数日处理复杂工程任务；同时报告 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%，并先向部分网络安全防御者开放。",
-        "why": "下一阶段长时 Agent 研究不能只看任务最终是否完成，还要把漏洞发现、利用验证、修复、越权、作弊、事实依据和人工中断点放进同一条可审计轨迹。持续更久不自动等于更可靠。",
-        "boundary": "数日运行、安全代码提升、误对齐下降和无支持主张减少均为 Google 的内部观察或厂商评测，本站未复现。三项网络安全分数来自 Google 发布页，且声明在无 guardrails 条件下评测；不能外推为真实部署安全性、普遍成功率或普通用户已可用。",
-        "source": "Google",
-        "source_kind": "官方能力、Benchmark 摘录、访问范围与限制",
-        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
-        "publishable": false,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.82,
-          "novelty": 0.15
-        },
-        "priority_score": 0.751,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "research_id": "google-gemini-4-carbon-long-horizon-cyber-20261028",
-        "topic_tags": [
-          "Long-horizon Agent",
-          "Cybersecurity",
-          "Evaluation"
-        ],
-        "first_seen_at": "2026-10-28T21:46:48Z"
-      },
-      {
-        "id": "candidate-a6ac1f5158745200",
-        "category": "product",
-        "published": "2026-10-27",
-        "title": "iCloud Mail 与 Calendar 连接进入 ChatGPT",
-        "summary": "iCloud 用户可查找邮件、汇总收件箱、查看日程并更新日历事件；官方列出的入口为网页、桌面端和 iOS。",
-        "why": "产品价值取决于能否在最小权限下稳定命中正确账户，并让日历写入准确落盘；“已连接”本身不是任务完成证据。",
-        "boundary": "不能从公告推出可发送邮件、处理所有冲突日程或所有账号已同时出现入口；本站未连接账户或测试写入。",
-        "source": "OpenAI / Apple iCloud",
-        "source_kind": "官方产品节点",
-        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-        "publishable": true,
-        "features": {
-          "freshness": 0.714,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.74,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "chatgpt-icloud-connected-apps",
-        "first_seen_at": "2026-10-28T07:42:05Z"
       }
     ]
   },
@@ -11266,12 +11265,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-31T13:08:13Z",
+    "last_evaluated": "2026-10-31T13:40:37Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 131,
+      "candidate_count": 133,
       "publish_ready_count": 5,
-      "merge_count": 121,
+      "merge_count": 123,
       "best_candidate": "candidate-123e3f719aa75935",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
