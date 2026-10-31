@@ -119,6 +119,8 @@ try:
         expect(page.locator(".p5-research-card")).to_have_count(1)
         expect(focused).to_contain_text("86%")
         expect(focused).to_contain_text("现在还不能推出")
+        expect(page.locator(".p5-research-grid.focused")).to_have_count(1)
+        assert focused.bounding_box()["width"] >= 780
         expect(page.get_by_role("link", name="返回全部研究档案")).to_be_visible()
         page.screenshot(path=str(OUT / "research-agent-judgment-desktop.png"), full_page=True)
         page.set_viewport_size({"width": 390, "height": 844})

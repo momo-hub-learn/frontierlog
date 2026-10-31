@@ -34,4 +34,5 @@ assert.match(progressCode,/data-research-id=/);
 assert.match(progressCode,/p5Href\(\{view:'research',research:x\.id,q:''\}\)/);
 assert.match(progressCode,/p\.delete\('research'\)/);
 assert.match(progressCode,/返回全部研究档案/);
+assert.match(progressCode,/p5-research-grid'\+\(s\.research\?' focused':''\)/);
 console.log('PASS research priority is separate from model capability and unreviewed discoveries stay visible');
