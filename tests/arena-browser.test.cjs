@@ -47,7 +47,10 @@ check('missing uncertainty and dates are not manufactured',()=>{
 });
 check('company metadata links use the official registry and preserve maker names',()=>{
  const html=api.company({maker:'OpenAI'});assert(html.includes('https://openai.com/'));assert(html.includes('m-company-logo'));assert(html.includes('OpenAI'));
- assert(api.company({maker:'Moonshot'}).includes('https://www.kimi.com/'));assert(!api.company({maker:'unknown'}).includes('<a'));
+ assert(api.company({maker:'Moonshot'}).includes('https://www.kimi.com/'));
+ assert(api.company({maker:'Xiaomi'}).includes('https://robotics.xiaomi.com/'));
+ assert(api.company({maker:'Xiaomi Robotics'}).includes('https://robotics.xiaomi.com/'));
+ assert(!api.company({maker:'unknown'}).includes('<a'));
 });
 check('HTML inputs, model names and company names are escaped',()=>{
  assert(render('&q='+encodeURIComponent('<img onerror=alert(1)>')).includes('&lt;img'));assert(!api.name({id:'x',name:'<script>x</script>'}).includes('<script>'));

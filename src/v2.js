@@ -12,6 +12,7 @@ const MODEL_COMPANIES=[
  {id:'moonshot',name:'Moonshot AI · Kimi',short:'Kimi',aliases:['Kimi','Moonshot'],url:'https://www.kimi.com/'},
  {id:'minimax',name:'MiniMax',aliases:['MiniMax'],url:'https://www.minimax.io/'},
  {id:'zai',name:'Z.ai',aliases:['Z AI','Z.ai'],url:'https://z.ai/'},
+ {id:'xiaomi',name:'Xiaomi',aliases:['Xiaomi','Xiaomi Robotics'],url:'https://robotics.xiaomi.com/'},
  {id:'xai',name:'xAI',aliases:['SpaceXAI','xAI'],url:'https://x.ai/'},
  {id:'microsoft-ai',name:'Microsoft AI',aliases:['Microsoft AI'],url:'https://microsoft.ai/models/'},
  {id:'bytedance-seed',name:'ByteDance Seed',aliases:['ByteDance Seed','ByteDance'],url:'https://seed.bytedance.com/en/'},

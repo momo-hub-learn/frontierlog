@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 全部专题</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/all.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Sat, 31 Oct 2026 00:00:00 +0000</lastBuildDate><item><title>合成企业评估：先验收工作流逼真度，再评 Copilot</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=microsoft-industry-evaluation-data-20261030</link><guid isPermaLink="false">frontierlog:topic:microsoft-industry-evaluation-data-20261030</guid><pubDate>Fri, 30 Oct 2026 00:00:00 +0000</pubDate><description>Microsoft Research 用不含真实客户数据的全合成企业环境生成会议、邮件、文档和行业查询；官方列出的三类环境包括制药、资本市场与 IT / 软件。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 全部专题</title><link>https://momo-hub-learn.github.io/frontierlog/#/topics</link><description>已编选资料与原始来源。历史日期保留，不代表本站已实测。</description><language>zh-CN</language><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/all.xml" rel="self" type="application/rss+xml" /><lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate><item><title>合成企业评估：先验收工作流逼真度，再评 Copilot</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=microsoft-industry-evaluation-data-20261030</link><guid isPermaLink="false">frontierlog:topic:microsoft-industry-evaluation-data-20261030</guid><pubDate>Fri, 30 Oct 2026 00:00:00 +0000</pubDate><description>Microsoft Research 用不含真实客户数据的全合成企业环境生成会议、邮件、文档和行业查询；官方列出的三类环境包括制药、资本市场与 IT / 软件。
 
 编辑解读：通用问答集很难覆盖临床试验讨论、安全信号审查和跨团队行动项。医药团队可以借鉴这套分层方法，把环境生成、查询溯源、答案依据、时间一致性、内容安全和版本回归分别验收。
 
@@ -42,7 +42,14 @@ https://www.anthropic.com/news/ai-for-science-expands-foundations-research-insti
 边界：本站未复现实验。数据与结果来自 Anthropic 及合作方阶段报告，官方明确多数仍在临床前；蛋白结合、实验室命中、流程提速、小鼠结果或临床计划分析都不能推出人体疗效、获批药物或普遍生产率提升。敏感数据治理、独立实验复现、监管审查和临床终点仍需分别验证。
 资料核对：2026-10-28；本站未实测。
 原始来源：
-https://www.anthropic.com/research/early-progress-drug-development</description><category>分子设计与筛选</category><category>临床试验与数据</category><category>CSR 与医学写作</category></item><item><title>DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=huggingface-carbon-x-20261021</link><guid isPermaLink="false">frontierlog:topic:huggingface-carbon-x-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。
+https://www.anthropic.com/research/early-progress-drug-development</description><category>分子设计与筛选</category><category>临床试验与数据</category><category>CSR 与医学写作</category></item><item><title>AI-defined fabs：把原子仿真、工艺模拟与晶圆检测分开验收</title><link>https://momo-hub-learn.github.io/frontierlog/#/manufacturing?article=nvidia-ai-defined-fabs-20261014</link><guid isPermaLink="false">frontierlog:topic:nvidia-ai-defined-fabs-20261014</guid><pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate><description>NVIDIA 发布 cuPotential CUDA-X 库，用于构建模拟原子与分子相互作用的 AI Agent；同一官方公告还披露 Lam Research 以 NanoVDB 加速芯片制造仿真、KLA 以 NPP 加速检测图像处理等伙伴进展。
+
+编辑解读：芯片制造 AI 的验证对象正在从单一视觉模型扩展到材料计算、工艺仿真和检测管线。把三类任务拆开，能避免把仿真加速、图像吞吐或厂商合作直接写成良率提升。
+
+边界：cuPotential 的额外 2–3 倍加速来自 NVIDIA 的 early-access 测试，Lam 的 30 倍仿真加速和其他效果来自公告中的伙伴案例；本站未运行库、未复现工作负载，也没有晶圆级良率或长期产线数据。不同库、硬件、网格、模型和工艺环节不能合并成统一性能分，更不能推出全自动晶圆厂已经实现。
+资料核对：2026-11-01；本站未实测。
+原始来源：
+https://nvidianews.nvidia.com/news/nvidia-and-semiconductor-leaders-advance-ai-across-chip-design-and-manufacturing-for-ai-defined-labs</description><category>工艺控制 · FDC / APC</category><category>良率与缺陷分析</category><category>装备研发与工程</category></item><item><title>DNA 与自然语言共训的 Carbon-X 上榜：先核对序列操作，再谈生物学解释</title><link>https://momo-hub-learn.github.io/frontierlog/#/pharma?article=huggingface-carbon-x-20261021</link><guid isPermaLink="false">frontierlog:topic:huggingface-carbon-x-20261021</guid><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><description>Hugging Face Bio 发布 14.8B 参数 Carbon-X，把 6-mer DNA token 与自然语言放入同一解码模型，支持最长 40,960 token；模型卡称训练使用 302B token，并给出五项 DNA 任务的作者汇总结果。
 
 编辑解读：统一的 DNA—语言接口可能降低变体解释、序列问答和研究原型的接线成本；更值得跟踪的是坐标与碱基操作能否被确定性工具约束，而不是只看平台热度。
 
