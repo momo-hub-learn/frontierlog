@@ -1565,6 +1565,55 @@
       ]
     },
     {
+      "id": "anthropic-critical-software-exploit-chains-20261027",
+      "category": "research",
+      "title": "Claude 内部研究模型串起五条关键软件攻击链",
+      "published": "2026-10-27",
+      "checked": "2026-10-31",
+      "verified_at": "2026-10-31T09:23:45+08:00",
+      "first_seen_at": "2026-10-31T09:23:45+08:00",
+      "heat": 83,
+      "heat_components": {
+        "impact": 35,
+        "availability": 8,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可用性0–25、一手证据0–25、时效0–15；内部未发布模型显著降低可用性分，这不是公开 Claude 的攻击能力、成功率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Anthropic 官方研究披露 · 未发布内部模型 · 本站未复现",
+      "summary": "Anthropic 披露其未发布内部研究模型在 Chrome、Safari、Android、Windows 与 Linux 上构造了五条多阶段攻击链；官方称 Chrome 相关研究获得 62 个已修补 CVE，其余案例也已按协调披露进入厂商修补。",
+      "why": "安全 Agent 的能力边界正从找到单点漏洞推进到组合多层弱点、生成可运行证明并进入厂商修补流程。对防守团队，模型能力、授权范围、复核、风险评级和补丁回归必须放进同一条审计链。",
+      "boundary": "这是 Anthropic 对内部研究模型和自建扫描平台的官方案例，不是公开 Claude 产品发布，也不是独立 Benchmark。本站未获得模型、提示、扫描平台或复现环境；五个案例和 62 个 Chrome CVE 不能推出公开 Claude 的普遍成功率、自动攻击可靠性或任意软件都可被攻破。",
+      "source": "Anthropic Frontier Red Team",
+      "source_kind": "Anthropic 官方研究披露 / 本轮编辑核验",
+      "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+      "link": "#/progress?view=research&research=anthropic-critical-software-exploit-chains-20261027",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开对应研究档案",
+          "note": "分开查看官方事实、本站解读、适用边界与下一步核验",
+          "url": "#/progress?view=research&research=anthropic-critical-software-exploit-chains-20261027",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 Anthropic 官方研究",
+          "note": "核对五条攻击链、协调披露、已修补范围和官方方法说明",
+          "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+          "kind": "research"
+        }
+      ],
+      "related": [
+        {
+          "source": "Anthropic",
+          "title": "Discovering and exploiting vulnerabilities in critical, real-world software with Claude",
+          "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
       "id": "google-deepmind-genie-4-20261027",
       "category": "research",
       "title": "Genie 4：实时世界模拟开始原生生成声音与对话",

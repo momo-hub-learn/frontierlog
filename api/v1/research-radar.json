@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-30",
+  "checked": "2026-10-31",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -512,6 +512,32 @@
           "label": "Ai2 官方代码与数据说明",
           "url": "https://github.com/allenai/novelty-eval",
           "kind": "可复用数据、提示消融与复现步骤",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-critical-software-exploit-chains-20261027",
+      "lane": "paradigm",
+      "title": "网络安全 Agent 开始跨越漏洞发现、组合利用与厂商修补",
+      "maker": "Anthropic Frontier Red Team",
+      "date": "2026-10-27",
+      "verified_at": "2026-10-31T09:23:45+08:00",
+      "verification_status": "Anthropic 官方研究披露 · 厂商已协调修补 · 内部未发布模型",
+      "tags": [
+        "Cybersecurity Agent",
+        "Exploit Chain",
+        "Coordinated Disclosure"
+      ],
+      "fact": "Anthropic 披露其未发布内部研究模型在 Chrome、Safari、Android、Windows 与 Linux 上构造了五条多阶段攻击链。官方称 Chrome 相关研究获得 62 个已修补 CVE；Linux 案例可在无需凭据或用户交互时，通过多路径 TCP 触发内核远程代码执行，相关漏洞已进入稳定分支补丁。",
+      "insight": "前沿安全 Agent 的验收正在从“能否找到单个 bug”转向能否组合多层弱点、生成可运行证明、进入标准化复核与风险评级，并最终完成厂商披露和补丁回归。对防守方而言，模型能力、授权边界、不可变审计和 PR 阶段扫描需要作为同一流程设计。",
+      "boundary": "全部能力描述来自 Anthropic 官方案例，使用的是未发布内部研究模型，本站没有获得模型、提示、扫描平台或复现环境，也未独立复现任何利用。五个案例与 62 个 Chrome CVE 不能外推成公开 Claude 的普遍成功率、自动化攻击可靠性或任意软件都可被攻破；官方还明确依赖并行扫描、测试时算力、标准化验证和协调披露。",
+      "next_watch": "关注受影响厂商公告、公开 CVE 与补丁回归是否完整对应，Anthropic 是否发布固定 Harness、误报与失败轨迹，以及 Cyber Verification Program 的准入、监控和防滥用评测能否被独立审计。",
+      "sources": [
+        {
+          "label": "Anthropic · Discovering and exploiting vulnerabilities in critical, real-world software with Claude",
+          "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+          "kind": "官方案例、协调披露、已修补范围、方法与防守建议",
           "strength": "primary"
         }
       ]
