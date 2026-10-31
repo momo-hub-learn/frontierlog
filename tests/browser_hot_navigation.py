@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ.get('HOT_UI_OUTPUT', str(ROOT / 'screenshots/hot-navigation')))
 OUT.mkdir(parents=True, exist_ok=True)
 HTML = (ROOT / 'dist/index.html').read_text(encoding='utf-8')
+HOT_DATA = json.loads((ROOT / 'data/hot.json').read_text(encoding='utf-8'))
 checks, errors = [], []
 
 def ok(message):
@@ -36,7 +37,7 @@ with sync_playwright() as pw:
     page.set_content(HTML, wait_until='domcontentloaded')
 
     for platform in ['github', 'hf']:
-        for category in ['all', 'model', 'product', 'industry', 'research-eval']:
+        for category in ['all', 'model', 'product', 'security', 'industry', 'research-eval']:
             route(page, '#/hot?tab=' + platform + '&ghcat=agent-memory&q=not-a-news-query&hftype=text&hfq=not-a-model&ptag=legal&item=old')
             page.locator(f'[data-ha="cat"][data-id="{category}"]').click()
             params = page.evaluate('Object.fromEntries(hParams())')
@@ -51,8 +52,8 @@ with sync_playwright() as pw:
                 wanted = page.evaluate("(cat) => HOT.items.filter(x => cat === 'all' || x.category === cat || (cat === 'research-eval' && ['research','benchmark'].includes(x.category))).map(x=>x.id).sort()", category)
                 actual = page.locator('.intraday-title, .v10-story-title').evaluate_all('(els) => els.map(x=>x.dataset.id).sort()')
                 assert actual == wanted, (platform, category, actual, wanted)
-            expect(page.locator('.h-tab')).to_have_count(6)
-    ok('10 platform-to-category transitions switch real content and clear stale filters')
+            expect(page.locator('.h-tab')).to_have_count(len(HOT_DATA['categories']))
+    ok('platform-to-category transitions switch real content and clear stale filters')
 
     for legacy in ['research', 'benchmark', 'research-eval']:
         route(page, '#/hot?cat=' + legacy)

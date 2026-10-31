@@ -11,12 +11,13 @@ function hHeatBand(score){
  const n=Number(score);
  return n>=98?{key:'extreme',label:'爆热'}:n>=95?{key:'high',label:'高热'}:n>=90?{key:'rising',label:'升温'}:{key:'watch',label:'关注'};
 }
-const H_ICON={all:'sparkles',model:'cpu',product:'box',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
+const H_ICON={all:'sparkles',model:'cpu',product:'box',security:'shield',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
 const H_PRIMARY_TABS=[
  {id:'all',title:'全部',icon:'sparkles'},
  {id:'open',title:'平台热榜',icon:'github',href:'#/hot?tab=github'},
  {id:'model',title:'模型',icon:'cpu'},
  {id:'product',title:'产品',icon:'box'},
+ {id:'security',title:'安全',icon:'shield'},
  {id:'industry',title:'行业',icon:'factory'},
  {id:'research-eval',title:'研究 / 评测',icon:'flask'}
 ];

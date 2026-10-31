@@ -13,7 +13,7 @@ with sync_playwright() as pw:
  opts={'headless':True};
  if os.getenv('CHROMIUM_EXECUTABLE'):opts['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
  b=pw.chromium.launch(**opts);p=b.new_page(viewport={'width':1512,'height':1050});p.set_default_timeout(45000);p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/*',lambda r:r.abort());p.set_content(HTML,wait_until='domcontentloaded');p.set_default_timeout(5000)
- route(p,'#/hot');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']));expect(p.locator('.h-tab')).to_have_count(6)
+ route(p,'#/hot');expect(p.locator('.intraday-row')).to_have_count(len(HOT_DATA['items']));expect(p.locator('.h-tab')).to_have_count(len(HOT_DATA['categories']))
  assert p.locator('.intraday-score').first.get_attribute('aria-label').startswith('本站编辑热度 ')
  assert any(label in p.locator('.intraday-score').first.inner_text() for label in ('爆热','高热','升温','关注')) and 'AI 评分' not in p.locator('.intraday-score').first.inner_text()
  assert p.locator('.intraday-score.is-extreme,.intraday-score.is-high,.intraday-score.is-rising,.intraday-score.is-watch').count()==len(HOT_DATA['items'])
@@ -25,7 +25,7 @@ with sync_playwright() as pw:
  source_names=source_links.evaluate_all("els=>els.map(x=>x.getAttribute('aria-label'))")
  assert all(source_names) and len(source_names)==len(set(source_names)) and all('新窗口打开' in x for x in source_names)
  assert p.locator('#nav a.active').inner_text().startswith('热点榜');assert '热度只表示信号强度' in p.locator('.h-head').inner_text();assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
- shot(p,'hot-first-screen.png');ok('hot ranking, unique source-link labels, six categories, newest available day first and expanded, older days collapsed, no desktop overflow')
+ shot(p,'hot-first-screen.png');ok('hot ranking, unique source-link labels, source-derived categories, newest available day first and expanded, older days collapsed, no desktop overflow')
  p.locator('[data-ha="cat"][data-id="model"]').click();assert p.locator('.intraday-row').count()==sum(x['category']=='model' for x in HOT_DATA['items'])
  expect(p.locator('[data-ha="cat"][data-id="model"]')).to_have_attribute('aria-pressed','true');expect(p.locator('[data-ha="cat"][data-id="all"]')).to_have_attribute('aria-pressed','false');assert p.locator('[data-ha="cat"][aria-pressed="true"]').count()==1
  p.locator('#h-search').fill('Gemini');assert p.locator('.intraday-row').count()==sum('gemini' in ' '.join([x['title'],x['source'],x['summary']]).lower() for x in HOT_DATA['items'] if x['category']=='model')

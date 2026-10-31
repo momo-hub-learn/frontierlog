@@ -19,7 +19,10 @@ class HotDataTests(unittest.TestCase):
   d=copy.deepcopy(self.data);fn(d)
   with self.assertRaises((ValueError,KeyError,TypeError)):validate_hot(d)
  def test_valid_and_counts(self):
-  validate_hot(self.data);self.assertGreater(len(self.data['items']),0);self.assertEqual(len(self.data['categories']),6)
+  validate_hot(self.data);self.assertGreater(len(self.data['items']),0)
+  category_ids=[x['id'] for x in self.data['categories']]
+  self.assertEqual(len(category_ids),len(set(category_ids)))
+  self.assertTrue({x['category'] for x in self.data['items']}<=set(category_ids))
  def test_not_fake_live(self):self.reject(lambda d:d['method'].update(automatic=True))
  def test_no_claimed_success(self):self.reject(lambda d:d['method'].update(last_success='2026-09-21T00:00:00Z'))
  def test_shadow_runtime_state_cannot_enter_editorial_content(self):
@@ -46,6 +49,17 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('不是已经生效的法规或 IETF 正式标准',item['boundary'])
   self.assertIn('不会被替代',item['boundary'])
   self.assertEqual(item['related'][0]['source'],'IETF Datatracker')
+  validate_hot(self.data)
+
+ def test_cursor_extension_incident_keeps_scope_and_remediation_boundary(self):
+  item=next(x for x in self.data['items'] if x['id']=='cursor-claude-code-extension-compromise-20261029')
+  self.assertEqual(item['category'],'security')
+  self.assertEqual(item['published'],'2026-10-29')
+  self.assertEqual(item['url'],'https://cursor.com/blog/claude-code-extension-security-notice')
+  self.assertIn('2.1.312',item['summary']);self.assertIn('2.1.313',item['summary'])
+  self.assertIn('仅卸载扩展不足以证明清除',item['why'])
+  self.assertIn('不是 Anthropic 制作',item['boundary'])
+  self.assertIn('不能把“服务器下线”写成机器已经安全',item['boundary'])
   validate_hot(self.data)
 
  def test_heat_range(self):self.reject(lambda d:d['items'][0].update(heat=145))
