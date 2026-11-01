@@ -65,6 +65,9 @@ class EditorialContracts(unittest.TestCase):
    text=(ROOT/'src'/name).read_text()
    self.assertNotIn('<span class="accent">.</span></h1>',text,name)
   self.assertIn('<h1>热点时间线</h1>',(ROOT/'src/v10.js').read_text())
+ def test_tibo_first_screen_states_the_account_propagation_boundary(self):
+  text=(ROOT/'src/models.js').read_text()
+  self.assertIn('公开记录不能证明每个账户已经到账',text)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)
