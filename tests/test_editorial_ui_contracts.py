@@ -218,3 +218,70 @@ class EditorialContracts(unittest.TestCase):
   for url in (
    'https://github.com/OpenHands/OpenHands/releases/tag/v1.34.0',
    'https://github.com/OpenHands/OpenHands/releases/tag/v1.33.0',
+   'https://github.com/docling-project/docling/releases/tag/v2.142.1',
+   'https://github.com/NVIDIA-NeMo/Automodel/releases/tag/v0.7.0',
+   'https://github.com/microsoft/flint-chart/releases/tag/1.0',
+  ):self.assertNotIn(url,pending)
+  automodel=[r for r in upstream['releases'] if r['url'].endswith('/v0.7.0') and r['repo']=='NVIDIA-NeMo/Automodel']
+  self.assertEqual([r['task'] for r in automodel],['nvidia-nemo-automodel-0-7'])
+
+ def test_each_intraday_source_link_has_a_unique_accessible_name(self):
+  text=(ROOT/'src/intraday.js').read_text()
+  self.assertIn('aria-label="查看「${esc(x.title)}」原始来源（新窗口打开）"',text)
+
+ def test_each_vertical_source_link_has_a_record_specific_accessible_name(self):
+  text=(ROOT/'src/vertical.js').read_text()
+  self.assertIn('aria-label="查看「${esc(a.title)}」原始来源（新窗口打开）"',text)
+  self.assertIn('aria-label="查看最新进展「${esc(a.title)}」原始来源（新窗口打开）"',text)
+
+ def test_toolkit_repeated_actions_include_tool_specific_accessible_names(self):
+  text=(ROOT/'src/toolkit.js').read_text()
+  self.assertIn('`${t.name} 官方上手文档（新窗口打开）`',text)
+  self.assertIn('`${t.name} 打开入口（新窗口打开）`',text)
+  self.assertIn('`${t.name}：${s.title}（新窗口打开）`',text)
+
+ def test_platform_switch_exposes_current_page_to_assistive_technology(self):
+  text=(ROOT/'src/hot.js').read_text()
+  self.assertIn("const current=id=>active===id?' aria-current=\"page\"':'';",text)
+  self.assertIn("current('github')",text)
+  self.assertIn("current('hf')",text)
+ def test_current_model_source_and_metric_expose_pressed_state(self):
+  text=(ROOT/'src/v2.js').read_text()
+  self.assertIn('aria-pressed="${x.id===b.id}"',text)
+  self.assertIn('aria-pressed="${metric===k}"',text)
+ def test_capability_model_navigation_and_metrics_expose_current_state(self):
+  text=(ROOT/'src/product-v3.js').read_text()
+  self.assertIn("current=selected=>selected?' aria-current=\"page\"':''",text)
+  self.assertIn('current(active===g.id&&!bench)',text)
+  self.assertIn('aria-pressed="\'+(id===b.id)+\'"',text)
+  self.assertIn('aria-pressed="\'+(c.key===metric)+\'"',text)
+  css=(ROOT/'src/product-v3.css').read_text()
+  self.assertIn('@media(min-width:761px)',css)
+  self.assertIn('.v3-metric-tabs{flex-wrap:wrap;justify-content:flex-end;max-width:480px;overflow-x:visible}',css)
+  self.assertIn('.v3-metric-tabs{flex-wrap:nowrap;justify-content:flex-start;max-width:none;overflow-x:auto',css)
+ def test_hot_primary_cta_does_not_call_documents_an_experience(self):
+  text=(ROOT/'src/hot.js').read_text()
+  self.assertIn("const label=interactive?'立即体验':r.kind==='docs'?'查看资料':'阅读官方资料'",text)
+  self.assertIn("icon(interactive?'zap':'book')",text)
+  self.assertIn("r.kind==='product'",text)
+  self.assertIn("access.find(r=>!String(r.url||'').startsWith('#/'))",text)
+  self.assertIn('const primaryIsSource=primary&&hUrlKey(primary.url)===hUrlKey(x.url)',text)
+  self.assertIn("(primaryIsSource?'':'<a class=\"button\"",text)
+  self.assertIn('当前入口是候补或产品资料页，尚不能直接体验',text)
+ def test_vertical_sector_has_one_topic_navigation(self):
+  legacy=(ROOT/'src/vertical.js').read_text()
+  current=(ROOT/'src/v2.js').read_text()
+  self.assertNotIn('v-topic-strip',legacy)
+  self.assertEqual(current.count('v2-business-chain'),1)
+ def test_sector_default_exposes_latest_dated_record_without_rewriting_curated_order(self):
+  text=(ROOT/'src/vertical.js').read_text()
+  current=(ROOT/'src/v2.js').read_text()
+  self.assertIn('function latestSectorArticle(sector)',text)
+  self.assertIn('b.published.localeCompare(a.published)',text)
+  self.assertIn('data-latest-id=',text)
+  self.assertIn("if(state.topic!=='all'||state.format!=='all'||state.q||state.focus)return ''",text)
+  self.assertIn('${latestSectorCard(sector)}${vToolbar()}',current)
+ def test_saved_page_separates_global_index_from_project_watchlist(self):
+  text=(ROOT/'src/app.js').read_text()
+  self.assertIn("saved:['PROJECT WATCHLIST','已关注项目','bookmark']",text)
+  self.assertNotIn("saved:['YOUR PERSONAL INDEX','我的关注','bookmark']",text)
