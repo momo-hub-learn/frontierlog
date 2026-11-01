@@ -111,10 +111,11 @@ with sync_playwright() as pw:
  expected=[p for p in DATA['people'] if 'systems' in p['areas'] and 'builder' in p['roles']]
  expect(page.locator('[data-person-card]')).to_have_count(len(expected))
  page.locator('#pp-search').fill('<script>bad()</script>');expect(page.locator('.pp-empty')).to_be_visible()
+ assert page.locator('.pp-page script').count()==0
+ route('#/people?q=doesnotexist')
  expect(page.locator('.pp-empty h3')).to_have_text('没有匹配记录')
  expect(page.locator('.pp-empty a')).to_have_text('清除筛选并浏览全部记录')
- page.locator('.pp-empty a').click();expect(page.locator('[data-person-card]')).to_have_count(len(DATA['people']))
- assert page.locator('.pp-page script').count()==0
+ page.locator('.pp-empty a').click();expect(page.locator('[data-person-event]')).to_have_count(len(DATA['events']))
  route('#/people?view=directory&discover=1');expect(page.locator('[data-person-card]')).to_have_count(sum(p['discovery']=='work' for p in DATA['people']))
  ok('Combined facets, work discovery and safely escaped empty search')
  route('#/people')
