@@ -40,6 +40,66 @@
   ],
   "items": [
     {
+      "id": "insilico-ism6331-phase1-20261025",
+      "category": "industry",
+      "title": "ISM6331 报告首次人体早期信号",
+      "published": "2026-10-25",
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T15:32:27+08:00",
+      "first_seen_at": "2026-11-01T07:32:27Z",
+      "heat": 91,
+      "heat_components": {
+        "impact": 33,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；早期人体信号和双一手来源提高证据分，极小样本、未随机和仍在剂量递增显著限制可操作性。这不是药效、获批概率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Insilico 官方 ESMO 数据 + NCI 活动试验登记 · 公司报告，本站未复验",
+      "summary": "Insilico 报告 AI 设计的 pan-TEAD 抑制剂 ISM6331 首次人体 Phase 1 初步数据：截至 8 月 14 日入组 36 人；间皮瘤 130 mg 组 ORR 为 2/5，30–130 mg 合计为 4/22。",
+      "why": "重要的不是把 40% 写成能力结论，而是一个由生成式平台参与设计的候选分子出现可核对的人体信号；现在应继续追踪剂量选择、安全性、分母变化和计划中的随机剂量优化。",
+      "boundary": "这是公司披露的早期、无随机对照结果，130 mg 的 40% 仅为 2/5，合计 ORR 为 4/22；NCI 登记显示试验仍在进行。不能据此证明安全或有效、不能把临床结果归因于生成式 AI、不能跨剂量外推，也不代表获批治疗。",
+      "source": "Insilico Medicine / U.S. NCI",
+      "source_kind": "公司官方 ESMO 数据公告 + 美国政府试验登记 / 本轮编辑核验",
+      "url": "https://insilico.com/news/pr8951ba20602e4375b723-insilico-medicine-reports-40-orr-at-130-mg-for-pan-tead-inhibitor-ism6331-designed-using-generative",
+      "link": "#/pharma?article=insilico-ism6331-phase1-20261025",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看医药证据与验证步骤",
+          "note": "核对数据截止日、分母、剂量、安全事件、试验状态与不能外推的结论",
+          "url": "#/pharma?article=insilico-ism6331-phase1-20261025",
+          "kind": "internal"
+        },
+        {
+          "label": "查看 Insilico 官方数据公告",
+          "note": "核对 ESMO 数据、剂量、可评估分母与公司后续计划",
+          "url": "https://insilico.com/news/pr8951ba20602e4375b723-insilico-medicine-reports-40-orr-at-130-mg-for-pan-tead-inhibitor-ism6331-designed-using-generative",
+          "kind": "external"
+        },
+        {
+          "label": "查看 NCI 试验登记",
+          "note": "核对活动状态、Phase 1/2 设计、研究目标与 NCT06566079",
+          "url": "https://www.cancer.gov/research/participate/clinical-trials-search/v?id=NCI-2024-07922",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "Insilico Medicine",
+          "title": "ISM6331 preliminary first-in-human Phase 1 data at ESMO 2026",
+          "url": "https://insilico.com/news/pr8951ba20602e4375b723-insilico-medicine-reports-40-orr-at-130-mg-for-pan-tead-inhibitor-ism6331-designed-using-generative",
+          "date": "2026-10-25"
+        },
+        {
+          "source": "U.S. National Cancer Institute",
+          "title": "NCT06566079 trial registry mirror",
+          "url": "https://www.cancer.gov/research/participate/clinical-trials-search/v?id=NCI-2024-07922"
+        }
+      ]
+    },
+    {
       "id": "openai-evals-read-only-20261031",
       "category": "product",
       "title": "OpenAI 旧 Evals 平台进入只读窗口",

@@ -29,6 +29,15 @@ class TopicDataTests(unittest.TestCase):
   self.assertFalse(row['tested'])
   self.assertIn('不是研究结果',row['boundary'])
   self.assertEqual(set(row['topics']),{'targets','molecules','clinical'})
+ def test_ism6331_clinical_signal_preserves_denominators_trial_status_and_ai_boundary(self):
+  row=next(x for x in self.d['articles'] if x['id']=='insilico-ism6331-phase1-20261025')
+  self.assertEqual(set(row['topics']),{'molecules','clinical'})
+  self.assertEqual(row['published'],'2026-10-25')
+  self.assertIn('2/5',row['summary']);self.assertIn('4/22',row['summary'])
+  self.assertIn('不能证明生成式 AI 导致临床结果',row['boundary'])
+  self.assertEqual(row['access_status'],'limited')
+  self.assertFalse(row['tested'])
+  self.assertEqual(set(row['sources']),{'insilico-ism6331-phase1-20261025','nci-ism6331-trial-nct06566079'})
  def test_counts(self):
   self.assertEqual((len(self.d['sectors']),len(self.d['topics'])),(2,10))
   for key in ('articles','sources'):

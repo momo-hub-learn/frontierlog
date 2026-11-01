@@ -62,6 +62,16 @@ class HotDataTests(unittest.TestCase):
   self.assertIn('不能把计划关闭日写成已经停服',item['boundary'])
   validate_hot(self.data)
 
+ def test_ism6331_hot_item_keeps_early_clinical_denominators_and_ai_boundary(self):
+  item=next(x for x in self.data['items'] if x['id']=='insilico-ism6331-phase1-20261025')
+  self.assertEqual(item['published'],'2026-10-25')
+  self.assertEqual(item['link'],'#/pharma?article=insilico-ism6331-phase1-20261025')
+  self.assertIn('2/5',item['summary']);self.assertIn('4/22',item['summary'])
+  self.assertIn('不能把临床结果归因于生成式 AI',item['boundary'])
+  self.assertIn('仍在进行',item['boundary'])
+  self.assertEqual({x['source'] for x in item['related']},{'Insilico Medicine','U.S. National Cancer Institute'})
+  validate_hot(self.data)
+
  def test_cursor_extension_incident_keeps_scope_and_remediation_boundary(self):
   item=next(x for x in self.data['items'] if x['id']=='cursor-claude-code-extension-compromise-20261029')
   self.assertEqual(item['category'],'security')
