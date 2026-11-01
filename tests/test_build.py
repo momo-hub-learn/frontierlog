@@ -35,6 +35,7 @@ class BuildTests(unittest.TestCase):
         for name in (
             'github-hot.json','huggingface-hot.json','activity-radar.json',
             'hot.json','research-radar.json','upstream.json',
+            'models.json','topic-intake.json',
         ):
             self.assertEqual(
                 json.loads((ROOT/'api/v1'/name).read_text()),

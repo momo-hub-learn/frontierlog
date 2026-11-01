@@ -3,6 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),read=name=>fs.readFileSync(path.join(root,name),'utf8');
 const models=JSON.parse(read('data/models.json')),original=JSON.stringify(models),arena=models.boards.find(board=>board.id==='arena');
+const aa=models.boards.find(board=>board.id==='aa'),carbon=aa.rows.find(row=>row.id==='aa-gemini-4-carbon-high');
 const ctx={APP:{models,resets:{}},window:{},URLSearchParams,URL,Date,console,readStore:()=>[],
  location:{hash:'#/models?board=arena'},modelHubTabs:()=>'<nav>Capabilities</nav>',
  esc:v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
@@ -59,6 +60,9 @@ check('HTML inputs, model names and company names are escaped',()=>{
 check('preliminary source flag and source score precision survive rendering',()=>{
  assert(api.name({id:'x',name:'candidate',preliminary:true}).includes('初步结果'));assert(!api.name({id:'x',name:'candidate'}).includes('Preliminary'));
  assert(api.score({preference:1506,score_error:5}).includes('<strong>1,506</strong>'));
+});
+check('dynamic Artificial Analysis speed keeps its reviewed source snapshot',()=>{
+ assert.equal(carbon.speed,84.6);assert.equal(aa.source_checked,'2026-11-01');assert.match(aa.methodology,/v5\.0/);
 });
 check('table and mobile view expose the same records and unique search controls',()=>{
  const html=render('');assert.equal((html.match(/data-ar-model=/g)||[]).length,8);assert.equal((html.match(/id="m-search"/g)||[]).length,1);
