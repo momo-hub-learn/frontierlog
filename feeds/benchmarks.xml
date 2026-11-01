@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Fri, 30 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Algebraic World Model 把 Agent 的环境假设转为 Lean 证明</title><guid isPermaLink="false">frontierlog:benchmark:algebraic-world-model-proof-protocol-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=algebraic-world-model-proof-protocol</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Algebraic World Model 把 Agent 的环境假设转为 Lean 证明</title><guid isPermaLink="false">frontierlog:benchmark:algebraic-world-model-proof-protocol-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=algebraic-world-model-proof-protocol</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。
 
 编辑解读：Agent 验收可以把任务得分、状态解析、机制预测、证明闭合与环境回放分层；但 Lean 证明只覆盖学习模型，不能把闭合证明写成真实环境已被完全证明。
 
@@ -10,7 +10,12 @@ https://ephemeral6.github.io/awm-site/</description></item><item><title>WorldPro
 编辑解读：世界模型验收应把局部画质、长程空间一致性、状态演化和完整失败轨迹分开；不能把四个维度或不同世界模型协议拼成单一实力分。
 
 来源：
-https://arxiv.org/abs/2610.39721</description></item><item><title>Gemini 4 Carbon 把漏洞发现、利用验证与修复放进同一发布</title><guid isPermaLink="false">frontierlog:benchmark:gemini-4-carbon-cyber-benchmarks-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=cwe-bench-v1</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；三项分别覆盖漏洞发现、利用验证和根因修复，本站未复跑。
+https://arxiv.org/abs/2610.39721</description></item><item><title>DDDBench 更新药物研发评测平台</title><guid isPermaLink="false">frontierlog:benchmark:dddbench-platform-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dddbench</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Insilico Medicine 官方平台标注 2026-10-28 更新，当前将药物发现与开发拆为 7 个领域、151 个专门 Benchmark。
+
+编辑解读：这提供了按研发环节选取评测的入口，但各任务数据和指标不可拼成药物研发总分，平台结果也不是临床验证或本站实测。
+
+来源：
+https://ddb.insilico.com/</description></item><item><title>Gemini 4 Carbon 把漏洞发现、利用验证与修复放进同一发布</title><guid isPermaLink="false">frontierlog:benchmark:gemini-4-carbon-cyber-benchmarks-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=cwe-bench-v1</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Google 报告 Carbon 在无 guardrails 条件下取得 SEC-bench Pro 88.2%、ExploitGym 54.8%、CWE-bench 71.0%；三项分别覆盖漏洞发现、利用验证和根因修复，本站未复跑。
 
 编辑解读：安全 Agent 不能用一个“网络安全分数”替代三段能力。比较时必须分别锁定题集、Harness、运行时限、工具、保护措施与通过标准；无 guardrails 结果也不能外推为部署时的可用成功率或安全性。
 

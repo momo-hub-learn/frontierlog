@@ -5755,7 +5755,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-01T01:21:05Z",
+    "generated_at": "2026-11-01T01:24:59Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -11486,7 +11486,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-01T01:21:05Z",
+    "last_evaluated": "2026-11-01T01:24:59Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 137,
@@ -20223,7 +20223,7 @@
   },
   "benchmarks": {
     "version": 1,
-    "checked": "2026-10-30",
+    "checked": "2026-11-01",
     "title": "Benchmark 观察站",
     "sync": {
       "status": "manual",
@@ -21211,6 +21211,39 @@
         ]
       },
       {
+        "id": "dddbench",
+        "name": "Drug Discovery and Development Benchmark",
+        "group": "pharma",
+        "edition": "平台快照 · 2026-10-28",
+        "subtitle": "药物研发不是一个总分，要按领域和任务分别评估。",
+        "summary": "Insilico Medicine 的官方平台把药物发现与开发拆成 7 个领域、151 个专门 Benchmark，提供统一入口查看不同任务的数据、协议与结果。",
+        "metric": "Task-specific metrics",
+        "metric_note": "每个领域和任务沿用各自指标；不得把不同数据、任务或指标平均成药物研发综合能力，也不把平台榜位写成本站实测。",
+        "protocol": "固定领域、任务、数据集版本、划分、模型配置与平台快照；只在同一任务、同一协议内比较，并保存原始结果与失败样本。",
+        "boundary": "这是厂商维护的评测平台，不是独立临床验证。离线任务分数不能推出靶点因果性、候选药物成药性、临床安全或真实研发成功率。",
+        "business": "适合医药团队按研发环节选择公开参照，再补企业授权数据、领域专家复核、湿实验或临床验证；不能用一个榜位替代完整证据链。",
+        "setup": "官方网页公开浏览；复跑前逐项核对数据与模型许可、访问条件、任务定义和评价脚本，本站本轮未运行任何评测。",
+        "topics": [
+          "targets",
+          "molecules",
+          "clinical"
+        ],
+        "sources": [
+          "b-dddbench"
+        ],
+        "result_url": "https://ddb.insilico.com/",
+        "kind": "benchmark",
+        "flag": "平台任务需分开 / 本站未实测",
+        "checked": "2026-11-01",
+        "tested": false,
+        "checks": [
+          "固定领域、任务、数据、划分、模型与平台快照",
+          "只在同一任务和同一指标内比较",
+          "保存原始结果、配置、失败样本和许可信息",
+          "不把平台榜位写成临床结论或本站实测"
+        ]
+      },
+      {
         "id": "mvtec-ad2",
         "name": "MVTec AD 2",
         "group": "manufacturing",
@@ -22006,6 +22039,16 @@
         "kind": "原始资料"
       },
       {
+        "id": "b-dddbench",
+        "title": "Drug Discovery and Development Benchmark · 官方平台",
+        "publisher": "Insilico Medicine",
+        "url": "https://ddb.insilico.com/",
+        "published": null,
+        "checked": "2026-11-01",
+        "kind": "官方 Benchmark 平台",
+        "note": "平台标注 2026-10-28 更新、覆盖 151 个 Benchmark 与 7 个领域；本站仅收录协议入口，不复制跨任务总分。"
+      },
+      {
         "id": "b-ad2",
         "title": "MVTec AD 2 · 数据与评估条件",
         "publisher": "MVTec",
@@ -22167,6 +22210,20 @@
       }
     ],
     "changes": [
+      {
+        "id": "dddbench-platform-20261028",
+        "date": "2026-10-28",
+        "title": "DDDBench 更新药物研发评测平台",
+        "summary": "Insilico Medicine 官方平台标注 2026-10-28 更新，当前将药物发现与开发拆为 7 个领域、151 个专门 Benchmark。",
+        "implication": "这提供了按研发环节选取评测的入口，但各任务数据和指标不可拼成药物研发总分，平台结果也不是临床验证或本站实测。",
+        "benchmarks": [
+          "dddbench"
+        ],
+        "sources": [
+          "b-dddbench"
+        ],
+        "kind": "官方药物研发评测平台更新"
+      },
       {
         "id": "algebraic-world-model-proof-protocol-20261029",
         "date": "2026-10-29",
@@ -22515,7 +22572,8 @@
           "bioasq",
           "bixbench",
           "tdc-dti",
-          "tdc-admet"
+          "tdc-admet",
+          "dddbench"
         ],
         "gap": "知识、分析与结合预测都只是部分证据，不能代替疾病机制验证和真实实验。",
         "checks": [
