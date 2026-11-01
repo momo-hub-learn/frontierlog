@@ -28,14 +28,20 @@ class BuildTests(unittest.TestCase):
         )
         for relative in paths:
             raw=(ROOT/relative).read_bytes()
+            self.assertFalse(raw.startswith(b'\xef\xbb\xbf'),f'{relative} must not include a UTF-8 BOM')
             try:
                 text=raw.decode('utf-8')
             except UnicodeDecodeError as exc:
                 self.fail(f'{relative} must be UTF-8 publication text: {exc}')
             self.assertNotIn('\ufffd',text,f'{relative} contains a replacement character')
+            if relative.endswith('.html'):
+                self.assertTrue(
+                    text.lstrip().lower().startswith('<!doctype html>'),
+                    f'{relative} must start with an HTML doctype, not transport diagnostics or encoded data',
+                )
             if relative.endswith('.json'):
                 self.assertTrue(
-                    text.lstrip('\ufeff \t\r\n').startswith(('{','[')),
+                    text.lstrip(' \t\r\n').startswith(('{','[')),
                     f'{relative} must start with a JSON object or array, not encoded/binary payload data',
                 )
                 json.loads(text)

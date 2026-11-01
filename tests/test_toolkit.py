@@ -137,6 +137,9 @@ class ToolkitTests(unittest.TestCase):
         row=next(x for x in self.data['items'] if x['id']=='deepseek-search-fetch-api')
         self.assertTrue(all(source['url'].split('/')[2]=='api-docs.deepseek.com' for source in row['sources']))
         self.assertFalse(row['runtime_tested'])
+        command=row['steps'][0]['command']
+        self.assertIn('https://api.deepseek.com/v1/tools/search',command)
+        self.assertIn('$DEEPSEEK_API_KEY',command)
         self.assertIn('未配置密钥或调用接口',row['limitation'])
         self.assertIn('0.75 美元',row['cost'])
         validate_toolkit(self.data,self.catalog)
