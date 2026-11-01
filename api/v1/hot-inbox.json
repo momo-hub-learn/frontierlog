@@ -1,15 +1,39 @@
 {
   "version": 1,
-  "generated_at": "2026-11-01T07:36:10Z",
+  "generated_at": "2026-11-01T09:26:58Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 5,
+    "publish": 6,
     "merge": 127,
     "hold": 6
   },
   "candidates": [
+    {
+      "id": "candidate-a58ee5c6e57519dd",
+      "category": "product",
+      "published": "2026-11-01",
+      "title": "Qwen Code 发布 v0.26.5",
+      "summary": "版本默认启用 Generated UI，并更新 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流；官方声明无已知破坏性变化。",
+      "why": "重点不只是版本号：交互卡值可带入后续上下文，自动修复加入失败交接与重试预算，托管和浏览器相关路径也有变化；升级后应复验权限、上下文与 CI 门禁。",
+      "boundary": "本站未安装或运行。没有已知破坏性变化不等于无回归；自动 PR 修复、工具权限、交互卡上下文和托管部署仍需在隔离仓库验证。",
+      "source": "Qwen",
+      "source_kind": "官方版本说明、资产与变更列表",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.962,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "qwen-code-0-26-5",
+      "first_seen_at": "2026-11-01T09:26:58Z"
+    },
     {
       "id": "candidate-123e3f719aa75935",
       "category": "product",
@@ -981,30 +1005,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "docling",
       "first_seen_at": "2026-10-28T15:40:27Z"
-    },
-    {
-      "id": "candidate-ed51204fd849fc09",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "部分 ChatGPT Pro / Business 可领取 API credits",
-      "summary": "符合条件的订阅可把按计费周期发放的促销额度绑定到一个 API organization，用于 API Platform 上的模型、Agent、Realtime、Images 与内置工具等计费项目。",
-      "why": "ChatGPT 订阅与 API 开发成本出现明确连接入口；但资格、所有者角色、组织绑定、额度到期和与 Codex / ChatGPT 用量分离必须逐项核对。",
-      "boundary": "这不是 Plus、Enterprise、Edu 或全部付费用户的通用权益。credits 与 ChatGPT、Business workspace 和 signed-in Codex 用量分开，不覆盖通过 API key 使用 Codex；一个订阅或 workspace 只能绑定一个 API organization，未用额度到期不结转，API 限流仍然适用。本站未绑定组织、领取或消耗额度。",
-      "source": "OpenAI",
-      "source_kind": "官方权益、资格、额度、组织绑定、到期与不适用范围",
-      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-chatgpt-api-credits",
-      "first_seen_at": "2026-10-29T09:28:17Z"
     }
   ]
 }
