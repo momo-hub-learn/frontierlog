@@ -16,6 +16,21 @@ class BuildTests(unittest.TestCase):
         self.u=json.loads((ROOT/'data/upstream.json').read_text())
         self.s=json.loads((ROOT/'data/site.json').read_text())
     def test_catalog_valid(self): build.validate(self.c,self.u,self.s)
+    def test_checked_in_publication_payload_is_utf8_text(self):
+        paths=(
+            'index.html','404.html','src/v10.js','tests/test_build.py',
+            'tests/v10-timezone.test.cjs','data/activity-radar.json',
+            'data/github-hot.json','data/huggingface-hot.json',
+            'data/topic-intake.json','data/upstream.json',
+            'api/v1/activity-radar.json','api/v1/github-hot.json',
+            'api/v1/huggingface-hot.json','api/v1/index.json',
+            'api/v1/topic-intake.json','api/v1/upstream.json',
+        )
+        for relative in paths:
+            text=(ROOT/relative).read_text(encoding='utf-8')
+            self.assertNotIn('\ufffd',text,f'{relative} contains a replacement character')
+            if relative.endswith('.json'):
+                json.loads(text)
     def test_checked_in_generated_apis_match_reviewed_inputs(self):
         for name in (
             'github-hot.json','huggingface-hot.json','activity-radar.json',
