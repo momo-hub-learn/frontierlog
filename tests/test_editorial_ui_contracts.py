@@ -61,9 +61,10 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('.top-actions .command-trigger>span:not([data-icon]),.top-actions .command-trigger kbd{display:none}',css)
   self.assertNotIn('.top-actions .command-trigger>span,.top-actions .command-trigger kbd{display:none}',css)
  def test_hot_heading_has_no_decorative_punctuation_in_its_accessible_name(self):
-  text=(ROOT/'src/v10.js').read_text()
-  self.assertIn('<h1>热点时间线</h1>',text)
-  self.assertNotIn('热点时间线<span class="accent">.</span>',text)
+  for name in ('v10.js','hot.js','github-hot.js','huggingface-hot.js','models.js','toolkit.js'):
+   text=(ROOT/'src'/name).read_text()
+   self.assertNotIn('<span class="accent">.</span></h1>',text,name)
+  self.assertIn('<h1>热点时间线</h1>',(ROOT/'src/v10.js').read_text())
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)
