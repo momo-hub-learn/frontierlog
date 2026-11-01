@@ -52,6 +52,36 @@
   ],
   "items": [
     {
+      "id": "livebench-2",
+      "name": "LiveBench 2.0",
+      "group": "agent",
+      "edition": "2.0 · 2026-10-25 release",
+      "subtitle": "长流程 Agent 的交付物、工具操作与成本能否在同一版本内分项核对？",
+      "summary": "LiveBench 2.0 把 Agentic、Design、Coding、Browser Use、Data Analysis、Research 与 Reasoning 七个套件分列；官方榜还提供按当前范围计算的成功任务成本。",
+      "metric": "suite score / weighted overall / cost per successful task",
+      "metric_note": "Overall 对 Long Agentic 乘 2、Design 与 Coding 各乘 1.5，其余乘 1；只应在同一 2.0 发布与配置内比较。成本来自榜单记录口径，不是本站复算或企业 ROI。",
+      "protocol": "固定 2026-10-25 release、模型配置、套件、工具、执行环境与每套件一次运行；分列七套件分数、总分权重、失败任务与成本，不与 LiveBench 1.0 拼接。",
+      "boundary": "本站未运行任务。官方页面把长任务交付物与短问题集放在同一产品中，但各套件难度、工具与评分器不同；一次运行会有方差，公开榜分也不能证明模型在私有流程中的权限、安全或稳定性。",
+      "business": "适合作为长流程 Agent 选型的外部参照：先按目标工作拆到相近套件，再用自己的授权数据、工具与验收人做留出复测；不要只按 Overall 采购。",
+      "setup": "先保存官方 2026-10-25 榜单与方法快照，选择一个最接近业务的套件；复测时锁定模型、推理档、工具、预算和评分器，并保存失败工件与人工修订。",
+      "topics": ["agents", "evaluation", "long-horizon"],
+      "sources": ["b-livebench-2"],
+      "result_url": "https://livebench.ai/",
+      "kind": "benchmark",
+      "flag": "官方榜单 / 本站未运行",
+      "checked": "2026-11-01",
+      "tested": false,
+      "checks": [
+        "固定 2.0 的 2026-10-25 release 与模型配置",
+        "分列七个套件，不用 Overall 掩盖短板",
+        "记录工具、运行环境、失败工件与成本口径",
+        "不与 LiveBench 1.0 或其他 Agent 榜单拼总分"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "not_run"
+    },
+    {
       "id": "algebraic-world-model-proof-protocol",
       "name": "Algebraic World Model · Exploration-to-Proof",
       "group": "agent",
@@ -1323,6 +1353,16 @@
   ],
   "sources": [
     {
+      "id": "b-livebench-2",
+      "title": "LiveBench 2.0 leaderboard and methodology",
+      "publisher": "LiveBench / Abacus.AI",
+      "url": "https://livebench.ai/",
+      "published": "2026-10-25",
+      "checked": "2026-11-01",
+      "kind": "官方评测页",
+      "note": "七套件、加权 Overall 与成功任务成本均保留官方口径；本站未运行或复算。"
+    },
+    {
       "id": "b-algebraic-world-model-paper",
       "title": "Algebraic World Model: From Exploration to Proofs",
       "publisher": "Algebraic World Model authors",
@@ -1949,6 +1989,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "livebench-2-release-20261025",
+      "date": "2026-10-25",
+      "title": "LiveBench 2.0 转向长流程 Agent 交付",
+      "summary": "官方 2.0 榜把 Agentic、Design、Coding、Browser Use、Data Analysis、Research 与 Reasoning 七个套件分列，并给出带明确权重的 Overall 与成功任务成本。",
+      "implication": "2.0 与旧版任务、套件和总分口径不同；评估时应保存 release、模型配置、工具和成本，不能把跨版本分数接成能力曲线。",
+      "benchmarks": ["livebench-2"],
+      "sources": ["b-livebench-2"],
+      "kind": "版本与口径更新"
+    },
     {
       "id": "dddbench-platform-20261028",
       "date": "2026-10-28",

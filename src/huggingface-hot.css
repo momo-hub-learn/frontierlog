@@ -20,6 +20,9 @@
 .hf-resultline{color:var(--muted);font-size:.8125rem;line-height:1.6;margin:-3px 0 10px}
 .hf-change-summary{display:flex;align-items:center;gap:7px 14px;flex-wrap:wrap;margin:-2px 0 10px;padding:9px 11px;border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));border-radius:8px;background:var(--accent-bg);color:var(--sub);font-size:.8125rem;line-height:1.5}
 .hf-change-summary b{color:var(--text);font-family:var(--mono)}
+.hf-change-summary .hf-change-event{min-width:0;overflow-wrap:anywhere}
+.hf-change-summary .hf-change-event a{color:var(--accent);text-decoration:none}
+.hf-change-summary .hf-change-event a:hover{text-decoration:underline}
 .hf-change-summary details{position:relative}
 .hf-change-summary summary{cursor:pointer;list-style-position:inside;color:var(--sub)}
 .hf-change-summary details div{display:flex;flex-direction:column;gap:5px;margin-top:7px;max-width:min(620px,calc(100vw - 72px))}

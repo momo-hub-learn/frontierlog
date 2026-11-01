@@ -1,7 +1,35 @@
 {
   "version": 2,
-  "snapshot": "2026-10-31",
+  "snapshot": "2026-11-01",
   "items": [
+    {
+      "id": "qwen-code-0-26-5",
+      "name": "Qwen Code v0.26.5",
+      "title": "固定版本验证 PR 修复、Generated UI 与 Managed Agent 变化",
+      "category": "Coding Agent / 本地工具",
+      "mark": "QC",
+      "accent": "lime",
+      "summary": "Qwen Code v0.26.5 默认启用 Generated UI，扩展 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流，并声明无已知破坏性变化。",
+      "scope": "Qwen 官方 2026-11-01 Release；适用于 CLI、Web Shell、Desktop 与 Managed Agent 相关改动，具体能力仍取决于入口、服务商、模型和权限。",
+      "boundary": "本站未安装或运行。没有已知破坏性变化不等于无回归；自动 PR 修复、工具权限、交互卡上下文和托管部署仍需在隔离仓库验证。",
+      "repo": "QwenLM/qwen-code",
+      "sources": ["qwen-code-0-26-5-release", "qwen-code-quickstart"],
+      "requirements": "官方 standalone 包，或 Node.js 22+ 与 npm；最小权限 API 凭据、独立测试仓库与分支、可执行测试和 CI。",
+      "test": "固定 0.26.5，在可丢弃仓库给出一条带测试的缺陷或 PR；记录补丁、CI、重试预算、人工接管与 Generated UI 值进入上下文后的可见性和可移除性。",
+      "checks": [
+        "核对 Release 资产或 npm 固定版本，并记录 qwen --version",
+        "通过 /auth 显式选择服务商与端点，不让界面语言替代配置",
+        "限制仓库、分支、工具和网络权限，保留补丁与测试日志",
+        "连续失败后停止自动修复并交给人工，不把重试写成成功"
+      ],
+      "command": "npm install -g @qwen-code/qwen-code@0.26.5\nqwen --version",
+      "effort": "开源客户端 / 需本地环境、模型服务、最小权限与 CI 复核",
+      "evidence": "Qwen Code 官方 Release、README 与 Quickstart",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-11-01",
+      "verified_at": "2026-11-01T17:17:42+08:00"
+    },
     {
       "id": "openai-gpt6-rosalind-research",
       "name": "OpenAI · GPT-6 Rosalind Research",
@@ -1288,6 +1316,28 @@
   ],
   "sources": [
     {
+      "id": "qwen-code-0-26-5-release",
+      "publisher": "Qwen",
+      "title": "Qwen Code v0.26.5 official release",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
+      "published": "2026-11-01",
+      "published_at": "2026-11-01T03:22:37Z",
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T17:17:42+08:00",
+      "kind": "官方版本说明、资产与变更列表"
+    },
+    {
+      "id": "qwen-code-quickstart",
+      "publisher": "Qwen",
+      "title": "Qwen Code Quickstart",
+      "url": "https://qwenlm.github.io/qwen-code-docs/en/users/quickstart/",
+      "published": null,
+      "published_at": null,
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T17:17:42+08:00",
+      "kind": "官方安装、版本与启动文档"
+    },
+    {
       "id": "openai-gpt6-rosalind-release-20261030",
       "publisher": "OpenAI",
       "title": "Model Release Notes: GPT-6 Rosalind Research",
@@ -2193,6 +2243,19 @@
     }
   ],
   "events": [
+    {
+      "id": "qwen-code-0-26-5-release",
+      "task": "qwen-code-0-26-5",
+      "date": "2026-11-01",
+      "kind": "release",
+      "title": "Qwen Code 发布 v0.26.5",
+      "summary": "版本默认启用 Generated UI，并更新 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流；官方声明无已知破坏性变化。",
+      "delta": "重点不只是版本号：交互卡值可带入后续上下文，自动修复加入失败交接与重试预算，托管和浏览器相关路径也有变化；升级后应复验权限、上下文与 CI 门禁。",
+      "sources": ["qwen-code-0-26-5-release", "qwen-code-quickstart"],
+      "reviewed": "2026-11-01",
+      "tag": "v0.26.5",
+      "short_title": "Qwen Code 0.26.5"
+    },
     {
       "id": "openai-gpt6-rosalind-research-release",
       "task": "openai-gpt6-rosalind-research",
