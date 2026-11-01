@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-01T17:23:05Z",
+  "generated_at": "2026-11-01T21:24:14Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 6,
-    "merge": 127,
+    "merge": 131,
     "hold": 6
   },
   "candidates": [
@@ -229,6 +229,52 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "first_seen_at": "2026-10-31T13:40:37Z"
+    },
+    {
+      "id": "candidate-4f57f7f69e0beb56",
+      "category": "industry",
+      "published": "2026-10-30",
+      "title": "临床 Agent 接入策略与身份控制：先验证建议，再谈诊疗效果",
+      "summary": "富士康在 HHTD26 展示 CoDoClaw：与童综合医院合作面向糖尿病及心代谢共病，把 NVIDIA NemoClaw、OpenShell、策略管理、沙箱、运行时访问控制与 Sentry 身份委派放进临床 AI 编排流程；同场还展示心电与肠镜辅助系统。",
+      "why": "医疗 Agent 的关键正在从单次问答转向多工具调用、身份委派和可审计权限。临床团队可以把建议质量、数据访问、工具权限、人工确认和异常回退拆开验收。",
+      "boundary": "这是公司官方活动展示与联合开发说明，未披露前瞻性临床试验、诊断准确率、患者结局、监管许可或常态化部署数据。不能据此称系统已获批、已验证疗效，或可以替代医护人员。",
+      "source": "Hon Hai Technology Group (Foxconn)",
+      "source_kind": "公司官方 HHTD26 展示、联合开发伙伴、技术组件与医院机器人流程",
+      "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
+      "publishable": true,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-11-01T21:24:14Z"
+    },
+    {
+      "id": "candidate-6b604b03183ec130",
+      "category": "industry",
+      "published": "2026-10-30",
+      "title": "化疗调配到病区交付串成机器人流程：数字孪生先验证交接点",
+      "summary": "富士康披露与台北荣民总医院、川崎重工、汤山制作所及 FARobot 联合开发的化疗调配与配送系统：用 Omniverse 数字孪生模拟并监控调配、机器人运输和交付，组合 ChemoRo、FARobot AMR 与 Nurabot。",
+      "why": "这类医院自动化更接近高约束制造与物流问题：药品、设备、机器人、权限和人工交接必须在同一流程中追踪。数字孪生的价值应落到异常路径、交接失败和人工接管，而不只是展示动画。",
+      "boundary": "公告描述的是联合开发和活动展示，未给出生产环境吞吐、配药差错、机器人故障率、感染控制、监管许可或长期运行数据。仿真与流程集成不能替代真实医院验收，也不能证明系统已规模化部署。",
+      "source": "Hon Hai Technology Group (Foxconn)",
+      "source_kind": "公司官方 HHTD26 展示、联合开发伙伴、技术组件与医院机器人流程",
+      "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
+      "publishable": true,
+      "features": {
+        "freshness": 0.857,
+        "authority": 1.0,
+        "impact": 0.9,
+        "novelty": 0.15
+      },
+      "priority_score": 0.794,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "first_seen_at": "2026-11-01T21:24:14Z"
     },
     {
       "id": "candidate-a63f4dd504902848",
@@ -957,54 +1003,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "github-agentic-workflows",
       "first_seen_at": "2026-10-29T05:26:10Z"
-    },
-    {
-      "id": "candidate-9202333d855388ce",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "Texting your dot 开始向美国 Pro 用户分批开放",
-      "summary": "符合条件的用户可通过 iMessage 或 RCS 与自己的 dot 对话，并接收可能相关的主动更新；短信入口沿用 ChatGPT 内同一 dot 的记忆与插件。",
-      "why": "短信把 Agent 触达从应用内扩展到系统消息入口；产品判断要同时看账号开放、通知控制、上下文一致性、第三方传输与误提醒恢复。",
-      "boundary": "不能从公告推出全球可用、短信可读取其他对话，或主动更新已经稳定准确；本站未连接手机号或测试。",
-      "source": "OpenAI / Linq",
-      "source_kind": "官方产品节点",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-dot-texting",
-      "first_seen_at": "2026-10-29T01:32:57Z"
-    },
-    {
-      "id": "candidate-c350a4ab40cdf279",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "Docling 为损坏 PDF 文字层增加 OCR 回退",
-      "summary": "v2.144.0 可在 PDF 文字层损坏时改用 OCR，并加入标题层级开关；同时修复 tesserocr 并发崩溃、阿拉伯文字规范化、跨栏标题阅读顺序与零 DPI 图片处理。",
-      "why": "文档流水线可更明确地处理“存在但不可用”的文字层；仍需用损坏层、并发转换、多语与复杂版面样本逐项复核，官方修复清单不等于本站实测。",
-      "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
-      "source": "Docling project",
-      "source_kind": "官方发布",
-      "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "docling",
-      "first_seen_at": "2026-10-28T15:40:27Z"
     }
   ]
 }
