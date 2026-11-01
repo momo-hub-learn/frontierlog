@@ -60,6 +60,10 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<button class="command-trigger" data-action="command" aria-label="快速跳转"><span data-icon="search"></span><span>快速跳转</span>',html)
   self.assertIn('.top-actions .command-trigger>span:not([data-icon]),.top-actions .command-trigger kbd{display:none}',css)
   self.assertNotIn('.top-actions .command-trigger>span,.top-actions .command-trigger kbd{display:none}',css)
+ def test_hot_heading_has_no_decorative_punctuation_in_its_accessible_name(self):
+  text=(ROOT/'src/v10.js').read_text()
+  self.assertIn('<h1>热点时间线</h1>',text)
+  self.assertNotIn('热点时间线<span class="accent">.</span>',text)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)
