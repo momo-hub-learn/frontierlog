@@ -70,6 +70,9 @@ class EditorialContracts(unittest.TestCase):
   enhanced=(ROOT/'src/tibo-intel.js').read_text()
   self.assertIn('公开记录不能证明每个账户已经到账',base)
   self.assertIn('公开原帖不能证明每个账户已经到账',enhanced)
+ def test_arena_workflow_runs_when_tibo_enhancement_changes(self):
+  workflow=(ROOT/'.github/workflows/arena.yml').read_text()
+  self.assertIn("- 'src/tibo-intel.js'",workflow)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)
