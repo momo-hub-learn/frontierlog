@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
 
 为什么值得看：主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。
 
@@ -700,6 +700,12 @@
 为什么值得看：文档解析常处在 AI 知识库和 Agent 的上传入口。此次改动把资源消耗与复杂格式边界前移到解析层；处理外部文件的团队应核对版本并用恶意或异常样本回归，而不是只测试正常 PDF。
 
 边界：这是 Docling 官方 Release 的修复清单，不是 CVE 公告，也不证明 v2.142.1 消除了所有解析风险。本站未对补丁做渗透测试；生产环境仍需文件大小、类型、执行路径、超时和隔离层限制。
+
+站内热度 86；不是全网流量。</description></item><item><title>富士康把临床 Agent、化疗机器人与数字孪生放进同一医院流程</title><guid isPermaLink="false">frontierlog:hot:foxconn-smart-healthcare-agents-robotics-20261030</guid><link>https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139</link><pubDate>Fri, 30 Oct 2026 00:00:00 +0800</pubDate><description>富士康在 HHTD26 展示 CoDoClaw 临床 AI 编排器、心电与肠镜辅助系统，以及把化疗调配、运输和交付串起来的机器人流程；官方称 CoDoClaw 基于 NVIDIA NemoClaw 与 OpenShell，并加入策略、沙箱、运行时访问控制和身份委派。
+
+为什么值得看：值得关注的是医院 Agent 与机器人开始共享权限、仿真和流程编排，而不是把单个模型包装成诊疗结论。医疗与制造团队可据此分别验证临床建议、药品调配、机器人交接和人工放行。
+
+边界：这是发布方对展示与联合开发项目的官方说明，不是独立临床试验或正式部署报告。公告未给出诊断准确率、患者结局、监管许可、真实吞吐或故障率，不能据此称系统已获批、已规模化落地或能替代医护人员。
 
 站内热度 86；不是全网流量。</description></item><item><title>Oracle AI Workspace 将接入 ChatGPT</title><guid isPermaLink="false">frontierlog:hot:openai-oracle-ai-workspace-20261027</guid><link>https://openai.com/index/oracle-apps-in-chatgpt/</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI 与 Oracle 公告将 Oracle 应用和数据带入 ChatGPT：Oracle 正在开发 AI Workspace；同时公布 AI Security Mesh、AI SMB Bundle 与 App Composer，并允许美国客户通过 Oracle Marketplace 采购 OpenAI API、Codex 和 ChatGPT Work。
 
