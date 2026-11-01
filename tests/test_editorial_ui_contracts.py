@@ -54,6 +54,12 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<main id="main" tabindex="-1">',html)
   self.assertIn('const previousView=state.view;',app)
   self.assertIn("if(previousView!==state.view)requestAnimationFrame(()=>{window.scrollTo(0,0);$('#main').focus({preventScroll:true})})",app)
+ def test_mobile_quick_jump_keeps_its_search_icon_visible(self):
+  html=(ROOT/'src/index.html').read_text()
+  css=(ROOT/'src/styles.css').read_text()
+  self.assertIn('<button class="command-trigger" data-action="command" aria-label="快速跳转"><span data-icon="search"></span><span>快速跳转</span>',html)
+  self.assertIn('.top-actions .command-trigger>span:not([data-icon]),.top-actions .command-trigger kbd{display:none}',css)
+  self.assertNotIn('.top-actions .command-trigger>span,.top-actions .command-trigger kbd{display:none}',css)
  def test_industry_cards_expose_source_strength_before_opening_detail(self):
   text=(ROOT/'src/vertical.js').read_text()
   self.assertIn("function articleEvidenceLabel(a)",text)

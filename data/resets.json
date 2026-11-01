@@ -573,6 +573,36 @@
       "not_proves": "未证明传播已经完成、每个账户已显示新额度、适用套餐、额度恢复幅度、banked / global 后台实现或个人余额。",
       "post_id": "2115273064481218829",
       "relation": "original"
+    },
+    {
+      "id": "tibo-banked-pending-2026-11-01-day27",
+      "kind": "banked",
+      "status": "pending",
+      "date": "2026-11-01",
+      "published_at": null,
+      "effective_at": null,
+      "precision": "source_date",
+      "source_timezone": "UTC",
+      "title": "Day 27 “Banked 1/2”候选：原帖直读仍受阻",
+      "summary": "多家公开追踪页一致定位到 Tibo 的 X 状态 2116692529970311254，并显示短句“Banked 1/2”；本站本轮打开该 X 原帖仍返回 403，因此只登记为待核验候选，不确认 banked reset 已发放。",
+      "scope": "Codex / ChatGPT Work 社区 reset 语境；候选文本未列出套餐、账户范围、可用张数或有效期",
+      "boundary": "第三方镜像和状态链接不能替代本人原帖直读；不能据此确认每个账户已获得 banked reset、可立即使用、适用套餐、到账时间或个人余额。",
+      "sources": [
+        "tibo-post-2116692529970311254",
+        "opentherank-day27-banked"
+      ],
+      "reviewed": "2026-11-02",
+      "review_basis": "third_party_locator",
+      "related_ids": [
+        "tibo-reset-pending-2026-10-28-day23"
+      ],
+      "conversation_context": "追踪页将这条短句放在此前“Next two days will be resets… banked”之后，但本站无法直接读取本人原帖或回复链，不能把镜像上下文当作一手确认。",
+      "interpretation": "这是一个值得继续核验的 banked reset 信号；当前证据只足以确认公开页面指向同一个 X 状态，未达到本站确认标准。",
+      "evidence_strength": "low",
+      "semantic_type": "banked_delivery_candidate",
+      "not_proves": "未证明本人原帖正文、banked reset 已实际发放、适用账户、有效期、传播完成或任何个人余额变化。",
+      "post_id": "2116692529970311254",
+      "relation": "original_link_unreadable"
     }
   ],
   "sources": [
@@ -863,15 +893,33 @@
       "checked": "2026-10-30",
       "kind": "OpenAI 官方社区线索",
       "note": "官方社区帖子嵌入 Tibo 的 X 卡片并保留 Day 23 reset 片段；用于定位候选与上下文，不替代 Tibo 原帖直读或 OpenAI 官方 reset 说明。"
+    },
+    {
+      "id": "tibo-post-2116692529970311254",
+      "publisher": "Tibo / X",
+      "title": "Day 27 banked reset candidate",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254",
+      "checked": "2026-11-02",
+      "kind": "原帖待直接核验",
+      "note": "本轮已定位本人状态链接，但服务端直读返回 HTTP 403；因此只作为后续一手核验入口，不把镜像摘录升级为确认事实。"
+    },
+    {
+      "id": "opentherank-day27-banked",
+      "publisher": "OpenTheRank",
+      "title": "Day 27 banked reset locator",
+      "url": "https://opentherank.com/codex-reset/",
+      "checked": "2026-11-02",
+      "kind": "第三方定位线索",
+      "note": "用于定位 X 状态 ID、来源日期和候选短句；其 banked 分类与到账结论不作为本站确认依据。"
     }
   ],
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
   "sync": {
     "status": "not_configured",
-    "last_attempt": "2026-10-30T03:32:31+08:00",
+    "last_attempt": "2026-11-02T01:21:10+08:00",
     "last_success": null,
-    "error": "X_BEARER_TOKEN not configured",
-    "note": "本轮只记录官方 X 采集失败；没有读取到本人原帖正文，因此不更新 checked、事件或最后成功时间。"
+    "error": "X_BEARER_TOKEN not configured; official post read returned HTTP 403",
+    "note": "本轮官方 X API 缺少已配置凭据，直接打开新候选原帖也返回 HTTP 403；只新增待核验线索，不更新 checked、确认事件或最后成功时间。"
   },
   "inbox": [],
   "profile_url": "https://x.com/thsottiaux",
