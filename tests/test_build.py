@@ -335,11 +335,12 @@ class BuildTests(unittest.TestCase):
         event=next(x for x in product['items'] if x['id']=='openai-evals-platform-retirement')['timeline'][0]
         self.assertEqual(event['date_kind'],'effective')
         self.assertEqual(event['published_at'],'2026-06-03')
-        build.validate_product_radar(product,now=datetime(2026,11,1,2,0,tzinfo=timezone.utc))
+        validation_clock=datetime.fromisoformat(product['checked']+'T12:00:00+08:00')
+        build.validate_product_radar(product,now=validation_clock)
         event['date_kind']='effective'
         event.pop('published_at')
         with self.assertRaisesRegex(ValueError,'requires published_at'):
-            build.validate_product_radar(product,now=datetime(2026,11,1,2,0,tzinfo=timezone.utc))
+            build.validate_product_radar(product,now=validation_clock)
 
     def test_gpt6_intelligent_ui_is_actionable_capability(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
@@ -517,7 +518,7 @@ class BuildTests(unittest.TestCase):
             d=Path(td);build.build(d,'','')
             html=(d/'index.html').read_text()
             self.assertIn('class="fc-panel-titleline"><h2>热点</h2><span class="eyebrow">HOT / RECENT</span>',html)
-            self.assertIn('新鲜度加权：旧 1 日 −2',html)
+            self.assertIn('新鲜度规则：每旧 1 日 −2',html)
             self.assertIn('排序分 = 编辑热度 − 2 × 距今天数',html)
             self.assertIn('正文核验',html)
             self.assertIn('北京时间',html)

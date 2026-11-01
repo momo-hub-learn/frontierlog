@@ -683,6 +683,12 @@
 
 边界：这是 NVIDIA 官方 Release 与文档，不是本站训练实测。部分配方仍冻结索引器或缺少 TP、PP、CP、packing 等路径；GLM 医学视觉示例使用 72 张 H100，Cohere 预览依赖 remote code 且未纳入本次发布 CI，不能把版本覆盖写成所有模型与规模均已稳定。
 
+站内热度 87；不是全网流量。</description></item><item><title>FactoryTalk Conductor 把工业 Copilot 推向多 Agent 编排</title><guid isPermaLink="false">frontierlog:hot:rockwell-factorytalk-conductor-20261021</guid><link>https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Rockwell Automation 发布 FactoryTalk Conductor：用自然语言协调 AI Agent、技能、工作流与自动化软件，首批连接 Studio 5000 Logix Designer、Logix Echo、Emulate3D 和 FactoryTalk Optix。
+
+为什么值得看：工业 AI 的产品单位开始从单点 Copilot 变成跨设计、仿真与测试的编排层。真正应验证的是权限、工程变更、仿真证据、人工放行与失败回滚能否贯通，而不是只看自然语言演示。
+
+边界：产品将在 Automation Fair 2026 公开预览，官方预计 2027 年第一季度商业可用；这不是已全面 GA 或生产验证。官方未给出任务成功率、节省工时、故障率、安全认证或定价，计划集成也不能写成当前已可用。
+
 站内热度 87；不是全网流量。</description></item><item><title>Claude 扩大美国政府采购覆盖</title><guid isPermaLink="false">frontierlog:hot:anthropic-gsa-expanded-partnership-20261027</guid><link>https://www.anthropic.com/news/expanding-partnership-gsa</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 扩大与美国联邦总务署（GSA）的合作：面向联邦、州、地方、部落与属地政府提供 Claude Enterprise、Claude for Government 和 Claude API 40% 折扣，并称约 500 个政府机构已经使用 Claude。
 
 为什么值得看：政府 AI 落地的关键约束往往是采购渠道、安全认证与跨机构扩展，而不只是模型表现。折扣、GSA 合作和 FedRAMP High 可用范围同时推进，是未来数月公共部门采用速度与治理要求的可信信号。
@@ -725,7 +731,13 @@
 
 边界：这是 OpenHands 官方 Release 的改动清单，不是本站安全审计。表单遮蔽不能证明机密未进入请求、日志、存储或后端；macOS 应用仍未签名和公证，官方说明可能被系统标记为损坏并提供 xattr 临时处理，不能写成已消除安装风险。
 
-站内热度 85；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
+站内热度 85；不是全网流量。</description></item><item><title>Antigravity 串起抗菌肽候选搜索与湿实验计划</title><guid isPermaLink="false">frontierlog:hot:deepmind-antigravity-amp-20261015</guid><link>https://deepmind.google/blog/accelerating-antimicrobial-discovery/</link><pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate><description>Google DeepMind 展示 Antigravity 与 ProtNLM 如何搜索 UniProt、核对序列与结构、检查基因邻域并生成湿实验计划；流程筛出 97 aa 候选 A0A0U0D591，并明确仍在湿实验验证。
+
+为什么值得看：值得追踪的是研究 Agent 把数据库检索、AlphaFold/Foldseek 结构证据、基因上下文和实验设计放进可追踪会话，而不是把计算预测包装成新抗生素。
+
+边界：这是 Google DeepMind 的官方技术走查，不是论文同行评议、独立复现或实验疗效结果。候选只是有结构与基因组证据支持的生物学可行线索，仍需湿实验验证；不能据此称发现了有效药物、临床候选或已证明 Antigravity 提高研发成功率。
+
+站内热度 84；不是全网流量。</description></item><item><title>Hugging Face 上线 Trainium 模型兼容性目录：PASS 不等于性能通过</title><guid isPermaLink="false">frontierlog:hot:hf-trainium-model-support-20261023</guid><link>https://huggingface.co/blog/torch-neuronx-model-support</link><pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate><description>Hugging Face 发布公开 Space 与数据集，记录热门 Transformers 文本生成、图文模型能否在 Trainium2 上无改动运行，并提供编译器、库版本、核心数、峰值显存、运行脚本与失败原因。
 
 为什么值得看：硬件适配从零散教程变成可查询、带版本和失败原因的公开清单，团队可先筛兼容性，再决定是否投入 Trainium 环境做真实负载评测。
 

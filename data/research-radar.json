@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-31",
+  "checked": "2026-11-02",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,28 @@
     }
   ],
   "items": [
+    {
+      "id": "deepmind-antigravity-amp-20261015",
+      "lane": "science",
+      "title": "Antigravity 把抗菌肽搜索压进一条可追踪证据链",
+      "maker": "Google DeepMind",
+      "date": "2026-10-15",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "verification_status": "Google DeepMind 官方科学工作流 · 候选仍在湿实验验证，本站未复现",
+      "tags": ["Agentic Science", "Antimicrobial Peptides", "Protein Structure"],
+      "fact": "Google DeepMind 展示 Antigravity 与 ProtNLM 如何从 UniProt 搜索未知蛋白，随后用人工引导的序列核对、AlphaFold/Foldseek 结构比较、基因邻域与文献证据筛选候选，并生成湿实验计划。示例候选 A0A0U0D591 为 97 个氨基酸、属于 Lactococcin 972 家族；官方同时发布嵌入式 Biomolecular Structure Viewer 作为研究者与 Agent 的共享 3D 画布。",
+      "insight": "前瞻信号不在于模型自动“发现药物”，而在于 Agent 开始持有跨数据库、结构工具与实验计划的连续状态。真正可迁移的研究基础设施是可重放查询、逐步证据出处、共享结构标注和实验前的人类验证门槛。",
+      "boundary": "这是 Google DeepMind 的官方技术走查，不是同行评议论文、公开代码、完整会话或独立复现。官方只称候选具有结构与基因组证据支持的生物学可行性，并明确仍需湿实验验证；不能据此称其具有抗菌药效、可成为临床候选，或证明 Antigravity 提高研发成功率。",
+      "next_watch": "跟踪 A0A0U0D591 与同批候选的表达、最低抑菌浓度、选择性、毒性和机制结果是否公开；关注完整会话、工具调用、数据快照和失败案例能否复现，以及 Biomolecular Structure Viewer 是否提供可导出审计记录。",
+      "sources": [
+        {
+          "label": "Google DeepMind · Accelerating the search for antimicrobial peptides with Google Antigravity",
+          "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+          "kind": "官方工作流、候选标识、结构查看器与实验验证边界",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "microsoft-industry-evaluation-data-20261030",
       "lane": "science",

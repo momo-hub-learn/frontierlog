@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-01",
+  "checked": "2026-11-02",
   "title": "AI 产品雷达",
   "note": "产品雷达用于长期跟踪 AI-native 应用与企业 AI 平台，不参与热点热度排名。投资 / 孵化标签只表示公开关系，不代表产品质量；Palantir 等平台型产品则以官方产品文档、架构说明和发布节点作为主要证据。",
   "groups": [
@@ -16,6 +16,41 @@
     }
   ],
   "items": [
+    {
+      "id": "rockwell-factorytalk-conductor",
+      "name": "FactoryTalk Conductor",
+      "company": "Rockwell Automation",
+      "group": "enterprise-agent",
+      "tags": ["Industrial Agent", "Orchestration", "Preview"],
+      "summary": "面向工业自动化工程的 AI-native 编排层，把 Agent、技能、工作流与设计、仿真、测试软件连接起来。",
+      "product_url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html",
+      "source_url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html",
+      "source_label": "Rockwell Automation 官方产品页",
+      "evidence": "Rockwell 官方产品页和 2026-10-21 发布稿确认首批集成、Automation Fair 公开预览，以及 2027 年第一季度计划商业可用。",
+      "boundary": "仍是预览阶段；计划可用日期、后续集成与模型选择不等于当前生产可用。官方没有公布任务成功率、故障率、安全认证、定价或客户生产数据。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-21",
+          "kind": "Preview",
+          "title": "FactoryTalk Conductor 公开，商业可用计划在 2027 Q1",
+          "url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html",
+          "summary": "首批连接 Studio 5000 Logix Designer、Logix Echo、Emulate3D 与 FactoryTalk Optix，并允许组织使用官方或自建 Agent 与技能。",
+          "facts": [
+            {"label": "当前状态", "value": "Automation Fair 2026 预览"},
+            {"label": "计划商用", "value": "2027 年第一季度"},
+            {"label": "首批集成", "value": "Logix Designer / Echo / Emulate3D / Optix"},
+            {"label": "后续计划", "value": "Design Studio / Historian / Plex / Fiix"}
+          ],
+          "interpretation": "工业 AI 正从单任务助手转向跨工程工具编排；采用价值取决于权限、工程差异、仿真证据、人工放行和失败回滚是否可审计。",
+          "scope": "Rockwell Automation 2026-10-21 官方产品页与发布稿所述的公开预览及计划范围。",
+          "limitations": "不是正式 GA 或生产验证；没有公开成功率、可靠性、安全认证、价格或客户 ROI，计划集成不能当作当前能力。",
+          "published_at": "2026-10-21",
+          "verified_at": "2026-11-02T05:17:00+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
     {
       "id": "openai-evals-platform-retirement",
       "name": "OpenAI Evals platform retirement",
@@ -697,6 +732,25 @@
           "limitations": "尚未全面 GA；公告没有给出每个模型、地区和账户的精确可用日期，不能标成现在可用。",
           "published_at": "2026-10-21",
           "verified_at": "2026-10-22",
+          "evidence_level": "primary_source"
+        },
+        {
+          "date": "2026-10-15",
+          "kind": "Science workflow",
+          "title": "Antigravity 串联抗菌肽候选搜索、结构证据与实验计划",
+          "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+          "summary": "Google DeepMind 展示从 UniProt 与 ProtNLM 到 AlphaFold/Foldseek、基因邻域、文献和湿实验计划的完整会话，并明确候选仍待实验验证。",
+          "facts": [
+            {"label": "候选", "value": "A0A0U0D591 · 97 aa"},
+            {"label": "证据", "value": "序列 / 结构 / 基因邻域 / 文献"},
+            {"label": "共享界面", "value": "Biomolecular Structure Viewer"},
+            {"label": "当前状态", "value": "湿实验验证中"}
+          ],
+          "interpretation": "Antigravity 的边界从开发 Agent 延伸到科学工作台；真正价值是证据链可重放与人类决定验证门槛，而不是把计算候选直接升级成药物结论。",
+          "scope": "Google DeepMind 2026-10-15 官方抗菌肽工作流走查及其中公开的候选与工具范围。",
+          "limitations": "不是同行评议论文或独立复现；没有公开完整会话、代码或湿实验结果，不能证明候选有效或平台提高研发成功率。",
+          "published_at": "2026-10-15",
+          "verified_at": "2026-11-02T05:17:00+08:00",
           "evidence_level": "primary_source"
         },
         {

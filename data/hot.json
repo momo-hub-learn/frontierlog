@@ -40,6 +40,65 @@
   ],
   "items": [
     {
+      "id": "rockwell-factorytalk-conductor-20261021",
+      "category": "industry",
+      "title": "FactoryTalk Conductor 把工业 Copilot 推向多 Agent 编排",
+      "published": "2026-10-21",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "first_seen_at": "2026-11-01T21:17:00Z",
+      "heat": 87,
+      "heat_components": {"impact": 32, "availability": 15, "evidence": 25, "recency": 15},
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；工业软件跨工具编排和官方产品细节提高影响与证据分，仍处预览且商业可用计划在 2027 年第一季度显著限制可操作性。这不是自动化能力、可靠性或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Rockwell Automation 官方产品页与发布稿 · 预览阶段，本站未做工厂验证",
+      "summary": "Rockwell Automation 发布 FactoryTalk Conductor：用自然语言协调 AI Agent、技能、工作流与自动化软件，首批连接 Studio 5000 Logix Designer、Logix Echo、Emulate3D 和 FactoryTalk Optix。",
+      "why": "工业 AI 的产品单位开始从单点 Copilot 变成跨设计、仿真与测试的编排层。真正应验证的是权限、工程变更、仿真证据、人工放行与失败回滚能否贯通，而不是只看自然语言演示。",
+      "boundary": "产品将在 Automation Fair 2026 公开预览，官方预计 2027 年第一季度商业可用；这不是已全面 GA 或生产验证。官方未给出任务成功率、节省工时、故障率、安全认证或定价，计划集成也不能写成当前已可用。",
+      "source": "Rockwell Automation",
+      "source_kind": "公司官方产品页、发布稿、集成范围与可用计划 / 本轮编辑核验",
+      "url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html",
+      "link": "#/manufacturing?article=rockwell-factorytalk-conductor-20261021",
+      "evidence_level": "primary-source",
+      "access": [
+        {"label": "查看制造业验证步骤", "note": "区分公开预览、计划商业可用、当前集成与后续计划", "url": "#/manufacturing?article=rockwell-factorytalk-conductor-20261021", "kind": "internal"},
+        {"label": "查看 Rockwell 官方产品页", "note": "核对产品定义、首批集成、模型选择与 2027 年第一季度计划", "url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html", "kind": "external"}
+      ],
+      "related": [
+        {"source": "Rockwell Automation", "title": "FactoryTalk Conductor product page", "url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html"},
+        {"source": "Rockwell Automation", "title": "Rockwell Automation Introduces FactoryTalk Conductor", "url": "https://www.rockwellautomation.com/en-se/company/news/press-releases/Rockwell-Automation-Introduces-FactoryTalk-Conductor-an-AI-Native-Orchestration-Platform-for-Industrial-Automation.html", "date": "2026-10-21"}
+      ]
+    },
+    {
+      "id": "deepmind-antigravity-amp-20261015",
+      "category": "research",
+      "title": "Antigravity 串起抗菌肽候选搜索与湿实验计划",
+      "published": "2026-10-15",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "first_seen_at": "2026-11-01T21:17:00Z",
+      "heat": 84,
+      "heat_components": {"impact": 31, "availability": 16, "evidence": 24, "recency": 13},
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；跨数据库、结构与实验计划的可复核工作流提高影响分，候选仍在湿实验验证且只有官方技术演示限制证据与可操作性。这不是抗菌活性、药效或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Google DeepMind 官方技术走查 · 候选仍在湿实验验证，本站未复现",
+      "summary": "Google DeepMind 展示 Antigravity 与 ProtNLM 如何搜索 UniProt、核对序列与结构、检查基因邻域并生成湿实验计划；流程筛出 97 aa 候选 A0A0U0D591，并明确仍在湿实验验证。",
+      "why": "值得追踪的是研究 Agent 把数据库检索、AlphaFold/Foldseek 结构证据、基因上下文和实验设计放进可追踪会话，而不是把计算预测包装成新抗生素。",
+      "boundary": "这是 Google DeepMind 的官方技术走查，不是论文同行评议、独立复现或实验疗效结果。候选只是有结构与基因组证据支持的生物学可行线索，仍需湿实验验证；不能据此称发现了有效药物、临床候选或已证明 Antigravity 提高研发成功率。",
+      "source": "Google DeepMind",
+      "source_kind": "官方科学工作流、候选标识、结构查看器与验证边界 / 本轮编辑核验",
+      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "link": "#/pharma?article=deepmind-antigravity-amp-20261015",
+      "evidence_level": "primary-source",
+      "access": [
+        {"label": "查看医药证据与验证步骤", "note": "核对候选来源、结构与基因上下文证据以及湿实验门槛", "url": "#/pharma?article=deepmind-antigravity-amp-20261015", "kind": "internal"},
+        {"label": "阅读 DeepMind 官方走查", "note": "核对 A0A0U0D591、ProtNLM、结构分析与仍待验证的原文边界", "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/", "kind": "external"}
+      ],
+      "related": [
+        {"source": "Google DeepMind", "title": "Accelerating the search for antimicrobial peptides with Google Antigravity", "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/", "date": "2026-10-15"}
+      ]
+    },
+    {
       "id": "insilico-ism6331-phase1-20261025",
       "category": "industry",
       "title": "ISM6331 报告首次人体早期信号",

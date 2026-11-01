@@ -174,6 +174,36 @@
   ],
   "sources": [
     {
+      "id": "rockwell-factorytalk-conductor-20261021",
+      "title": "FactoryTalk Conductor Software",
+      "publisher": "Rockwell Automation",
+      "url": "https://www.rockwellautomation.com/en-us/products/software/factorytalk/conductor.html",
+      "published": "2026-10-21",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "kind": "公司官方产品页、首批与计划集成、模型选择、预览和商业可用计划"
+    },
+    {
+      "id": "rockwell-factorytalk-conductor-release-20261021",
+      "title": "Rockwell Automation Introduces FactoryTalk Conductor, an AI-Native Orchestration Platform for Industrial Automation",
+      "publisher": "Rockwell Automation",
+      "url": "https://www.rockwellautomation.com/en-se/company/news/press-releases/Rockwell-Automation-Introduces-FactoryTalk-Conductor-an-AI-Native-Orchestration-Platform-for-Industrial-Automation.html",
+      "published": "2026-10-21",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "kind": "公司官方发布、Automation Fair 预览、工业编排范围与 2027 年第一季度计划"
+    },
+    {
+      "id": "deepmind-antigravity-amp-20261015",
+      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
+      "publisher": "Google DeepMind",
+      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "published": "2026-10-15",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "kind": "官方科学工作流、候选标识、结构与基因上下文证据、湿实验验证边界"
+    },
+    {
       "id": "foxconn-smart-healthcare-20261030",
       "title": "Foxconn Showcases AI Agents and Hospital Robotics for Next-Generation Smart Healthcare",
       "publisher": "Hon Hai Technology Group (Foxconn)",
@@ -714,6 +744,80 @@
     }
   ],
   "articles": [
+    {
+      "id": "rockwell-factorytalk-conductor-20261021",
+      "sector": "manufacturing",
+      "topics": [
+        "equipment-design",
+        "digital-twin",
+        "equipment-maintenance"
+      ],
+      "title": "工业多 Agent 编排：先锁定工程变更，再谈自然语言提效",
+      "summary": "Rockwell Automation 的 FactoryTalk Conductor 计划把 AI Agent、技能、工作流与自动化软件接到同一编排层；首批覆盖 Studio 5000 Logix Designer、Logix Echo、Emulate3D 与 FactoryTalk Optix，后续才计划扩到 Historian、Plex、Fiix 等产品。",
+      "why": "从 PLC 设计到仿真、测试和运维的跨工具任务比单点 Copilot 更接近真实工程链路。团队应把自然语言意图、生成变更、仿真证据、审批、部署和回滚拆成可审计状态，而不是让 Agent 直接跨环境写入。",
+      "boundary": "这是 Automation Fair 2026 的公开预览和官方产品说明，商业可用计划为 2027 年第一季度。官方没有公布任务成功率、节省工时、故障率、安全认证、接口细节或价格；后续集成不能写成当前可用，模型可连接也不等于已通过企业治理。",
+      "sources": [
+        "rockwell-factorytalk-conductor-20261021",
+        "rockwell-factorytalk-conductor-release-20261021"
+      ],
+      "kind": "update",
+      "access": "Automation Fair 2026 公开预览；官方预计 2027 年第一季度商业可用，当前没有正式采购、价格或生产验证数据",
+      "access_status": "limited",
+      "access_label": "状态：预览",
+      "published": "2026-10-21",
+      "steps": [
+        "选一个可回滚的工程任务，固定输入工程版本、允许调用的软件、数据范围与禁止动作",
+        "要求每次 Agent 变更生成差异、仿真或测试证据、审批人和可恢复检查点",
+        "分别故障注入模型错误、工具超时、冲突工程版本和权限越界，验证人工接管与回滚"
+      ],
+      "metrics": [
+        "工程差异准确率、测试通过率、人工修改量与端到端周期",
+        "越权调用、不可逆变更、冲突检测、回滚成功率与审计覆盖",
+        "预览到 GA 的集成清单、接口稳定性、生产故障率与总成本"
+      ],
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "first_seen_at": "2026-11-02T05:17:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
+    {
+      "id": "deepmind-antigravity-amp-20261015",
+      "sector": "pharma",
+      "topics": [
+        "targets",
+        "molecules"
+      ],
+      "title": "抗菌肽研究 Agent：把候选证据链与湿实验门槛分开",
+      "summary": "Google DeepMind 展示 Antigravity 与 ProtNLM 从 UniProt 搜索、序列核对、AlphaFold/Foldseek 结构分析、基因邻域和文献综合一路生成湿实验计划；示例候选 A0A0U0D591 为 97 aa、属于 Lactococcin 972 家族。",
+      "why": "这类工作流的价值是把分散数据库与结构工具串成可追踪的证据链，让研究者决定问题和证据门槛。可复用验收点是候选检索可重放、每个推断有出处、结构与基因上下文能复核，最终仍由实验结果裁决。",
+      "boundary": "这是 Google DeepMind 官方技术走查，不是同行评议论文、独立复现或药效结果。官方明确称候选是具有结构与基因组证据的生物学可行线索，仍在湿实验验证；不能据此称发现了有效抗生素、临床候选或证明 Agent 提高研发成功率。",
+      "sources": [
+        "deepmind-antigravity-amp-20261015"
+      ],
+      "kind": "update",
+      "access": "官方公开工作流说明与视频；具体候选仍在湿实验验证，未见公开代码、完整会话、数据快照或实验结果",
+      "access_status": "limited",
+      "access_label": "证据：计算候选",
+      "published": "2026-10-15",
+      "steps": [
+        "固定 UniProt 数据版本、检索条件、候选 ID 与每次工具调用，确保搜索结果可以重放",
+        "分别核对序列同源、结构相似、基因邻域和文献机制，不让单一模型结论替代原始证据",
+        "预注册表达、抑菌、靶点结合与毒性实验，并在结果公开前保持候选状态而不是药物结论"
+      ],
+      "metrics": [
+        "候选召回、数据库与结构证据完整性、引用可追溯性和重放一致性",
+        "湿实验阳性率、最低抑菌浓度、选择性、毒性与机制验证",
+        "人工复核时间、工具失败率、错误来源与计算预测—实验结果偏差"
+      ],
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T05:17:00+08:00",
+      "first_seen_at": "2026-11-02T05:17:00+08:00",
+      "evidence_level": "primary-source",
+      "featured": true,
+      "tested": false
+    },
     {
       "id": "foxconn-smart-healthcare-agents-20261030",
       "sector": "pharma",
