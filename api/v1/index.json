@@ -5755,16 +5755,40 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-10-31T23:27:13Z",
+    "generated_at": "2026-11-01T01:21:05Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 6,
       "merge": 125,
-      "hold": 5
+      "hold": 6
     },
     "candidates": [
+      {
+        "id": "candidate-abfbb59d0ab33e72",
+        "category": "product",
+        "published": "2026-10-31",
+        "title": "现有 OpenAI Evals 进入只读窗口",
+        "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
+        "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
+        "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
+        "source": "OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://developers.openai.com/api/docs/deprecations",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 1.0
+        },
+        "priority_score": 0.941,
+        "action": "publish",
+        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+        "product_id": "openai-evals-platform-retirement",
+        "first_seen_at": "2026-11-01T01:21:05Z"
+      },
       {
         "id": "candidate-123e3f719aa75935",
         "category": "product",
@@ -5778,12 +5802,12 @@
         "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.919,
+        "priority_score": 0.898,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "huggingface-hub-cli-2-3",
@@ -5802,12 +5826,12 @@
         "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.919,
+        "priority_score": 0.898,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "cloudflare-agents-0-31",
@@ -5826,12 +5850,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.919,
+        "priority_score": 0.898,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "docling",
@@ -5850,12 +5874,12 @@
         "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.14",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.855,
+        "priority_score": 0.834,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "browser-use",
@@ -5874,39 +5898,16 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.143.0",
         "publishable": true,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.855,
+        "priority_score": 0.834,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "docling",
         "first_seen_at": "2026-10-27T01:23:34Z"
-      },
-      {
-        "id": "candidate-f5a86901ed45d8e7",
-        "category": "industry",
-        "published": "2026-10-22",
-        "title": "数字患者孪生进入临床试验探索：先验收预测，再谈替代对照组",
-        "summary": "Boehringer Ingelheim 与 Microsoft 将共同研究数字患者孪生，用临床及其他相关数据建模疾病进展、预测结局并模拟试验；首个研究方向是肺部健康。",
-        "why": "这把数字孪生从工业仿真带到临床开发，并明确指向合成或混合对照组。医药团队可以据此把疾病进展模型、患者分层、试验模拟、数据授权与监管接受拆成独立验收环节。",
-        "boundary": "这是双方官方公布的探索性合作，不是已验证的数字患者、已批准的合成对照组或临床结局改善证据。公告没有给出数据集、模型、基准、样本量或实施结果；任何用途都仍需科学验证、患者安全审查、数据授权和监管接受。",
-        "source": "Boehringer Ingelheim",
-        "source_kind": "公司官方合作公告、数字患者孪生研究范围、肺部健康起点与科学/监管边界",
-        "url": "https://www.boehringer-ingelheim.com/about-us/boehringer-microsoft-partner-ai-backed-clinical-development",
-        "publishable": true,
-        "features": {
-          "freshness": 0.357,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 1.0
-        },
-        "priority_score": 0.78,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-        "first_seen_at": "2026-10-31T19:22:48Z"
       },
       {
         "id": "candidate-b3d0d4d92054cbfe",
@@ -5921,12 +5922,12 @@
         "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.909,
+        "priority_score": 0.887,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "nvidia-tensor-core-mlip-precision-20261029",
@@ -5950,12 +5951,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.816,
+        "priority_score": 0.794,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-31T13:40:37Z"
@@ -5973,12 +5974,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.816,
+        "priority_score": 0.794,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-30T23:37:06Z"
@@ -5996,12 +5997,12 @@
         "url": "https://openai.com/index/the-future-of-the-firm",
         "publishable": false,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.812,
+        "priority_score": 0.79,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "openai-future-of-firm-20261028",
@@ -6025,12 +6026,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-gpt6-rosalind-research",
@@ -6049,12 +6050,12 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-chatgpt-account-switching",
@@ -6073,12 +6074,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.805,
+        "priority_score": 0.783,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-gpt6-rosalind-research",
@@ -6097,12 +6098,12 @@
         "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.794,
+        "priority_score": 0.773,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-29T19:49:37Z"
@@ -6120,12 +6121,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
         "publishable": false,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.794,
+        "priority_score": 0.773,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "microsoft-industry-evaluation-data-20261030",
@@ -6149,12 +6150,12 @@
         "url": "https://huggingface.co/blog/mistral-ai/large-4",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "mistral-large-4-open-weights",
@@ -6173,12 +6174,12 @@
         "url": "https://huggingface.co/blog/mistral-ai/large-4",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "mistral-large-4",
@@ -6197,12 +6198,12 @@
         "url": "https://huggingface.co/blog/anydecisionmodel",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "anyspeech-anydecision",
@@ -6221,12 +6222,12 @@
         "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "ibm-granite-speech-5",
@@ -6245,16 +6246,39 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.783,
+        "priority_score": 0.762,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-work-codex-allowance",
         "first_seen_at": "2026-10-30T05:31:40Z"
+      },
+      {
+        "id": "candidate-f5a86901ed45d8e7",
+        "category": "industry",
+        "published": "2026-10-22",
+        "title": "数字患者孪生进入临床试验探索：先验收预测，再谈替代对照组",
+        "summary": "Boehringer Ingelheim 与 Microsoft 将共同研究数字患者孪生，用临床及其他相关数据建模疾病进展、预测结局并模拟试验；首个研究方向是肺部健康。",
+        "why": "这把数字孪生从工业仿真带到临床开发，并明确指向合成或混合对照组。医药团队可以据此把疾病进展模型、患者分层、试验模拟、数据授权与监管接受拆成独立验收环节。",
+        "boundary": "这是双方官方公布的探索性合作，不是已验证的数字患者、已批准的合成对照组或临床结局改善证据。公告没有给出数据集、模型、基准、样本量或实施结果；任何用途都仍需科学验证、患者安全审查、数据授权和监管接受。",
+        "source": "Boehringer Ingelheim",
+        "source_kind": "公司官方合作公告、数字患者孪生研究范围、肺部健康起点与科学/监管边界",
+        "url": "https://www.boehringer-ingelheim.com/about-us/boehringer-microsoft-partner-ai-backed-clinical-development",
+        "publishable": true,
+        "features": {
+          "freshness": 0.286,
+          "authority": 1.0,
+          "impact": 0.9,
+          "novelty": 1.0
+        },
+        "priority_score": 0.759,
+        "action": "hold",
+        "reason": "保留候选，等待更强证据、影响或更新。",
+        "first_seen_at": "2026-10-31T19:22:48Z"
       },
       {
         "id": "candidate-d3e83555e3861aa4",
@@ -6269,12 +6293,12 @@
         "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.773,
+        "priority_score": 0.751,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-29T05:26:10Z"
@@ -6292,12 +6316,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.773,
+        "priority_score": 0.751,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-gpt-6-luna-behavior-safety-update-20261029",
@@ -6321,12 +6345,12 @@
         "url": "https://huggingface.co/blog/announcing-project-protostar",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.773,
+        "priority_score": 0.751,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "huggingface-protostar-open-science-20261029",
@@ -6350,12 +6374,12 @@
         "url": "https://openai.com/index/updated-model-spec",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.773,
+        "priority_score": 0.751,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-model-spec-values-20261029",
@@ -6379,12 +6403,12 @@
         "url": "https://openai.com/index/detecting-frontier-model-misalignment",
         "publishable": false,
         "features": {
-          "freshness": 0.857,
+          "freshness": 0.786,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.773,
+        "priority_score": 0.751,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-frontier-misalignment-monitoring-20261029",
@@ -6408,12 +6432,12 @@
         "url": "https://huggingface.co/blog/allenai/novelty-bench",
         "publishable": false,
         "features": {
-          "freshness": 0.643,
+          "freshness": 0.571,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.769,
+        "priority_score": 0.747,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "ai2-novelty-judge-instability-20261026",
@@ -6437,12 +6461,12 @@
         "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation",
         "publishable": false,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.94,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.741,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "track_id": "world-models",
@@ -6462,12 +6486,12 @@
         "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-servicenow-mcp",
@@ -6486,12 +6510,12 @@
         "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "github-intelligence",
@@ -6510,12 +6534,12 @@
         "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "microsoft-copilot-harness",
@@ -6534,12 +6558,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -6558,12 +6582,12 @@
         "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "nvidia-nemotron-3-5-transcribe",
@@ -6582,12 +6606,12 @@
         "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "github-connected-copilot-cloud",
@@ -6606,12 +6630,12 @@
         "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-chatgpt-api-credits",
@@ -6630,12 +6654,12 @@
         "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "github-agentic-workflows",
@@ -6654,12 +6678,12 @@
         "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "github-agentic-workflows",
@@ -6678,12 +6702,12 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-dot-texting",
@@ -6702,12 +6726,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.144.0",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
@@ -6726,40 +6750,16 @@
         "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
         "publishable": true,
         "features": {
-          "freshness": 0.786,
+          "freshness": 0.714,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.762,
+        "priority_score": 0.74,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-chatgpt-api-credits",
         "first_seen_at": "2026-10-29T09:28:17Z"
-      },
-      {
-        "id": "candidate-faa6f196ae372b3c",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "ServiceNow MCP 插件开放，后续能力进入分期路线图",
-        "summary": "当前插件把 ServiceNow 上下文与受权限控制的动作带入 ChatGPT；增强插件、安全、语音和 Codex 集成分别计划在 2026 年底至 2027 年推进。",
-        "why": "企业 Agent 的关键不只是能否调用动作，而是 Action Fabric 的业务规则、实例权限、动作确认和审计是否在真实流程里保持一致。",
-        "boundary": "不能把未来计划写成现已上线，也不能从合作公告推出端到端自动化可靠性或安全效果；本站未连接实例或执行写入。",
-        "source": "ServiceNow / OpenAI",
-        "source_kind": "官方产品节点",
-        "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
-        "publishable": true,
-        "features": {
-          "freshness": 0.786,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.762,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "servicenow-chatgpt-workflows",
-        "first_seen_at": "2026-10-28T19:29:22Z"
       }
     ]
   },
@@ -11486,13 +11486,13 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-10-31T23:27:13Z",
+    "last_evaluated": "2026-11-01T01:21:05Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 136,
+      "candidate_count": 137,
       "publish_ready_count": 6,
       "merge_count": 125,
-      "best_candidate": "candidate-123e3f719aa75935",
+      "best_candidate": "candidate-abfbb59d0ab33e72",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
     "active_shadow_candidate": {
