@@ -27,9 +27,17 @@ class BuildTests(unittest.TestCase):
             'api/v1/topic-intake.json','api/v1/upstream.json',
         )
         for relative in paths:
-            text=(ROOT/relative).read_text(encoding='utf-8')
+            raw=(ROOT/relative).read_bytes()
+            try:
+                text=raw.decode('utf-8')
+            except UnicodeDecodeError as exc:
+                self.fail(f'{relative} must be UTF-8 publication text: {exc}')
             self.assertNotIn('\ufffd',text,f'{relative} contains a replacement character')
             if relative.endswith('.json'):
+                self.assertTrue(
+                    text.lstrip('\ufeff \t\r\n').startswith(('{','[')),
+                    f'{relative} must start with a JSON object or array, not encoded/binary payload data',
+                )
                 json.loads(text)
     def test_checked_in_generated_apis_match_reviewed_inputs(self):
         for name in (
