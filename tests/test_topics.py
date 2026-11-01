@@ -113,6 +113,17 @@ class CollectorTests(unittest.TestCase):
   r=c.collect(self.config(),{},lambda s:RSS,now='2026-09-20T01:17:00Z')
   r2=c.collect(self.config(),r,lambda s:RSS,now='2026-09-21T01:17:00Z')
   self.assertEqual(len(r2['items']),1);self.assertEqual(r2['items'][0]['first_seen'],r['items'][0]['first_seen'])
+ def test_preview_output_preserves_first_seen_from_previous_queue(self):
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d);conf=d/'sources.json';previous=d/'previous.json';out=d/'preview.json'
+   conf.write_text(json.dumps({'max_items':50,'topic_ids':['csr'],'sources':[]}))
+   previous.write_text(json.dumps({'version':1,'items':[{'id':'signal-existing','url':'https://example.org/release','first_seen':'2026-09-20T01:17:00Z'}]}))
+   argv=['collect_topics.py','--config',str(conf),'--previous',str(previous),'--out',str(out)]
+   old=sys.argv
+   try:
+    sys.argv=argv;self.assertEqual(c.main(),0)
+   finally:sys.argv=old
+   self.assertEqual(json.loads(out.read_text())['items'][0]['first_seen'],'2026-09-20T01:17:00Z')
  def test_total_failure_retains_records_and_success_time(self):
   r=c.collect(self.config(),{},lambda s:RSS,now='2026-09-20T01:17:00Z')
   def fail(s):raise TimeoutError('secret must not show')

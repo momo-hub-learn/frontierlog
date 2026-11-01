@@ -196,9 +196,11 @@ def collect(config,previous,fetcher=fetch_source,now=None):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',type=Path,default=ROOT/'data/collect-sources.json')
+    p.add_argument('--previous',type=Path,default=ROOT/'data/topic-intake.json',
+                   help='Existing reviewed queue used to preserve stable IDs and first_seen timestamps')
     p.add_argument('--out',type=Path,default=ROOT/'data/topic-intake.json')
     args=p.parse_args()
-    conf=json.loads(args.config.read_text());prev=json.loads(args.out.read_text()) if args.out.exists() else {}
+    conf=json.loads(args.config.read_text());prev=json.loads(args.previous.read_text()) if args.previous.exists() else {}
     result=collect(conf,prev)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     tmp=args.out.with_suffix('.tmp');tmp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');tmp.replace(args.out)
