@@ -60,6 +60,9 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<button class="command-trigger" data-action="command" aria-label="快速跳转"><span data-icon="search"></span><span>快速跳转</span>',html)
   self.assertIn('.top-actions .command-trigger>span:not([data-icon]),.top-actions .command-trigger kbd{display:none}',css)
   self.assertNotIn('.top-actions .command-trigger>span,.top-actions .command-trigger kbd{display:none}',css)
+ def test_theme_switch_keeps_button_surfaces_and_text_in_sync(self):
+  polish=(ROOT/'src/polish.css').read_text()
+  self.assertIn('.button{transition-property:transform,border-color}',polish)
  def test_hot_heading_has_no_decorative_punctuation_in_its_accessible_name(self):
   for name in ('v10.js','hot.js','github-hot.js','huggingface-hot.js','models.js','toolkit.js'):
    text=(ROOT/'src'/name).read_text()
