@@ -57,7 +57,7 @@ check('Palantir renders as a research-backed enterprise platform',()=>{
 check('Arena is an evergreen AI evaluation platform with evidence-backed history',()=>{
  const arena=data.items.find(x=>x.id==='arena');assert(arena);assert.equal(arena.long_term_watch,true);
  assert.equal(pb.scene(arena),'evaluation');assert.equal(arena.timeline.length,4);
- assert.deepEqual(ids(pb.products(read('scene=evaluation'))),['arena']);
+ assert.deepEqual(ids(pb.products(read('scene=evaluation'))),['arena','openai-evals-platform-retirement']);
  const profile=pb.page(read('pview=map&product=arena'));
  assert(profile.includes('Arena'));assert(profile.includes('Alignment Index'));
  assert(profile.includes('AI Evaluations'));assert(profile.includes('研究结论'));
@@ -136,6 +136,15 @@ check('timezone-aware verification timestamps stay verified and naive timestamps
  p.timeline[0].verified_at='2026-10-31T23:35:29';
  html=pb.historyHTML(p,pb.chronology(p));
  assert(html.includes('沿用收录 · 未重新核验'));assert(!html.includes('10.31 23:35 北京时间'));
+});
+check('lifecycle effective dates stay separate from original publication dates',()=>{
+ const p=data.items.find(x=>x.id==='openai-evals-platform-retirement');assert(p);
+ const e=p.timeline[0];assert.equal(e.date_kind,'effective');assert.equal(e.published_at,'2026-06-03');
+ const stream=pb.page(read('product=openai-evals-platform-retirement'));
+ assert(stream.includes('pb-date-kind">生效</span>'));
+ const history=pb.historyHTML(p,pb.chronology(p));
+ assert(history.includes('生效日期：2026.10.31 · 原始公告：2026.06.03'));
+ assert(!history.includes('发布时间：2026.10.31'));
 });
 check('timeline extras escape text and source credentials remain blocked',()=>{
  const p=clone(data.items.find(x=>x.id==='harvey'));p.timeline[0].summary='<script>alert(1)</script>';p.timeline[0].facts=[{label:'<b>x</b>',value:'<img onerror=bad>'}];

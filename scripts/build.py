@@ -123,6 +123,13 @@ def validate_product_radar(data:dict, *, now:datetime|None=None)->None:
             for key in ('kind','title'):
                 if not isinstance(event.get(key),str) or not event[key].strip(): raise ValueError('Incomplete product radar timeline event')
             if not https_url(event.get('url','')): raise ValueError('Invalid product radar timeline URL')
+            date_kind=event.get('date_kind','published')
+            if date_kind not in {'published','effective','deadline'}: raise ValueError('Invalid product radar event date kind')
+            published_at=event.get('published_at')
+            if date_kind!='published' and not published_at: raise ValueError('Non-publication product event requires published_at')
+            if published_at:
+                announced=date.fromisoformat(published_at)
+                if announced>ed or announced>checked: raise ValueError('Invalid product radar publication date')
             verified_at=event.get('verified_at')
             if verified_at:
                 if not isinstance(verified_at,str): raise ValueError('Invalid product radar verification timestamp')

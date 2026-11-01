@@ -84,6 +84,7 @@ const PB=(()=>{
   const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).map(x=>[x.type,x.value]));
   return parts.month+'.'+parts.day+' '+parts.hour+':'+parts.minute+' 北京时间';
  };
+ const dateKind=e=>({effective:['生效','生效日期'],deadline:['截止','截止日期']}[e.date_kind]||['发布','发布时间']);
  const chronology=x=>[...(x.timeline||[])].filter(e=>dateOK(e.date)).sort((a,b)=>b.date.localeCompare(a.date)||plain(a.title).localeCompare(plain(b.title)));
  function read(hash=location.hash){
   const p=new URLSearchParams(hash.split('?')[1]||''),old=p.get('ptag');
@@ -153,7 +154,7 @@ const PB=(()=>{
  }
  function eventHTML(e,s){
   const name=e.names.join(' / '),product=e.product_ids[0];
-  return '<article class="pb-event" data-product-event><div class="pb-event-meta"><span class="pb-kind">'+esc(KINDS[e.kind]||e.kind)+'</span>'+(name?'<strong>'+esc(name)+'</strong>':'<span>'+esc(e.publisher)+'</span>')+(!e.specific?'<span class="pb-warning">精确原文待补</span>':'')+'</div><h3>'+esc(e.title)+'</h3><div class="pb-event-actions">'+external(e.url,e.specific?'原始来源':'来源栏目')+(product?link(s,{pview:'map',product,kind:'all'},'查看产品 '+icon('arrow')):'<span>尚未加入产品地图</span>')+'</div></article>';
+  return '<article class="pb-event" data-product-event><div class="pb-event-meta"><span class="pb-kind">'+esc(KINDS[e.kind]||e.kind)+'</span>'+(e.date_kind&&e.date_kind!=='published'?'<span class="pb-date-kind">'+esc(dateKind(e)[0])+'</span>':'')+(name?'<strong>'+esc(name)+'</strong>':'<span>'+esc(e.publisher)+'</span>')+(!e.specific?'<span class="pb-warning">精确原文待补</span>':'')+'</div><h3>'+esc(e.title)+'</h3><div class="pb-event-actions">'+external(e.url,e.specific?'原始来源':'来源栏目')+(product?link(s,{pview:'map',product,kind:'all'},'查看产品 '+icon('arrow')):'<span>尚未加入产品地图</span>')+'</div></article>';
  }
  function timeline(list,s){
   const days=new Map();for(const e of list){if(!days.has(e.date))days.set(e.date,[]);days.get(e.date).push(e)}
@@ -185,7 +186,7 @@ const PB=(()=>{
     (rich&&e.interpretation?'<p class="pb-milestone-insight"><span class="pb-inline-label">我们的解读</span>'+esc(e.interpretation)+'</p>':'')+
     '<div class="pb-milestone-source">'+external(e.url,source)+(rich?'<span>一手原文 · 已核验</span>':'<span class="pb-warning">'+(precise?'沿用收录 · 未重新核验':'栏目页，精确原文待补')+'</span>')+'</div>'+
     '<details class="pb-node-evidence"><summary>证据与边界</summary>'+
-    '<p>发布时间：'+e.date.replaceAll('-','.')+(rich?' · 原文日期已核对':' · 沿用已有记录')+'</p>'+
+    '<p>'+esc(dateKind(e)[1])+'：'+e.date.replaceAll('-','.')+(e.published_at&&e.published_at!==e.date?' · 原始公告：'+esc(e.published_at.replaceAll('-','.')):'')+(rich?' · 原文日期已核对':' · 沿用已有记录')+'</p>'+
     '<p>核验记录：'+(rich?esc(verified):'待核验；不沿用名录核对时间')+'</p>'+ 
     (rich&&e.scope?'<p><b>适用范围：</b>'+esc(e.scope)+'</p>':'')+
     '<p><b>不能推出：</b>'+esc(rich&&e.limitations?e.limitations:'这条记录本身不能证明任务成功率、规模化可用性或本站实测效果。')+'</p></details></article></li>';
@@ -200,7 +201,7 @@ const PB=(()=>{
  }
  function card(x,s){
   const history=chronology(x),latest=history[0],adoption=history.find(e=>e.kind==='Adoption'),backers=INVESTORS.filter(([id])=>id!=='all'&&ids(x).includes(id));
-  const latestHTML=latest?'<span class="pb-latest-kind" data-kind="'+esc(latest.kind)+'">'+esc(KINDS[latest.kind]||latest.kind)+'</span><time datetime="'+latest.date+'">'+latest.date.replaceAll('-','.')+'</time><p>'+esc(latest.title)+'</p>':'<p class="pb-muted">暂无带日期的进展</p>';
+  const latestHTML=latest?'<span class="pb-latest-kind" data-kind="'+esc(latest.kind)+'">'+esc(KINDS[latest.kind]||latest.kind)+'</span>'+(latest.date_kind&&latest.date_kind!=='published'?'<span class="pb-date-kind">'+esc(dateKind(latest)[0])+'</span>':'')+'<time datetime="'+latest.date+'">'+latest.date.replaceAll('-','.')+'</time><p>'+esc(latest.title)+'</p>':'<p class="pb-muted">暂无带日期的进展</p>';
   return '<article class="pb-card" data-product-id="'+esc(x.id)+'"><header><span class="pb-monogram" aria-hidden="true">'+esc(x.name.slice(0,2).toUpperCase())+'</span><div><h2>'+esc(x.name)+'</h2><span>'+esc(sceneName(x))+(x.company!==x.name?' · '+esc(x.company):'')+'</span></div><div class="pb-backers">'+backers.map(([id,name])=>link(s,{investor:id,product:''},esc(name),'pb-backer')).join('')+'</div></header>'+
    '<div class="pb-capability"><span class="pb-label">现在能做</span><p>'+esc(x.summary)+'</p></div>'+
    '<div class="pb-latest"><span class="pb-label">最新记录</span>'+latestHTML+'</div>'+

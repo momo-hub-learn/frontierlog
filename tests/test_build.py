@@ -280,6 +280,7 @@ class BuildTests(unittest.TestCase):
         for item in product['items']:
             for event in item['timeline']:
                 if event['date']>'2026-10-21':event['date']='2026-10-21'
+                if event.get('published_at') and event['published_at']>'2026-10-21':event['published_at']='2026-10-21'
                 if event.get('verified_at') and event['verified_at']>'2026-10-21':event['verified_at']='2026-10-21'
         for item in research['items']:
             if item['date']>'2026-10-21':item['date']='2026-10-21'
@@ -304,6 +305,17 @@ class BuildTests(unittest.TestCase):
         event['verified_at']=(now+timedelta(seconds=1)).isoformat()
         with self.assertRaisesRegex(ValueError,'Future product radar verification timestamp'):
             build.validate_product_radar(product,now=now)
+
+    def test_product_lifecycle_date_semantics_are_explicit(self):
+        product=json.loads((ROOT/'data/product-radar.json').read_text())
+        event=next(x for x in product['items'] if x['id']=='openai-evals-platform-retirement')['timeline'][0]
+        self.assertEqual(event['date_kind'],'effective')
+        self.assertEqual(event['published_at'],'2026-06-03')
+        build.validate_product_radar(product,now=datetime(2026,11,1,2,0,tzinfo=timezone.utc))
+        event['date_kind']='effective'
+        event.pop('published_at')
+        with self.assertRaisesRegex(ValueError,'requires published_at'):
+            build.validate_product_radar(product,now=datetime(2026,11,1,2,0,tzinfo=timezone.utc))
 
     def test_gpt6_intelligent_ui_is_actionable_capability(self):
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
