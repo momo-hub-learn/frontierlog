@@ -1,7 +1,7 @@
 {
   "hot": {
     "version": 1,
-    "checked": "2026-10-31",
+    "checked": "2026-11-01",
     "title": "热点榜",
     "method": {
       "label": "站内热度",
@@ -40,6 +40,60 @@
       }
     ],
     "items": [
+      {
+        "id": "openai-evals-read-only-20261031",
+        "category": "product",
+        "title": "OpenAI 旧 Evals 平台进入只读窗口",
+        "published": "2026-10-31",
+        "checked": "2026-11-01",
+        "verified_at": "2026-11-01T15:24:14+08:00",
+        "first_seen_at": "2026-11-01T01:21:05Z",
+        "heat": 94,
+        "heat_components": {
+          "impact": 32,
+          "availability": 24,
+          "evidence": 25,
+          "recency": 13
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；高分来自明确的只读与停服时间表，不代表评测质量、迁移完成度或本站实测。",
+        "trend": "up",
+        "verification_status": "OpenAI API 官方弃用说明与 Evals 指南 · 本站未执行迁移",
+        "summary": "OpenAI 官方时间表显示，旧 Evals 平台的现有 eval 已于 10 月 31 日转为只读，Dashboard 与 API 计划在 11 月 30 日关闭；官方提供迁往 Promptfoo 的路径。",
+        "why": "仍依赖旧托管 Evals 的团队只剩约一个月完成盘点与迁移验证，应分别核对配置、Grader、数据、密钥、CI 调用和结果留存，而不能把“仍可读取”当成业务连续性已经解决。",
+        "boundary": "这是旧 Evals 平台的退役时间表，不等于 OpenAI 的 Datasets、通用评测方法或所有评测能力同时停止。官方迁移路径需要手动重建，不能据此推出 Promptfoo 会自动迁移既有数据、运行记录或密钥，也不能把计划关闭日写成已经停服。",
+        "source": "OpenAI",
+        "source_kind": "官方弃用时间表、Evals 指南与迁移边界 / 本轮编辑核验",
+        "url": "https://developers.openai.com/api/docs/deprecations",
+        "link": "#/hot?cat=product&pview=map&product=openai-evals-platform-retirement",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看产品时间线与迁移边界",
+            "note": "区分 10 月 31 日只读与 11 月 30 日计划停服，并核对不能外推的结论",
+            "url": "#/hot?cat=product&pview=map&product=openai-evals-platform-retirement",
+            "kind": "internal"
+          },
+          {
+            "label": "查看 OpenAI 官方弃用说明",
+            "note": "核对公告、只读和计划关闭日期及官方迁移入口",
+            "url": "https://developers.openai.com/api/docs/deprecations",
+            "kind": "external"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI API",
+            "title": "Deprecations · Evals platform",
+            "url": "https://developers.openai.com/api/docs/deprecations",
+            "date": "2026-06-03"
+          },
+          {
+            "source": "OpenAI API",
+            "title": "Working with evals",
+            "url": "https://developers.openai.com/api/docs/guides/evals"
+          }
+        ]
+      },
       {
         "id": "microsoft-industry-evaluation-data-20261030",
         "category": "industry",
@@ -5755,40 +5809,16 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-01T05:26:03Z",
+    "generated_at": "2026-11-01T07:24:14Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
-      "publish": 6,
-      "merge": 125,
+      "publish": 5,
+      "merge": 126,
       "hold": 6
     },
     "candidates": [
-      {
-        "id": "candidate-abfbb59d0ab33e72",
-        "category": "product",
-        "published": "2026-10-31",
-        "title": "现有 OpenAI Evals 进入只读窗口",
-        "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
-        "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
-        "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
-        "source": "OpenAI",
-        "source_kind": "官方产品节点",
-        "url": "https://developers.openai.com/api/docs/deprecations",
-        "publishable": true,
-        "features": {
-          "freshness": 0.929,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 1.0
-        },
-        "priority_score": 0.941,
-        "action": "publish",
-        "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-        "product_id": "openai-evals-platform-retirement",
-        "first_seen_at": "2026-11-01T01:21:05Z"
-      },
       {
         "id": "candidate-123e3f719aa75935",
         "category": "product",
@@ -5937,6 +5967,30 @@
           "Numerical Precision"
         ],
         "first_seen_at": "2026-10-30T07:48:38Z"
+      },
+      {
+        "id": "candidate-abfbb59d0ab33e72",
+        "category": "product",
+        "published": "2026-10-31",
+        "title": "现有 OpenAI Evals 进入只读窗口",
+        "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
+        "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
+        "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
+        "source": "OpenAI",
+        "source_kind": "官方产品节点",
+        "url": "https://developers.openai.com/api/docs/deprecations",
+        "publishable": true,
+        "features": {
+          "freshness": 0.929,
+          "authority": 1.0,
+          "impact": 0.86,
+          "novelty": 0.15
+        },
+        "priority_score": 0.805,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "product_id": "openai-evals-platform-retirement",
+        "first_seen_at": "2026-11-01T01:21:05Z"
       },
       {
         "id": "candidate-4b8088d956f48c6f",
@@ -11486,13 +11540,13 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-01T05:26:03Z",
+    "last_evaluated": "2026-11-01T07:24:14Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 137,
-      "publish_ready_count": 6,
-      "merge_count": 125,
-      "best_candidate": "candidate-abfbb59d0ab33e72",
+      "publish_ready_count": 5,
+      "merge_count": 126,
+      "best_candidate": "candidate-123e3f719aa75935",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
     "active_shadow_candidate": {
@@ -11512,7 +11566,7 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-11-01T06:27:20Z",
+    "checked_at": "2026-11-01T07:18:04Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
@@ -11523,8 +11577,8 @@
         "stars_today": 1723,
         "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
-        "stars": 108162,
-        "forks": 9491,
+        "stars": 108197,
+        "forks": 9494,
         "repo_created_at": "2025-08-31T20:50:03Z",
         "repo_pushed_at": "2026-11-01T05:21:17Z",
         "category": "agent-memory",
@@ -11535,12 +11589,8 @@
           "AI"
         ],
         "url": "https://github.com/thedotmack/claude-mem",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T12:49:52Z",
-            "stars": 107072
-          },
           {
             "at": "2026-10-31T13:19:12Z",
             "stars": 107101
@@ -11584,6 +11634,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 108162
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 108197
           }
         ]
       },
@@ -11593,8 +11647,8 @@
         "stars_today": 883,
         "description": "Skills for Real Engineers. Straight from my .agents directory.",
         "language": "Shell",
-        "stars": 308618,
-        "forks": 25978,
+        "stars": 308652,
+        "forks": 25980,
         "repo_created_at": "2026-02-03T11:15:53Z",
         "repo_pushed_at": "2026-10-31T14:23:44Z",
         "category": "agent-skills",
@@ -11605,12 +11659,8 @@
           "Workflow"
         ],
         "url": "https://github.com/mattpocock/skills",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 307750
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 307901
@@ -11654,6 +11704,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 308618
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 308652
           }
         ]
       },
@@ -11663,8 +11717,8 @@
         "stars_today": 742,
         "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
         "language": "Shell",
-        "stars": 31359,
-        "forks": 4295,
+        "stars": 31393,
+        "forks": 4299,
         "repo_created_at": "2026-02-12T05:21:38Z",
         "repo_pushed_at": "2026-10-19T02:43:42Z",
         "category": "agent-skills",
@@ -11675,12 +11729,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T12:49:52Z",
-            "stars": 30704
-          },
           {
             "at": "2026-10-31T13:19:12Z",
             "stars": 30726
@@ -11724,6 +11774,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 31359
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 31393
           }
         ]
       },
@@ -11733,10 +11787,10 @@
         "stars_today": 1148,
         "description": "",
         "language": "TypeScript",
-        "stars": 36020,
-        "forks": 8816,
+        "stars": 36087,
+        "forks": 8825,
         "repo_created_at": "2026-02-08T23:46:22Z",
-        "repo_pushed_at": "2026-11-01T06:25:21Z",
+        "repo_pushed_at": "2026-11-01T07:11:50Z",
         "category": "other",
         "ai_related": false,
         "tags": [
@@ -11744,12 +11798,8 @@
           "GitHub"
         ],
         "url": "https://github.com/pingdotgg/t3code",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 33219
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 33677
@@ -11793,6 +11843,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 36020
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 36087
           }
         ]
       },
@@ -11802,8 +11856,8 @@
         "stars_today": 1092,
         "description": "紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据",
         "language": "TypeScript",
-        "stars": 12501,
-        "forks": 2452,
+        "stars": 12539,
+        "forks": 2458,
         "repo_created_at": "2026-05-01T05:09:59Z",
         "repo_pushed_at": "2026-10-31T00:10:01Z",
         "category": "other",
@@ -11813,12 +11867,8 @@
           "GitHub"
         ],
         "url": "https://github.com/Renhuai123/ziwei-doushu",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 11708
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 11898
@@ -11862,6 +11912,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 12501
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 12539
           }
         ]
       },
@@ -11871,10 +11925,10 @@
         "stars_today": 1303,
         "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
         "language": "TypeScript",
-        "stars": 9877,
-        "forks": 1372,
+        "stars": 9910,
+        "forks": 1374,
         "repo_created_at": "2026-08-11T18:58:55Z",
-        "repo_pushed_at": "2026-11-01T06:20:44Z",
+        "repo_pushed_at": "2026-11-01T07:17:35Z",
         "category": "ai-tools",
         "ai_related": true,
         "tags": [
@@ -11883,12 +11937,8 @@
           "GitHub"
         ],
         "url": "https://github.com/milind-soni/OpenMausBot",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 9079
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 9222
@@ -11932,6 +11982,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 9877
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 9910
           }
         ]
       },
@@ -11941,8 +11995,8 @@
         "stars_today": 1338,
         "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
-        "stars": 98520,
-        "forks": 5814,
+        "stars": 98567,
+        "forks": 5816,
         "repo_created_at": "2025-11-16T01:52:04Z",
         "repo_pushed_at": "2026-10-31T18:59:12Z",
         "category": "agent-harness",
@@ -11953,12 +12007,8 @@
           "Tools"
         ],
         "url": "https://github.com/pbakaus/impeccable",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 97520
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 97704
@@ -12002,6 +12052,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 98520
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 98567
           }
         ]
       },
@@ -12011,8 +12065,8 @@
         "stars_today": 665,
         "description": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
-        "stars": 310202,
-        "forks": 27605,
+        "stars": 310220,
+        "forks": 27606,
         "repo_created_at": "2025-10-09T19:45:18Z",
         "repo_pushed_at": "2026-10-29T23:35:34Z",
         "category": "agent-skills",
@@ -12023,12 +12077,8 @@
           "Workflow"
         ],
         "url": "https://github.com/obra/superpowers",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T09:12:49Z",
-            "stars": 309641
-          },
           {
             "at": "2026-10-31T12:49:52Z",
             "stars": 309732
@@ -12072,6 +12122,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 310202
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 310220
           }
         ]
       },
@@ -12081,8 +12135,8 @@
         "stars_today": 929,
         "description": "Lightpanda: the headless browser designed for AI and automation",
         "language": "Zig",
-        "stars": 39402,
-        "forks": 1920,
+        "stars": 39424,
+        "forks": 1922,
         "repo_created_at": "2023-02-07T15:19:34Z",
         "repo_pushed_at": "2026-11-01T01:05:43Z",
         "category": "ai-tools",
@@ -12093,12 +12147,8 @@
           "GitHub"
         ],
         "url": "https://github.com/lightpanda-io/browser",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T05:58:12Z",
-            "stars": 38585
-          },
           {
             "at": "2026-10-31T09:12:49Z",
             "stars": 38705
@@ -12142,6 +12192,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 39402
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 39424
           }
         ]
       },
@@ -12151,8 +12205,8 @@
         "stars_today": 1034,
         "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
-        "stars": 53073,
-        "forks": 6496,
+        "stars": 53113,
+        "forks": 6500,
         "repo_created_at": "2025-12-28T15:35:54Z",
         "repo_pushed_at": "2026-10-31T16:51:35Z",
         "category": "ai-tools",
@@ -12163,12 +12217,8 @@
           "GitHub"
         ],
         "url": "https://github.com/HKUDS/DeepTutor",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
-          {
-            "at": "2026-10-31T05:19:24Z",
-            "stars": 51941
-          },
           {
             "at": "2026-10-31T05:58:12Z",
             "stars": 51964
@@ -12212,6 +12262,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 53073
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 53113
           }
         ]
       },
@@ -12221,8 +12275,8 @@
         "stars_today": 1044,
         "description": "Orkas is an open-source (MIT), local-first AI team for your desktop: a Commander turns your goal into to-dos and coordinates 16 built-in specialist agents plus Claude Code, Codex, OpenCode, OpenClaw and Hermes, with projects, scheduled automations and connectors. Free app for macOS & Windows; built-in models or your own keys.",
         "language": "JavaScript",
-        "stars": 6838,
-        "forks": 417,
+        "stars": 6908,
+        "forks": 421,
         "repo_created_at": "2026-04-29T12:19:08Z",
         "repo_pushed_at": "2026-11-01T01:24:48Z",
         "category": "ai-tools",
@@ -12233,7 +12287,7 @@
           "GitHub"
         ],
         "url": "https://github.com/Orkas-AI/Orkas",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
           {
             "at": "2026-10-31T12:49:52Z",
@@ -12274,6 +12328,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 6838
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 6908
           }
         ]
       },
@@ -12283,10 +12341,10 @@
         "stars_today": 116,
         "description": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
         "language": "TypeScript",
-        "stars": 42275,
+        "stars": 42289,
         "forks": 6521,
         "repo_created_at": "2026-03-11T10:13:16Z",
-        "repo_pushed_at": "2026-10-31T16:24:41Z",
+        "repo_pushed_at": "2026-11-01T07:13:35Z",
         "category": "agent-interface",
         "ai_related": true,
         "tags": [
@@ -12295,7 +12353,7 @@
           "MCP"
         ],
         "url": "https://github.com/THU-MAIC/OpenMAIC",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
           {
             "at": "2026-10-31T12:49:52Z",
@@ -12336,6 +12394,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 42275
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 42289
           }
         ]
       },
@@ -12345,8 +12407,8 @@
         "stars_today": 342,
         "description": "Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions",
         "language": "Python",
-        "stars": 86125,
-        "forks": 20557,
+        "stars": 86141,
+        "forks": 20560,
         "repo_created_at": "2019-10-03T17:31:21Z",
         "repo_pushed_at": "2025-12-27T14:22:30Z",
         "category": "other",
@@ -12356,7 +12418,7 @@
           "GitHub"
         ],
         "url": "https://github.com/bregman-arie/devops-exercises",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
           {
             "at": "2026-10-31T12:49:52Z",
@@ -12401,6 +12463,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 86125
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 86141
           }
         ]
       },
@@ -12410,8 +12476,8 @@
         "stars_today": 501,
         "description": "Free and open-source macOS menu bar toolkit.",
         "language": "Swift",
-        "stars": 32046,
-        "forks": 1544,
+        "stars": 32065,
+        "forks": 1545,
         "repo_created_at": "2026-06-12T15:25:43Z",
         "repo_pushed_at": "2026-10-30T02:38:26Z",
         "category": "other",
@@ -12421,7 +12487,7 @@
           "GitHub"
         ],
         "url": "https://github.com/vorssaint/vorssaint-utils",
-        "metadata_verified_at": "2026-11-01T06:27:20Z",
+        "metadata_verified_at": "2026-11-01T07:18:04Z",
         "star_history": [
           {
             "at": "2026-10-31T12:49:52Z",
@@ -12466,6 +12532,10 @@
           {
             "at": "2026-11-01T06:27:20Z",
             "stars": 32046
+          },
+          {
+            "at": "2026-11-01T07:18:04Z",
+            "stars": 32065
           }
         ]
       }
@@ -12545,17 +12615,17 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-11-01T06:27:20Z",
-      "last_success_at": "2026-11-01T06:27:20Z",
+      "last_checked_at": "2026-11-01T07:18:04Z",
+      "last_success_at": "2026-11-01T07:18:04Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-      "watchlist_checked_at": "2026-11-01T06:27:20Z",
+      "watchlist_checked_at": "2026-11-01T07:18:04Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
       "trending_count": 14,
       "verified_count": 14,
       "metadata_failed_count": 0,
       "metadata_status": "success",
-      "metadata_checked_at": "2026-11-01T06:27:20Z",
+      "metadata_checked_at": "2026-11-01T07:18:04Z",
       "skipped": []
     },
     "watchlist": [
@@ -12570,12 +12640,12 @@
           "Agent",
           "MCP"
         ],
-        "stars": 416180,
-        "forks": 104077,
+        "stars": 416291,
+        "forks": 104096,
         "repo_created_at": "2026-04-14T00:51:32Z",
-        "repo_pushed_at": "2026-11-01T06:10:14Z",
+        "repo_pushed_at": "2026-11-01T07:13:55Z",
         "language": "TypeScript",
-        "verified_at": "2026-11-01T06:27:20Z",
+        "verified_at": "2026-11-01T07:18:04Z",
         "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。",
         "metadata_status": "verified"
       }
@@ -12583,15 +12653,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-11-01T05:17:48Z",
+    "checked_at": "2026-11-01T07:21:47Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-11-01T05:17:48Z",
-    "web_fetched_at": "2026-11-01T05:17:48Z",
+    "api_fetched_at": "2026-11-01T07:21:47Z",
+    "web_fetched_at": "2026-11-01T07:21:47Z",
     "web_verification_method": "official_web_server_html",
     "web_order_matches_api": true,
     "web_order": [
@@ -12613,8 +12683,8 @@
       "LiquidAI/LFM3-Omni-2B",
       "speridlabs/idol",
       "openbmb/MiniCPM-OCR-1.0",
-      "LiquidAI/LFM3-VL-2B",
-      "facebook/sam3"
+      "facebook/sam3",
+      "Diffuspace/Clover-35B-A3B-Preview"
     ],
     "web_rank_changes": [
       {
@@ -12622,150 +12692,156 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "LiquidAI/LFM3-1.7B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 6,
         "previous_rank": 6,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
         "rank": 7,
         "previous_rank": 7,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 8,
         "previous_rank": 8,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "XHToken/Spark-X2.6-4B",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "RecursiveSI/flint",
         "rank": 10,
         "previous_rank": 10,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 11,
         "previous_rank": 11,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 12,
         "previous_rank": 12,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "Pika-Labs/Pika-H3-Flex",
         "rank": 14,
         "previous_rank": 14,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "speridlabs/idol",
         "rank": 17,
         "previous_rank": 17,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "openbmb/MiniCPM-OCR-1.0",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
-      },
-      {
-        "id": "LiquidAI/LFM3-VL-2B",
-        "rank": 19,
-        "previous_rank": 19,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       },
       {
         "id": "facebook/sam3",
-        "rank": 20,
+        "rank": 19,
         "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-01T03:35:35Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
+      },
+      {
+        "id": "Diffuspace/Clover-35B-A3B-Preview",
+        "rank": 20,
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
       }
     ],
-    "web_outgoing": [],
+    "web_outgoing": [
+      {
+        "id": "LiquidAI/LFM3-VL-2B",
+        "previous_rank": 19,
+        "previous_fetched_at": "2026-11-01T05:17:48Z"
+      }
+    ],
     "items": [
       {
         "rank": 1,
         "id": "Nanbeige/Nanbeige4.3-33B",
         "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 803,
-        "likes": 907,
+        "trending_score": 811,
+        "likes": 927,
         "downloads": 13832,
         "task": "text-generation",
         "library": "transformers",
@@ -12781,8 +12857,8 @@
         "rank": 2,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 727,
-        "likes": 4125,
+        "trending_score": 722,
+        "likes": 4135,
         "downloads": 156373,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12798,8 +12874,8 @@
         "rank": 3,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 599,
-        "likes": 641,
+        "trending_score": 603,
+        "likes": 645,
         "downloads": 32933,
         "task": "text-generation",
         "library": "transformers",
@@ -12815,8 +12891,8 @@
         "rank": 4,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 506,
-        "likes": 548,
+        "trending_score": 515,
+        "likes": 557,
         "downloads": 24357,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -12832,8 +12908,8 @@
         "rank": 5,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 450,
-        "likes": 1409,
+        "trending_score": 452,
+        "likes": 1410,
         "downloads": 2945,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12849,8 +12925,8 @@
         "rank": 6,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 417,
-        "likes": 480,
+        "trending_score": 421,
+        "likes": 484,
         "downloads": 69231,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12866,8 +12942,8 @@
         "rank": 7,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 374,
-        "likes": 10107,
+        "trending_score": 373,
+        "likes": 10117,
         "downloads": 2441077,
         "task": "image-to-video",
         "library": "diffusion-single-file",
@@ -12883,8 +12959,8 @@
         "rank": 8,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 358,
-        "likes": 406,
+        "trending_score": 359,
+        "likes": 413,
         "downloads": 29615,
         "task": "未标注",
         "library": "未标注",
@@ -12900,8 +12976,8 @@
         "rank": 9,
         "id": "XHToken/Spark-X2.6-4B",
         "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
-        "trending_score": 313,
-        "likes": 939,
+        "trending_score": 310,
+        "likes": 940,
         "downloads": 14515,
         "task": "text-generation",
         "library": "transformers",
@@ -12917,8 +12993,8 @@
         "rank": 10,
         "id": "RecursiveSI/flint",
         "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 310,
-        "likes": 1277,
+        "trending_score": 307,
+        "likes": 1280,
         "downloads": 23079,
         "task": "text-generation",
         "library": "transformers",
@@ -12934,8 +13010,8 @@
         "rank": 11,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 308,
-        "likes": 2207,
+        "trending_score": 305,
+        "likes": 2208,
         "downloads": 925236,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -12951,8 +13027,8 @@
         "rank": 12,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 299,
-        "likes": 5425,
+        "trending_score": 297,
+        "likes": 5427,
         "downloads": 2558497,
         "task": "text-to-image",
         "library": "gguf",
@@ -12969,7 +13045,7 @@
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
         "trending_score": 284,
-        "likes": 18872,
+        "likes": 18875,
         "downloads": 7581050,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -12985,8 +13061,8 @@
         "rank": 14,
         "id": "Pika-Labs/Pika-H3-Flex",
         "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
-        "trending_score": 267,
-        "likes": 272,
+        "trending_score": 270,
+        "likes": 275,
         "downloads": 294,
         "task": "image-to-video",
         "library": "diffusers",
@@ -13002,8 +13078,8 @@
         "rank": 15,
         "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
         "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
-        "trending_score": 248,
-        "likes": 518,
+        "trending_score": 242,
+        "likes": 520,
         "downloads": 2076624,
         "task": "text-generation",
         "library": "gguf",
@@ -13019,8 +13095,8 @@
         "rank": 16,
         "id": "LiquidAI/LFM3-Omni-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 232,
-        "likes": 250,
+        "trending_score": 233,
+        "likes": 251,
         "downloads": 5695,
         "task": "any-to-any",
         "library": "transformers",
@@ -13036,8 +13112,8 @@
         "rank": 17,
         "id": "speridlabs/idol",
         "url": "https://huggingface.co/speridlabs/idol",
-        "trending_score": 220,
-        "likes": 224,
+        "trending_score": 228,
+        "likes": 232,
         "downloads": 2367,
         "task": "image-to-3d",
         "library": "idol",
@@ -13053,8 +13129,8 @@
         "rank": 18,
         "id": "openbmb/MiniCPM-OCR-1.0",
         "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
-        "trending_score": 206,
-        "likes": 381,
+        "trending_score": 207,
+        "likes": 382,
         "downloads": 3050,
         "task": "image-text-to-text",
         "library": "未标注",
@@ -13068,27 +13144,10 @@
       },
       {
         "rank": 19,
-        "id": "LiquidAI/LFM3-VL-2B",
-        "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
-        "trending_score": 188,
-        "likes": 191,
-        "downloads": 8091,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-19T19:51:46.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "lfm3_vl",
-          "image-text-to-text"
-        ]
-      },
-      {
-        "rank": 20,
         "id": "facebook/sam3",
         "url": "https://huggingface.co/facebook/sam3",
-        "trending_score": 187,
-        "likes": 5581,
+        "trending_score": 190,
+        "likes": 5586,
         "downloads": 1900570,
         "task": "mask-generation",
         "library": "transformers",
@@ -13099,11 +13158,28 @@
           "sam3_video",
           "feature-extraction"
         ]
+      },
+      {
+        "rank": 20,
+        "id": "Diffuspace/Clover-35B-A3B-Preview",
+        "url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
+        "trending_score": 189,
+        "likes": 193,
+        "downloads": 2021,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-24T03:46:30.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "clover_moe",
+          "text-generation"
+        ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-11-01T05:17:48Z",
+      "last_checked_at": "2026-11-01T07:21:47Z",
       "web_status": "success",
       "api_status": "success"
     }

@@ -20,6 +20,7 @@ const stalePart=extract(gh,'function ghStaleNotice(){','function ghPartialNotice
 const partialPart=extract(gh,'function ghPartialNotice(){','function ghWatchPanel(){');
 const inlinePart=extract(gh,'function ghWhen(){','const ghBaseHotPage=hotPage;');
 const pagePart=extract(gh,'const ghBaseHotPage=hotPage;','document.addEventListener(\'input\'');
+const repoDatePart=extract(gh,'function ghRepoMonth(raw){','function ghTrend(x){');
 const app={
  GH:data,ghQuery:()=>'',ghTopic:()=> 'all',
  ghFreshness:()=>({stale:true}),ghFmt:v=>String(v),
@@ -39,6 +40,12 @@ assert.match(metadataView.__unknown,/★ 待核验/);
 assert.match(metadataView.__unknown,/API 元数据待核验/);
 assert.match(metadataView.__stale,/API 旧快照/);
 assert.match(metadataView.__stale,/10\.21 16:00 北京时间/);
+
+const repoDateView={Date,Intl};
+vm.createContext(repoDateView);
+vm.runInContext(repoDatePart+'\nthis.__same=ghRepoPush("2026-11-01T06:25:00Z",new Date("2026-11-01T07:00:00Z"));this.__past=ghRepoPush("2025-12-27T14:22:00Z",new Date("2026-11-01T07:00:00Z"));',repoDateView);
+assert.equal(repoDateView.__same,'11.01 14:25');
+assert.equal(repoDateView.__past,'2025.12.27 22:22');
 
 const partialView={GH:{items:[
   {metadata_status:'stale'},{metadata_status:'stale'},{metadata_status:'stale'},

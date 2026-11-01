@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-10-31",
+  "checked": "2026-11-01",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -39,6 +39,60 @@
     }
   ],
   "items": [
+    {
+      "id": "openai-evals-read-only-20261031",
+      "category": "product",
+      "title": "OpenAI 旧 Evals 平台进入只读窗口",
+      "published": "2026-10-31",
+      "checked": "2026-11-01",
+      "verified_at": "2026-11-01T15:24:14+08:00",
+      "first_seen_at": "2026-11-01T01:21:05Z",
+      "heat": 94,
+      "heat_components": {
+        "impact": 32,
+        "availability": 24,
+        "evidence": 25,
+        "recency": 13
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；高分来自明确的只读与停服时间表，不代表评测质量、迁移完成度或本站实测。",
+      "trend": "up",
+      "verification_status": "OpenAI API 官方弃用说明与 Evals 指南 · 本站未执行迁移",
+      "summary": "OpenAI 官方时间表显示，旧 Evals 平台的现有 eval 已于 10 月 31 日转为只读，Dashboard 与 API 计划在 11 月 30 日关闭；官方提供迁往 Promptfoo 的路径。",
+      "why": "仍依赖旧托管 Evals 的团队只剩约一个月完成盘点与迁移验证，应分别核对配置、Grader、数据、密钥、CI 调用和结果留存，而不能把“仍可读取”当成业务连续性已经解决。",
+      "boundary": "这是旧 Evals 平台的退役时间表，不等于 OpenAI 的 Datasets、通用评测方法或所有评测能力同时停止。官方迁移路径需要手动重建，不能据此推出 Promptfoo 会自动迁移既有数据、运行记录或密钥，也不能把计划关闭日写成已经停服。",
+      "source": "OpenAI",
+      "source_kind": "官方弃用时间表、Evals 指南与迁移边界 / 本轮编辑核验",
+      "url": "https://developers.openai.com/api/docs/deprecations",
+      "link": "#/hot?cat=product&pview=map&product=openai-evals-platform-retirement",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看产品时间线与迁移边界",
+          "note": "区分 10 月 31 日只读与 11 月 30 日计划停服，并核对不能外推的结论",
+          "url": "#/hot?cat=product&pview=map&product=openai-evals-platform-retirement",
+          "kind": "internal"
+        },
+        {
+          "label": "查看 OpenAI 官方弃用说明",
+          "note": "核对公告、只读和计划关闭日期及官方迁移入口",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI API",
+          "title": "Deprecations · Evals platform",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "date": "2026-06-03"
+        },
+        {
+          "source": "OpenAI API",
+          "title": "Working with evals",
+          "url": "https://developers.openai.com/api/docs/guides/evals"
+        }
+      ]
+    },
     {
       "id": "microsoft-industry-evaluation-data-20261030",
       "category": "industry",

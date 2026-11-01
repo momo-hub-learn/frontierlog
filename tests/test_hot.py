@@ -51,6 +51,17 @@ class HotDataTests(unittest.TestCase):
   self.assertEqual(item['related'][0]['source'],'IETF Datatracker')
   validate_hot(self.data)
 
+ def test_evals_read_only_hot_item_separates_effective_and_announcement_dates(self):
+  item=next(x for x in self.data['items'] if x['id']=='openai-evals-read-only-20261031')
+  self.assertEqual(item['published'],'2026-10-31')
+  self.assertNotIn('published_at',item)
+  self.assertEqual(item['first_seen_at'],'2026-11-01T01:21:05Z')
+  self.assertEqual(item['link'],'#/hot?cat=product&pview=map&product=openai-evals-platform-retirement')
+  self.assertIn('计划在 11 月 30 日关闭',item['summary'])
+  self.assertIn('不等于 OpenAI 的 Datasets',item['boundary'])
+  self.assertIn('不能把计划关闭日写成已经停服',item['boundary'])
+  validate_hot(self.data)
+
  def test_cursor_extension_incident_keeps_scope_and_remediation_boundary(self):
   item=next(x for x in self.data['items'] if x['id']=='cursor-claude-code-extension-compromise-20261029')
   self.assertEqual(item['category'],'security')

@@ -26,10 +26,13 @@ function ghRepoMonth(raw){
   const d=new Date(raw);if(Number.isNaN(d.getTime()))return '—';
   return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit'}).format(d).replace('/','.');
 }
-function ghRepoPush(raw){
+function ghRepoPush(raw,now=new Date()){
   if(!raw)return '—';
   const d=new Date(raw);if(Number.isNaN(d.getTime()))return '—';
-  return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replaceAll('/','.');
+  const zone='Asia/Shanghai';
+  const year=Number(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric'}).format(d));
+  const currentYear=Number(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric'}).format(now));
+  return new Intl.DateTimeFormat('zh-CN',{timeZone:zone,...(year===currentYear?{}:{year:'numeric'}),month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replaceAll('/','.');
 }
 function ghTrend(x){
   const h=(x.star_history||[]).filter(p=>p&&Number.isFinite(Number(p.stars))&&p.at).sort((a,b)=>String(a.at).localeCompare(String(b.at)));

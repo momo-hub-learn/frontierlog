@@ -1,39 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-11-01T05:26:03Z",
+  "generated_at": "2026-11-01T07:24:14Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 6,
-    "merge": 125,
+    "publish": 5,
+    "merge": 126,
     "hold": 6
   },
   "candidates": [
-    {
-      "id": "candidate-abfbb59d0ab33e72",
-      "category": "product",
-      "published": "2026-10-31",
-      "title": "现有 OpenAI Evals 进入只读窗口",
-      "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
-      "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
-      "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://developers.openai.com/api/docs/deprecations",
-      "publishable": true,
-      "features": {
-        "freshness": 0.929,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.941,
-      "action": "publish",
-      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
-      "product_id": "openai-evals-platform-retirement",
-      "first_seen_at": "2026-11-01T01:21:05Z"
-    },
     {
       "id": "candidate-123e3f719aa75935",
       "category": "product",
@@ -182,6 +158,30 @@
         "Numerical Precision"
       ],
       "first_seen_at": "2026-10-30T07:48:38Z"
+    },
+    {
+      "id": "candidate-abfbb59d0ab33e72",
+      "category": "product",
+      "published": "2026-10-31",
+      "title": "现有 OpenAI Evals 进入只读窗口",
+      "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
+      "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
+      "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
+      "source": "OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://developers.openai.com/api/docs/deprecations",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "openai-evals-platform-retirement",
+      "first_seen_at": "2026-11-01T01:21:05Z"
     },
     {
       "id": "candidate-4b8088d956f48c6f",
