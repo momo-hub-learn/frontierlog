@@ -147,6 +147,8 @@ with sync_playwright() as pw:
     expect(page.locator('.hf-change-summary')).to_contain_text(entrant_id)
     expect(page.locator('.hf-change-summary')).to_contain_text('离 #20')
     expect(page.locator('.hf-change-summary')).to_contain_text('org/previous-model')
+    expect(page.locator('.hf-change-summary')).to_contain_text('#4→#2')
+    expect(page.locator('.hf-change-summary')).to_contain_text(page.evaluate('APP.huggingface_hot.web_order[1]'))
     page.evaluate('(value) => { APP.huggingface_hot.web_outgoing = value; }', original_outgoing)
     page.evaluate('(value) => { APP.huggingface_hot.web_rank_changes = value; }', original_changes)
     route(page, '#/hot?tab=hf')

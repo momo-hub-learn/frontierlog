@@ -195,6 +195,7 @@ assert.match(hfView.__hf,/Likes 1\.2k · Downloads 45\.7k/);
 assert.match(hfView.__hf,/Trending 不等于能力榜/);
 assert.match(hfView.__hf,/本轮变化/);
 assert.match(hfView.__hf,/1 新上榜 · 1 位次变化 · 1 离榜/);
+assert.match(hfView.__hf,/org\/model-a #2→#1/);
 assert.match(hfView.__hf,/较 10\.28 01:24 快照/);
 assert.match(hfView.__hf,/role="status"/);
 assert.doesNotMatch(hfView.__hf,/org\/model-d/);

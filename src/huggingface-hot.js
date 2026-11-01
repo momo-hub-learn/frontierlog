@@ -77,10 +77,13 @@ function hfChangeSummary(){
   const moved=changes.filter(x=>Number.isInteger(x.previous_rank)&&Number(x.rank_change)!==0);
   const outgoing=Array.isArray(HF.web_outgoing)?HF.web_outgoing:[];
   if(!entrants.length&&!moved.length&&!outgoing.length)return '<p class="hf-change-summary is-steady">与上次官方网页快照一致</p>';
-  const entrantLead=entrants[0],outgoingLead=outgoing[0];
+  const entrantLead=entrants[0],outgoingLead=outgoing[0],moveLeads=moved.slice(0,2);
+  const moveSummary=moveLeads.map(x=>
+    '<a href="'+safeLink('https://huggingface.co/'+x.id)+'" target="_blank" rel="noopener noreferrer"><span>#'+esc(x.previous_rank)+'→#'+esc(x.rank)+'</span> '+esc(x.id)+'</a>'
+  ).join(' · ');
   return '<div class="hf-change-summary" aria-label="Hugging Face 官方网页榜位变化摘要">'+
     (entrantLead?'<span class="hf-change-event"><b>新 #'+esc(entrantLead.rank)+'</b> <a href="'+safeLink('https://huggingface.co/'+entrantLead.id)+'" target="_blank" rel="noopener noreferrer">'+esc(entrantLead.id)+'</a>'+(entrants.length>1?' 等 '+entrants.length+' 个':'')+'</span>':'<span><b>0</b> 新上榜</span>')+
-    '<span><b>'+moved.length+'</b> 位次变化</span>'+
+    (moved.length?'<span class="hf-change-event hf-change-moves"><b>'+moved.length+' 位次变化</b> '+moveSummary+(moved.length>moveLeads.length?' · 等 '+moved.length+' 项':'')+'</span>':'<span><b>0</b> 位次变化</span>')+
     (outgoingLead?'<span class="hf-change-event"><b>离 #'+esc(outgoingLead.previous_rank)+'</b> <a href="'+safeLink('https://huggingface.co/'+outgoingLead.id)+'" target="_blank" rel="noopener noreferrer">'+esc(outgoingLead.id)+'</a>'+(outgoing.length>1?' 等 '+outgoing.length+' 个':'')+'</span>':'<span><b>0</b> 离榜</span>')+
   '</div>'
 }

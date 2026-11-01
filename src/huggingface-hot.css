@@ -23,6 +23,8 @@
 .hf-change-summary .hf-change-event{min-width:0;overflow-wrap:anywhere}
 .hf-change-summary .hf-change-event a{color:var(--accent);text-decoration:none}
 .hf-change-summary .hf-change-event a:hover{text-decoration:underline}
+.hf-change-summary .hf-change-moves{display:flex;align-items:baseline;gap:4px 7px;flex-wrap:wrap}
+.hf-change-summary .hf-change-moves a span{font-family:var(--mono);color:var(--text);white-space:nowrap}
 .hf-change-summary details{position:relative}
 .hf-change-summary summary{cursor:pointer;list-style-position:inside;color:var(--sub)}
 .hf-change-summary details div{display:flex;flex-direction:column;gap:5px;margin-top:7px;max-width:min(620px,calc(100vw - 72px))}

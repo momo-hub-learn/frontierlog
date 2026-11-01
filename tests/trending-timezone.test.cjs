@@ -22,7 +22,9 @@ const hfChangeContext={
   HF:{
     web_rank_changes:[
       {id:'org/new-model',rank:20,previous_rank:null,rank_change:null,previous_fetched_at:'2026-11-01T07:21:47Z'},
-      {id:'org/moved-model',rank:3,previous_rank:4,rank_change:1,previous_fetched_at:'2026-11-01T07:21:47Z'}
+      {id:'org/moved-model',rank:3,previous_rank:4,rank_change:1,previous_fetched_at:'2026-11-01T07:21:47Z'},
+      {id:'org/other-moved-model',rank:8,previous_rank:6,rank_change:-2,previous_fetched_at:'2026-11-01T07:21:47Z'},
+      {id:'org/third-moved-model',rank:9,previous_rank:10,rank_change:1,previous_fetched_at:'2026-11-01T07:21:47Z'}
     ],
     web_outgoing:[{id:'org/old-model',previous_rank:19,previous_fetched_at:'2026-11-01T07:21:47Z'}]
   },
@@ -31,7 +33,11 @@ const hfChangeContext={
 vm.createContext(hfChangeContext);
 vm.runInContext(functionBlock(hf,'hfChangeSummary','hfRows')+'\nthis.result=hfChangeSummary()',hfChangeContext);
 assert.match(hfChangeContext.result,/新 #20.*org\/new-model/);
-assert.match(hfChangeContext.result,/<b>1<\/b> 位次变化/);
+assert.match(hfChangeContext.result,/<b>3 位次变化<\/b>/);
+assert.match(hfChangeContext.result,/#4→#3<\/span> org\/moved-model/);
+assert.match(hfChangeContext.result,/#6→#8<\/span> org\/other-moved-model/);
+assert.match(hfChangeContext.result,/等 3 项/);
+assert.doesNotMatch(hfChangeContext.result,/third-moved-model/);
 assert.match(hfChangeContext.result,/离 #19.*org\/old-model/);
 assert.doesNotMatch(hfChangeContext.result,/<details>/);
 

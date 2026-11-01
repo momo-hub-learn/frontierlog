@@ -96,7 +96,7 @@ function fcHuggingFacePanel(){
  const rows=webFresh?order.slice(0,3).map((id,index)=>({...byId.get(id),id,rank:index+1})):[];
  const changes=Array.isArray(hf.web_rank_changes)?hf.web_rank_changes:[];
  const entrants=changes.filter(x=>x.previous_rank==null).length;
- const moved=changes.filter(x=>Number.isInteger(x.previous_rank)&&x.rank_change!==0).length;
+ const movedRows=changes.filter(x=>Number.isInteger(x.previous_rank)&&x.rank_change!==0),moved=movedRows.length;
  const outgoing=Array.isArray(hf.web_outgoing)?hf.web_outgoing.length:0;
  const hasChanges=webFresh&&(entrants||moved||outgoing);
  const fmt=n=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v>=1000000)return (v/1000000).toFixed(v>=10000000?1:2)+'M';if(v>=1000)return (v/1000).toFixed(v>=100000?0:1)+'k';return v.toLocaleString('en-US')};
@@ -105,7 +105,7 @@ function fcHuggingFacePanel(){
  const comparison=previous?'较 '+when(previous).replace(' 北京时间','')+' 快照':'';
  return '<section class="fc-panel fc-hf-panel">'+
   '<div class="fc-panel-head compact"><div><p class="eyebrow">HUGGING FACE / WEB ORDER</p><h2>Hugging Face 热榜</h2></div><a href="#/hot?tab=hf">完整榜 '+icon('arrow')+'</a></div>'+
-  (hasChanges?'<div class="fc-hf-change" role="status"><a href="#/hot?tab=hf"><b>本轮变化</b>'+(comparison?'<small>'+esc(comparison)+'</small>':'')+'<span>'+entrants+' 新上榜 · '+moved+' 位次变化 · '+outgoing+' 离榜</span>'+icon('arrow')+'</a></div>':'')+
+  (hasChanges?'<div class="fc-hf-change" role="status"><a href="#/hot?tab=hf"><b>本轮变化</b>'+(comparison?'<small>'+esc(comparison)+'</small>':'')+'<span>'+entrants+' 新上榜 · '+moved+' 位次变化 · '+outgoing+' 离榜</span>'+(movedRows[0]?'<span class="fc-hf-move-detail">'+esc(movedRows[0].id)+' #'+esc(movedRows[0].previous_rank)+'→#'+esc(movedRows[0].rank)+(moved>1?' · 等 '+moved+' 项':'')+'</span>':'')+icon('arrow')+'</a></div>':'')+
   (webFresh?'<div class="fc-hf-list">'+rows.map(x=>
    '<a class="fc-hf-row" href="'+safeLink(x.url||('https://huggingface.co/'+x.id))+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-hf-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
