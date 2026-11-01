@@ -27,6 +27,8 @@ const publishedToday=make([
 ]);
 assert.equal(publishedToday.v10FeedFreshnessTarget().id,'published');
 assert.match(source,/class="v10-feed-fresh-link" href="#\/hot\?item=\$\{encodeURIComponent\(fresh\.id\)\}"/);
+assert.match(source,/>查看最新一条 \$\{icon\('arrow'\)\}<\/a>/);
+assert.doesNotMatch(source,/>查看今日新增 /);
 const seenYesterday=make([{id:'known',published:'2026-10-07',first_seen_at:'2026-10-07T23:30:00+08:00',heat:96}]);
 assert.match(seenYesterday.v10FeedFreshnessCopy(),/没有今日发布或新收录/);
 assert.equal(seenYesterday.v10FeedFreshnessTarget(),null);
