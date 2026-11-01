@@ -98,7 +98,12 @@ const PeopleUI = (() => {
   const all=events(data,s,saved,now).filter(e=>!person||e.people.includes(person));
   const cut = new Date(Date.parse(today(now))-29*86400000).toISOString().slice(0,10);
   const recent=all.filter(e=>e.date>=cut),old=all.filter(e=>e.date<cut);
-  if(!all.length)return '<div class="pp-empty"><h3>暂无已收录动态</h3><p>人物档案持续保留；未收录不代表本人没有新工作。</p></div>';
+  if(!all.length){
+   const filtered=!person&&(s.q||s.format!=='all'||s.type!=='all'||s.area!=='all'||s.role!=='all'||s.following||s.discover);
+   return filtered
+    ?'<div class="pp-empty"><h3>没有匹配记录</h3><p>当前搜索或筛选没有命中已收录记录；可以清除条件继续浏览。</p>'+nav(s,{q:'',format:'all',type:'all',area:'all',role:'all',following:false,discover:false,person:''},'清除筛选并浏览全部记录','pp-more')+'</div>'
+    :'<div class="pp-empty"><h3>暂无已收录动态</h3><p>人物档案持续保留；未收录不代表本人没有新工作。</p></div>';
+  }
   return '<section class="pp-stream"><h2 class="pp-section-title">近 30 日 <small>'+recent.length+' 条已收录</small></h2>'+
    (recent.length?recent.map(e=>eventCard(e,data,s)).join(''):'<p class="pp-note">近 30 日暂无匹配记录。更早的作品保留在下方。</p>')+
    (old.length?'<details class="pp-archive"'+(!recent.length?' open':'')+'><summary>历史作品与观点 <span>'+old.length+' 条 · 保留原始日期</span></summary>'+old.map(e=>eventCard(e,data,s)).join('')+'</details>':'')+'</section>';

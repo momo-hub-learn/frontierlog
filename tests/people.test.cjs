@@ -46,6 +46,14 @@ test('activity format filters are transparent kind groups, not depth scores',()=
  const product=P.events(data,read('format=product'),new Set(),now);assert(product.length);assert(product.every(e=>e.kind==='release'));
  const page=P.page(data,read('format=opinion'),new Set(),now);assert(page.includes('阅读价值'));assert(page.includes('不生成主观深度分'));assert(!page.includes('data-depth-score'));
 });
+test('filtered activity empty state explains the miss and offers a full reset',()=>{
+ const page=P.page(data,read('q=doesnotexist&format=research&following=1'),new Set(),now);
+ assert(page.includes('没有匹配记录'));
+ assert(page.includes('当前搜索或筛选没有命中已收录记录'));
+ assert(page.includes('清除筛选并浏览全部记录'));
+ assert(page.includes('href="#/people"'));
+ assert(!page.includes('人物档案持续保留；未收录不代表本人没有新工作。'));
+});
 test('profile coauthor links and empty activity are honest',()=>{
  const profile=P.page(data,read('person=qiushi-han'),new Set(),now);
  assert(profile.includes('person=keya-hu'));assert(profile.includes('不据此推断师生关系'));assert(profile.includes('编辑观察 · 不是本人引语'));
