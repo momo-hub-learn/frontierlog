@@ -18,6 +18,11 @@ assert.equal(AIC_EDITORIAL_TZ, 'Asia/Shanghai');
 assert.equal(v10LocalToday(new Date('2026-10-07T16:30:00Z')), '2026-10-08');
 assert.equal(v10LocalToday(new Date('2026-10-08T15:30:00Z')), '2026-10-08');
 assert.equal(v10LocalToday(new Date('2026-10-08T16:30:00Z')), '2026-10-09');
-assert.equal(ctx.__timeTest.v10HotCheckedText(), '10.21 19:40');
-assert.equal(ctx.__timeTest.v10ShadowCheckedText(), '10.21 19:52');
+assert.equal(ctx.__timeTest.v10HotCheckedText(), '10.21 19:40 北京时间');
+assert.equal(ctx.__timeTest.v10ShadowCheckedText(), '10.21 19:52 北京时间');
+
+const dateOnly = {APP:{hot_policy:{}}, HOT:{items:[{verified_at:'2026-10-22'}],checked:'2026-10-22'}, Intl, Date};
+vm.runInNewContext(prefix, dateOnly, {filename:'src/v10.js'});
+assert.equal(dateOnly.__timeTest.v10HotCheckedText(), '2026.10.22');
+assert.equal(dateOnly.__timeTest.v10ShadowCheckedText(), '—');
 console.log('PASS stable editorial date for freshness windows');

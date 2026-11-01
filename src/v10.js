@@ -5,8 +5,8 @@ function v10HotContentDate(){return (HOT.items||[]).map(x=>x.published).filter(B
 const AIC_EDITORIAL_TZ='Asia/Shanghai';
 function v10FormatShanghai(raw){const d=new Date(raw);if(Number.isNaN(d.getTime()))return '';try{return new Intl.DateTimeFormat('zh-CN',{timeZone:AIC_EDITORIAL_TZ,month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d).replaceAll('/','.')}catch{return ''}}
 function v10HotVerifiedAt(){return (HOT.items||[]).map(x=>x.verified_at).filter(x=>typeof x==='string'&&/(?:Z|[+-]\d\d:\d\d)$/.test(x)&&Number.isFinite(Date.parse(x))).sort((a,b)=>Date.parse(b)-Date.parse(a))[0]||''}
-function v10HotCheckedText(){return v10FormatShanghai(v10HotVerifiedAt())||(HOT.checked||'').replaceAll('-','.')}
-function v10ShadowCheckedText(){return v10FormatShanghai(HOT_POLICY?.last_evaluated)||'—'}
+function v10HotCheckedText(){const precise=v10FormatShanghai(v10HotVerifiedAt());return precise?precise+' 北京时间':(HOT.checked||'').replaceAll('-','.')}
+function v10ShadowCheckedText(){const precise=v10FormatShanghai(HOT_POLICY?.last_evaluated);return precise?precise+' 北京时间':'—'}
 function v10LocalToday(now=new Date()){try{return new Intl.DateTimeFormat('en-CA',{timeZone:AIC_EDITORIAL_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(now)}catch{const d=new Date(now.getTime()+8*60*60*1000);return d.toISOString().slice(0,10)}}
 function v10LocalDayFromStamp(raw){if(typeof raw!=='string'||!/(?:Z|[+-]\d\d:\d\d)$/.test(raw))return '';const d=new Date(raw);return Number.isFinite(d.getTime())?v10LocalToday(d):''}
 function v10DayOrdinal(raw){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(raw||''));return m?Date.UTC(+m[1],+m[2]-1,+m[3]):NaN}

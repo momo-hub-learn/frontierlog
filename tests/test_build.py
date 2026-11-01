@@ -496,6 +496,7 @@ class BuildTests(unittest.TestCase):
             self.assertIn('新鲜度加权：旧 1 日 −2',html)
             self.assertIn('排序分 = 编辑热度 − 2 × 距今天数',html)
             self.assertIn('正文核验',html)
+            self.assertIn('北京时间',html)
             self.assertIn('最近正文核验',html)
             self.assertIn('最近策略检查',html)
             self.assertNotIn('<p class="eyebrow">HOT / RECENT</p><h2>热点</h2>',html)
