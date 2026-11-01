@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-01T22:28:44Z",
+  "generated_at": "2026-11-01T23:35:04Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 6,
-    "merge": 131,
+    "merge": 132,
     "hold": 6
   },
   "candidates": [
@@ -182,6 +182,30 @@
         "Numerical Precision"
       ],
       "first_seen_at": "2026-10-30T07:48:38Z"
+    },
+    {
+      "id": "candidate-8d816f9f27586a0b",
+      "category": "product",
+      "published": "2026-10-31",
+      "title": "PlanAssist 从三地试点扩至 15 个地方政府",
+      "summary": "三地试点后进入 12 个月 Beta，新增 12 个地方政府；规划官员继续审查并批准每一项决定。",
+      "why": "公共部门 Agent 的关键不只是生成报告，而是能否把政策证据、地区规则、人工放行和错误追踪装进真实工作流；后续应关注申请类型分布、质量指标、申诉结果与跨地区可迁移性。",
+      "boundary": "“最多 58%”不是平均值，超过 70% 无需编辑不等于申请获批或规划质量提升；没有独立对照、完整误差分布、申诉结果或长期部署成本。2027 年英格兰全国扩围只是成功测试前提下的政府计划。",
+      "source": "Google DeepMind",
+      "source_kind": "官方产品节点",
+      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.805,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "google-deepmind-planassist",
+      "first_seen_at": "2026-11-01T23:35:04Z"
     },
     {
       "id": "candidate-abfbb59d0ab33e72",
@@ -978,30 +1002,6 @@
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "github-agentic-workflows",
-      "first_seen_at": "2026-10-29T05:26:10Z"
-    },
-    {
-      "id": "candidate-89e1a3b77a159081",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "Agentic Workflows 在 github.com 正式可用",
-      "summary": "GitHub 把自然语言工作流编译成标准 Actions YAML，并支持 Copilot CLI 或自带 coding agent；Free、Team 与 Enterprise 可使用。",
-      "why": "仓库推理任务进入现有 CI/CD 控制面；默认只读和多层防护降低起步风险，但权限、编译 YAML、成本和输出仍需逐项验收。",
-      "boundary": "默认只读、完整性过滤、隔离容器与防火墙不代表零风险。默认 Copilot CLI 引擎需要 Copilot 许可；权限提升、第三方 actions、提示注入、成本和生成变更仍须人工审查。本站未在真实仓库运行。",
-      "source": "GitHub",
-      "source_kind": "官方 GA、可用范围、执行引擎、安全层与限制",
-      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
-      "publishable": true,
-      "features": {
-        "freshness": 0.714,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.74,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "github-agentic-workflows",
       "first_seen_at": "2026-10-29T05:26:10Z"
     }
   ]
