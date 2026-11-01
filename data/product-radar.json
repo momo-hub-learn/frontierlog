@@ -17,6 +17,41 @@
   ],
   "items": [
     {
+      "id": "google-deepmind-planassist",
+      "name": "PlanAssist",
+      "company": "Google DeepMind",
+      "group": "enterprise-agent",
+      "tags": ["Public sector", "Human-in-the-loop", "Beta"],
+      "summary": "帮助地方政府规划团队检索政策并起草住宅申请评估报告，同时保留规划官员的逐项审查与最终决定。",
+      "product_url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "source_url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "source_label": "Google DeepMind 官方试点说明",
+      "evidence": "DeepMind 2026-10-31 官方说明列出 Barnet、Camden 与 Dorset 试点、最多 58% 的评估时间减少、超过 70% 报告无需编辑获认可，以及扩至 15 个地方政府的 12 个月 Beta。",
+      "boundary": "试点数据由发布方总结，没有独立随机对照；不同申请类型和地区不能直接外推。PlanAssist 不作自动规划决定，每份输出仍由合格规划官员审查和批准，2027 年全国扩围仍取决于测试成功。",
+      "filter_ids": ["enterprise-agent", "knowledge-work"],
+      "timeline": [
+        {
+          "date": "2026-10-31",
+          "kind": "Public-sector beta",
+          "title": "PlanAssist 从三地试点扩至 15 个地方政府",
+          "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+          "summary": "三地试点后进入 12 个月 Beta，新增 12 个地方政府；规划官员继续审查并批准每一项决定。",
+          "facts": [
+            {"label": "试点地区", "value": "Barnet / Camden / Dorset"},
+            {"label": "评估用时", "value": "官方称最多减少 58%"},
+            {"label": "报告认可", "value": "超过 70% 无需编辑"},
+            {"label": "Beta 范围", "value": "12 个月 · 共 15 个地方政府"}
+          ],
+          "interpretation": "公共部门 Agent 的关键不只是生成报告，而是能否把政策证据、地区规则、人工放行和错误追踪装进真实工作流；后续应关注申请类型分布、质量指标、申诉结果与跨地区可迁移性。",
+          "scope": "Google DeepMind 2026-10-31 官方说明中的三地试点结果、15 地 Beta 与人工最终决定范围。",
+          "limitations": "“最多 58%”不是平均值，超过 70% 无需编辑不等于申请获批或规划质量提升；没有独立对照、完整误差分布、申诉结果或长期部署成本。2027 年英格兰全国扩围只是成功测试前提下的政府计划。",
+          "published_at": "2026-10-31",
+          "verified_at": "2026-11-02T07:22:30+08:00",
+          "evidence_level": "primary_source"
+        }
+      ]
+    },
+    {
       "id": "rockwell-factorytalk-conductor",
       "name": "FactoryTalk Conductor",
       "company": "Rockwell Automation",

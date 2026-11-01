@@ -1,7 +1,35 @@
 {
   "version": 2,
-  "snapshot": "2026-11-01",
+  "snapshot": "2026-11-02",
   "items": [
+    {
+      "id": "deepseek-search-fetch-api",
+      "name": "DeepSeek Search / Fetch API",
+      "title": "先用只读小样本验收实时搜索与网页抓取，再接 Agent 或 RAG",
+      "category": "Agent 工具 / Web API",
+      "mark": "DS",
+      "accent": "blue",
+      "summary": "DeepSeek 的 Search 与 Fetch 是两条独立只读 JSON API，分别返回结构化搜索结果和网页 Markdown；按成功请求计费。",
+      "scope": "DeepSeek 官方文档确认 Search / Fetch 已可用；服务器端集成在北京时间 2026-11-01 00:00 起按次计费，Search 与 Fetch 均为每 1,000 个成功请求 0.75 美元。",
+      "boundary": "本站未配置 DeepSeek API key、未调用接口。搜索排序、页面可抓取性、内容正确性与授权仍需独立验证；Fetch 受目标站点可用性和访问策略影响。HTTP 200 且返回非空结果才计费，不等于结果完整或事实正确。",
+      "repo": null,
+      "sources": ["deepseek-search-fetch-guide", "deepseek-search-fetch-pricing"],
+      "requirements": "DeepSeek API key、已充值或获赠余额、可删除的测试项目、允许访问的公开来源清单，以及用于核对搜索与抓取结果的固定问题集。",
+      "test": "用 10–20 个已知答案与已知页面的公开样本分别测试 Search 和 Fetch；记录 HTTP 状态、结果集合、日期、引用、空结果、403/429、延迟与成功请求数，再决定是否接入 Agent 或 RAG。",
+      "checks": [
+        "分别记录 Search 与 Fetch 的端点、成功请求数和账号级 QPS，不把模型 token 费混入工具费",
+        "逐条打开返回来源并核对标题、日期、正文与引用，不让 rerank_score 代替事实验证",
+        "对空结果、403、429 和超时分别处理；非重试型 4xx 不循环重试",
+        "限制 Fetch 到获准公开 URL，不输入凭据、内网地址、个人数据或受限内容"
+      ],
+      "command": "curl https://api.deepseek.com/v1/tools/search \\\n  -H \"Authorization: Bearer $DEEPSEEK_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"query\":\"DeepSeek V4 release\",\"count\":5,\"need_content\":false}'",
+      "effort": "托管 API / 需密钥、余额、来源权限与独立事实核对",
+      "evidence": "DeepSeek 官方 Search / Fetch 指南与价格页",
+      "status": "code",
+      "tested": false,
+      "reviewed": "2026-11-02",
+      "verified_at": "2026-11-02T07:32:00+08:00"
+    },
     {
       "id": "qwen-code-0-26-5",
       "name": "Qwen Code v0.26.5",
@@ -1315,6 +1343,28 @@
     }
   ],
   "sources": [
+    {
+      "id": "deepseek-search-fetch-guide",
+      "publisher": "DeepSeek",
+      "title": "Search & Fetch official guide",
+      "url": "https://api-docs.deepseek.com/guides/search/",
+      "published": null,
+      "published_at": null,
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T07:32:00+08:00",
+      "kind": "官方端点、字段、错误、计费与限流说明"
+    },
+    {
+      "id": "deepseek-search-fetch-pricing",
+      "publisher": "DeepSeek",
+      "title": "Models & Pricing · Search & Fetch",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "published": null,
+      "published_at": null,
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T07:32:00+08:00",
+      "kind": "官方价格、扣费规则与生效时间"
+    },
     {
       "id": "qwen-code-0-26-5-release",
       "publisher": "Qwen",

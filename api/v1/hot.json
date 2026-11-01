@@ -40,6 +40,55 @@
   ],
   "items": [
     {
+      "id": "deepmind-planassist-planning-beta-20261031",
+      "category": "product",
+      "title": "PlanAssist 把规划申请评估扩到 15 个英格兰地方政府",
+      "published": "2026-10-31",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T07:22:30+08:00",
+      "first_seen_at": "2026-11-02T07:22:30+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 32,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；真实地方政府试点、公开效率数据和扩围计划提高影响与证据分，仍在 Beta、没有独立对照且每份决定都须规划官员复核限制可操作性。这不是规划质量、自动审批能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Google DeepMind 官方试点结果与扩围计划 · 地方规划官员仍作最终复核，本站未独立验证",
+      "summary": "Google DeepMind 公布 PlanAssist 在 Barnet、Camden 与 Dorset 的试点结果：官方称住宅申请评估用时最多减少 58%，超过 70% 的生成报告无需编辑即获规划官员认可；项目进入 12 个月 Beta，并增加 12 个地方政府。",
+      "why": "这是一条比通用 Agent 演示更可核对的公共服务信号：系统把政策检索、报告草拟与人工审查放进真实申请流程，但价值判断仍应看不同地区、申请类型、错误率和最终决定质量。",
+      "boundary": "数据来自发布方与合作政府的试点总结，不是独立随机评估；“最多 58%”不能外推到全部申请，超过 70% 无需编辑也不等于自动批准。Beta 期间每项决定仍由合格规划官员审查和批准，2027 年扩至英格兰所有地方政府只是政府在成功测试前提下的计划。",
+      "source": "Google DeepMind",
+      "source_kind": "官方试点结果、Beta 范围、人工复核与扩围计划 / 本轮编辑核验",
+      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "link": "#/hot?cat=product&pview=map&product=google-deepmind-planassist",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看产品时间线与适用边界",
+          "note": "区分三地试点、15 地 Beta、人工最终决定与 2027 年条件性计划",
+          "url": "#/hot?cat=product&pview=map&product=google-deepmind-planassist",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 DeepMind 官方试点说明",
+          "note": "核对参与地方政府、效率指标、报告认可比例与人工复核要求",
+          "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google DeepMind",
+          "title": "Speeding up planning decisions with AI",
+          "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+          "date": "2026-10-31"
+        }
+      ]
+    },
+    {
       "id": "rockwell-factorytalk-conductor-20261021",
       "category": "industry",
       "title": "FactoryTalk Conductor 把工业 Copilot 推向多 Agent 编排",

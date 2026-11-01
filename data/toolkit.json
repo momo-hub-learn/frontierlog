@@ -42,6 +42,52 @@
   ],
   "items": [
     {
+      "id": "deepseek-search-fetch-api",
+      "publisher": "DeepSeek",
+      "group": "agents",
+      "access": "model",
+      "headline": "先用公开小样本分别验收搜索与抓取，再接 Agent 或 RAG",
+      "input": "10–20 个已知答案的查询、已知可访问的公开 URL、允许来源清单与最小权限 DeepSeek API key",
+      "output": "Search 的结构化结果或 Fetch 的网页 Markdown，以及状态码、日期、来源、延迟、空结果和成功请求数记录",
+      "requirements": "DeepSeek API key、已充值或获赠余额、可删除测试项目、公开来源清单和独立核对答案；不要把密钥写进仓库或聊天记录。",
+      "limitation": "本站只核验官方文档，未配置密钥或调用接口。Search / Fetch 为只读 API，但搜索排序、网页可抓取性、结果完整性和事实正确性仍需人工核对；Fetch 受目标站点访问策略影响，403 不能靠换接口规避。",
+      "cost": "官方当前价格为 Search 与 Fetch 各 0.75 美元 / 1,000 个成功请求；只有 HTTP 200 且 Search 非空或 Fetch 返回正文才计费。服务器端集成自北京时间 2026-11-01 00:00 起按次计费，价格仍应在运行前复核。",
+      "steps": [
+        {
+          "title": "固定端点、问题集与预算",
+          "body": "分别记录 Search 与 Fetch 端点、账号级 QPS、预算和允许来源；准备已知答案与已知页面，不先接生产 Agent。",
+          "command": "curl https://api.deepseek.com/v1/tools/search \\\n  -H \"Authorization: Bearer $DEEPSEEK_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"query\":\"DeepSeek V4 release\",\"count\":5,\"need_content\":false}'"
+        },
+        {
+          "title": "逐条核对来源与错误语义",
+          "body": "打开返回页面，核对标题、日期、正文与引用；把空结果、403、429、超时和 5xx 分开记录，非重试型 4xx 不循环重试。"
+        },
+        {
+          "title": "再接入只读工作流",
+          "body": "达到来源准确率、覆盖、延迟与成本门槛后，只给 Agent 最小只读权限；保留成功请求计数、引用和人工放行，不抓取内网、个人数据或受限内容。"
+        }
+      ],
+      "troubleshooting": "401 先核对密钥；402 检查余额；429 按 Search 100 QPS、Fetch 25 QPS 的账号级限制降速；Fetch 403/404 时停止该 URL，不换账号或接口规避站点策略。结果不完整时缩小问题、增加独立来源并人工复核。",
+      "sources": [
+        {
+          "title": "DeepSeek Search & Fetch 官方指南",
+          "url": "https://api-docs.deepseek.com/guides/search/",
+          "published_at": null,
+          "verified_at": "2026-11-02"
+        },
+        {
+          "title": "DeepSeek 官方 Models & Pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "published_at": null,
+          "verified_at": "2026-11-02"
+        }
+      ],
+      "entry_url": "https://api-docs.deepseek.com/guides/search/",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-11-02T07:32:00+08:00"
+    },
+    {
       "id": "qwen-code-0-26-5",
       "publisher": "Qwen",
       "group": "agents",

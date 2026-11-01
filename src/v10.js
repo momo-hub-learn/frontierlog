@@ -25,7 +25,7 @@ function v10FeedFreshnessCopy(){
  const all=HOT.items||[],today=all.filter(x=>v10HotAgeDays(x.published)===0).length,todaySeen=all.filter(x=>v10LocalDayFromStamp(x.first_seen_at)===v10LocalToday()&&v10HotAgeDays(x.published)!==0).length,w=v10Top5Window();
  if(!w.rows.length)return '目前暂无已核验的高信号热点；可从时间线查看历史记录。';
  const archive=w.archiveCount?'，另补充 '+w.archiveCount+' 条较早的已核验热点（保留原始日期）':'';
- const lead=today?'今天发布并已核验 '+today+' 条高信号变化':todaySeen?'今天新收录 '+todaySeen+' 条（原始发布日期见卡片）':'当前没有今日发布或新收录的已核验高信号变化';
+ const lead=today?'北京时间今天发布并已核验 '+today+' 条高信号变化':todaySeen?'北京时间今天新收录 '+todaySeen+' 条（原始发布日期见卡片）':'北京时间今天没有发布或新收录的已核验高信号变化';
  return lead+'；'+w.label+'内 '+w.recentCount+' 条'+archive+'。';
 }
 function v10FeedFreshnessTarget(){

@@ -133,6 +133,14 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(row['sources'][0]['url'].split('/')[2],'arxiv.org')
         validate_toolkit(self.data,self.catalog)
 
+    def test_reviewed_deepseek_docs_are_accepted_without_runtime_claim(self):
+        row=next(x for x in self.data['items'] if x['id']=='deepseek-search-fetch-api')
+        self.assertTrue(all(source['url'].split('/')[2]=='api-docs.deepseek.com' for source in row['sources']))
+        self.assertFalse(row['runtime_tested'])
+        self.assertIn('未配置密钥或调用接口',row['limitation'])
+        self.assertIn('0.75 美元',row['cost'])
+        validate_toolkit(self.data,self.catalog)
+
     def test_auto_ontology_preserves_credential_boundary(self):
         row=next(x for x in self.data['items'] if x['id']=='nvidia-auto-ontology')
         self.assertEqual(row['publisher'],'NVIDIA')

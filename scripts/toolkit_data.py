@@ -15,7 +15,7 @@ HOSTS = frozenset({'docling-project.github.io','microsoft.github.io','github.com
     'leanprover-community.github.io','live.lean-lang.org','mistral.ai','docs.mistral.ai',
     'huggingface.co','arxiv.org','rfd4-proteina.org','claude.com','nvidianews.nvidia.com',
     'blogs.nvidia.com','developer.nvidia.com','docs.nvidia.com',
-    'blogs.microsoft.com','devblogs.microsoft.com','ai.azure.com'})
+    'blogs.microsoft.com','devblogs.microsoft.com','ai.azure.com','api-docs.deepseek.com'})
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 REVIEW_TIMEZONE = ZoneInfo('Asia/Shanghai')
 

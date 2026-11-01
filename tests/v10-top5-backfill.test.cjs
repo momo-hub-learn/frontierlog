@@ -18,7 +18,7 @@ assert.equal(got.v10Top5Window().archiveCount,4);
 assert.match(got.v10FeedFreshnessCopy(),/较早的已核验热点/);
 assert.match(got.v10HotStatusShort(),/历史精选/);
 const seenToday=make([{id:'late',published:'2026-10-07',first_seen_at:'2026-10-08T00:30:00+08:00',heat:96}]);
-assert.match(seenToday.v10FeedFreshnessCopy(),/今天新收录 1 条/);
+assert.match(seenToday.v10FeedFreshnessCopy(),/北京时间今天新收录 1 条/);
 assert.match(seenToday.v10FeedFreshnessCopy(),/原始发布日期见卡片/);
 assert.equal(seenToday.v10FeedFreshnessTarget().id,'late');
 const publishedToday=make([
@@ -26,12 +26,13 @@ const publishedToday=make([
  {id:'published',published:'2026-10-08',first_seen_at:'2026-10-08T08:30:00+08:00',heat:90}
 ]);
 assert.equal(publishedToday.v10FeedFreshnessTarget().id,'published');
+assert.match(publishedToday.v10FeedFreshnessCopy(),/北京时间今天发布并已核验 1 条/);
 assert.match(source,/class="v10-feed-fresh-link" href="#\/hot\?item=\$\{encodeURIComponent\(fresh\.id\)\}"/);
 assert.match(source,/aria-label="\$\{esc\('查看最新一条：'\+fresh\.title\)\}"/);
 assert.match(source,/>查看最新一条 \$\{icon\('arrow'\)\}<\/a>/);
 assert.doesNotMatch(source,/>查看今日新增 /);
 const seenYesterday=make([{id:'known',published:'2026-10-07',first_seen_at:'2026-10-07T23:30:00+08:00',heat:96}]);
-assert.match(seenYesterday.v10FeedFreshnessCopy(),/没有今日发布或新收录/);
+assert.match(seenYesterday.v10FeedFreshnessCopy(),/北京时间今天没有发布或新收录/);
 assert.equal(seenYesterday.v10FeedFreshnessTarget(),null);
 assert.equal(make([]).v10Top5Rows().length,0);
 assert.equal(make(rows.slice(0,1)).v10Top5Rows().length,1);
