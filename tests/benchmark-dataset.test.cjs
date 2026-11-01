@@ -23,4 +23,13 @@ assert.ok(js.includes('本站未实测；不展示虚构分数或模型排名'))
 assert.ok(js.includes('外部资料 · 本站未实测'));
 const novelty=judge.find(x=>x.id==='novelty-judge-bench');
 assert.ok(novelty&&novelty.metric_note.includes('弱标签'));
+const dddbench=d.items.find(x=>x.id==='dddbench');
+assert.ok(dddbench&&dddbench.group==='pharma');
+assert.equal(dddbench.result_url,'https://ddb.insilico.com/');
+assert.equal(dddbench.tested,false);
+assert.ok(dddbench.metric_note.includes('不得')&&dddbench.boundary.includes('不是独立临床验证'));
+assert.ok(!('score' in dddbench)&&!('rank' in dddbench)&&!('best_model' in dddbench));
+const dddSource=d.sources.find(x=>x.id==='b-dddbench');
+assert.ok(dddSource&&dddSource.url==='https://ddb.insilico.com/'&&dddSource.checked==='2026-11-01');
+assert.ok(d.changes.some(x=>x.id==='dddbench-platform-20261028'&&x.benchmarks.includes('dddbench')));
 console.log('PASS Judge benchmark evaluation registry and UI');
