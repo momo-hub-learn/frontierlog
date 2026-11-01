@@ -108,6 +108,7 @@ assert.match(view.__fresh,/morluto\/rea/);
 assert.match(view.__fresh,/142,000/);
 assert.match(view.__fresh,/总 Star/);
 assert.match(view.__fresh,/GitHub AI 热仓/);
+assert.match(view.__fresh,/AI 子集 · 按今日新增 Star 排序/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
 assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/API 旧快照/);

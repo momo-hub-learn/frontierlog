@@ -68,7 +68,7 @@ function fcGithubPanel(){
  ].join(' · ');
  const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
-  '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub AI 热仓</h2></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
+  '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub AI 热仓</h2><small class="fc-panel-sort">AI 子集 · 按今日新增 Star 排序</small></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
   (partial?'<div class="fc-gh-data-state" role="status">'+(allRepositoryMetadataFailed?'仓库资料全部沿用旧快照':trendingPartial?('上榜仓库资料'+(allTrendingMetadataFailed?'全部':'部分')+'沿用旧快照'):'长期关注仓库资料沿用旧快照')+(metadataFailures?' · '+metadataFailures+' 个上榜项':'')+(watchFailures?' · '+watchFailures+' 个长期关注项':(gh.watchlist||[]).length?' · 长期关注项已核验':'')+'</div>':'')+
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
