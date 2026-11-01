@@ -80,6 +80,7 @@ assert.match(pagePart,/GitHub 热榜/);
 assert.match(pagePart,/DEVELOPER SIGNALS \/ OFFICIAL ORDER/);
 assert.match(pagePart,/不和新闻热度混排/);
 assert.doesNotMatch(pagePart,/'热点时间线'/);
+assert.doesNotMatch(pagePart,/热点时间线<span class="accent">\.<\/span>/);
 
 const panel=extract(cockpit,'function fcGithubPanel(){','function fcCockpit(){');
 const historical={...data,checked_at:'2026-09-25T23:16:36Z',sync:{...data.sync,status:'error'}};

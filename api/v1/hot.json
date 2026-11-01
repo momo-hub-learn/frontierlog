@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-01",
+  "checked": "2026-11-02",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -150,6 +150,55 @@
           "source": "OpenAI API",
           "title": "Working with evals",
           "url": "https://developers.openai.com/api/docs/guides/evals"
+        }
+      ]
+    },
+    {
+      "id": "foxconn-smart-healthcare-agents-robotics-20261030",
+      "category": "industry",
+      "title": "富士康把临床 Agent、化疗机器人与数字孪生放进同一医院流程",
+      "published": "2026-10-30",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T03:28:07+08:00",
+      "first_seen_at": "2026-11-02T03:28:07+08:00",
+      "heat": 86,
+      "heat_components": {
+        "impact": 32,
+        "availability": 13,
+        "evidence": 25,
+        "recency": 16
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；官方展示和多机构联合开发提高证据与影响分，缺少临床效果、监管状态与部署细节显著限制可操作性。这不是医疗效果、自动化程度或本站实测分数。",
+      "trend": "up",
+      "verification_status": "富士康官方 HHTD26 展示与合作范围 · 本站未做临床或现场复验",
+      "summary": "富士康在 HHTD26 展示 CoDoClaw 临床 AI 编排器、心电与肠镜辅助系统，以及把化疗调配、运输和交付串起来的机器人流程；官方称 CoDoClaw 基于 NVIDIA NemoClaw 与 OpenShell，并加入策略、沙箱、运行时访问控制和身份委派。",
+      "why": "值得关注的是医院 Agent 与机器人开始共享权限、仿真和流程编排，而不是把单个模型包装成诊疗结论。医疗与制造团队可据此分别验证临床建议、药品调配、机器人交接和人工放行。",
+      "boundary": "这是发布方对展示与联合开发项目的官方说明，不是独立临床试验或正式部署报告。公告未给出诊断准确率、患者结局、监管许可、真实吞吐或故障率，不能据此称系统已获批、已规模化落地或能替代医护人员。",
+      "source": "Hon Hai Technology Group (Foxconn)",
+      "source_kind": "公司官方活动发布、合作范围与技术组件 / 本轮编辑核验",
+      "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
+      "link": "#/pharma?article=foxconn-smart-healthcare-agents-20261030",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看医药证据与验证步骤",
+          "note": "区分展示、联合开发、临床验证、监管状态与真实部署",
+          "url": "#/pharma?article=foxconn-smart-healthcare-agents-20261030",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读富士康官方发布",
+          "note": "核对 CoDoClaw、化疗机器人、合作机构与官方未披露项",
+          "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "Foxconn",
+          "title": "Foxconn Showcases AI Agents and Hospital Robotics for Next-Generation Smart Healthcare",
+          "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
+          "date": "2026-10-30"
         }
       ]
     },
