@@ -29,12 +29,14 @@ with sync_playwright() as p:
  shot(page,'models-route-focus.png');ok('first and repeat top-level navigation override stale history scroll and focus the new page landmark')
  route(page,'#/models');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
  aa_headers=page.locator('.v2-model-table table th').all_text_contents()
- expected_aa_headers=5+int(any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']))+int(any(isinstance(x.get('context'),str) and x['context'].strip() for x in AA['rows']))
- assert len(aa_headers)==expected_aa_headers
- if expected_aa_headers==5:
-  assert not {'输出 tok/s','USD / task','上下文'} & set(aa_headers)
-  expect(page.locator('.m-mobile-hint')).to_have_text('仅展示当前可核验字段；缺失指标不占空列。')
+ assert aa_headers==['样本序','模型 / 配置','公司','智能指数','上下文','关注 / 对比']
+ assert not {'输出 tok/s','USD / task','输入 USD / 1M'} & set(aa_headers)
  expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
+ expect(page.locator('.v2-model-boundary')).to_have_text('能力榜只按 Intelligence Index 排名，不考虑价格、任务成本或性价比。')
+ expect(page.locator('.v2-model-lenses')).to_have_attribute('aria-label','模型榜视图')
+ expect(page.locator('.v2-model-lenses button')).to_have_count(3)
+ assert page.locator('.v2-model-lenses').inner_text().splitlines()==['综合能力榜','只看 Intelligence','速度榜','只看输出 tok/s','成本榜','价格独立，不计能力']
+ assert page.locator('.v2-cost-metrics').count()==0
  expect(page.locator('.v2-source-tabs')).to_have_attribute('aria-label','选择独立榜单')
  expect(page.locator('.v2-aa-method')).to_have_count(1)
  expect(page.locator('.v2-aa-method')).to_contain_text('这张总榜实际考什么？')
@@ -56,8 +58,7 @@ with sync_playwright() as p:
  assert '综合能力主榜' in page.locator('.v2-source-tabs').inner_text()
  assert '人类偏好榜' in page.locator('.v2-source-tabs').inner_text()
  assert '两张独立榜单 · 不合成本站总分' in page.locator('.v2-source-tabs').inner_text()
- expect(page.locator('.m-segments')).to_have_attribute('aria-label','查看与排序指标')
- assert '已收录模型 #1' in page.locator('.v2-current-first').inner_text()
+ assert '能力榜已收录 #1' in page.locator('.v2-current-first').inner_text()
  expect(page.locator('[data-model-row]').first.locator('.m-access-limited')).to_have_text('小范围 Fairwind')
  expect(page.locator('[data-model-row]').first.locator('.m-access-limited')).to_have_attribute('title',re.compile('coming soon'))
  assert '#1 当前样本' not in page.locator('#vertical-root').inner_text()
@@ -74,19 +75,37 @@ with sync_playwright() as p:
   assert f"核验 {AA['checked'].replace('-', '.')}" in meta
   assert '来源 ' not in meta
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
- shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, unavailable metric columns removed, preserved theme')
+ # Price mutations must never change the default capability order.
+ capability_ids=page.locator('[data-model-row]').evaluate_all('rows=>rows.map(r=>r.dataset.modelRow)')
+ page.evaluate("""()=>{const rows=MODEL_DATA.boards.find(b=>b.id==='aa').rows;window.__modelCosts=rows.map(r=>[r.cost_task,r.input_price]);rows.forEach((r,i)=>{r.cost_task=10000-i*997;r.input_price=i*999+1});moduleMain()}""")
+ assert page.locator('[data-model-row]').evaluate_all('rows=>rows.map(r=>r.dataset.modelRow)')==capability_ids
+ expect(page.locator('.v2-model-head h1')).to_have_text('模型综合能力榜')
+ page.evaluate("""()=>{const rows=MODEL_DATA.boards.find(b=>b.id==='aa').rows;rows.forEach((r,i)=>{[r.cost_task,r.input_price]=window.__modelCosts[i]});moduleMain()}""")
+ shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('capability view excludes price and speed columns; changing every price leaves capability order unchanged')
  if any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']):
   page.locator('[data-ma="metric"][data-id="speed"]').click()
-  assert '当前查看首位' in page.locator('.v2-current-first').inner_text()
+  expect(page.locator('.v2-model-head h1')).to_have_text('模型速度榜')
+  expect(page.locator('.v2-model-boundary')).to_contain_text('不代表能力更强')
+  assert page.locator('.v2-model-table table th').all_text_contents()==['样本序','模型 / 配置','公司','输出速度','上下文','关注 / 对比']
+  assert '当前最快' in page.locator('.v2-current-first').inner_text()
   assert page.evaluate("(()=>{const r=mRows().map(x=>x.speed).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]>=v)})()")
  if any(isinstance(x.get('cost_task'),(int,float)) for x in AA['rows']):
   page.locator('[data-ma="metric"][data-id="cost_task"]').click()
+  expect(page.locator('.v2-model-head h1')).to_have_text('模型成本榜')
+  expect(page.locator('.v2-model-boundary')).to_contain_text('本站不制造性价比分')
+  expect(page.locator('.v2-cost-metrics')).to_have_attribute('aria-label','选择成本指标')
+  assert page.locator('.v2-model-table table th').all_text_contents()==['样本序','模型 / 配置','公司','每任务成本','上下文','关注 / 对比']
+  assert '当前最低成本' in page.locator('.v2-current-first').inner_text()
   assert page.evaluate("(()=>{const r=mRows().map(x=>x.cost_task).filter(Number.isFinite);return r.every((v,i)=>!i||r[i-1]<=v)})()")
+  if any(isinstance(x.get('input_price'),(int,float)) for x in AA['rows']):
+   page.locator('[data-ma="metric"][data-id="input_price"]').click()
+   assert '每百万输入 Token' in page.locator('.v2-model-table').inner_text()
+ page.locator('[data-ma="metric"][data-id="intelligence"]').click()
  page.locator('#m-maker').select_option('OpenAI');expect(page.locator('[data-model-row]')).to_have_count(sum(x['maker']=='OpenAI' for x in AA['rows']))
  page.locator('#m-search').fill('Sol');expect(page.locator('[data-model-row]')).to_have_count(sum(x['maker']=='OpenAI' and 'sol' in x['name'].lower() for x in AA['rows']))
  page.locator('#m-search').fill('no-matching-model');expect(page.locator('.m-empty')).to_have_count(1)
  page.locator('#m-search').fill('');page.locator('#m-maker').select_option('all');expect(page.locator('[data-model-row]')).to_have_count(BOARD_COUNTS['aa'])
- ok('named search and provider controls, numeric sorting, incremental search and empty-state reset')
+ ok('separate capability, speed and cost views plus named search, provider controls and numeric sorting')
  page.locator('[data-ma="star"]').first.click();page.locator('#m-only').check();expect(page.locator('[data-model-row]')).to_have_count(1)
  page.locator('#m-only').uncheck();page.locator('[data-ma="metric"][data-id="intelligence"]').click()
  for x in range(4):page.locator('[data-ma="select"]').nth(x).click()

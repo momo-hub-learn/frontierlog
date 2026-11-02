@@ -62,8 +62,13 @@ check('preliminary source flag and source score precision survive rendering',()=
  assert(api.score({preference:1506,score_error:5}).includes('<strong>1,506</strong>'));
 });
 check('dynamic Artificial Analysis metrics keep their reviewed source snapshot',()=>{
- assert.equal(carbon.speed,92);assert.equal(carbon.cost_task,7.76);assert.equal(aa.as_of,null);assert.equal(aa.source_checked,'2026-11-02');assert.match(aa.methodology,/v5\.0/);
- assert(aa.rows.slice(0,9).every(row=>Number.isFinite(row.speed)&&Number.isFinite(row.cost_task)&&row.context==='1M'));
+ assert(Number.isFinite(carbon.speed));assert(Number.isFinite(carbon.cost_task));assert.equal(aa.as_of,null);assert.match(aa.source_checked,/^\d{4}-\d{2}-\d{2}$/);assert.match(aa.methodology,/v5\.0/);
+ assert(aa.rows.every(row=>(row.speed===null||Number.isFinite(row.speed))&&Number.isFinite(row.cost_task)&&row.context==='1M'));
+ assert.equal(new Set(aa.rows.map(row=>row.source_order)).size,aa.rows.length);
+ assert.deepEqual(aa.rows.map(row=>row.id),[...aa.rows].sort((a,b)=>b.intelligence-a.intelligence||a.source_order-b.source_order).map(row=>row.id));
+ const costs=aa.rows.map(row=>[row.cost_task,row.input_price]);ctx.location.hash='#/models?board=aa';const before=ctx.mRows().map(row=>row.id);
+ aa.rows.forEach((row,i)=>{row.cost_task=9999-i*877;row.input_price=i*777+1});assert.deepEqual(ctx.mRows().map(row=>row.id),before);
+ aa.rows.forEach((row,i)=>{[row.cost_task,row.input_price]=costs[i]});ctx.location.hash='#/models?board=arena';
 });
 check('table and mobile view expose the same records and unique search controls',()=>{
  const html=render('');assert.equal((html.match(/data-ar-model=/g)||[]).length,8);assert.equal((html.match(/id="m-search"/g)||[]).length,1);

@@ -166,7 +166,8 @@ class ValidationTests(unittest.TestCase):
   rows=board['rows']
   self.assertEqual(rows,sorted(rows,key=lambda x:(-(x['intelligence'] or -1),x['source_order'])))
   self.assertTrue(all(x['source']=='aa-live' or any(s['id']==x['source'] for s in M['sources']) for x in rows))
-  self.assertTrue(all(x['context']=='1M' and x['speed'] is not None and x['cost_task'] is not None for x in rows))
+  self.assertTrue(all(x['context']=='1M' and x['cost_task'] is not None for x in rows))
+  self.assertTrue(any(x['speed'] is None for x in rows),'officially unreported fields must remain explicit nulls')
   d=copy.deepcopy(M);d['boards'][0]['rows'][0]['speed']=None
   validate_models(d)
  def test_v4_terra_snapshot_is_preserved_but_not_mixed_into_v5_board(self):
