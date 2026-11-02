@@ -92,4 +92,9 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             content_date({'published':'2026-10-20','updated':'2026-10-19'})
 
+    def test_ci_freshness_check_uses_the_current_beijing_day(self):
+        workflow=(ROOT/'.github/workflows/ci.yml').read_text(encoding='utf-8')
+        self.assertIn('python scripts/deep_dive_watch.py > /tmp/deep-dive-watch.json',workflow)
+        self.assertNotIn('deep_dive_watch.py --today',workflow)
+
 if __name__=='__main__': unittest.main()

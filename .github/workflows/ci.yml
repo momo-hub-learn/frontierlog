@@ -55,7 +55,7 @@ jobs:
           node tests/deep-cadence-ui.test.cjs
           node tests/deep-architecture.test.cjs
           node tests/rea-editorial-quality.test.cjs
-          python scripts/deep_dive_watch.py --today 2026-10-13 > /tmp/deep-dive-watch.json
+          python scripts/deep_dive_watch.py > /tmp/deep-dive-watch.json
       - name: World Model topic coverage and research review regressions
         run: |
           python -m unittest tests.test_frontier_paper_watch
