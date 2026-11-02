@@ -7,7 +7,7 @@
       "id": "banked-reset",
       "title": "Banked reset · 留存后主动使用",
       "summary": "OpenAI 发放的一次性重置，可在符合条件时留存并由用户主动使用；只有被覆盖的限额剩余不足 80% 时才能使用，发到账号不等于额度已恢复。",
-      "action": "先在用量页查看可用 reset、覆盖的限额与有效期；近 30 天内已使用的 banked reset 可在 History 中核对。",
+      "action": "网页或桌面端进入 Settings → Usage & billing，CLI 用 /usage；移动端目前不提供 reset 控件。先核对覆盖限额与有效期，近 30 天内已使用的 banked reset 可在 History 中查看。",
       "boundary": "它不是 credits，也不会与后续 automatic reset 叠加成 200% 周额度；全量覆盖还是部分覆盖取决于计划。",
       "sources": ["oa-banked"]
     },
@@ -620,9 +620,9 @@
       "publisher": "OpenAI Help Center",
       "title": "How resets work in Codex",
       "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
-      "checked": "2026-10-28",
+      "checked": "2026-11-02",
       "kind": "官方说明",
-      "note": "本轮核验三类 reset 的官方定义，并补齐 banked 使用需对应限额低于 80%、Assistant 自动使用门槛为主限额不高于 10%、History 仅显示近 30 天已使用记录，以及 global 不代表所有账号或限额；日期记录仍不补成虚构的北京时间零点。"
+      "note": "2026-11-02 复核三类 reset 的官方定义：banked 使用需对应限额低于 80%，Assistant 自动使用门槛为主限额不高于 10%，History 仅显示近 30 天已使用记录；网页、桌面与 CLI /usage 可操作，移动端目前不提供 reset 控件。Global 不代表所有账号或限额；日期记录不补成虚构的北京时间零点。"
     },
     {
       "id": "oa-usage",

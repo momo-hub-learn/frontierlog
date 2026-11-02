@@ -161,12 +161,14 @@ class ValidationTests(unittest.TestCase):
   a=ET.fromstring(model_rss(M,SITE));b=ET.fromstring(model_rss(M,SITE))
   self.assertEqual(len(a.findall('./channel/item')),2)
   self.assertEqual([x.text for x in a.findall('.//guid')],[x.text for x in b.findall('.//guid')])
- def test_aa_excerpt_is_sorted_source_backed_and_missing_metrics_stay_null(self):
+ def test_aa_excerpt_is_sorted_source_backed_and_missing_metrics_remain_allowed(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
   rows=board['rows']
   self.assertEqual(rows,sorted(rows,key=lambda x:(-(x['intelligence'] or -1),x['source_order'])))
   self.assertTrue(all(x['source']=='aa-live' or any(s['id']==x['source'] for s in M['sources']) for x in rows))
-  self.assertTrue(any(x['speed'] is None for x in rows))
+  self.assertTrue(all(x['context']=='1M' and x['speed'] is not None and x['cost_task'] is not None for x in rows))
+  d=copy.deepcopy(M);d['boards'][0]['rows'][0]['speed']=None
+  validate_models(d)
  def test_v4_terra_snapshot_is_preserved_but_not_mixed_into_v5_board(self):
   board=next(x for x in M['boards'] if x['id']=='aa')
   self.assertNotIn('aa-gpt61-terra-max',{x['id'] for x in board['rows']})

@@ -61,8 +61,9 @@ check('preliminary source flag and source score precision survive rendering',()=
  assert(api.name({id:'x',name:'candidate',preliminary:true}).includes('初步结果'));assert(!api.name({id:'x',name:'candidate'}).includes('Preliminary'));
  assert(api.score({preference:1506,score_error:5}).includes('<strong>1,506</strong>'));
 });
-check('dynamic Artificial Analysis speed keeps its reviewed source snapshot',()=>{
- assert.equal(carbon.speed,84.6);assert.equal(aa.source_checked,'2026-11-01');assert.match(aa.methodology,/v5\.0/);
+check('dynamic Artificial Analysis metrics keep their reviewed source snapshot',()=>{
+ assert.equal(carbon.speed,92);assert.equal(carbon.cost_task,7.76);assert.equal(aa.as_of,null);assert.equal(aa.source_checked,'2026-11-02');assert.match(aa.methodology,/v5\.0/);
+ assert(aa.rows.slice(0,9).every(row=>Number.isFinite(row.speed)&&Number.isFinite(row.cost_task)&&row.context==='1M'));
 });
 check('table and mobile view expose the same records and unique search controls',()=>{
  const html=render('');assert.equal((html.match(/data-ar-model=/g)||[]).length,8);assert.equal((html.match(/id="m-search"/g)||[]).length,1);

@@ -65,9 +65,14 @@ with sync_playwright() as p:
  expect(page.locator('#m-maker')).to_have_attribute('aria-label','筛选基础模型厂商')
  assert page.locator('#nav .active').inner_text().startswith('模型榜')
  meta=page.locator('.v2-model-meta').inner_text()
- assert f"来源 {AA['as_of'].replace('-', '.')}" in meta
- if AA['checked']!=AA['as_of']:assert f"核验 {AA['checked'].replace('-', '.')}" in meta
- else:assert '核验' not in meta
+ if AA['as_of']:
+  assert f"来源 {AA['as_of'].replace('-', '.')}" in meta
+  if AA['checked']!=AA['as_of']:assert f"核验 {AA['checked'].replace('-', '.')}" in meta
+  else:assert '核验' not in meta
+ else:
+  assert '动态榜' in meta
+  assert f"核验 {AA['checked'].replace('-', '.')}" in meta
+  assert '来源 ' not in meta
  assert float(page.locator('.m-model-name').first.evaluate('e=>getComputedStyle(e).fontSize').replace('px',''))>=15
  shot(page,'models-first-screen.png');shot(page,'models-full.png',True);ok('new navigation, readable AA sample, unavailable metric columns removed, preserved theme')
  if any(isinstance(x.get('speed'),(int,float)) for x in AA['rows']):
