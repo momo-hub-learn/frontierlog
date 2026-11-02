@@ -6285,13 +6285,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-02T20:31:55Z",
+    "generated_at": "2026-11-02T21:32:55Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 6,
-      "merge": 134,
+      "merge": 135,
       "hold": 7
     },
     "candidates": [
@@ -6810,6 +6810,35 @@
         "first_seen_at": "2026-10-29T19:49:37Z"
       },
       {
+        "id": "candidate-9e15c8d02f222688",
+        "category": "research",
+        "published": "2026-10-30",
+        "title": "Project Suncatcher 把 TPU 原型推进到在轨 AI 响应",
+        "summary": "Google 称 10 月 1 日发射的 Project Suncatcher 原型卫星完成主机与 TPU 托盘上电及早期机器学习测试；10 月 30 日，团队向在轨 Gemma 4 上传提示并成功下行响应，称这是数据中心级 TPU 在轨生成的首个 AI 响应。下一阶段将测试热应力与辐射，并计划在 2027 年发射两颗互联卫星。",
+        "why": "前瞻信号不是一首在轨生成的短诗，而是算力基础设施开始把芯片、热管理、辐射、能源与星间互联放进同一可测系统。若后续可靠性与互联验证成立，太空算力会成为能源与部署架构的新变量，而不只是模型规模问题。",
+        "boundary": "这是 Google 的官方原型里程碑，不是第三方复现、稳定集群或商业服务。一次提示响应不能证明长期可靠、辐射耐受、推理吞吐、能源成本、链路延迟或规模化可行；2027 双星互联仍是计划，不能写成已实现能力。",
+        "source": "Google",
+        "source_kind": "官方在轨测试、Gemma 4、TPU 与下一里程碑",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response",
+        "publishable": false,
+        "features": {
+          "freshness": 0.786,
+          "authority": 1.0,
+          "impact": 0.82,
+          "novelty": 0.15
+        },
+        "priority_score": 0.751,
+        "action": "merge",
+        "reason": "已有同源热点，建议合并更新。",
+        "research_id": "google-project-suncatcher-orbit-tpu-20261030",
+        "topic_tags": [
+          "AI Infrastructure",
+          "Orbital Compute",
+          "TPU"
+        ],
+        "first_seen_at": "2026-11-02T21:32:55Z"
+      },
+      {
         "id": "candidate-c0c32eec03537e04",
         "category": "research",
         "published": "2026-10-30",
@@ -7269,30 +7298,6 @@
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "docling",
         "first_seen_at": "2026-10-28T01:30:28Z"
-      },
-      {
-        "id": "candidate-5514f859e2e05939",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Nemotron 3.5 Transcribe 开放多语录播音频处理权重",
-        "summary": "NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。",
-        "why": "长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。",
-        "boundary": "官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不是本站实测或临床验证。模型为录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。",
-        "source": "NVIDIA / Hugging Face",
-        "source_kind": "官方发布、语言覆盖、运行入口、当前限制与评测口径",
-        "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
-        "publishable": true,
-        "features": {
-          "freshness": 0.643,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.719,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "task_id": "nvidia-nemotron-3-5-transcribe",
-        "first_seen_at": "2026-10-29T03:34:43Z"
       }
     ]
   },
@@ -12279,12 +12284,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-02T20:31:55Z",
+    "last_evaluated": "2026-11-02T21:32:55Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 147,
+      "candidate_count": 148,
       "publish_ready_count": 6,
-      "merge_count": 134,
+      "merge_count": 135,
       "best_candidate": "candidate-a58ee5c6e57519dd",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
