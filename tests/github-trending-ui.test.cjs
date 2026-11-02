@@ -112,7 +112,7 @@ assert.match(view.__fresh,/AI 子集 · 按今日新增 Star 排序/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
 assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/API 旧快照/);
-assert.match(view.__fresh,/上榜仓库资料更新部分失败：1 个上榜项、1 个长期关注项沿用旧值/);
+assert.match(view.__fresh,/上榜仓库资料部分受限：1 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
 assert.match(view.__fresh,/语言未标注 · 总 Star 待核验 · API 旧快照/);
 
 view.APP.github_hot={
@@ -145,8 +145,8 @@ view.APP.github_hot={
  watchlist:[]
 };
 vm.runInContext('this.__allFailed=fcGithubPanel();',view);
-assert.match(view.__allFailed,/仓库资料全部沿用旧快照/);
-assert.match(view.__allFailed,/仓库资料更新全部失败：10 个上榜项、1 个长期关注项沿用旧值/);
+assert.match(view.__allFailed,/上榜仓库资料部分受限 · 10 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
+assert.match(view.__allFailed,/上榜仓库资料部分受限：10 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
@@ -155,9 +155,9 @@ view.APP.github_hot={
  watchlist:[{repo:'morluto/rea',url:'https://github.com/morluto/rea',ai_related:true,stars:403678,verified_at:new Date().toISOString()}]
 };
 vm.runInContext('this.__trendingFailedWatchVerified=fcGithubPanel();',view);
-assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料全部沿用旧快照/);
+assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料部分受限 · 10 个上榜项沿用旧快照/);
 assert.match(view.__trendingFailedWatchVerified,/长期关注项已核验/);
-assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料更新全部失败：10 个上榜项沿用旧值；长期关注项已核验/);
+assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料部分受限：10 个上榜项沿用旧快照 · 长期关注项已核验/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/role="status">仓库资料全部沿用旧快照/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/长期关注项沿用旧值/);
 
@@ -169,6 +169,7 @@ view.APP.github_hot={
 };
 vm.runInContext('this.__newUnavailable=fcGithubPanel();',view);
 assert.match(view.__newUnavailable,/Rust · 总 Star 待核验 · API 待首次核验/);
+assert.match(view.__newUnavailable,/1 个上榜项待首次核验/);
 
 const hfPanel=extract(cockpit,'function fcHuggingFacePanel(){','function fcCockpit(){');
 const hfView={APP:{huggingface_hot:{

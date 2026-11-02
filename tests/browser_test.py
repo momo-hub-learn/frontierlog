@@ -118,11 +118,13 @@ try:
         github_partial = github_sync.get("metadata_status") == "partial" or int(github_sync.get("metadata_failed_count") or 0) > 0
         github_watch_failed = int(github_sync.get("watchlist_failed_count") or 0) > 0
         if github_partial:
-            failed = int(github_sync.get("metadata_failed_count") or 0)
-            total = len(GITHUB.get("items", []))
-            scope = "全部" if total and failed >= total else "部分"
-            expected = "仓库资料更新全部失败" if scope == "全部" else "上榜仓库资料更新部分失败"
-            expect(page.locator(".fc-gh-panel")).to_contain_text(expected)
+            expect(page.locator(".fc-gh-panel")).to_contain_text("上榜仓库资料部分受限")
+            stale = sum(row.get("metadata_status") == "stale" for row in GITHUB.get("items", []))
+            unavailable = sum(row.get("metadata_status") == "unavailable" for row in GITHUB.get("items", []))
+            if stale:
+                expect(page.locator(".fc-gh-panel")).to_contain_text(f"{stale} 个上榜项沿用旧快照")
+            if unavailable:
+                expect(page.locator(".fc-gh-panel")).to_contain_text(f"{unavailable} 个上榜项待首次核验")
             expect(page.locator(".fc-gh-data-state")).not_to_have_count(0)
         elif github_watch_failed:
             expect(page.locator(".fc-gh-panel")).to_contain_text("长期关注仓库资料更新失败")

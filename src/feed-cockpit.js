@@ -54,10 +54,10 @@ function fcGithubPanel(){
  const fresh=Number.isFinite(verified)&&(Date.now()-verified)<=6*36e5&&(Date.now()-verified)>=-36e5;
  const rows=fresh?(gh.items||[]).filter(x=>x.ai_related).sort((a,b)=>(b.stars_today||0)-(a.stars_today||0)||a.rank-b.rank).slice(0,3):[];
  const metadataFailures=Number(gh.sync?.metadata_failed_count)||0,watchFailures=Number(gh.sync?.watchlist_failed_count)||0;
+ const staleCount=(gh.items||[]).filter(x=>x.metadata_status==='stale').length;
+ const unavailableCount=(gh.items||[]).filter(x=>x.metadata_status==='unavailable').length;
  const partial=gh.sync?.metadata_status==='partial'||metadataFailures>0||watchFailures>0;
  const trendingPartial=gh.sync?.metadata_status==='partial'||metadataFailures>0;
- const allTrendingMetadataFailed=(gh.items||[]).length>0&&metadataFailures>=(gh.items||[]).length;
- const allRepositoryMetadataFailed=allTrendingMetadataFailed&&(!(gh.watchlist||[]).length||watchFailures>=(gh.watchlist||[]).length);
  const fmt=n=>{const v=Number(n)||0;return v>=1000?(v/1000).toFixed(v>=10000?0:1)+'k':String(v)};
  const exact=n=>Number.isInteger(n)?n.toLocaleString('en-US'):'—';
  const apiWhen=raw=>{try{return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(raw)).replaceAll('/','.') }catch{return ''}};
@@ -66,10 +66,15 @@ function fcGithubPanel(){
   Number.isInteger(x.stars)?'★ '+exact(x.stars):'总 Star 待核验',
   x.metadata_status==='unavailable'?'API 待首次核验':x.metadata_status==='stale'?'API 旧快照 '+apiWhen(x.metadata_verified_at):'API '+(apiWhen(x.metadata_verified_at)||'待核验')
  ].join(' · ');
+ const trendingFailureDetail=[
+  staleCount?staleCount+' 个上榜项沿用旧快照':'',
+  unavailableCount?unavailableCount+' 个上榜项待首次核验':''
+ ].filter(Boolean).join(' · ')||(metadataFailures?metadataFailures+' 个上榜项资料未同步':'');
+ const failureDetail=[trendingFailureDetail,watchFailures?watchFailures+' 个长期关注项沿用旧值':(!watchFailures&&(gh.watchlist||[]).length?'长期关注项已核验':'')].filter(Boolean).join(' · ');
  const followed=(gh.watchlist||[]).filter(x=>x.ai_related).filter(x=>!rows.some(r=>r.repo.toLowerCase()===x.repo.toLowerCase())).slice(0,1);
  return '<section class="fc-panel fc-gh-panel">'+
   '<div class="fc-panel-head compact"><div><p class="eyebrow">GITHUB / VERIFIED</p><h2>GitHub AI 热仓</h2><small class="fc-panel-sort">AI 子集 · 按今日新增 Star 排序</small></div><a href="#/hot?tab=github">完整榜 '+icon('arrow')+'</a></div>'+
-  (partial?'<div class="fc-gh-data-state" role="status">'+(allRepositoryMetadataFailed?'仓库资料全部沿用旧快照':trendingPartial?('上榜仓库资料'+(allTrendingMetadataFailed?'全部':'部分')+'沿用旧快照'):'长期关注仓库资料沿用旧快照')+(metadataFailures?' · '+metadataFailures+' 个上榜项':'')+(watchFailures?' · '+watchFailures+' 个长期关注项':(gh.watchlist||[]).length?' · 长期关注项已核验':'')+'</div>':'')+
+  (partial?'<div class="fc-gh-data-state" role="status">'+(trendingPartial?'上榜仓库资料部分受限':'长期关注仓库资料沿用旧快照')+(failureDetail?' · '+failureDetail:'')+'</div>':'')+
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
@@ -82,7 +87,7 @@ function fcGithubPanel(){
     '<span class="fc-gh-rank">追踪</span><span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>独立关注 · 不等于今日上榜 · '+esc(x.verified_at?.slice(0,10)||'待核验')+'</small></span>'+
     '<span class="fc-gh-star"><b>'+ (x.verified_at&&Number.isInteger(x.stars)?exact(x.stars):'—') +'</b><small>总 Star</small></span></a>'
   ).join('')+'</div>':'')+
-  '<div class="fc-gh-foot">'+(fresh?'从官方 Today 筛选 AI / Agent · 按当日新增 Star 排序':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+(partial?' · '+(allRepositoryMetadataFailed?'仓库资料更新全部失败':trendingPartial?('上榜仓库资料更新'+(allTrendingMetadataFailed?'全部':'部分')+'失败'):'长期关注仓库资料更新失败')+'：'+(metadataFailures?metadataFailures+' 个上榜项':'')+(metadataFailures&&watchFailures?'、':'')+(watchFailures?watchFailures+' 个长期关注项':'')+'沿用旧值'+(!watchFailures&&(gh.watchlist||[]).length?'；长期关注项已核验':''):'')+' · 独立关注不参与排名</div>'+
+  '<div class="fc-gh-foot">'+(fresh?'从官方 Today 筛选 AI / Agent · 按当日新增 Star 排序':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+(partial?' · '+(trendingPartial?'上榜仓库资料部分受限':'长期关注仓库资料更新失败')+(failureDetail?'：'+failureDetail:''):'')+' · 独立关注不参与排名</div>'+
  '</section>'
 }
 

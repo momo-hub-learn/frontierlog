@@ -341,7 +341,12 @@ class BuildTests(unittest.TestCase):
         event=next(x for x in product['items'] if x['id']=='openai-evals-platform-retirement')['timeline'][0]
         self.assertEqual(event['date_kind'],'effective')
         self.assertEqual(event['published_at'],'2026-06-03')
-        validation_clock=datetime.fromisoformat(product['checked']+'T12:00:00+08:00')
+        # The reviewed snapshot can legitimately contain same-day checks after
+        # noon in Asia/Shanghai. Validate against the latest real instant, not
+        # a guessed local wall-clock cutoff that turns valid timestamps into
+        # apparent future data.
+        verified=[datetime.fromisoformat(e['verified_at'].replace('Z','+00:00')) for item in product['items'] for e in item['timeline'] if 'T' in e.get('verified_at','')]
+        validation_clock=max(verified)+timedelta(minutes=1)
         build.validate_product_radar(product,now=validation_clock)
         event['date_kind']='effective'
         event.pop('published_at')

@@ -40,6 +40,55 @@
   ],
   "items": [
     {
+      "id": "openai-chatgpt-codex-shared-allowance-20261102",
+      "category": "product",
+      "title": "OpenAI 预告 12 月合并 ChatGPT 与 Codex 用量池",
+      "published": "2026-11-02",
+      "checked": "2026-11-02",
+      "verified_at": "2026-11-02T21:53:44+08:00",
+      "first_seen_at": "2026-11-02T21:53:44+08:00",
+      "heat": 93,
+      "heat_components": {
+        "impact": 34,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；Plus、Pro、Business 的跨产品共享用量将直接影响真实工作流，官方帮助文档给出范围、计量方式与查看入口，提高影响、证据和时效分；12 月才生效且未公开各套餐具体 token 数限制可操作性。这不是模型能力、速度、价格或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方 Help Center · 12 月起共享用量，具体额度与精确生效时刻未公布",
+      "summary": "OpenAI 官方说明称，12 月起 Plus、Pro、Business 的 ChatGPT 与 Codex 用量将合并为共享 token allowance；不同模型与任务消耗不同，Instant chat 不计入，剩余用量与 reset time 将在 Settings → Usage 合并显示。",
+      "why": "ChatGPT 与 Codex 从分开的产品用量转向同一容量池，会改变长任务、编码 Agent 与日常聊天的预算分配。团队应在切换前记录当前套餐、剩余额度、任务消耗和 reset 周期，而不是只看模型名称。",
+      "boundary": "官方页面只写“Starting in December”，未给出 12 月内的精确生效时刻、各套餐 token 数、模型换算或所有地区同步节奏；“多数用户无需更频繁等待重置”是官方预期，不是保证。共享 allowance 不是一次自动或 banked reset，也不等于模型更强、价格下降或 API 限流改变；本站未登录账号核验。",
+      "source": "OpenAI",
+      "source_kind": "官方 Help Center 的适用套餐、计量方式、查看入口与 12 月迁移边界 / 本轮编辑核验",
+      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "link": "#/hot?cat=product&pview=map&product=openai-work-codex-allowance",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看产品时间线与迁移边界",
+          "note": "区分共享 allowance、套餐容量、模型能力、reset 与 API credits",
+          "url": "#/hot?cat=product&pview=map&product=openai-work-codex-allowance",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 OpenAI 官方用量说明",
+          "note": "核对适用套餐、token 计量、Instant chat 与 Settings → Usage 入口",
+          "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Understanding ChatGPT and Codex usage limits",
+          "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
       "id": "deepmind-planassist-planning-beta-20261031",
       "category": "product",
       "title": "PlanAssist 把规划申请评估扩到 15 个英格兰地方政府",
