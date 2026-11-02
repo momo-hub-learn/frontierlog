@@ -52,6 +52,61 @@
   ],
   "items": [
     {
+      "id": "epoch-eci",
+      "name": "Epoch Capabilities Index",
+      "group": "reasoning",
+      "edition": "General ECI · 2026-11-02 data update",
+      "subtitle": "跨基准能力趋势怎样保留口径、置信区间与可回溯数据？",
+      "summary": "Epoch AI 用跨基准重叠结果拟合统一能力尺度；2026-11-02 官方概览显示 GPT-6 Astra 的 General ECI 为 169，并提供当日模型分数与逐基准结果下载。",
+      "metric": "Epoch Capabilities Index (ECI) / confidence interval / contributing benchmarks",
+      "metric_note": "ECI 是统计拟合后的抽象比较尺度，不是准确率、任务成功率或本站实测。绝对值没有独立业务含义；新模型与新结果加入后，旧模型分数也可能移动。",
+      "protocol": "固定 General ECI、官方数据版本与下载日期，保留模型分数、置信区间、发布日期和参与拟合的逐基准结果；领域 ECI 分开读取，不与 Elo、Artificial Analysis 或单项基准拼成总分。",
+      "boundary": "本站没有复算 ECI。官方方法会同时吸收 Epoch 自测、独立榜单和模型开发者报告；开发者选择性披露、基准优化与拟合假设仍可能影响估计。169 只说明当前 General ECI 尺度上的领先快照，不能证明所有任务领先、生产可靠或具备特定行业资格。",
+      "business": "适合看跨时间与跨基准的能力趋势；选型时仍应回到目标任务、单项结果、成本、权限和私有留出集，不按一个抽象指数采购。",
+      "setup": "保存 2026-11-02 模型分数与逐基准 CSV，记录 ECI preset、模型配置和置信区间；复核具体任务时回到贡献基准与原始协议，并用授权业务样本独立验收。",
+      "topics": [
+        "evaluation",
+        "capability-trends",
+        "methodology"
+      ],
+      "sources": [
+        "b-epoch-eci"
+      ],
+      "result_url": "https://epoch.ai/eci",
+      "kind": "benchmark",
+      "flag": "Epoch AI 官方综合指数 / 本站未复算",
+      "checked": "2026-11-02",
+      "tested": false,
+      "checks": [
+        "固定 General / Math / SWE / Cyber 的 preset，不跨域混读",
+        "保存数据版本、置信区间和逐基准贡献",
+        "把开发者报告与独立运行结果的来源差异留在证据链",
+        "不与 Elo、AA Intelligence Index 或业务 KPI 拼总分"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "verified",
+      "verified_results": {
+        "kind": "official_leaderboard_snapshot",
+        "schema": "generic_metric",
+        "source_id": "b-epoch-eci",
+        "source_date": "2026-11-02",
+        "verified_at": "2026-11-02T15:35:32+08:00",
+        "scope": "General ECI overview",
+        "metric": "ECI",
+        "population": "418 models / 95 benchmarks tracked in the official capabilities hub",
+        "note": "本轮只记录官方概览明确显示的当前领先值；完整模型分数与置信区间以 2026-11-02 官方下载为准，不补造页面未直接展示的名次。",
+        "rows": [
+          {
+            "rank": 1,
+            "model": "GPT-6 Astra",
+            "provider": "OpenAI",
+            "value": 169
+          }
+        ]
+      }
+    },
+    {
       "id": "agent-arena-overall",
       "name": "Agent Arena · Overall",
       "group": "agent",
@@ -1576,6 +1631,16 @@
   ],
   "sources": [
     {
+      "id": "b-epoch-eci",
+      "publisher": "Epoch AI",
+      "title": "Epoch Capabilities Index",
+      "url": "https://epoch.ai/eci",
+      "checked": "2026-11-02",
+      "published": null,
+      "kind": "评测机构官方指数、方法与可下载数据",
+      "note": "官方能力中心 2026-11-02 更新：General ECI 概览显示 GPT-6 Astra 为 169；模型分数、置信区间、发布日期、逐基准结果及难度参数均提供当日下载。ECI 是联合拟合的抽象尺度，新增数据会让旧模型估计移动。"
+    },
+    {
       "id": "b-agent-arena-overall",
       "title": "Agent Arena Leaderboard · Overall",
       "publisher": "Arena",
@@ -2222,6 +2287,20 @@
     }
   ],
   "changes": [
+    {
+      "id": "epoch-eci-20261102",
+      "date": "2026-11-02",
+      "title": "Epoch ECI 发布 11 月 2 日数据快照",
+      "summary": "官方概览当前显示 GPT-6 Astra 的 General ECI 为 169，并更新模型分数、逐基准结果与难度参数下载。",
+      "implication": "把跨基准趋势作为独立统计尺度保存，必须保留版本、置信区间和贡献基准，不能与其他榜单拼分。",
+      "benchmarks": [
+        "epoch-eci"
+      ],
+      "sources": [
+        "b-epoch-eci"
+      ],
+      "kind": "榜单更新"
+    },
     {
       "id": "agent-arena-overall-snapshot-20261028",
       "date": "2026-10-28",

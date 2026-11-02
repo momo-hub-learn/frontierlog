@@ -67,6 +67,17 @@ class BenchmarkTests(unittest.TestCase):
   self.assertEqual(r['rows'][1]['cost_per_task_usd'],1.74)
   self.assertTrue(r['rows'][1]['preliminary'])
   self.assertIsNone(r['rows'][8]['cost_per_task_usd'])
+ def test_generic_official_index_keeps_its_own_metric_contract(self):
+  b=next(x for x in self.data['items'] if x['id']=='epoch-eci')
+  r=b['verified_results']
+  self.assertEqual(r['schema'],'generic_metric')
+  self.assertEqual(r['metric'],'ECI')
+  self.assertEqual(r['rows'],[{'rank':1,'model':'GPT-6 Astra','provider':'OpenAI','value':169}])
+  self.assertIn('抽象比较尺度',b['metric_note'])
+  self.assertIn('本站没有复算',b['boundary'])
+ def test_generic_official_index_rejects_non_numeric_value(self):
+  def bad(d):next(x for x in d['items'] if x['id']=='epoch-eci')['verified_results']['rows'][0]['value']='169'
+  self.reject(bad)
  def test_verified_snapshot_contract_rejects_bad_time_and_ranks(self):
   def bad_time(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['verified_at']='2026-11-02T11:20:00'
   self.reject(bad_time)

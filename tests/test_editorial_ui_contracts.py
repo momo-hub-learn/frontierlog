@@ -54,6 +54,9 @@ class EditorialContracts(unittest.TestCase):
   self.assertIn('<main id="main" tabindex="-1">',html)
   self.assertIn('const previousView=state.view;',app)
   self.assertIn("if(previousView!==state.view)requestAnimationFrame(()=>{window.scrollTo(0,0);$('#main').focus({preventScroll:true})})",app)
+ def test_route_focus_indicator_does_not_box_the_whole_workspace(self):
+  css=(ROOT/'src/styles.css').read_text()
+  self.assertIn('main:focus{outline:0}main:focus-visible{box-shadow:inset 0 3px var(--accent)}',css)
  def test_mobile_quick_jump_keeps_its_search_icon_visible(self):
   html=(ROOT/'src/index.html').read_text()
   css=(ROOT/'src/styles.css').read_text()

@@ -21,6 +21,38 @@
   ],
   "items": [
     {
+      "id": "id-wm-implicit-dynamics-20261030",
+      "lane": "paradigm",
+      "title": "ID-WM 把可达子目标与局部动作求解分层",
+      "maker": "ID-WM authors",
+      "date": "2026-10-30",
+      "verified_at": "2026-11-02T15:35:32+08:00",
+      "verification_status": "作者预印本与项目页 · 本站未复现",
+      "tags": [
+        "World Models",
+        "Embodied Planning",
+        "Long-Horizon Control"
+      ],
+      "fact": "ID-WM 用高层世界模型采样状态空间中的可达转移，再用低层世界模型作为逆动力学求解器把子目标落成动作。作者在三个导航与操作套件中报告：相对策略与扩散规划基线提升 38.5%，相对单层世界模型 MPC 提升 135%，并把优势集中在复杂、未见配置的长程任务。",
+      "insight": "这条路线把“下一站是否可达”和“每一步怎样执行”拆开，避免高层搜索被某一种低层行为表示绑死。若独立复现成立，它可能成为机器人长程规划中降低误差累积、复用短轨迹数据的一种更清晰接口。",
+      "boundary": "38.5% 与 135% 都是作者在指定套件、基线、预算和实现下的相对结果，本站未运行代码；相对提升的分母与任务成功定义不能跨论文比较。三个研究套件不能证明真实机器人、开放环境、长时间运行或安全约束已经解决，也不能把分层结构本身当作通用能力分。",
+      "next_watch": "跟踪代码、数据和预算设置是否完整开放，第三方能否复现未见配置上的提升，以及真实机器人中高层可达性误判、低层动作失败和安全约束如何被分别检测与恢复。",
+      "sources": [
+        {
+          "label": "arXiv · Hierarchical World Models with Implicit Dynamics",
+          "url": "https://arxiv.org/abs/2610.42146",
+          "kind": "作者预印本、方法、实验范围与量化结果",
+          "strength": "primary"
+        },
+        {
+          "label": "ID-WM project page",
+          "url": "https://id-wm.github.io/",
+          "kind": "作者项目页与实验视频",
+          "strength": "primary"
+        }
+      ]
+    },
+    {
       "id": "deepmind-antigravity-amp-20261015",
       "lane": "science",
       "title": "Antigravity 把抗菌肽搜索压进一条可追踪证据链",

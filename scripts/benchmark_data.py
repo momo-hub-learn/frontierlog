@@ -81,14 +81,19 @@ def validate_benchmarks(data:dict, *, now:datetime|None=None)->None:
             rows=result.get('rows')
             if not isinstance(rows,list) or not 1<=len(rows)<=20:raise ValueError('Invalid verified result rows')
             if [r.get('rank') for r in rows]!=list(range(1,len(rows)+1)):raise ValueError('Verified result ranks must be sequential')
+            schema=result.get('schema','agent_arena')
+            if schema not in ('agent_arena','generic_metric'):raise ValueError('Unknown verified result schema')
             for r in rows:
                 if not all(isinstance(r.get(k),str) and r[k].strip() for k in ('model','provider')):raise ValueError('Incomplete verified result row')
-                if not all(isinstance(r.get(k),(int,float)) and not isinstance(r.get(k),bool) for k in ('net_improvement','margin','confirmed_success','confirmed_margin')):raise ValueError('Invalid verified result metric')
-                if not isinstance(r.get('sessions'),int) or r['sessions']<=0:raise ValueError('Invalid verified result sessions')
-                if r.get('cost_per_task_usd') is not None and (not isinstance(r['cost_per_task_usd'],(int,float)) or isinstance(r['cost_per_task_usd'],bool) or r['cost_per_task_usd']<0):raise ValueError('Invalid verified result cost')
-                if not isinstance(r.get('time_per_task_minutes'),(int,float)) or isinstance(r.get('time_per_task_minutes'),bool) or r['time_per_task_minutes']<=0:raise ValueError('Invalid verified result time per task')
-                if not isinstance(r.get('output_tokens_per_task'),int) or isinstance(r.get('output_tokens_per_task'),bool) or r['output_tokens_per_task']<=0:raise ValueError('Invalid verified result output per task')
-                if 'preliminary' in r and not isinstance(r['preliminary'],bool):raise ValueError('Invalid preliminary flag')
+                if schema=='generic_metric':
+                    if not isinstance(r.get('value'),(int,float)) or isinstance(r.get('value'),bool):raise ValueError('Invalid generic verified result value')
+                else:
+                    if not all(isinstance(r.get(k),(int,float)) and not isinstance(r.get(k),bool) for k in ('net_improvement','margin','confirmed_success','confirmed_margin')):raise ValueError('Invalid verified result metric')
+                    if not isinstance(r.get('sessions'),int) or r['sessions']<=0:raise ValueError('Invalid verified result sessions')
+                    if r.get('cost_per_task_usd') is not None and (not isinstance(r['cost_per_task_usd'],(int,float)) or isinstance(r['cost_per_task_usd'],bool) or r['cost_per_task_usd']<0):raise ValueError('Invalid verified result cost')
+                    if not isinstance(r.get('time_per_task_minutes'),(int,float)) or isinstance(r.get('time_per_task_minutes'),bool) or r['time_per_task_minutes']<=0:raise ValueError('Invalid verified result time per task')
+                    if not isinstance(r.get('output_tokens_per_task'),int) or isinstance(r.get('output_tokens_per_task'),bool) or r['output_tokens_per_task']<=0:raise ValueError('Invalid verified result output per task')
+                    if 'preliminary' in r and not isinstance(r['preliminary'],bool):raise ValueError('Invalid preliminary flag')
     for e in data['changes']:
         if date.fromisoformat(e['date'])>today:raise ValueError('Future change')
         if not e['benchmarks'] or not set(e['benchmarks'])<=ids:raise ValueError('Invalid change reference')

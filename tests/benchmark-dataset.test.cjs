@@ -43,4 +43,8 @@ assert.equal(agentArena.verified_results.rows[0].output_tokens_per_task,130700);
 assert.ok(js.includes('P50 time/task'));
 assert.ok(js.includes('P50 output/task'));
 assert.ok(js.includes('横向滚动查看耗时与输出量'));
+const eci=d.items.find(x=>x.id==='epoch-eci');
+assert.ok(eci&&eci.verified_results.schema==='generic_metric');
+assert.equal(eci.verified_results.rows[0].value,169);
+assert.ok(js.includes("r.schema==='generic_metric'"));
 console.log('PASS Judge benchmark evaluation registry and UI');
