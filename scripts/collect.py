@@ -93,14 +93,18 @@ def collect(catalog:dict,previous:dict,fetcher=fetch_releases,now:str|None=None,
         'releases':sorted(records.values(),key=lambda r:r['published_at'],reverse=True)[:500],
         'errors':errors,'note':'Official release metadata only. Capability assessments require editorial review.'}
 
-def main() -> int:
+def main(argv=None, *, fetcher=fetch_releases, now=None, token=None) -> int:
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--catalog',type=Path,default=ROOT/'data/catalog.json')
     p.add_argument('--out',type=Path,default=ROOT/'data/upstream.json')
-    args=p.parse_args()
+    p.add_argument('--previous',type=Path,
+        help='Existing snapshot used to preserve first-observed provenance; defaults to --out')
+    args=p.parse_args(argv)
     catalog=json.loads(args.catalog.read_text(encoding='utf-8'))
-    previous=json.loads(args.out.read_text(encoding='utf-8')) if args.out.exists() else {}
-    data=collect(catalog,previous,token=os.environ.get('GITHUB_TOKEN',''))
+    previous_path=args.previous or args.out
+    previous=json.loads(previous_path.read_text(encoding='utf-8')) if previous_path.exists() else {}
+    data=collect(catalog,previous,fetcher=fetcher,now=now,
+        token=os.environ.get('GITHUB_TOKEN','') if token is None else token)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     temp=args.out.with_suffix('.tmp');temp.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');temp.replace(args.out)
     print(f'Repositories: {data["repositories_succeeded"]}/{data["repositories_total"]}; release records: {len(data["releases"])}; errors: {len(data["errors"])}')

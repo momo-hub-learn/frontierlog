@@ -2,12 +2,13 @@ import copy
 import io
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from urllib.error import HTTPError
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
-from collect import normalize,collect,fetch_releases,FetchError
+from collect import normalize,collect,fetch_releases,FetchError,main
 T={'id':'project','repo':'owner/project'}
 NOW='2026-09-20T00:00:00Z'
 R={'id':1,'tag_name':'v1.0.0','name':'Release <v1>','published_at':'2026-09-18T12:00:00Z','html_url':'https://github.com/owner/project/releases/tag/v1.0.0','draft':False,'prerelease':False}
@@ -27,6 +28,17 @@ class CollectorTests(unittest.TestCase):
         c={'items':[T]};fetch=lambda *a,**k:[R]
         a=collect(c,{},fetch,NOW);b=collect(c,a,fetch,'2026-09-21T00:00:00Z')
         self.assertEqual(a['releases'],b['releases']);self.assertEqual(len(b['releases']),1)
+    def test_cli_temp_output_preserves_previous_observed_at(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);catalog=root/'catalog.json';previous=root/'previous.json';out=root/'generated.json'
+            catalog.write_text(json.dumps({'items':[T]}),encoding='utf-8')
+            first=collect({'items':[T]}, {},lambda *a,**k:[R],NOW)
+            previous.write_text(json.dumps(first),encoding='utf-8')
+            code=main(['--catalog',str(catalog),'--previous',str(previous),'--out',str(out)],
+                fetcher=lambda *a,**k:[R],now='2026-09-21T00:00:00Z',token='')
+            generated=json.loads(out.read_text(encoding='utf-8'))
+            self.assertEqual(code,0)
+            self.assertEqual(generated['releases'],first['releases'])
     def test_retains_old_records_when_api_fails(self):
         old=collect({'items':[T]}, {},lambda *a,**k:[R],NOW)
         def fail(*a,**kw):raise FetchError('Network unavailable')
