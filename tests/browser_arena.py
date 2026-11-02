@@ -143,10 +143,10 @@ try:
         passed('Mobile source disclosures, bookmarks, focus restoration, same-source comparison and saved filter')
         page.set_viewport_size({'width':1280,'height':1000})
         page.locator('[data-ma=board][data-id=aa]').click()
-        expected_aa_headers=['样本序','模型 / 配置','公司','Intelligence','上下文','关注 / 对比']
+        expected_aa_headers=['样本序','模型 / 配置','公司','智能指数','上下文','关注 / 对比']
         expect(page.locator('.v2-model-table table th')).to_have_count(len(expected_aa_headers))
         assert page.locator('.v2-model-table table th').all_text_contents()==expected_aa_headers
-        assert not {'输出速度','每任务成本','输入单价'} & set(expected_aa_headers)
+        assert not {'输出 tok/s','USD / task','输入 USD / 1M'} & set(expected_aa_headers)
         expect(page.locator('.v2-model-table .m-company-cell').first).not_to_contain_text('±')
         page.wait_for_timeout(200)
         expect(page.locator('.v2-model-table table th')).to_have_count(len(expected_aa_headers))
