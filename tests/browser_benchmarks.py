@@ -76,6 +76,13 @@ with sync_playwright() as pw:
  assert p.locator('.b-result-table tbody tr').first.locator('td').all_inner_texts()[-2:]==[expected_time,expected_output]
  assert '成本、耗时和输出量' in p.locator('.b-result-table-wrap').get_attribute('aria-label')
  p.keyboard.press('Escape')
+ route(p,'#/benchmarks?bench=gdpx')
+ expect(p.locator('.b-result-table-generic tbody tr')).to_have_count(13)
+ assert p.locator('.b-result-table-generic tbody tr').first.locator('td').last.inner_text()=='12.0%'
+ assert p.locator('.b-result-table-wrap').evaluate('e=>e.scrollWidth<=e.clientWidth+1')
+ shot(p,'benchmark-gdpx-detail.png')
+ p.keyboard.press('Escape')
+ ok('GDPx keeps its official percent scale and three-column results fit without forced horizontal scrolling')
  route(p,'#/benchmarks?bench=tau3');assert p.locator('[data-b-check="tau3"]').first.is_checked()
  route(p,'#/models');expect(p.locator('dialog[open]')).to_have_count(0);expect(p.locator('[data-model-row]')).not_to_have_count(0)
  ok('version-aware source drawer, checklist, exported card, deep link and route exit cleanup')
@@ -157,6 +164,9 @@ with sync_playwright() as pw:
    assert p.locator('.v2-bench-entry button').first.evaluate('e=>e.getBoundingClientRect().height>=44')
    p.locator('[data-action="menu"]').click();p.locator('#nav a[href="#/models"]').click()
    assert not p.locator('body').evaluate('e=>e.classList.contains("nav-open")')
+   route(p,'#/benchmarks?bench=gdpx')
+   assert p.locator('.b-result-table-wrap').evaluate('e=>e.scrollWidth<=e.clientWidth+1')
+   p.keyboard.press('Escape')
  route(p,'#/benchmarks?bench=secom');assert p.locator('dialog[open]').evaluate('e=>e.scrollWidth<=e.clientWidth+1')
  p.keyboard.press('Escape');ok('responsive 1512–360px, all benchmark modes, scoped table scrolling and mobile drawer/navigation')
  p.set_viewport_size({'width':1512,'height':1050});route(p,'#/benchmarks');p.evaluate("applyTheme('dark')");shot(p,'benchmark-dark.png');p.evaluate("applyTheme('light')")

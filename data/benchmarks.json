@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-02",
+  "checked": "2026-11-03",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,64 @@
     }
   ],
   "items": [
+    {
+      "id": "gdpx",
+      "name": "GDPx",
+      "group": "agent",
+      "edition": "v1.0 · 2026-11-02 official snapshot",
+      "subtitle": "前沿模型能否完成高价值专业领域里的可执行 Agent 任务？",
+      "summary": "SemiAnalysis 与 14 家专业数据伙伴发布 206 项、11 个领域的 GDPx；官方总榜对领域和领域内伙伴等权，按每题预定评分口径取 3 次尝试的平均值。当前展示的 13 个模型中，Claude Opus 5.5 为 12.0%。",
+      "metric": "GDPx task score ↑（11 domains equally weighted）",
+      "metric_note": "GDPx 分数是各任务按预定二元或连续口径评分、3 次尝试取平均后，再对 11 个领域等权汇总的百分比。它不是 GDP 占比、收入预测、通用能力总分或本站实测；成本只在独立图表中展示，不进入该分数。",
+      "protocol": "固定 v1.0、All domains、Score 与 intended grading；保存 11 个领域、206 项任务、伙伴权重、3 次尝试、模型版本与推理配置。比较领域子榜时保持原领域口径，不把安全分类器影响、成本或输出 Token 混入总分。",
+      "boundary": "这是 GDPx 官方榜的外部快照，本站没有运行模型、读取隐藏任务或复算分数。任务由合作伙伴设计，覆盖重点领域而非完整经济；安全分类器会影响部分领域，金融与法律任务几乎为零。12.0% 不能证明生产可靠、行业合规或所有知识工作领先。",
+      "business": "适合发现模型在芯片、网络安全、生物、金融、法律、量化交易、递归自我改进、硬件、材料、对齐与软件工程中的强弱分布；选型仍需回到具体领域、成本、拒答、权限和私有留出任务。",
+      "setup": "保存官方 v1.0 总榜与领域页，记录模型、提供方、评分口径、尝试次数和成本口径；对目标领域抽取可授权的内部任务，固定 Harness、权限与预算独立验收。",
+      "topics": ["agents", "domain-expertise", "evaluation"],
+      "sources": ["b-gdpx", "b-gdpx-launch"],
+      "result_url": "https://gdpx.semianalysis.com/",
+      "kind": "benchmark",
+      "flag": "GDPx 官方 v1.0 榜单 / 本站未运行",
+      "checked": "2026-11-03",
+      "tested": false,
+      "checks": [
+        "固定 v1.0、All domains、Score 与 intended grading",
+        "保留 11 个领域等权、领域内伙伴等权与 3 次尝试",
+        "把安全分类器、成本和无公开价格留作独立解释字段",
+        "不与 GDPval、ECI、Arena 或业务 KPI 拼成综合分"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "verified",
+      "verified_results": {
+        "kind": "official_leaderboard_snapshot",
+        "schema": "generic_metric",
+        "source_id": "b-gdpx",
+        "source_date": "2026-11-02",
+        "verified_at": "2026-11-03T05:19:46+08:00",
+        "scope": "v1.0 / All domains / Score / intended grading",
+        "metric": "GDPx score",
+        "value_decimals": 1,
+        "value_suffix": "%",
+        "population": "13 models shown / 20 selectable / 206 tasks / 11 equally weighted domains",
+        "note": "官方总榜当前展示 13 个模型；每题使用其预定的二元或连续评分并取 3 次尝试平均。成本是独立信号，不参与 GDPx score；本站保留榜位与百分比分数，不计算综合性价比。",
+        "rows": [
+          {"rank": 1, "model": "Claude Opus 5.5", "provider": "Anthropic", "value": 12.0},
+          {"rank": 2, "model": "Gemini 4 Carbon", "provider": "Google", "value": 10.9},
+          {"rank": 3, "model": "GPT-6 Astra", "provider": "OpenAI", "value": 9.6},
+          {"rank": 4, "model": "Muse Wonder Full", "provider": "Meta", "value": 9.0},
+          {"rank": 5, "model": "Claude Fable 5.1", "provider": "Anthropic", "value": 8.5},
+          {"rank": 6, "model": "GPT 6.1 Sol", "provider": "OpenAI", "value": 8.4},
+          {"rank": 7, "model": "Claude Sonnet 5.5", "provider": "Anthropic", "value": 8.2},
+          {"rank": 8, "model": "Gemini 4 Argon", "provider": "Google", "value": 7.3},
+          {"rank": 9, "model": "Muse Wonder", "provider": "Meta", "value": 6.8},
+          {"rank": 10, "model": "DeepSeek 4.1 Flash 1017", "provider": "DeepSeek Open", "value": 5.4},
+          {"rank": 11, "model": "GPT-6 Luna", "provider": "OpenAI", "value": 5.1},
+          {"rank": 12, "model": "Grok 4.7", "provider": "xAI", "value": 3.9},
+          {"rank": 13, "model": "GLM 5.3", "provider": "Z.ai Open", "value": 2.7}
+        ]
+      }
+    },
     {
       "id": "epoch-eci",
       "name": "Epoch Capabilities Index",
@@ -1449,6 +1507,26 @@
   ],
   "sources": [
     {
+      "id": "b-gdpx",
+      "publisher": "SemiAnalysis / GDPx",
+      "title": "GDPx v1.0 official leaderboard",
+      "url": "https://gdpx.semianalysis.com/",
+      "checked": "2026-11-03",
+      "published": "2026-11-02",
+      "kind": "官方 Benchmark、总榜、领域、任务与成本口径",
+      "note": "官方页列出 11 个领域、206 项任务、14 家专业数据伙伴；总榜对领域和领域内伙伴等权，默认分数按每题预定评分口径取 3 次尝试平均。"
+    },
+    {
+      "id": "b-gdpx-launch",
+      "publisher": "SemiAnalysis",
+      "title": "GDPx: Measuring Frontier Model Capabilities Across the Most Valuable Domains",
+      "url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+      "checked": "2026-11-03",
+      "published": "2026-11-02",
+      "kind": "发布方方法、领域范围与结果解释",
+      "note": "发布说明明确覆盖 11 个专业领域、最佳模型总分仅 12%，并提示安全分类器会压低部分领域结果；金融与法律任务对当前模型极难。"
+    },
+    {
       "id": "b-epoch-eci",
       "publisher": "Epoch AI",
       "title": "Epoch Capabilities Index",
@@ -2105,6 +2183,16 @@
     }
   ],
   "changes": [
+    {
+      "id": "gdpx-v1-20261102",
+      "date": "2026-11-02",
+      "title": "GDPx v1.0 发布 11 领域 Agent 能力榜",
+      "summary": "SemiAnalysis 与 14 家专业数据伙伴发布 206 项任务；官方总榜按 11 个领域等权、每题 3 次尝试平均，当前 Claude Opus 5.5 为 12.0%。",
+      "implication": "高价值专业任务仍处低成功率区间；榜位必须与领域分布、安全分类器、评分口径和成本分开读取，不能把一个百分比写成通用生产能力。",
+      "benchmarks": ["gdpx"],
+      "sources": ["b-gdpx", "b-gdpx-launch"],
+      "kind": "新基准与官方榜单"
+    },
     {
       "id": "epoch-eci-20261102",
       "date": "2026-11-02",

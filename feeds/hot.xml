@@ -233,6 +233,12 @@
 
 边界：官方指数仍主要覆盖英文文本模型，多模态、语音和多语言需另看专项评测。部分测试集为私有或答案留出集，本站没有独立复现；当前模型页只公开展示部分配置，本站仅摘录本轮可直接核实的榜首五个配置与已发布权重前三名，不把旧 v4 分数混入当前榜。
 
+站内热度 94；不是全网流量。</description></item><item><title>GDPx：11 个专业领域里，榜首任务得分仅 12.0%</title><guid isPermaLink="false">frontierlog:hot:gdpx-v1-20261102</guid><link>https://gdpx.semianalysis.com/</link><pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate><description>SemiAnalysis 与 14 家专业数据伙伴发布 GDPx：206 项任务覆盖芯片、网络安全、生物、金融、法律、量化、递归自我改进、硬件、材料、对齐和软件工程；官方总榜当前 Claude Opus 5.5 为 12.0%。
+
+为什么值得看：它把 Agent 评测从通用问答推向高价值专业工作，并公开领域分布、评分和成本信号。当前低分提醒团队：前沿模型在专业任务上仍需领域拆分、权限约束、人工复核和私有留出集。
+
+边界：GDPx 按每题预定的二元或连续口径取 3 次尝试平均，再对领域与领域内伙伴等权；成本不进入总分。任务由合作伙伴设计且非完整经济覆盖，安全分类器会影响部分领域，本站未读取隐藏任务或独立复跑；12.0% 不能推出生产可靠、合规或通用领先。
+
 站内热度 94；不是全网流量。</description></item><item><title>GitHub Agentic Workflows 正式可用：自然语言编译为 Actions</title><guid isPermaLink="false">frontierlog:hot:github-agentic-workflows-ga-20261028</guid><link>https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>GitHub Agentic Workflows 已 GA：团队可用 Markdown 描述 issue 分流、CI 分析、文档或测试任务，再编译为标准 Actions YAML；默认只读，并提供完整性过滤、隔离容器、防火墙与安全输出。
 
 为什么值得看：Agent 自动化进入现有 Actions 权限、runner 与审计体系，降低接线成本；真正上线前仍要审查编译后的 YAML、权限、触发条件、成本预测和外部写入。
@@ -448,6 +454,12 @@
 为什么值得看：企业现在需要按数据处理方、合同、控制平面与 Agent 工具可用性选部署路径，而不是只看模型名称。两种路径共享同日模型、相同定价和 Google Cloud 账单，但治理与平台能力并不相同。
 
 边界：这是 Google Cloud 的正式可用性公告，不是本站安全或性能评测。同模型与同定价不等于同条款、同数据处理方或同工具；具体地区、账户资格、配额、功能可见性及 Google-managed 路径后续平台能力仍须以控制台和文档为准。
+
+站内热度 91；不是全网流量。</description></item><item><title>Project Suncatcher：数据中心级 TPU 在轨返回首个 AI 响应</title><guid isPermaLink="false">frontierlog:hot:google-project-suncatcher-orbit-tpu-20261030</guid><link>https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/</link><pubDate>Fri, 30 Oct 2026 00:00:00 +0800</pubDate><description>Google 称 10 月 1 日发射的 Project Suncatcher 原型卫星已完成主机与 TPU 托盘上电及早期机器学习测试，并用 Gemma 4 返回首个来自在轨数据中心级 TPU 的 AI 响应。
+
+为什么值得看：这把“太空 AI 基础设施”从论文与发射推进到可核对的在轨计算里程碑。下一步价值取决于热应力、辐射、功耗、通信与双星互联，而不是一次文本生成。
+
+边界：这是 Google 官方原型测试，不是第三方复现或商业服务。一次成功下行不能证明长期稳定、辐射耐受、能源经济性、互联带宽或可扩展集群；2027 双星互联是下一里程碑计划，不是已完成能力。
 
 站内热度 91；不是全网流量。</description></item><item><title>ISM6331 报告首次人体早期信号</title><guid isPermaLink="false">frontierlog:hot:insilico-ism6331-phase1-20261025</guid><link>https://insilico.com/news/pr8951ba20602e4375b723-insilico-medicine-reports-40-orr-at-130-mg-for-pan-tead-inhibitor-ism6331-designed-using-generative</link><pubDate>Sun, 25 Oct 2026 00:00:00 +0800</pubDate><description>Insilico 报告 AI 设计的 pan-TEAD 抑制剂 ISM6331 首次人体 Phase 1 初步数据：截至 8 月 14 日入组 36 人；间皮瘤 130 mg 组 ORR 为 2/5，30–130 mg 合计为 4/22。
 

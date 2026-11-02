@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-02",
+  "checked": "2026-11-03",
   "note": "长期研究档案独立于热点榜；热点只负责带来新节点。第三方线索必须明确标注，不能替代一手确认。",
   "lanes": [
     {
@@ -20,6 +20,38 @@
     }
   ],
   "items": [
+    {
+      "id": "google-project-suncatcher-orbit-tpu-20261030",
+      "lane": "paradigm",
+      "title": "Project Suncatcher 把 TPU 原型推进到在轨 AI 响应",
+      "maker": "Google",
+      "date": "2026-10-30",
+      "verified_at": "2026-11-03T05:19:46+08:00",
+      "verification_status": "Google 官方在轨测试说明 · 原型里程碑，本站无法独立复现",
+      "tags": [
+        "AI Infrastructure",
+        "Orbital Compute",
+        "TPU"
+      ],
+      "fact": "Google 称 10 月 1 日发射的 Project Suncatcher 原型卫星完成主机与 TPU 托盘上电及早期机器学习测试；10 月 30 日，团队向在轨 Gemma 4 上传提示并成功下行响应，称这是数据中心级 TPU 在轨生成的首个 AI 响应。下一阶段将测试热应力与辐射，并计划在 2027 年发射两颗互联卫星。",
+      "insight": "前瞻信号不是一首在轨生成的短诗，而是算力基础设施开始把芯片、热管理、辐射、能源与星间互联放进同一可测系统。若后续可靠性与互联验证成立，太空算力会成为能源与部署架构的新变量，而不只是模型规模问题。",
+      "boundary": "这是 Google 的官方原型里程碑，不是第三方复现、稳定集群或商业服务。一次提示响应不能证明长期可靠、辐射耐受、推理吞吐、能源成本、链路延迟或规模化可行；2027 双星互联仍是计划，不能写成已实现能力。",
+      "next_watch": "跟踪热循环和辐射下的错误率、功耗与降频数据，星地与星间链路的吞吐和恢复机制，以及 2027 双星是否按计划验证分布式互联，而不是只看更多生成演示。",
+      "sources": [
+        {
+          "label": "Google · First response from Project Suncatcher prototype satellite",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+          "kind": "官方在轨测试、Gemma 4、TPU 与下一里程碑",
+          "strength": "primary"
+        },
+        {
+          "label": "Google · Project Suncatcher prototype satellite is in orbit",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+          "kind": "官方发射、原型范围与实验计划",
+          "strength": "primary"
+        }
+      ]
+    },
     {
       "id": "id-wm-implicit-dynamics-20261030",
       "lane": "paradigm",

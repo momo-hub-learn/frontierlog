@@ -40,6 +40,110 @@
   ],
   "items": [
     {
+      "id": "gdpx-v1-20261102",
+      "category": "research",
+      "title": "GDPx：11 个专业领域里，榜首任务得分仅 12.0%",
+      "published": "2026-11-02",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T05:19:46+08:00",
+      "first_seen_at": "2026-11-03T05:19:46+08:00",
+      "heat": 94,
+      "heat_components": {
+        "impact": 34,
+        "availability": 20,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；206 项任务、11 个高价值领域与可核对总榜提高影响和证据分，任务与完整运行环境并未全部开放限制可操作性。这不是本站实测、模型能力总分或采购分数。",
+      "trend": "up",
+      "verification_status": "GDPx 官方 v1.0 总榜与发布说明 · 本站未运行或复算",
+      "summary": "SemiAnalysis 与 14 家专业数据伙伴发布 GDPx：206 项任务覆盖芯片、网络安全、生物、金融、法律、量化、递归自我改进、硬件、材料、对齐和软件工程；官方总榜当前 Claude Opus 5.5 为 12.0%。",
+      "why": "它把 Agent 评测从通用问答推向高价值专业工作，并公开领域分布、评分和成本信号。当前低分提醒团队：前沿模型在专业任务上仍需领域拆分、权限约束、人工复核和私有留出集。",
+      "boundary": "GDPx 按每题预定的二元或连续口径取 3 次尝试平均，再对领域与领域内伙伴等权；成本不进入总分。任务由合作伙伴设计且非完整经济覆盖，安全分类器会影响部分领域，本站未读取隐藏任务或独立复跑；12.0% 不能推出生产可靠、合规或通用领先。",
+      "source": "SemiAnalysis / GDPx",
+      "source_kind": "官方 Benchmark、总榜、方法与发布说明 / 本轮编辑核验",
+      "url": "https://gdpx.semianalysis.com/",
+      "link": "#/benchmarks?bench=gdpx",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看站内 GDPx 口径与榜单",
+          "note": "保留 11 领域、3 次尝试、百分比分数与不能推出什么",
+          "url": "#/benchmarks?bench=gdpx",
+          "kind": "internal"
+        },
+        {
+          "label": "打开 GDPx 官方榜",
+          "note": "核对 v1.0 总榜、领域、任务与成本图",
+          "url": "https://gdpx.semianalysis.com/",
+          "kind": "external"
+        },
+        {
+          "label": "阅读发布方方法说明",
+          "note": "核对领域选择、安全分类器与结果解释",
+          "url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "SemiAnalysis",
+          "title": "GDPx: Measuring Frontier Model Capabilities Across the Most Valuable Domains",
+          "url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": "google-project-suncatcher-orbit-tpu-20261030",
+      "category": "research",
+      "title": "Project Suncatcher：数据中心级 TPU 在轨返回首个 AI 响应",
+      "published": "2026-10-30",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T05:19:46+08:00",
+      "first_seen_at": "2026-11-03T05:19:46+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 32,
+        "availability": 19,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；首个数据中心级 TPU 在轨 AI 响应与 2027 双星计划提高前瞻影响和一手证据，仍是原型卫星、未证明稳定规模化限制可操作性。这不是算力成本、可靠性或商业可用性分数。",
+      "trend": "up",
+      "verification_status": "Google 官方在轨测试说明 · 原型里程碑，长期可靠性与规模化未证实",
+      "summary": "Google 称 10 月 1 日发射的 Project Suncatcher 原型卫星已完成主机与 TPU 托盘上电及早期机器学习测试，并用 Gemma 4 返回首个来自在轨数据中心级 TPU 的 AI 响应。",
+      "why": "这把“太空 AI 基础设施”从论文与发射推进到可核对的在轨计算里程碑。下一步价值取决于热应力、辐射、功耗、通信与双星互联，而不是一次文本生成。",
+      "boundary": "这是 Google 官方原型测试，不是第三方复现或商业服务。一次成功下行不能证明长期稳定、辐射耐受、能源经济性、互联带宽或可扩展集群；2027 双星互联是下一里程碑计划，不是已完成能力。",
+      "source": "Google",
+      "source_kind": "官方卫星进展、在轨测试范围与下一里程碑 / 本轮编辑核验",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "link": "#/hot?cat=research",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Google 在轨测试说明",
+          "note": "核对 Gemma 4、TPU、早期 ML 测试与 2027 双星计划",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+          "kind": "external"
+        },
+        {
+          "label": "查看 10 月 1 日发射记录",
+          "note": "区分原型发射、在轨响应与后续可靠性测试",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "Google",
+          "title": "Project Suncatcher prototype satellite is in orbit",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+          "date": "2026-10-01"
+        }
+      ]
+    },
+    {
       "id": "qwen-code-0-26-6-20261102",
       "category": "product",
       "title": "Qwen Code 0.26.6：Web Shell 补齐会话状态、模型性能与权限修复",

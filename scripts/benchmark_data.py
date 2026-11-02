@@ -83,6 +83,11 @@ def validate_benchmarks(data:dict, *, now:datetime|None=None)->None:
             if [r.get('rank') for r in rows]!=list(range(1,len(rows)+1)):raise ValueError('Verified result ranks must be sequential')
             schema=result.get('schema','agent_arena')
             if schema not in ('agent_arena','generic_metric'):raise ValueError('Unknown verified result schema')
+            if schema=='generic_metric':
+                decimals=result.get('value_decimals',0)
+                suffix=result.get('value_suffix','')
+                if not isinstance(decimals,int) or isinstance(decimals,bool) or not 0<=decimals<=3:raise ValueError('Invalid generic verified result decimals')
+                if not isinstance(suffix,str) or len(suffix)>8 or suffix!=suffix.strip():raise ValueError('Invalid generic verified result suffix')
             for r in rows:
                 if not all(isinstance(r.get(k),str) and r[k].strip() for k in ('model','provider')):raise ValueError('Incomplete verified result row')
                 if schema=='generic_metric':

@@ -78,6 +78,22 @@ class BenchmarkTests(unittest.TestCase):
  def test_generic_official_index_rejects_non_numeric_value(self):
   def bad(d):next(x for x in d['items'] if x['id']=='epoch-eci')['verified_results']['rows'][0]['value']='169'
   self.reject(bad)
+ def test_gdpx_keeps_percent_scale_and_official_scope(self):
+  b=next(x for x in self.data['items'] if x['id']=='gdpx')
+  r=b['verified_results']
+  self.assertFalse(b['tested'])
+  self.assertEqual(r['schema'],'generic_metric')
+  self.assertEqual(r['value_decimals'],1)
+  self.assertEqual(r['value_suffix'],'%')
+  self.assertEqual(len(r['rows']),13)
+  self.assertEqual(r['rows'][0],{'rank':1,'model':'Claude Opus 5.5','provider':'Anthropic','value':12.0})
+  self.assertIn('11 个领域等权',b['metric_note'])
+  self.assertIn('本站没有运行',b['boundary'])
+ def test_generic_result_format_rejects_ambiguous_metadata(self):
+  def bad_decimals(d):next(x for x in d['items'] if x['id']=='gdpx')['verified_results']['value_decimals']=4
+  self.reject(bad_decimals)
+  def bad_suffix(d):next(x for x in d['items'] if x['id']=='gdpx')['verified_results']['value_suffix']=' % '
+  self.reject(bad_suffix)
  def test_verified_snapshot_contract_rejects_bad_time_and_ranks(self):
   def bad_time(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['verified_at']='2026-11-02T11:20:00'
   self.reject(bad_time)
