@@ -167,6 +167,12 @@ class ToolkitTests(unittest.TestCase):
         data=copy.deepcopy(self.data)
         target=max(s['verified_at'] for row in data['items'] for s in row['sources'])
         target_start=datetime.fromisoformat(target+'T00:00:00+08:00').astimezone(timezone.utc)
+        # This case isolates date-only review semantics; exact publication instants
+        # have a separate test because a later time on the same Beijing day is real future time.
+        for row in data['items']:
+            for source in row['sources']:
+                if 'T' in str(source.get('published_at') or ''):
+                    source['published_at']=None
         data['items'][0]['sources'][0]['verified_at']=target
         # The same instant is still the previous UTC day, but already the target day in Beijing.
         validate_toolkit(data,self.catalog,now=target_start)
@@ -174,6 +180,25 @@ class ToolkitTests(unittest.TestCase):
             validate_toolkit(data,self.catalog,now=datetime.fromisoformat(target+'T00:00:00'))
         with self.assertRaisesRegex(ValueError,'Future toolkit'):
             validate_toolkit(data,self.catalog,now=target_start-timedelta(seconds=1))
+    def test_precise_publication_time_preserves_instant_and_beijing_day(self):
+        data=copy.deepcopy(self.data)
+        source=data['items'][0]['sources'][0]
+        source['published_at']='2026-11-02T18:22:40Z'
+        source['verified_at']='2026-11-03'
+        instant=datetime.fromisoformat('2026-11-03T02:22:40+08:00')
+        validate_toolkit(data,self.catalog,now=instant)
+        source['published_at']='2026-11-03T02:22:40+08:00'
+        validate_toolkit(data,self.catalog,now=instant)
+        source['published_at']='2026-11-02T18:22:40'
+        with self.assertRaisesRegex(ValueError,'timezone'):
+            validate_toolkit(data,self.catalog,now=instant)
+        source['published_at']='2026-11-03T02:22:41+08:00'
+        with self.assertRaisesRegex(ValueError,'Future toolkit publication timestamp'):
+            validate_toolkit(data,self.catalog,now=instant)
+        source['published_at']='2026-11-03T02:22:40+08:00'
+        source['verified_at']='2026-11-02'
+        with self.assertRaisesRegex(ValueError,'after verification'):
+            validate_toolkit(data,self.catalog,now=instant)
     def test_no_runtime_claim_without_logs(self):
         for key,value in [('runtime_tested',True),('evidence_level','onsite-test')]:
             data=copy.deepcopy(self.data);data['items'][0][key]=value

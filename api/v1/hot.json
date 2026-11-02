@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-02",
+  "checked": "2026-11-03",
   "title": "热点榜",
   "method": {
     "label": "站内热度",
@@ -39,6 +39,56 @@
     }
   ],
   "items": [
+    {
+      "id": "qwen-code-0-26-6-20261102",
+      "category": "product",
+      "title": "Qwen Code 0.26.6：Web Shell 补齐会话状态、模型性能与权限修复",
+      "published": "2026-11-03",
+      "published_at": "2026-11-02T18:22:40Z",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00",
+      "first_seen_at": "2026-11-03T03:17:40+08:00",
+      "heat": 92,
+      "heat_components": {
+        "impact": 30,
+        "availability": 22,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；该版本直接改变 Web Shell 会话观察、模型性能诊断、MCP 发现、工具批准与恢复路径，官方 Release 和可下载资产提高证据、可操作性与时效分。这不是模型能力、自动修复成功率或本站实测分数。",
+      "trend": "up",
+      "verification_status": "Qwen 官方 GitHub Release · v0.26.6 可下载 · 本站未安装运行",
+      "summary": "Qwen Code v0.26.6 为 Web Shell 增加会话状态、并排打开及分模型成功率、输出速度和首 Token 延迟；同时修复 MCP 重名工具发现、一次性工具批准、Managed Agent 恢复和移动布局。",
+      "why": "Coding Agent 正从单次终端任务走向多会话运行与可观察工作台。把失败、延迟、权限和恢复拆开显示，有助于判断问题来自模型、工具、会话还是运行时，而不是只看最终回答。",
+      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；性能图是请求观测，不是模型能力 Benchmark；会话显示完成不证明外部动作成功。MCP 冲突、工具批准、恢复、归档和并排会话仍需在隔离仓库以原始日志和 CI 验收。",
+      "source": "Qwen",
+      "source_kind": "官方 GitHub Release、资产与完整变更列表 / 本轮编辑核验",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+      "link": "#/toolkit?task=qwen-code-0-26-5&tab=run",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "打开站内隔离验收指南",
+          "note": "固定 0.26.6，分别验证会话、性能、MCP、批准与恢复",
+          "url": "#/toolkit?task=qwen-code-0-26-5&tab=run",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 v0.26.6 官方 Release",
+          "note": "核对完整变更、资产与无已知破坏性变化声明",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+          "kind": "code"
+        }
+      ],
+      "related": [
+        {
+          "source": "Qwen",
+          "title": "Qwen Code SDK TypeScript v0.1.27（内含 CLI 0.26.6）",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/sdk-typescript-v0.1.27",
+          "date": "2026-11-02"
+        }
+      ]
+    },
     {
       "id": "openai-chatgpt-codex-shared-allowance-20261102",
       "category": "product",

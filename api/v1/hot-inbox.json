@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-02T17:35:23Z",
+  "generated_at": "2026-11-02T19:28:23Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 6,
-    "merge": 133,
+    "merge": 134,
     "hold": 7
   },
   "candidates": [
@@ -17,7 +17,7 @@
       "title": "Qwen Code 发布 v0.26.5",
       "summary": "版本默认启用 Generated UI，并更新 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流；官方声明无已知破坏性变化。",
       "why": "重点不只是版本号：交互卡值可带入后续上下文，自动修复加入失败交接与重试预算，托管和浏览器相关路径也有变化；升级后应复验权限、上下文与 CI 门禁。",
-      "boundary": "本站未安装或运行。没有已知破坏性变化不等于无回归；自动 PR 修复、工具权限、交互卡上下文和托管部署仍需在隔离仓库验证。",
+      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；会话归档、工具批准、MCP 重名处理、恢复状态与模型性能图仍需在隔离仓库和真实日志中验证。",
       "source": "Qwen",
       "source_kind": "官方版本说明、资产与变更列表",
       "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
@@ -182,6 +182,30 @@
         "Numerical Precision"
       ],
       "first_seen_at": "2026-10-30T07:48:38Z"
+    },
+    {
+      "id": "candidate-003c4939123dd34a",
+      "category": "product",
+      "published": "2026-11-02",
+      "title": "Qwen Code 发布 v0.26.6",
+      "summary": "Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。",
+      "why": "这不是单纯版本号变化：模型速度、首 Token 延迟和失败详情开始按模型呈现；MCP 冲突不再隐藏整台服务器工具；恢复、权限与会话状态需要分别回归。",
+      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；会话归档、工具批准、MCP 重名处理、恢复状态与模型性能图仍需在隔离仓库和真实日志中验证。",
+      "source": "Qwen",
+      "source_kind": "官方版本说明、资产与完整变更列表",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "task_id": "qwen-code-0-26-5",
+      "first_seen_at": "2026-11-02T19:28:23Z"
     },
     {
       "id": "candidate-076e9e66b1996c32",
@@ -984,30 +1008,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "nvidia-nemotron-3-5-transcribe",
       "first_seen_at": "2026-10-29T03:34:43Z"
-    },
-    {
-      "id": "candidate-6bc28acf5def02ca",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "Connected Copilot cloud 向付费套餐分批开放",
-      "summary": "云端编码会话可跨网页、移动端、CLI、IDE 与协作工具恢复，并运行在 GitHub 管理的临时隔离沙箱。",
-      "why": "跨端 Agent 需要把会话连续性、权限升级、沙箱恢复、费用和最终仓库状态放进同一条验收链。",
-      "boundary": "不能从分批开放推出所有账号已可用，也不能从临时沙箱推出所有工具调用安全；本站未连接或运行。",
-      "source": "GitHub",
-      "source_kind": "官方产品节点",
-      "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "github-connected-copilot-cloud",
-      "first_seen_at": "2026-10-29T05:26:10Z"
     }
   ]
 }

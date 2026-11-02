@@ -92,46 +92,46 @@
       "publisher": "Qwen",
       "group": "agents",
       "access": "local",
-      "headline": "先固定 Qwen Code v0.26.5，再验证 PR 修复与生成式界面工作流",
-      "input": "一个可丢弃的测试仓库、单独分支、最小权限 API 凭据，以及一条带既有测试和 CI 的小型缺陷或 PR",
-      "output": "可审查的补丁、验证命令与失败记录；如测试 Generated UI，再保留交互卡值如何进入后续上下文的记录",
-      "requirements": "使用官方 standalone 包，或 Node.js 22+ 与 npm；执行 qwen --version 确认 0.26.5，并通过 /auth 显式选择服务商与端点。",
-      "limitation": "本站只核验官方 Release、README 与文档，未安装或运行。v0.26.5 没有已知破坏性变化，但包含默认启用 Generated UI、PR watch/autofix 行为、Managed Agent 与 Web Shell 多项变化；自动修复仍必须受分支、测试、审查与重试预算约束。",
+      "headline": "先固定 Qwen Code v0.26.6，再验证 Web Shell 会话、性能与权限状态",
+      "input": "一个可丢弃的测试仓库、两个并行测试会话、最小权限 API 凭据、一个含重名 MCP 工具的隔离配置，以及可执行的测试和 CI",
+      "output": "会话状态与并排打开记录、分模型成功率/速度/首 Token 延迟、MCP 工具发现、一次性批准、恢复结果、补丁、测试与失败日志",
+      "requirements": "使用官方 standalone 包，或 Node.js 22+ 与 npm；执行 qwen --version 确认 0.26.6，并通过 /auth 显式选择服务商与端点。",
+      "limitation": "本站只核验官方 Release、README 与文档，未安装或运行。v0.26.6 官方声明无已知破坏性变化，但会话状态、模型性能图、MCP 重名处理、一次性工具批准、Managed Agent 恢复和移动端布局都需要独立回归；界面显示成功不等于任务或外部动作成功。",
       "cost": "Qwen Code 客户端开源；模型 API、Token Plan、托管服务、CI 与本地执行成本取决于所选服务商和组织配置。",
       "steps": [
         {
           "title": "固定版本与来源",
-          "body": "从官方 Release 下载匹配平台的 0.26.5 资产并核对 SHA256，或在隔离环境固定 npm 版本；不要用 latest 作为可复现验收依据。",
-          "command": "npm install -g @qwen-code/qwen-code@0.26.5\nqwen --version"
+          "body": "从官方 Release 下载匹配平台的 0.26.6 资产并核对 SHA256，或在隔离环境固定 npm 版本；不要用 latest 作为可复现验收依据。",
+          "command": "npm install -g @qwen-code/qwen-code@0.26.6\nqwen --version"
         },
         {
-          "title": "只给最小仓库与权限",
-          "body": "在测试仓库和独立分支运行 /auth；关闭不需要的工具与网络权限，先让 Agent 解释计划，再允许修改。"
+          "title": "只给最小仓库、工具与权限",
+          "body": "在测试仓库和独立分支运行 /auth；用两个重名 MCP 工具验证只跳过冲突名，关闭不需要的工具与网络权限，再测试一次性 /approve 与 /deny。"
         },
         {
-          "title": "用真实门禁验收",
-          "body": "记录补丁、测试、CI、重试次数与人工接管；Generated UI 的卡片值进入上下文后，检查是否可移除、是否泄露不该带入的字段。"
+          "title": "把会话、性能与恢复分开验收",
+          "body": "并排打开两个会话，核对运行/未读/归档状态；对照原始请求日志复核成功率、速度、首 Token 延迟与失败详情，再故障注入验证恢复和人工接管。"
         }
       ],
-      "troubleshooting": "命令不可用时区分 standalone 与 npm 安装路径并重开终端；认证失败时核对 /auth 中选择的平台、端点与密钥来源，不靠切换账号规避限制；自动修复连续失败时保留阻碍并交给人工。",
+      "troubleshooting": "命令不可用时区分 standalone 与 npm 安装路径并重开终端；认证失败时核对 /auth 中选择的平台、端点与密钥来源，不靠切换账号规避限制；模型性能图与原始日志冲突时以请求日志为准；恢复或权限状态不明确时停止外部动作并交给人工。",
       "sources": [
         {
-          "title": "Qwen Code v0.26.5 官方 Release",
-          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
-          "published_at": "2026-11-01",
-          "verified_at": "2026-11-01"
+          "title": "Qwen Code v0.26.6 官方 Release",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+          "published_at": "2026-11-02T18:22:40Z",
+          "verified_at": "2026-11-03"
         },
         {
           "title": "Qwen Code 官方 README 与安装入口",
           "url": "https://github.com/QwenLM/qwen-code/blob/main/README.md",
           "published_at": null,
-          "verified_at": "2026-11-01"
+          "verified_at": "2026-11-03"
         }
       ],
-      "entry_url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
+      "entry_url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
       "evidence_level": "primary-docs",
       "runtime_tested": false,
-      "verified_at": "2026-11-01T17:17:42+08:00"
+      "verified_at": "2026-11-03T03:22:00+08:00"
     },
     {
       "id": "openai-gpt6-rosalind-research",

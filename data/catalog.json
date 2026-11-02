@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "snapshot": "2026-11-02",
+  "snapshot": "2026-11-03",
   "items": [
     {
       "id": "deepseek-search-fetch-api",
@@ -32,31 +32,32 @@
     },
     {
       "id": "qwen-code-0-26-5",
-      "name": "Qwen Code v0.26.5",
-      "title": "固定版本验证 PR 修复、Generated UI 与 Managed Agent 变化",
+      "name": "Qwen Code v0.26.6",
+      "title": "固定版本验证 Web Shell 会话、模型性能面板与权限修复",
       "category": "Coding Agent / 本地工具",
       "mark": "QC",
       "accent": "lime",
-      "summary": "Qwen Code v0.26.5 默认启用 Generated UI，扩展 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流，并声明无已知破坏性变化。",
-      "scope": "Qwen 官方 2026-11-01 Release；适用于 CLI、Web Shell、Desktop 与 Managed Agent 相关改动，具体能力仍取决于入口、服务商、模型和权限。",
-      "boundary": "本站未安装或运行。没有已知破坏性变化不等于无回归；自动 PR 修复、工具权限、交互卡上下文和托管部署仍需在隔离仓库验证。",
+      "summary": "Qwen Code v0.26.6 新增 Web Shell 会话状态与并排打开入口，细分模型成功率、输出速度和首 Token 延迟，并修复 MCP、权限、恢复与移动布局问题。",
+      "scope": "Qwen 官方 2026-11-02T18:22:40Z Release；适用于 CLI、Web Shell、Desktop、Managed Agent 与 MCP 相关改动，具体能力仍取决于入口、服务商、模型和权限。",
+      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；会话归档、工具批准、MCP 重名处理、恢复状态与模型性能图仍需在隔离仓库和真实日志中验证。",
       "repo": "QwenLM/qwen-code",
-      "sources": ["qwen-code-0-26-5-release", "qwen-code-quickstart"],
+      "sources": ["qwen-code-0-26-6-release", "qwen-code-quickstart"],
       "requirements": "官方 standalone 包，或 Node.js 22+ 与 npm；最小权限 API 凭据、独立测试仓库与分支、可执行测试和 CI。",
-      "test": "固定 0.26.5，在可丢弃仓库给出一条带测试的缺陷或 PR；记录补丁、CI、重试预算、人工接管与 Generated UI 值进入上下文后的可见性和可移除性。",
+      "test": "固定 0.26.6，在可丢弃仓库并行运行两个会话与一个含重名 MCP 工具的测试配置；记录会话状态、并排打开、模型成功率/速度/首 Token 延迟、权限提示、恢复结果与 CI。",
       "checks": [
         "核对 Release 资产或 npm 固定版本，并记录 qwen --version",
         "通过 /auth 显式选择服务商与端点，不让界面语言替代配置",
         "限制仓库、分支、工具和网络权限，保留补丁与测试日志",
-        "连续失败后停止自动修复并交给人工，不把重试写成成功"
+        "核对 MCP 重名只跳过冲突工具，不把整台服务器误报为不可用",
+        "恢复、归档和审批状态分别验收，不把界面状态写成任务成功"
       ],
-      "command": "npm install -g @qwen-code/qwen-code@0.26.5\nqwen --version",
+      "command": "npm install -g @qwen-code/qwen-code@0.26.6\nqwen --version",
       "effort": "开源客户端 / 需本地环境、模型服务、最小权限与 CI 复核",
       "evidence": "Qwen Code 官方 Release、README 与 Quickstart",
       "status": "code",
       "tested": false,
-      "reviewed": "2026-11-01",
-      "verified_at": "2026-11-01T17:17:42+08:00"
+      "reviewed": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00"
     },
     {
       "id": "openai-gpt6-rosalind-research",
@@ -1366,6 +1367,17 @@
       "kind": "官方价格、扣费规则与生效时间"
     },
     {
+      "id": "qwen-code-0-26-6-release",
+      "publisher": "Qwen",
+      "title": "Qwen Code v0.26.6 official release",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+      "published": "2026-11-02",
+      "published_at": "2026-11-02T18:22:40Z",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00",
+      "kind": "官方版本说明、资产与完整变更列表"
+    },
+    {
       "id": "qwen-code-0-26-5-release",
       "publisher": "Qwen",
       "title": "Qwen Code v0.26.5 official release",
@@ -1383,8 +1395,8 @@
       "url": "https://qwenlm.github.io/qwen-code-docs/en/users/quickstart/",
       "published": null,
       "published_at": null,
-      "checked": "2026-11-01",
-      "verified_at": "2026-11-01T17:17:42+08:00",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00",
       "kind": "官方安装、版本与启动文档"
     },
     {
@@ -2293,6 +2305,19 @@
     }
   ],
   "events": [
+    {
+      "id": "qwen-code-0-26-6-release",
+      "task": "qwen-code-0-26-5",
+      "date": "2026-11-02",
+      "kind": "release",
+      "title": "Qwen Code 发布 v0.26.6",
+      "summary": "Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。",
+      "delta": "这不是单纯版本号变化：模型速度、首 Token 延迟和失败详情开始按模型呈现；MCP 冲突不再隐藏整台服务器工具；恢复、权限与会话状态需要分别回归。",
+      "sources": ["qwen-code-0-26-6-release", "qwen-code-quickstart"],
+      "reviewed": "2026-11-03",
+      "tag": "v0.26.6",
+      "short_title": "Qwen Code 0.26.6"
+    },
     {
       "id": "qwen-code-0-26-5-release",
       "task": "qwen-code-0-26-5",

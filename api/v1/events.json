@@ -1,6 +1,22 @@
 {
-  "snapshot": "2026-11-02",
+  "snapshot": "2026-11-03",
   "events": [
+    {
+      "id": "qwen-code-0-26-6-release",
+      "task": "qwen-code-0-26-5",
+      "date": "2026-11-02",
+      "kind": "release",
+      "title": "Qwen Code 发布 v0.26.6",
+      "summary": "Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。",
+      "delta": "这不是单纯版本号变化：模型速度、首 Token 延迟和失败详情开始按模型呈现；MCP 冲突不再隐藏整台服务器工具；恢复、权限与会话状态需要分别回归。",
+      "sources": [
+        "qwen-code-0-26-6-release",
+        "qwen-code-quickstart"
+      ],
+      "reviewed": "2026-11-03",
+      "tag": "v0.26.6",
+      "short_title": "Qwen Code 0.26.6"
+    },
     {
       "id": "qwen-code-0-26-5-release",
       "task": "qwen-code-0-26-5",
@@ -843,6 +859,17 @@
       "kind": "官方价格、扣费规则与生效时间"
     },
     {
+      "id": "qwen-code-0-26-6-release",
+      "publisher": "Qwen",
+      "title": "Qwen Code v0.26.6 official release",
+      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
+      "published": "2026-11-02",
+      "published_at": "2026-11-02T18:22:40Z",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00",
+      "kind": "官方版本说明、资产与完整变更列表"
+    },
+    {
       "id": "qwen-code-0-26-5-release",
       "publisher": "Qwen",
       "title": "Qwen Code v0.26.5 official release",
@@ -860,8 +887,8 @@
       "url": "https://qwenlm.github.io/qwen-code-docs/en/users/quickstart/",
       "published": null,
       "published_at": null,
-      "checked": "2026-11-01",
-      "verified_at": "2026-11-01T17:17:42+08:00",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T03:22:00+08:00",
       "kind": "官方安装、版本与启动文档"
     },
     {

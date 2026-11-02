@@ -40,6 +40,28 @@ def _date(value, today):
     if d>today: raise ValueError('Future toolkit verification/publication date')
     return d
 
+def _publication_date(value, *, now, verified):
+    """Return the Beijing calendar day without discarding a real source timestamp."""
+    if not isinstance(value,str):
+        raise ValueError('Invalid toolkit publication date precision')
+    if re.fullmatch(r'\d{4}-\d{2}-\d{2}',value):
+        published=date.fromisoformat(value)
+        if published>now.astimezone(REVIEW_TIMEZONE).date():
+            raise ValueError('Future toolkit publication date')
+    else:
+        try:
+            precise=datetime.fromisoformat(value.replace('Z','+00:00'))
+        except ValueError as exc:
+            raise ValueError('Invalid toolkit publication timestamp') from exc
+        if precise.tzinfo is None or precise.utcoffset() is None:
+            raise ValueError('Toolkit publication timestamp must include timezone')
+        if precise>now:
+            raise ValueError('Future toolkit publication timestamp')
+        published=precise.astimezone(REVIEW_TIMEZONE).date()
+    if published>verified:
+        raise ValueError('Toolkit publication after verification')
+    return published
+
 def validate_toolkit(data, catalog, *, now=None):
     now = now if now is not None else datetime.now().astimezone()
     if now.tzinfo is None or now.utcoffset() is None:
@@ -81,8 +103,8 @@ def validate_toolkit(data, catalog, *, now=None):
         for s in sources:
             _text(s.get('title'),100);_url(s.get('url'));urls.append(s['url'])
             checked=_date(s.get('verified_at'),today)
-            if s.get('published_at') is not None and _date(s['published_at'],today)>checked:
-                raise ValueError('Toolkit publication after verification')
+            if s.get('published_at') is not None:
+                _publication_date(s['published_at'],now=now,verified=checked)
         if len(urls)!=len(set(urls)): raise ValueError('Duplicate toolkit source')
     if len(ids)!=len(set(ids)) or set(ids)!=expected: raise ValueError('Toolkit must cover eligible tasks exactly once')
     return data
