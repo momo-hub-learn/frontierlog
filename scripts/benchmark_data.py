@@ -86,6 +86,8 @@ def validate_benchmarks(data:dict, *, now:datetime|None=None)->None:
                 if not all(isinstance(r.get(k),(int,float)) and not isinstance(r.get(k),bool) for k in ('net_improvement','margin','confirmed_success','confirmed_margin')):raise ValueError('Invalid verified result metric')
                 if not isinstance(r.get('sessions'),int) or r['sessions']<=0:raise ValueError('Invalid verified result sessions')
                 if r.get('cost_per_task_usd') is not None and (not isinstance(r['cost_per_task_usd'],(int,float)) or isinstance(r['cost_per_task_usd'],bool) or r['cost_per_task_usd']<0):raise ValueError('Invalid verified result cost')
+                if not isinstance(r.get('time_per_task_minutes'),(int,float)) or isinstance(r.get('time_per_task_minutes'),bool) or r['time_per_task_minutes']<=0:raise ValueError('Invalid verified result time per task')
+                if not isinstance(r.get('output_tokens_per_task'),int) or isinstance(r.get('output_tokens_per_task'),bool) or r['output_tokens_per_task']<=0:raise ValueError('Invalid verified result output per task')
                 if 'preliminary' in r and not isinstance(r['preliminary'],bool):raise ValueError('Invalid preliminary flag')
     for e in data['changes']:
         if date.fromisoformat(e['date'])>today:raise ValueError('Future change')

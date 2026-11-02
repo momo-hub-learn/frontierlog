@@ -62,6 +62,9 @@ class BenchmarkTests(unittest.TestCase):
   self.assertEqual([x['rank'] for x in r['rows']],list(range(1,11)))
   self.assertEqual(r['rows'][0]['model'],'Claude Opus 5.5 Max')
   self.assertEqual(r['rows'][0]['net_improvement'],20.94)
+  self.assertEqual(r['rows'][0]['time_per_task_minutes'],19.5)
+  self.assertEqual(r['rows'][0]['output_tokens_per_task'],130700)
+  self.assertEqual(r['rows'][1]['cost_per_task_usd'],1.74)
   self.assertTrue(r['rows'][1]['preliminary'])
   self.assertIsNone(r['rows'][8]['cost_per_task_usd'])
  def test_verified_snapshot_contract_rejects_bad_time_and_ranks(self):
@@ -69,6 +72,10 @@ class BenchmarkTests(unittest.TestCase):
   self.reject(bad_time)
   def bad_rank(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['rows'][1]['rank']=1
   self.reject(bad_rank)
+  def bad_time_per_task(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['rows'][0]['time_per_task_minutes']=0
+  self.reject(bad_time_per_task)
+  def bad_output(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['rows'][0]['output_tokens_per_task']=0
+  self.reject(bad_output)
  def test_carbon_cyber_results_remain_vendor_reported_and_uncombined(self):
   event=next(x for x in self.data['changes'] if x['id']=='gemini-4-carbon-cyber-benchmarks-20261028')
   self.assertIn('无 guardrails',event['summary'])

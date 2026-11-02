@@ -68,6 +68,11 @@ with sync_playwright() as pw:
  with p.expect_download() as d:p.locator('[data-ba="export-card"]').click()
  assert '本站未运行' in Path(d.value.path()).read_text()
  p.keyboard.press('Escape');assert 'bench=' not in p.evaluate('location.hash')
+ route(p,'#/benchmarks?group=agent&bench=agent-arena-overall')
+ assert p.locator('.b-result-table th').all_inner_texts()[-2:]==['P50 time/task','P50 output/task']
+ assert p.locator('.b-result-table tbody tr').first.locator('td').all_inner_texts()[-2:]==['19.5 min','130.7K']
+ assert '成本、耗时和输出量' in p.locator('.b-result-table-wrap').get_attribute('aria-label')
+ p.keyboard.press('Escape')
  route(p,'#/benchmarks?bench=tau3');assert p.locator('[data-b-check="tau3"]').first.is_checked()
  route(p,'#/models');expect(p.locator('dialog[open]')).to_have_count(0);expect(p.locator('[data-model-row]')).not_to_have_count(0)
  ok('version-aware source drawer, checklist, exported card, deep link and route exit cleanup')
