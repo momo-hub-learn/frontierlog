@@ -300,32 +300,76 @@
     "scope": "主要评估英文文本模型；多模态、语音与多语言能力不计入这张总榜，需另看专项评测。",
     "categories": [
       {
-        "id": "knowledge-work", "label": "知识工作", "weight": 25,
+        "id": "knowledge-work",
+        "label": "知识工作",
+        "weight": 25,
         "evaluations": [
-          {"name": "AA-Briefcase v1.1", "weight": 15, "tasks": "91 项任务 / 4 个场景"},
-          {"name": "AutomationBench-AA", "weight": 5, "tasks": "657 项任务"},
-          {"name": "GDP.pdf", "weight": 5, "tasks": "100 项任务 / 10 个领域"}
+          {
+            "name": "AA-Briefcase v1.1",
+            "weight": 15,
+            "tasks": "91 项任务 / 4 个场景"
+          },
+          {
+            "name": "AutomationBench-AA",
+            "weight": 5,
+            "tasks": "657 项任务"
+          },
+          {
+            "name": "GDP.pdf",
+            "weight": 5,
+            "tasks": "100 项任务 / 10 个领域"
+          }
         ]
       },
       {
-        "id": "coding", "label": "编程", "weight": 25,
+        "id": "coding",
+        "label": "编程",
+        "weight": 25,
         "evaluations": [
-          {"name": "FrontierCode 2.0", "weight": 15, "tasks": "132 项真实开源仓库任务 / 每项 3 次"},
-          {"name": "Terminal-Bench 4.0", "weight": 10, "tasks": "66 项终端任务 / 每项 3 次"}
+          {
+            "name": "FrontierCode 2.0",
+            "weight": 15,
+            "tasks": "132 项真实开源仓库任务 / 每项 3 次"
+          },
+          {
+            "name": "Terminal-Bench 4.0",
+            "weight": 10,
+            "tasks": "66 项终端任务 / 每项 3 次"
+          }
         ]
       },
       {
-        "id": "science", "label": "科学", "weight": 25,
+        "id": "science",
+        "label": "科学",
+        "weight": 25,
         "evaluations": [
-          {"name": "Terminal-Bench-Science 0.1", "weight": 15, "tasks": "70 项任务 / 5 个领域 / 每项 3 次"},
-          {"name": "CritPt v2 (Hard Subset)", "weight": 10, "tasks": "40 道困难子集题 / 每题 5 次"}
+          {
+            "name": "Terminal-Bench-Science 0.1",
+            "weight": 15,
+            "tasks": "70 项任务 / 5 个领域 / 每项 3 次"
+          },
+          {
+            "name": "CritPt v2 (Hard Subset)",
+            "weight": 10,
+            "tasks": "40 道困难子集题 / 每题 5 次"
+          }
         ]
       },
       {
-        "id": "general", "label": "通用能力", "weight": 25,
+        "id": "general",
+        "label": "通用能力",
+        "weight": 25,
         "evaluations": [
-          {"name": "AA-Omniscience v1.1", "weight": 15, "tasks": "3,000 题；准确率 10% + 非幻觉率 5%"},
-          {"name": "HLE-Diamond", "weight": 10, "tasks": "1,000 题；推理与知识各 500 题"}
+          {
+            "name": "AA-Omniscience v1.1",
+            "weight": 15,
+            "tasks": "3,000 题；准确率 10% + 非幻觉率 5%"
+          },
+          {
+            "name": "HLE-Diamond",
+            "weight": 10,
+            "tasks": "1,000 题；推理与知识各 500 题"
+          }
         ]
       }
     ]
@@ -788,8 +832,14 @@
           "status": "preview",
           "status_label": "可信测试者预览",
           "summary": "实时生成可探索场景、环境音与互动对话，并支持文本实时修改；官方演示用 Gemini 3.8 Flash 观察场景、拆解目标与核验步骤。当前仅面向可信测试者，长时一致性、物体恒常性、复杂物理、音频准确性、文字与空间精度仍有限。",
-          "tags": ["World Model", "Native Audio", "Interactive Simulation"],
-          "sources": ["google-deepmind-genie-4"],
+          "tags": [
+            "World Model",
+            "Native Audio",
+            "Interactive Simulation"
+          ],
+          "sources": [
+            "google-deepmind-genie-4"
+          ],
           "evidence_type": "official_research_preview",
           "result_scope": "发布方演示与限制说明；本站未试用，不是独立 Benchmark，也不代表公众或开发者已全面可用。"
         },
