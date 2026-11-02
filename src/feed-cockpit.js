@@ -87,7 +87,7 @@ function fcGithubPanel(){
     '<span class="fc-gh-rank">追踪</span><span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small>独立关注 · 不等于今日上榜 · '+esc(x.verified_at?.slice(0,10)||'待核验')+'</small></span>'+
     '<span class="fc-gh-star"><b>'+ (x.verified_at&&Number.isInteger(x.stars)?exact(x.stars):'—') +'</b><small>总 Star</small></span></a>'
   ).join('')+'</div>':'')+
-  '<div class="fc-gh-foot">'+(fresh?'从官方 Today 筛选 AI / Agent · 按当日新增 Star 排序':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+(partial?' · '+(trendingPartial?'上榜仓库资料部分受限':'长期关注仓库资料更新失败')+(failureDetail?'：'+failureDetail:''):'')+' · 独立关注不参与排名</div>'+
+  '<div class="fc-gh-foot">'+(fresh?'从官方 Today 筛选 AI / Agent · 按当日新增 Star 排序':'历史榜已过期 · 等待新快照')+(gh.sync?.status==='error'?' · 最新同步失败':'')+' · 独立关注不参与排名</div>'+
  '</section>'
 }
 

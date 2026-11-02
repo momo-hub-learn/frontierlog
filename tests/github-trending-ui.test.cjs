@@ -112,7 +112,8 @@ assert.match(view.__fresh,/AI 子集 · 按今日新增 Star 排序/);
 assert.match(view.__fresh,/从官方 Today 筛选 AI \/ Agent/);
 assert.match(view.__fresh,/按当日新增 Star 排序/);
 assert.match(view.__fresh,/API 旧快照/);
-assert.match(view.__fresh,/上榜仓库资料部分受限：1 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
+assert.match(view.__fresh,/上榜仓库资料部分受限 · 1 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
+assert.equal((view.__fresh.match(/1 个上榜项沿用旧快照/g)||[]).length,1);
 assert.match(view.__fresh,/语言未标注 · 总 Star 待核验 · API 旧快照/);
 
 view.APP.github_hot={
@@ -134,7 +135,8 @@ view.APP.github_hot={
 };
 vm.runInContext('this.__watchOnlyFailed=fcGithubPanel();',view);
 assert.match(view.__watchOnlyFailed,/长期关注仓库资料沿用旧快照/);
-assert.match(view.__watchOnlyFailed,/长期关注仓库资料更新失败：1 个长期关注项沿用旧值/);
+assert.match(view.__watchOnlyFailed,/1 个长期关注项沿用旧值/);
+assert.equal((view.__watchOnlyFailed.match(/1 个长期关注项沿用旧值/g)||[]).length,1);
 assert.doesNotMatch(view.__watchOnlyFailed,/上榜仓库资料.*失败/);
 assert.doesNotMatch(view.__watchOnlyFailed,/仓库 API/);
 
@@ -146,7 +148,7 @@ view.APP.github_hot={
 };
 vm.runInContext('this.__allFailed=fcGithubPanel();',view);
 assert.match(view.__allFailed,/上榜仓库资料部分受限 · 10 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
-assert.match(view.__allFailed,/上榜仓库资料部分受限：10 个上榜项沿用旧快照 · 1 个长期关注项沿用旧值/);
+assert.equal((view.__allFailed.match(/10 个上榜项沿用旧快照/g)||[]).length,1);
 
 view.APP.github_hot={
  checked_at:new Date().toISOString(),
@@ -157,7 +159,7 @@ view.APP.github_hot={
 vm.runInContext('this.__trendingFailedWatchVerified=fcGithubPanel();',view);
 assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料部分受限 · 10 个上榜项沿用旧快照/);
 assert.match(view.__trendingFailedWatchVerified,/长期关注项已核验/);
-assert.match(view.__trendingFailedWatchVerified,/上榜仓库资料部分受限：10 个上榜项沿用旧快照 · 长期关注项已核验/);
+assert.equal((view.__trendingFailedWatchVerified.match(/10 个上榜项沿用旧快照/g)||[]).length,1);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/role="status">仓库资料全部沿用旧快照/);
 assert.doesNotMatch(view.__trendingFailedWatchVerified,/长期关注项沿用旧值/);
 
