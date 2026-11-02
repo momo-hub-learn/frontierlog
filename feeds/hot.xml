@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 热点榜</title><link>https://momo-hub-learn.github.io/frontierlog/#/hot</link><description>人工核对的高信号 AI 进展。站内热度不是全网浏览量。</description><language>zh-CN</language><lastBuildDate>Tue, 03 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/hot.xml" rel="self" type="application/rss+xml" /><item><title>Claude Duet 预览：主动 Agent 开始后台盯任务，但关键动作仍等人批准</title><guid isPermaLink="false">frontierlog:hot:anthropic-claude-duet-20261021</guid><link>https://claude.com/resources/articles/claude-duet</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><description>Anthropic 开放 Claude Duet 研究预览候补名单，先面向美国 Pro/Max 用户；它可跨连接应用生成晨间简报、在独立虚拟机与浏览器中后台工作，并在发送、付款、签署或删除前等待用户批准。
 
 为什么值得看：主动 Agent 从“等人提问”走向定期检查、后台执行和按需打断用户，产品竞争点开始转向权限、审批、成本与通知判断。
 
@@ -388,6 +388,12 @@
 为什么值得看：这是企业 Agent 从读取业务上下文走向在既有权限和业务规则下执行工作流的具体信号。真正的产品价值要用正确记录命中率、动作前确认、权限拒绝、审计日志和失败回滚验收，而不是把伙伴公告当成端到端可靠性证明。
 
 边界：当前可确认立即开放的是 ServiceNow MCP 插件；增强能力、安全方案、语音体验和 Codex 集成仍是未来计划，不能写成已经上线。公告没有给出任务成功率、误操作率、支持地区、套餐或独立安全评测；组织权限由客户实例与 Action Fabric 配置决定。本站未连接 ServiceNow 实例或执行写入。
+
+站内热度 92；不是全网流量。</description></item><item><title>Qwen Code 0.26.6：Web Shell 补齐会话状态、模型性能与权限修复</title><guid isPermaLink="false">frontierlog:hot:qwen-code-0-26-6-20261102</guid><link>https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6</link><pubDate>Mon, 02 Nov 2026 18:22:40 +0000</pubDate><description>Qwen Code v0.26.6 为 Web Shell 增加会话状态、并排打开及分模型成功率、输出速度和首 Token 延迟；同时修复 MCP 重名工具发现、一次性工具批准、Managed Agent 恢复和移动布局。
+
+为什么值得看：Coding Agent 正从单次终端任务走向多会话运行与可观察工作台。把失败、延迟、权限和恢复拆开显示，有助于判断问题来自模型、工具、会话还是运行时，而不是只看最终回答。
+
+边界：本站未安装或运行。官方声明无已知破坏性变化不等于无回归；性能图是请求观测，不是模型能力 Benchmark；会话显示完成不证明外部动作成功。MCP 冲突、工具批准、恢复、归档和并排会话仍需在隔离仓库以原始日志和 CI 验收。
 
 站内热度 92；不是全网流量。</description></item><item><title>WorldProbe：世界模型主动探索到 180 秒后还一致吗</title><guid isPermaLink="false">frontierlog:hot:worldprobe-long-horizon-world-model-20261029</guid><link>https://arxiv.org/abs/2610.39721</link><pubDate>Thu, 29 Oct 2026 09:51:26 +0000</pubDate><description>WorldProbe 让目标条件多模态 Agent 在线选择相机动作，用 164 个案例检查 10 个世界模型；作者生成 1,600 余条、约 800 分钟 rollout，最长探索 180 秒。
 
