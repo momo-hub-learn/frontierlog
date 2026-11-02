@@ -70,7 +70,10 @@ with sync_playwright() as pw:
  p.keyboard.press('Escape');assert 'bench=' not in p.evaluate('location.hash')
  route(p,'#/benchmarks?group=agent&bench=agent-arena-overall')
  assert p.locator('.b-result-table th').all_inner_texts()[-2:]==['P50 time/task','P50 output/task']
- assert p.locator('.b-result-table tbody tr').first.locator('td').all_inner_texts()[-2:]==['19.5 min','130.7K']
+ arena=next(x for x in DATA['items'] if x['id']=='agent-arena-overall')['verified_results']['rows'][0]
+ expected_time=f"{arena['time_per_task_minutes']:g} min"
+ expected_output=f"{arena['output_tokens_per_task']/1000:.1f}K"
+ assert p.locator('.b-result-table tbody tr').first.locator('td').all_inner_texts()[-2:]==[expected_time,expected_output]
  assert '成本、耗时和输出量' in p.locator('.b-result-table-wrap').get_attribute('aria-label')
  p.keyboard.press('Escape')
  route(p,'#/benchmarks?bench=tau3');assert p.locator('[data-b-check="tau3"]').first.is_checked()

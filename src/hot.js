@@ -11,6 +11,13 @@ function hHeatBand(score){
  const n=Number(score);
  return n>=98?{key:'extreme',label:'爆热'}:n>=95?{key:'high',label:'高热'}:n>=90?{key:'rising',label:'升温'}:{key:'watch',label:'关注'};
 }
+function hHeatPosition(score){
+ const n=Number(score);
+ return Number.isFinite(n)?Math.max(0,Math.min(100,(n-80)*5)):0;
+}
+function hHeatMeter(score){
+ return `<span class="heat-meter" aria-hidden="true" title="80–100 热度刻度"><i style="width:${hHeatPosition(score)}%"></i></span>`;
+}
 const H_ICON={all:'sparkles',model:'cpu',product:'box',security:'shield',industry:'factory',research:'flask',benchmark:'gauge',open:'github','research-eval':'flask'};
 const H_PRIMARY_TABS=[
  {id:'all',title:'全部',icon:'sparkles'},

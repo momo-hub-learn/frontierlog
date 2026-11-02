@@ -30,7 +30,7 @@ with sync_playwright() as p:
     mobile.on('pageerror',lambda e:errors.append(str(e)))
     mobile.set_content(html,wait_until='load')
     assert mobile.locator('.brand-copy strong').text_content()=='AI坐标'
-    quick_jump_icon=mobile.locator('.top-actions .command-trigger [data-icon="search"]')
+    quick_jump_icon=mobile.locator('.top-actions .command-trigger .command-icon .ico')
     assert quick_jump_icon.is_visible()
     icon_box=quick_jump_icon.bounding_box()
     assert icon_box and icon_box['width'] >= 16 and icon_box['height'] >= 16, icon_box

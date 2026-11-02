@@ -61,6 +61,12 @@ with sync_playwright() as pw:
  capability=p.locator('.h-access-card[href="#/progress?view=map&q=iCloud"]');expect(capability).to_have_count(1);capability.evaluate('(el)=>el.click()');expect(p.locator('dialog[open]')).to_have_count(0);assert p.evaluate('location.hash')=='#/progress?view=map&q=iCloud';expect(p.locator('.p5-map-card')).to_have_count(1);expect(p.locator('.p5-map-card')).to_contain_text('Apple Calendar 最终状态');ok('iCloud release opens one exact capability card with a runnable verification boundary')
  hot=json.loads((R/'dist/api/v1/hot.json').read_text());assert hot['method']['automatic'] is False and hot['items']==HOT_DATA['items'];assert (R/'dist/feeds/hot.xml').exists();ok('data status is honest, API JSON and hot RSS artifacts match the reviewed input')
  route(p,'#/feed');expect(p.locator('.fc-hot-row')).to_have_count(5);assert 'HOT / RECENT' in p.locator('.fc-hot-panel').inner_text();ok('curated homepage includes compact five-item hot list')
+ expect(p.locator('.fc-hot-score .heat-meter')).to_have_count(5)
+ score_rows=p.locator('.fc-hot-score').evaluate_all("els=>els.map(x=>({label:x.getAttribute('aria-label'),width:parseFloat(x.querySelector('.heat-meter i').style.width)}))")
+ for row in score_rows:
+  score=int(row['label'].split('编辑热度 ')[1].split('，')[0]);assert row['width']==max(0,min(100,(score-80)*5))
+ assert all(x.get_attribute('aria-hidden')=='true' for x in p.locator('.fc-hot-score .heat-meter').all())
+ ok('continuous 80–100 heat meters distinguish exact high scores without replacing text tiers or accessible numeric labels')
  changes=HF_DATA.get('web_rank_changes',[]);entrants=sum(x.get('previous_rank') is None for x in changes);moved=sum(isinstance(x.get('previous_rank'),int) and x.get('rank_change')!=0 for x in changes);outgoing=len(HF_DATA.get('web_outgoing',[]))
  if entrants or moved or outgoing:
   expect(p.locator('.fc-hf-change')).to_contain_text(f'{entrants} 新上榜 · {moved} 位次变化 · {outgoing} 离榜')
