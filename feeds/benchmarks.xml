@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Algebraic World Model 把 Agent 的环境假设转为 Lean 证明</title><guid isPermaLink="false">frontierlog:benchmark:algebraic-world-model-proof-protocol-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=algebraic-world-model-proof-protocol</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · Benchmark 口径事件</title><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes</link><description>有原始来源的历史事件；编辑解读分列，不是实时跑分或自动核验。</description><language>zh-CN</language><lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feeds/benchmarks.xml" rel="self" type="application/rss+xml" /><item><title>Algebraic World Model 把 Agent 的环境假设转为 Lean 证明</title><guid isPermaLink="false">frontierlog:benchmark:algebraic-world-model-proof-protocol-20261029</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=algebraic-world-model-proof-protocol</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><description>作者公开从探索、Python 机制假设、类型化规则到 Lean 4 证明的协议；两个不可能关卡上作者报告 6/6 次闭合证明，而两组基础 Agent 共 0/12。
 
 编辑解读：Agent 验收可以把任务得分、状态解析、机制预测、证明闭合与环境回放分层；但 Lean 证明只覆盖学习模型，不能把闭合证明写成真实环境已被完全证明。
 
@@ -10,7 +10,12 @@ https://ephemeral6.github.io/awm-site/</description></item><item><title>WorldPro
 编辑解读：世界模型验收应把局部画质、长程空间一致性、状态演化和完整失败轨迹分开；不能把四个维度或不同世界模型协议拼成单一实力分。
 
 来源：
-https://arxiv.org/abs/2610.39721</description></item><item><title>DDDBench 更新药物研发评测平台</title><guid isPermaLink="false">frontierlog:benchmark:dddbench-platform-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dddbench</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Insilico Medicine 官方平台标注 2026-10-28 更新，当前将药物发现与开发拆为 7 个领域、151 个专门 Benchmark。
+https://arxiv.org/abs/2610.39721</description></item><item><title>Agent Arena 把真实会话改善、成功与成本分列</title><guid isPermaLink="false">frontierlog:benchmark:agent-arena-overall-snapshot-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=agent-arena-overall</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Arena 的 2026-10-28 Agent 榜覆盖 57 个模型和 2,875,897 个会话；本轮核验时 Overall 前三为 Claude Opus 5.5 Max、Gemini 4 Carbon High 与 Claude Sonnet 5.5 Max。
+
+编辑解读：这个动态榜可辅助筛选生产 Agent 候选，但必须同时看区间、样本、确认成功和成本；不能与 Text Arena Elo 或静态基准拼成伪精确总分。
+
+来源：
+https://arena.ai/leaderboard/agent</description></item><item><title>DDDBench 更新药物研发评测平台</title><guid isPermaLink="false">frontierlog:benchmark:dddbench-platform-20261028</guid><link>https://momo-hub-learn.github.io/frontierlog/#/benchmarks?mode=changes&amp;bench=dddbench</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate><description>Insilico Medicine 官方平台标注 2026-10-28 更新，当前将药物发现与开发拆为 7 个领域、151 个专门 Benchmark。
 
 编辑解读：这提供了按研发环节选取评测的入口，但各任务数据和指标不可拼成药物研发总分，平台结果也不是临床验证或本站实测。
 

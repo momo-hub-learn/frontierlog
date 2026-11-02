@@ -68,7 +68,25 @@ def validate_benchmarks(data:dict, *, now:datetime|None=None)->None:
         if not set(b.get('dataset_ids',[]))<=dataset_ids:raise ValueError('Unknown evaluation dataset reference')
         if not set(b.get('evaluator_ids',[]))<=evaluator_ids:raise ValueError('Unknown evaluator reference')
         if b.get('result_status','not_run') not in ('not_run','verified'):raise ValueError('Invalid evaluation result status')
-        if b.get('result_status')=='verified' and not b.get('verified_results'):raise ValueError('Missing verified result evidence')
+        if b.get('result_status')=='verified':
+            result=b.get('verified_results')
+            if not isinstance(result,dict) or result.get('kind')!='official_leaderboard_snapshot':raise ValueError('Missing verified result evidence')
+            if result.get('source_id') not in sources or result['source_id'] not in b['sources']:raise ValueError('Unknown verified result source')
+            if date.fromisoformat(result.get('source_date',''))>today:raise ValueError('Future verified result source date')
+            verified_at=datetime.fromisoformat(result.get('verified_at',''))
+            if verified_at.tzinfo is None or verified_at.utcoffset() is None:raise ValueError('Verified result time must include timezone')
+            if verified_at>now.astimezone(verified_at.tzinfo):raise ValueError('Future verified result time')
+            for key in ('scope','metric','population','note'):
+                if not isinstance(result.get(key),str) or not result[key].strip():raise ValueError('Incomplete verified result '+key)
+            rows=result.get('rows')
+            if not isinstance(rows,list) or not 1<=len(rows)<=20:raise ValueError('Invalid verified result rows')
+            if [r.get('rank') for r in rows]!=list(range(1,len(rows)+1)):raise ValueError('Verified result ranks must be sequential')
+            for r in rows:
+                if not all(isinstance(r.get(k),str) and r[k].strip() for k in ('model','provider')):raise ValueError('Incomplete verified result row')
+                if not all(isinstance(r.get(k),(int,float)) and not isinstance(r.get(k),bool) for k in ('net_improvement','margin','confirmed_success','confirmed_margin')):raise ValueError('Invalid verified result metric')
+                if not isinstance(r.get('sessions'),int) or r['sessions']<=0:raise ValueError('Invalid verified result sessions')
+                if r.get('cost_per_task_usd') is not None and (not isinstance(r['cost_per_task_usd'],(int,float)) or isinstance(r['cost_per_task_usd'],bool) or r['cost_per_task_usd']<0):raise ValueError('Invalid verified result cost')
+                if 'preliminary' in r and not isinstance(r['preliminary'],bool):raise ValueError('Invalid preliminary flag')
     for e in data['changes']:
         if date.fromisoformat(e['date'])>today:raise ValueError('Future change')
         if not e['benchmarks'] or not set(e['benchmarks'])<=ids:raise ValueError('Invalid change reference')

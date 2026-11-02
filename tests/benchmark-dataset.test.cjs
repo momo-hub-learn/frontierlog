@@ -19,6 +19,8 @@ assert.ok(d.evaluation_datasets.every(x=>x.url.startsWith('https://')&&x.gold_la
 assert.ok(js.includes("datasets:'评测集'"));
 assert.ok(js.includes("mode==='datasets'?bDatasetRecords()"));
 assert.ok(js.includes('${bEvaluationLinks(b)}'));
+assert.ok(js.includes('bVerifiedResults(b)'));
+assert.ok(js.includes('官方结果快照 · 非本站实测'));
 assert.ok(js.includes('本站未实测；不展示虚构分数或模型排名'));
 assert.ok(js.includes('外部资料 · 本站未实测'));
 const novelty=judge.find(x=>x.id==='novelty-judge-bench');
@@ -32,4 +34,8 @@ assert.ok(!('score' in dddbench)&&!('rank' in dddbench)&&!('best_model' in dddbe
 const dddSource=d.sources.find(x=>x.id==='b-dddbench');
 assert.ok(dddSource&&dddSource.url==='https://ddb.insilico.com/'&&dddSource.checked==='2026-11-01');
 assert.ok(d.changes.some(x=>x.id==='dddbench-platform-20261028'&&x.benchmarks.includes('dddbench')));
+const agentArena=d.items.find(x=>x.id==='agent-arena-overall');
+assert.ok(agentArena&&agentArena.result_status==='verified'&&agentArena.tested===false);
+assert.equal(agentArena.verified_results.rows.length,10);
+assert.equal(agentArena.verified_results.rows[0].model,'Claude Opus 5.5 Max');
 console.log('PASS Judge benchmark evaluation registry and UI');

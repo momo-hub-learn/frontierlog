@@ -51,6 +51,24 @@ class BenchmarkTests(unittest.TestCase):
   self.assertTrue(all(by_id[x]['tested'] is False and by_id[x]['result_status']=='not_run' for x in ('automationbench','cwe-bench-v1')))
   event=next(x for x in self.data['changes'] if x['id']=='argon-agent-benchmarks-20261013')
   self.assertEqual(set(event['benchmarks']),{'automationbench','cwe-bench-v1'})
+ def test_agent_arena_snapshot_is_official_external_evidence(self):
+  b=next(x for x in self.data['items'] if x['id']=='agent-arena-overall')
+  self.assertFalse(b['tested'])
+  self.assertEqual(b['result_status'],'verified')
+  self.assertIn('本站没有运行',b['boundary'])
+  r=b['verified_results']
+  self.assertEqual(r['source_id'],'b-agent-arena-overall')
+  self.assertEqual(r['population'],'57 models / 2,875,897 sessions')
+  self.assertEqual([x['rank'] for x in r['rows']],list(range(1,11)))
+  self.assertEqual(r['rows'][0]['model'],'Claude Opus 5.5 Max')
+  self.assertEqual(r['rows'][0]['net_improvement'],20.94)
+  self.assertTrue(r['rows'][1]['preliminary'])
+  self.assertIsNone(r['rows'][8]['cost_per_task_usd'])
+ def test_verified_snapshot_contract_rejects_bad_time_and_ranks(self):
+  def bad_time(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['verified_at']='2026-11-02T11:20:00'
+  self.reject(bad_time)
+  def bad_rank(d):next(x for x in d['items'] if x['id']=='agent-arena-overall')['verified_results']['rows'][1]['rank']=1
+  self.reject(bad_rank)
  def test_carbon_cyber_results_remain_vendor_reported_and_uncombined(self):
   event=next(x for x in self.data['changes'] if x['id']=='gemini-4-carbon-cyber-benchmarks-20261028')
   self.assertIn('无 guardrails',event['summary'])
@@ -97,6 +115,10 @@ class BenchmarkTests(unittest.TestCase):
    if row.get('published') and row['published']>'2026-10-21':row['published']='2026-10-21'
   for row in d['changes']:
    if row['date']>'2026-10-21':row['date']='2026-10-21'
+  for row in d['items']:
+   if row.get('result_status')=='verified':
+    row['verified_results']['source_date']='2026-10-21'
+    row['verified_results']['verified_at']='2026-10-21T00:15:00+08:00'
   validate_benchmarks(d,now=datetime(2026,10,20,16,30,tzinfo=timezone.utc))
  def test_naive_validation_clock_rejected(self):
   with self.assertRaises(ValueError):validate_benchmarks(self.data,now=datetime(2026,10,20,12,0))

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked": "2026-11-01",
+  "checked": "2026-11-02",
   "title": "Benchmark 观察站",
   "sync": {
     "status": "manual",
@@ -51,6 +51,58 @@
     }
   ],
   "items": [
+    {
+      "id": "agent-arena-overall",
+      "name": "Agent Arena · Overall",
+      "group": "agent",
+      "edition": "Overall leaderboard · 2026-10-28 snapshot",
+      "subtitle": "真实 Agent 会话里，哪些模型更常带来可确认的任务改善，代价又是多少？",
+      "summary": "Arena 的 Agent 榜用真实会话中的任务改善、确认成功、用户褒贬、可控性与工具可靠性动态排序；本页保存官方 2026-10-28 口径与本轮核验快照。",
+      "metric": "Net Improvement % / Confirmed Success % / sessions / P50 cost per task",
+      "metric_note": "Net Improvement 是带置信区间的官方动态指标；确认成功、样本量和 P50 成本必须同时看。它不是能力总分，也不能与 Text Arena Elo 或静态 Agent 基准拼接。",
+      "protocol": "固定 Overall 视图、官方页面日期、核验时刻和完整字段；比较时保留模型推理档、置信区间、会话数、成本、预备标记与工具可靠性，榜位变化按新快照另记。",
+      "boundary": "这是 Arena 官方动态榜的外部快照，本站没有运行模型或复算指标。真实会话存在任务构成、用户群与选择偏差；榜位和置信区间会变化，不能证明私有流程中的安全、权限合规或稳定复现。",
+      "business": "适合先筛选 Agent 候选：同时看改善率、确认成功、样本量与任务成本，再在自己的权限、工具和留出任务上复测；不要只采购榜首。",
+      "setup": "保存官方榜快照与方法说明，选择与业务预算接近的模型档；复测时固定 Harness、工具、权限、重试和成本上限，并记录失败、人工接管与可复现性。",
+      "topics": ["agents", "evaluation", "production-usage"],
+      "sources": ["b-agent-arena-overall"],
+      "result_url": "https://arena.ai/leaderboard/agent",
+      "kind": "benchmark",
+      "flag": "Arena 官方动态榜快照 / 本站未运行",
+      "checked": "2026-11-02",
+      "tested": false,
+      "checks": [
+        "固定 Overall 视图、页面日期与核验时刻",
+        "同时比较置信区间、会话数、确认成功和成本",
+        "记录模型档位、Harness、工具权限与失败轨迹",
+        "不与 Text Arena Elo 或静态基准拼成综合分"
+      ],
+      "dataset_ids": [],
+      "evaluator_ids": [],
+      "result_status": "verified",
+      "verified_results": {
+        "kind": "official_leaderboard_snapshot",
+        "source_id": "b-agent-arena-overall",
+        "source_date": "2026-10-28",
+        "verified_at": "2026-11-02T11:20:00+08:00",
+        "scope": "Overall",
+        "metric": "Net Improvement",
+        "population": "57 models / 2,875,897 sessions",
+        "note": "官方动态榜前 10；± 为页面给出的区间。Carbon High 标为 preliminary。成本是每任务 P50；未提供时保留为空。",
+        "rows": [
+          {"rank": 1, "model": "Claude Opus 5.5 Max", "provider": "Anthropic", "net_improvement": 20.94, "margin": 2.15, "confirmed_success": 22.29, "confirmed_margin": 3.11, "sessions": 13584, "cost_per_task_usd": 6.80},
+          {"rank": 2, "model": "Gemini 4 Carbon High", "provider": "Google", "net_improvement": 16.04, "margin": 1.00, "confirmed_success": 18.05, "confirmed_margin": 1.60, "sessions": 26511, "cost_per_task_usd": 1.75, "preliminary": true},
+          {"rank": 3, "model": "Claude Sonnet 5.5 Max", "provider": "Anthropic", "net_improvement": 13.84, "margin": 2.65, "confirmed_success": 20.76, "confirmed_margin": 4.23, "sessions": 8300, "cost_per_task_usd": 4.13},
+          {"rank": 4, "model": "Claude Fable 5.1 Max", "provider": "Anthropic", "net_improvement": 13.35, "margin": 1.89, "confirmed_success": 12.47, "confirmed_margin": 3.51, "sessions": 17347, "cost_per_task_usd": 7.30},
+          {"rank": 5, "model": "GPT-6 Astra Max", "provider": "OpenAI", "net_improvement": 12.96, "margin": 2.02, "confirmed_success": 12.59, "confirmed_margin": 3.52, "sessions": 15070, "cost_per_task_usd": 5.89},
+          {"rank": 6, "model": "GPT-6.1 Sol Max", "provider": "OpenAI", "net_improvement": 12.47, "margin": 1.08, "confirmed_success": 11.38, "confirmed_margin": 1.91, "sessions": 28883, "cost_per_task_usd": 0.94},
+          {"rank": 7, "model": "Gemini 4 Argon High", "provider": "Google", "net_improvement": 10.73, "margin": 0.81, "confirmed_success": 12.84, "confirmed_margin": 1.47, "sessions": 50974, "cost_per_task_usd": 1.01},
+          {"rank": 8, "model": "GPT-6.1 Terra Max", "provider": "OpenAI", "net_improvement": 10.57, "margin": 1.96, "confirmed_success": 10.10, "confirmed_margin": 3.48, "sessions": 8977, "cost_per_task_usd": 0.78},
+          {"rank": 9, "model": "Muse Wonder Full Max", "provider": "Meta", "net_improvement": 10.09, "margin": 0.94, "confirmed_success": 11.93, "confirmed_margin": 1.83, "sessions": 26753, "cost_per_task_usd": null},
+          {"rank": 10, "model": "Claude Fable 5 High", "provider": "Anthropic", "net_improvement": 8.04, "margin": 1.09, "confirmed_success": 5.57, "confirmed_margin": 2.12, "sessions": 50866, "cost_per_task_usd": 3.91}
+        ]
+      }
+    },
     {
       "id": "livebench-2",
       "name": "LiveBench 2.0",
@@ -1353,6 +1405,16 @@
   ],
   "sources": [
     {
+      "id": "b-agent-arena-overall",
+      "title": "Agent Arena Leaderboard · Overall",
+      "publisher": "Arena",
+      "url": "https://arena.ai/leaderboard/agent",
+      "published": "2026-10-28",
+      "checked": "2026-11-02",
+      "kind": "官方动态榜单与方法页",
+      "note": "页面给出 57 个模型、2,875,897 个会话及带区间的多维指标；本站仅保存核验快照，未运行或复算。"
+    },
+    {
       "id": "b-livebench-2",
       "title": "LiveBench 2.0 leaderboard and methodology",
       "publisher": "LiveBench / Abacus.AI",
@@ -1990,6 +2052,16 @@
   ],
   "changes": [
     {
+      "id": "agent-arena-overall-snapshot-20261028",
+      "date": "2026-10-28",
+      "title": "Agent Arena 把真实会话改善、成功与成本分列",
+      "summary": "Arena 的 2026-10-28 Agent 榜覆盖 57 个模型和 2,875,897 个会话；本轮核验时 Overall 前三为 Claude Opus 5.5 Max、Gemini 4 Carbon High 与 Claude Sonnet 5.5 Max。",
+      "implication": "这个动态榜可辅助筛选生产 Agent 候选，但必须同时看区间、样本、确认成功和成本；不能与 Text Arena Elo 或静态基准拼成伪精确总分。",
+      "benchmarks": ["agent-arena-overall"],
+      "sources": ["b-agent-arena-overall"],
+      "kind": "官方动态榜单快照"
+    },
+    {
       "id": "livebench-2-release-20261025",
       "date": "2026-10-25",
       "title": "LiveBench 2.0 转向长流程 Agent 交付",
@@ -2264,6 +2336,7 @@
       "subtitle": "编程 · 工具 · 长流程",
       "sector": "general",
       "benchmarks": [
+        "agent-arena-overall",
         "swe-pro",
         "terminal3",
         "osworld2",
