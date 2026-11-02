@@ -196,9 +196,18 @@ with sync_playwright() as pw:
               return {hiddenTabs: tabs.some(t=>t.left<n.left-1||t.right>n.right+1),
                 overlap: s.left<n.right-1&&s.right>n.left+1&&s.top<n.bottom-1&&s.bottom>n.top+1,
                 inputFits: input.getBoundingClientRect().right <= s.right,
+                tabRows: new Set(tabs.map(t=>Math.round(t.top))).size,
+                minTabHeight: Math.min(...tabs.map(t=>t.height)),
+                navScrollable: nav.scrollWidth>nav.clientWidth,
                 width:s.width};
             }""")
-            assert not layout['hiddenTabs'] and not layout['overlap'] and layout['inputFits'], (width, view, layout)
+            assert not layout['overlap'] and layout['inputFits'], (width, view, layout)
+            if width <= 760:
+                assert layout['tabRows']==1 and layout['minTabHeight']>=44, (width, view, layout)
+                if width <= 390:
+                    assert layout['navScrollable'], (width, view, layout)
+            else:
+                assert not layout['hiddenTabs'], (width, view, layout)
             if width > 500:
                 assert layout['width'] <= 231, (width, view, layout)
             if view.endswith('github'):
@@ -208,7 +217,7 @@ with sync_playwright() as pw:
             if view.endswith('hf'):
                 font = page.evaluate("Object.fromEntries(['.hf-model','.hf-sub','.hf-tags span'].map(s=>[s,parseFloat(getComputedStyle(document.querySelector(s)).fontSize)]))")
                 assert font['.hf-model'] >= 17 and font['.hf-sub'] >= 13 and font['.hf-tags span'] >= 13, font
-        ok(f'{width}px: all tabs visible, compact search, no overlap or page overflow; readable cards')
+        ok(f'{width}px: desktop tabs visible or mobile tabs scroll in one 44px row; compact search, no overlap or page overflow')
 
     for width, name in [(1440, 'desktop'), (390, 'mobile')]:
         page.set_viewport_size({'width': width, 'height': 1050 if width > 760 else 1100})

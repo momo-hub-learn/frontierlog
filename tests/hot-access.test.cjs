@@ -5,6 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const ROOT=path.resolve(__dirname,'..');
 const source=fs.readFileSync(path.join(ROOT,'src/hot.js'),'utf8');
+const polish=fs.readFileSync(path.join(ROOT,'src/polish.css'),'utf8');
 const hot=JSON.parse(fs.readFileSync(path.join(ROOT,'data/hot.json'),'utf8'));
 
 function extract(start,end){
@@ -45,4 +46,7 @@ assert.match(ctx.renderRelated(duplicate),/Distinct analysis/);
 const primaryOnly={...duplicate,related:[]};
 assert.equal(ctx.renderRelated(primaryOnly),'');
 
-console.log('7 hot access and evidence-deduplication contracts passed');
+assert.match(polish,/@media\(max-width:760px\).*?\.h-filterbar \.h-tabs\{[^}]*flex-wrap:nowrap;[^}]*overflow-x:auto;/s);
+assert.match(polish,/@media\(max-width:760px\).*?\.h-filterbar \.h-tab\{[^}]*min-height:44px/s);
+
+console.log('9 hot access, evidence-deduplication and mobile navigation contracts passed');
