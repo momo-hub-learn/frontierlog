@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-11-02T05:25:04Z",
+  "generated_at": "2026-11-02T07:46:36Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 6,
     "merge": 132,
-    "hold": 6
+    "hold": 7
   },
   "candidates": [
     {
@@ -182,6 +182,35 @@
         "Numerical Precision"
       ],
       "first_seen_at": "2026-10-30T07:48:38Z"
+    },
+    {
+      "id": "candidate-4f58b3a979ebe0dd",
+      "category": "research",
+      "published": "2026-10-30",
+      "title": "ID-WM 把可达子目标与局部动作求解分层",
+      "summary": "ID-WM 用高层世界模型采样状态空间中的可达转移，再用低层世界模型作为逆动力学求解器把子目标落成动作。作者在三个导航与操作套件中报告：相对策略与扩散规划基线提升 38.5%，相对单层世界模型 MPC 提升 135%，并把优势集中在复杂、未见配置的长程任务。",
+      "why": "这条路线把“下一站是否可达”和“每一步怎样执行”拆开，避免高层搜索被某一种低层行为表示绑死。若独立复现成立，它可能成为机器人长程规划中降低误差累积、复用短轨迹数据的一种更清晰接口。",
+      "boundary": "38.5% 与 135% 都是作者在指定套件、基线、预算和实现下的相对结果，本站未运行代码；相对提升的分母与任务成功定义不能跨论文比较。三个研究套件不能证明真实机器人、开放环境、长时间运行或安全约束已经解决，也不能把分层结构本身当作通用能力分。",
+      "source": "ID-WM authors",
+      "source_kind": "作者预印本、方法、实验范围与量化结果",
+      "url": "https://arxiv.org/abs/2610.42146",
+      "publishable": false,
+      "features": {
+        "freshness": 0.786,
+        "authority": 0.72,
+        "impact": 0.82,
+        "novelty": 1.0
+      },
+      "priority_score": 0.812,
+      "action": "hold",
+      "reason": "保留候选，等待更强证据、影响或更新。",
+      "research_id": "id-wm-implicit-dynamics-20261030",
+      "topic_tags": [
+        "World Models",
+        "Embodied Planning",
+        "Long-Horizon Control"
+      ],
+      "first_seen_at": "2026-11-02T07:46:36Z"
     },
     {
       "id": "candidate-8d816f9f27586a0b",
@@ -979,30 +1008,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "openai-chatgpt-api-credits",
       "first_seen_at": "2026-10-29T09:28:17Z"
-    },
-    {
-      "id": "candidate-84134496681778bb",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "GitHub Agentic Workflows 正式可用",
-      "summary": "自然语言工作流编译为标准 Actions YAML，可使用 Copilot 或自带 coding agent，并沿用现有 runner 与组织策略。",
-      "why": "仓库 Agent 自动化进入成熟 CI/CD 控制面，但安全和质量仍取决于编译产物、权限、输入完整性与回归测试。",
-      "boundary": "Copilot 引擎仍需许可；安全层不保证零风险，客户效率数字也不是独立 Benchmark。",
-      "source": "GitHub",
-      "source_kind": "官方产品节点",
-      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "github-agentic-workflows",
-      "first_seen_at": "2026-10-29T05:26:10Z"
     }
   ]
 }
