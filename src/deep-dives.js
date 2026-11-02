@@ -298,7 +298,7 @@ function dPage(a){
  if(!a)return '<div class="d-empty">暂无深度解析。</div>';
  return '<article class="d-page d-visual'+(a.layout==='narrative'?' d-narrative':' d-editorial')+'">'+
   '<header class="d-hero">'+
-   '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span><span class="d-update-cadence">编辑目标 · 每 3 天实质更新</span></div>'+
+   '<div class="d-hero-top"><span class="d-series">拆一下</span><span>'+esc(a.published.replaceAll('-','.'))+(a.updated&&a.updated!==a.published?' · 更新 '+esc(a.updated.replaceAll('-','.')):'')+'</span><span>'+esc(String(a.read_minutes))+' min read</span><span class="d-update-cadence">编辑目标 · 每 3 天实质更新</span></div>'+
    '<div class="d-hero-grid"><div class="d-hero-copy">'+
     '<h1>'+esc(a.title)+'</h1><p class="d-dek">'+esc(a.dek)+'</p>'+
     '<div class="d-tagline">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+

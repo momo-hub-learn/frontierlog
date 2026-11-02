@@ -925,10 +925,10 @@
   "coverage": "持续追踪 @thsottiaux 的公开重置相关发帖、回复和引用关系；第三方页面只用于定位线索与恢复上下文，确认仍要求 Tibo 原帖可直接核验或 OpenAI 官方说明。",
   "sync": {
     "status": "not_configured",
-    "last_attempt": "2026-11-02T01:21:10+08:00",
+    "last_attempt": "2026-11-02T17:31:29+08:00",
     "last_success": null,
     "error": "X_BEARER_TOKEN not configured; official post read returned HTTP 403",
-    "note": "本轮官方 X API 缺少已配置凭据，直接打开新候选原帖也返回 HTTP 403；只新增待核验线索，不更新 checked、确认事件或最后成功时间。"
+    "note": "本轮官方 X API 缺少已配置凭据，直接打开候选原帖也返回 HTTP 403；保留待核验线索，不更新 checked、确认事件或最后成功时间。"
   },
   "inbox": [],
   "profile_url": "https://x.com/thsottiaux",

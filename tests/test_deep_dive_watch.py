@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 import json
 import sys
 import unittest
@@ -14,9 +14,10 @@ class DeepDiveFreshnessTests(unittest.TestCase):
     def setUpClass(cls):
         cls.deep=json.loads((ROOT/'data/deep-dives.json').read_text(encoding='utf-8'))
         cls.hot=json.loads((ROOT/'data/hot.json').read_text(encoding='utf-8'))
-        cls.before_credits=dict(cls.deep,articles=[a for a in cls.deep['articles'] if a['id']!='openai-api-credits-ledger'])
-        cls.before_containment=dict(cls.before_credits,articles=[a for a in cls.before_credits['articles'] if a['id']!='frontier-training-containment'])
-        cls.legacy=dict(cls.deep,articles=[a for a in cls.before_containment['articles'] if a['id']!='decisions-api-bounded-decision-layer'])
+        by_id={a['id']:a for a in cls.deep['articles']}
+        cls.legacy=dict(cls.deep,articles=[by_id[x] for x in ('rea-agent-reverse-engineering','jev-agent-decision-layer')])
+        cls.before_containment=dict(cls.deep,articles=cls.legacy['articles']+[by_id['decisions-api-bounded-decision-layer']])
+        cls.before_credits=dict(cls.deep,articles=cls.before_containment['articles']+[by_id['frontier-training-containment']])
 
     def test_three_day_cycle_in_beijing_calendar_days(self):
         self.assertEqual(DEFAULT_CADENCE_DAYS,3)
@@ -72,10 +73,13 @@ class DeepDiveFreshnessTests(unittest.TestCase):
         self.assertEqual(prior['updated'],'2026-10-15')
 
     def test_current_article_resets_due_date_on_beijing_calendar(self):
-        x=report(self.deep,self.hot,date(2026,10,29))
-        self.assertEqual(x['latest_id'],'openai-api-credits-ledger')
-        self.assertEqual(x['latest_published'],'2026-10-29')
-        self.assertEqual(x['next_due'],'2026-11-01')
+        latest=max(self.deep['articles'],key=lambda a:(content_date(a),a['published'],a['id']))
+        current=content_date(latest)
+        x=report(self.deep,self.hot,current)
+        self.assertEqual(x['latest_id'],latest['id'])
+        self.assertEqual(x['latest_published'],latest['published'])
+        self.assertEqual(x['latest_content_date'],current.isoformat())
+        self.assertEqual(x['next_due'],(current+timedelta(days=3)).isoformat())
         self.assertFalse(x['stale'])
 
     def test_empty_archive_remains_overdue(self):

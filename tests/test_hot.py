@@ -56,7 +56,7 @@ class HotDataTests(unittest.TestCase):
   self.assertEqual(item['published'],'2026-10-31')
   self.assertNotIn('published_at',item)
   self.assertEqual(item['first_seen_at'],'2026-11-01T01:21:05Z')
-  self.assertEqual(item['link'],'#/hot?cat=product&pview=map&product=openai-evals-platform-retirement')
+  self.assertEqual(item['link'],'#/deep?id=openai-evals-read-only-migration')
   self.assertIn('计划在 11 月 30 日关闭',item['summary'])
   self.assertIn('不等于 OpenAI 的 Datasets',item['boundary'])
   self.assertIn('不能把计划关闭日写成已经停服',item['boundary'])

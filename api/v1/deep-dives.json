@@ -1,8 +1,565 @@
 {
   "version": 1,
-  "checked": "2026-10-29",
+  "checked": "2026-11-02",
   "series": "拆一下",
   "articles": [
+    {
+      "id": "openai-evals-read-only-migration",
+      "hot_ids": [
+        "openai-evals-read-only-20261031"
+      ],
+      "title": "拆一下 OpenAI Evals 只读窗口：把评测从托管对象迁进代码与 CI",
+      "short_title": "Evals 只读：评测怎样迁进代码与 CI",
+      "subtitle": "把旧 eval、测试数据、grader、provider、运行结果与发布门禁分别迁移，避免把“配置能跑”误当成评测语义已经保真。",
+      "dek": "10 月 31 日之后，旧 Evals 已进入只读窗口；真正困难的不是换一个命令，而是把托管平台里分散的测试数据、评分标准、模型参数和历史基线重建成可版本化、可复核的评测系统。",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "read_minutes": 10,
+      "tags": [
+        "Evals",
+        "Promptfoo",
+        "CI",
+        "评测迁移"
+      ],
+      "thesis": "只读窗口把迁移问题从“以后再做”变成证据保全任务：先冻结旧对象与结果，再逐项映射测试输入、provider、grader 和阈值，最后才把新 CLI 接入 CI；命令成功不能代替语义等价。",
+      "mini_flow": [
+        {
+          "label": "冻结",
+          "detail": "旧对象 / 结果 / 截止日"
+        },
+        {
+          "label": "重建",
+          "detail": "tests / providers / assertions"
+        },
+        {
+          "label": "门禁",
+          "detail": "baseline / CI / reports"
+        }
+      ],
+      "layout": "standard",
+      "background_refs": [
+        "deprecations",
+        "migration"
+      ],
+      "opening": [
+        "OpenAI 的官方弃用时间表显示，旧 Evals 平台已在 2026 年 10 月 31 日进入只读，Dashboard 与 API 计划在 11 月 30 日关闭。官方迁移文档建议把既有评测手工重建到 Promptfoo，并明确这条路径不依赖 OpenAI Evals 的导出功能。",
+        "这不是把一个 eval ID 换成一个 YAML 文件。旧系统把任务定义、数据源、testing criteria、provider 配置、运行记录和输出项分散在托管对象里；迁移后，这些状态要重新落到代码、测试数据、密钥边界、CI 报告和可追溯基线中。",
+        "本文只依据 OpenAI 官方弃用页、迁移指南和 Promptfoo 文档整理。本站没有访问任何组织的 Evals 数据、没有导出历史运行、没有安装 Promptfoo，也没有运行模型评测；命令、字段和安全边界必须在自己的代码库与授权账号中复核。"
+      ],
+      "sections": [
+        {
+          "key": "deadline",
+          "eyebrow": "01",
+          "kicker": "先看时钟",
+          "title": "只读与关闭是两个不同截止点，迁移工作现在已经进入证据保全期",
+          "analysis": false,
+          "blocks": [
+            {
+              "type": "table",
+              "title": "官方时间表与应对动作",
+              "headers": [
+                "日期",
+                "官方状态",
+                "现在应保留什么"
+              ],
+              "rows": [
+                [
+                  "2026-06-03",
+                  "宣布弃用",
+                  "对象清单、负责人、迁移范围"
+                ],
+                [
+                  "2026-10-31",
+                  "既有 eval 进入只读",
+                  "定义、数据、grader、历史结果与截图"
+                ],
+                [
+                  "2026-11-30",
+                  "Dashboard 与 API 计划关闭",
+                  "独立可运行配置、CI 报告与回滚基线"
+                ]
+              ],
+              "refs": [
+                "deprecations"
+              ]
+            },
+            {
+              "type": "note",
+              "title": "不要等待关闭日再验证",
+              "text": "只读意味着旧平台更适合作为核对源，而不是继续迭代的工作区；11 月 30 日是官方计划日期，不是本站对服务可用性的承诺。"
+            }
+          ],
+          "source_refs": [
+            "deprecations"
+          ]
+        },
+        {
+          "key": "inventory",
+          "eyebrow": "02",
+          "kicker": "先冻结对象",
+          "title": "迁移前先把六类状态做成清单，否则最容易丢的是评分语义",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "table",
+              "title": "旧平台对象与迁移证据",
+              "headers": [
+                "对象",
+                "需要冻结的字段",
+                "缺失后的风险"
+              ],
+              "rows": [
+                [
+                  "Eval 定义",
+                  "名称、数据 schema、testing criteria、metadata",
+                  "同名新配置不再测同一任务"
+                ],
+                [
+                  "测试输入",
+                  "变量、参考答案、分层标签、来源版本",
+                  "样本集合悄悄漂移"
+                ],
+                [
+                  "Provider",
+                  "模型、endpoint、参数、工具与超时",
+                  "差异被误归因给 prompt"
+                ],
+                [
+                  "Grader",
+                  "类型、提示词、阈值、聚合方式",
+                  "分数相同但含义不同"
+                ],
+                [
+                  "Run 结果",
+                  "运行时间、输出项、失败原因、成本",
+                  "无法建立迁移前基线"
+                ],
+                [
+                  "权限与密钥",
+                  "组织、项目、secret owner、外部 provider",
+                  "CI 可跑但越权或泄露"
+                ]
+              ]
+            },
+            {
+              "type": "text",
+              "text": "OpenAI 的迁移指南把核心构件概括为 test data、prompts、providers/models 与 scoring criteria。这里增加运行记录和权限，是因为可复现性与安全边界不会自动包含在一份新配置里。",
+              "refs": [
+                "migration"
+              ]
+            }
+          ],
+          "source_refs": [
+            "migration",
+            "evals-reference"
+          ]
+        },
+        {
+          "key": "mapping",
+          "eyebrow": "03",
+          "kicker": "重建数据流",
+          "title": "迁移后的控制面从托管对象变成版本化配置、CLI 运行与 CI 证据",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "architecture",
+              "id": "evals-to-promptfoo-control-plane",
+              "version": "01",
+              "refs": [
+                "migration",
+                "promptfoo-guide"
+              ],
+              "diagram": {
+                "title": "从只读 Evals 到代码化评测门禁",
+                "intro": "旧平台只用于核对；新配置、测试数据和基线进入代码库，运行证据由 CI 独立保存。",
+                "width": 1040,
+                "height": 388,
+                "zones": [
+                  {
+                    "x": 16,
+                    "y": 16,
+                    "w": 236,
+                    "h": 356,
+                    "label": "01 · 只读证据"
+                  },
+                  {
+                    "x": 266,
+                    "y": 16,
+                    "w": 236,
+                    "h": 356,
+                    "label": "02 · 版本化重建"
+                  },
+                  {
+                    "x": 516,
+                    "y": 16,
+                    "w": 508,
+                    "h": 356,
+                    "label": "03 · 运行与门禁"
+                  }
+                ],
+                "nodes": [
+                  {
+                    "id": "old",
+                    "x": 35,
+                    "y": 72,
+                    "w": 198,
+                    "h": 82,
+                    "label": "旧 Eval / Runs",
+                    "detail": "schema / grader / baseline",
+                    "kind": "boundary"
+                  },
+                  {
+                    "id": "inventory",
+                    "x": 35,
+                    "y": 230,
+                    "w": 198,
+                    "h": 82,
+                    "label": "迁移清单",
+                    "detail": "owner / evidence / gaps"
+                  },
+                  {
+                    "id": "config",
+                    "x": 285,
+                    "y": 72,
+                    "w": 198,
+                    "h": 82,
+                    "label": "Promptfoo config",
+                    "detail": "prompts / providers / asserts"
+                  },
+                  {
+                    "id": "tests",
+                    "x": 285,
+                    "y": 230,
+                    "w": 198,
+                    "h": 82,
+                    "label": "版本化测试集",
+                    "detail": "vars / labels / provenance"
+                  },
+                  {
+                    "id": "runner",
+                    "x": 550,
+                    "y": 72,
+                    "w": 205,
+                    "h": 82,
+                    "label": "Local / CI runner",
+                    "detail": "secrets / retries / timeout",
+                    "kind": "verify"
+                  },
+                  {
+                    "id": "reports",
+                    "x": 550,
+                    "y": 230,
+                    "w": 205,
+                    "h": 82,
+                    "label": "结果与失败样本",
+                    "detail": "report / artifact / cost"
+                  },
+                  {
+                    "id": "gate",
+                    "x": 792,
+                    "y": 151,
+                    "w": 205,
+                    "h": 82,
+                    "label": "发布门禁",
+                    "detail": "baseline / threshold / review",
+                    "kind": "verify"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "old",
+                    "to": "config"
+                  },
+                  {
+                    "from": "inventory",
+                    "to": "tests"
+                  },
+                  {
+                    "from": "config",
+                    "to": "runner"
+                  },
+                  {
+                    "from": "tests",
+                    "to": "runner"
+                  },
+                  {
+                    "from": "runner",
+                    "to": "reports"
+                  },
+                  {
+                    "from": "reports",
+                    "to": "gate"
+                  },
+                  {
+                    "from": "old",
+                    "to": "gate",
+                    "dashed": true
+                  }
+                ],
+                "boundary": "依据官方迁移文档整理的目标工作流，不是 OpenAI 或 Promptfoo 内部系统架构；具体存储、CI 平台、权限与保留周期由实施团队决定。"
+              },
+              "annotations": [
+                {
+                  "title": "配置能跑不等于语义等价",
+                  "detail": "必须用固定样本和旧基线复核 grader、阈值与失败分布。"
+                },
+                {
+                  "title": "旧结果只作基线",
+                  "detail": "历史分数不能证明新 provider、模型版本或重试策略完全相同。"
+                }
+              ]
+            }
+          ],
+          "source_refs": [
+            "migration",
+            "promptfoo-guide"
+          ]
+        },
+        {
+          "key": "semantics",
+          "eyebrow": "04",
+          "kicker": "守住语义",
+          "title": "一对一字段替换不够，grader、阈值与聚合方式必须重新验收",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "table",
+              "title": "概念映射不是自动转换",
+              "headers": [
+                "旧 Evals 概念",
+                "Promptfoo 中的落点",
+                "必须人工确认"
+              ],
+              "rows": [
+                [
+                  "Evaluation / task",
+                  "配置文件与 description",
+                  "任务范围、输入 schema"
+                ],
+                [
+                  "Data source",
+                  "tests、vars 与外部数据文件",
+                  "样本集合、顺序、缺失值"
+                ],
+                [
+                  "Prompt / model",
+                  "prompts 与 providers",
+                  "endpoint、参数、工具、重试"
+                ],
+                [
+                  "Testing criteria / grader",
+                  "assertions 与 metrics",
+                  "评分提示、阈值、聚合"
+                ],
+                [
+                  "Run / output items",
+                  "CLI 结果、报告与 CI artifact",
+                  "失败样本、成本、保留周期"
+                ]
+              ],
+              "refs": [
+                "migration"
+              ]
+            },
+            {
+              "type": "note",
+              "title": "迁移验收看分布，不只看总分",
+              "text": "至少比较同一固定样本上的逐项结果、失败类型、拒答、格式错误与人工争议样本；一个接近的平均分可能掩盖完全不同的错误集合。"
+            }
+          ],
+          "source_refs": [
+            "migration"
+          ]
+        },
+        {
+          "key": "ci",
+          "eyebrow": "05",
+          "kicker": "接入 CI",
+          "title": "评测成为发布门禁后，稳定性、成本与密钥边界必须独立记录",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "table",
+              "title": "CI 不应把所有失败压成一个红灯",
+              "headers": [
+                "层级",
+                "建议记录",
+                "不要误判为"
+              ],
+              "rows": [
+                [
+                  "配置",
+                  "schema、provider ID、assertion 解析",
+                  "模型能力退化"
+                ],
+                [
+                  "访问",
+                  "密钥、配额、区域、第三方 endpoint",
+                  "测试数据错误"
+                ],
+                [
+                  "执行",
+                  "超时、重试、并发、速率限制",
+                  "稳定的质量回归"
+                ],
+                [
+                  "评分",
+                  "grader 错误、格式失败、人工分歧",
+                  "统一的低质量"
+                ],
+                [
+                  "门禁",
+                  "基线版本、阈值、允许波动、批准人",
+                  "任意一次分数下降都应阻断"
+                ]
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Promptfoo 的官方入门把评测定义放在配置文件，并支持本地或 CI 运行；密钥仍应来自 secret manager，而不是随配置提交。若评测调用外部模型或自定义 endpoint，还要额外记录数据发送对象与条款边界。",
+              "refs": [
+                "promptfoo-guide",
+                "external-models"
+              ]
+            }
+          ],
+          "source_refs": [
+            "promptfoo-guide",
+            "external-models"
+          ]
+        },
+        {
+          "key": "cutover",
+          "eyebrow": "06",
+          "kicker": "最小切换",
+          "title": "先复现一个代表性 eval，再迁移长尾；每一步都保留可回看证据",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "cards",
+              "title": "四个最小验收点",
+              "items": [
+                {
+                  "title": "对象完整",
+                  "detail": "旧 eval、数据、grader、provider 与结果都有负责人和落点"
+                },
+                {
+                  "title": "语义一致",
+                  "detail": "固定样本逐项比对，解释所有差异而非只看均分"
+                },
+                {
+                  "title": "运行可复核",
+                  "detail": "版本、命令、secret、artifact 与成本可追踪"
+                },
+                {
+                  "title": "关闭可承受",
+                  "detail": "停止依赖旧 API，文档与值班路径已经更新"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "优先选择一个样本量适中、grader 明确、业务影响真实的 eval 做端到端迁移。通过后再把共享 provider、assertion 与报告模板抽成复用层；不要先批量复制几十个配置，再发现评分语义整体偏移。",
+              "refs": [
+                "migration"
+              ]
+            }
+          ],
+          "source_refs": [
+            "migration"
+          ]
+        },
+        {
+          "key": "boundary",
+          "eyebrow": "07",
+          "kicker": "证据边界",
+          "title": "平台退出不等于评测方法失效，也不等于相邻产品同时关闭",
+          "analysis": true,
+          "blocks": [
+            {
+              "type": "text",
+              "text": "官方公告针对 Evals 平台、其 Dashboard/API 与相关 grader 工作流。它不能推出所有 Datasets、trace grading、fine-tuning 评测或 OpenAI API 都在同一天关闭；相邻功能必须分别查看自己的当前文档与弃用时间表。",
+              "refs": [
+                "deprecations",
+                "agent-evals"
+              ]
+            },
+            {
+              "type": "note",
+              "title": "本站不能推出什么",
+              "text": "本站未执行迁移，不能证明 Promptfoo 会逐项复现任何组织的旧分数，也不能证明第三方 provider、grader 或 CI 成本与旧平台相同。官方推荐是一条迁移路径，不是结果等价保证。"
+            },
+            {
+              "type": "transition",
+              "text": "先保存证据，再重建语义，最后接入门禁；关闭日期不该成为团队第一次真正理解自己评测系统的那一天。"
+            }
+          ],
+          "source_refs": [
+            "deprecations",
+            "agent-evals"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "deprecations",
+          "publisher": "OpenAI",
+          "title": "Deprecations · 2026-06-03: Evals platform",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "published": "2026-06-03",
+          "verified_at": "2026-11-02",
+          "kind": "官方弃用、只读与关闭时间表",
+          "note": "用于核验 10 月 31 日只读与 11 月 30 日计划关闭；计划日期不等于本站可用性承诺。"
+        },
+        {
+          "id": "migration",
+          "publisher": "OpenAI",
+          "title": "Moving from OpenAI Evals to Promptfoo",
+          "url": "https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo",
+          "published": "2026-06-03",
+          "verified_at": "2026-11-02",
+          "kind": "官方迁移指南与概念映射",
+          "note": "用于核验推荐迁移路径、手工重建、核心构件映射及没有导出依赖。"
+        },
+        {
+          "id": "promptfoo-guide",
+          "publisher": "OpenAI",
+          "title": "Get started with Promptfoo",
+          "url": "https://developers.openai.com/api/docs/guides/promptfoo-codex",
+          "verified_at": "2026-11-02",
+          "kind": "官方 CLI 与代码化评测入门",
+          "note": "用于核验 Promptfoo 的配置文件、CLI/Codex 工作流；本站未安装或运行。"
+        },
+        {
+          "id": "evals-reference",
+          "publisher": "OpenAI",
+          "title": "Evals API reference",
+          "url": "https://developers.openai.com/api/reference/typescript/resources/evals",
+          "verified_at": "2026-11-02",
+          "kind": "旧托管对象结构参考",
+          "note": "只用于核对 eval、run 与 output item 对象；弃用状态以 Deprecations 页面为准。"
+        },
+        {
+          "id": "external-models",
+          "publisher": "OpenAI",
+          "title": "Evaluate external models",
+          "url": "https://developers.openai.com/api/docs/guides/external-models",
+          "verified_at": "2026-11-02",
+          "kind": "外部 provider 与数据发送边界",
+          "note": "用于说明第三方模型、自定义 endpoint、项目配置与条款边界；相关旧 Evals 状态仍受弃用时间表约束。"
+        },
+        {
+          "id": "agent-evals",
+          "publisher": "OpenAI",
+          "title": "Evaluate agent workflows",
+          "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+          "verified_at": "2026-11-02",
+          "kind": "相邻 trace、dataset 与 agent 评测入口",
+          "note": "用于区分相邻评测表面；不能由 Evals 平台弃用外推其全部同时关闭。"
+        }
+      ],
+      "revision_note": "2026-11-02 首次发布；基于 OpenAI 官方时间表与迁移指南拆分证据保全、概念映射、CI 门禁与关闭边界，本站未访问旧 Evals 数据或运行 Promptfoo。"
+    },
     {
       "id": "openai-api-credits-ledger",
       "hot_ids": [
