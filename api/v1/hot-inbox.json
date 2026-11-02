@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-02T11:34:49Z",
+  "generated_at": "2026-11-02T14:02:41Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 6,
-    "merge": 132,
+    "merge": 133,
     "hold": 7
   },
   "candidates": [
@@ -182,6 +182,30 @@
         "Numerical Precision"
       ],
       "first_seen_at": "2026-10-30T07:48:38Z"
+    },
+    {
+      "id": "candidate-076e9e66b1996c32",
+      "category": "product",
+      "published": "2026-11-02",
+      "title": "ChatGPT 与 Codex 将改用共享 token allowance",
+      "summary": "Plus、Pro、Business 从 12 月起共享 ChatGPT 与 Codex 用量；Instant chat 不计入，Settings → Usage 将展示合并后的剩余量与 reset time。",
+      "why": "跨 ChatGPT 与 Codex 的容量规划将变成同一预算问题；真实验收应同时记录任务模型、复杂度、token 消耗、剩余量和 reset 周期。",
+      "boundary": "不能从“Starting in December”补造精确上线时刻、每档额度或统一换算；官方对重置频率的表述是预期，不是 SLA。共享 allowance 也不是一次自动或 banked reset。",
+      "source": "OpenAI",
+      "source_kind": "官方产品节点",
+      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "publishable": true,
+      "features": {
+        "freshness": 1.0,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 0.15
+      },
+      "priority_score": 0.826,
+      "action": "merge",
+      "reason": "已有同源热点，建议合并更新。",
+      "product_id": "openai-work-codex-allowance",
+      "first_seen_at": "2026-11-02T14:02:41Z"
     },
     {
       "id": "candidate-4f58b3a979ebe0dd",
@@ -984,30 +1008,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "github-connected-copilot-cloud",
       "first_seen_at": "2026-10-29T05:26:10Z"
-    },
-    {
-      "id": "candidate-6fe2b96684b4a933",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "符合条件的 Pro / Business 开放 API credits 领取",
-      "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
-      "why": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
-      "boundary": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
-      "publishable": true,
-      "features": {
-        "freshness": 0.643,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.719,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-chatgpt-api-credits",
-      "first_seen_at": "2026-10-29T09:28:17Z"
     }
   ]
 }
