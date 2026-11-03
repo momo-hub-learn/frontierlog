@@ -41,6 +41,104 @@
     ],
     "items": [
       {
+        "id": "openai-pando-git-20261102",
+        "category": "product",
+        "title": "Pando：OpenAI 把 Git 后端改造成 Agent 规模的并发系统",
+        "published": "2026-11-02",
+        "checked": "2026-11-03",
+        "verified_at": "2026-11-03T21:19:08+08:00",
+        "first_seen_at": "2026-11-03T21:19:08+08:00",
+        "heat": 96,
+        "heat_components": {
+          "impact": 35,
+          "availability": 21,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；生产部署、Git 协议兼容、并发写入与公开性能数据提高影响和证据分，Pando 尚未作为独立公开服务限制可操作性。这不是代码质量、模型能力或本站实测分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方工程说明与生产指标 · Pando 为内部生产系统，公开分享路径仍在探索",
+        "summary": "OpenAI 公开 Pando：保持 Git 协议和客户端兼容，用按分支协调、可复用 packfile 与分层压缩支撑 Agent 并行开发；官方称其已承载 OpenAI monorepo，并将中位 push 延迟降低近 80%。",
+        "why": "Coding Agent 的瓶颈正在从单次生成转向多 Agent 同时提交、拉取、合并和跑 CI。Pando 展示了基础设施如何围绕高并发分支、缓存复用、可验证迁移与确定性测试重新设计。",
+        "boundary": "数据来自 OpenAI 自身生产环境与模拟，不是第三方复测。Pando 放宽仓库全局时间点一致性，跨分支读取可能看到不同版本；它目前不是可直接购买或部署的公开产品。近 80% 延迟改善和每日近 1 PB 传输不能外推到其他仓库、网络或成本结构。",
+        "source": "OpenAI",
+        "source_kind": "官方工程架构、生产指标与一致性边界 / 本轮编辑核验",
+        "url": "https://openai.com/index/scaling-git-at-openai/",
+        "link": "#/hot?cat=product",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 Pando 官方工程说明",
+            "note": "核对架构、Git 兼容、生产指标与因果一致性取舍",
+            "url": "https://openai.com/index/scaling-git-at-openai/",
+            "kind": "external"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Scaling Git at OpenAI",
+            "url": "https://openai.com/index/scaling-git-at-openai/",
+            "date": "2026-11-02"
+          }
+        ]
+      },
+      {
+        "id": "openai-security-sprint-bounty-20261102",
+        "category": "security",
+        "title": "OpenAI 启动新安全冲刺，并上调漏洞赏金",
+        "published": "2026-11-02",
+        "checked": "2026-11-03",
+        "verified_at": "2026-11-03T21:19:08+08:00",
+        "first_seen_at": "2026-11-03T21:19:08+08:00",
+        "heat": 91,
+        "heat_components": {
+          "impact": 31,
+          "availability": 21,
+          "evidence": 25,
+          "recency": 14
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；内部冲刺、外部研究伙伴与公开赏金结构提高证据和可操作性，尚无本轮漏洞发现或修复结果限制影响分。这不是系统安全等级、漏洞数量或本站审计分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方安全冲刺与漏洞赏金公告 · 冲刺结果尚未公布",
+        "summary": "OpenAI 宣布与 Cathedral Systems 开展下一轮内部安全冲刺，让研究人员与内部团队使用模型测试防御；同时提高漏洞赏金，核心产品严重漏洞最高基础奖励 3 万美元，特殊严重发现含加成最高可到 17.2 万美元。",
+        "why": "这把模型能力同时用于发现、复现和修补安全问题，并用更高奖励连接外部研究者。对采用 Agent 的团队，值得跟踪的是可复现证据、修复闭环和权限边界，而不是把‘用了 AI’当成安全结论。",
+        "boundary": "公告描述的是计划、伙伴和奖励结构，没有公开本轮发现的漏洞、修复率或防御效果。最高金额依赖目标、严重度、报告质量、忠诚度与活动加成；不能据此推出产品已经更安全、所有报告都能获得最高奖励，或模型可替代独立安全审计。",
+        "source": "OpenAI",
+        "source_kind": "官方安全冲刺与漏洞赏金规则 / 本轮编辑核验",
+        "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+        "link": "#/hot?cat=security",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读安全冲刺公告",
+            "note": "核对 Cathedral Systems、测试范围与未公布结果",
+            "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+            "kind": "external"
+          },
+          {
+            "label": "查看漏洞赏金调整",
+            "note": "核对基础奖励、加成条件与示例边界",
+            "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties/",
+            "kind": "external"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Preparing our next security sprint to harden OpenAI",
+            "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+            "date": "2026-11-02"
+          },
+          {
+            "source": "OpenAI",
+            "title": "Rewarding defenders with bigger bug bounties",
+            "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties/",
+            "date": "2026-11-02"
+          }
+        ]
+      },
+      {
         "id": "openai-lifeval-20261102",
         "category": "benchmark",
         "title": "LifeVal：把日常生活 Agent 任务单独列为评测对象",
@@ -12407,19 +12505,77 @@
   },
   "github_hot": {
     "version": 1,
-    "checked_at": "2026-11-03T12:06:16Z",
+    "checked_at": "2026-11-03T13:21:26Z",
     "source_url": "https://github.com/trending?since=daily",
     "source_scope": "GitHub Trending · Today · Any spoken language · Any language",
     "note": "榜位与今日新增 Star 仅来自 GitHub Trending Today；仓库总 Star / Fork、创建与推送来自 GitHub Repository API。独立关注的仓库不自动获得榜位或今日 Star。快照过期将显式标注，Star 不等于真实使用量、任务成功率或本站实测。",
     "items": [
       {
-        "repo": "thedotmack/claude-mem",
+        "repo": "vercel-labs/agent-desktop",
         "rank": 1,
-        "stars_today": 1138,
-        "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+        "stars_today": 2275,
+        "description": "Computer use CLI for AI agents",
+        "language": "Rust",
+        "stars": 11685,
+        "forks": 792,
+        "repo_created_at": "2026-02-19T18:00:49Z",
+        "repo_pushed_at": "2026-11-03T12:24:46Z",
+        "category": "agent-interface",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Tools",
+          "MCP"
+        ],
+        "url": "https://github.com/vercel-labs/agent-desktop",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T11:20:06Z",
+            "stars": 7748
+          },
+          {
+            "at": "2026-11-02T15:26:43Z",
+            "stars": 8471
+          },
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 8759
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 9068
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 9174
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 9266
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 10238
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 11568
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 11685
+          }
+        ]
+      },
+      {
+        "repo": "thedotmack/claude-mem",
+        "rank": 2,
+        "stars_today": 1803,
+        "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
-        "stars": 111315,
-        "forks": 9699,
+        "stars": 111366,
+        "forks": 9704,
         "repo_created_at": "2025-08-31T20:50:03Z",
         "repo_pushed_at": "2026-11-03T03:52:52Z",
         "category": "agent-memory",
@@ -12430,12 +12586,8 @@
           "AI"
         ],
         "url": "https://github.com/thedotmack/claude-mem",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
         "star_history": [
-          {
-            "at": "2026-11-02T05:14:54Z",
-            "stars": 109653
-          },
           {
             "at": "2026-11-02T07:29:55Z",
             "stars": 109859
@@ -12479,369 +12631,21 @@
           {
             "at": "2026-11-03T12:06:16Z",
             "stars": 111315
-          }
-        ]
-      },
-      {
-        "repo": "vercel-labs/agent-desktop",
-        "rank": 2,
-        "stars_today": 3792,
-        "description": "Computer use CLI for AI agents",
-        "language": "Rust",
-        "stars": 11568,
-        "forks": 785,
-        "repo_created_at": "2026-02-19T18:00:49Z",
-        "repo_pushed_at": "2026-11-03T11:59:07Z",
-        "category": "agent-interface",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Tools",
-          "MCP"
-        ],
-        "url": "https://github.com/vercel-labs/agent-desktop",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-02T11:20:06Z",
-            "stars": 7748
           },
           {
-            "at": "2026-11-02T15:26:43Z",
-            "stars": 8471
-          },
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 8759
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 9068
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 9174
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 9266
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 10238
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 11568
-          }
-        ]
-      },
-      {
-        "repo": "max-sixty/worktrunk",
-        "rank": 3,
-        "stars_today": 437,
-        "description": "Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows",
-        "language": "Rust",
-        "stars": 10258,
-        "forks": 371,
-        "repo_created_at": "2025-10-17T22:13:14Z",
-        "repo_pushed_at": "2026-11-03T10:43:10Z",
-        "category": "agent-interface",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Tools",
-          "MCP"
-        ],
-        "url": "https://github.com/max-sixty/worktrunk",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-02T13:51:30Z",
-            "stars": 9856
-          },
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 9916
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 9944
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 9963
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 9975
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 10096
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 10258
-          }
-        ]
-      },
-      {
-        "repo": "JustVugg/colibri",
-        "rank": 4,
-        "stars_today": 803,
-        "description": "A hierarchical inference engine for frontier MoE models: hot experts on the GPU (CUDA, Vulkan), warm ones in RAM, cold ones streamed from NVMe. Written in C, runs on the hardware you already own.",
-        "language": "C",
-        "stars": 46935,
-        "forks": 5419,
-        "repo_created_at": "2026-07-01T12:27:49Z",
-        "repo_pushed_at": "2026-11-03T10:56:51Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/JustVugg/colibri",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 46351
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 46428
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 46454
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 46472
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 46659
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 46935
-          }
-        ]
-      },
-      {
-        "repo": "mattpocock/skills",
-        "rank": 5,
-        "stars_today": 1164,
-        "description": "Skills for Real Engineers. Straight from my .agents directory.",
-        "language": "Shell",
-        "stars": 310809,
-        "forks": 26143,
-        "repo_created_at": "2026-02-03T11:15:53Z",
-        "repo_pushed_at": "2026-11-01T11:42:33Z",
-        "category": "agent-skills",
-        "ai_related": true,
-        "tags": [
-          "Agent",
-          "Skills",
-          "Workflow"
-        ],
-        "url": "https://github.com/mattpocock/skills",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-02T13:51:30Z",
-            "stars": 309788
-          },
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 309972
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 310047
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 310087
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 310123
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 310363
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 310809
-          }
-        ]
-      },
-      {
-        "repo": "p-e-w/heretic",
-        "rank": 6,
-        "stars_today": 699,
-        "description": "Training-free language model modification: Remove censorship, suppress slop, reduce sycophancy, and more",
-        "language": "Python",
-        "stars": 38461,
-        "forks": 4349,
-        "repo_created_at": "2025-09-21T05:46:16Z",
-        "repo_pushed_at": "2026-11-03T11:36:53Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/p-e-w/heretic",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-02T13:51:30Z",
-            "stars": 37828
-          },
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 37906
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 37955
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 37990
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 38015
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 38177
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 38461
-          }
-        ]
-      },
-      {
-        "repo": "spotify/portal-ai-plugins",
-        "rank": 7,
-        "stars_today": 94,
-        "description": "",
-        "language": "TypeScript",
-        "stars": 2916,
-        "forks": 228,
-        "repo_created_at": "2026-07-23T21:17:21Z",
-        "repo_pushed_at": "2026-10-23T07:08:57Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/spotify/portal-ai-plugins",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 2916
-          }
-        ]
-      },
-      {
-        "repo": "floci-io/floci",
-        "rank": 8,
-        "stars_today": 219,
-        "description": "Light, fluffy, and always free - The AWS Local Emulator alternative",
-        "language": "Java",
-        "stars": 28178,
-        "forks": 3161,
-        "repo_created_at": "2026-02-18T02:28:29Z",
-        "repo_pushed_at": "2026-11-03T12:01:13Z",
-        "category": "other",
-        "ai_related": false,
-        "tags": [
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/floci-io/floci",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 28178
-          }
-        ]
-      },
-      {
-        "repo": "Usagi-org/ai-goofish-monitor",
-        "rank": 9,
-        "stars_today": 204,
-        "description": "基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管理UI。帮助用户从闲鱼海量商品中，找到心仪产品。",
-        "language": "Python",
-        "stars": 16106,
-        "forks": 2820,
-        "repo_created_at": "2025-07-16T08:13:41Z",
-        "repo_pushed_at": "2026-10-10T07:39:16Z",
-        "category": "ai-tools",
-        "ai_related": true,
-        "tags": [
-          "AI",
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/Usagi-org/ai-goofish-monitor",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 16106
-          }
-        ]
-      },
-      {
-        "repo": "anomalyco/hex",
-        "rank": 10,
-        "stars_today": 1134,
-        "description": "Local voice dictation for mac, windows and linux",
-        "language": "Rust",
-        "stars": 4226,
-        "forks": 249,
-        "repo_created_at": "2026-07-17T23:48:56Z",
-        "repo_pushed_at": "2026-11-03T11:53:04Z",
-        "category": "other",
-        "ai_related": false,
-        "tags": [
-          "Open Source",
-          "GitHub"
-        ],
-        "url": "https://github.com/anomalyco/hex",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
-        "star_history": [
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 4226
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 111366
           }
         ]
       },
       {
         "repo": "D4Vinci/Scrapling",
-        "rank": 11,
-        "stars_today": 1658,
+        "rank": 3,
+        "stars_today": 706,
         "description": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
         "language": "Python",
-        "stars": 93737,
-        "forks": 9843,
+        "stars": 93805,
+        "forks": 9850,
         "repo_created_at": "2024-10-13T20:29:53Z",
         "repo_pushed_at": "2026-11-02T20:16:23Z",
         "category": "ai-tools",
@@ -12852,7 +12656,7 @@
           "GitHub"
         ],
         "url": "https://github.com/D4Vinci/Scrapling",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
         "star_history": [
           {
             "at": "2026-11-02T11:20:06Z",
@@ -12885,86 +12689,46 @@
           {
             "at": "2026-11-03T12:06:16Z",
             "stars": 93737
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 93805
           }
         ]
       },
       {
-        "repo": "shiyu-coder/Kronos",
-        "rank": 12,
-        "stars_today": 503,
-        "description": "Kronos: A Foundation Model for the Language of Financial Markets",
-        "language": "Python",
-        "stars": 46230,
-        "forks": 7622,
-        "repo_created_at": "2025-07-01T02:54:32Z",
-        "repo_pushed_at": "2026-04-13T12:38:49Z",
+        "repo": "hyprwm/Hyprland",
+        "rank": 4,
+        "stars_today": 509,
+        "description": "Hyprland is an independent, highly customizable, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
+        "language": "C++",
+        "stars": 40174,
+        "forks": 2162,
+        "repo_created_at": "2022-03-16T19:49:13Z",
+        "repo_pushed_at": "2026-11-03T09:47:30Z",
         "category": "other",
         "ai_related": false,
         "tags": [
           "Open Source",
           "GitHub"
         ],
-        "url": "https://github.com/shiyu-coder/Kronos",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
+        "url": "https://github.com/hyprwm/Hyprland",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
         "star_history": [
           {
-            "at": "2026-11-02T03:14:58Z",
-            "stars": 45479
-          },
-          {
-            "at": "2026-11-02T05:14:54Z",
-            "stars": 45535
-          },
-          {
-            "at": "2026-11-02T07:29:55Z",
-            "stars": 45613
-          },
-          {
-            "at": "2026-11-02T09:23:33Z",
-            "stars": 45680
-          },
-          {
-            "at": "2026-11-02T09:40:35Z",
-            "stars": 45686
-          },
-          {
-            "at": "2026-11-02T15:26:43Z",
-            "stars": 45819
-          },
-          {
-            "at": "2026-11-02T17:17:16Z",
-            "stars": 45870
-          },
-          {
-            "at": "2026-11-02T19:25:33Z",
-            "stars": 45914
-          },
-          {
-            "at": "2026-11-02T20:25:49Z",
-            "stars": 45938
-          },
-          {
-            "at": "2026-11-02T21:16:06Z",
-            "stars": 45952
-          },
-          {
-            "at": "2026-11-03T03:30:45Z",
-            "stars": 46059
-          },
-          {
-            "at": "2026-11-03T12:06:16Z",
-            "stars": 46230
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 40174
           }
         ]
       },
       {
         "repo": "Donchitos/Claude-Code-Game-Studios",
-        "rank": 13,
-        "stars_today": 1181,
+        "rank": 5,
+        "stars_today": 1379,
         "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
         "language": "Shell",
-        "stars": 34160,
-        "forks": 4566,
+        "stars": 34224,
+        "forks": 4568,
         "repo_created_at": "2026-02-12T05:21:38Z",
         "repo_pushed_at": "2026-10-19T02:43:42Z",
         "category": "agent-skills",
@@ -12975,12 +12739,8 @@
           "Workflow"
         ],
         "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-        "metadata_verified_at": "2026-11-03T12:06:16Z",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
         "star_history": [
-          {
-            "at": "2026-11-02T01:36:12Z",
-            "stars": 32330
-          },
           {
             "at": "2026-11-02T03:14:58Z",
             "stars": 32452
@@ -13024,6 +12784,423 @@
           {
             "at": "2026-11-03T12:06:16Z",
             "stars": 34160
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 34224
+          }
+        ]
+      },
+      {
+        "repo": "FlashML-org/FreeToken",
+        "rank": 6,
+        "stars_today": 653,
+        "description": "FreeToken brings datacenter-scale model serving to your desktop. Run massive models locally, fast and efficiently.",
+        "language": "Python",
+        "stars": 16419,
+        "forks": 1609,
+        "repo_created_at": "2026-07-20T20:44:11Z",
+        "repo_pushed_at": "2026-11-03T11:18:33Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/FlashML-org/FreeToken",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 16419
+          }
+        ]
+      },
+      {
+        "repo": "pingdotgg/t3code",
+        "rank": 7,
+        "stars_today": 3229,
+        "description": "Agent harness control surface for local coding agents, with mobile, web and desktop clients.",
+        "language": "TypeScript",
+        "stars": 43257,
+        "forks": 9176,
+        "repo_created_at": "2026-02-08T23:46:22Z",
+        "repo_pushed_at": "2026-11-03T13:20:24Z",
+        "category": "agent-harness",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Harness",
+          "Codex"
+        ],
+        "url": "https://github.com/pingdotgg/t3code",
+        "description_source": "official-readme",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 43256
+          }
+        ]
+      },
+      {
+        "repo": "shiyu-coder/Kronos",
+        "rank": 8,
+        "stars_today": 857,
+        "description": "Kronos: A Foundation Model for the Language of Financial Markets",
+        "language": "Python",
+        "stars": 46252,
+        "forks": 7627,
+        "repo_created_at": "2025-07-01T02:54:32Z",
+        "repo_pushed_at": "2026-04-13T12:38:49Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/shiyu-coder/Kronos",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T05:14:54Z",
+            "stars": 45535
+          },
+          {
+            "at": "2026-11-02T07:29:55Z",
+            "stars": 45613
+          },
+          {
+            "at": "2026-11-02T09:23:33Z",
+            "stars": 45680
+          },
+          {
+            "at": "2026-11-02T09:40:35Z",
+            "stars": 45686
+          },
+          {
+            "at": "2026-11-02T15:26:43Z",
+            "stars": 45819
+          },
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 45870
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 45914
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 45938
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 45952
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 46059
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 46230
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 46252
+          }
+        ]
+      },
+      {
+        "repo": "kornia/kornia",
+        "rank": 9,
+        "stars_today": 412,
+        "description": "🐍 Geometric Computer Vision Library for Spatial AI",
+        "language": "Python",
+        "stars": 12289,
+        "forks": 1507,
+        "repo_created_at": "2018-08-22T10:31:37Z",
+        "repo_pushed_at": "2026-11-03T12:09:58Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/kornia/kornia",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 12289
+          }
+        ]
+      },
+      {
+        "repo": "JustVugg/colibri",
+        "rank": 10,
+        "stars_today": 675,
+        "description": "A hierarchical inference engine for frontier MoE models: hot experts on the GPU (CUDA, Vulkan), warm ones in RAM, cold ones streamed from NVMe. Written in C, runs on the hardware you already own.",
+        "language": "C",
+        "stars": 46969,
+        "forks": 5424,
+        "repo_created_at": "2026-07-01T12:27:49Z",
+        "repo_pushed_at": "2026-11-03T13:02:55Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/JustVugg/colibri",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 46351
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 46428
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 46454
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 46472
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 46659
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 46935
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 46969
+          }
+        ]
+      },
+      {
+        "repo": "mattpocock/skills",
+        "rank": 11,
+        "stars_today": 858,
+        "description": "Skills for Real Engineers. Straight from my .agents directory.",
+        "language": "Shell",
+        "stars": 310882,
+        "forks": 26148,
+        "repo_created_at": "2026-02-03T11:15:53Z",
+        "repo_pushed_at": "2026-11-01T11:42:33Z",
+        "category": "agent-skills",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Skills",
+          "Workflow"
+        ],
+        "url": "https://github.com/mattpocock/skills",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T13:51:30Z",
+            "stars": 309788
+          },
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 309972
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 310047
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 310087
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 310123
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 310363
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 310809
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 310882
+          }
+        ]
+      },
+      {
+        "repo": "max-sixty/worktrunk",
+        "rank": 12,
+        "stars_today": 77,
+        "description": "Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows",
+        "language": "Rust",
+        "stars": 10281,
+        "forks": 371,
+        "repo_created_at": "2025-10-17T22:13:14Z",
+        "repo_pushed_at": "2026-11-03T12:33:52Z",
+        "category": "agent-interface",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Tools",
+          "MCP"
+        ],
+        "url": "https://github.com/max-sixty/worktrunk",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T13:51:30Z",
+            "stars": 9856
+          },
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 9916
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 9944
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 9963
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 9975
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 10096
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 10258
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 10281
+          }
+        ]
+      },
+      {
+        "repo": "paperclipai/paperclip",
+        "rank": 13,
+        "stars_today": 412,
+        "description": "The open-source app everyone uses to manage agents at work",
+        "language": "TypeScript",
+        "stars": 110714,
+        "forks": 18324,
+        "repo_created_at": "2026-03-02T15:01:51Z",
+        "repo_pushed_at": "2026-11-03T13:20:22Z",
+        "category": "agent-runtime",
+        "ai_related": true,
+        "tags": [
+          "Agent",
+          "Runtime",
+          "AI"
+        ],
+        "url": "https://github.com/paperclipai/paperclip",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 110714
+          }
+        ]
+      },
+      {
+        "repo": "karpathy/nanochat",
+        "rank": 14,
+        "stars_today": 321,
+        "description": "The best ChatGPT that $100 can buy.",
+        "language": "Python",
+        "stars": 60148,
+        "forks": 8435,
+        "repo_created_at": "2025-10-13T13:46:35Z",
+        "repo_pushed_at": "2026-09-07T20:06:43Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/karpathy/nanochat",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 60148
+          }
+        ]
+      },
+      {
+        "repo": "p-e-w/heretic",
+        "rank": 15,
+        "stars_today": 420,
+        "description": "Training-free language model modification: Remove censorship, suppress slop, reduce sycophancy, and more",
+        "language": "Python",
+        "stars": 38499,
+        "forks": 4351,
+        "repo_created_at": "2025-09-21T05:46:16Z",
+        "repo_pushed_at": "2026-11-03T12:23:19Z",
+        "category": "ai-tools",
+        "ai_related": true,
+        "tags": [
+          "AI",
+          "Open Source",
+          "GitHub"
+        ],
+        "url": "https://github.com/p-e-w/heretic",
+        "metadata_verified_at": "2026-11-03T13:21:26Z",
+        "star_history": [
+          {
+            "at": "2026-11-02T13:51:30Z",
+            "stars": 37828
+          },
+          {
+            "at": "2026-11-02T17:17:16Z",
+            "stars": 37906
+          },
+          {
+            "at": "2026-11-02T19:25:33Z",
+            "stars": 37955
+          },
+          {
+            "at": "2026-11-02T20:25:49Z",
+            "stars": 37990
+          },
+          {
+            "at": "2026-11-02T21:16:06Z",
+            "stars": 38015
+          },
+          {
+            "at": "2026-11-03T03:30:45Z",
+            "stars": 38177
+          },
+          {
+            "at": "2026-11-03T12:06:16Z",
+            "stars": 38461
+          },
+          {
+            "at": "2026-11-03T13:21:26Z",
+            "stars": 38499
           }
         ]
       }
@@ -13103,17 +13280,17 @@
     "sync": {
       "mode": "official_trending_plus_repository_api",
       "status": "success",
-      "last_checked_at": "2026-11-03T12:06:16Z",
-      "last_success_at": "2026-11-03T12:06:16Z",
+      "last_checked_at": "2026-11-03T13:21:26Z",
+      "last_success_at": "2026-11-03T13:21:26Z",
       "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
       "watchlist_checked_at": "2026-11-03T12:06:16Z",
       "watchlist_errors": [],
       "watchlist_failed_count": 0,
-      "trending_count": 13,
-      "verified_count": 13,
+      "trending_count": 15,
+      "verified_count": 15,
       "metadata_failed_count": 0,
       "metadata_status": "success",
-      "metadata_checked_at": "2026-11-03T12:06:16Z",
+      "metadata_checked_at": "2026-11-03T13:21:26Z",
       "skipped": []
     },
     "watchlist": [
@@ -13141,15 +13318,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-11-03T03:21:00Z",
+    "checked_at": "2026-11-03T13:15:20Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-11-03T03:21:00Z",
-    "web_fetched_at": "2026-11-03T03:21:00Z",
+    "api_fetched_at": "2026-11-03T13:15:20Z",
+    "web_fetched_at": "2026-11-03T13:15:20Z",
     "web_verification_method": "official_web_server_html",
     "web_order_matches_api": true,
     "web_order": [
@@ -13157,22 +13334,22 @@
       "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "mistralai/Mistral-Large-4-1T-A52B",
-      "baidu/Unlimited-OCR-2",
       "speridlabs/idol",
       "Lightricks/LTX-2.5",
       "ccore/Qwen3.5-4B-3D-Coder",
       "Pika-Labs/Pika-H3-Flex",
+      "baidu/Unlimited-OCR-2",
+      "LiquidAI/LFM3-Omni-2B",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
       "Qwen/Qwen3.8-27B",
-      "LiquidAI/LFM3-Omni-2B",
+      "burner22/numbat",
       "black-forest-labs/flux-3-image-klein-comfy",
       "Nanbeige/Nanbeige4.3-33B",
-      "burner22/numbat",
-      "Edge0/Audio8-TTS-Realistic-Air",
       "FusionCow/Sulphur-3",
+      "Edge0/Audio8-TTS-Realistic-Air",
       "Diffuspace/Clover-35B-A3B-Preview",
       "facebook/sam3",
-      "LiquidAI/LFM3-VL-2B"
+      "AtomicChat/DeepSeek-V4.1-Flash-1017-Uncensored-GSQ-RCO-GGUF"
     ],
     "web_rank_changes": [
       {
@@ -13180,147 +13357,147 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
-      },
-      {
-        "id": "baidu/Unlimited-OCR-2",
-        "rank": 5,
-        "previous_rank": 5,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "speridlabs/idol",
-        "rank": 6,
-        "previous_rank": 7,
+        "rank": 5,
+        "previous_rank": 6,
         "rank_change": 1,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "Lightricks/LTX-2.5",
-        "rank": 7,
-        "previous_rank": 6,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "rank": 6,
+        "previous_rank": 7,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
-        "rank": 8,
+        "rank": 7,
         "previous_rank": 8,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "rank_change": 1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "Pika-Labs/Pika-H3-Flex",
-        "rank": 9,
+        "rank": 8,
         "previous_rank": 9,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
-      },
-      {
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "rank": 10,
-        "previous_rank": 10,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
-      },
-      {
-        "id": "Qwen/Qwen3.8-27B",
-        "rank": 11,
-        "previous_rank": 12,
         "rank_change": 1,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
+      },
+      {
+        "id": "baidu/Unlimited-OCR-2",
+        "rank": 9,
+        "previous_rank": 5,
+        "rank_change": -4,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "LiquidAI/LFM3-Omni-2B",
-        "rank": 12,
-        "previous_rank": 14,
+        "rank": 10,
+        "previous_rank": 12,
         "rank_change": 2,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "rank": 13,
-        "previous_rank": 13,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "rank": 11,
+        "previous_rank": 10,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
-        "id": "Nanbeige/Nanbeige4.3-33B",
-        "rank": 14,
+        "id": "Qwen/Qwen3.8-27B",
+        "rank": 12,
         "previous_rank": 11,
-        "rank_change": -3,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "burner22/numbat",
-        "rank": 15,
+        "rank": 13,
         "previous_rank": 15,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "rank_change": 2,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
-        "id": "Edge0/Audio8-TTS-Realistic-Air",
-        "rank": 16,
-        "previous_rank": 16,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "rank": 14,
+        "previous_rank": 13,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
+      },
+      {
+        "id": "Nanbeige/Nanbeige4.3-33B",
+        "rank": 15,
+        "previous_rank": 14,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "FusionCow/Sulphur-3",
+        "rank": 16,
+        "previous_rank": 17,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
+      },
+      {
+        "id": "Edge0/Audio8-TTS-Realistic-Air",
         "rank": 17,
-        "previous_rank": null,
-        "rank_change": null,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_rank": 16,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "Diffuspace/Clover-35B-A3B-Preview",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
         "id": "facebook/sam3",
         "rank": 19,
         "previous_rank": 19,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       },
       {
-        "id": "LiquidAI/LFM3-VL-2B",
+        "id": "AtomicChat/DeepSeek-V4.1-Flash-1017-Uncensored-GSQ-RCO-GGUF",
         "rank": 20,
-        "previous_rank": 20,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       }
     ],
     "web_outgoing": [
       {
-        "id": "RecursiveSI/flint",
-        "previous_rank": 17,
-        "previous_fetched_at": "2026-11-02T21:16:07Z"
+        "id": "LiquidAI/LFM3-VL-2B",
+        "previous_rank": 20,
+        "previous_fetched_at": "2026-11-03T03:21:00Z"
       }
     ],
     "items": [
@@ -13328,9 +13505,9 @@
         "rank": 1,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 767,
-        "likes": 1178,
-        "downloads": 42384,
+        "trending_score": 821,
+        "likes": 1328,
+        "downloads": 47817,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-23T21:35:42.000Z",
@@ -13345,9 +13522,9 @@
         "rank": 2,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 672,
-        "likes": 4717,
-        "downloads": 177009,
+        "trending_score": 641,
+        "likes": 4793,
+        "downloads": 187260,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-10-17T02:40:38.000Z",
@@ -13362,9 +13539,9 @@
         "rank": 3,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 611,
-        "likes": 688,
-        "downloads": 32439,
+        "trending_score": 625,
+        "likes": 706,
+        "downloads": 38942,
         "task": "automatic-speech-recognition",
         "library": "nemo",
         "created_at": "2026-10-07T22:50:21.000Z",
@@ -13379,9 +13556,9 @@
         "rank": 4,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 504,
-        "likes": 1502,
-        "downloads": 5500,
+        "trending_score": 518,
+        "likes": 1523,
+        "downloads": 6556,
         "task": "image-text-to-text",
         "library": "transformers",
         "created_at": "2026-09-30T18:35:13.000Z",
@@ -13394,28 +13571,11 @@
       },
       {
         "rank": 5,
-        "id": "baidu/Unlimited-OCR-2",
-        "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 456,
-        "likes": 564,
-        "downloads": 147588,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-26T03:57:46.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "unlimited-ocr",
-          "feature-extraction"
-        ]
-      },
-      {
-        "rank": 6,
         "id": "speridlabs/idol",
         "url": "https://huggingface.co/speridlabs/idol",
-        "trending_score": 405,
-        "likes": 426,
-        "downloads": 7787,
+        "trending_score": 446,
+        "likes": 468,
+        "downloads": 10742,
         "task": "image-to-3d",
         "library": "idol",
         "created_at": "2026-10-28T15:55:17.000Z",
@@ -13427,12 +13587,12 @@
         ]
       },
       {
-        "rank": 7,
+        "rank": 6,
         "id": "Lightricks/LTX-2.5",
         "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 381,
-        "likes": 10371,
-        "downloads": 2467613,
+        "trending_score": 380,
+        "likes": 10424,
+        "downloads": 2488128,
         "task": "image-to-video",
         "library": "diffusion-single-file",
         "created_at": "2026-07-23T07:55:24.000Z",
@@ -13444,12 +13604,12 @@
         ]
       },
       {
-        "rank": 8,
+        "rank": 7,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 380,
-        "likes": 565,
-        "downloads": 63499,
+        "trending_score": 371,
+        "likes": 579,
+        "downloads": 91123,
         "task": "未标注",
         "library": "未标注",
         "created_at": "2026-10-25T05:43:34.000Z",
@@ -13461,12 +13621,12 @@
         ]
       },
       {
-        "rank": 9,
+        "rank": 8,
         "id": "Pika-Labs/Pika-H3-Flex",
         "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
-        "trending_score": 342,
-        "likes": 362,
-        "downloads": 491,
+        "trending_score": 355,
+        "likes": 377,
+        "downloads": 633,
         "task": "image-to-video",
         "library": "diffusers",
         "created_at": "2026-10-29T17:08:44.000Z",
@@ -13478,46 +13638,29 @@
         ]
       },
       {
-        "rank": 10,
-        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 295,
-        "likes": 5563,
-        "downloads": 2516622,
-        "task": "text-to-image",
-        "library": "gguf",
-        "created_at": "2026-09-20T15:51:13.000Z",
-        "tags": [
-          "gguf",
-          "qwen",
-          "image-generation",
-          "comfyui"
-        ]
-      },
-      {
-        "rank": 11,
-        "id": "Qwen/Qwen3.8-27B",
-        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 287,
-        "likes": 19018,
-        "downloads": 7915637,
+        "rank": 9,
+        "id": "baidu/Unlimited-OCR-2",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+        "trending_score": 337,
+        "likes": 577,
+        "downloads": 189897,
         "task": "image-text-to-text",
         "library": "transformers",
-        "created_at": "2026-08-05T08:22:59.000Z",
+        "created_at": "2026-10-26T03:57:46.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "qwen3_5",
-          "image-text-to-text"
+          "unlimited-ocr",
+          "feature-extraction"
         ]
       },
       {
-        "rank": 12,
+        "rank": 10,
         "id": "LiquidAI/LFM3-Omni-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 284,
-        "likes": 313,
-        "downloads": 9964,
+        "trending_score": 295,
+        "likes": 326,
+        "downloads": 11662,
         "task": "any-to-any",
         "library": "transformers",
         "created_at": "2026-10-21T16:58:40.000Z",
@@ -13529,46 +13672,46 @@
         ]
       },
       {
-        "rank": 13,
-        "id": "black-forest-labs/flux-3-image-klein-comfy",
-        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 278,
-        "likes": 2358,
-        "downloads": 1003813,
-        "task": "image-to-image",
-        "library": "diffusion-single-file",
-        "created_at": "2026-10-14T12:00:13.000Z",
+        "rank": 11,
+        "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
+        "trending_score": 292,
+        "likes": 5589,
+        "downloads": 2508590,
+        "task": "text-to-image",
+        "library": "gguf",
+        "created_at": "2026-09-20T15:51:13.000Z",
         "tags": [
-          "diffusion-single-file",
-          "comfyui",
+          "gguf",
+          "qwen",
           "image-generation",
-          "image-editing"
+          "comfyui"
         ]
       },
       {
-        "rank": 14,
-        "id": "Nanbeige/Nanbeige4.3-33B",
-        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 276,
-        "likes": 1010,
-        "downloads": 16976,
-        "task": "text-generation",
+        "rank": 12,
+        "id": "Qwen/Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "trending_score": 286,
+        "likes": 19046,
+        "downloads": 8014877,
+        "task": "image-text-to-text",
         "library": "transformers",
-        "created_at": "2026-10-24T02:49:18.000Z",
+        "created_at": "2026-08-05T08:22:59.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "llama",
-          "text-generation"
+          "qwen3_5",
+          "image-text-to-text"
         ]
       },
       {
-        "rank": 15,
+        "rank": 13,
         "id": "burner22/numbat",
         "url": "https://huggingface.co/burner22/numbat",
-        "trending_score": 269,
-        "likes": 297,
-        "downloads": 7108,
+        "trending_score": 278,
+        "likes": 306,
+        "downloads": 7461,
         "task": "未标注",
         "library": "未标注",
         "created_at": "2026-10-23T01:37:02.000Z",
@@ -13580,29 +13723,46 @@
         ]
       },
       {
-        "rank": 16,
-        "id": "Edge0/Audio8-TTS-Realistic-Air",
-        "url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",
-        "trending_score": 232,
-        "likes": 250,
-        "downloads": 7259,
-        "task": "text-to-speech",
-        "library": "transformers",
-        "created_at": "2026-10-14T03:02:49.000Z",
+        "rank": 14,
+        "id": "black-forest-labs/flux-3-image-klein-comfy",
+        "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
+        "trending_score": 277,
+        "likes": 2382,
+        "downloads": 1032077,
+        "task": "image-to-image",
+        "library": "diffusion-single-file",
+        "created_at": "2026-10-14T12:00:13.000Z",
         "tags": [
-          "transformers",
-          "safetensors",
-          "arktts",
-          "feature-extraction"
+          "diffusion-single-file",
+          "comfyui",
+          "image-generation",
+          "image-editing"
         ]
       },
       {
-        "rank": 17,
+        "rank": 15,
+        "id": "Nanbeige/Nanbeige4.3-33B",
+        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+        "trending_score": 259,
+        "likes": 1017,
+        "downloads": 17839,
+        "task": "text-generation",
+        "library": "transformers",
+        "created_at": "2026-10-24T02:49:18.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "llama",
+          "text-generation"
+        ]
+      },
+      {
+        "rank": 16,
         "id": "FusionCow/Sulphur-3",
         "url": "https://huggingface.co/FusionCow/Sulphur-3",
-        "trending_score": 223,
-        "likes": 267,
-        "downloads": 195,
+        "trending_score": 258,
+        "likes": 308,
+        "downloads": 395,
         "task": "未标注",
         "library": "minimax-h3",
         "created_at": "2026-10-31T20:31:01.000Z",
@@ -13614,12 +13774,29 @@
         ]
       },
       {
+        "rank": 17,
+        "id": "Edge0/Audio8-TTS-Realistic-Air",
+        "url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",
+        "trending_score": 230,
+        "likes": 265,
+        "downloads": 8090,
+        "task": "text-to-speech",
+        "library": "transformers",
+        "created_at": "2026-10-14T03:02:49.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "arktts",
+          "feature-extraction"
+        ]
+      },
+      {
         "rank": 18,
         "id": "Diffuspace/Clover-35B-A3B-Preview",
         "url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
-        "trending_score": 216,
-        "likes": 229,
-        "downloads": 2679,
+        "trending_score": 218,
+        "likes": 232,
+        "downloads": 3017,
         "task": "text-generation",
         "library": "transformers",
         "created_at": "2026-10-24T03:46:30.000Z",
@@ -13634,9 +13811,9 @@
         "rank": 19,
         "id": "facebook/sam3",
         "url": "https://huggingface.co/facebook/sam3",
-        "trending_score": 209,
-        "likes": 5728,
-        "downloads": 1879182,
+        "trending_score": 215,
+        "likes": 5763,
+        "downloads": 1891393,
         "task": "mask-generation",
         "library": "transformers",
         "created_at": "2025-11-07T05:17:48.000Z",
@@ -13649,25 +13826,25 @@
       },
       {
         "rank": 20,
-        "id": "LiquidAI/LFM3-VL-2B",
-        "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
-        "trending_score": 207,
-        "likes": 218,
-        "downloads": 10141,
-        "task": "image-text-to-text",
-        "library": "transformers",
-        "created_at": "2026-10-19T19:51:46.000Z",
+        "id": "AtomicChat/DeepSeek-V4.1-Flash-1017-Uncensored-GSQ-RCO-GGUF",
+        "url": "https://huggingface.co/AtomicChat/DeepSeek-V4.1-Flash-1017-Uncensored-GSQ-RCO-GGUF",
+        "trending_score": 212,
+        "likes": 238,
+        "downloads": 53913,
+        "task": "text-generation",
+        "library": "gguf",
+        "created_at": "2026-10-28T04:48:45.000Z",
         "tags": [
-          "transformers",
-          "safetensors",
-          "lfm3_vl",
-          "image-text-to-text"
+          "gguf",
+          "atomic-chat",
+          "deepseek",
+          "deepseek41"
         ]
       }
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-11-03T03:21:00Z",
+      "last_checked_at": "2026-11-03T13:15:20Z",
       "web_status": "success",
       "api_status": "success"
     }

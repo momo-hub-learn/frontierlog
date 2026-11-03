@@ -185,6 +185,12 @@
 
 边界：收购与整合方向不等于新药已验证、已获批准或研发周期已被独立证实缩短；原文没有给出统一开放日期。
 
+站内热度 96；不是全网流量。</description></item><item><title>Pando：OpenAI 把 Git 后端改造成 Agent 规模的并发系统</title><guid isPermaLink="false">frontierlog:hot:openai-pando-git-20261102</guid><link>https://openai.com/index/scaling-git-at-openai/</link><pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate><description>OpenAI 公开 Pando：保持 Git 协议和客户端兼容，用按分支协调、可复用 packfile 与分层压缩支撑 Agent 并行开发；官方称其已承载 OpenAI monorepo，并将中位 push 延迟降低近 80%。
+
+为什么值得看：Coding Agent 的瓶颈正在从单次生成转向多 Agent 同时提交、拉取、合并和跑 CI。Pando 展示了基础设施如何围绕高并发分支、缓存复用、可验证迁移与确定性测试重新设计。
+
+边界：数据来自 OpenAI 自身生产环境与模拟，不是第三方复测。Pando 放宽仓库全局时间点一致性，跨分支读取可能看到不同版本；它目前不是可直接购买或部署的公开产品。近 80% 延迟改善和每日近 1 PB 传输不能外推到其他仓库、网络或成本结构。
+
 站内热度 96；不是全网流量。</description></item><item><title>Microsoft Copilot harness 进入 Foundry 公开预览</title><guid isPermaLink="false">frontierlog:hot:microsoft-copilot-harness-foundry-20261028</guid><link>https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/</link><pubDate>Wed, 28 Oct 2026 00:00:00 +0800</pubDate><description>Microsoft 把 GitHub 团队构建的多模型 Copilot harness 带入 Foundry Agent Service 公开预览：可组合 skills、MCP / Foundry 工具、文件与代码执行和受限子 Agent；Hosted agents 的长任务恢复同周正式可用。
 
 为什么值得看：Agent 竞争开始从单一模型转向模型之外的执行层。公开预览让团队可以直接比较托管 Harness 与自建运行时，但真正决策要看权限、审批、恢复幂等、失败轨迹和完整费用，而不只是支持多少模型。
@@ -520,6 +526,12 @@
 为什么值得看：同一模型版本同时公开产品范围、行为目标和安全评测变化，能帮助用户区分“聊天风格更新”与“能力或安全全面提升”，也为模型行为回归建立更清楚的版本证据。
 
 边界：发布方评测显示部分未成年人保护、指令层级与健康场景指标改善，也有个别健康与心理健康指标回退；这些是 OpenAI 的内部评测，不是本站复测，不能推出模型整体更安全、更强或适合高风险医疗决策。安全附录仍把该模型按 Preparedness Framework 的网络与生物/化学高能力阈值管理。
+
+站内热度 91；不是全网流量。</description></item><item><title>OpenAI 启动新安全冲刺，并上调漏洞赏金</title><guid isPermaLink="false">frontierlog:hot:openai-security-sprint-bounty-20261102</guid><link>https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/</link><pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate><description>OpenAI 宣布与 Cathedral Systems 开展下一轮内部安全冲刺，让研究人员与内部团队使用模型测试防御；同时提高漏洞赏金，核心产品严重漏洞最高基础奖励 3 万美元，特殊严重发现含加成最高可到 17.2 万美元。
+
+为什么值得看：这把模型能力同时用于发现、复现和修补安全问题，并用更高奖励连接外部研究者。对采用 Agent 的团队，值得跟踪的是可复现证据、修复闭环和权限边界，而不是把‘用了 AI’当成安全结论。
+
+边界：公告描述的是计划、伙伴和奖励结构，没有公开本轮发现的漏洞、修复率或防御效果。最高金额依赖目标、严重度、报告质量、忠诚度与活动加成；不能据此推出产品已经更安全、所有报告都能获得最高奖励，或模型可替代独立安全审计。
 
 站内热度 91；不是全网流量。</description></item><item><title>Agent4Sci：科研 Agent 开始用隐藏测试与完整轨迹验收</title><guid isPermaLink="false">frontierlog:hot:agent4sci-scientific-ml-benchmark-20261020</guid><link>https://arxiv.org/abs/2610.28763</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate><description>Agent4Sci 开放 11 个科学领域、20 个 benchmark、25 个任务：Agent 先在训练/验证集上改进 ML 方案，再由隐藏测试独立评分，并审计完整轨迹中的泄漏、取巧或不当操作。
 

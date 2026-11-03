@@ -40,6 +40,104 @@
   ],
   "items": [
     {
+      "id": "openai-pando-git-20261102",
+      "category": "product",
+      "title": "Pando：OpenAI 把 Git 后端改造成 Agent 规模的并发系统",
+      "published": "2026-11-02",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T21:19:08+08:00",
+      "first_seen_at": "2026-11-03T21:19:08+08:00",
+      "heat": 96,
+      "heat_components": {
+        "impact": 35,
+        "availability": 21,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；生产部署、Git 协议兼容、并发写入与公开性能数据提高影响和证据分，Pando 尚未作为独立公开服务限制可操作性。这不是代码质量、模型能力或本站实测分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方工程说明与生产指标 · Pando 为内部生产系统，公开分享路径仍在探索",
+      "summary": "OpenAI 公开 Pando：保持 Git 协议和客户端兼容，用按分支协调、可复用 packfile 与分层压缩支撑 Agent 并行开发；官方称其已承载 OpenAI monorepo，并将中位 push 延迟降低近 80%。",
+      "why": "Coding Agent 的瓶颈正在从单次生成转向多 Agent 同时提交、拉取、合并和跑 CI。Pando 展示了基础设施如何围绕高并发分支、缓存复用、可验证迁移与确定性测试重新设计。",
+      "boundary": "数据来自 OpenAI 自身生产环境与模拟，不是第三方复测。Pando 放宽仓库全局时间点一致性，跨分支读取可能看到不同版本；它目前不是可直接购买或部署的公开产品。近 80% 延迟改善和每日近 1 PB 传输不能外推到其他仓库、网络或成本结构。",
+      "source": "OpenAI",
+      "source_kind": "官方工程架构、生产指标与一致性边界 / 本轮编辑核验",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "link": "#/hot?cat=product",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Pando 官方工程说明",
+          "note": "核对架构、Git 兼容、生产指标与因果一致性取舍",
+          "url": "https://openai.com/index/scaling-git-at-openai/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Scaling Git at OpenAI",
+          "url": "https://openai.com/index/scaling-git-at-openai/",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": "openai-security-sprint-bounty-20261102",
+      "category": "security",
+      "title": "OpenAI 启动新安全冲刺，并上调漏洞赏金",
+      "published": "2026-11-02",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T21:19:08+08:00",
+      "first_seen_at": "2026-11-03T21:19:08+08:00",
+      "heat": 91,
+      "heat_components": {
+        "impact": 31,
+        "availability": 21,
+        "evidence": 25,
+        "recency": 14
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；内部冲刺、外部研究伙伴与公开赏金结构提高证据和可操作性，尚无本轮漏洞发现或修复结果限制影响分。这不是系统安全等级、漏洞数量或本站审计分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方安全冲刺与漏洞赏金公告 · 冲刺结果尚未公布",
+      "summary": "OpenAI 宣布与 Cathedral Systems 开展下一轮内部安全冲刺，让研究人员与内部团队使用模型测试防御；同时提高漏洞赏金，核心产品严重漏洞最高基础奖励 3 万美元，特殊严重发现含加成最高可到 17.2 万美元。",
+      "why": "这把模型能力同时用于发现、复现和修补安全问题，并用更高奖励连接外部研究者。对采用 Agent 的团队，值得跟踪的是可复现证据、修复闭环和权限边界，而不是把‘用了 AI’当成安全结论。",
+      "boundary": "公告描述的是计划、伙伴和奖励结构，没有公开本轮发现的漏洞、修复率或防御效果。最高金额依赖目标、严重度、报告质量、忠诚度与活动加成；不能据此推出产品已经更安全、所有报告都能获得最高奖励，或模型可替代独立安全审计。",
+      "source": "OpenAI",
+      "source_kind": "官方安全冲刺与漏洞赏金规则 / 本轮编辑核验",
+      "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+      "link": "#/hot?cat=security",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读安全冲刺公告",
+          "note": "核对 Cathedral Systems、测试范围与未公布结果",
+          "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+          "kind": "external"
+        },
+        {
+          "label": "查看漏洞赏金调整",
+          "note": "核对基础奖励、加成条件与示例边界",
+          "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Preparing our next security sprint to harden OpenAI",
+          "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+          "date": "2026-11-02"
+        },
+        {
+          "source": "OpenAI",
+          "title": "Rewarding defenders with bigger bug bounties",
+          "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties/",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
       "id": "openai-lifeval-20261102",
       "category": "benchmark",
       "title": "LifeVal：把日常生活 Agent 任务单独列为评测对象",

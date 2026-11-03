@@ -49,6 +49,10 @@ function fcDeepPanel(){
  '</a>'
 }
 function fcGithubPanel(){
+ const fcGithubDescription=raw=>{
+  const text=String(raw||'仓库说明未标注').replace(/https?:\/\/\S+/gi,'').replace(/\s+/g,' ').trim();
+  return text.replace(/\s*(?:don['’]t be shy[,!]?[ ]*)?(?:join|follow)(?: us)?(?: here)?\b.*$/i,'').trim()||'仓库说明未标注';
+ };
  const gh=APP.github_hot||{items:[],watchlist:[],checked_at:''};
  const verified=Date.parse(gh.checked_at||'');
  const fresh=Number.isFinite(verified)&&(Date.now()-verified)<=6*36e5&&(Date.now()-verified)>=-36e5;
@@ -78,7 +82,7 @@ function fcGithubPanel(){
   (fresh?'<div class="fc-gh-list">'+rows.map(x=>
    '<a class="fc-gh-row" href="'+safeLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+
     '<span class="fc-gh-rank">#'+String(x.rank).padStart(2,'0')+'</span>'+
-    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small class="fc-gh-desc">'+esc(x.description||'仓库说明未标注')+'</small><small class="fc-gh-meta">'+esc(repoMeta(x))+'</small></span>'+
+    '<span class="fc-gh-main"><strong>'+esc(x.repo)+'</strong><small class="fc-gh-desc">'+esc(fcGithubDescription(x.description))+'</small><small class="fc-gh-meta">'+esc(repoMeta(x))+'</small></span>'+
     '<span class="fc-gh-star"><b>+'+exact(x.stars_today)+'</b><small>今日新增 Star</small></span></a>'
   ).join('')+'</div>':
   '<div class="fc-gh-old"><strong>当前 Trending 未完成核验</strong><p>旧榜单已停止作为今日热门展示。可查看独立关注仓库或历史快照。</p></div>')+

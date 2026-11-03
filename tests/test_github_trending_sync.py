@@ -32,6 +32,16 @@ def api(repo):
     }
 
 class GitHubSyncTests(unittest.TestCase):
+    def test_model_infrastructure_descriptions_are_ai_related(self):
+        for repo, description in (
+            ("FlashML-org/FreeToken", "Datacenter-scale model serving on your desktop"),
+            ("shiyu-coder/Kronos", "A Foundation Model for financial markets"),
+            ("JustVugg/colibri", "Inference engine for frontier MoE models"),
+            ("karpathy/nanochat", "The best ChatGPT that $100 can buy"),
+        ):
+            with self.subTest(repo=repo):
+                self.assertTrue(classify(repo, description)[1])
+
     def setUp(self):
         self.data=json.loads((ROOT/'data/github-hot.json').read_text(encoding='utf-8'))
         self.now=datetime(2026,10,13,8,15,tzinfo=timezone.utc)

@@ -163,6 +163,15 @@ class EditorialContracts(unittest.TestCase):
   css=(ROOT/'src/feed-cockpit.css').read_text()
   for band in ('extreme','high','rising','watch'):self.assertIn('.fc-heat-'+band,css)
   self.assertIn('.fc-hot-score .heat-meter',css)
+ def test_github_descriptions_hide_promotional_urls_without_changing_source_data(self):
+  github=(ROOT/'src/github-hot.js').read_text()
+  feed=(ROOT/'src/feed-cockpit.js').read_text()
+  self.assertIn('function ghDisplayDescription(raw)',github)
+  self.assertIn(".replace(/https?:\\/\\/\\S+/gi,'')",github)
+  self.assertIn("(?:join|follow)(?: us)?(?: here)?\\b",github)
+  self.assertIn("esc(ghDisplayDescription(x.description))",github)
+  self.assertIn('const fcGithubDescription=raw=>',feed)
+  self.assertIn("esc(fcGithubDescription(x.description))",feed)
  def test_model_rows_show_access_boundary_separately_from_score(self):
   js=(ROOT/'src/models.js').read_text()
   css=(ROOT/'src/models.css').read_text()

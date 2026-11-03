@@ -33,7 +33,8 @@ AI_TERMS = re.compile(
     r"\b(ai|llm|agents?|agentic|mcp|language models?|neural|machine learning|"
     r"deep learning|inference|diffusion|rag|transformers?|coding assistant|"
     r"prompt engineering|generative|claude|tts|text[- ]to[- ]speech|"
-    r"speech generation|voice cloning)\b", re.I
+    r"speech generation|voice cloning|foundation models?|frontier models?|"
+    r"model serving|mixture of experts|moe|chatgpt)\b", re.I
 )
 CATEGORIES = {
     "reverse-engineering": "AI 逆向工程",
