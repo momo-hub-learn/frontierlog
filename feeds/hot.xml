@@ -215,6 +215,12 @@
 
 边界：文章描述的是 OpenAI 自身系统与厂商指标，不是通用广告效果证明；分离服务、隐私声明、收入数据和相关性目标仍需独立审计，且广告只面向指定套餐与已开放地区。
 
+站内热度 95；不是全网流量。</description></item><item><title>LifeVal：把日常生活 Agent 任务单独列为评测对象</title><guid isPermaLink="false">frontierlog:hot:openai-lifeval-20261102</guid><link>https://openai.com/index/lifeval/</link><pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate><description>OpenAI 发布 LifeVal，用美国及跨国时间使用研究和一项 3995 人代表性调查筛出照护、健康、教育、家庭行政、个人财务、购物与政府服务等日常任务，并展示若干最新模型案例结果。
+
+为什么值得看：它把 Agent 评测从知识题推进到真实生活流程，强调浏览器、电脑操作与连接器能否把事情做完。对产品团队更重要的是保留任务、权限、人工确认和错误恢复，而不是只看页面给出的高分案例。
+
+边界：官方页面展示的是若干单项案例，并称最新模型在许多任务上得分很高；页面未公开完整任务列表、统一总分、模型间榜位、评分器、失败分布或可复现运行包。个别案例的 90.4%–100% 不能外推为所有日常任务可靠、无需人工确认，健康与财务场景也不能据此视为专业建议。
+
 站内热度 95；不是全网流量。</description></item><item><title>OpenAI 称内部新模型已解出 Navier–Stokes 与 100+ 数学开放问题</title><guid isPermaLink="false">frontierlog:hot:openai-math-advisory-20260921</guid><link>https://openai.com/index/advisory-group-on-mathematics-and-ai/</link><pubDate>Mon, 21 Sep 2026 00:00:00 +0800</pubDate><description>OpenAI 9 月 21 日称，自 8 月 28 日开始训练的一款内部模型已解决 Navier–Stokes 千禧年难题和 100+ 个长期开放数学问题，并为结果评审与发布成立独立数学顾问组。
 
 为什么值得看：如果这些结果经独立数学审查成立，前沿模型的能力边界将从竞赛题、已知证明与形式化辅助进一步推进到原创研究级数学；同时，实验室开始为这类结果建立专门的审核与发布机制。
@@ -574,6 +580,12 @@
 为什么值得看：多语、多人和长录音可在同一开放权重模型里离线处理，语音工作流开始从单项转写走向可组合验证；真正落地取决于显存、音频授权、按语言分组的错误和人工复核。
 
 边界：官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不能写成本站实测或临床验证。模型为最长一小时的录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。Hugging Face 第 19 位只代表当时平台趋势，不是能力排名。
+
+站内热度 90；不是全网流量。</description></item><item><title>OpenAI Grid Protectors：把算力园区可调负荷写进电网协议</title><guid isPermaLink="false">frontierlog:hot:openai-grid-protectors-20261102</guid><link>https://openai.com/index/grid-protectors-program/</link><pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate><description>OpenAI 发布 Grid Protectors Program，拟与公用事业、监管者和政策制定者约定未来算力园区在电网紧张时降载；Georgia 的 Effingham County 园区作为起点，协议包含最高 1000 MW 的灵活需求响应。
+
+为什么值得看：AI 基础设施的瓶颈正从芯片扩展到电力与并网。把可调负荷、基础设施成本和长期担保写入协议，会影响未来数周至数月的园区设计、调度软件、储能与监管路径。
+
+边界：Effingham 园区仍在开发，1000 MW 是协议中的最高灵活需求响应，不是已持续交付的实测容量；各地安排会不同。OpenAI 明确写道，负荷灵活性不能替代新增发电与输电投资，也不能据此推出所有园区都能保供、居民电价必然下降或电力成本已经由项目完全承担。
 
 站内热度 90；不是全网流量。</description></item><item><title>ChatGPT 接入 iCloud 邮件与日历</title><guid isPermaLink="false">frontierlog:hot:openai-icloud-mail-calendar-20261027</guid><link>https://help.openai.com/en/articles/6825453-chatgpt-release-notes</link><pubDate>Tue, 27 Oct 2026 00:00:00 +0800</pubDate><description>OpenAI Release Notes 确认 iCloud 用户现在可把 Mail 与 Calendar 连接到 ChatGPT，用于查找邮件、汇总收件箱、查看日程和更新日历事件；官方列出的入口为网页、桌面端和 iOS，覆盖全部 ChatGPT 套餐。
 

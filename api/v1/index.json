@@ -41,6 +41,98 @@
     ],
     "items": [
       {
+        "id": "openai-lifeval-20261102",
+        "category": "benchmark",
+        "title": "LifeVal：把日常生活 Agent 任务单独列为评测对象",
+        "published": "2026-11-02",
+        "checked": "2026-11-03",
+        "verified_at": "2026-11-03T11:20:34+08:00",
+        "first_seen_at": "2026-11-03T11:20:34+08:00",
+        "heat": 95,
+        "heat_components": {
+          "impact": 34,
+          "availability": 21,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；日常任务、3995人调查与可查看案例提高影响和证据分，完整任务集、评分器和总体模型榜尚未公开限制可操作性。这不是本站实测、通用能力总分或安全评分。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方研究页与案例结果 · 完整协议、任务集与总体榜单未公开 · 本站未运行",
+        "summary": "OpenAI 发布 LifeVal，用美国及跨国时间使用研究和一项 3995 人代表性调查筛出照护、健康、教育、家庭行政、个人财务、购物与政府服务等日常任务，并展示若干最新模型案例结果。",
+        "why": "它把 Agent 评测从知识题推进到真实生活流程，强调浏览器、电脑操作与连接器能否把事情做完。对产品团队更重要的是保留任务、权限、人工确认和错误恢复，而不是只看页面给出的高分案例。",
+        "boundary": "官方页面展示的是若干单项案例，并称最新模型在许多任务上得分很高；页面未公开完整任务列表、统一总分、模型间榜位、评分器、失败分布或可复现运行包。个别案例的 90.4%–100% 不能外推为所有日常任务可靠、无需人工确认，健康与财务场景也不能据此视为专业建议。",
+        "source": "OpenAI",
+        "source_kind": "官方研究页、调查范围与案例结果 / 本轮编辑核验",
+        "url": "https://openai.com/index/lifeval/",
+        "link": "#/benchmarks?bench=lifeval",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "查看站内 LifeVal 评测边界",
+            "note": "区分案例分数、完整协议缺口与不能推出什么",
+            "url": "#/benchmarks?bench=lifeval",
+            "kind": "internal"
+          },
+          {
+            "label": "阅读 OpenAI LifeVal",
+            "note": "核对调查样本、任务领域与官方案例",
+            "url": "https://openai.com/index/lifeval/",
+            "kind": "external"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "LifeVal",
+            "url": "https://openai.com/index/lifeval/",
+            "date": "2026-11-02"
+          }
+        ]
+      },
+      {
+        "id": "openai-grid-protectors-20261102",
+        "category": "industry",
+        "title": "OpenAI Grid Protectors：把算力园区可调负荷写进电网协议",
+        "published": "2026-11-02",
+        "checked": "2026-11-03",
+        "verified_at": "2026-11-03T11:20:34+08:00",
+        "first_seen_at": "2026-11-03T11:20:34+08:00",
+        "heat": 90,
+        "heat_components": {
+          "impact": 32,
+          "availability": 18,
+          "evidence": 25,
+          "recency": 15
+        },
+        "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；全国计划、Georgia 试点与最高1000MW可调负荷提高影响和证据分，未来园区、因地而异且尚未运行限制可操作性。这不是供电可靠性、成本节省或环境绩效分数。",
+        "trend": "up",
+        "verification_status": "OpenAI 官方计划与 Georgia 协议说明 · 园区仍在开发，其他地点安排待定",
+        "summary": "OpenAI 发布 Grid Protectors Program，拟与公用事业、监管者和政策制定者约定未来算力园区在电网紧张时降载；Georgia 的 Effingham County 园区作为起点，协议包含最高 1000 MW 的灵活需求响应。",
+        "why": "AI 基础设施的瓶颈正从芯片扩展到电力与并网。把可调负荷、基础设施成本和长期担保写入协议，会影响未来数周至数月的园区设计、调度软件、储能与监管路径。",
+        "boundary": "Effingham 园区仍在开发，1000 MW 是协议中的最高灵活需求响应，不是已持续交付的实测容量；各地安排会不同。OpenAI 明确写道，负荷灵活性不能替代新增发电与输电投资，也不能据此推出所有园区都能保供、居民电价必然下降或电力成本已经由项目完全承担。",
+        "source": "OpenAI",
+        "source_kind": "官方全国计划、Georgia 试点与限制说明 / 本轮编辑核验",
+        "url": "https://openai.com/index/grid-protectors-program/",
+        "link": "#/hot?cat=industry",
+        "evidence_level": "primary-source",
+        "access": [
+          {
+            "label": "阅读 Grid Protectors 官方说明",
+            "note": "核对未来园区、Georgia 试点、1000 MW 与供输电边界",
+            "url": "https://openai.com/index/grid-protectors-program/",
+            "kind": "external"
+          }
+        ],
+        "related": [
+          {
+            "source": "OpenAI",
+            "title": "Introducing the Grid Protectors Program",
+            "url": "https://openai.com/index/grid-protectors-program/",
+            "date": "2026-11-02"
+          }
+        ]
+      },
+      {
         "id": "gdpx-v1-20261102",
         "category": "research",
         "title": "GDPx：11 个专业领域里，榜首任务得分仅 12.0%",
@@ -13290,15 +13382,15 @@
   },
   "huggingface_hot": {
     "version": 1,
-    "checked_at": "2026-11-02T21:16:07Z",
+    "checked_at": "2026-11-03T03:21:00Z",
     "source_url": "https://huggingface.co/models?sort=trending",
     "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
     "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
     "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
     "rank_source": "official_web_models_trending_order",
     "api_rank_source": "official_api_trendingScore_desc",
-    "api_fetched_at": "2026-11-02T21:16:07Z",
-    "web_fetched_at": "2026-11-02T21:16:07Z",
+    "api_fetched_at": "2026-11-03T03:21:00Z",
+    "web_fetched_at": "2026-11-03T03:21:00Z",
     "web_verification_method": "official_web_server_html",
     "web_order_matches_api": true,
     "web_order": [
@@ -13307,18 +13399,18 @@
       "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "mistralai/Mistral-Large-4-1T-A52B",
       "baidu/Unlimited-OCR-2",
-      "Lightricks/LTX-2.5",
       "speridlabs/idol",
+      "Lightricks/LTX-2.5",
       "ccore/Qwen3.5-4B-3D-Coder",
       "Pika-Labs/Pika-H3-Flex",
       "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-      "Nanbeige/Nanbeige4.3-33B",
       "Qwen/Qwen3.8-27B",
-      "black-forest-labs/flux-3-image-klein-comfy",
       "LiquidAI/LFM3-Omni-2B",
+      "black-forest-labs/flux-3-image-klein-comfy",
+      "Nanbeige/Nanbeige4.3-33B",
       "burner22/numbat",
       "Edge0/Audio8-TTS-Realistic-Air",
-      "RecursiveSI/flint",
+      "FusionCow/Sulphur-3",
       "Diffuspace/Clover-35B-A3B-Preview",
       "facebook/sam3",
       "LiquidAI/LFM3-VL-2B"
@@ -13329,150 +13421,156 @@
         "rank": 1,
         "previous_rank": 1,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "rank": 2,
         "previous_rank": 2,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "rank": 3,
         "previous_rank": 3,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "rank": 4,
         "previous_rank": 4,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "baidu/Unlimited-OCR-2",
         "rank": 5,
         "previous_rank": 5,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
-      },
-      {
-        "id": "Lightricks/LTX-2.5",
-        "rank": 6,
-        "previous_rank": 6,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "speridlabs/idol",
-        "rank": 7,
-        "previous_rank": 8,
+        "rank": 6,
+        "previous_rank": 7,
         "rank_change": 1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
+      },
+      {
+        "id": "Lightricks/LTX-2.5",
+        "rank": 7,
+        "previous_rank": 6,
+        "rank_change": -1,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "rank": 8,
-        "previous_rank": 7,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": 8,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "Pika-Labs/Pika-H3-Flex",
         "rank": 9,
         "previous_rank": 9,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "rank": 10,
-        "previous_rank": 12,
-        "rank_change": 2,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
-      },
-      {
-        "id": "Nanbeige/Nanbeige4.3-33B",
-        "rank": 11,
         "previous_rank": 10,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "rank_change": 0,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "Qwen/Qwen3.8-27B",
+        "rank": 11,
+        "previous_rank": 12,
+        "rank_change": 1,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
+      },
+      {
+        "id": "LiquidAI/LFM3-Omni-2B",
         "rank": 12,
-        "previous_rank": 11,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": 14,
+        "rank_change": 2,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "rank": 13,
         "previous_rank": 13,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
-        "id": "LiquidAI/LFM3-Omni-2B",
+        "id": "Nanbeige/Nanbeige4.3-33B",
         "rank": 14,
-        "previous_rank": 14,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": 11,
+        "rank_change": -3,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "burner22/numbat",
         "rank": 15,
         "previous_rank": 15,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "Edge0/Audio8-TTS-Realistic-Air",
         "rank": 16,
         "previous_rank": 16,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
-        "id": "RecursiveSI/flint",
+        "id": "FusionCow/Sulphur-3",
         "rank": 17,
-        "previous_rank": 17,
-        "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": null,
+        "rank_change": null,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "Diffuspace/Clover-35B-A3B-Preview",
         "rank": 18,
         "previous_rank": 18,
         "rank_change": 0,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "facebook/sam3",
         "rank": 19,
-        "previous_rank": 20,
-        "rank_change": 1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": 19,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       },
       {
         "id": "LiquidAI/LFM3-VL-2B",
         "rank": 20,
-        "previous_rank": 19,
-        "rank_change": -1,
-        "previous_fetched_at": "2026-11-02T19:26:35Z"
+        "previous_rank": 20,
+        "rank_change": 0,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
       }
     ],
-    "web_outgoing": [],
+    "web_outgoing": [
+      {
+        "id": "RecursiveSI/flint",
+        "previous_rank": 17,
+        "previous_fetched_at": "2026-11-02T21:16:07Z"
+      }
+    ],
     "items": [
       {
         "rank": 1,
         "id": "LiquidAI/LFM3-1.7B",
         "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-        "trending_score": 725,
-        "likes": 959,
+        "trending_score": 767,
+        "likes": 1178,
         "downloads": 42384,
         "task": "text-generation",
         "library": "transformers",
@@ -13488,8 +13586,8 @@
         "rank": 2,
         "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "trending_score": 681,
-        "likes": 4680,
+        "trending_score": 672,
+        "likes": 4717,
         "downloads": 177009,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -13505,8 +13603,8 @@
         "rank": 3,
         "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
         "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-        "trending_score": 598,
-        "likes": 671,
+        "trending_score": 611,
+        "likes": 688,
         "downloads": 32439,
         "task": "automatic-speech-recognition",
         "library": "nemo",
@@ -13522,8 +13620,8 @@
         "rank": 4,
         "id": "mistralai/Mistral-Large-4-1T-A52B",
         "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
-        "trending_score": 506,
-        "likes": 1498,
+        "trending_score": 504,
+        "likes": 1502,
         "downloads": 5500,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -13539,8 +13637,8 @@
         "rank": 5,
         "id": "baidu/Unlimited-OCR-2",
         "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
-        "trending_score": 472,
-        "likes": 558,
+        "trending_score": 456,
+        "likes": 564,
         "downloads": 147588,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -13554,27 +13652,10 @@
       },
       {
         "rank": 6,
-        "id": "Lightricks/LTX-2.5",
-        "url": "https://huggingface.co/Lightricks/LTX-2.5",
-        "trending_score": 388,
-        "likes": 10347,
-        "downloads": 2467613,
-        "task": "image-to-video",
-        "library": "diffusion-single-file",
-        "created_at": "2026-07-23T07:55:24.000Z",
-        "tags": [
-          "diffusion-single-file",
-          "image-to-video",
-          "text-to-video",
-          "video-to-video"
-        ]
-      },
-      {
-        "rank": 7,
         "id": "speridlabs/idol",
         "url": "https://huggingface.co/speridlabs/idol",
-        "trending_score": 387,
-        "likes": 406,
+        "trending_score": 405,
+        "likes": 426,
         "downloads": 7787,
         "task": "image-to-3d",
         "library": "idol",
@@ -13587,11 +13668,28 @@
         ]
       },
       {
+        "rank": 7,
+        "id": "Lightricks/LTX-2.5",
+        "url": "https://huggingface.co/Lightricks/LTX-2.5",
+        "trending_score": 381,
+        "likes": 10371,
+        "downloads": 2467613,
+        "task": "image-to-video",
+        "library": "diffusion-single-file",
+        "created_at": "2026-07-23T07:55:24.000Z",
+        "tags": [
+          "diffusion-single-file",
+          "image-to-video",
+          "text-to-video",
+          "video-to-video"
+        ]
+      },
+      {
         "rank": 8,
         "id": "ccore/Qwen3.5-4B-3D-Coder",
         "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-        "trending_score": 385,
-        "likes": 557,
+        "trending_score": 380,
+        "likes": 565,
         "downloads": 63499,
         "task": "未标注",
         "library": "未标注",
@@ -13607,8 +13705,8 @@
         "rank": 9,
         "id": "Pika-Labs/Pika-H3-Flex",
         "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
-        "trending_score": 335,
-        "likes": 353,
+        "trending_score": 342,
+        "likes": 362,
         "downloads": 491,
         "task": "image-to-video",
         "library": "diffusers",
@@ -13624,8 +13722,8 @@
         "rank": 10,
         "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
         "url": "https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-        "trending_score": 289,
-        "likes": 5545,
+        "trending_score": 295,
+        "likes": 5563,
         "downloads": 2516622,
         "task": "text-to-image",
         "library": "gguf",
@@ -13639,27 +13737,10 @@
       },
       {
         "rank": 11,
-        "id": "Nanbeige/Nanbeige4.3-33B",
-        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
-        "trending_score": 288,
-        "likes": 1004,
-        "downloads": 16976,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-24T02:49:18.000Z",
-        "tags": [
-          "transformers",
-          "safetensors",
-          "llama",
-          "text-generation"
-        ]
-      },
-      {
-        "rank": 12,
         "id": "Qwen/Qwen3.8-27B",
         "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-        "trending_score": 285,
-        "likes": 19002,
+        "trending_score": 287,
+        "likes": 19018,
         "downloads": 7915637,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -13672,11 +13753,28 @@
         ]
       },
       {
+        "rank": 12,
+        "id": "LiquidAI/LFM3-Omni-2B",
+        "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
+        "trending_score": 284,
+        "likes": 313,
+        "downloads": 9964,
+        "task": "any-to-any",
+        "library": "transformers",
+        "created_at": "2026-10-21T16:58:40.000Z",
+        "tags": [
+          "transformers",
+          "safetensors",
+          "lfm3_omni",
+          "image-text-to-text"
+        ]
+      },
+      {
         "rank": 13,
         "id": "black-forest-labs/flux-3-image-klein-comfy",
         "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-        "trending_score": 280,
-        "likes": 2341,
+        "trending_score": 278,
+        "likes": 2358,
         "downloads": 1003813,
         "task": "image-to-image",
         "library": "diffusion-single-file",
@@ -13690,27 +13788,27 @@
       },
       {
         "rank": 14,
-        "id": "LiquidAI/LFM3-Omni-2B",
-        "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
-        "trending_score": 277,
-        "likes": 306,
-        "downloads": 9964,
-        "task": "any-to-any",
+        "id": "Nanbeige/Nanbeige4.3-33B",
+        "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+        "trending_score": 276,
+        "likes": 1010,
+        "downloads": 16976,
+        "task": "text-generation",
         "library": "transformers",
-        "created_at": "2026-10-21T16:58:40.000Z",
+        "created_at": "2026-10-24T02:49:18.000Z",
         "tags": [
           "transformers",
           "safetensors",
-          "lfm3_omni",
-          "image-text-to-text"
+          "llama",
+          "text-generation"
         ]
       },
       {
         "rank": 15,
         "id": "burner22/numbat",
         "url": "https://huggingface.co/burner22/numbat",
-        "trending_score": 264,
-        "likes": 291,
+        "trending_score": 269,
+        "likes": 297,
         "downloads": 7108,
         "task": "未标注",
         "library": "未标注",
@@ -13726,8 +13824,8 @@
         "rank": 16,
         "id": "Edge0/Audio8-TTS-Realistic-Air",
         "url": "https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air",
-        "trending_score": 223,
-        "likes": 241,
+        "trending_score": 232,
+        "likes": 250,
         "downloads": 7259,
         "task": "text-to-speech",
         "library": "transformers",
@@ -13741,27 +13839,27 @@
       },
       {
         "rank": 17,
-        "id": "RecursiveSI/flint",
-        "url": "https://huggingface.co/RecursiveSI/flint",
-        "trending_score": 213,
-        "likes": 1310,
-        "downloads": 29574,
-        "task": "text-generation",
-        "library": "transformers",
-        "created_at": "2026-10-21T14:20:58.000Z",
+        "id": "FusionCow/Sulphur-3",
+        "url": "https://huggingface.co/FusionCow/Sulphur-3",
+        "trending_score": 223,
+        "likes": 267,
+        "downloads": 195,
+        "task": "未标注",
+        "library": "minimax-h3",
+        "created_at": "2026-10-31T20:31:01.000Z",
         "tags": [
-          "transformers",
-          "safetensors",
-          "flint",
-          "text-generation"
+          "minimax-h3",
+          "base_model:MiniMaxAI/MiniMax-H3",
+          "base_model:finetune:MiniMaxAI/MiniMax-H3",
+          "region:us"
         ]
       },
       {
         "rank": 18,
         "id": "Diffuspace/Clover-35B-A3B-Preview",
         "url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
-        "trending_score": 211,
-        "likes": 224,
+        "trending_score": 216,
+        "likes": 229,
         "downloads": 2679,
         "task": "text-generation",
         "library": "transformers",
@@ -13777,8 +13875,8 @@
         "rank": 19,
         "id": "facebook/sam3",
         "url": "https://huggingface.co/facebook/sam3",
-        "trending_score": 207,
-        "likes": 5718,
+        "trending_score": 209,
+        "likes": 5728,
         "downloads": 1879182,
         "task": "mask-generation",
         "library": "transformers",
@@ -13794,8 +13892,8 @@
         "rank": 20,
         "id": "LiquidAI/LFM3-VL-2B",
         "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
-        "trending_score": 206,
-        "likes": 217,
+        "trending_score": 207,
+        "likes": 218,
         "downloads": 10141,
         "task": "image-text-to-text",
         "library": "transformers",
@@ -13810,7 +13908,7 @@
     ],
     "sync": {
       "status": "success",
-      "last_checked_at": "2026-11-02T21:16:07Z",
+      "last_checked_at": "2026-11-03T03:21:00Z",
       "web_status": "success",
       "api_status": "success"
     }
@@ -21739,6 +21837,42 @@
     ],
     "items": [
       {
+        "id": "lifeval",
+        "name": "LifeVal",
+        "group": "agent",
+        "edition": "2026-11-02 official publication",
+        "subtitle": "AI 能否完成照护、教育、家庭行政与公共服务等日常流程？",
+        "summary": "OpenAI 依据美国及跨国时间使用研究，并用一项 3995 人代表性调查确定用户最希望获得帮助的日常任务；官方页面覆盖照护、健康、教育、家庭行政、个人财务、购物和政府服务，并公开少量案例结果。",
+        "metric": "per-task completion score ↑（公开页面未给统一总分）",
+        "metric_note": "当前页面只给若干单项案例百分比，没有公开统一总分、模型榜位、置信区间或失败分布；这些案例分数必须逐项保留，不能平均成本站 LifeVal 分数，也不能与 GDPx、Arena 或 ECI 拼总分。",
+        "protocol": "固定 2026-11-02 官方页面与任务领域；记录调查样本、任务描述、模型和工具权限、人工确认点、单项评分及失败轨迹。完整任务集、评分器和运行包未公开前，不发布可复现总榜。",
+        "boundary": "本站未运行 LifeVal。官方页面展示的是挑选案例，未披露完整任务列表、总体分数、评分器或可复现工件；90.4%–100% 的案例不能证明所有日常任务可靠，也不能把健康、财务或政府服务输出当作专业建议或已完成动作。",
+        "business": "适合用来设计生活 Agent 的任务门禁：把浏览器操作、连接器、权限、人工确认和最终状态分开验收；采购与上线仍需使用授权的本地任务、真实权限边界和人工复核。",
+        "setup": "保存官方页面与案例快照；在自有环境中用合成或获授权任务重建相近流程，锁定模型、浏览器/电脑操作、连接器、权限和重试，并保存最终状态与人工接管。",
+        "topics": [
+          "agents",
+          "everyday-tasks",
+          "evaluation"
+        ],
+        "sources": [
+          "b-lifeval"
+        ],
+        "result_url": "https://openai.com/index/lifeval/",
+        "kind": "benchmark",
+        "flag": "OpenAI 官方案例页 / 完整协议未公开 / 本站未运行",
+        "checked": "2026-11-03",
+        "tested": false,
+        "checks": [
+          "固定 2026-11-02 页面、任务领域与调查样本说明",
+          "逐项保留任务、权限、工具、人工确认和评分",
+          "记录失败、误操作、人工接管与最终环境状态",
+          "不把少量案例平均成总分，不与其他榜单拼分"
+        ],
+        "dataset_ids": [],
+        "evaluator_ids": [],
+        "result_status": "not_run"
+      },
+      {
         "id": "gdpx",
         "name": "GDPx",
         "group": "agent",
@@ -23448,6 +23582,16 @@
     ],
     "sources": [
       {
+        "id": "b-lifeval",
+        "title": "LifeVal",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/lifeval/",
+        "published": "2026-11-02",
+        "checked": "2026-11-03",
+        "kind": "官方研究与案例评测页",
+        "note": "3995 人代表性调查与七类日常任务；页面展示少量单项案例，未公开完整任务集、统一总分、评分器或可复现运行包。"
+      },
+      {
         "id": "b-gdpx",
         "publisher": "SemiAnalysis / GDPx",
         "title": "GDPx v1.0 official leaderboard",
@@ -24124,6 +24268,20 @@
       }
     ],
     "changes": [
+      {
+        "id": "lifeval-20261102",
+        "date": "2026-11-02",
+        "title": "OpenAI 发布 LifeVal 日常任务评测",
+        "summary": "官方以时间使用研究和 3995 人代表性调查确定照护、健康、教育、家庭行政、个人财务、购物与政府服务等日常 Agent 任务，并展示少量案例结果。",
+        "implication": "日常 Agent 评测开始覆盖浏览器、电脑操作和连接器，但完整任务集、评分器与总体榜仍未公开；现阶段只能逐项读取案例，不能拼成通用能力分。",
+        "benchmarks": [
+          "lifeval"
+        ],
+        "sources": [
+          "b-lifeval"
+        ],
+        "kind": "新基准与官方案例"
+      },
       {
         "id": "gdpx-v1-20261102",
         "date": "2026-11-02",
@@ -33684,32 +33842,42 @@
   },
   "intake": {
     "version": 1,
-    "last_attempt": "2026-11-03T02:40:32.802991Z",
-    "errors": [],
+    "last_attempt": "2026-11-03T03:21:00.549691Z",
+    "errors": [
+      {
+        "source_id": "github-bionemo-framework",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-boltz",
+        "error": "HTTP 403"
+      },
+      {
+        "source_id": "github-anomalib",
+        "error": "HTTP 403"
+      }
+    ],
     "sources": [
       {
         "id": "github-bionemo-framework",
         "name": "NVIDIA BioNeMo Framework releases",
-        "status": "success",
-        "checked_at": "2026-11-03T02:40:32.802991Z",
-        "parsed": 14,
-        "matched": 14
+        "status": "failed",
+        "checked_at": "2026-11-03T03:21:00.549691Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-boltz",
         "name": "Boltz releases",
-        "status": "success",
-        "checked_at": "2026-11-03T02:40:32.802991Z",
-        "parsed": 17,
-        "matched": 17
+        "status": "failed",
+        "checked_at": "2026-11-03T03:21:00.549691Z",
+        "error": "HTTP 403"
       },
       {
         "id": "github-anomalib",
         "name": "Open Edge Platform Anomalib releases",
-        "status": "success",
-        "checked_at": "2026-11-03T02:40:32.802991Z",
-        "parsed": 20,
-        "matched": 20
+        "status": "failed",
+        "checked_at": "2026-11-03T03:21:00.549691Z",
+        "error": "HTTP 403"
       }
     ],
     "last_success": "2026-11-03T02:40:32.802991Z",

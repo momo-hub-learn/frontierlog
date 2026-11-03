@@ -40,6 +40,98 @@
   ],
   "items": [
     {
+      "id": "openai-lifeval-20261102",
+      "category": "benchmark",
+      "title": "LifeVal：把日常生活 Agent 任务单独列为评测对象",
+      "published": "2026-11-02",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T11:20:34+08:00",
+      "first_seen_at": "2026-11-03T11:20:34+08:00",
+      "heat": 95,
+      "heat_components": {
+        "impact": 34,
+        "availability": 21,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；日常任务、3995人调查与可查看案例提高影响和证据分，完整任务集、评分器和总体模型榜尚未公开限制可操作性。这不是本站实测、通用能力总分或安全评分。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方研究页与案例结果 · 完整协议、任务集与总体榜单未公开 · 本站未运行",
+      "summary": "OpenAI 发布 LifeVal，用美国及跨国时间使用研究和一项 3995 人代表性调查筛出照护、健康、教育、家庭行政、个人财务、购物与政府服务等日常任务，并展示若干最新模型案例结果。",
+      "why": "它把 Agent 评测从知识题推进到真实生活流程，强调浏览器、电脑操作与连接器能否把事情做完。对产品团队更重要的是保留任务、权限、人工确认和错误恢复，而不是只看页面给出的高分案例。",
+      "boundary": "官方页面展示的是若干单项案例，并称最新模型在许多任务上得分很高；页面未公开完整任务列表、统一总分、模型间榜位、评分器、失败分布或可复现运行包。个别案例的 90.4%–100% 不能外推为所有日常任务可靠、无需人工确认，健康与财务场景也不能据此视为专业建议。",
+      "source": "OpenAI",
+      "source_kind": "官方研究页、调查范围与案例结果 / 本轮编辑核验",
+      "url": "https://openai.com/index/lifeval/",
+      "link": "#/benchmarks?bench=lifeval",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "查看站内 LifeVal 评测边界",
+          "note": "区分案例分数、完整协议缺口与不能推出什么",
+          "url": "#/benchmarks?bench=lifeval",
+          "kind": "internal"
+        },
+        {
+          "label": "阅读 OpenAI LifeVal",
+          "note": "核对调查样本、任务领域与官方案例",
+          "url": "https://openai.com/index/lifeval/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "LifeVal",
+          "url": "https://openai.com/index/lifeval/",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "id": "openai-grid-protectors-20261102",
+      "category": "industry",
+      "title": "OpenAI Grid Protectors：把算力园区可调负荷写进电网协议",
+      "published": "2026-11-02",
+      "checked": "2026-11-03",
+      "verified_at": "2026-11-03T11:20:34+08:00",
+      "first_seen_at": "2026-11-03T11:20:34+08:00",
+      "heat": 90,
+      "heat_components": {
+        "impact": 32,
+        "availability": 18,
+        "evidence": 25,
+        "recency": 15
+      },
+      "heat_basis": "本站编辑排序：影响0–35、可操作性0–25、一手证据0–25、时效0–15；全国计划、Georgia 试点与最高1000MW可调负荷提高影响和证据分，未来园区、因地而异且尚未运行限制可操作性。这不是供电可靠性、成本节省或环境绩效分数。",
+      "trend": "up",
+      "verification_status": "OpenAI 官方计划与 Georgia 协议说明 · 园区仍在开发，其他地点安排待定",
+      "summary": "OpenAI 发布 Grid Protectors Program，拟与公用事业、监管者和政策制定者约定未来算力园区在电网紧张时降载；Georgia 的 Effingham County 园区作为起点，协议包含最高 1000 MW 的灵活需求响应。",
+      "why": "AI 基础设施的瓶颈正从芯片扩展到电力与并网。把可调负荷、基础设施成本和长期担保写入协议，会影响未来数周至数月的园区设计、调度软件、储能与监管路径。",
+      "boundary": "Effingham 园区仍在开发，1000 MW 是协议中的最高灵活需求响应，不是已持续交付的实测容量；各地安排会不同。OpenAI 明确写道，负荷灵活性不能替代新增发电与输电投资，也不能据此推出所有园区都能保供、居民电价必然下降或电力成本已经由项目完全承担。",
+      "source": "OpenAI",
+      "source_kind": "官方全国计划、Georgia 试点与限制说明 / 本轮编辑核验",
+      "url": "https://openai.com/index/grid-protectors-program/",
+      "link": "#/hot?cat=industry",
+      "evidence_level": "primary-source",
+      "access": [
+        {
+          "label": "阅读 Grid Protectors 官方说明",
+          "note": "核对未来园区、Georgia 试点、1000 MW 与供输电边界",
+          "url": "https://openai.com/index/grid-protectors-program/",
+          "kind": "external"
+        }
+      ],
+      "related": [
+        {
+          "source": "OpenAI",
+          "title": "Introducing the Grid Protectors Program",
+          "url": "https://openai.com/index/grid-protectors-program/",
+          "date": "2026-11-02"
+        }
+      ]
+    },
+    {
       "id": "gdpx-v1-20261102",
       "category": "research",
       "title": "GDPx：11 个专业领域里，榜首任务得分仅 12.0%",

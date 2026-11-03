@@ -42,7 +42,9 @@
 .hf-main{min-width:0}
 .hf-model{font:750 1.125rem/1.5 var(--mono);display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap;overflow-wrap:anywhere}
 .hf-model em{font:700 .8125rem var(--sans);font-style:normal;color:var(--accent);background:var(--accent-bg);border:1px solid color-mix(in srgb,var(--accent) 18%,var(--line));border-radius:999px;padding:3px 7px;max-width:100%;overflow-wrap:anywhere}
+.hf-model em b,.hf-field b{font:750 .6875rem var(--mono);letter-spacing:.05em;margin-right:5px;color:var(--muted)}
 .hf-sub{display:flex;gap:4px 12px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.875rem;line-height:1.6;margin-top:8px}
+.hf-field{display:inline-flex;align-items:baseline;min-width:0;overflow-wrap:anywhere}
 .hf-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
 .hf-tags span{font-size:.8125rem;line-height:1.4;color:var(--muted);background:color-mix(in srgb,var(--raised) 82%,var(--panel));border:1px solid color-mix(in srgb,var(--line) 78%,transparent);border-radius:5px;padding:3px 5px}
 .hf-score{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:6px}

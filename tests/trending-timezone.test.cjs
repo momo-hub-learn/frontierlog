@@ -13,6 +13,10 @@ function functionBlock(source,name,next){
 }
 
 const hf=fs.readFileSync(path.join(ROOT,'src/huggingface-hot.js'),'utf8');
+const hfCss=fs.readFileSync(path.join(ROOT,'src/huggingface-hot.css'),'utf8');
+assert.match(hf,/<b>任务<\/b>.*x\.task\|\|'未标注'/s);
+assert.match(hf,/<span class="hf-field"><b>库<\/b>.*x\.library\|\|'未标注'/s);
+assert.match(hfCss,/\.hf-model em b,\.hf-field b/);
 const hfContext={Intl,Date};
 vm.createContext(hfContext);
 vm.runInContext(functionBlock(hf,'hfWhen','hfAge')+"\nthis.result=hfWhen('2026-10-22T00:30:00Z')",hfContext);
