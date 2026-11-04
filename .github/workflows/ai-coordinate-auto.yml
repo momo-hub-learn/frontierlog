@@ -47,10 +47,7 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python scripts/ai_coordinate_auto.py --report /tmp/ai-coordinate-auto-report.json
-            python -m unittest discover -s tests -p 'test_*.py'
-            for file in src/*.js; do node --check "$file"; done
-            for file in tests/*test.cjs; do node "$file"; done
-            python scripts/ai_coordinate_auto.py --offline-check
+            # Build the new data into fresh API mirrors BEFORE the repo-wide data-contract tests.
             python scripts/build.py --out /tmp/frontierlog-auto \
               --repo momo-hub-learn/frontierlog \
               --base-url https://momo-hub-learn.github.io/frontierlog/
@@ -62,6 +59,11 @@ jobs:
             cp /tmp/frontierlog-auto/api/v1/index.json api/v1/index.json
             cp /tmp/frontierlog-auto/api/v1/huggingface-hot.json api/v1/huggingface-hot.json
             cp /tmp/frontierlog-auto/api/v1/upstream.json api/v1/upstream.json
+            # Test the same tree that would be committed: no stale generated API snapshots.
+            python -m unittest discover -s tests -p 'test_*.py'
+            for file in src/*.js; do node --check "$file"; done
+            for file in tests/*test.cjs; do node "$file"; done
+            python scripts/ai_coordinate_auto.py --offline-check
             git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json \
               index.html 404.html api/v1/index.json api/v1/huggingface-hot.json api/v1/upstream.json
             if git diff --cached --quiet; then
