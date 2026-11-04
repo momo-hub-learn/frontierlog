@@ -1,8 +1,280 @@
 {
   "version": 1,
-  "note": "Source-first candidate queue, NOT approved editorial content; do not auto-promote to hot, models, or industry pages.",
-  "sources": {},
-  "items": [],
-  "last_attempt_at": null,
-  "last_ingested_at": null
+  "note": "No-WeChat-scraping evidence queue. Only official-site links and explicitly shared WeChat URLs; never publish as approved facts.",
+  "sources": {
+    "bytedance-seed/seed-research": {
+      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_error": null,
+      "status": "success"
+    },
+    "tencent-hunyuan/hunyuan-home": {
+      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "status": "failed",
+      "last_error": "ValueError: No readable same-publisher article links; cannot claim fresh check"
+    },
+    "deepseek/deepseek-news": {
+      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_error": null,
+      "status": "success"
+    },
+    "deepseek/deepseek-changelog": {
+      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_hash": "fb965c8f245aba142217199b094afbd9e306231be910b90b3dd188b05e39edd8",
+      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_error": null,
+      "status": "success"
+    },
+    "kimi/kimi-developer-docs": {
+      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_error": null,
+      "status": "success"
+    }
+  },
+  "items": [
+    {
+      "id": "f6f76436d25a01c6b047a5a1",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "Kimi K3",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-k3-quickstart.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "f62bb51079caa68e2a028ac5",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "从“会说”走向“会创作”｜ Seed Audio 1.0 音频创作模型发布 统一框架下联合建模人声、音效和环境声等音频要素 2026.07.20 2026.07.20 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "e6841afe61bb7d2793a8c544",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "动态 2026 年 9 月 10 日 DeepSeek V4.1 Flash：更强、更快、更普惠 DeepSeek V4.1 Flash 正式发布，具备原生多模态视觉理解能力。全新非对称模型结构，能力更强、速度更快、成本更低。",
+      "source_url": "https://deepseek.com/news/deepseek-v4-1-flash",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "d053c3a19ba681e75883226f",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "在 Kimi Code CLI 中使用 Kimi API Platform",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-code-cli.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "bb360d95cfb09b64adafb499",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "模型列表",
+      "source_url": "https://platform.kimi.com/docs/models.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "b4491fe54092a72a9d692a41",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "DeepSeek V3",
+      "source_url": "https://deepseek.com/news/deepseek-v3",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "a14b49d5c98ddd8df1214eaf",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "一镜成片，随心参考｜Seedance 2.5 正式发布 30 秒长叙事，多模态参考能力、编辑能力全面升级 2026.07.31 2026.07.31 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "91b9bf5ee38e79d04a5c1996",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "EdgeBench：衡量真实世界环境学习，发现新 Scaling Law Agent 在环境学习中表现出明显的 log-sigmoid 规律 2026.07.07 2026.07.07 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/edgebench-measuring-real-world-environment-learning-and-discovering-a-new-scaling-law",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "8cf847f4c03f3dcdb2860a48",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "不止“生成”，更懂“设计”｜Seedream 5.0 Pro 发布 具备智能思考、高效创作和生产的多模态图像生成模型 2026.07.08 2026.07.08 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "5cb9d27d1cfad4e07ecbaca6",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "Kimi K3.1 Pro",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-k3-1-pro-quickstart.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "59cc56426f11f37ec6a2e06a",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "Kimi K2.6",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-k2-6-quickstart.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "554a22079284caca9380faae",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "动态 2025 年 9 月 22 日 DeepSeek-V3.1 版本更新 DeepSeek-V3.1 更新至 Terminus 版本，缓解中英文混杂问题，优化 Code Agent 与 Search Agent 表现。",
+      "source_url": "https://deepseek.com/news/v3-1-terminus",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "51630065e238ad0485211c80",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "DeepSeek R1",
+      "source_url": "https://deepseek.com/news/r1-0528",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "4dfeef6805e5f446059d2065",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "动态 2026 年 4 月 24 日 DeepSeek-V4 预览版：迈入百万上下文普惠时代 DeepSeek 全新系列模型 V4 预览版正式上线并同步开源，拥有百万字超长上下文。",
+      "source_url": "https://deepseek.com/news/v4-preview",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "41cdbc151e5462d6865c7009",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "Kimi K3 API 工具调用最佳实践",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-k3-tool-calling-best-practice.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "402528ba26f18cb2be150fac",
+      "publisher_id": "kimi",
+      "publisher": "月之暗面 Kimi",
+      "title": "Kimi K2.7 Code",
+      "source_url": "https://platform.kimi.com/docs/guide/kimi-k2-7-code-quickstart.md",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "2841f0c292229b6e5136d9cf",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "了解更多 SeedRealtime 音视频全双工大模型发布：走向全模态自然交互 作为原生音视频全双工大模型，联合理解声音、画面与时序信息，带来边看、边听、边说的自然交互体验 2026.08.05 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "21830975c0bbdf623f100fe8",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "动态 2025 年 12 月 1 日 DeepSeek V3.2 正式版：强化 Agent 能力，融入思考推理 DeepSeek-V3.2 和 V3.2-Speciale 正式发布，推理能力全球领先，首个将思考融入工具使用的模型，斩获 IMO、CMO、ICPC、IOI 金牌。",
+      "source_url": "https://deepseek.com/news/deepseek-v3-2",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "167f52e61fce48774fba7582",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "动态 2025 年 9 月 29 日 DeepSeek-V3.2-Exp 发布，训练推理提效，API 同步降价 DeepSeek-V3.2-Exp 正式发布，引入 DeepSeek Sparse Attention 稀疏注意力机制，API 价格降低 50% 以上。",
+      "source_url": "https://deepseek.com/news/v3-2-exp",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "06d4c00c8614162477166424",
+      "publisher_id": "deepseek",
+      "publisher": "DeepSeek",
+      "title": "DeepSeek V3.1",
+      "source_url": "https://deepseek.com/news/deepseek-v3-1",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:55:12Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    }
+  ],
+  "last_attempt_at": "2026-11-04T06:55:12Z",
+  "last_ingested_at": "2026-11-04T06:55:12Z"
 }
