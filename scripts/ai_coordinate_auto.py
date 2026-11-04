@@ -238,7 +238,13 @@ def run_commands(selected: list[str], executor=subprocess.run, now: datetime | N
                 result["sources"][name] = {"status": "failed", "error": (type(exc).__name__+": "+str(exc))[:180]}
         successes += int(success)
     result["completed_at"] = stamp()
-    result["status"] = "success" if successes == len(selected) else "partial" if successes else "failed"
+    # An independently useful partial fetch does not make the whole cycle green.
+    # Keep exit code 0 for publishing verified independent sources; the receipt
+    # carries the distinct source/module-level status and complete failure count.
+    states = [v["status"] for v in result["sources"].values()]
+    result["status"] = ("success" if all(st == "success" for st in states)
+                        else "partial" if any(st in ("success", "partial") for st in states)
+                        else "failed")
     return result, 0 if successes else 2
 
 def main(argv: list[str] | None = None) -> int:
