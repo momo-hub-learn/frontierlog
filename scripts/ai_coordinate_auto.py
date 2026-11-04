@@ -29,6 +29,7 @@ COMMANDS = {
     "hf": ("huggingface_trending_sync.py", "data/huggingface-hot.json", 150),
     "upstream": ("collect.py", "data/upstream.json", 650),
     "cn": ("cn_official_sources.py", "data/cn-official-inbox.json", 260),
+    "media": ("media_sources.py", "data/media-inbox.json", 180),
 }
 ATOM = "{http://www.w3.org/2005/Atom}"
 
@@ -181,6 +182,9 @@ def verify_data(path: Path, name: str) -> None:
         raise ValueError("Missing HF source provenance")
     if name == "upstream" and ("releases" not in data or "errors" not in data):
         raise ValueError("Missing upstream source failure ledger")
+    if name == "media":
+        from media_sources import validate_inbox
+        validate_inbox(data)
     if name == "cn":
         if data.get("version") != 1 or not isinstance(data.get("sources"), dict) or not isinstance(data.get("items"), list):
             raise ValueError("Missing Chinese official-source evidence queue")
@@ -216,12 +220,12 @@ def run_commands(selected: list[str], executor=subprocess.run, now: datetime | N
                     states = snapshot.get("sync", {})
                     status = "success" if states.get("web_status") == "success" and states.get("api_status") == "success" else "partial" if proc.returncode == 0 else "failed"
                     detail = {"web": states.get("web_status"), "api": states.get("api_status")}
-                elif name == "cn":
+                elif name in ("cn", "media"):
                     states = snapshot.get("sources", {})
                     succeeded = sum(x.get("status") == "success" for x in states.values())
                     total = len(states)
                     status = "success" if proc.returncode == 0 and total > 0 and succeeded == total else "partial" if succeeded > 0 else "failed"
-                    detail = {"official_pages_succeeded": succeeded, "official_pages_total": total, "failed": total - succeeded}
+                    detail = {"sources_succeeded": succeeded, "sources_total": total, "failed": total - succeeded}
                 else:
                     count = snapshot.get("repositories_succeeded", 0)
                     total = snapshot.get("repositories_total", 0)
@@ -239,7 +243,7 @@ def run_commands(selected: list[str], executor=subprocess.run, now: datetime | N
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--modules", default="official,hf,upstream,cn", help="Comma-separated: official,hf,upstream,cn")
+    ap.add_argument("--modules", default="official,hf,upstream,cn,media", help="Comma-separated: official,hf,upstream,cn,media")
     ap.add_argument("--report", type=Path, default=Path("/tmp/ai-coordinate-sync-report.json"))
     ap.add_argument("--offline-check", action="store_true", help="Validate existing data without fetching or writing")
     args = ap.parse_args(argv)
