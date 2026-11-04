@@ -3,37 +3,223 @@
   "note": "No-WeChat-scraping evidence queue. Only official-site links and explicitly shared WeChat URLs; never publish as approved facts.",
   "sources": {
     "bytedance-seed/seed-research": {
-      "last_attempt_at": "2026-11-04T06:55:12Z",
-      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_attempt_at": "2026-11-04T06:59:07Z",
+      "last_success_at": "2026-11-04T06:59:07Z",
       "last_error": null,
       "status": "success"
     },
     "tencent-hunyuan/hunyuan-home": {
-      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_attempt_at": "2026-11-04T06:59:07Z",
       "status": "failed",
       "last_error": "ValueError: No readable same-publisher article links; cannot claim fresh check"
     },
     "deepseek/deepseek-news": {
-      "last_attempt_at": "2026-11-04T06:55:12Z",
-      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_attempt_at": "2026-11-04T06:59:07Z",
+      "last_success_at": "2026-11-04T06:59:07Z",
       "last_error": null,
       "status": "success"
     },
     "deepseek/deepseek-changelog": {
-      "last_attempt_at": "2026-11-04T06:55:12Z",
+      "last_attempt_at": "2026-11-04T06:59:07Z",
       "last_hash": "fb965c8f245aba142217199b094afbd9e306231be910b90b3dd188b05e39edd8",
-      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_success_at": "2026-11-04T06:59:07Z",
       "last_error": null,
       "status": "success"
     },
     "kimi/kimi-developer-docs": {
-      "last_attempt_at": "2026-11-04T06:55:12Z",
-      "last_success_at": "2026-11-04T06:55:12Z",
+      "last_attempt_at": "2026-11-04T06:59:07Z",
+      "last_success_at": "2026-11-04T06:59:07Z",
+      "last_error": null,
+      "status": "success"
+    },
+    "tencent-hunyuan/tencent-adp-blog": {
+      "last_attempt_at": "2026-11-04T06:59:07Z",
+      "last_success_at": "2026-11-04T06:59:07Z",
       "last_error": null,
       "status": "success"
     }
   },
   "items": [
+    {
+      "id": "e085fc8cd2bbaa399b72cd27",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "最佳实践 腾讯云 ADP FDE 体系：与伙伴一起让智能体从建好到用好 智能体落地难在打通系统、管好权限、验证效果和持续迭代。腾讯云把 ADP 项目经验沉淀为 FDE 体系，配套 25 个行业场景包，目标是 70% 复制、30% 定制，并与毕马威等伙伴联合交付。 腾讯云 ADP 团队 2026年11月2日",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-fde-methodology-kpmg-partnership",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "dec6eb15e0aafd7808b3867c",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "工业质检🦞，用 Agent 重塑质检体验 本文基于工业AI质检场景，介绍腾讯云ADP如何通过Claw模式在既有AOI系统上叠加智能操作层，推动智能体落地到模型训练策略编排、缺陷训练集质量检查、质检模型推理耗时优化等流程，并为Agent运维提供可观察、可检查、可持续优化的实践参考，帮助技术负责人、运维负责人和工业质检平台团队评估现有AI质检系 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-industrial-aoi-agent-solution",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "c523d62ce1307f671f7f6e88",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "最佳实践 SciLink × 腾讯云ADP，让临床科研再快一点 腾讯云智能体开发平台（ADP）与临床科研AI产品刀客轻研（SciLink）展开合作，结合ADP的任务规划、Workflow编排、Skills工具调用及过程留痕能力，推进临床数据分析、AutoML预测建模与队列研究方案设计。 腾讯云 ADP 团队 2026年10月27日",
+      "source_url": "https://adp.tencent.com/zh/blog/scilink-tencent-cloud-adp-clinical-research",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "bf6d49837d32ca21817ca4f2",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品动态 腾讯云 ADP 4.1.5～4.2.1 更新：AgentPortal、云盘与知识库 ADP 新增 AgentPortal 企业使用入口与 Claw 云盘，并扩展知识库能力。员工可集中使用获授权的智能体，团队文件可跨会话复用，知识库支持企微文档导入、图文问答与时效性检索。 腾讯云 ADP 团队 2026年10月19日",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-4-1-5-to-4-2-1-update",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "ad3af6ba68236ee3fc8caf97",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "IDC 首份智能体平台份额报告出炉：腾讯云ADP斩获传媒、医疗智能体平台市场\"双第一\" 企业AI转型进入智能体应用落地阶段。本文基于IDC《中国智能体开发平台市场份额，2025》及腾讯云ADP在传媒、医疗场景的实践，梳理AI Agent落地的典型痛点、平台能力、实施路径与量化成效，帮助业务负责人和CTO规划可治理、可评测、可持续运营的智能体应用。 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/enterprise-ai-transformation-agent-implementation-path",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "973ce655d4e247f808117ff2",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "腾讯云ADP 4.0 全新升级，企业级AgentOps平台助力企业AI落地 腾讯云 ADP 4.0 以 AgentOps 为核心理念，围绕企业智能体的构建、评测、集成、分发、治理、观测与优化进行全链路升级。平台新增 Claw 模式，引入云端 Agent Harness 架构，结合连接器、Skills、MCP、RAG 检索增强、权限治理与运行观测能力，帮助企业快速搭建 AI 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/adp-version-4-agentops-platform",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "93a926b93f78344ce054cfaa",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "最佳实践 用 WorkBuddy 搭 ADP 智能体！从创建调试到发布上线 WorkBuddy 正式打通腾讯云 ADP。在客户端唤起「腾讯云ADP智能体开发专家」发一次密钥，就能用对话完成 ADP 智能体的创建、配置、调试与发布，不用再开控制台。 腾讯云 ADP 团队 2026年10月29日",
+      "source_url": "https://adp.tencent.com/zh/blog/workbuddy-adp-agent-build-and-publish",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "915ea6deedcec42c6c11a4ae",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "Kimi K3上线，腾讯云ADP已接入：2.8万亿参数、100万上下文 腾讯云ADP已接入Kimi K3。本文从企业知识工作、软件研发、资料分析与办公自动化等场景出发，梳理如何通过腾讯云智能体开发平台、Claw模式、Skills、连接器、知识库与工作流搭建高质量智能体应用，并给出可用于项目验收的量化指标建议。 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-kimi-k3-enterprise-knowledge-agent-solution",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "871b0fd8ab62a9f84d1859f0",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品介绍 腾讯混元 Hy4 正式版接入腾讯云 ADP，模型调用限时 5 折 腾讯混元 Hy4 正式版接入 ADP 智能工作台。Hy4 模型调用限时 5 折，持续至 2026 年 12 月 31 日。双十一期间，ADP 套餐新客首购 5 折起。 腾讯云 ADP 团队 2026年11月4日",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-hunyuan-hy4-release",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "7d7896d938ce0d7fe096ebb0",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品动态 腾讯云 ADP 4.2.2 更新：网站与服务上线、AgentPortal 接入 A2A 与渠道调试 腾讯云 ADP 4.2.2 与新 AgentPortal 1.0.1 发布：智能工作台上线「网站与服务」（Sites）Beta 与并发会话队列；AgentPortal 支持 A2A/AG-UI 接入与四大 IM 远程控制；新增渠道级仅用于调试、2 万级知识库目录与 Responses API 协议。 腾讯云 ADP 团队 202",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-4-2-2-release-notes",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "7b573f2295f58574ae5adad2",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "最佳实践 腾讯云 ADP 如何进入企业业务系统：原子化能力与东北证券实践 企业内部系统多元、流程接口难以统一改造，ADP 把智能体能力拆成原子能力融入现有系统。东北证券基于 ADP 从中后台切入，从工作流和 Bad Case 中找需求，整体准确率达 90% 以上。 腾讯云 ADP 团队 2026年11月2日",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-adp-atomic-capabilities-northeast-securities",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "4b359d5c18c2471d6fe67811",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "腾讯云 ADP 前沿部署工程师（FDE）认证指南与生态伙伴 腾讯云正式推出《腾讯云 ADP 前沿部署工程师（FDE）》认证体系并启动伙伴招募。本文详解 FDE 认证的核心能力维度、考核规则、考位与备考资源，以及生态伙伴的三级准入标准与权益支持。 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/adp-fde-certification-guide",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "33a205d021ac86825d91a072",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品介绍 直击数字生态大会｜汤道生：用腾讯云 ADP 定制业务 Agent，让智能体深入核心流程 汤道生在2026腾讯全球数字生态大会表示，企业 Agent 落地的关键是连接人、工具、系统与数据。腾讯云 ADP 支持定制、发布和统一纳管业务 Agent，并与 WorkBuddy、企业微信协同，让智能体进入客服、营销、运营等核心流程。 Tencent Cloud ADP 2026年10月29日",
+      "source_url": "https://adp.tencent.com/zh/blog/tencent-cloud-adp-business-agent-ecosystem-2026",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "309d59f030465855a1212cb3",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "企业智能客服 Agent 落地方案 企业智能客服 Agent 的价值，正在从简单问答延伸到客服运营执行环节。本文面向客服运营负责人、客户服务中心主管与数字化团队，基于腾讯云 ADP 智能工作台与企点客服能力，拆解知识库维护、机器人未命中治理、满意度归因、工单跟进、服务热点分析、定时报告等场景，并给出接入步骤、试点路径与可量化评估指标。 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/enterprise-ai-customer-service-agent-solution",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "03f96bdf999339e1cfc06c28",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品介绍 DeepSeek-V4.1-1017、MiniMax-M3.1 与 Kimi-K3.1 上线 ADP 腾讯云智能体开发平台（ADP）现已上线 DeepSeek-V4.1-Flash-1017、MiniMax-M3.1-Flash 与 Kimi K3.1 Pro。支持在智能工作台、Claw 沙箱与应用对比调试中一键开启三栏同屏实测。 Tencent Cloud ADP 2026年10月26日",
+      "source_url": "https://adp.tencent.com/zh/blog/deepseek-v4-1-1017-minimax-m3-1-kimi-k3-1-adp",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-04T06:59:07Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
     {
       "id": "f6f76436d25a01c6b047a5a1",
       "publisher_id": "kimi",
@@ -275,6 +461,6 @@
       "evidence_level": "first_party_site_link"
     }
   ],
-  "last_attempt_at": "2026-11-04T06:55:12Z",
-  "last_ingested_at": "2026-11-04T06:55:12Z"
+  "last_attempt_at": "2026-11-04T06:59:07Z",
+  "last_ingested_at": "2026-11-04T06:59:07Z"
 }
