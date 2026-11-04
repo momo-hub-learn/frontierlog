@@ -67,6 +67,14 @@ class LowTokenTests(unittest.TestCase):
         row = next(x for x in again["items"] if x["status"] == "approved")
         self.assertEqual(row["reviewed_at"], "2026-11-04T05:30:00Z")
 
+    def test_generated_api_is_ready_before_contract_tests(self):
+        wf = (ROOT/".github/workflows/ai-coordinate-auto.yml").read_text(encoding="utf-8")
+        section = wf.split("name: Sync sources, retest and publish latest-main snapshot", 1)[1]
+        self.assertLess(
+            section.index("cp /tmp/frontierlog-auto/api/v1/huggingface-hot.json"),
+            section.index("python -m unittest discover -s tests -p 'test_*.py'"),
+        )
+
     def test_broken_official_source_does_not_block_hf(self):
         called = []
         def executor(args, **kwargs):
