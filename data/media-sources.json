@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "purpose": "Discovery-only media and creator sources, separate from primary official announcements. No content may be auto-promoted into editorial articles.",
+  "sources": [
+    {
+      "id": "qbitai-feed",
+      "publisher_id": "qbitai",
+      "publisher": "量子位",
+      "publisher_kind": "media",
+      "source_role": "media_original_publication",
+      "mode": "rss",
+      "url": "https://www.qbitai.com/feed",
+      "hosts": [
+        "www.qbitai.com",
+        "qbitai.com"
+      ],
+      "article_hosts": [
+        "www.qbitai.com",
+        "qbitai.com"
+      ],
+      "max_items": 40,
+      "enabled": true,
+      "source_home": "https://www.qbitai.com/",
+      "discovery_notes": "Publisher-operated RSS, factual claims still require primary-source verification."
+    },
+    {
+      "id": "khazix-aihot-changelog",
+      "publisher_id": "khazix",
+      "publisher": "数字生命卡兹克",
+      "publisher_kind": "creator",
+      "source_role": "creator_own_project_only",
+      "mode": "page_watch",
+      "url": "https://aihot.news/changelog",
+      "hosts": [
+        "aihot.news"
+      ],
+      "max_items": 0,
+      "enabled": true,
+      "source_home": "https://aihot.news/about",
+      "discovery_notes": "Author's own AIHOT project updates, not posts from his WeChat Official Account; don't mirror AIHOT's public news API."
+    }
+  ],
+  "manual_sources": [
+    {
+      "id": "khazix-wechat",
+      "publisher_id": "khazix",
+      "publisher": "数字生命卡兹克",
+      "publisher_kind": "creator",
+      "mode": "wechat_share_link",
+      "host": "mp.weixin.qq.com",
+      "enabled": true,
+      "source_home": "https://aihot.news/about",
+      "discovery_notes": "Requires a real shared WeChat URL. Original author/date/body must be independently verified; absent a share link, no new article is claimed."
+    }
+  ]
+}
