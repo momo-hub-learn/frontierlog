@@ -1,0 +1,88 @@
+name: AI coordinate source autopilot (no LLM)
+
+on:
+  schedule:
+    # Every two hours at minute 07 UTC; existing GitHub, topic and activity
+    # workflows retain their original schedules and are not duplicated.
+    - cron: '07 */2 * * *'
+  workflow_dispatch:
+  push:
+    branches: ['preview/**']
+    paths:
+      - '.github/workflows/ai-coordinate-auto.yml'
+      - 'scripts/ai_coordinate_auto.py'
+      - 'tests/test_ai_coordinate_auto.py'
+      - 'data/official-news-inbox.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: frontierlog-static-publish
+  cancel-in-progress: false
+
+jobs:
+  safe-source-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Network-free source provenance and failure tests
+        run: |
+          python -m unittest tests.test_ai_coordinate_auto tests.test_huggingface_trending_sync tests.test_collect
+          python scripts/ai_coordinate_auto.py --offline-check
+      - name: Sync sources, retest and publish latest-main snapshot
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            echo "Source sync on latest main; attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/ai_coordinate_auto.py --report /tmp/ai-coordinate-auto-report.json
+            python -m unittest discover -s tests -p 'test_*.py'
+            python scripts/ai_coordinate_auto.py --offline-check
+            python scripts/build.py --out /tmp/frontierlog-auto \
+              --repo momo-hub-learn/frontierlog \
+              --base-url https://momo-hub-learn.github.io/frontierlog/
+            test -s /tmp/frontierlog-auto/index.html
+            test -s /tmp/frontierlog-auto/api/v1/huggingface-hot.json
+            test -s /tmp/frontierlog-auto/api/v1/upstream.json
+            cp /tmp/frontierlog-auto/index.html index.html
+            cp /tmp/frontierlog-auto/404.html 404.html
+            cp /tmp/frontierlog-auto/api/v1/index.json api/v1/index.json
+            cp /tmp/frontierlog-auto/api/v1/huggingface-hot.json api/v1/huggingface-hot.json
+            cp /tmp/frontierlog-auto/api/v1/upstream.json api/v1/upstream.json
+            git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json \
+              index.html 404.html api/v1/index.json api/v1/huggingface-hot.json api/v1/upstream.json
+            if git diff --cached --quiet; then
+              echo 'No content change, do not make a timestamp-only commit.'
+              break
+            fi
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'data: sync verified public-source signals without LLM'
+            if git push origin HEAD:main; then
+              echo 'Published verified source snapshots to main.'
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo 'Concurrent main update prevented safe publication; no force push.' >&2
+              exit 1
+            fi
+          done
+      - name: Upload source-level receipt
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-coordinate-source-receipt
+          path: /tmp/ai-coordinate-auto-report.json
+          if-no-files-found: warn
+          retention-days: 14
