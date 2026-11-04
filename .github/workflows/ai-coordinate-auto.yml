@@ -11,7 +11,12 @@ on:
     paths:
       - '.github/workflows/ai-coordinate-auto.yml'
       - 'scripts/ai_coordinate_auto.py'
+      - 'scripts/cn_official_sources.py'
+      - 'data/cn-official-sources.json'
+      - 'data/wechat-original-links.json'
+      - 'data/cn-official-inbox.json'
       - 'tests/test_ai_coordinate_auto.py'
+      - 'tests/test_cn_official_sources.py'
       - 'data/official-news-inbox.json'
 
 permissions:
@@ -34,7 +39,7 @@ jobs:
           python-version: '3.11'
       - name: Network-free source provenance and failure tests
         run: |
-          python -m unittest tests.test_ai_coordinate_auto tests.test_huggingface_trending_sync tests.test_collect
+          python -m unittest tests.test_ai_coordinate_auto tests.test_cn_official_sources tests.test_huggingface_trending_sync tests.test_collect
           python scripts/ai_coordinate_auto.py --offline-check
       - name: Sync sources, retest and publish latest-main snapshot
         if: github.ref == 'refs/heads/main'
@@ -64,7 +69,7 @@ jobs:
             for file in src/*.js; do node --check "$file"; done
             for file in tests/*test.cjs; do node "$file"; done
             python scripts/ai_coordinate_auto.py --offline-check
-            git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json \
+            git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json data/cn-official-inbox.json \
               index.html 404.html api/v1/index.json api/v1/huggingface-hot.json api/v1/upstream.json
             if git diff --cached --quiet; then
               echo 'No content change, do not make a timestamp-only commit.'

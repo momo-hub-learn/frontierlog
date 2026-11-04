@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "note": "Official publisher index monitoring is separate from WeChat Official Account article discovery. No third-party mirrors, search-scraping or official-account impersonation.",
+  "publishers": [
+    {
+      "id": "bytedance-seed",
+      "name": "字节跳动 Seed",
+      "wechat_name": "字节跳动 Seed",
+      "wechat_identity_status": "pending_primary_account_verification",
+      "wechat_identity_evidence": null,
+      "feeds": [
+        {
+          "id": "seed-research",
+          "url": "https://seed.bytedance.com/zh/research",
+          "type": "html_links",
+          "allowed_hosts": [
+            "seed.bytedance.com"
+          ],
+          "allowed_paths": [
+            "/zh/blog/"
+          ],
+          "limit": 35
+        }
+      ]
+    },
+    {
+      "id": "tencent-hunyuan",
+      "name": "腾讯混元",
+      "wechat_name": "腾讯混元",
+      "wechat_identity_status": "official_company_page",
+      "wechat_identity_evidence": "https://developer.cloud.tencent.com/developer/zone/tencenthunyuan",
+      "feeds": [
+        {
+          "id": "hunyuan-home",
+          "url": "https://hunyuan.tencent.com/",
+          "type": "html_links",
+          "allowed_hosts": [
+            "hunyuan.tencent.com"
+          ],
+          "allowed_paths": [
+            "/news/",
+            "/blog/",
+            "/article/"
+          ],
+          "limit": 30
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "wechat_name": "DeepSeek",
+      "wechat_identity_status": "company_statement_reported_original_article_unreadable",
+      "wechat_identity_evidence": "https://mp.weixin.qq.com/s/u5coDiS5lXKjENlu1ghcoQ",
+      "feeds": [
+        {
+          "id": "deepseek-news",
+          "url": "https://deepseek.com/news/",
+          "type": "html_links",
+          "allowed_hosts": [
+            "deepseek.com",
+            "www.deepseek.com"
+          ],
+          "allowed_paths": [
+            "/news/"
+          ],
+          "limit": 30
+        },
+        {
+          "id": "deepseek-changelog",
+          "url": "https://api-docs.deepseek.com/zh-cn/updates/",
+          "type": "page_watch",
+          "allowed_hosts": [
+            "api-docs.deepseek.com"
+          ],
+          "allowed_paths": [],
+          "limit": 0
+        }
+      ]
+    },
+    {
+      "id": "kimi",
+      "name": "月之暗面 Kimi",
+      "wechat_name": "月之暗面Kimi",
+      "wechat_identity_status": "official_help_center",
+      "wechat_identity_evidence": "https://www.kimi.com/help/others/contact-support",
+      "feeds": [
+        {
+          "id": "kimi-developer-docs",
+          "url": "https://platform.kimi.com/docs/llms.txt",
+          "type": "markdown_links",
+          "allowed_hosts": [
+            "platform.kimi.com"
+          ],
+          "allowed_paths": [
+            "/docs/models.md",
+            "/docs/guide/kimi-"
+          ],
+          "limit": 30
+        }
+      ]
+    }
+  ]
+}
