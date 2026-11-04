@@ -75,6 +75,21 @@ class LowTokenTests(unittest.TestCase):
             section.index("python -m unittest discover -s tests -p 'test_*.py'"),
         )
 
+    def test_cycle_is_partial_if_any_source_only_partially_verified(self):
+        def executor(args, **kwargs):
+            return subprocess.CompletedProcess(args, 0, "", "")
+        def snapshot(path, *args, **kwargs):
+            if path.name == "huggingface-hot.json":
+                return json.dumps({"sync": {"web_status": "success", "api_status": "success"}})
+            return json.dumps({"sources": {"good": {"status": "success"}, "blocked": {"status": "failed"}}})
+        with patch.object(bot, "verify_data", return_value=None):
+            with patch.object(bot.Path, "read_text", snapshot):
+                result, code = bot.run_commands(["hf", "cn"], executor, NOW)
+        self.assertEqual(result["sources"]["hf"]["status"], "success")
+        self.assertEqual(result["sources"]["cn"]["status"], "partial")
+        self.assertEqual(result["status"], "partial")
+        self.assertEqual(code, 0)  # Publish verified independent sources, not the failed one.
+
     def test_broken_official_source_does_not_block_hf(self):
         called = []
         def executor(args, **kwargs):
