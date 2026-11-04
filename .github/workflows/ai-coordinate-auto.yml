@@ -7,7 +7,7 @@ on:
     - cron: '07 */2 * * *'
   workflow_dispatch:
   push:
-    branches: ['preview/**']
+    branches: [main, 'preview/**']
     paths:
       - '.github/workflows/ai-coordinate-auto.yml'
       - 'scripts/ai_coordinate_auto.py'
@@ -48,6 +48,8 @@ jobs:
             git reset --hard origin/main
             python scripts/ai_coordinate_auto.py --report /tmp/ai-coordinate-auto-report.json
             python -m unittest discover -s tests -p 'test_*.py'
+            for file in src/*.js; do node --check "$file"; done
+            for file in tests/*test.cjs; do node "$file"; done
             python scripts/ai_coordinate_auto.py --offline-check
             python scripts/build.py --out /tmp/frontierlog-auto \
               --repo momo-hub-learn/frontierlog \
