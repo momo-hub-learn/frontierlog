@@ -687,19 +687,14 @@
   },
   "sync": {
     "mode": "official_trending_plus_repository_api",
-    "status": "success",
-    "last_checked_at": "2026-11-08T01:33:19Z",
+    "status": "error",
+    "last_checked_at": "2026-11-08T09:13:34Z",
     "last_success_at": "2026-11-08T01:33:19Z",
     "note": "仅官方 Trending 确认可更新榜位与今日 Star；失败时保留上次成功快照。",
-    "watchlist_checked_at": "2026-11-08T01:33:19Z",
+    "watchlist_checked_at": "2026-11-08T09:13:34Z",
     "watchlist_errors": [],
     "watchlist_failed_count": 0,
-    "trending_count": 15,
-    "verified_count": 15,
-    "metadata_failed_count": 0,
-    "metadata_status": "success",
-    "metadata_checked_at": "2026-11-08T01:33:19Z",
-    "skipped": []
+    "error": "HTTP Error 504: Gateway Time-out"
   },
   "watchlist": [
     {
@@ -713,12 +708,12 @@
         "Agent",
         "MCP"
       ],
-      "stars": 441118,
-      "forks": 109145,
+      "stars": 441957,
+      "forks": 109302,
       "repo_created_at": "2026-04-14T00:51:32Z",
-      "repo_pushed_at": "2026-11-08T01:02:56Z",
+      "repo_pushed_at": "2026-11-08T07:16:34Z",
       "language": "TypeScript",
-      "verified_at": "2026-11-08T01:33:19Z",
+      "verified_at": "2026-11-08T09:13:34Z",
       "note": "长期追踪；官方 GitHub API 核验总 Stars，不虚构 Trending 名次或当日新增 Star。",
       "metadata_status": "verified"
     }
