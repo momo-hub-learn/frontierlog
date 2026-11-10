@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "checked_at": "2026-11-10T00:04:20Z",
+  "checked_at": "2026-11-10T23:05:26Z",
   "source_url": "https://huggingface.co/models?sort=trending",
   "api_url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=20",
   "source_scope": "Hugging Face Models · official web Trending order · Top 20; API fields retained independently",
   "note": "页面 # 严格使用官方 Models Trending 网页顺序；trendingScore、Likes、Downloads、task 与 library 来自官方 API。两个来源分别记录抓取时间，不拼成伪精确榜；榜位升降只比较本站连续保存的两次官方网页快照；平台指标只是热度/使用信号，不是能力成绩或本站实测。",
   "rank_source": "official_web_models_trending_order",
   "api_rank_source": "official_api_trendingScore_desc",
-  "api_fetched_at": "2026-11-10T00:04:20Z",
-  "web_fetched_at": "2026-11-10T00:04:20Z",
+  "api_fetched_at": "2026-11-10T23:05:26Z",
+  "web_fetched_at": "2026-11-10T23:05:26Z",
   "web_verification_method": "official_web_server_html",
   "web_order_matches_api": true,
   "web_order": [
@@ -17,224 +17,174 @@
     "moonshotai/Kimi-K3.1-Pro",
     "ricursiveAI/Ripple-65B-Preview",
     "Lightricks/LTX-2.5",
-    "ccore/Qwen3.5-4B-3D-Coder",
     "NousResearch/Arete-27B",
     "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+    "MiniMaxAI/MiniMax-H3-Image",
+    "ccore/Qwen3.5-4B-3D-Coder",
     "Qwen/Qwen3.8-27B",
+    "webAI-Official/TwIL-8B",
+    "Viggle/Viggle-Remake",
+    "unsloth/Qwen3.8-Flash-Next-GGUF",
     "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
     "black-forest-labs/flux-3-image-klein-comfy",
-    "webAI-Official/TwIL-8B",
-    "unsloth/Qwen3.8-Flash-Next-GGUF",
     "PrunaAI/P-H3-Image-Comfy",
-    "Viggle/Viggle-Remake",
-    "ccore/Qwen3.5-4B-GLB-3D-Coder",
-    "Scantist/GLM-5.3-SLIM-GGUF",
-    "PrunaAI/P-H3-Image",
+    "baidu/ERNIE-5.5-Flash-Base",
     "facebook/sam3",
-    "baidu/ERNIE-5.5-Flash-Base"
+    "LiquidAI/LFM3-1.7B",
+    "ccore/Qwen3.5-4B-GLB-3D-Coder"
   ],
   "web_rank_changes": [
     {
       "id": "speridlabs/idol",
       "rank": 1,
-      "previous_rank": 3,
-      "rank_change": 2,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 1,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
       "rank": 2,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 2,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "moonshotai/Kimi-K3.1-Pro",
       "rank": 3,
-      "previous_rank": 6,
-      "rank_change": 3,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 3,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "ricursiveAI/Ripple-65B-Preview",
       "rank": 4,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 4,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "Lightricks/LTX-2.5",
       "rank": 5,
-      "previous_rank": 8,
-      "rank_change": 3,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "ccore/Qwen3.5-4B-3D-Coder",
-      "rank": 6,
-      "previous_rank": 9,
-      "rank_change": 3,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 5,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "NousResearch/Arete-27B",
-      "rank": 7,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "rank": 6,
+      "previous_rank": 7,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "rank": 7,
+      "previous_rank": 8,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "MiniMaxAI/MiniMax-H3-Image",
       "rank": 8,
-      "previous_rank": 20,
-      "rank_change": 12,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": null,
+      "rank_change": null,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "ccore/Qwen3.5-4B-3D-Coder",
+      "rank": 9,
+      "previous_rank": 6,
+      "rank_change": -3,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "Qwen/Qwen3.8-27B",
-      "rank": 9,
-      "previous_rank": 12,
-      "rank_change": 3,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
       "rank": 10,
-      "previous_rank": 1,
-      "rank_change": -9,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "black-forest-labs/flux-3-image-klein-comfy",
-      "rank": 11,
-      "previous_rank": 14,
-      "rank_change": 3,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 9,
+      "rank_change": -1,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "webAI-Official/TwIL-8B",
+      "rank": 11,
+      "previous_rank": 12,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "Viggle/Viggle-Remake",
       "rank": 12,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 15,
+      "rank_change": 3,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "unsloth/Qwen3.8-Flash-Next-GGUF",
       "rank": 13,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 13,
+      "rank_change": 0,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "rank": 14,
+      "previous_rank": 10,
+      "rank_change": -4,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "black-forest-labs/flux-3-image-klein-comfy",
+      "rank": 15,
+      "previous_rank": 11,
+      "rank_change": -4,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "PrunaAI/P-H3-Image-Comfy",
-      "rank": 14,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "Viggle/Viggle-Remake",
-      "rank": 15,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "ccore/Qwen3.5-4B-GLB-3D-Coder",
       "rank": 16,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "Scantist/GLM-5.3-SLIM-GGUF",
-      "rank": 17,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "PrunaAI/P-H3-Image",
-      "rank": 18,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "facebook/sam3",
-      "rank": 19,
-      "previous_rank": null,
-      "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_rank": 14,
+      "rank_change": -2,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
       "id": "baidu/ERNIE-5.5-Flash-Base",
-      "rank": 20,
+      "rank": 17,
+      "previous_rank": 20,
+      "rank_change": 3,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "facebook/sam3",
+      "rank": 18,
+      "previous_rank": 19,
+      "rank_change": 1,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "LiquidAI/LFM3-1.7B",
+      "rank": 19,
       "previous_rank": null,
       "rank_change": null,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
+    },
+    {
+      "id": "ccore/Qwen3.5-4B-GLB-3D-Coder",
+      "rank": 20,
+      "previous_rank": 16,
+      "rank_change": -4,
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     }
   ],
   "web_outgoing": [
     {
-      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "previous_rank": 2,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "LiquidAI/LFM3-1.7B",
-      "previous_rank": 4,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "mistralai/Mistral-Large-4-1T-A52B",
-      "previous_rank": 5,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "Pika-Labs/Pika-H3-Flex",
-      "previous_rank": 7,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "burner22/numbat",
-      "previous_rank": 10,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "FusionCow/Sulphur-3",
-      "previous_rank": 11,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "abenzerps/Qwen-Image-2.1-Turbo-Quantized",
-      "previous_rank": 13,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "AtomicChat/DeepSeek-V4.1-Flash-1017-Uncensored-GSQ-RCO-GGUF",
-      "previous_rank": 15,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "Edge0/Audio8-TTS-Realistic-Air",
-      "previous_rank": 16,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "sensenova/SenseNova-Loop-9B-Preview",
+      "id": "Scantist/GLM-5.3-SLIM-GGUF",
       "previous_rank": 17,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     },
     {
-      "id": "baidu/Unlimited-OCR-2",
+      "id": "PrunaAI/P-H3-Image",
       "previous_rank": 18,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
-    },
-    {
-      "id": "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated",
-      "previous_rank": 19,
-      "previous_fetched_at": "2026-11-05T02:08:53Z"
+      "previous_fetched_at": "2026-11-10T00:04:20Z"
     }
   ],
   "items": [
@@ -242,9 +192,9 @@
       "rank": 1,
       "id": "speridlabs/idol",
       "url": "https://huggingface.co/speridlabs/idol",
-      "trending_score": 847,
-      "likes": 1625,
-      "downloads": 24747,
+      "trending_score": 925,
+      "likes": 1865,
+      "downloads": 26470,
       "task": "image-to-3d",
       "library": "idol",
       "created_at": "2026-10-28T15:55:17.000Z",
@@ -259,9 +209,9 @@
       "rank": 2,
       "id": "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
       "url": "https://huggingface.co/xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic",
-      "trending_score": 822,
-      "likes": 1037,
-      "downloads": 11755,
+      "trending_score": 923,
+      "likes": 1184,
+      "downloads": 14378,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-10-30T10:21:29.000Z",
@@ -276,9 +226,9 @@
       "rank": 3,
       "id": "moonshotai/Kimi-K3.1-Pro",
       "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
-      "trending_score": 588,
-      "likes": 1796,
-      "downloads": 27926,
+      "trending_score": 616,
+      "likes": 1867,
+      "downloads": 30721,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-11-02T04:13:51.000Z",
@@ -293,9 +243,9 @@
       "rank": 4,
       "id": "ricursiveAI/Ripple-65B-Preview",
       "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
-      "trending_score": 436,
-      "likes": 453,
-      "downloads": 5835,
+      "trending_score": 464,
+      "likes": 485,
+      "downloads": 6480,
       "task": "未标注",
       "library": "未标注",
       "created_at": "2026-11-04T02:41:21.000Z",
@@ -310,9 +260,9 @@
       "rank": 5,
       "id": "Lightricks/LTX-2.5",
       "url": "https://huggingface.co/Lightricks/LTX-2.5",
-      "trending_score": 388,
-      "likes": 11261,
-      "downloads": 2720096,
+      "trending_score": 389,
+      "likes": 11371,
+      "downloads": 2791606,
       "task": "image-to-video",
       "library": "diffusion-single-file",
       "created_at": "2026-07-23T07:55:24.000Z",
@@ -325,28 +275,11 @@
     },
     {
       "rank": 6,
-      "id": "ccore/Qwen3.5-4B-3D-Coder",
-      "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
-      "trending_score": 350,
-      "likes": 949,
-      "downloads": 289466,
-      "task": "未标注",
-      "library": "未标注",
-      "created_at": "2026-10-25T05:43:34.000Z",
-      "tags": [
-        "safetensors",
-        "gguf",
-        "qwen3_5",
-        "code"
-      ]
-    },
-    {
-      "rank": 7,
       "id": "NousResearch/Arete-27B",
       "url": "https://huggingface.co/NousResearch/Arete-27B",
-      "trending_score": 347,
-      "likes": 362,
-      "downloads": 2407,
+      "trending_score": 384,
+      "likes": 400,
+      "downloads": 3431,
       "task": "text-generation",
       "library": "未标注",
       "created_at": "2026-11-06T19:31:28.000Z",
@@ -358,12 +291,12 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 7,
       "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
       "url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-      "trending_score": 341,
-      "likes": 2777,
-      "downloads": 1530688,
+      "trending_score": 357,
+      "likes": 2835,
+      "downloads": 1459029,
       "task": "image-text-to-text",
       "library": "未标注",
       "created_at": "2026-09-01T07:01:09.000Z",
@@ -375,12 +308,46 @@
       ]
     },
     {
+      "rank": 8,
+      "id": "MiniMaxAI/MiniMax-H3-Image",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+      "trending_score": 350,
+      "likes": 351,
+      "downloads": 667,
+      "task": "text-to-image",
+      "library": "minimax-h3",
+      "created_at": "2026-11-03T06:34:36.000Z",
+      "tags": [
+        "minimax-h3",
+        "diffusers",
+        "safetensors",
+        "text-to-image"
+      ]
+    },
+    {
       "rank": 9,
+      "id": "ccore/Qwen3.5-4B-3D-Coder",
+      "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+      "trending_score": 334,
+      "likes": 972,
+      "downloads": 319405,
+      "task": "未标注",
+      "library": "未标注",
+      "created_at": "2026-10-25T05:43:34.000Z",
+      "tags": [
+        "safetensors",
+        "gguf",
+        "qwen3_5",
+        "code"
+      ]
+    },
+    {
+      "rank": 10,
       "id": "Qwen/Qwen3.8-27B",
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "trending_score": 318,
-      "likes": 19486,
-      "downloads": 7508158,
+      "trending_score": 319,
+      "likes": 19565,
+      "downloads": 7443748,
       "task": "image-text-to-text",
       "library": "transformers",
       "created_at": "2026-08-05T08:22:59.000Z",
@@ -392,46 +359,12 @@
       ]
     },
     {
-      "rank": 10,
-      "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
-      "trending_score": 250,
-      "likes": 3123,
-      "downloads": 69992,
-      "task": "automatic-speech-recognition",
-      "library": "nemo",
-      "created_at": "2026-10-07T22:50:21.000Z",
-      "tags": [
-        "nemo",
-        "safetensors",
-        "nemo_speechlm",
-        "text2text-generation"
-      ]
-    },
-    {
       "rank": 11,
-      "id": "black-forest-labs/flux-3-image-klein-comfy",
-      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
-      "trending_score": 247,
-      "likes": 2821,
-      "downloads": 1203472,
-      "task": "image-to-image",
-      "library": "diffusion-single-file",
-      "created_at": "2026-10-14T12:00:13.000Z",
-      "tags": [
-        "diffusion-single-file",
-        "comfyui",
-        "image-generation",
-        "image-editing"
-      ]
-    },
-    {
-      "rank": 12,
       "id": "webAI-Official/TwIL-8B",
       "url": "https://huggingface.co/webAI-Official/TwIL-8B",
-      "trending_score": 246,
-      "likes": 252,
-      "downloads": 34546,
+      "trending_score": 267,
+      "likes": 275,
+      "downloads": 43175,
       "task": "text-generation",
       "library": "transformers",
       "created_at": "2026-10-14T16:50:12.000Z",
@@ -443,12 +376,29 @@
       ]
     },
     {
+      "rank": 12,
+      "id": "Viggle/Viggle-Remake",
+      "url": "https://huggingface.co/Viggle/Viggle-Remake",
+      "trending_score": 259,
+      "likes": 267,
+      "downloads": 115384,
+      "task": "video-to-video",
+      "library": "minimax-h3",
+      "created_at": "2026-10-22T19:06:17.000Z",
+      "tags": [
+        "minimax-h3",
+        "gguf",
+        "video-editing",
+        "character-replacement"
+      ]
+    },
+    {
       "rank": 13,
       "id": "unsloth/Qwen3.8-Flash-Next-GGUF",
       "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
-      "trending_score": 239,
-      "likes": 1554,
-      "downloads": 1694090,
+      "trending_score": 250,
+      "likes": 1575,
+      "downloads": 1816522,
       "task": "image-text-to-text",
       "library": "未标注",
       "created_at": "2026-08-26T12:29:32.000Z",
@@ -461,11 +411,45 @@
     },
     {
       "rank": 14,
+      "id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "trending_score": 238,
+      "likes": 3149,
+      "downloads": 72455,
+      "task": "automatic-speech-recognition",
+      "library": "nemo",
+      "created_at": "2026-10-07T22:50:21.000Z",
+      "tags": [
+        "nemo",
+        "safetensors",
+        "nemo_speechlm",
+        "text2text-generation"
+      ]
+    },
+    {
+      "rank": 15,
+      "id": "black-forest-labs/flux-3-image-klein-comfy",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy",
+      "trending_score": 228,
+      "likes": 2868,
+      "downloads": 1251688,
+      "task": "image-to-image",
+      "library": "diffusion-single-file",
+      "created_at": "2026-10-14T12:00:13.000Z",
+      "tags": [
+        "diffusion-single-file",
+        "comfyui",
+        "image-generation",
+        "image-editing"
+      ]
+    },
+    {
+      "rank": 16,
       "id": "PrunaAI/P-H3-Image-Comfy",
       "url": "https://huggingface.co/PrunaAI/P-H3-Image-Comfy",
-      "trending_score": 229,
-      "likes": 264,
-      "downloads": 704467,
+      "trending_score": 199,
+      "likes": 282,
+      "downloads": 782946,
       "task": "text-to-image",
       "library": "diffusion-single-file",
       "created_at": "2026-10-28T11:26:05.000Z",
@@ -477,80 +461,29 @@
       ]
     },
     {
-      "rank": 15,
-      "id": "Viggle/Viggle-Remake",
-      "url": "https://huggingface.co/Viggle/Viggle-Remake",
-      "trending_score": 227,
-      "likes": 233,
-      "downloads": 97356,
-      "task": "video-to-video",
-      "library": "minimax-h3",
-      "created_at": "2026-10-22T19:06:17.000Z",
-      "tags": [
-        "minimax-h3",
-        "gguf",
-        "video-editing",
-        "character-replacement"
-      ]
-    },
-    {
-      "rank": 16,
-      "id": "ccore/Qwen3.5-4B-GLB-3D-Coder",
-      "url": "https://huggingface.co/ccore/Qwen3.5-4B-GLB-3D-Coder",
-      "trending_score": 184,
-      "likes": 286,
-      "downloads": 38696,
-      "task": "text-generation",
-      "library": "未标注",
-      "created_at": "2026-11-01T22:30:01.000Z",
-      "tags": [
-        "safetensors",
-        "gguf",
-        "qwen3_5",
-        "code"
-      ]
-    },
-    {
       "rank": 17,
-      "id": "Scantist/GLM-5.3-SLIM-GGUF",
-      "url": "https://huggingface.co/Scantist/GLM-5.3-SLIM-GGUF",
-      "trending_score": 184,
-      "likes": 1295,
-      "downloads": 7884,
+      "id": "baidu/ERNIE-5.5-Flash-Base",
+      "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
+      "trending_score": 181,
+      "likes": 251,
+      "downloads": 2111,
       "task": "text-generation",
-      "library": "未标注",
-      "created_at": "2026-11-02T13:11:14.000Z",
+      "library": "transformers",
+      "created_at": "2026-10-21T08:40:58.000Z",
       "tags": [
-        "gguf",
-        "llama.cpp",
-        "glm_moe_dsa",
-        "moe"
+        "transformers",
+        "safetensors",
+        "ernie5_5_moe",
+        "text-generation"
       ]
     },
     {
       "rank": 18,
-      "id": "PrunaAI/P-H3-Image",
-      "url": "https://huggingface.co/PrunaAI/P-H3-Image",
-      "trending_score": 177,
-      "likes": 183,
-      "downloads": 1016,
-      "task": "text-to-image",
-      "library": "diffusers",
-      "created_at": "2026-10-27T09:16:58.000Z",
-      "tags": [
-        "diffusers",
-        "safetensors",
-        "text-to-image",
-        "image-to-image"
-      ]
-    },
-    {
-      "rank": 19,
       "id": "facebook/sam3",
       "url": "https://huggingface.co/facebook/sam3",
-      "trending_score": 174,
-      "likes": 6176,
-      "downloads": 2004798,
+      "trending_score": 175,
+      "likes": 6256,
+      "downloads": 2025490,
       "task": "mask-generation",
       "library": "transformers",
       "created_at": "2025-11-07T05:17:48.000Z",
@@ -562,26 +495,43 @@
       ]
     },
     {
-      "rank": 20,
-      "id": "baidu/ERNIE-5.5-Flash-Base",
-      "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
-      "trending_score": 172,
-      "likes": 238,
-      "downloads": 1699,
+      "rank": 19,
+      "id": "LiquidAI/LFM3-1.7B",
+      "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "trending_score": 173,
+      "likes": 1588,
+      "downloads": 82718,
       "task": "text-generation",
       "library": "transformers",
-      "created_at": "2026-10-21T08:40:58.000Z",
+      "created_at": "2026-10-23T21:35:42.000Z",
       "tags": [
         "transformers",
         "safetensors",
-        "ernie5_5_moe",
+        "lfm3",
         "text-generation"
+      ]
+    },
+    {
+      "rank": 20,
+      "id": "ccore/Qwen3.5-4B-GLB-3D-Coder",
+      "url": "https://huggingface.co/ccore/Qwen3.5-4B-GLB-3D-Coder",
+      "trending_score": 167,
+      "likes": 304,
+      "downloads": 43008,
+      "task": "text-generation",
+      "library": "未标注",
+      "created_at": "2026-11-01T22:30:01.000Z",
+      "tags": [
+        "safetensors",
+        "gguf",
+        "qwen3_5",
+        "code"
       ]
     }
   ],
   "sync": {
     "status": "success",
-    "last_checked_at": "2026-11-10T00:04:20Z",
+    "last_checked_at": "2026-11-10T23:05:26Z",
     "web_status": "success",
     "api_status": "success"
   }
