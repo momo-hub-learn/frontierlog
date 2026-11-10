@@ -3,44 +3,92 @@
   "note": "No-WeChat-scraping evidence queue. Only official-site links and explicitly shared WeChat URLs; never publish as approved facts.",
   "sources": {
     "bytedance-seed/seed-research": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
-      "last_success_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
+      "last_success_at": "2026-11-10T00:04:29Z",
       "last_error": null,
       "status": "success"
     },
     "tencent-hunyuan/hunyuan-home": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
       "status": "failed",
       "last_error": "ValueError: No readable same-publisher article links; cannot claim fresh check"
     },
     "deepseek/deepseek-news": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
-      "last_success_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
+      "last_success_at": "2026-11-10T00:04:29Z",
       "last_error": null,
       "status": "success"
     },
     "deepseek/deepseek-changelog": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
-      "last_hash": "3e75d37958d2a1da6e43e755289288130b83facd4eb26d8ed9e322ead3e3b454",
-      "last_success_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
+      "last_hash": "792a22b7730c0f4db6737050c3be1faa3fe8f1ec842e5a9babc8d6f6659863d7",
+      "last_success_at": "2026-11-10T00:04:29Z",
       "last_error": null,
       "status": "success",
-      "changed_unreviewed_at": "2026-11-04T09:09:39Z"
+      "changed_unreviewed_at": "2026-11-10T00:04:29Z"
     },
     "kimi/kimi-developer-docs": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
-      "last_success_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
+      "last_success_at": "2026-11-10T00:04:29Z",
       "last_error": null,
       "status": "success"
     },
     "tencent-hunyuan/tencent-adp-blog": {
-      "last_attempt_at": "2026-11-05T02:09:00Z",
-      "last_success_at": "2026-11-05T02:09:00Z",
+      "last_attempt_at": "2026-11-10T00:04:29Z",
+      "last_success_at": "2026-11-10T00:04:29Z",
       "last_error": null,
       "status": "success"
     }
   },
   "items": [
+    {
+      "id": "bf7f26107b7ef7fc61bd3cef",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "Agent时代，Workflow依然不可或缺：企业需要的是自主规划与确定性流程两者融合 Agent 时代，Workflow 和低代码是否过时？本文解析低代码、工作流、Skill 与自主规划 Agent等容易被业界混淆的概念和落地实践经验，说明腾讯云 ADP 如何兼顾企业稳定性与灵活性，并通过 Dify、扣子、腾讯元器等主流平台的跨平台迁移演示，展示既有智能体资产如何在 ADP 中延续、重建、调试与发布。 查看详情",
+      "source_url": "https://adp.tencent.com/zh/blog/workflow-vs-agent-adp-cross-platform-migration",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-10T00:04:29Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "a3ba6e3ad787063a6c385ca3",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "产品介绍 当“模糊的意图”遇上“严谨的流程”：ADP 4.0 Claw 模式的双向互调 用退货分析和单据入库两个示例，说明 ADP 4.0 中 Claw 模式与 Workflow 如何双向调用，以及如何配置工具、约定交接字段和调试节点。 腾讯云 ADP 团队 2026年11月9日",
+      "source_url": "https://adp.tencent.com/zh/blog/adp-claw-workflow-bidirectional-calls",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-10T00:04:29Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "6bb74d18ae18db7f178ebfb5",
+      "publisher_id": "tencent-hunyuan",
+      "publisher": "腾讯混元",
+      "title": "前沿技术 常驻 AI 如何持续工作：DeepSeek SuperAgent 深度解读 Agent 越多，人为何反而越忙？拆解 DeepSeek SuperAgent 的任务分派、默认静默、授权工单与中断恢复机制，看持续工作的 Agent 如何减少人的协调负担，以及原型仍有哪些边界。 腾讯云 ADP 团队 2026年11月5日",
+      "source_url": "https://adp.tencent.com/zh/blog/deepseek-superagent-continuous-work-explained",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-10T00:04:29Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
+    {
+      "id": "4a21079372c1ad9ebf5f494e",
+      "publisher_id": "bytedance-seed",
+      "publisher": "字节跳动 Seed",
+      "title": "了解更多 生成更真实，百轮编辑更稳定｜Seedream 5.5 发布 非编辑区域像素级保持，真实感与小字渲染显著提升 2026.11.09 了解更多",
+      "source_url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+      "source_type": "official_company_site",
+      "published_at": null,
+      "first_seen_at": "2026-11-10T00:04:29Z",
+      "review_status": "unreviewed",
+      "evidence_level": "first_party_site_link"
+    },
     {
       "id": "e085fc8cd2bbaa399b72cd27",
       "publisher_id": "tencent-hunyuan",
@@ -462,6 +510,6 @@
       "evidence_level": "first_party_site_link"
     }
   ],
-  "last_attempt_at": "2026-11-05T02:09:00Z",
-  "last_ingested_at": "2026-11-04T06:59:07Z"
+  "last_attempt_at": "2026-11-10T00:04:29Z",
+  "last_ingested_at": "2026-11-10T00:04:29Z"
 }
