@@ -23,6 +23,7 @@ function p5Date(d){return String(d||'').replaceAll('-','.')}
 function p5SourceRows(t){return (t.sources||[]).map(id=>P5_SOURCES.get(id)).filter(Boolean)}
 function p5PrimarySource(t){return p5SourceRows(t).find(x=>x.published)||p5SourceRows(t)[0]||null}
 function p5Access(t){
+ if(t.status==='research')return {label:'论文方法 · 未验证运行',cls:'limited'};
  if(t.id==='gemini-38-flash-tts')return {label:'网页 / API',cls:'direct'};
  if(t.id==='gemini-connected-apps')return {label:'灰度开放',cls:'limited'};
  if(t.id==='chatgpt-voice-work')return {label:'网页 / 移动端',cls:'direct'};
@@ -31,6 +32,7 @@ function p5Access(t){
  return {label:t.effort||'公开路径',cls:'direct'}
 }
 function p5Experience(t){
+ if(t.status==='research'){const source=p5SourceRows(t)[0];return source?[source.url,'阅读论文']:null}
  if(t.id==='gemini-38-flash-tts')return ['https://aistudio.google.com/','立即体验'];
  if(t.id==='gemini-connected-apps')return ['https://gemini.google.com/','打开 Gemini'];
  if(t.id==='chatgpt-voice-work')return ['https://chatgpt.com/','打开 ChatGPT'];
@@ -44,8 +46,9 @@ function p5Actions(t){
   (src&&(!exp||src.url!==exp[0])?'<a class="p5-btn" href="'+safeLink(src.url)+'" target="_blank" rel="noopener noreferrer">来源 '+icon('external')+'</a>':'')+
   '<button class="p5-btn" data-action="task" data-id="'+esc(t.id)+'">详情 '+icon('arrow')+'</button></div>'
 }
+function p5MapItems(){return (DATA.items||[]).filter(x=>x.status==='code'||(x.status==='research'&&x.show_in_map===true))}
 function p5Categories(){
- const rows=(DATA.items||[]).filter(x=>x.status==='code');
+ const rows=p5MapItems();
  return ['all',...new Set(rows.map(x=>x.category))]
 }
 function p5FilterTasks(rows,s){
@@ -58,8 +61,12 @@ function p5Tabs(s){
 }
 function p5Filters(s){
  if(s.view==='research')return '';
- const cats=p5Categories();
- return '<div class="p5-tools"><div class="p5-chips">'+cats.map(c=>'<a class="'+(s.cat===c?'active':'')+'" href="'+p5Href({cat:c})+'">'+esc(c==='all'?'全部能力':c)+'</a>').join('')+'</div><label class="p5-search">'+icon('search')+'<input id="p5-search" aria-label="搜索能力" value="'+esc(s.q)+'" placeholder="搜索能力、限制、验收方法…"></label></div>'
+ const cats=p5Categories(),priority=['all','文档处理','Agent / Harness','模型训练','科学研究','知识管理','制造业','软件开发'];
+ const key=new Set(priority),visible=cats.filter(c=>key.has(c)),extra=cats.filter(c=>!key.has(c));
+ const chip=c=>'<a class="'+(s.cat===c?'active':'')+'" href="'+p5Href({cat:c})+'"'+(s.cat===c?' aria-current="true"':'')+'>'+esc(c==='all'?'全部能力':c)+'</a>';
+ return '<div class="p5-tools"><div class="p5-category-layout"><nav class="p5-chips" aria-label="常用能力方向">'+visible.map(chip).join('')+'</nav>'+
+  (extra.length?'<details class="p5-more-categories"'+(extra.includes(s.cat)?' open':'')+'><summary>更多分类 · '+extra.length+' 项'+(extra.includes(s.cat)?'（当前已选择）':'')+'</summary><nav class="p5-chips p5-more-list" aria-label="其他能力方向">'+extra.map(chip).join('')+'</nav></details>':'')+
+  '</div><label class="p5-search">'+icon('search')+'<input id="p5-search" aria-label="搜索能力" value="'+esc(s.q)+'" placeholder="搜索能力、限制、验收方法…"></label></div>'
 }
 function p5Changes(){
  return (DATA.events||[]).map(e=>{
@@ -83,11 +90,19 @@ function p5MapCard(t){
  const access=p5Access(t),src=p5PrimarySource(t);
  return '<article class="p5-map-card"><header><div><span class="p5-access '+access.cls+'">'+esc(access.label)+'</span><small>'+esc(t.category)+'</small></div><button data-action="task" data-id="'+esc(t.id)+'">'+icon('arrow')+'</button></header><h3>'+esc(t.title)+'</h3><p class="p5-project">'+esc(t.name)+(src?' · '+esc(src.publisher):'')+'</p><div class="p5-answer"><b>现在能做</b><p>'+esc(t.summary)+'</p></div><div class="p5-answer condition"><b>需要什么</b><p>'+esc(t.requirements||t.effort||'查看官方说明')+'</p></div><div class="p5-answer limit"><b>最大限制</b><p>'+esc(t.boundary)+'</p></div><div class="p5-verify big"><b>怎么验证</b><span>'+esc(t.test)+'</span></div><footer>'+p5Actions(t)+'</footer></article>'
 }
+function p5DocumentGroups(rows){
+ const stages=[['parse','01 · 文档结构解析','先恢复版面、文字、表格、图表及原文位置'],
+ ['extract','02 · 字段与语义抽取','在可追溯的解析结果上提取字段；论文研究与部署能力分开'],
+ ['drawing','03 · 机械图纸标注','尺寸、公差、GD&T 识别需要工程图专用样本'],
+ ['cad','04 · CAD 原生结构','矢量与图层优先读取，不等于扫描图 OCR']];
+ const sections=stages.map(([id,title,note])=>{const lane=rows.filter(t=>(t.capability_stage||'parse')===id);return lane.length?'<section class="p5-doc-lane" data-doc-stage="'+id+'"><div class="p5-doc-lane-head"><h4>'+title+'</h4><p>'+note+'</p></div><div class="p5-map-grid">'+lane.map(p5MapCard).join('')+'</div></section>':''}).join('');
+ return '<p class="p5-doc-clarity">文档读出内容 ≠ 结构化字段正确 ≠ 理解工程语义。本站把开源可运行工具和未验证复现的论文方法分别标注，不按 GitHub Star 或不同 Benchmark 混排。</p>'+sections;
+}
 function p5Map(s){
- const rows=p5FilterTasks((DATA.items||[]).filter(x=>x.status==='code'),s);
- const groups={};rows.forEach(x=>(groups[x.category]??=[]).push(x));
- return '<section class="p5-view"><div class="p5-view-head"><div><p class="eyebrow">CAPABILITY MAP / TASK FIRST</p><h2>能力地图</h2><p>按任务看“能做什么 / 需要什么 / 最大限制 / 怎么验”。访问方式与成熟度分开，不把“有仓库”写成“已经成熟”。</p></div><b>'+rows.length+' 项公开路径</b></div>'+
- Object.entries(groups).map(([cat,list])=>'<section class="p5-map-group"><div class="p5-group-head"><h3>'+esc(cat)+'</h3><span>'+list.length+'</span></div><div class="p5-map-grid">'+list.map(p5MapCard).join('')+'</div></section>').join('')+
+ const rows=p5FilterTasks(p5MapItems(),s),groups={};
+ rows.forEach(x=>(groups[x.category]??=[]).push(x));
+ return '<section class="p5-view"><div class="p5-view-head"><div><p class="eyebrow">CAPABILITY MAP / TASK FIRST</p><h2>能力地图</h2><p>按任务看“能做什么 / 需要什么 / 最大限制 / 怎么验”。访问方式与成熟度分开，不把“有仓库”写成“已经成熟”。</p></div><b>'+rows.length+' 项已收录方案</b></div>'+
+ Object.entries(groups).map(([cat,list])=>'<section class="p5-map-group"><div class="p5-group-head"><h3>'+esc(cat)+'</h3><span>'+list.length+'</span></div>'+(cat==='文档处理'?p5DocumentGroups(list):'<div class="p5-map-grid">'+list.map(p5MapCard).join('')+'</div>')+'</section>').join('')+
  (!rows.length?'<div class="p5-empty">没有匹配能力。</div>':'')+'</section>'
 }
 function p5ResearchCard(x){
