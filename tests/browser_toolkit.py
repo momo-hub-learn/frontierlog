@@ -88,7 +88,10 @@ try:
         local_document_count=sum(x['group']=='documents' and x['access']=='local' for x in TOOLKIT_DATA['items'])
         page.locator('[data-tk-group=documents]').click();expect(page.locator('.tk-card')).to_have_count(document_count)
         page.locator('#tk-access').select_option('local');expect(page.locator('.tk-card')).to_have_count(local_document_count)
-        expect(page.locator('.tk-card')).to_have_attribute('data-tk-id','docling')
+        expected_local_documents={x['id'] for x in TOOLKIT_DATA['items'] if x['group']=='documents' and x['access']=='local'}
+        actual_local_documents=set(page.locator('.tk-card').evaluate_all("els=>els.map(e=>e.getAttribute('data-tk-id'))"))
+        assert actual_local_documents==expected_local_documents,(actual_local_documents,expected_local_documents)
+        expect(page.locator('[data-tk-id=docling]')).to_have_count(1)
         page.locator('#tk-clear').click();expect(page.locator('.tk-card')).to_have_count(INITIAL_COUNT)
         expect(page.locator('#tk-search')).to_be_focused()
         page.locator('#tk-search').fill('OPENAI');expect(page.locator('.tk-card')).to_have_count(OPENAI_COUNT)
