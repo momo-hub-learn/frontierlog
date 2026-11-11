@@ -181,24 +181,28 @@ class ToolkitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Future toolkit'):
             validate_toolkit(data,self.catalog,now=target_start-timedelta(seconds=1))
     def test_precise_publication_time_preserves_instant_and_beijing_day(self):
+        # Isolate the original API guide: new guides can be legitimately verified
+        # after this historical instant without affecting timestamp equivalence.
         data=copy.deepcopy(self.data)
+        data['items']=data['items'][:1]
+        catalog={'items':[x for x in self.catalog['items'] if x['id']==data['items'][0]['id']]}
         source=data['items'][0]['sources'][0]
         source['published_at']='2026-11-02T18:22:40Z'
         source['verified_at']='2026-11-03'
         instant=datetime.fromisoformat('2026-11-03T02:22:40+08:00')
-        validate_toolkit(data,self.catalog,now=instant)
+        validate_toolkit(data,catalog,now=instant)
         source['published_at']='2026-11-03T02:22:40+08:00'
-        validate_toolkit(data,self.catalog,now=instant)
+        validate_toolkit(data,catalog,now=instant)
         source['published_at']='2026-11-02T18:22:40'
         with self.assertRaisesRegex(ValueError,'timezone'):
-            validate_toolkit(data,self.catalog,now=instant)
+            validate_toolkit(data,catalog,now=instant)
         source['published_at']='2026-11-03T02:22:41+08:00'
         with self.assertRaisesRegex(ValueError,'Future toolkit publication timestamp'):
-            validate_toolkit(data,self.catalog,now=instant)
+            validate_toolkit(data,catalog,now=instant)
         source['published_at']='2026-11-03T02:22:40+08:00'
         source['verified_at']='2026-11-02'
         with self.assertRaisesRegex(ValueError,'after verification'):
-            validate_toolkit(data,self.catalog,now=instant)
+            validate_toolkit(data,catalog,now=instant)
     def test_no_runtime_claim_without_logs(self):
         for key,value in [('runtime_tested',True),('evidence_level','onsite-test')]:
             data=copy.deepcopy(self.data);data['items'][0][key]=value
