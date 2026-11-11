@@ -112,6 +112,9 @@ try:
         page.locator('.tk-head h1').click();page.keyboard.press('/')
         expect(page.locator('#tk-search')).to_be_focused()
         passed('Chinese IME commit, browser back and toolkit search shortcut')
+        # Document tools may be below page 1 when newer eligible guides are added.
+        # Reveal the complete current dataset before opening a legacy guide.
+        show_all()
         summary=page.locator('[data-tk-guide=docling]>summary');summary.focus();page.keyboard.press('Enter')
         expect(page.locator('[data-tk-guide=docling]')).to_have_attribute('open','')
         expect(page.locator('[data-tk-id=docling]')).to_have_class('tk-card is-open')
