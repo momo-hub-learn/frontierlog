@@ -196,7 +196,9 @@ try:
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
         page.screenshot(path=str(OUT/'toolkit-text-200.png'),timeout=45000)
         page.evaluate("document.documentElement.style.fontSize='';applyTheme('dark')");page.wait_for_timeout(150)
-        expect(page.locator('[data-tk-guide=docling]>summary')).to_be_visible()
+        # Theme visibility checks the current (paginated) view, not a hardcoded
+        # guide which may fall onto a later page after adding legitimate entries.
+        expect(page.locator(f'[data-tk-guide="{RECENT_FIRST}"]>summary')).to_be_visible()
         page.screenshot(path=str(OUT/'toolkit-dark.png'),timeout=45000)
         page.evaluate("applyTheme('light')")
         passed('200 percent text size and dark mode preserve content and controls')
