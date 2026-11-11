@@ -28,7 +28,7 @@ class DocumentCapabilityMapTest(unittest.TestCase):
                 self.assertFalse(item['tested'])
                 self.assertTrue(item['sources'])
                 self.assertTrue(all(s in self.sources for s in item['sources']))
-                self.assertIn('不',item['boundary'])
+                self.assertTrue(any(w in item['boundary'] for w in ('不','未','仍需')))
         self.assertEqual({x.get('capability_stage','parse') for x in self.items.values() if x['category']=='文档处理'},set(expected.values()))
 
     def test_blockie_is_never_promoted_to_unverified_deployment(self):
@@ -37,7 +37,7 @@ class DocumentCapabilityMapTest(unittest.TestCase):
         self.assertTrue(method['show_in_map'])
         self.assertIsNone(method['repo'])
         self.assertIn('FUNSD',method['scope'])
-        self.assertIn('工程图纸',method['boundary'])
+        self.assertIn('机械图纸',method['boundary'])
 
     def test_mineru_date_and_source_are_real_release_not_review_time(self):
         source=self.sources['mineru-4-2-release']

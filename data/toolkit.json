@@ -1972,6 +1972,196 @@
       "entry_url": "https://github.com/NVIDIA/auto-ontology",
       "evidence_level": "primary-docs",
       "runtime_tested": false
+    },
+    {
+      "id": "mineru-4-2",
+      "publisher": "MinerU / OpenDataLab",
+      "group": "documents",
+      "access": "local",
+      "headline": "先按四档解析 PDF，再从原文核对结构化结果",
+      "input": "获授权 PDF、扫描页、跨页表格和公式样本，各保留人工对照标注",
+      "output": "Markdown、结构化结果、原文定位与人工误差记录",
+      "requirements": "Python 3.11–3.14；4.x 独立虚拟环境，按设备选择 ONNX/Torch、VLM 与解析档位；不得直接在生产批次升级。",
+      "limitation": "官方 4.2.0 已发布，但本站没有运行或测试。Standard/Advanced 涉及 VLM；双向定位能帮助人工核查，不证明识别完整、工程语义正确或 3.x HTTP API 兼容。",
+      "cost": "代码与模型遵循各自授权许可；本地 CPU/GPU、模型下载和人工标注均有成本，具体按自用设备测量。",
+      "steps": [
+        {
+          "title": "安装 4.x 并锁定档位",
+          "body": "新建 Python 3.12 隔离环境，在可删除的测试目录安装 4.x；开始时先用 Basic 档避免把 VLM 依赖和文本抽取错误混为一谈。",
+          "command": "python -m pip install -U \"mineru>=4.0,<5\"\nmineru-kit parse ./sample.pdf -o ./sample.md --tier basic"
+        },
+        {
+          "title": "用标准档回放复杂表格和公式",
+          "body": "先固定样本真值，再按官方说明启用 Standard/Advanced 和所选 VLM 引擎；检查扫描质量、阅读顺序、跨页表格合并和公式。"
+        },
+        {
+          "title": "核对双向原文定位及迁移边界",
+          "body": "点选原文区域和解析结果互相跳转，记录页号、块坐标、漏检与错位；检查 4.1+ API 变化，不直接覆盖旧服务。"
+        }
+      ],
+      "troubleshooting": "安装失败检查 Python 版本、平台运行时和模型缓存；复杂解析慢或失败先降到 Basic 作基线。HTTP 旧接口不兼容时依 4.1 迁移指南改客户端，不绕过输入安全限制。",
+      "sources": [
+        {
+          "title": "MinerU 4.2.0 官方 Release",
+          "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
+          "published_at": "2026-11-10T11:45:47Z",
+          "verified_at": "2026-11-11"
+        },
+        {
+          "title": "MinerU 4.x Quick Start",
+          "url": "https://github.com/opendatalab/MinerU/blob/master/docs/en/quick_start/index.md",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        },
+        {
+          "title": "MinerU 4.x Tiers and Runtimes",
+          "url": "https://github.com/opendatalab/MinerU/blob/master/docs/en/usage/tiers.md",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        }
+      ],
+      "entry_url": "https://github.com/opendatalab/MinerU",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-11-11T13:23:54.440Z"
+    },
+    {
+      "id": "paddleocr-vl-1-6-document",
+      "publisher": "PaddlePaddle / PaddleOCR",
+      "group": "documents",
+      "access": "local",
+      "headline": "跑完整 PaddleOCR-VL 流水线，不拿孤立 VLM 当成解析器",
+      "input": "PDF 或图像文件、版面与表格人工标注，兼容 PaddlePaddle 的环境",
+      "output": "页级 JSON/Markdown、表格/公式/图表结果及原文对照误差",
+      "requirements": "按 PaddleOCR-VL 使用文档安装 PaddleOCR 与推理后端；版面检测和 VLM 是两个阶段，CPU/GPU/Apple Silicon 的兼容性不同。",
+      "limitation": "官方 v3.6.0 包含 VL-1.6，96.33% 来自 OmniDocBench v1.6 指定评测，非本站实测。没有证明机械工程图尺寸、公差、选型约束的正确性。单跑 VLM 不等于完整管线。",
+      "cost": "本地计算或托管 API 的费用随硬件/后端/批次而变；模型与环境下载、人工比对耗时需独立记录。",
+      "steps": [
+        {
+          "title": "按官方方式安装并运行全流程",
+          "body": "先核对平台推理方法矩阵，再运行 PaddleOCRVL；不要直接使用 0.9B 模型的单独输出冒充版面+元素流水线。",
+          "command": "from paddleocr import PaddleOCRVL\npipeline=PaddleOCRVL()\nfor page in pipeline.predict('./sample.pdf'):\n    page.save_to_json(save_path='./output')"
+        },
+        {
+          "title": "测试长文档与跨页表格",
+          "body": "导出逐页 JSON/Markdown，再按文档使用 restructure_pages 处理跨页表格；逐页核对合并单元格、阅读顺序、数字和图表。"
+        },
+        {
+          "title": "分别评测解析和领域语义",
+          "body": "保留原始图片、识别框和结构字段；对机械图纸另做标注集，用专业规则检查单位、公差、尺寸链和引用。"
+        }
+      ],
+      "troubleshooting": "文档 OCR 输出幻觉或分数无法复现时，先查是否只跑 VLM 而跳过布局；再查分辨率、模型版本、引擎和 GPU 内存。无法稳定复现的项目保留旧输入与失败日志。",
+      "sources": [
+        {
+          "title": "PaddleOCR v3.6.0 / VL-1.6 官方 Release",
+          "url": "https://github.com/PaddlePaddle/PaddleOCR/releases/tag/v3.6.0",
+          "published_at": "2026-05-28T11:42:29Z",
+          "verified_at": "2026-11-11"
+        },
+        {
+          "title": "PaddleOCR-VL 完整流水线使用教程",
+          "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/pipeline_usage/PaddleOCR-VL.md",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        }
+      ],
+      "entry_url": "https://github.com/PaddlePaddle/PaddleOCR",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-11-11T13:23:54.440Z"
+    },
+    {
+      "id": "edocr2-engineering-drawings",
+      "publisher": "eDOCr2 作者",
+      "group": "documents",
+      "access": "local",
+      "headline": "在机械工程图上复核尺寸、公差及 GD&T 标注",
+      "input": "有授权的工程图图片或扫描 PDF、尺寸/公差/标题栏人工标注真值",
+      "output": "OCR/分区输出、原图坐标、错误类型及人工复核清单",
+      "requirements": "按作者仓库安装 Python 3.11、Tesseract、TensorFlow/CUDA 相关依赖；从 Releases 下载匹配的识别器权重。",
+      "limitation": "eDOCr2 是面向机械图纸的 OCR 专用基线，但本站未复跑；文字识别不保证尺寸与特征正确关联，也不保证复杂 GD&T、符号、图纸视图、BOM 或装配关系可自动理解。",
+      "cost": "开源代码和可下载权重，另有本地运行与人工工程标注成本；生产应核验许可和模型来源。",
+      "steps": [
+        {
+          "title": "检查依赖与模型下载",
+          "body": "在隔离测试机使用官方 docs/install.md 安装指南，下载 Releases 中的维度/公差识别器并确认模型文件及版本。",
+          "command": "git clone https://github.com/javvi51/edocr2.git\n# 安装 docs/install.md 指定依赖和 Releases 权重\npython test_drawing.py"
+        },
+        {
+          "title": "分别抽取标题栏和标注区域",
+          "body": "用含 ISO/ASME 工程符号、尺寸、公差、表面粗糙度和零件号的 20 张图纸获取检测框和识别文本，检查漏检与旋转。"
+        },
+        {
+          "title": "由工程专家复核几何关联",
+          "body": "把模型输出和原图坐标并排复核，不让字段自动写入工艺/BOM；记录符号、单位、标注所指视图及错误实例，之后才考虑自动化。"
+        }
+      ],
+      "troubleshooting": "识别器缺失、系统 Tesseract 不可用或 CUDA 不匹配时先停止运行并按官方安装说明定位；遇到 GD&T 错识别应保留原始符号截图，不能用通用 OCR 凑一个看似正确的标准字符串。",
+      "sources": [
+        {
+          "title": "eDOCr2 作者 GitHub 仓库",
+          "url": "https://github.com/javvi51/edocr2",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        },
+        {
+          "title": "eDOCr2 作者安装说明",
+          "url": "https://github.com/javvi51/edocr2/blob/main/docs/install.md",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        }
+      ],
+      "entry_url": "https://github.com/javvi51/edocr2",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-11-11T13:23:54.440Z"
+    },
+    {
+      "id": "ezdxf-cad-structure",
+      "publisher": "ezdxf Project",
+      "group": "documents",
+      "access": "local",
+      "headline": "原生 DXF 先读取实体与图层，再考虑工程语义",
+      "input": "授权的原生 DXF（非扫描件）、已知实体计数和 CAD 查看器对照",
+      "output": "图层、块引用、文字、尺寸实体及坐标数据",
+      "requirements": "Python 3.11+、ezdxf，准备已知结构的 DXF；DWG 需在授权前提下先转换并验收转换结果。",
+      "limitation": "ezdxf 是 DXF 文件结构解析，不是图片 OCR，也不能原生读任意 DWG 或自动理解工程规则。符号、尺寸实体、单位和几何关系仍可能需专业 CAD API 或人工确认。",
+      "cost": "MIT 许可证的 Python 工具；DXF 阅读本地资源较低，但 DWG 转换、人工标注和 CAD 软件授权成本另计。",
+      "steps": [
+        {
+          "title": "确认输入是原生 DXF",
+          "body": "用 CAD 工具确认版本、单位和模型空间，保持原始文件只读；扫描 PDF 不能假装拥有矢量实体。",
+          "command": "python -m pip install ezdxf\npython -c \"import ezdxf; d=ezdxf.readfile('sample.dxf'); print(len(d.modelspace()))\""
+        },
+        {
+          "title": "导出图层、标注和实体",
+          "body": "按实体类型遍历 TEXT、MTEXT、DIMENSION、INSERT，保存数值、单位、位置、旋转和图层来源；不直接展开为 BOM 结论。"
+        },
+        {
+          "title": "对照 CAD 图纸和工程规则",
+          "body": "用已知真值核对同名图层、块引用、多视图及标注所属几何，必要时由工程师复核零件属性、公差与版本。"
+        }
+      ],
+      "troubleshooting": "文件打不开先检查 DXF 版本与文件损坏；DWG 需单独评估 ODA 转换的授权和失真；实体数量对不上时先检查 block insert、layout/modelspace 区别，不把空结果当作图纸没有标注。",
+      "sources": [
+        {
+          "title": "ezdxf 作者 GitHub 仓库",
+          "url": "https://github.com/mozman/ezdxf",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        },
+        {
+          "title": "ezdxf 官方文档",
+          "url": "https://github.com/mozman/ezdxf/blob/master/README.md",
+          "published_at": null,
+          "verified_at": "2026-11-11"
+        }
+      ],
+      "entry_url": "https://github.com/mozman/ezdxf",
+      "evidence_level": "primary-docs",
+      "runtime_tested": false,
+      "verified_at": "2026-11-11T13:23:54.440Z"
     }
   ]
 }
