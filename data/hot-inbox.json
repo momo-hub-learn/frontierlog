@@ -1,15 +1,39 @@
 {
   "version": 1,
-  "generated_at": "2026-11-11T09:54:45Z",
+  "generated_at": "2026-11-11T13:29:13Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
-    "publish": 0,
+    "publish": 1,
     "merge": 46,
     "hold": 7
   },
   "candidates": [
+    {
+      "id": "candidate-7154b9a97c55740f",
+      "category": "product",
+      "published": "2026-11-10",
+      "title": "MinerU 4.2 增加原文与解析结果双向定位",
+      "summary": "官方 4.2.0 Release 增强复杂 PDF、跨页表格与公式解析，并可从输出块定位到原文区域、从原文跳回解析结果。",
+      "why": "文档抽取开始具有更明确的逐块复核入口；原文框选仍需按具体样本检查，不能证明工程图纸语义或自动建模准确。",
+      "boundary": "官方 Release 是功能证明，不是本站解析实测。公式、旋转/跨页表格、图片内文字、低清扫描仍可能误识别；Standard/Advanced 需要 VLM，Python 3.11–3.14；4.1+ HTTP API 与旧版不兼容。不能仅凭 Markdown 判断型号或图纸规则。",
+      "source": "OpenDataLab / MinerU",
+      "source_kind": "官方 GitHub Release · 双向原文定位、复杂 PDF/表格修复",
+      "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
+      "publishable": true,
+      "features": {
+        "freshness": 0.929,
+        "authority": 1.0,
+        "impact": 0.86,
+        "novelty": 1.0
+      },
+      "priority_score": 0.941,
+      "action": "publish",
+      "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
+      "task_id": "mineru-4-2",
+      "first_seen_at": "2026-11-11T13:29:13Z"
+    },
     {
       "id": "candidate-a58ee5c6e57519dd",
       "category": "product",
@@ -984,30 +1008,6 @@
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "github-agentic-workflows",
       "first_seen_at": "2026-11-10T02:59:31Z"
-    },
-    {
-      "id": "candidate-89e1a3b77a159081",
-      "category": "product",
-      "published": "2026-10-28",
-      "title": "Agentic Workflows 在 github.com 正式可用",
-      "summary": "GitHub 把自然语言工作流编译成标准 Actions YAML，并支持 Copilot CLI 或自带 coding agent；Free、Team 与 Enterprise 可使用。",
-      "why": "仓库推理任务进入现有 CI/CD 控制面；默认只读和多层防护降低起步风险，但权限、编译 YAML、成本和输出仍需逐项验收。",
-      "boundary": "默认只读、完整性过滤、隔离容器与防火墙不代表零风险。默认 Copilot CLI 引擎需要 Copilot 许可；权限提升、第三方 actions、提示注入、成本和生成变更仍须人工审查。本站未在真实仓库运行。",
-      "source": "GitHub",
-      "source_kind": "官方 GA、可用范围、执行引擎、安全层与限制",
-      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "github-agentic-workflows",
-      "first_seen_at": "2026-11-11T02:18:23Z"
     }
   ]
 }

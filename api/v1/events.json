@@ -1,6 +1,40 @@
 {
-  "snapshot": "2026-11-03",
+  "snapshot": "2026-11-11",
   "events": [
+    {
+      "id": "mineru-4-2-release-20261110",
+      "task": "mineru-4-2",
+      "date": "2026-11-10",
+      "published_at": "2026-11-10T11:45:47Z",
+      "kind": "release",
+      "title": "MinerU 4.2 增加原文与解析结果双向定位",
+      "summary": "官方 4.2.0 Release 增强复杂 PDF、跨页表格与公式解析，并可从输出块定位到原文区域、从原文跳回解析结果。",
+      "delta": "文档抽取开始具有更明确的逐块复核入口；原文框选仍需按具体样本检查，不能证明工程图纸语义或自动建模准确。",
+      "sources": [
+        "mineru-4-2-release",
+        "mineru-4x-tiers"
+      ],
+      "reviewed": "2026-11-11",
+      "tag": "4.2.0",
+      "short_title": "来源定位与复杂解析升级"
+    },
+    {
+      "id": "paddleocr-vl-1-6-release-20260528",
+      "task": "paddleocr-vl-1-6-document",
+      "date": "2026-05-28",
+      "published_at": "2026-05-28T11:42:29Z",
+      "kind": "release",
+      "title": "PaddleOCR-VL-1.6 发布复杂文档解析完整流水线",
+      "summary": "官方 v3.6.0 上线 VL-1.6，改进表格、公式、图表、扫描文档等识别路径，并提供版面分析与 VLM 组合。",
+      "delta": "复杂文档解析有新的可运行方案；官方 OmniDocBench 成绩仅限其公开测试口径，不作为机械图纸实测结果。",
+      "sources": [
+        "paddleocr-vl-1-6-release",
+        "paddleocr-vl-pipeline-docs"
+      ],
+      "reviewed": "2026-11-11",
+      "tag": "PaddleOCR v3.6.0",
+      "short_title": "复杂文档结构识别升级"
+    },
     {
       "id": "qwen-code-0-26-6-release",
       "task": "qwen-code-0-26-5",
@@ -1794,6 +1828,108 @@
       "published": "2026-10-07",
       "checked": "2026-10-08",
       "kind": "官方产品发布"
+    },
+    {
+      "id": "mineru-4-2-release",
+      "publisher": "OpenDataLab / MinerU",
+      "title": "MinerU 4.2.0 正式发布",
+      "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
+      "published": "2026-11-10",
+      "published_at": "2026-11-10T11:45:47Z",
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方 GitHub Release · 双向原文定位、复杂 PDF/表格修复"
+    },
+    {
+      "id": "mineru-4x-quickstart",
+      "publisher": "OpenDataLab / MinerU",
+      "title": "MinerU 4.x Quick Start",
+      "url": "https://github.com/opendatalab/MinerU/blob/master/docs/en/quick_start/index.md",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方 4.x Python 安装、CLI、API 与版本迁移说明"
+    },
+    {
+      "id": "mineru-4x-tiers",
+      "publisher": "OpenDataLab / MinerU",
+      "title": "MinerU 4.x Tiers and Runtimes",
+      "url": "https://github.com/opendatalab/MinerU/blob/master/docs/en/usage/tiers.md",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方四档解析方案、硬件要求和运行时说明"
+    },
+    {
+      "id": "paddleocr-vl-1-6-release",
+      "publisher": "PaddlePaddle / PaddleOCR",
+      "title": "PaddleOCR v3.6.0 发布 PaddleOCR-VL-1.6",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/releases/tag/v3.6.0",
+      "published": "2026-05-28",
+      "published_at": "2026-05-28T11:42:29Z",
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方 Release · 1.6 文档解析方案和原评测口径"
+    },
+    {
+      "id": "paddleocr-vl-pipeline-docs",
+      "publisher": "PaddlePaddle / PaddleOCR",
+      "title": "PaddleOCR-VL 使用教程与完整流水线",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/pipeline_usage/PaddleOCR-VL.md",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方文档 · 版面分析、VLM、跨页合并和 Python API"
+    },
+    {
+      "id": "blockie-acl-paper",
+      "publisher": "ACL Anthology / BLOCKIE 作者",
+      "title": "BLOCKIE: Information Extraction from Visually Rich Documents",
+      "url": "https://aclanthology.org/2025.acl-long.844/",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "ACL 2025 原始论文 · FUNSD、CORD、SROIE 实验"
+    },
+    {
+      "id": "edocr2-official-repo",
+      "publisher": "eDOCr2 作者",
+      "title": "eDOCr2 · mechanical engineering drawing OCR",
+      "url": "https://github.com/javvi51/edocr2",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "作者 GitHub 仓库 · 工程图 OCR 代码与示例"
+    },
+    {
+      "id": "edocr-original-paper",
+      "publisher": "eDOCr 作者",
+      "title": "Optical character recognition on engineering drawings",
+      "url": "https://www.frontiersin.org/journals/manufacturing-technology/articles/10.3389/fmtec.2023.1154132/full",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "原始工程图 OCR 论文（前代研究），不替代 eDOCr2 实测"
+    },
+    {
+      "id": "ezdxf-official-docs",
+      "publisher": "ezdxf project",
+      "title": "ezdxf 官方文档",
+      "url": "https://ezdxf.mozman.at/docs/",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方 DXF 结构化读取与格式范围文档"
+    },
+    {
+      "id": "ezdxf-official-repo",
+      "publisher": "ezdxf project",
+      "title": "ezdxf · Python interface to DXF",
+      "url": "https://github.com/mozman/ezdxf",
+      "published": null,
+      "checked": "2026-11-11",
+      "verified_at": "2026-11-11T13:20:21.540Z",
+      "kind": "官方 GitHub 仓库 · DXF 读写与实体 API"
     }
   ]
 }

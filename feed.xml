@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>Qwen Code 发布 v0.26.6</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=qwen-code-0-26-5&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:qwen-code-0-26-6-release</guid><pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate><description>Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI坐标 · 看 AI 走到哪</title><link>https://momo-hub-learn.github.io/frontierlog/</link><description>Top 5 热点、个性化关注和时间线一起追踪 AI 进展；热点每 2 小时评估更新价值，模型策略当前处于影子模式。</description><language>zh-CN</language><lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://momo-hub-learn.github.io/frontierlog/feed.xml" rel="self" type="application/rss+xml" /><item><title>MinerU 4.2 增加原文与解析结果双向定位</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=mineru-4-2&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:mineru-4-2-release-20261110</guid><pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate><description>官方 4.2.0 Release 增强复杂 PDF、跨页表格与公式解析，并可从输出块定位到原文区域、从原文跳回解析结果。
+
+编辑解读：文档抽取开始具有更明确的逐块复核入口；原文框选仍需按具体样本检查，不能证明工程图纸语义或自动建模准确。
+
+公开资料，本站未复测。
+来源：https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released
+https://github.com/opendatalab/MinerU/blob/master/docs/en/usage/tiers.md</description></item><item><title>Qwen Code 发布 v0.26.6</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=qwen-code-0-26-5&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:qwen-code-0-26-6-release</guid><pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate><description>Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。
 
 编辑解读：这不是单纯版本号变化：模型速度、首 Token 延迟和失败详情开始按模型呈现；MCP 冲突不再隐藏整台服务器工具；恢复、权限与会话状态需要分别回归。
 
@@ -278,7 +284,13 @@ https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</description
 编辑解读：减少把未知工具调用视作成功的情况；不据此推断任务成功率。
 
 公开资料，本站未复测。
-来源：https://github.com/browser-use/browser-use/releases/tag/0.13.10</description></item><item><title>AlphaEvolve 白皮书发布到 arXiv</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=alphaevolve&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:alphaevolve-preprint</guid><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate><description>AlphaEvolve 作者公开白皮书，系统性描述其演化式 coding agent、自动评价与算法发现结果。
+来源：https://github.com/browser-use/browser-use/releases/tag/0.13.10</description></item><item><title>PaddleOCR-VL-1.6 发布复杂文档解析完整流水线</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=paddleocr-vl-1-6-document&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:paddleocr-vl-1-6-release-20260528</guid><pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate><description>官方 v3.6.0 上线 VL-1.6，改进表格、公式、图表、扫描文档等识别路径，并提供版面分析与 VLM 组合。
+
+编辑解读：复杂文档解析有新的可运行方案；官方 OmniDocBench 成绩仅限其公开测试口径，不作为机械图纸实测结果。
+
+公开资料，本站未复测。
+来源：https://github.com/PaddlePaddle/PaddleOCR/releases/tag/v3.6.0
+https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/pipeline_usage/PaddleOCR-VL.md</description></item><item><title>AlphaEvolve 白皮书发布到 arXiv</title><link>https://momo-hub-learn.github.io/frontierlog/#/activity?task=alphaevolve&amp;tab=timeline</link><guid isPermaLink="false">ai-progress:alphaevolve-preprint</guid><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate><description>AlphaEvolve 作者公开白皮书，系统性描述其演化式 coding agent、自动评价与算法发现结果。
 
 编辑解读：当前核验到的是 arXiv 预印本；不把预印本写成已被顶会或期刊正式收录。
 
