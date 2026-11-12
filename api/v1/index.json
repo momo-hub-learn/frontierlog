@@ -6475,14 +6475,14 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-11T18:09:40Z",
+    "generated_at": "2026-11-12T01:05:26Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 46,
-      "hold": 7
+      "merge": 28,
+      "hold": 6
     },
     "candidates": [
       {
@@ -6498,12 +6498,12 @@
         "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
         "publishable": true,
         "features": {
-          "freshness": 0.929,
+          "freshness": 0.857,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.941,
+        "priority_score": 0.919,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "mineru-4-2",
@@ -6522,12 +6522,12 @@
         "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
         "publishable": true,
         "features": {
-          "freshness": 0.286,
+          "freshness": 0.214,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.748,
+        "priority_score": 0.726,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "qwen-code-0-26-5",
@@ -6546,12 +6546,12 @@
         "url": "https://github.com/huggingface/huggingface_hub/releases/tag/v2.4.0",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.684,
+        "priority_score": 0.662,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "huggingface-hub-cli-2-3",
@@ -6570,12 +6570,12 @@
         "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.32.0",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.684,
+        "priority_score": 0.662,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "cloudflare-agents-0-31",
@@ -6594,12 +6594,12 @@
         "url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.684,
+        "priority_score": 0.662,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "docling",
@@ -6618,12 +6618,12 @@
         "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.673,
+        "priority_score": 0.651,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "nvidia-tensor-core-mlip-precision-20261029",
@@ -6647,12 +6647,12 @@
         "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
         "publishable": true,
         "features": {
-          "freshness": 0.357,
+          "freshness": 0.286,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.633,
+        "priority_score": 0.612,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "qwen-code-0-26-5",
@@ -6671,12 +6671,12 @@
         "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
         "publishable": true,
         "features": {
-          "freshness": 0.357,
+          "freshness": 0.286,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.633,
+        "priority_score": 0.612,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-work-codex-allowance",
@@ -6695,12 +6695,12 @@
         "url": "https://arxiv.org/abs/2610.42146",
         "publishable": false,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 0.72,
           "impact": 0.82,
           "novelty": 1.0
         },
-        "priority_score": 0.619,
+        "priority_score": 0.597,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "research_id": "id-wm-implicit-dynamics-20261030",
@@ -6724,12 +6724,12 @@
         "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
         "publishable": true,
         "features": {
-          "freshness": 0.214,
+          "freshness": 0.143,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.59,
+        "priority_score": 0.569,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "google-deepmind-planassist",
@@ -6748,12 +6748,12 @@
         "url": "https://developers.openai.com/api/docs/deprecations",
         "publishable": true,
         "features": {
-          "freshness": 0.214,
+          "freshness": 0.143,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.59,
+        "priority_score": 0.569,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-evals-platform-retirement",
@@ -6772,12 +6772,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.58,
+        "priority_score": 0.558,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-31T13:40:37Z"
@@ -6795,12 +6795,12 @@
         "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.58,
+        "priority_score": 0.558,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-11-01T21:24:14Z"
@@ -6818,12 +6818,12 @@
         "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.58,
+        "priority_score": 0.558,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-11-01T21:24:14Z"
@@ -6841,44 +6841,15 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.58,
+        "priority_score": 0.558,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-30T23:37:06Z"
-      },
-      {
-        "id": "candidate-3069c896a5b94322",
-        "category": "research",
-        "published": "2026-10-28",
-        "title": "AI 进入组织图，可能在员工之下、旁边或中间",
-        "summary": "两位作者在 OpenAI 的 Intelligence Age 栏目提出三种说明性情景：AI 作为个人下属、作为人类同事，或夹在人类层级之间承担协调与监控。作者明确说明文章代表个人观点，三种情景都不会按原样发生。",
-        "why": "这套框架适合把企业 Agent 的产品路线拆成三类可验证任务：个人委派、团队协作、组织协调。每一类都需要不同的权限、问责、独立复核与员工可见性，不能只用一个“自动化率”概括。",
-        "boundary": "这是面向未来的署名文章，不是 OpenAI 公司立场、随机实验、劳动力预测或已部署组织结构的证据。文中的示例与趋势判断不能推出就业、薪酬、生产率或管理质量会按特定方向变化；本站只把它作为待检验的组织设计假设。",
-        "source": "Hemanth Asirvatham / Elliott Mokski",
-        "source_kind": "作者署名观点、情景与免责声明",
-        "url": "https://openai.com/index/the-future-of-the-firm",
-        "publishable": false,
-        "features": {
-          "freshness": 0.0,
-          "authority": 0.72,
-          "impact": 0.82,
-          "novelty": 1.0
-        },
-        "priority_score": 0.576,
-        "action": "hold",
-        "reason": "保留候选，等待更强证据、影响或更新。",
-        "research_id": "openai-future-of-firm-20261028",
-        "topic_tags": [
-          "Future of Work",
-          "Organization Design",
-          "Agent Adoption"
-        ],
-        "first_seen_at": "2026-10-28T19:29:22Z"
       },
       {
         "id": "candidate-171d0d8c025cc08b",
@@ -6893,12 +6864,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.569,
+        "priority_score": 0.548,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "openai-gpt6-rosalind-research",
@@ -6917,12 +6888,12 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.569,
+        "priority_score": 0.548,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-chatgpt-account-switching",
@@ -6941,12 +6912,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.569,
+        "priority_score": 0.548,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-gpt6-rosalind-research",
@@ -6965,12 +6936,12 @@
         "url": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.9,
           "novelty": 0.15
         },
-        "priority_score": 0.558,
+        "priority_score": 0.537,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "first_seen_at": "2026-10-29T19:49:37Z"
@@ -6988,12 +6959,12 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response",
         "publishable": false,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.558,
+        "priority_score": 0.537,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "google-project-suncatcher-orbit-tpu-20261030",
@@ -7017,12 +6988,12 @@
         "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
         "publishable": false,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.558,
+        "priority_score": 0.537,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "microsoft-industry-evaluation-data-20261030",
@@ -7046,12 +7017,12 @@
         "url": "https://huggingface.co/blog/mistral-ai/large-4",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "mistral-large-4-open-weights",
@@ -7070,12 +7041,12 @@
         "url": "https://huggingface.co/blog/mistral-ai/large-4",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "mistral-large-4",
@@ -7094,12 +7065,12 @@
         "url": "https://huggingface.co/blog/anydecisionmodel",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "anyspeech-anydecision",
@@ -7118,12 +7089,12 @@
         "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "ibm-granite-speech-5",
@@ -7142,39 +7113,16 @@
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.548,
+        "priority_score": 0.526,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-work-codex-allowance",
         "first_seen_at": "2026-10-30T05:31:40Z"
-      },
-      {
-        "id": "candidate-d3e83555e3861aa4",
-        "category": "industry",
-        "published": "2026-10-28",
-        "title": "AI for Science 扩展到 20 家机构：先验收仪器权限与实验复现",
-        "summary": "Anthropic 扩展研究 credits 计划，并与 HHMI Janelia 预览 Model Hardware Standard（MHS）；参与机构还包括 Wellcome Sanger、Francis Crick、EMBL、gnomAD、FlyWire 等。",
-        "why": "科研 Agent 开始从文献、代码和数据分析走向实验设备接口。生命科学团队可据此把设备权限、协议版本、样本血缘、异常停机、结果复现和人工放行拆成明确验收点。",
-        "boundary": "这是一项项目扩展和 research preview，不是获批医疗产品或已验证的自动实验室。合作方的速度与案例来自官方材料，多数仍早期；MHS 兼容性、安全模型、临床适用性和独立复验尚未建立，本站未接入仪器。",
-        "source": "Anthropic",
-        "source_kind": "官方项目扩展、参与机构、研究 credits 与 MHS research preview",
-        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.9,
-          "novelty": 0.15
-        },
-        "priority_score": 0.537,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "first_seen_at": "2026-10-29T05:26:10Z"
       },
       {
         "id": "candidate-3b51c31df2723f39",
@@ -7189,12 +7137,12 @@
         "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.537,
+        "priority_score": 0.515,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-gpt-6-luna-behavior-safety-update-20261029",
@@ -7218,12 +7166,12 @@
         "url": "https://huggingface.co/blog/announcing-project-protostar",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.537,
+        "priority_score": 0.515,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "huggingface-protostar-open-science-20261029",
@@ -7247,12 +7195,12 @@
         "url": "https://openai.com/index/updated-model-spec",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.537,
+        "priority_score": 0.515,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-model-spec-values-20261029",
@@ -7276,12 +7224,12 @@
         "url": "https://openai.com/index/detecting-frontier-model-misalignment",
         "publishable": false,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.537,
+        "priority_score": 0.515,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "research_id": "openai-frontier-misalignment-monitoring-20261029",
@@ -7293,196 +7241,149 @@
         "first_seen_at": "2026-10-29T19:49:37Z"
       },
       {
-        "id": "candidate-004315ff57b1ddba",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "ServiceNow MCP 插件进入 OpenAI marketplace",
-        "summary": "当前插件把 ServiceNow 业务上下文与受组织权限控制的动作带入 ChatGPT；增强能力、安全、语音与 Codex 集成仍按 2026 年底至 2027 年的分期计划推进。",
-        "why": "企业 Agent 获得一个连接真实工作流的当前入口，但验收必须把现已开放插件与未来路线图分开，并逐项检查权限拒绝、确认、审计和回滚。",
-        "boundary": "当前可用插件不等于所有预告能力已上线。公告没有提供任务成功率、误操作率、支持地区、套餐或独立安全评测；客户实例、Action Fabric 配置与组织权限共同决定可见记录和可执行动作。本站未连接实例或执行写入。",
-        "source": "OpenAI",
-        "source_kind": "官方合作、可用性与分期路线图公告",
-        "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
-        "publishable": true,
+        "id": "candidate-7f8be85abc86bcf9",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "WorldProbe 把世界模型评测拉到 180 秒主动探索",
+        "summary": "WorldProbe 用目标条件多模态 Agent 在生成过程中在线选择相机动作，包含 4 类、164 个测试案例；作者对 10 个模型生成 1,600 余条、合计约 800 分钟的 rollout，最长探索 180 秒，并分四个维度检查局部质量与长程一致性。",
+        "why": "世界模型评测正在从固定相机轨迹和短片观感，转向主动探索能否暴露记忆、空间连续性与状态演化问题。对机器人仿真和可交互环境而言，长程一致性比单帧逼真度更接近真正的部署门槛。",
+        "boundary": "所有结果来自作者论文，本站未运行公开代码。164 个案例、10 个模型、相机动作策略和四维指标仍是有限样本；“长程记忆与演化较弱”不能外推到所有世界模型、所有交互环境或真实机器人表现，也不能把四个维度拼成跨协议总分。",
+        "source": "WorldProbe authors",
+        "source_kind": "作者预印本、协议规模、评测维度、公开代码入口与限制",
+        "url": "https://arxiv.org/abs/2610.39721",
+        "publishable": false,
         "features": {
           "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
+          "authority": 0.72,
+          "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.526,
+        "priority_score": 0.44,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "task_id": "openai-servicenow-mcp",
-        "first_seen_at": "2026-10-28T19:29:22Z"
+        "research_id": "worldprobe-long-horizon-world-model-benchmark-20261029",
+        "topic_tags": [
+          "World Models",
+          "Long-Horizon Evaluation",
+          "Spatial Consistency"
+        ],
+        "first_seen_at": "2026-11-12T01:05:26Z"
       },
       {
-        "id": "candidate-046484529c8f562d",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Memory 正式可用，Dreaming 进入公开预览",
-        "summary": "Memory 在付费 Copilot 套餐 GA；Dreaming 可整理个人与仓库记忆并提出 skills / instructions 变更，跨仓搜索用于补齐相关代码与历史上下文。",
-        "why": "长期 Agent 上下文需要像代码一样治理：明确来源、访问范围、自动变更审批、费用和错误记忆的修正路径。",
-        "boundary": "不能把厂商预览数据外推为所有团队效率，也不能从 Memory GA 推出所有客户端、组织和仓库默认开启；本站未连接账户或复现。",
-        "source": "GitHub",
-        "source_kind": "官方产品节点",
-        "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work",
-        "publishable": true,
+        "id": "candidate-8a06c8de3c2c21a1",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "Algebraic World Model 把环境探索接到 Lean 证明",
+        "summary": "系统先探索 ARC-AGI-3 环境，在 Python 中提出机制假设，再转成类型化规则和 Lean 4 定理。作者报告两个不可能关卡上 6/6 次 AWM 运行闭合证明、Claude Opus 5.5 与 GPT-6 Astra 基线共 0/12；183 个关卡的公开记录可在 Lean 中回放。",
+        "why": "它展示了一种 Agent 评估的结构性变化：不再只问“最后得了多少分”，而是把世界模型中的机制假设显式化，让证明器定位不一致，并用新的反例继续探索。",
+        "boundary": "作者结果集中在 ARC-AGI-3 与两个不可能关卡，本站未复现。Lean 证明的是学习到的形式模型，不自动证明真实游戏；屏幕到状态的 Python 解析器位于证明边界之外，模型也可能比游戏更严格。6/6 与 0/12 不能外推为通用 Agent 优劣。",
+        "source": "Algebraic World Model authors",
+        "source_kind": "作者预印本、系统结构、实验与证明边界",
+        "url": "https://arxiv.org/abs/2610.40503",
+        "publishable": false,
         "features": {
           "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
+          "authority": 0.72,
+          "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.526,
+        "priority_score": 0.44,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "product_id": "github-intelligence",
-        "first_seen_at": "2026-10-29T01:32:57Z"
+        "research_id": "algebraic-world-model-lean-proofs-20261029",
+        "topic_tags": [
+          "World Models",
+          "Formal Verification",
+          "ARC-AGI-3"
+        ],
+        "first_seen_at": "2026-11-12T01:05:26Z"
       },
       {
-        "id": "candidate-47e4ac87235f5ab6",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Copilot harness 进入 Foundry Agent Service 公开预览",
-        "summary": "Foundry 托管 Agent loop 与 sandbox；开发者提供 instructions、skills、工具和模型选择，并可使用文件、代码执行和受限子 Agent。",
-        "why": "统一 Harness 降低多模型编排和运行维护成本，但产品差异仍要落在任务定义、权限、评测、恢复幂等与失败处理上。",
-        "boundary": "现有 Agent 创建后暂不支持切换 Harness；预览的地区、模型、工具和限制需逐项核对。恢复只重新启动工作，进度保存、外部写入去重和最终验收仍由应用负责。",
-        "source": "Microsoft / GitHub",
-        "source_kind": "官方产品节点",
-        "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry",
-        "publishable": true,
+        "id": "candidate-c4150384157fc3bb",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "world2vec 把世界模型目标改写为“忠实复现动力学”",
+        "summary": "world2vec 从无奖励的观测—动作轨迹学习潜在动力学。作者报告它在像素控制与系统辨识任务上取得领先结果，可复现 71 个混沌吸引子的长程动力学，并使用比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级的参数。",
+        "why": "这条路线把世界模型从“为策略提供足够信息”推向“潜在状态是否真正对应系统机制”。如果能被独立复现，它可能让机器人控制、科学建模与因果干预共用一套更小、更可检查的动力学表示。",
+        "boundary": "所有性能、参数量与 71 个吸引子结果均来自作者在指定环境、数据与协议下的实验，本站未运行代码。忠实复现这些系统不能外推为开放世界视频生成、复杂真实机器人或任意科学过程已经解决；项目页的可视化也不能替代数值复现。",
+        "source": "world2vec authors",
+        "source_kind": "作者预印本、方法、实验范围与量化结果",
+        "url": "https://arxiv.org/abs/2610.40637",
+        "publishable": false,
         "features": {
           "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
+          "authority": 0.72,
+          "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.526,
+        "priority_score": 0.44,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "product_id": "microsoft-copilot-harness",
-        "first_seen_at": "2026-10-28T23:34:33Z"
+        "research_id": "world2vec-mechanistic-world-model-20261029",
+        "topic_tags": [
+          "World Models",
+          "Latent Dynamics",
+          "System Identification"
+        ],
+        "first_seen_at": "2026-11-12T01:05:26Z"
       },
       {
-        "id": "candidate-495e989e586ae762",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Docling 修复全页 OCR 表格 token 与渲染边界",
-        "summary": "v2.143.1 在全页 OCR 中保留 OCR 单元格和原生文字的表格 token，把渲染分辨率传给 Tesseract CLI，并修正 PPTX 图表表头计数与空白文本形状。",
-        "why": "扫描件与混合文字表格的结构保留路径更完整；合并单元格、跨页表格、低清扫描与资源边界仍需在目标环境验收。",
-        "boundary": "复杂表格、页面方向、损坏文字层、跨页关系和扫描质量仍需逐项检查；v2.145.0 为 RapidOCR 增加页面方向处理并修复多项解析边界，但本站未运行。",
-        "source": "Docling project",
-        "source_kind": "官方发布",
-        "url": "https://github.com/docling-project/docling/releases/tag/v2.143.1",
-        "publishable": true,
+        "id": "candidate-d63abb06a3580ae4",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "JEPA 把跨模态对齐的关键从“更大”改写为“更好的视图”",
+        "summary": "作者证明：当不同模态的正样本是同一场景的两种观测时，分别训练的 JEPA 可在一次旋转内收敛到共同表示；论文实验从 14.5 万条 caption 扩展到 9.4 亿张网页图像的文本，并报告 good-view JEPA 在同语料达到相同对齐水平所需样本比 next-token prediction 少 42 倍。",
+        "why": "如果结论能被独立复现，多模态系统的核心设计变量将不再只是参数规模与配对数据量，而是怎样构造保留同一语义场景的正视图；这可能影响跨模态检索、无配对对齐和世界模型表征的训练路线。",
+        "boundary": "42 倍样本效率、对齐优于最高 72B 语言模型和 COCO CIDEr 0.838 都是作者在指定语料、编码器、旋转映射与评测协议下的结果。本站未运行代码或复现，预印本也尚未经过独立同行评议；不能推出 JEPA 普遍优于自回归模型、已经解决多模态理解，或可直接替代生成式语言模型。",
+        "source": "Randall Balestriero / Yann LeCun",
+        "source_kind": "作者预印本、理论条件、实验范围与量化结果",
+        "url": "https://arxiv.org/abs/2610.39302",
+        "publishable": false,
         "features": {
           "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
+          "authority": 0.72,
+          "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.526,
+        "priority_score": 0.44,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "task_id": "docling",
-        "first_seen_at": "2026-10-28T01:30:28Z"
+        "research_id": "jepa-platonic-representation-good-views-20261029",
+        "topic_tags": [
+          "JEPA",
+          "Multimodal Alignment",
+          "Representation Learning"
+        ],
+        "first_seen_at": "2026-11-12T01:05:26Z"
       },
       {
-        "id": "candidate-5514f859e2e05939",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Nemotron 3.5 Transcribe 开放多语录播音频处理权重",
-        "summary": "NVIDIA 开放 34B 总参数、约 4.3B 激活参数的离线语音模型，覆盖转写、英语言对翻译、说话人归属、时间戳、语言识别与音频问答。",
-        "why": "长录音、多语和多人音频可以进入同一开放权重验收链；实时流式、现实身份识别、量化本地运行和厂商 Benchmark 外推仍不成立。",
-        "boundary": "官方 WER、医学词汇适配和说话人分离结果来自 NVIDIA 模型卡或合作研究，不是本站实测或临床验证。模型为录播音频设计，不支持实时流式；说话人标签不能确认现实身份。量化版本和 NeMo-Speech.cpp 在发布时仍标为即将推出。",
-        "source": "NVIDIA / Hugging Face",
-        "source_kind": "官方发布、语言覆盖、运行入口、当前限制与评测口径",
-        "url": "https://huggingface.co/blog/nvidia/nemotron-3-5-transcribe",
-        "publishable": true,
+        "id": "candidate-e602c5f73ec6c4fe",
+        "category": "research",
+        "published": "2026-10-29",
+        "title": "Fight World Model 把战斗规则拆进可执行引擎",
+        "summary": "作者把战斗状态与规则放进可执行引擎，再由视觉交互代理编码动作和技能窗口、受击反馈、持续生命值与角色身份。论文介绍的 FightWorld Corpus 覆盖 52 种技能效果、187 个角色变体和 15 个场景，并报告修改规则时无需重训渲染器。",
+        "why": "这条路线把世界模型中的“规则是否正确”与“画面是否逼真”分开，使交互系统可以先检查状态转移、技能窗口和角色约束，再单独评估视觉代理；它可能比端到端视频预测更适合需要频繁改规则的游戏原型。",
+        "boundary": "所有质量与一致性结果来自作者在固定视角、双角色战斗任务上的实验，本站未运行代码。可编辑状态和规则不能外推为开放世界物理、任意角色交互或实时可靠性已经解决；项目页演示也不能替代独立复现。",
+        "source": "Fight World Model authors",
+        "source_kind": "作者预印本、系统结构、语料范围与实验结果",
+        "url": "https://arxiv.org/abs/2610.40607",
+        "publishable": false,
         "features": {
           "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
+          "authority": 0.72,
+          "impact": 0.82,
           "novelty": 0.15
         },
-        "priority_score": 0.526,
+        "priority_score": 0.44,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
-        "task_id": "nvidia-nemotron-3-5-transcribe",
-        "first_seen_at": "2026-11-06T07:26:51Z"
-      },
-      {
-        "id": "candidate-6bc28acf5def02ca",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "Connected Copilot cloud 向付费套餐分批开放",
-        "summary": "云端编码会话可跨网页、移动端、CLI、IDE 与协作工具恢复，并运行在 GitHub 管理的临时隔离沙箱。",
-        "why": "跨端 Agent 需要把会话连续性、权限升级、沙箱恢复、费用和最终仓库状态放进同一条验收链。",
-        "boundary": "不能从分批开放推出所有账号已可用，也不能从临时沙箱推出所有工具调用安全；本站未连接或运行。",
-        "source": "GitHub",
-        "source_kind": "官方产品节点",
-        "url": "https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.526,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "github-connected-copilot-cloud",
-        "first_seen_at": "2026-11-10T02:59:31Z"
-      },
-      {
-        "id": "candidate-6fe2b96684b4a933",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "符合条件的 Pro / Business 开放 API credits 领取",
-        "summary": "符合条件的订阅者可把促销 API credits 绑定到一个 API organization；额度用于 API Platform 计费项目，不增加 ChatGPT 或 Codex 用量。",
-        "why": "订阅与 API 开发成本的连接更直接，但团队要把账号资格、组织所有权、项目权限、赠额到期与真实 API 账单放进同一条验证链。",
-        "boundary": "不能从套餐标价推断当前可领余额，也不能把 API credits 写成 ChatGPT、Business workspace 或 Codex 用量；本站未领取、调用或核对任何账号。",
-        "source": "OpenAI",
-        "source_kind": "官方产品节点",
-        "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.526,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "openai-chatgpt-api-credits",
-        "first_seen_at": "2026-11-10T02:59:31Z"
-      },
-      {
-        "id": "candidate-84134496681778bb",
-        "category": "product",
-        "published": "2026-10-28",
-        "title": "GitHub Agentic Workflows 正式可用",
-        "summary": "自然语言工作流编译为标准 Actions YAML，可使用 Copilot 或自带 coding agent，并沿用现有 runner 与组织策略。",
-        "why": "仓库 Agent 自动化进入成熟 CI/CD 控制面，但安全和质量仍取决于编译产物、权限、输入完整性与回归测试。",
-        "boundary": "Copilot 引擎仍需许可；安全层不保证零风险，客户效率数字也不是独立 Benchmark。",
-        "source": "GitHub",
-        "source_kind": "官方产品节点",
-        "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.526,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "github-agentic-workflows",
-        "first_seen_at": "2026-11-10T02:59:31Z"
+        "research_id": "fight-world-model-editable-combat-20261029",
+        "topic_tags": [
+          "World Models",
+          "Editable Rules",
+          "Game Simulation"
+        ],
+        "first_seen_at": "2026-11-12T01:05:26Z"
       }
     ]
   },
@@ -12463,12 +12364,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-11T18:09:40Z",
+    "last_evaluated": "2026-11-12T01:05:26Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 54,
+      "candidate_count": 35,
       "publish_ready_count": 1,
-      "merge_count": 46,
+      "merge_count": 28,
       "best_candidate": "candidate-7154b9a97c55740f",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
