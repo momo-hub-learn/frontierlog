@@ -11,6 +11,10 @@ on:
     paths:
       - '.github/workflows/ai-coordinate-auto.yml'
       - 'scripts/ai_coordinate_auto.py'
+      - 'scripts/people_watch.py'
+      - 'tests/test_people_watch.py'
+      - 'data/people-watch-config.json'
+      - 'data/people-watch-candidates.json'
       - 'scripts/media_sources.py'
       - 'tests/test_media_sources.py'
       - 'data/media-sources.json'
@@ -44,7 +48,7 @@ jobs:
           python-version: '3.11'
       - name: Network-free source provenance and failure tests
         run: |
-          python -m unittest tests.test_ai_coordinate_auto tests.test_cn_official_sources tests.test_media_sources tests.test_huggingface_trending_sync tests.test_collect
+          python -m unittest tests.test_ai_coordinate_auto tests.test_cn_official_sources tests.test_media_sources tests.test_people_watch tests.test_huggingface_trending_sync tests.test_collect
           python scripts/ai_coordinate_auto.py --offline-check
       - name: Sync sources, retest and publish latest-main snapshot
         if: github.ref == 'refs/heads/main'
@@ -74,7 +78,7 @@ jobs:
             for file in src/*.js; do node --check "$file"; done
             for file in tests/*test.cjs; do node "$file"; done
             python scripts/ai_coordinate_auto.py --offline-check
-            git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json data/cn-official-inbox.json data/media-inbox.json \
+            git add data/huggingface-hot.json data/upstream.json data/official-news-inbox.json data/cn-official-inbox.json data/media-inbox.json data/people-watch-candidates.json \
               index.html 404.html api/v1/index.json api/v1/huggingface-hot.json api/v1/upstream.json
             if git diff --cached --quiet; then
               echo 'No content change, do not make a timestamp-only commit.'
