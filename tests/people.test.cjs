@@ -114,5 +114,17 @@ test('Elon Musk uses first-party role and statement evidence with an explicit bo
  const event=data.events.find(e=>e.id==='elon-xai-onegov-20250925');assert(event);assert.equal(event.date,'2025-09-25');assert(event.source.includes('直接引语'));assert(event.boundary.includes('不是独立效果验证'));
  assert(P.page(data,read('person=elon-musk'),new Set(),Date.parse('2026-10-30T03:00:00Z')).includes('OneGov'));
 });
+test('Shunyu Yao Tencent profile exposes verified milestones and user-controlled follow',()=>{
+ const at=Date.parse('2026-11-13T09:00:00Z');
+ const yao=data.people.find(x=>x.id==='shunyu-yao');
+ assert(yao&&yao.intro.includes('腾讯首席 AI 科学家'));
+ const profile=P.page(data,read('person=shunyu-yao'),new Set(),at);
+ assert(profile.includes('Hy4'));
+ assert(profile.includes('2026.11.04'));
+ assert(profile.includes('aria-pressed="false"'));
+ const followed=P.page(data,read('person=shunyu-yao'),new Set(['shunyu-yao']),at);
+ assert(followed.includes('aria-pressed="true"'));
+ assert(!('following' in yao));
+});
 test('rendering never mutates source evidence',()=>{assert.equal(JSON.stringify(data),snapshot)});
 console.log(`People: ${n} behavioral checks passed.`);
