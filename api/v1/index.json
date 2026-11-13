@@ -6475,7 +6475,7 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-13T07:24:58Z",
+    "generated_at": "2026-11-13T09:07:29Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
@@ -11858,7 +11858,7 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-13T07:24:58Z",
+    "last_evaluated": "2026-11-13T09:07:29Z",
     "last_decision": {
       "action": "publish",
       "candidate_count": 16,
@@ -38434,7 +38434,7 @@
   },
   "people": {
     "version": 1,
-    "checked": "2026-10-30",
+    "checked": "2026-11-13",
     "mode": "manual",
     "note": "基于本人主页、机构公告、论文与官方项目记录人工编选。五类影响力回答“为什么关注”，学术研究、技术生态、产业落地三种证据方向回答“依据是什么”；两者均可并列，不生成跨领域总分或个人名次。最新进展仅指本站已核验且标注原始日期的公开记录；无新进展者显示最后已知作品与旧核验日期，不等于本人没有新工作。共同署名不代表同等贡献。",
     "roles": [
@@ -40048,7 +40048,8 @@
         "id": "shunyu-yao",
         "name": "姚顺雨",
         "aliases": [
-          "Shunyu Yao"
+          "Shunyu Yao",
+          "Vinces Yao"
         ],
         "roles": [
           "researcher",
@@ -40056,15 +40057,37 @@
         ],
         "areas": [
           "agents",
-          "evaluation"
+          "evaluation",
+          "learning",
+          "product"
         ],
-        "intro": "ReAct、Tree of Thoughts、SWE-bench 与 SWE-agent 的共同作者，关注推理与行动的连接。",
-        "watch": "Agent 的提升来自模型、交互接口还是测试预算？",
+        "intro": "腾讯首席 AI 科学家、混元基础模型研发负责人（据 2026 年公开组织任职及腾讯对谈资料）。此前参与 ReAct、Tree of Thoughts、SWE-bench / SWE-agent 等研究；在腾讯关注预训练与强化学习基础设施、模型评测、Agent 能力和产品共创。",
+        "watch": "重点看他能否把技术判断转化为持续可用的产品：混元模型的真实任务成功率与复现条件、预训练及 RL 基础设施的稳定交付、Eval 与用户反馈闭环、WorkBuddy／CodeBuddy／元宝等产品真实使用成效，以及组织协同和对外开放进度。不能仅凭个人声望、发布次数或厂商榜单判断实际交付。",
         "sources": [
           {
-            "label": "个人主页与作品列表",
+            "label": "个人主页与署名成果（履历可能未更新）",
             "url": "https://ysymyth.github.io/",
             "kind": "personal"
+          },
+          {
+            "label": "腾讯公司 · Hy4 官方发布（2026-11-04）",
+            "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+            "kind": "institution"
+          },
+          {
+            "label": "腾讯公司 · Hy3 正式发布（2026-07-06）",
+            "url": "https://www.tencent.com/tencent-hunyuan-officially-releases-hy3-advancing-agent-capabilities-and-deeper-product-integration/",
+            "kind": "institution"
+          },
+          {
+            "label": "腾讯云 · 汤道生与姚顺雨公开对谈实录（2026-06-08 发布）",
+            "url": "https://cloud.tencent.com/developer/article/2684035",
+            "kind": "institution"
+          },
+          {
+            "label": "腾讯混元研究 · CL-bench（致谢其建议与审阅）",
+            "url": "https://hy.tencent.com/research/100025?langVersion=zh",
+            "kind": "institution"
           }
         ],
         "works": [
@@ -40074,9 +40097,19 @@
             "relation": "共同作者"
           },
           {
+            "title": "Tree of Thoughts",
+            "url": "https://arxiv.org/abs/2305.10601",
+            "relation": "共同作者"
+          },
+          {
             "title": "SWE-bench / SWE-agent",
             "url": "https://ysymyth.github.io/",
-            "relation": "共同作者"
+            "relation": "共同作者；详细作者排序以原论文为准"
+          },
+          {
+            "title": "腾讯混元 Hy3 / Hy4",
+            "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+            "relation": "所负责研发体系的公司产品发布；不表示个人独立署名"
           }
         ],
         "related": [
@@ -40088,13 +40121,13 @@
           }
         ],
         "discovery": "work",
-        "checked": "2026-10-26",
+        "checked": "2026-11-13",
         "impact": {
           "dimensions": [
             "research",
             "industry"
           ],
-          "basis": "ReAct、SWE-bench / SWE-agent（以档案内原始作品链接为依据）"
+          "basis": "ReAct / Tree of Thoughts / SWE-bench 署名作品；腾讯 2026 年 Hy3、Hy4 官方发布与其公开对谈（研究贡献与团队交付分开归因）。"
         }
       },
       {
@@ -40302,6 +40335,34 @@
       }
     ],
     "events": [
+      {
+        "id": "yao-tencent-hy4-release-20261104",
+        "date": "2026-11-04",
+        "title": "腾讯 Hy4 正式发布：重点观察 Agent 交付与产品接入",
+        "people": [
+          "shunyu-yao"
+        ],
+        "kind": "release",
+        "summary": "腾讯公司宣布 Hy4 正式发布，介绍视觉理解、长程 Agent 与工具调用等改进，并表示模型权重及系统卡将在后续公布。此处以姚顺雨公开负责的混元基础模型研发体系关联该组织成果。",
+        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+        "source": "Tencent · 官方公司新闻 2026-11-04",
+        "boundary": "这是腾讯公司发布及规划，非个人独立研发或独立实测。应分别核查权重、系统卡是否如期上线、产品接入与真实业务任务表现；厂商自报的性能不等于第三方复现。",
+        "checked": "2026-11-13"
+      },
+      {
+        "id": "yao-tencent-ai-dialogue-20260608",
+        "date": "2026-06-08",
+        "title": "对谈汤道生：从预训练、后训练到真实产品 Co-Design",
+        "people": [
+          "shunyu-yao"
+        ],
+        "kind": "talk",
+        "summary": "腾讯云发布公开对谈实录。姚顺雨谈到重建预训练与强化学习基础设施、重做数据及评测体系，并强调与产品共创、真实用户反馈和长期可用性。",
+        "url": "https://cloud.tencent.com/developer/article/2684035",
+        "source": "腾讯云开发者社区 · 对谈实录 2026-06-08",
+        "boundary": "日期为实录发布日，并非大会现场的精确发言时间。发言反映其方法与团队计划，不代表重建收益、产品 ROI 或独立模型能力已得到外部验证。",
+        "checked": "2026-11-13"
+      },
       {
         "id": "simon-vibe-game-inflection-20261028",
         "date": "2026-10-28",
