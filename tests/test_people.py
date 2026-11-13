@@ -19,6 +19,9 @@ class PeopleTests(unittest.TestCase):
   with self.assertRaises((ValueError,TypeError,KeyError)):validate_people(d)
  def time_fixture(self):
   d=copy.deepcopy(self.data);d['checked']='2026-10-29'
+  # Time-travel contract fixtures must not load real events published after
+  # their simulated Beijing date. Never backdate authentic publications.
+  d['events']=[e for e in d['events'] if e['date']<='2026-10-29']
   for row in d['people']+d['events']:
    if row['checked']>'2026-10-29':row['checked']='2026-10-29'
   return d
@@ -27,6 +30,21 @@ class PeopleTests(unittest.TestCase):
   self.assertGreaterEqual(len(self.data['people']),38)
   self.assertTrue({'kaiming-he','qiushi-han','shreya-shankar','shyam-sankar','ethan-mollick','jensen-huang','sam-altman','dario-amodei','demis-hassabis','elon-musk'}<=set(p['id'] for p in self.data['people']))
   self.assertGreaterEqual(sum(p['discovery']=='work' for p in self.data['people']),5)
+ def test_yao_tencent_progress_is_evidence_backed_and_not_private_follow(self):
+  p=next(x for x in self.data['people'] if x['id']=='shunyu-yao')
+  self.assertEqual(len([x for x in self.data['people'] if x['id']=='shunyu-yao']),1)
+  self.assertIn('腾讯首席 AI 科学家',p['intro'])
+  self.assertIn('模型',p['watch'])
+  self.assertIn('不表示个人独立署名',p['works'][-1]['relation'])
+  ids={e['id'] for e in self.data['events']}
+  self.assertTrue({'yao-tencent-hy4-release-20261104','yao-tencent-ai-dialogue-20260608'}<=ids)
+  hy4=next(e for e in self.data['events'] if e['id']=='yao-tencent-hy4-release-20261104')
+  self.assertEqual(hy4['date'],'2026-11-04')
+  self.assertIn('非个人独立研发',hy4['boundary'])
+  self.assertTrue(hy4['url'].startswith('https://www.tencent.com/'))
+  # Public dataset is NOT a user's browser-local private follow list.
+  self.assertNotIn('followed',p)
+  self.assertNotIn('following',p)
  def test_duplicate_person(self):self.reject(lambda d:d['people'].append(copy.deepcopy(d['people'][0])))
  def test_missing_source(self):self.reject(lambda d:d['people'][0].update(sources=[]))
  def test_unsafe_source(self):self.reject(lambda d:d['people'][0]['sources'][0].update(url='javascript:alert(1)'))
