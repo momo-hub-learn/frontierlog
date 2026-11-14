@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-11-13T22:15:32Z",
+  "generated_at": "2026-11-14T02:44:43Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 13,
-    "hold": 2
+    "merge": 4,
+    "hold": 1
   },
   "candidates": [
     {
@@ -23,12 +23,12 @@
       "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
       "publishable": true,
       "features": {
-        "freshness": 0.786,
+        "freshness": 0.714,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.898,
+      "priority_score": 0.876,
       "action": "publish",
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "mineru-4-2",
@@ -47,12 +47,12 @@
       "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
       "publishable": true,
       "features": {
-        "freshness": 0.143,
+        "freshness": 0.071,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.705,
+      "priority_score": 0.684,
       "action": "hold",
       "reason": "保留候选，等待更强证据、影响或更新。",
       "task_id": "qwen-code-0-26-5",
@@ -71,12 +71,12 @@
       "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
       "publishable": true,
       "features": {
-        "freshness": 0.214,
+        "freshness": 0.143,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.59,
+      "priority_score": 0.569,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "qwen-code-0-26-5",
@@ -95,45 +95,16 @@
       "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
       "publishable": true,
       "features": {
-        "freshness": 0.214,
+        "freshness": 0.143,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.59,
+      "priority_score": 0.569,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "openai-work-codex-allowance",
       "first_seen_at": "2026-11-02T14:02:41Z"
-    },
-    {
-      "id": "candidate-4f58b3a979ebe0dd",
-      "category": "research",
-      "published": "2026-10-30",
-      "title": "ID-WM 把可达子目标与局部动作求解分层",
-      "summary": "ID-WM 用高层世界模型采样状态空间中的可达转移，再用低层世界模型作为逆动力学求解器把子目标落成动作。作者在三个导航与操作套件中报告：相对策略与扩散规划基线提升 38.5%，相对单层世界模型 MPC 提升 135%，并把优势集中在复杂、未见配置的长程任务。",
-      "why": "这条路线把“下一站是否可达”和“每一步怎样执行”拆开，避免高层搜索被某一种低层行为表示绑死。若独立复现成立，它可能成为机器人长程规划中降低误差累积、复用短轨迹数据的一种更清晰接口。",
-      "boundary": "38.5% 与 135% 都是作者在指定套件、基线、预算和实现下的相对结果，本站未运行代码；相对提升的分母与任务成功定义不能跨论文比较。三个研究套件不能证明真实机器人、开放环境、长时间运行或安全约束已经解决，也不能把分层结构本身当作通用能力分。",
-      "source": "ID-WM authors",
-      "source_kind": "作者预印本、方法、实验范围与量化结果",
-      "url": "https://arxiv.org/abs/2610.42146",
-      "publishable": false,
-      "features": {
-        "freshness": 0.0,
-        "authority": 0.72,
-        "impact": 0.82,
-        "novelty": 1.0
-      },
-      "priority_score": 0.576,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "research_id": "id-wm-implicit-dynamics-20261030",
-      "topic_tags": [
-        "World Models",
-        "Embodied Planning",
-        "Long-Horizon Control"
-      ],
-      "first_seen_at": "2026-11-02T07:46:36Z"
     },
     {
       "id": "candidate-8d816f9f27586a0b",
@@ -148,12 +119,12 @@
       "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.548,
+      "priority_score": 0.526,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "google-deepmind-planassist",
@@ -172,238 +143,16 @@
       "url": "https://developers.openai.com/api/docs/deprecations",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.548,
+      "priority_score": 0.526,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "openai-evals-platform-retirement",
       "first_seen_at": "2026-11-01T01:21:05Z"
-    },
-    {
-      "id": "candidate-4b8088d956f48c6f",
-      "category": "industry",
-      "published": "2026-10-30",
-      "title": "合成企业评估：先验收工作流逼真度，再评 Copilot",
-      "summary": "Microsoft Research 用不含真实客户数据的全合成企业环境生成会议、邮件、文档和行业查询；官方列出的三类环境包括制药、资本市场与 IT / 软件。",
-      "why": "通用问答集很难覆盖临床试验讨论、安全信号审查和跨团队行动项。医药团队可以借鉴这套分层方法，把环境生成、查询溯源、答案依据、时间一致性、内容安全和版本回归分别验收。",
-      "boundary": "这是 Microsoft 内部平台的官方方法说明，未见公开数据集、代码、逐项协议或独立复现。39% 内部综合质量增幅、部分环境高于 0.9 和成本节省估算不能跨系统比较；全合成不等于覆盖真实制药组织，也不能证明 Copilot 可用于临床决策或自动满足隐私与合规要求。",
-      "source": "Microsoft Research",
-      "source_kind": "官方合成企业环境、行业查询生成、评估框架、内部结果与边界说明",
-      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.537,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-31T13:40:37Z"
-    },
-    {
-      "id": "candidate-4f57f7f69e0beb56",
-      "category": "industry",
-      "published": "2026-10-30",
-      "title": "临床 Agent 接入策略与身份控制：先验证建议，再谈诊疗效果",
-      "summary": "富士康在 HHTD26 展示 CoDoClaw：与童综合医院合作面向糖尿病及心代谢共病，把 NVIDIA NemoClaw、OpenShell、策略管理、沙箱、运行时访问控制与 Sentry 身份委派放进临床 AI 编排流程；同场还展示心电与肠镜辅助系统。",
-      "why": "医疗 Agent 的关键正在从单次问答转向多工具调用、身份委派和可审计权限。临床团队可以把建议质量、数据访问、工具权限、人工确认和异常回退拆开验收。",
-      "boundary": "这是公司官方活动展示与联合开发说明，未披露前瞻性临床试验、诊断准确率、患者结局、监管许可或常态化部署数据。不能据此称系统已获批、已验证疗效，或可以替代医护人员。",
-      "source": "Hon Hai Technology Group (Foxconn)",
-      "source_kind": "公司官方 HHTD26 展示、联合开发伙伴、技术组件与医院机器人流程",
-      "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.537,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-11-01T21:24:14Z"
-    },
-    {
-      "id": "candidate-6b604b03183ec130",
-      "category": "industry",
-      "published": "2026-10-30",
-      "title": "化疗调配到病区交付串成机器人流程：数字孪生先验证交接点",
-      "summary": "富士康披露与台北荣民总医院、川崎重工、汤山制作所及 FARobot 联合开发的化疗调配与配送系统：用 Omniverse 数字孪生模拟并监控调配、机器人运输和交付，组合 ChemoRo、FARobot AMR 与 Nurabot。",
-      "why": "这类医院自动化更接近高约束制造与物流问题：药品、设备、机器人、权限和人工交接必须在同一流程中追踪。数字孪生的价值应落到异常路径、交接失败和人工接管，而不只是展示动画。",
-      "boundary": "公告描述的是联合开发和活动展示，未给出生产环境吞吐、配药差错、机器人故障率、感染控制、监管许可或长期运行数据。仿真与流程集成不能替代真实医院验收，也不能证明系统已规模化部署。",
-      "source": "Hon Hai Technology Group (Foxconn)",
-      "source_kind": "公司官方 HHTD26 展示、联合开发伙伴、技术组件与医院机器人流程",
-      "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2139",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.537,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-11-01T21:24:14Z"
-    },
-    {
-      "id": "candidate-a63f4dd504902848",
-      "category": "industry",
-      "published": "2026-10-30",
-      "title": "GPT-6 Rosalind Research：先核对审批、入口与数据边界",
-      "summary": "OpenAI 把 GPT-6 推理带入多步生命科学研究，并向少量获批组织在 Work、Codex 与 API 开放；API 模型名为 gpt-6-rosalind，Chat 页不可用。",
-      "why": "专业研究模型开始把推理、研究工作流和生物安全控制绑定到同一访问层级。团队可以据此把模型选择、机构资格、授权用户、数据治理与人工复核拆成可审计的上线条件。",
-      "boundary": "组织和用户都必须获得 Rosalind Research 批准；Discovery 批准不授予 Research，API 还需单独获批。Enterprise 两周 Admin Preview 默认关闭。官方允许已授权的内部研究，但不代表外部客户服务、临床决策或任何生物实验可以自动执行；本站未运行，也没有可跨模型混排的官方 Benchmark。",
-      "source": "OpenAI",
-      "source_kind": "官方模型发布、产品入口、模型名、审批与 Admin Preview 说明",
-      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.9,
-        "novelty": 0.15
-      },
-      "priority_score": 0.537,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "first_seen_at": "2026-10-30T23:37:06Z"
-    },
-    {
-      "id": "candidate-171d0d8c025cc08b",
-      "category": "product",
-      "published": "2026-10-30",
-      "title": "GPT-6 Rosalind Research 向获批机构限量开放",
-      "summary": "OpenAI 将 GPT-6 推理带入生命科学研究，并在 Work、Codex 与 API 向少量获批 Research 客户开放；Chat 页不可用。",
-      "why": "生命科学模型的上线条件从单纯模型选择扩展到 Research 审批、授权用户、入口分级、生物安全控制和数据治理；Limited rollout 不能写成公众可用。",
-      "boundary": "Research 访问需要组织和授权用户批准，Discovery 批准不继承，API 还需单独批准。Admin Preview 默认关闭；这不是公开模型、临床工具或自主实验系统。本站未获得访问、未运行，也未复现任何能力或安全结果。",
-      "source": "OpenAI",
-      "source_kind": "官方模型发布、入口、模型名、审批与 Admin Preview 说明",
-      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "openai-gpt6-rosalind-research",
-      "first_seen_at": "2026-10-30T23:37:06Z"
-    },
-    {
-      "id": "candidate-6d28ab8005f17a3e",
-      "category": "product",
-      "published": "2026-10-30",
-      "title": "iOS / Android 开始支持双账号切换",
-      "summary": "移动应用可同时保持最多两个 ChatGPT 账号登录，并在设置中切换；账号内容与订阅继续分开。",
-      "why": "个人、工作或测试账号的切换成本下降，但上线验收仍要逐账号核对数据边界、工作区策略和订阅状态，不能把同机登录误解为账号合并。",
-      "boundary": "不能从分批推出推断全部移动账号、Web 或桌面端已经开放；不能推出聊天、记忆、订阅可跨账号迁移或共享。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-chatgpt-account-switching",
-      "first_seen_at": "2026-10-31T23:27:13Z"
-    },
-    {
-      "id": "candidate-aa79d76e3c1a71df",
-      "category": "product",
-      "published": "2026-10-30",
-      "title": "GPT-6 Rosalind Research 进入获批机构",
-      "summary": "少量获批组织可在 Work、Codex 与 API 使用 GPT-6 Rosalind Research；Chat 页不提供该模型。",
-      "why": "生命科学专用模型的产品竞争不仅在推理能力，还在机构分级、授权用户、生物安全控制、数据处理和审计能否一起落地。",
-      "boundary": "不能从有限开放推出公众可用、Discovery 权限自动继承或外部客户场景已获准；也不能补造官方未披露的效果、价格和 Benchmark。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-gpt6-rosalind-research",
-      "first_seen_at": "2026-10-30T23:37:06Z"
-    },
-    {
-      "id": "candidate-9e15c8d02f222688",
-      "category": "research",
-      "published": "2026-10-30",
-      "title": "Project Suncatcher 把 TPU 原型推进到在轨 AI 响应",
-      "summary": "Google 称 10 月 1 日发射的 Project Suncatcher 原型卫星完成主机与 TPU 托盘上电及早期机器学习测试；10 月 30 日，团队向在轨 Gemma 4 上传提示并成功下行响应，称这是数据中心级 TPU 在轨生成的首个 AI 响应。下一阶段将测试热应力与辐射，并计划在 2027 年发射两颗互联卫星。",
-      "why": "前瞻信号不是一首在轨生成的短诗，而是算力基础设施开始把芯片、热管理、辐射、能源与星间互联放进同一可测系统。若后续可靠性与互联验证成立，太空算力会成为能源与部署架构的新变量，而不只是模型规模问题。",
-      "boundary": "这是 Google 的官方原型里程碑，不是第三方复现、稳定集群或商业服务。一次提示响应不能证明长期可靠、辐射耐受、推理吞吐、能源成本、链路延迟或规模化可行；2027 双星互联仍是计划，不能写成已实现能力。",
-      "source": "Google",
-      "source_kind": "官方在轨测试、Gemma 4、TPU 与下一里程碑",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response",
-      "publishable": false,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.515,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "google-project-suncatcher-orbit-tpu-20261030",
-      "topic_tags": [
-        "AI Infrastructure",
-        "Orbital Compute",
-        "TPU"
-      ],
-      "first_seen_at": "2026-11-02T21:32:55Z"
-    },
-    {
-      "id": "candidate-c0c32eec03537e04",
-      "category": "research",
-      "published": "2026-10-30",
-      "title": "Microsoft 用全合成企业环境评估行业 Copilot",
-      "summary": "Microsoft Research 公布 Industry Evaluation Data Generation Platform：用 O*NET、公开职位信息和 SEC 文件等公开信号构造不含真实客户数据的企业环境，再生成会议、邮件、文档、时间线与行业查询。官方介绍的三类环境覆盖制药、资本市场和 IT / 软件，并用结构、语境、行为与内容安全检查支持 Copilot 回归评估。",
-      "why": "这把企业 Agent 的评估单位从孤立问答推进到带组织结构、历史记录和跨团队流程的可重复环境。对医药等高约束场景，更值得借鉴的是把数据来源、查询生成、质量门槛和版本回归拆开，而不是把一次内部综合分当成产品能力结论。",
-      "boundary": "这是 Microsoft 对内部平台与内部结果的官方说明，未见公开数据集、代码、逐项评测协议或独立复现。文中 39% 内部综合质量增幅、部分环境高于 0.9 以及成本节省估算不能跨系统比较，也不能证明合成环境完全覆盖真实组织、消除隐私风险或保证 Copilot 在真实制药流程中可靠。",
-      "source": "Microsoft Research / Microsoft",
-      "source_kind": "官方平台方法、行业环境、质量框架、内部结果与限制",
-      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
-      "publishable": false,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.82,
-        "novelty": 0.15
-      },
-      "priority_score": 0.515,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "research_id": "microsoft-industry-evaluation-data-20261030",
-      "topic_tags": [
-        "Enterprise Evaluation",
-        "Synthetic Data",
-        "Agentic Workflows"
-      ],
-      "first_seen_at": "2026-10-31T13:40:37Z"
     }
   ]
 }
