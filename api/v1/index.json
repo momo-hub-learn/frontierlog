@@ -6475,13 +6475,13 @@
   },
   "hot_inbox": {
     "version": 1,
-    "generated_at": "2026-11-14T20:59:12Z",
+    "generated_at": "2026-11-15T02:12:05Z",
     "mode": "shadow",
     "automatic_publish": false,
     "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
     "counts": {
       "publish": 1,
-      "merge": 4,
+      "merge": 2,
       "hold": 1
     },
     "candidates": [
@@ -6498,12 +6498,12 @@
         "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
         "publishable": true,
         "features": {
-          "freshness": 0.714,
+          "freshness": 0.643,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.876,
+        "priority_score": 0.855,
         "action": "publish",
         "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
         "task_id": "mineru-4-2",
@@ -6522,12 +6522,12 @@
         "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
         "publishable": true,
         "features": {
-          "freshness": 0.071,
+          "freshness": 0.0,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 1.0
         },
-        "priority_score": 0.684,
+        "priority_score": 0.662,
         "action": "hold",
         "reason": "保留候选，等待更强证据、影响或更新。",
         "task_id": "qwen-code-0-26-5",
@@ -6546,12 +6546,12 @@
         "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.569,
+        "priority_score": 0.548,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "task_id": "qwen-code-0-26-5",
@@ -6570,64 +6570,16 @@
         "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
         "publishable": true,
         "features": {
-          "freshness": 0.143,
+          "freshness": 0.071,
           "authority": 1.0,
           "impact": 0.86,
           "novelty": 0.15
         },
-        "priority_score": 0.569,
+        "priority_score": 0.548,
         "action": "merge",
         "reason": "已有同源热点，建议合并更新。",
         "product_id": "openai-work-codex-allowance",
         "first_seen_at": "2026-11-02T14:02:41Z"
-      },
-      {
-        "id": "candidate-8d816f9f27586a0b",
-        "category": "product",
-        "published": "2026-10-31",
-        "title": "PlanAssist 从三地试点扩至 15 个地方政府",
-        "summary": "三地试点后进入 12 个月 Beta，新增 12 个地方政府；规划官员继续审查并批准每一项决定。",
-        "why": "公共部门 Agent 的关键不只是生成报告，而是能否把政策证据、地区规则、人工放行和错误追踪装进真实工作流；后续应关注申请类型分布、质量指标、申诉结果与跨地区可迁移性。",
-        "boundary": "“最多 58%”不是平均值，超过 70% 无需编辑不等于申请获批或规划质量提升；没有独立对照、完整误差分布、申诉结果或长期部署成本。2027 年英格兰全国扩围只是成功测试前提下的政府计划。",
-        "source": "Google DeepMind",
-        "source_kind": "官方产品节点",
-        "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.526,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "google-deepmind-planassist",
-        "first_seen_at": "2026-11-01T23:35:04Z"
-      },
-      {
-        "id": "candidate-abfbb59d0ab33e72",
-        "category": "product",
-        "published": "2026-10-31",
-        "title": "现有 OpenAI Evals 进入只读窗口",
-        "summary": "旧 Evals 平台已停止修改现有评测；Dashboard 与 API 的计划关闭日为 2026-11-30。",
-        "why": "仍依赖托管 Evals 的团队需要先盘点创建、修改、运行与结果留存路径，再在停服前验证配置、Grader、数据、密钥和 CI 运行方式；只读不等于数据已自动备份或迁移完成。",
-        "boundary": "不能从旧平台退役推出所有 OpenAI 评测能力、Datasets 或通用评测方法一并停止；不能推出 Promptfoo 自动迁移现有数据或与旧托管平台功能完全等价。",
-        "source": "OpenAI",
-        "source_kind": "官方产品节点",
-        "url": "https://developers.openai.com/api/docs/deprecations",
-        "publishable": true,
-        "features": {
-          "freshness": 0.0,
-          "authority": 1.0,
-          "impact": 0.86,
-          "novelty": 0.15
-        },
-        "priority_score": 0.526,
-        "action": "merge",
-        "reason": "已有同源热点，建议合并更新。",
-        "product_id": "openai-evals-platform-retirement",
-        "first_seen_at": "2026-11-01T01:21:05Z"
       }
     ]
   },
@@ -11602,12 +11554,12 @@
       "reward": "0.45*24h最终热度 + 0.20*关注匹配 + 0.15*收藏/点击 + 0.10*新颖度 - 0.10*低信号更新惩罚 - 0.10*频繁更新疲劳",
       "reason": "是否更新是重复决策，但首期数据不足；先用可解释策略记录 state/action/reward，再训练策略，避免一开始伪装成已经学会的 RL。"
     },
-    "last_evaluated": "2026-11-14T20:59:12Z",
+    "last_evaluated": "2026-11-15T02:12:05Z",
     "last_decision": {
       "action": "publish",
-      "candidate_count": 6,
+      "candidate_count": 4,
       "publish_ready_count": 1,
-      "merge_count": 4,
+      "merge_count": 2,
       "best_candidate": "candidate-7154b9a97c55740f",
       "reason": "存在达到严格阈值的一手候选，等待编辑确认标题与热度。"
     },
