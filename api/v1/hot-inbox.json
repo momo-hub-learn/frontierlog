@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-11-15T23:12:52Z",
+  "generated_at": "2026-11-16T07:22:35Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
     "merge": 2,
-    "hold": 1
+    "hold": 0
   },
   "candidates": [
     {
@@ -23,40 +23,16 @@
       "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
       "publishable": true,
       "features": {
-        "freshness": 0.643,
+        "freshness": 0.571,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.855,
+      "priority_score": 0.834,
       "action": "publish",
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "mineru-4-2",
       "first_seen_at": "2026-11-11T13:29:13Z"
-    },
-    {
-      "id": "candidate-a58ee5c6e57519dd",
-      "category": "product",
-      "published": "2026-11-01",
-      "title": "Qwen Code 发布 v0.26.5",
-      "summary": "版本默认启用 Generated UI，并更新 PR watch/autofix、Managed Agent、Web Shell 与桌面工作流；官方声明无已知破坏性变化。",
-      "why": "重点不只是版本号：交互卡值可带入后续上下文，自动修复加入失败交接与重试预算，托管和浏览器相关路径也有变化；升级后应复验权限、上下文与 CI 门禁。",
-      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；会话归档、工具批准、MCP 重名处理、恢复状态与模型性能图仍需在隔离仓库和真实日志中验证。",
-      "source": "Qwen",
-      "source_kind": "官方版本说明、资产与变更列表",
-      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.662,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "task_id": "qwen-code-0-26-5",
-      "first_seen_at": "2026-11-01T09:26:58Z"
     },
     {
       "id": "candidate-003c4939123dd34a",
@@ -71,12 +47,12 @@
       "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.548,
+      "priority_score": 0.526,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "task_id": "qwen-code-0-26-5",
@@ -95,12 +71,12 @@
       "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
       "publishable": true,
       "features": {
-        "freshness": 0.071,
+        "freshness": 0.0,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 0.15
       },
-      "priority_score": 0.548,
+      "priority_score": 0.526,
       "action": "merge",
       "reason": "已有同源热点，建议合并更新。",
       "product_id": "openai-work-codex-allowance",
