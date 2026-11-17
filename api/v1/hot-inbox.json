@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-16T18:57:48Z",
+  "generated_at": "2026-11-17T03:15:20Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 1,
-    "merge": 2,
+    "merge": 0,
     "hold": 0
   },
   "candidates": [
@@ -23,64 +23,16 @@
       "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
       "publishable": true,
       "features": {
-        "freshness": 0.571,
+        "freshness": 0.5,
         "authority": 1.0,
         "impact": 0.86,
         "novelty": 1.0
       },
-      "priority_score": 0.834,
+      "priority_score": 0.812,
       "action": "publish",
       "reason": "一手证据、时效和影响达到 shadow 发布阈值；仍需编辑确认标题与热度。",
       "task_id": "mineru-4-2",
       "first_seen_at": "2026-11-11T13:29:13Z"
-    },
-    {
-      "id": "candidate-003c4939123dd34a",
-      "category": "product",
-      "published": "2026-11-02",
-      "title": "Qwen Code 发布 v0.26.6",
-      "summary": "Web Shell 增加会话状态、并排打开和模型性能面板，并修复 MCP 重名发现、一次性工具批准、Managed Agent 恢复和移动端布局。",
-      "why": "这不是单纯版本号变化：模型速度、首 Token 延迟和失败详情开始按模型呈现；MCP 冲突不再隐藏整台服务器工具；恢复、权限与会话状态需要分别回归。",
-      "boundary": "本站未安装或运行。官方声明无已知破坏性变化不等于无回归；会话归档、工具批准、MCP 重名处理、恢复状态与模型性能图仍需在隔离仓库和真实日志中验证。",
-      "source": "Qwen",
-      "source_kind": "官方版本说明、资产与完整变更列表",
-      "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "task_id": "qwen-code-0-26-5",
-      "first_seen_at": "2026-11-02T19:28:23Z"
-    },
-    {
-      "id": "candidate-076e9e66b1996c32",
-      "category": "product",
-      "published": "2026-11-02",
-      "title": "ChatGPT 与 Codex 将改用共享 token allowance",
-      "summary": "Plus、Pro、Business 从 12 月起共享 ChatGPT 与 Codex 用量；Instant chat 不计入，Settings → Usage 将展示合并后的剩余量与 reset time。",
-      "why": "跨 ChatGPT 与 Codex 的容量规划将变成同一预算问题；真实验收应同时记录任务模型、复杂度、token 消耗、剩余量和 reset 周期。",
-      "boundary": "不能从“Starting in December”补造精确上线时刻、每档额度或统一换算；官方对重置频率的表述是预期，不是 SLA。共享 allowance 也不是一次自动或 banked reset。",
-      "source": "OpenAI",
-      "source_kind": "官方产品节点",
-      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 0.15
-      },
-      "priority_score": 0.526,
-      "action": "merge",
-      "reason": "已有同源热点，建议合并更新。",
-      "product_id": "openai-work-codex-allowance",
-      "first_seen_at": "2026-11-02T14:02:41Z"
     }
   ]
 }
