@@ -1,38 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-11-24T15:21:40Z",
+  "generated_at": "2026-11-25T01:08:09Z",
   "mode": "shadow",
   "automatic_publish": false,
   "note": "候选只来自站内已核验结构化数据；publish / merge / hold 为影子决策，不等于热点已发布。",
   "counts": {
     "publish": 0,
     "merge": 0,
-    "hold": 1
+    "hold": 0
   },
-  "candidates": [
-    {
-      "id": "candidate-7154b9a97c55740f",
-      "category": "product",
-      "published": "2026-11-10",
-      "title": "MinerU 4.2 增加原文与解析结果双向定位",
-      "summary": "官方 4.2.0 Release 增强复杂 PDF、跨页表格与公式解析，并可从输出块定位到原文区域、从原文跳回解析结果。",
-      "why": "文档抽取开始具有更明确的逐块复核入口；原文框选仍需按具体样本检查，不能证明工程图纸语义或自动建模准确。",
-      "boundary": "官方 Release 是功能证明，不是本站解析实测。公式、旋转/跨页表格、图片内文字、低清扫描仍可能误识别；Standard/Advanced 需要 VLM，Python 3.11–3.14；4.1+ HTTP API 与旧版不兼容。不能仅凭 Markdown 判断型号或图纸规则。",
-      "source": "OpenDataLab / MinerU",
-      "source_kind": "官方 GitHub Release · 双向原文定位、复杂 PDF/表格修复",
-      "url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released",
-      "publishable": true,
-      "features": {
-        "freshness": 0.0,
-        "authority": 1.0,
-        "impact": 0.86,
-        "novelty": 1.0
-      },
-      "priority_score": 0.662,
-      "action": "hold",
-      "reason": "保留候选，等待更强证据、影响或更新。",
-      "task_id": "mineru-4-2",
-      "first_seen_at": "2026-11-11T13:29:13Z"
-    }
-  ]
+  "candidates": []
 }
